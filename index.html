@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WellFit – Deine tägliche Balance</title>
+    <meta
+      name="description"
+      content="WellFit hilft dir mit personalisierten Functional-Drinks, mehr Energie und Fokus in deinen Alltag zu bringen."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="logo" href="#" aria-label="WellFit Startseite">WellFit</a>
+        <a class="button button--ghost" href="#preview">Produkt testen</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__content">
+          <p class="eyebrow">Neue öffentliche Website</p>
+          <h1>Functional Nutrition für deinen Alltag</h1>
+          <p class="lead">
+            Entdecke personalisierte WellFit-Mischungen mit klarem Fokus auf
+            Energie, Regeneration und Wohlbefinden.
+          </p>
+          <div class="hero__actions">
+            <a class="button" href="#preview">Interaktive Produktvorschau</a>
+            <a class="button button--ghost" href="#features">Mehr erfahren</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <h2>Warum WellFit?</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Personalisierbar</h3>
+              <p>Wähle Geschmack, Größe und Abo-Modell passend zu deinem Ziel.</p>
+            </article>
+            <article class="card">
+              <h3>Klarer Nutzen</h3>
+              <p>Rezepturen für Energie, Fokus und Regeneration.</p>
+            </article>
+            <article class="card">
+              <h3>Transparenz</h3>
+              <p>Nachvollziehbare Inhaltsstoffe ohne unnötige Zusätze.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="preview" class="section section--alt">
+        <div class="container preview">
+          <div class="preview__controls card">
+            <h2>Interaktive Produktvorschau</h2>
+            <form id="preview-form">
+              <label for="flavor">Geschmack</label>
+              <select id="flavor" name="flavor">
+                <option value="berry">Berry Boost</option>
+                <option value="citrus">Citrus Focus</option>
+                <option value="mint">Mint Recovery</option>
+              </select>
+
+              <fieldset>
+                <legend>Größe</legend>
+                <label><input type="radio" name="size" value="300g" checked /> 300 g</label>
+                <label><input type="radio" name="size" value="600g" /> 600 g</label>
+              </fieldset>
+
+              <label>
+                <input type="checkbox" id="subscription" />
+                Mit Abo (10% Rabatt)
+              </label>
+            </form>
+          </div>
+
+          <div class="preview__result card">
+            <div class="product-visual" id="product-visual" aria-hidden="true">
+              <span class="product-visual__label" id="visual-label">Berry Boost</span>
+            </div>
+            <div class="summary">
+              <p class="summary__name" id="summary-name">Berry Boost</p>
+              <p class="summary__meta">
+                <span id="summary-size">300g</span>
+                <span aria-hidden="true">·</span>
+                <span id="summary-plan">Einmalkauf</span>
+              </p>
+              <p class="summary__price" id="summary-price">29,90 €</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <small>© WellFit</small>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
