@@ -81,3 +81,41 @@ test("does not expose product APIs", async () => {
   const response = await worker.fetch(new Request("http://localhost/api/interest", { method: "POST" }), { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
   assert.equal(response.status, 404);
 });
+
+test("renders all visual account routes with private route metadata", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("auth-pages-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  const routes = [
+    ["/login", "Anmelden", "Zurück in eine Welt"],
+    ["/registrieren", "Registrieren", "Konto erstellen"],
+    ["/passwort-vergessen", "Passwort vergessen", "Link anfordern"],
+  ];
+
+  for (const [path, title, marker] of routes) {
+    const response = await worker.fetch(new Request(`http://localhost${path}`, { headers: { accept: "text/html" } }), env, context);
+    assert.equal(response.status, 200, path);
+    assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i, path);
+    const html = await response.text();
+    assert.match(html, new RegExp(`<title>${title} · WellFit<\\/title>`, "i"), path);
+    assert.match(html, new RegExp(`<link[^>]+rel="canonical"[^>]+href="https:\\/\\/wellfit-bewegt\\.master-bernd\\.chatgpt\\.site${path}"`, "i"), path);
+    assert.match(html, /<meta[^>]+name="robots"[^>]+content="noindex, nofollow"/i, path);
+    assert.match(html, new RegExp(marker, "i"), path);
+    assert.match(html, /Eingaben werden nicht gespeichert oder versendet/i, path);
+    assert.doesNotMatch(html, developmentPreviewMeta, path);
+  }
+});
+
+test("does not expose account APIs behind the visual preview", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("auth-api-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const context = { waitUntil() {}, passThroughOnException() {} };
+  for (const path of ["/api/auth/login", "/api/auth/register", "/api/auth/password-reset"]) {
+    const response = await worker.fetch(new Request(`http://localhost${path}`, { method: "POST" }), env, context);
+    assert.equal(response.status, 404, path);
+  }
+});

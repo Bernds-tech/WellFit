@@ -16,6 +16,9 @@ test("contains mobile reflow, visible focus and reduced-motion rules", () => {
   assert.match(css, /:focus-visible\{outline:2px solid/);
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)/);
   assert.match(css, /\.header nav a,.header-link\{position:relative;min-height:44px/);
+  assert.match(css, /\.header-login-button\{[^}]*min-height:44px/);
+  assert.match(css, /@media\(max-width:620px\)[^]*\.header-login-button\{[^}]*min-height:40px/);
+  assert.match(css, /\.auth-shell\{[^}]*min-height:100dvh[^}]*overflow-y:auto/);
   assert.match(page, /closest\("\[data-swipe-ignore\], input, textarea, select, button, a, \[contenteditable=true\]"\)/);
   assert.match(css, /\.venue-blueprints,.status-grid,.inventory-roadmap,.mayor-grid[^{]+\.checkpoint-method-grid\{grid-template-columns:1fr\}/);
 });

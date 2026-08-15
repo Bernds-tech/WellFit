@@ -204,6 +204,14 @@ function WorldLogo({ onHome }: { onHome: () => void }) {
   );
 }
 
+function HeaderLogin() {
+  return (
+    <Link className="header-login-button" href="/login" aria-label="Zum WellFit-Login">
+      Login <span aria-hidden="true">↗</span>
+    </Link>
+  );
+}
+
 function UniverseMap({ onNavigate }: { onNavigate: (world: World, section: string) => void }) {
   const center = universeWorlds.find((item) => item.world === "home")!;
   const satellites = universeWorlds.filter((item) => item.world !== "home");
@@ -341,7 +349,7 @@ function PartnerWorld({ onHome }: { onHome: () => void }) {
       <header className="side-world-header">
         <WorldLogo onHome={onHome} />
         <ChapterNav chapters={partnerChapters} />
-        <div className="side-world-title"><b>PARTNER & ORTE</b></div>
+        <HeaderLogin />
       </header>
 
       <section className="side-hero partner-hero">
@@ -457,7 +465,7 @@ function TokenWorld({ onHome }: { onHome: () => void }) {
       <header className="side-world-header">
         <WorldLogo onHome={onHome} />
         <ChapterNav chapters={wftChapters} />
-        <div className="side-world-title"><b>XP VS. TOKEN</b></div>
+        <HeaderLogin />
       </header>
 
       <section className="side-hero token-hero">
@@ -651,7 +659,7 @@ function TechWorld({ onHome }: { onHome: () => void }) {
       <header className="side-world-header">
         <WorldLogo onHome={onHome} />
         <ChapterNav chapters={techChapters} />
-        <div className="side-world-title"><b>TECHNOLOGIE</b></div>
+        <HeaderLogin />
       </header>
 
       <section className="side-hero tech-hero">
@@ -766,7 +774,7 @@ function ImpactWorld({ onHome }: { onHome: () => void }) {
       <header className="side-world-header">
         <WorldLogo onHome={onHome} />
         <ChapterNav chapters={impactChapters} />
-        <div className="side-world-title"><b>WIRKUNG & WISSENSCHAFT</b></div>
+        <HeaderLogin />
       </header>
 
       <section className="side-hero impact-hero">
@@ -1144,7 +1152,7 @@ export default function Home() {
         </a>
         <ChapterNav chapters={homeChapters} activeId={activeChapter} onChapter={setActiveChapter} />
         <span className="chapter-header-title">WELLFIT · 11 KAPITEL</span>
-        <a className="header-link" href="#vormerken">Kontakt</a>
+        <HeaderLogin />
       </header>
 
       <section className="hero">
