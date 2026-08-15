@@ -39,10 +39,11 @@ const formatPrice = (value) =>
 function updatePreview() {
   const flavor = flavorMap[form.flavor.value];
   const size = form.elements.size.value;
+  const factor = sizeFactor[size] ?? 1;
   const hasSubscription = subscriptionCheckbox.checked;
 
   const planLabel = hasSubscription ? "Abo (monatlich)" : "Einmalkauf";
-  let total = flavor.basePrice * sizeFactor[size];
+  let total = flavor.basePrice * factor;
 
   if (hasSubscription) {
     total *= 0.9;
