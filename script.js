@@ -41,6 +41,9 @@ const formatPrice = (value) =>
 function updatePreview() {
   const flavor = flavorMap[form.flavor.value] ?? flavorMap.berry;
   const selectedSize = form.elements.size.value;
+  if (!Object.prototype.hasOwnProperty.call(sizeFactor, selectedSize)) {
+    console.warn(`Unknown size "${selectedSize}", falling back to 300g.`);
+  }
   const size = Object.prototype.hasOwnProperty.call(sizeFactor, selectedSize)
     ? selectedSize
     : "300g";
