@@ -3,7 +3,7 @@
 Öffentliche Website für WellFit mit:
 
 - neuem Landing-Page-Layout
-- kleinem Designsystem über CSS-Variablen und wiederverwendbare Komponenten
+- kleinem Designsystem über CSS-Variablen und wiederverwendbaren Komponenten
 - interaktiver Produktvorschau (Geschmack, Größe, Abo) mit Live-Aktualisierung
 
 ## Nutzung

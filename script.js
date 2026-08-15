@@ -37,7 +37,7 @@ const formatPrice = (value) =>
   new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(value);
 
 function updatePreview() {
-  const flavor = flavorMap[form.flavor.value];
+  const flavor = flavorMap[form.flavor.value] ?? flavorMap.berry;
   const size = form.elements.size.value;
   const factor = sizeFactor[size] ?? 1;
   const hasSubscription = subscriptionCheckbox.checked;
