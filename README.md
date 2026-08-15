@@ -10,4 +10,4 @@
 
 Die Website ist als statische Seite umgesetzt.
 
-1. Datei `/home/runner/work/WellFit/WellFit/index.html` im Browser öffnen.
+1. Datei `index.html` im Browser öffnen.
