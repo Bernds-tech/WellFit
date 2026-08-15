@@ -60,7 +60,7 @@ export default function AuthExperience({ mode }: { mode: AuthMode }) {
   }
 
   return (
-    <main className={`auth-shell theme-${colorTheme}`}>
+    <main className={`auth-shell auth-mode-${mode} theme-${colorTheme}`}>
       <div className="auth-atmosphere" aria-hidden="true"><i /><i /><i /></div>
 
       <header className="auth-topbar">
@@ -92,7 +92,7 @@ export default function AuthExperience({ mode }: { mode: AuthMode }) {
 
         <section className="auth-access" aria-labelledby="auth-title">
           <div className="auth-card">
-            <div className="auth-preview-label"><span aria-hidden="true" /> DESIGNVORSCHAU · NOCH NICHT VERBUNDEN</div>
+            <div className="auth-preview-label"><span aria-hidden="true" /> DESIGNVORSCHAU · KEINE DATENÜBERTRAGUNG</div>
             <nav className="auth-mode-nav" aria-label="WellFit-Zugang">
               <Link className={mode === "login" ? "active" : ""} href="/login" aria-current={mode === "login" ? "page" : undefined}>Anmelden</Link>
               <Link className={mode === "register" ? "active" : ""} href="/registrieren" aria-current={mode === "register" ? "page" : undefined}>Registrieren</Link>
@@ -101,7 +101,7 @@ export default function AuthExperience({ mode }: { mode: AuthMode }) {
             <h2 id="auth-title">{copy.title}</h2>
             <p className="auth-intro">{copy.intro}</p>
 
-            <form className="auth-form" onSubmit={previewSubmit} onChange={() => setSubmitted(false)}>
+            <form className={`auth-form auth-form-${mode}`} onSubmit={previewSubmit} onChange={() => setSubmitted(false)}>
               {mode === "register" && (
                 <div className="auth-field">
                   <label htmlFor="register-name">Vor- und Nachname</label>
