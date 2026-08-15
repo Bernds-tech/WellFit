@@ -38,10 +38,21 @@ test("provides complete, accessible visual auth states", () => {
 test("keeps the account concept visual-only and privacy-consistent", () => {
   assert.match(auth, /event\.preventDefault\(\)/);
   assert.match(auth, /Eingaben werden nicht gespeichert oder versendet/);
-  assert.match(auth, /DESIGNVORSCHAU · NOCH NICHT VERBUNDEN/);
+  assert.match(auth, /DESIGNVORSCHAU · KEINE DATENÜBERTRAGUNG/);
   assert.doesNotMatch(auth, /\b(?:fetch|axios|signIn|createUser|setCookie|getCookie)\s*\(/);
   assert.doesNotMatch(auth, /(?:supabase|firebase|\/api\/auth|localStorage|sessionStorage)/i);
   assert.doesNotMatch(auth, /<form[^>]+(?:action|method)=/i);
   assert.match(privacy, /Login-, Registrierungs- und Passwortoberflächen sind interaktive Designvorschauen/);
   assert.match(privacy, /weder an WellFit übertragen noch dort gespeichert/);
+});
+
+test("keeps desktop auth on one screen and restores safe mobile scrolling", () => {
+  assert.match(auth, /auth-shell auth-mode-\$\{mode\}/);
+  assert.match(auth, /auth-form auth-form-\$\{mode\}/);
+  assert.match(css, /\.auth-shell\{[^}]*height:100dvh[^}]*overflow:hidden/);
+  assert.match(css, /\.auth-form-register\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.auth-form-register>\.auth-password-note,[^}]*\.auth-form-register>\.auth-submit[^}]*grid-column:1\/-1/);
+  assert.match(css, /\.auth-preview-message\{[^}]*position:fixed/);
+  assert.match(css, /@media\(max-width:900px\)[^]*\.auth-shell\{[^}]*overflow-x:hidden;overflow-y:auto/);
+  assert.match(css, /@media\(max-width:900px\)[^]*\.auth-form-register\{grid-template-columns:1fr\}/);
 });
