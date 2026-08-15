@@ -70,5 +70,7 @@ if (discountRate) {
   discountRate.textContent = `${Math.round(DISCOUNT_RATE * 100)}%`;
 }
 
-form.addEventListener("input", updatePreview);
-updatePreview();
+if (form) {
+  form.addEventListener("input", updatePreview);
+  updatePreview();
+}

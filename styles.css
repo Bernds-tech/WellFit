@@ -149,6 +149,8 @@ fieldset label {
 }
 
 .product-visual {
+  --flavor-start: #d64ca8;
+  --flavor-end: #7b57f1;
   height: 220px;
   border-radius: var(--radius);
   display: grid;
