@@ -3,9 +3,10 @@
 Update this at the end of substantial work or whenever pausing at a non-obvious state.
 
 ## Current handoff
-- Updated: 2026-08-19
+- Updated: 2026-08-19 11:47 Europe/Vienna
 - Active focus: continue visual/landing/UI work from the current repository state
-- Start here: `AGENTS.md`, `CURRENT_STATE.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md`, `DECISIONS.md`, `FAILED_ATTEMPTS.md`
+- Start here: `AGENTS.md`, `project-memory/CHAT_RECONCILIATION_2026-08-19.md`, `CURRENT_STATE.md`, `STARTED_WORK.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md`, `ASSUMPTIONS.md`, `CONTRADICTIONS.md`, `DECISIONS.md`, `FAILED_ATTEMPTS.md`
+- Durable governance state: Project Memory V5 is merged to main; future substantive work must use automatic preflight, risk classification, started-work tracking and independent countercheck.
 - Repository boundary: WellFit = visual/landing/UI; WellFit-now = web/backend; WellFit-Buddy = native AR/mobile/buddy
 - Next safe action: inspect current Git/PR state and continue the first unproven visual task rather than recreating previous work
 
