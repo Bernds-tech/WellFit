@@ -1,0 +1,12 @@
+# WellFit Session Handoff
+
+Update this at the end of substantial work or whenever pausing at a non-obvious state.
+
+## Current handoff
+- Updated: 2026-08-19
+- Active focus: continue visual/landing/UI work from the current repository state
+- Start here: `AGENTS.md`, `CURRENT_STATE.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md`, `DECISIONS.md`, `FAILED_ATTEMPTS.md`
+- Repository boundary: WellFit = visual/landing/UI; WellFit-now = web/backend; WellFit-Buddy = native AR/mobile/buddy
+- Next safe action: inspect current Git/PR state and continue the first unproven visual task rather than recreating previous work
+
+Future handoffs must record updated time, active IDs, exact last verified result, first unproven step, blockers/open loops, failed-attempt references, evidence/PR/commit references and any user input still required.
