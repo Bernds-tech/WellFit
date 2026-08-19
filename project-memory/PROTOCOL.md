@@ -1,14 +1,18 @@
-# Project Memory Protocol v2
+# Project Memory Protocol v3
 
 Operational memory for the WellFit visual/landing/UI repository.
 
+## Mandatory execution policy
+`EXECUTION_POLICY.md` is mandatory. Its first-pass preflight, duplicate/regression check and independent second-pass countercheck apply automatically. The owner does not need to ask an agent to "check first".
+
 ## Mandatory preflight
-1. Read `AGENTS.md`, `CURRENT_STATE.md`, `SESSION_HANDOFF.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md` and `DECISIONS.md`.
+1. Read `AGENTS.md`, `EXECUTION_POLICY.md`, `CURRENT_STATE.md`, `SESSION_HANDOFF.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md` and `DECISIONS.md`.
 2. Search `FAILED_ATTEMPTS.md`, `DO_NOT_ASSUME.md` and `CHANGE_REQUESTS.md` for the intended area and prior attempts.
-3. Read `PROJECT_REGISTRY.md` before work that may belong to WellFit-now or WellFit-Buddy.
-4. Check current branch, git status, recent commits/PRs and any drift-prone preview/deploy/design state.
+3. Read `PROJECT_REGISTRY.md`, `PROJECT_STATUS.md`, `CROSS_PROJECT_MASTER_STATUS.md` and `AUTHORIZATIONS.md` before work that may belong to WellFit-now or WellFit-Buddy.
+4. Check current branch, git status, recent commits/PRs, current CI/check state and any drift-prone preview/deploy/design state.
 5. Search existing task/change/cross-project IDs before creating new work.
 6. Do not repeat completed, rejected, superseded or failed approaches without new recorded evidence.
+7. Define the evidence that will prove success before implementation.
 
 ## New ideas
 Every new owner idea first enters `CHANGE_REQUESTS.md` and is classified as `NEW`, `EXISTS_PARTIALLY`, `DUPLICATE`, `DEFERRED` or `REJECTED`. Cross-repository work uses `XPROJ-YYYY-NNN` plus local subtasks/dependencies.
@@ -24,8 +28,8 @@ Every meaningful unfinished follow-up belongs in `OPEN_LOOPS.md`. `PARTIAL`, `BL
 ## Decision revalidation
 New decisions should include `Class: PERMANENT|REVIEWABLE`; reviewable decisions require a `Review trigger:`. Triggered reviews become open loops until resolved.
 
-## Mandatory postflight
-Update task/current state, open loops, dependencies, evidence, decisions, failed attempts and change requests as applicable. Update `SESSION_HANDOFF.md` at substantial pauses. Revalidate facts from `DO_NOT_ASSUME.md` whenever relied upon.
+## Mandatory countercheck and postflight
+Before completion, merge or a success report, independently re-read the goal, inspect the final diff, verify tests/evidence, check regressions/unrelated scope, re-check dependencies/open loops, then update project memory. Update task/current state, open loops, dependencies, evidence, decisions, failed attempts and change requests as applicable. Update `SESSION_HANDOFF.md` at substantial pauses. Revalidate facts from `DO_NOT_ASSUME.md` whenever relied upon.
 
 ## Stale control
 Active `IN_PROGRESS`, `BLOCKED`, `PARTIAL`, `IMPLEMENTED_NOT_VERIFIED`, `OPEN` and `BLOCKED` loop records must carry `Updated: YYYY-MM-DD`. Items older than 14 days are stale and an automated workflow surfaces them.
