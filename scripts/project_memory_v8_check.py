@@ -3,7 +3,7 @@ from pathlib import Path
 import json, sys
 ROOT=Path(__file__).resolve().parents[1]
 PM=ROOT/'project-memory'
-required=['FINISHLINE_STATE.json','MEMORY_V8_CONTROLS.json','OWNER_ACTION_INBOX.md','NEXT_BEST_ACTION.md','AUTO_HANDOFF.md','CURRENT_STATE.md','PROTOCOL.md']
+required=['FINISHLINE_STATE.json','MEMORY_V8_CONTROLS.json','OWNER_ACTION_INBOX.md','NEXT_BEST_ACTION.md','AUTO_HANDOFF.md','CONVERGENCE_PLAN.json','CURRENT_STATE.md','PROTOCOL.md']
 errors=[]
 for name in required:
     p=PM/name
@@ -18,6 +18,10 @@ try:
     if not controls.get('cross_chat',{}).get('require_github_memory_reconciliation'): errors.append('cross-chat-contract-invalid')
     if not controls.get('milestones',{}).get('append_only'): errors.append('milestone-contract-invalid')
 except Exception as e: errors.append(f'controls-invalid:{e}')
+try:
+    convergence=json.loads((PM/'CONVERGENCE_PLAN.json').read_text())
+    if convergence.get('status')!='PLANNED_NOT_SCHEDULED' or convergence.get('target_repository') is not None: errors.append('convergence-contract-invalid')
+except Exception as e: errors.append(f'convergence-invalid:{e}')
 if 'DEFERRED_BY_OWNER' not in (PM/'OWNER_ACTION_INBOX.md').read_text(encoding='utf-8'): errors.append('owner-inbox-invalid')
 if 'WF-VISUAL-RECONCILE' not in (PM/'NEXT_BEST_ACTION.md').read_text(encoding='utf-8'): errors.append('next-best-action-invalid')
 if errors:
