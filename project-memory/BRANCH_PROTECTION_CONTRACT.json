@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "repository": "Bernds-tech/WellFit",
+  "branch": "main",
+  "require_pull_request": true,
+  "require_status_checks": true,
+  "require_conversation_resolution": true,
+  "block_force_push": true,
+  "block_delete": true,
+  "routine_direct_push_allowed": false,
+  "remote_activation": "OWNER_UI_REQUIRED"
+}
