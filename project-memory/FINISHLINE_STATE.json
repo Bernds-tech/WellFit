@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "repository": "Bernds-tech/WellFit",
+  "project_role": "visual_landing_ui",
+  "gates": {
+    "visual_system": {"state": "UNASSESSED", "risk": "R2"},
+    "landing_ui": {"state": "UNASSESSED", "risk": "R2"},
+    "technical_alignment": {"state": "UNASSESSED", "risk": "R3"},
+    "cross_repo_handoff": {"state": "UNASSESSED", "risk": "R3"}
+  },
+  "accepted_states": ["ACCEPTED", "PRODUCTION_CONFIRMED"],
+  "rule": "Do not infer visual acceptance or technical capability alignment from implementation alone."
+}

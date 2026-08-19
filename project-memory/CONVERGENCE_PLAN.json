@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "current_repositories": ["Bernds-tech/WellFit", "Bernds-tech/WellFit-now", "Bernds-tech/WellFit-Buddy"],
+  "status": "PLANNED_NOT_SCHEDULED",
+  "target_repository": null,
+  "target_date": null,
+  "strategy": "UNDECIDED",
+  "allowed_strategies": ["BIG_BANG", "PHASED_BY_DOMAIN", "PHASED_BY_FEATURE", "SHARED_MONOREPO_WITH_APPS", "OTHER_REVIEWED"],
+  "rules": [
+    "Do not force a repository merge before architecture/evidence supports it.",
+    "Incremental convergence is allowed and may happen feature by feature or domain by domain.",
+    "Preserve repository ownership boundaries until a specific responsibility is explicitly migrated.",
+    "Every migration step needs source repo, destination repo, scope, dependencies, evidence, rollback and owner decision where required.",
+    "Do not duplicate an implementation in the destination before the source responsibility is reconciled.",
+    "Cross-repo contracts may be centralized before source code is physically moved."
+  ],
+  "current_roles": {
+    "Bernds-tech/WellFit": "visual_landing_ui",
+    "Bernds-tech/WellFit-now": "technical_web_backend",
+    "Bernds-tech/WellFit-Buddy": "native_mobile_ar_buddy"
+  }
+}

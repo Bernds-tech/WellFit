@@ -3,6 +3,8 @@ name: Project Memory Quality
 on:
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * *'
 
 permissions:
   contents: read
@@ -13,5 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - name: Validate V5 controls
+      - name: Validate existing memory controls
         run: python3 scripts/project_memory_quality_check.py
+      - name: Validate WellFit visual V8 controls
+        run: python3 scripts/project_memory_v8_check.py
