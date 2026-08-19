@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "dependencies": [
+    {
+      "id": "WF-XDEP-001",
+      "feature": "Outdoor missions",
+      "producer": "Bernds-tech/WellFit-now",
+      "consumer": "Bernds-tech/WellFit-Buddy",
+      "contract": "mission/runtime API and server-authoritative completion",
+      "state": "NEEDS_BASELINE",
+      "blocks_acceptance": true
+    },
+    {
+      "id": "WF-XDEP-002",
+      "feature": "Outdoor missions UI",
+      "producer": "Bernds-tech/WellFit-now",
+      "consumer": "Bernds-tech/WellFit",
+      "contract": "capability/status contract for visual presentation",
+      "state": "NEEDS_BASELINE",
+      "blocks_acceptance": true
+    },
+    {
+      "id": "WF-XDEP-003",
+      "feature": "AR Buddy companion",
+      "producer": "Bernds-tech/WellFit-now",
+      "consumer": "Bernds-tech/WellFit-Buddy",
+      "contract": "buddy state and server-authoritative reward boundaries",
+      "state": "NEEDS_BASELINE",
+      "blocks_acceptance": true
+    },
+    {
+      "id": "WF-XDEP-004",
+      "feature": "AR Buddy presentation",
+      "producer": "Bernds-tech/WellFit-Buddy",
+      "consumer": "Bernds-tech/WellFit",
+      "contract": "real implemented native capability reflected by product UI/landing",
+      "state": "NEEDS_BASELINE",
+      "blocks_acceptance": false
+    }
+  ],
+  "rules": [
+    "A dependent feature cannot be ACCEPTED while a blocking dependency is unresolved.",
+    "Dependency state is evidence-based and never inferred from chat claims.",
+    "Add a stable WF-XDEP ID before introducing a new cross-repository dependency."
+  ]
+}

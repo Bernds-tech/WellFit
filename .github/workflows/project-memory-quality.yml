@@ -17,5 +17,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
       - name: Validate existing memory controls
         run: python3 scripts/project_memory_quality_check.py
-      - name: Validate WellFit visual V8 controls
+      - name: Validate WellFit V8 controls
         run: python3 scripts/project_memory_v8_check.py
+      - name: Validate WellFit V9 orchestration
+        run: python3 scripts/project_memory_v9_check.py

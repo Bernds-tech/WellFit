@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "gates": [
+    {"id":"WF-INT-001","flow":"UI -> backend capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now"],"state":"TODO","acceptance":"current implemented backend capability is represented accurately in UI/landing"},
+    {"id":"WF-INT-002","flow":"Buddy -> backend state/event contract","repos":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit-now"],"state":"TODO","acceptance":"native events and backend validation agree; server authority boundaries hold"},
+    {"id":"WF-INT-003","flow":"UI -> Buddy capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-Buddy"],"state":"TODO","acceptance":"visual/product claims match real native/AR/device evidence"},
+    {"id":"WF-INT-004","flow":"end-to-end mission/buddy journey","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy"],"state":"TODO","acceptance":"one exact-version cross-repo journey passes with current contracts and evidence"}
+  ],
+  "rules": [
+    "Green local repositories do not make an integration gate green.",
+    "Integration evidence must bind exact relevant revisions/builds/contracts.",
+    "Material contract drift returns affected integration gates to NEEDS_REVALIDATION."
+  ]
+}

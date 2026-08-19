@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "authority_repository": "Bernds-tech/WellFit",
+  "repositories": {
+    "Bernds-tech/WellFit": {"role": "visual_landing_ui", "memory_version": 9, "state": "ACTIVE"},
+    "Bernds-tech/WellFit-now": {"role": "technical_web_backend", "memory_version": 9, "state": "ACTIVE"},
+    "Bernds-tech/WellFit-Buddy": {"role": "native_mobile_ar_buddy", "memory_version": 9, "state": "ACTIVE"}
+  },
+  "convergence": {
+    "status": "PLANNED_NOT_SCHEDULED",
+    "target_repository": null,
+    "target_date": null,
+    "strategy": "UNDECIDED"
+  },
+  "master_gates": {
+    "repo_memory_alignment": {"state": "IMPLEMENTED_NOT_VERIFIED", "risk": "R3"},
+    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3"},
+    "integration_e2e": {"state": "TODO", "risk": "R3"},
+    "convergence_readiness": {"state": "PARTIAL", "risk": "R3"}
+  },
+  "rules": [
+    "This file is the only WellFit program-level memory authority while the three repositories remain separate.",
+    "Local repositories own their domain truth; this master owns only cross-repository coordination truth.",
+    "A local accepted state does not imply cross-repository integration acceptance.",
+    "No convergence target, date or strategy may be inferred before an explicit reviewed decision."
+  ]
+}
