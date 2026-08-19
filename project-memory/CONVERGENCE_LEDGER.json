@@ -3,7 +3,34 @@
   "updated": "2026-08-19",
   "program": "WellFit",
   "status": "PLANNED_NOT_SCHEDULED",
-  "entries": [],
+  "entries": [
+    {
+      "id": "WF-MIG-001",
+      "source_repository": "Bernds-tech/WellFit-now",
+      "destination_repository": "Bernds-tech/WellFit",
+      "scope": "Current landing/visual/UI ownership; exact file set not yet selected",
+      "state": "PLANNED",
+      "contracts": ["WF-CONTRACT-MISSION-001", "WF-CONTRACT-BUDDY-001", "WF-CONTRACT-AUTH-001"],
+      "dependencies": ["WF-XDEP-002"],
+      "evidence": ["WellFit main currently contains governance/memory only", "Current landing/UI product code and recent landing PR history remain in WellFit-now"],
+      "rollback": "No code move is authorized yet. First produce a canonical UI inventory; any future move must preserve source until destination build/visual acceptance passes.",
+      "old_authority_removed": false,
+      "decision": "UNSCHEDULED_CANDIDATE"
+    },
+    {
+      "id": "WF-MIG-002",
+      "source_repository": "Bernds-tech/WellFit-now",
+      "destination_repository": "Bernds-tech/WellFit-Buddy",
+      "scope": "Unity project native/unity/WellFitBuddyAR; exact history/assets migration method not yet selected",
+      "state": "PLANNED",
+      "contracts": ["WF-CONTRACT-BUDDY-001", "WF-CONTRACT-MISSION-001", "WF-CONTRACT-REWARD-001", "WF-CONTRACT-LOCATION-001", "WF-CONTRACT-AUTH-001"],
+      "dependencies": ["WF-XDEP-001", "WF-XDEP-003", "WF-XDEP-005"],
+      "evidence": ["WellFit-Buddy main currently contains governance/memory only", "A real Unity project with Assets/Packages/ProjectSettings/Scripts/docs/tools exists in WellFit-now/native/unity/WellFitBuddyAR"],
+      "rollback": "No code move is authorized yet. Preserve WellFit-now source until destination Unity project integrity and device build path are independently verified.",
+      "old_authority_removed": false,
+      "decision": "UNSCHEDULED_CANDIDATE"
+    }
+  ],
   "entry_schema": {
     "id": "WF-MIG-###",
     "source_repository": "owner/repo",
@@ -20,6 +47,7 @@
     "No migration is assumed from shared contracts alone.",
     "During phased convergence the ledger is the authority for which repository currently owns a migrated responsibility.",
     "A migration is not complete until destination evidence passes and the old authority is reconciled or intentionally retained with a documented compatibility bridge.",
-    "Rollback must be defined before moving a stateful or production responsibility."
+    "Rollback must be defined before moving a stateful or production responsibility.",
+    "A PLANNED entry is a documented candidate, not permission to copy/move code."
   ]
 }
