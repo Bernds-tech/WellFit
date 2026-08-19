@@ -3,16 +3,17 @@
   "updated": "2026-08-19",
   "program": "WellFit",
   "contracts": [
-    {"id":"WF-CONTRACT-AUTH-001","domain":"auth_identity","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
-    {"id":"WF-CONTRACT-MISSION-001","domain":"missions_completion","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
-    {"id":"WF-CONTRACT-REWARD-001","domain":"rewards_economy_authority","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
-    {"id":"WF-CONTRACT-BUDDY-001","domain":"buddy_state_and_events","authority":"SHARED_REVIEW_REQUIRED","consumers":["Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
-    {"id":"WF-CONTRACT-LOCATION-001","domain":"location_sensor_event_boundary","authority":"Bernds-tech/WellFit-Buddy","consumers":["Bernds-tech/WellFit-now"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"}
+    {"id":"WF-CONTRACT-AUTH-001","domain":"auth_identity","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"BACKEND_VERIFIED_CONSUMERS_UNMIGRATED","evidence":"Closed-Beta age>=16, email verification, onboarding/account gating, HttpOnly sessions, revocation and device-session management are merged in WellFit-now. Native and visual repos do not yet consume a migrated shared auth contract."},
+    {"id":"WF-CONTRACT-MISSION-001","domain":"missions_completion","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"SERVER_AUTHORITY_VERIFIED_NATIVE_E2E_OPEN","evidence":"Server flow attempt->evidence->admin review->completion->ledger->wallet exists. Native mission/evidence event integration is not accepted end-to-end."},
+    {"id":"WF-CONTRACT-REWARD-001","domain":"rewards_economy_authority","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"SERVER_AUTHORITY_VERIFIED_TERMINOLOGY_OPEN","evidence":"Server-authoritative internal ledger/wallet and Buddy spend exist with replay/idempotency/audit protections. WFXP versus WFP/XP semantics require explicit owner-reviewed migration; no token/real-money authority is active."},
+    {"id":"WF-CONTRACT-BUDDY-001","domain":"buddy_state_and_events","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"BACKEND_STATE_EXISTS_NATIVE_BRIDGE_UNBASELINED","evidence":"Server Buddy projections/actions for feed/care/play/clean/call/recovery exist. Unity project and bridge concepts exist physically in WellFit-now; migration to WellFit-Buddy and exact event schema acceptance remain open."},
+    {"id":"WF-CONTRACT-LOCATION-001","domain":"location_sensor_event_boundary","authority":"SHARED_WELLFIT_NOW_AND_BUDDY","consumers":["Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy"],"state":"PARTIAL","compatibility":"SERVER_LOCATION_AUTHORITY_VERIFIED_NATIVE_EVENT_BOUNDARY_OPEN","evidence":"Worldwide published mission locations, geo-cell search, Haversine checks and safety-review fingerprints exist in WellFit-now. Native location/sensor evidence contract and real-device privacy validation are not accepted."}
   ],
   "rules": [
     "Every cross-repository API, event, identifier or shared state must have a stable contract ID before acceptance.",
     "Changing a contract requires impact review of all consumers.",
     "Server-authoritative reward, mission and anti-cheat decisions remain outside the native client.",
-    "A contract may be centralized before source code is physically migrated during convergence."
+    "A contract may be centralized before source code is physically migrated during convergence.",
+    "PARTIAL means a real implementation exists but at least one consumer, migration, semantic decision or integration acceptance remains open."
   ]
 }
