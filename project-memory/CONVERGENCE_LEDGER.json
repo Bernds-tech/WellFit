@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "status": "PLANNED_NOT_SCHEDULED",
+  "entries": [],
+  "entry_schema": {
+    "id": "WF-MIG-###",
+    "source_repository": "owner/repo",
+    "destination_repository": "owner/repo",
+    "scope": "responsibility or code domain",
+    "state": "PLANNED|IN_PROGRESS|VERIFIED|ACCEPTED|ROLLED_BACK",
+    "contracts": [],
+    "dependencies": [],
+    "evidence": [],
+    "rollback": "required before state-changing migration",
+    "old_authority_removed": false
+  },
+  "rules": [
+    "No migration is assumed from shared contracts alone.",
+    "During phased convergence the ledger is the authority for which repository currently owns a migrated responsibility.",
+    "A migration is not complete until destination evidence passes and the old authority is reconciled or intentionally retained with a documented compatibility bridge.",
+    "Rollback must be defined before moving a stateful or production responsibility."
+  ]
+}
