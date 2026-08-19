@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "program": "WellFit",
+  "contracts": [
+    {"id":"WF-CONTRACT-AUTH-001","domain":"auth_identity","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
+    {"id":"WF-CONTRACT-MISSION-001","domain":"missions_completion","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
+    {"id":"WF-CONTRACT-REWARD-001","domain":"rewards_economy_authority","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
+    {"id":"WF-CONTRACT-BUDDY-001","domain":"buddy_state_and_events","authority":"SHARED_REVIEW_REQUIRED","consumers":["Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"},
+    {"id":"WF-CONTRACT-LOCATION-001","domain":"location_sensor_event_boundary","authority":"Bernds-tech/WellFit-Buddy","consumers":["Bernds-tech/WellFit-now"],"state":"NEEDS_BASELINE","compatibility":"UNKNOWN"}
+  ],
+  "rules": [
+    "Every cross-repository API, event, identifier or shared state must have a stable contract ID before acceptance.",
+    "Changing a contract requires impact review of all consumers.",
+    "Server-authoritative reward, mission and anti-cheat decisions remain outside the native client.",
+    "A contract may be centralized before source code is physically migrated during convergence."
+  ]
+}
