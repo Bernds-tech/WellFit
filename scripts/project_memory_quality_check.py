@@ -2,9 +2,9 @@
 from pathlib import Path
 import re
 import sys
-ROOT = Path(__file__).resolve().parents[1]
-PM = ROOT / "project-memory"
-required = ["EXECUTION_POLICY.md","QUALITY_CONTROL.md","STARTED_WORK.md","WORK_LOCKS.md","EXECUTION_RECEIPTS.md","RECONCILIATION.md","ASSUMPTIONS.md","CONTRADICTIONS.md","TASK_LEDGER.md","OPEN_LOOPS.md","DEPENDENCIES.md","EVIDENCE.md"]
+ROOT=Path(__file__).resolve().parents[1]
+PM=ROOT/"project-memory"
+required=["EXECUTION_POLICY.md","QUALITY_CONTROL.md","STARTED_WORK.md","WORK_LOCKS.md","EXECUTION_RECEIPTS.md","RECONCILIATION.md","ASSUMPTIONS.md","CONTRADICTIONS.md","TASK_LEDGER.md","OPEN_LOOPS.md","DEPENDENCIES.md","EVIDENCE.md"]
 errors=[]
 for name in required:
     p=PM/name
@@ -13,6 +13,7 @@ started=(PM/"STARTED_WORK.md").read_text(encoding="utf-8") if (PM/"STARTED_WORK.
 active={"IN_PROGRESS","PARTIAL","BLOCKED","IMPLEMENTED_NOT_VERIFIED","RECONCILIATION_REQUIRED"}
 for block in re.split(r"(?m)^## ",started)[1:]:
     title=block.splitlines()[0].strip()
+    if title.startswith("<") or title in {"Rules","Entry template","Active work"}: continue
     m=re.search(r"(?m)^- Status:\s*([A-Z_]+)",block)
     if m and m.group(1) in active:
         if not re.search(r"(?m)^- Risk:\s*(R[1-4])\s*$",block): errors.append(f"active-started-work-missing-risk:{title}")
