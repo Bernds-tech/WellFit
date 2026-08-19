@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "repository": "Bernds-tech/WellFit",
+  "updated": "2026-08-19",
+  "classes": {
+    "immutable_commit": {"expires": false},
+    "visual_preview": {"ttl_hours": 24},
+    "owner_visual_acceptance": {"ttl_hours": 168},
+    "cross_repo_capability_check": {"ttl_hours": 24}
+  },
+  "stale_state": "NEEDS_REVALIDATION",
+  "rule": "Mutable preview/owner/cross-repo evidence must be current for new acceptance claims; immutable commit evidence does not expire merely with time."
+}
