@@ -40,7 +40,7 @@ quality=(PM/'QUALITY_CONTROL.md').read_text(encoding='utf-8') if (PM/'QUALITY_CO
 for token in ['R1','R2','R3','R4','COUNTERCHECKED','What observation would prove our conclusion wrong?']:
     if token not in quality: errors.append(f'v5-quality-token-missing:{token}')
 protocol=(PM/'PROTOCOL.md').read_text(encoding='utf-8') if (PM/'PROTOCOL.md').exists() else ''
-if 'Protocol v8' not in protocol: errors.append('protocol-version-not-v8')
+if not any(f'Protocol v{n}' in protocol for n in range(8,100)): errors.append('protocol-version-below-v8')
 if 'DEFERRED_BY_OWNER' not in (PM/'OWNER_ACTION_INBOX.md').read_text(encoding='utf-8'): errors.append('owner-inbox-invalid')
 if 'WF-VISUAL-RECONCILE' not in (PM/'NEXT_BEST_ACTION.md').read_text(encoding='utf-8'): errors.append('next-best-action-invalid')
 if errors:
