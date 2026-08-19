@@ -1,28 +1,30 @@
-# Execution Policy
+# Execution Policy v5
 
-Mandatory default for all substantive agent/Codex/automation work.
+Mandatory default for substantive agent/Codex/automation work.
 
-## First-pass preflight
-Before acting, read `AGENTS.md` and the relevant `project-memory/` files: current state, task ledger, change requests, decisions, failed attempts, open loops, dependencies, evidence, do-not-assume, session handoff, project/cross-project status, authorizations, `STARTED_WORK.md`, `WORK_LOCKS.md`, `EXECUTION_RECEIPTS.md` and `RECONCILIATION.md`. Then verify the actual Git branch/head, relevant open PRs/checks and implementation/runtime state.
+## Automatic preflight
+Before acting, read `AGENTS.md` plus relevant project-memory sources including CURRENT_STATE, TASK_LEDGER, CHANGE_REQUESTS, DECISIONS, FAILED_ATTEMPTS, OPEN_LOOPS, DEPENDENCIES, EVIDENCE, DO_NOT_ASSUME, SESSION_HANDOFF, project/cross-project status, AUTHORIZATIONS, STARTED_WORK, WORK_LOCKS, EXECUTION_RECEIPTS, RECONCILIATION, QUALITY_CONTROL, ASSUMPTIONS and CONTRADICTIONS. Verify actual Git/PR/check/preview/runtime state and existing task IDs/attempts.
 
-Do not wait for the owner to say "check first". This preflight is automatic.
+Assign `Risk: R1|R2|R3|R4`; uncertainty defaults upward. Record/verify critical assumptions. Define success evidence, negative/regression evidence where relevant and recovery expectations for R3/R4 state-changing work.
 
 ## Started-work rule
-As soon as substantive work starts, record it in `STARTED_WORK.md` and acquire/update the Task-ID lock in `WORK_LOCKS.md`. Unfinished work remains there with completed-so-far, still-open and exact-next-step fields until explicitly closed or superseded.
+As soon as substantive work starts, record it in STARTED_WORK with Risk, acquire/update the Task-ID lock and open an execution receipt. Unfinished work remains visible until explicitly closed, superseded or transferred with exact next step.
 
-## Duplicate/regression check
-Confirm the work is not already implemented, the same approach was not previously rejected/failed without new evidence, the scope belongs in this repository, dependencies are satisfied, and the evidence required for success is known before editing.
+## Duplicate/regression and scope guard
+Confirm the work is not already implemented, failed/rejected without new evidence, in the wrong repo or blocked by an unresolved dependency. Before completion compare intended scope with final diff; unexplained extra files/assets/dependencies/configuration force `RECONCILIATION_REQUIRED`.
 
-## Independent second-pass countercheck
-Before completion/merge/reporting success: re-read the goal, inspect the final diff, verify tests/evidence, check unrelated changes/regressions, re-check dependencies/open loops, reconcile Task Ledger/Started Work/Work Locks/PR/CI/Evidence, write an execution receipt, release or refresh the lock, and update project memory. Never equate implemented with accepted without evidence.
+## Independent countercheck
+Before merge/completion/success reporting: re-read the goal, inspect final diff, verify fresh commit/PR/preview evidence, test a meaningful negative/regression path where applicable, answer `What observation would prove our conclusion wrong?`, re-check assumptions/dependencies/open loops/contradictions, reconcile memory with PR/check/runtime state, and apply the Risk-level completion quorum from QUALITY_CONTROL. R3/R4 require at least two independent evidence classes. Record rollback/recovery proof where applicable, finish the receipt and release/update the lock.
 
-Any mismatch creates a reconciliation finding and prevents a clean completion claim.
+## Completion state machine
+`TODO -> IN_PROGRESS -> IMPLEMENTED -> VERIFIED -> COUNTERCHECKED -> ACCEPTED -> PRODUCTION_CONFIRMED` as applicable. Side states include `BLOCKED`, `PARTIAL`, `IMPLEMENTED_NOT_VERIFIED`, `RECONCILIATION_REQUIRED`, `REJECTED`, `SUPERSEDED`, `DEFERRED`, `DUPLICATE`. Never jump from implementation to acceptance without quorum.
 
 ## Stop conditions
-Do not bypass red governance/security checks, missing dependencies/secrets, contradictory verified evidence, destructive/production/billing/compliance boundaries, or previously failed approaches without new justification.
+Do not bypass red governance/security checks, invalid assumptions, contradictory verified evidence, missing prerequisites/secrets, protected production/billing/destructive/compliance/publishing boundaries or previous failed approaches without new evidence.
 
-## Standing permissions
-Reuse permissions documented in `AUTHORIZATIONS.md` without asking again where technically and safely allowed. Platform confirmations and protected/destructive boundaries still apply.
+## Milestone closeout
+Before a phase/milestone is complete, reconcile all related tasks, started work, locks, loops, dependencies, failed attempts, change requests, PR/checks, assumptions, contradictions and evidence. Unresolved work is explicitly carried forward.
 
-## Invariant
-**Project memory -> actual Git/runtime state -> previous attempts -> started-work/lock -> dependency/evidence check -> action -> independent countercheck -> reconciliation -> execution receipt -> memory update.**
+Standing permissions in AUTHORIZATIONS are reused where technically/safely allowed; platform/protected-boundary confirmations still apply.
+
+**Invariant: Project memory -> actual state -> prior attempts -> Risk/assumptions -> started-work/lock -> dependencies/evidence plan -> action -> falsification/negative check -> independent countercheck -> quorum/reconciliation -> receipt -> memory update.**
