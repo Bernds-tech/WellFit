@@ -3,14 +3,16 @@
   "updated": "2026-08-19",
   "program": "WellFit",
   "gates": [
-    {"id":"WF-INT-001","flow":"UI -> backend capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now"],"state":"TODO","acceptance":"current implemented backend capability is represented accurately in UI/landing"},
-    {"id":"WF-INT-002","flow":"Buddy -> backend state/event contract","repos":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit-now"],"state":"TODO","acceptance":"native events and backend validation agree; server authority boundaries hold"},
-    {"id":"WF-INT-003","flow":"UI -> Buddy capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-Buddy"],"state":"TODO","acceptance":"visual/product claims match real native/AR/device evidence"},
-    {"id":"WF-INT-004","flow":"end-to-end mission/buddy journey","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy"],"state":"TODO","acceptance":"one exact-version cross-repo journey passes with current contracts and evidence"}
+    {"id":"WF-INT-001","flow":"UI -> backend capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now"],"state":"PARTIAL","acceptance":"current implemented backend capability is represented accurately in UI/landing","evidence":"UI and backend currently co-reside largely in WellFit-now, so some alignment exists by construction; the intended WellFit visual repo has not yet received/accepted the canonical UI implementation."},
+    {"id":"WF-INT-002","flow":"Buddy -> backend state/event contract","repos":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit-now"],"state":"TODO","acceptance":"native events and backend validation agree; server authority boundaries hold","evidence":"Backend Buddy/mission/reward authority exists and Unity project exists, but no migrated native repo contract plus real-device end-to-end proof is accepted."},
+    {"id":"WF-INT-003","flow":"UI -> Buddy capability alignment","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-Buddy"],"state":"BLOCKED","acceptance":"visual/product claims match real native/AR/device evidence","evidence":"WellFit-Buddy has no accepted real-device AR evidence yet and visual code remains physically in WellFit-now."},
+    {"id":"WF-INT-004","flow":"end-to-end mission/buddy journey","repos":["Bernds-tech/WellFit","Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy"],"state":"TODO","acceptance":"one exact-version cross-repo journey passes with current contracts and evidence","evidence":"No exact-version three-repository journey has been executed; code ownership is still transitional."},
+    {"id":"WF-INT-005","flow":"Closed-Beta account -> mission -> ledger journey","repos":["Bernds-tech/WellFit-now"],"state":"VERIFIED","acceptance":"verified user session can access protected app flow and server-authoritative mission/economy boundaries remain enforced","evidence":"Closed-Beta session hardening PRs #369-#371 plus repository build/database/container gates; this is technical verification, not real-user Production acceptance."}
   ],
   "rules": [
     "Green local repositories do not make an integration gate green.",
     "Integration evidence must bind exact relevant revisions/builds/contracts.",
-    "Material contract drift returns affected integration gates to NEEDS_REVALIDATION."
+    "Material contract drift returns affected integration gates to NEEDS_REVALIDATION.",
+    "A single-repository gate may record a real technical journey needed by the cross-repo program, but it does not substitute for multi-repository acceptance."
   ]
 }
