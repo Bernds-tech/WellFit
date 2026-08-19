@@ -4,26 +4,35 @@
   "program": "WellFit",
   "authority_repository": "Bernds-tech/WellFit",
   "repositories": {
-    "Bernds-tech/WellFit": {"role": "visual_landing_ui", "memory_version": 9, "state": "ACTIVE"},
-    "Bernds-tech/WellFit-now": {"role": "technical_web_backend", "memory_version": 9, "state": "ACTIVE"},
-    "Bernds-tech/WellFit-Buddy": {"role": "native_mobile_ar_buddy", "memory_version": 9, "state": "ACTIVE"}
+    "Bernds-tech/WellFit": {"role": "visual_landing_ui", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Most current landing/UI runtime is still in WellFit-now."},
+    "Bernds-tech/WellFit-now": {"role": "technical_web_backend", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PRIMARY_PRODUCT_CODEBASE", "note": "Contains web/backend plus current landing/UI and legacy-location Unity AR project."},
+    "Bernds-tech/WellFit-Buddy": {"role": "native_mobile_ar_buddy", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Intended native authority; Unity project has not yet been migrated here."}
   },
   "convergence": {
     "status": "PLANNED_NOT_SCHEDULED",
     "target_repository": null,
     "target_date": null,
-    "strategy": "UNDECIDED"
+    "strategy": "UNDECIDED",
+    "current_ownership_drift": true
   },
   "master_gates": {
-    "repo_memory_alignment": {"state": "IMPLEMENTED_NOT_VERIFIED", "risk": "R3"},
-    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3"},
-    "integration_e2e": {"state": "TODO", "risk": "R3"},
-    "convergence_readiness": {"state": "PARTIAL", "risk": "R3"}
+    "repo_memory_alignment": {"state": "VERIFIED", "risk": "R3", "evidence": "All three repositories run the V4-V9 memory chain and point to one master authority."},
+    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3", "evidence": "Backend authority is substantially implemented, but native/visual consumer contracts and ownership migration are not accepted end-to-end."},
+    "integration_e2e": {"state": "TODO", "risk": "R3", "evidence": "No exact-version UI + backend + native end-to-end mission/Buddy journey is accepted."},
+    "convergence_readiness": {"state": "PARTIAL", "risk": "R3", "evidence": "Roles and ledger exist; actual visual/native code still resides in WellFit-now and no migration has been accepted."}
   },
+  "real_program_truth": [
+    "WellFit-now is currently the physical primary codebase.",
+    "Closed-Beta auth/session hardening, server-authoritative missions/economy, Buddy backend and global-location foundations exist in WellFit-now.",
+    "The Unity AR project exists under WellFit-now/native/unity/WellFitBuddyAR and remains real-device unaccepted.",
+    "WellFit and WellFit-Buddy are intended authorities but currently mostly contain governance/memory.",
+    "The three repositories may later converge; no final target or timing has been chosen."
+  ],
   "rules": [
     "This file is the only WellFit program-level memory authority while the three repositories remain separate.",
     "Local repositories own their domain truth; this master owns only cross-repository coordination truth.",
     "A local accepted state does not imply cross-repository integration acceptance.",
-    "No convergence target, date or strategy may be inferred before an explicit reviewed decision."
+    "No convergence target, date or strategy may be inferred before an explicit reviewed decision.",
+    "Always distinguish intended repository ownership from current physical code location."
   ]
 }

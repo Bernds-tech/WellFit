@@ -8,41 +8,56 @@
       "feature": "Outdoor missions",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit-Buddy",
-      "contract": "mission/runtime API and server-authoritative completion",
-      "state": "NEEDS_BASELINE",
-      "blocks_acceptance": true
+      "contract": "WF-CONTRACT-MISSION-001",
+      "state": "PARTIAL",
+      "blocks_acceptance": true,
+      "evidence": "Backend/global-location mission authority exists; native consumer integration and device evidence are open."
     },
     {
       "id": "WF-XDEP-002",
       "feature": "Outdoor missions UI",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit",
-      "contract": "capability/status contract for visual presentation",
-      "state": "NEEDS_BASELINE",
-      "blocks_acceptance": true
+      "contract": "WF-CONTRACT-MISSION-001",
+      "state": "OWNERSHIP_DRIFT",
+      "blocks_acceptance": true,
+      "evidence": "Mission/UI surfaces still physically live in WellFit-now while WellFit is intended visual authority."
     },
     {
       "id": "WF-XDEP-003",
       "feature": "AR Buddy companion",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit-Buddy",
-      "contract": "buddy state and server-authoritative reward boundaries",
-      "state": "NEEDS_BASELINE",
-      "blocks_acceptance": true
+      "contract": "WF-CONTRACT-BUDDY-001",
+      "state": "OWNERSHIP_DRIFT",
+      "blocks_acceptance": true,
+      "evidence": "Unity AR project and server Buddy foundations currently live in WellFit-now; intended native authority is WellFit-Buddy and real-device acceptance is open."
     },
     {
       "id": "WF-XDEP-004",
       "feature": "AR Buddy presentation",
       "producer": "Bernds-tech/WellFit-Buddy",
       "consumer": "Bernds-tech/WellFit",
-      "contract": "real implemented native capability reflected by product UI/landing",
-      "state": "NEEDS_BASELINE",
-      "blocks_acceptance": false
+      "contract": "WF-CONTRACT-BUDDY-001",
+      "state": "BLOCKED_BY_NATIVE_ACCEPTANCE",
+      "blocks_acceptance": false,
+      "evidence": "No accepted real-device native Buddy behavior exists yet, so visual claims must remain conservative."
+    },
+    {
+      "id": "WF-XDEP-005",
+      "feature": "Auth/session identity for future native app",
+      "producer": "Bernds-tech/WellFit-now",
+      "consumer": "Bernds-tech/WellFit-Buddy",
+      "contract": "WF-CONTRACT-AUTH-001",
+      "state": "PARTIAL",
+      "blocks_acceptance": true,
+      "evidence": "Web Closed-Beta auth/session model is hardened, but a native auth/session bridge has not been baselined in WellFit-Buddy."
     }
   ],
   "rules": [
     "A dependent feature cannot be ACCEPTED while a blocking dependency is unresolved.",
     "Dependency state is evidence-based and never inferred from chat claims.",
-    "Add a stable WF-XDEP ID before introducing a new cross-repository dependency."
+    "Add a stable WF-XDEP ID before introducing a new cross-repository dependency.",
+    "OWNERSHIP_DRIFT records a real implementation living in a different repository than the intended responsibility; it does not mean the implementation is missing."
   ]
 }

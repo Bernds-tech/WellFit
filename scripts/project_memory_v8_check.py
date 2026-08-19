@@ -42,7 +42,7 @@ for token in ['R1','R2','R3','R4','COUNTERCHECKED','What observation would prove
 protocol=(PM/'PROTOCOL.md').read_text(encoding='utf-8') if (PM/'PROTOCOL.md').exists() else ''
 if not any(f'Protocol v{n}' in protocol for n in range(8,100)): errors.append('protocol-version-below-v8')
 if 'DEFERRED_BY_OWNER' not in (PM/'OWNER_ACTION_INBOX.md').read_text(encoding='utf-8'): errors.append('owner-inbox-invalid')
-if 'WF-VISUAL-RECONCILE' not in (PM/'NEXT_BEST_ACTION.md').read_text(encoding='utf-8'): errors.append('next-best-action-invalid')
+if 'WF-VISUAL-CANONICAL-INVENTORY' not in (PM/'NEXT_BEST_ACTION.md').read_text(encoding='utf-8'): errors.append('next-best-action-invalid')
 if errors:
     print('PROJECT_MEMORY_V8_RESULT=failed')
     [print('PROJECT_MEMORY_V8_ERROR='+e) for e in errors]
