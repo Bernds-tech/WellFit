@@ -23,8 +23,8 @@ Canonical register for work that has started but is not yet fully completed.
 - Assumptions: PR #2 is a candidate, not automatically the accepted canonical visual baseline.
 - Completed so far: responsive landing/visual world and visual-only auth previews implemented on PR #2 according to its exact branch content and PR description.
 - Still open: current-main reconciliation, exact visual acceptance, current CI/browser evidence, capability-claim cross-check, decision to rebase/replace selected portions.
-- Evidence so far: PR #2 head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`; no current Actions runs are attached to that exact head.
-- Exact next step: inventory and classify current visual variants before further graphical implementation.
+- Evidence so far: PR #2 head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`; fresh 2026-08-20 metadata reports draft + mergeable, but exact-head Actions lookup returns no runs.
+- Exact next step: inventory and classify current visual variants before further graphical implementation, then produce current exact-head CI/browser evidence for the selected baseline.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
 ## Closed work
