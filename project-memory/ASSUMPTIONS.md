@@ -11,10 +11,10 @@ Statuses: `NEEDS_VERIFICATION`, `VERIFIED`, `INVALIDATED`, `SUPERSEDED`.
 - Risk: R2
 - Assumption: PR #2 is the final accepted canonical visual baseline.
 - Why it matters: treating it as accepted would bypass current-main reconciliation, current capability alignment and visual acceptance.
-- Verification source/evidence: current PR #2 is draft/not mergeable and has no current exact-head Actions evidence.
+- Verification source/evidence: fresh GitHub metadata reports PR #2 as draft and mergeable, but its exact head `7da05d9e4fd191b0a7f239ee9fa9c94175066894` has no GitHub Actions runs and is based on older main.
 - Status: INVALIDATED
-- Recheck trigger: after PR #2/current-main visual inventory and fresh preview/tests.
-- Action if false: keep PR #2 as candidate only; selectively rebase/port the chosen visual delta.
+- Recheck trigger: after PR #2/current-main visual inventory and fresh exact-head preview/tests.
+- Action if false: keep PR #2 as candidate only; selectively rebase/port the chosen visual delta. Mergeability alone is not acceptance.
 
 ## ASM-WFG-002
 - Date: 2026-08-20
