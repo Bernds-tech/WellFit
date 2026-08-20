@@ -15,6 +15,7 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 - PR #1 is an obsolete/incorrect product-direction branch (flavor/size/subscription product preview) and must not be treated as current WellFit product truth.
 
 ## Current direction
+- Selected local action: `WF-VISUAL-CANONICAL-INVENTORY`
 - Establish one canonical visual baseline instead of parallel landing/design variants.
 - Keep graphics aligned with actual technical capability in WellFit-now and actual Buddy capability in WellFit-Buddy.
 - Reconcile PR #2 against current `main`, current technical contracts and current visual direction before accepting or replacing it.
