@@ -31,9 +31,9 @@ Keep history append-only; supersede rather than delete.
 - Goal: Establish the canonical WellFit graphical/landing/UI baseline in `Bernds-tech/WellFit` without duplicating technical or Buddy implementation.
 - Starting state: PR #2 imported the existing WellFit landing/visual world, while PR #1 contains an unrelated flavor/size/subscription product concept; current product UI is still largely in WellFit-now.
 - Action: PR #2 implemented a graphical candidate baseline with responsive landing, product worlds and visual-only auth previews.
-- Result: substantive visual implementation exists, but the PR is still draft/not mergeable, is based on an older main, and current exact-head Actions evidence is absent. It is therefore not accepted.
-- Evidence: PR #2 head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`; current GitHub PR metadata; `WELLFIT_MASTER_STATE.json`.
-- Negative/countercheck path: PR #1 is explicitly excluded as incorrect product scope; PR #2 must be checked against current technical/Buddy capability so graphics cannot promise unsupported behavior.
+- Result: substantive visual implementation exists. Fresh GitHub metadata on 2026-08-20 reports PR #2 as **draft and mergeable**, but it is based on an older main and has no current exact-head Actions evidence. It remains unaccepted.
+- Evidence: PR #2 head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`; current GitHub PR metadata; zero Actions runs on that exact head; `WELLFIT_MASTER_STATE.json`.
+- Negative/countercheck path: PR #1 is explicitly excluded as incorrect product scope; PR #2 must be checked against current technical/Buddy capability so graphics cannot promise unsupported behavior. `mergeable=true` is not acceptance evidence.
 - Exact next step: inventory PR #2/current main/current WellFit-now visual sources; classify KEEP/REPLACE/MIGRATE_LATER/OBSOLETE; then rebase or rebuild only the selected graphical delta and run current CI/browser checks.
 - Do not repeat: Do not start a third parallel landing implementation before this reconciliation is complete.
 
@@ -42,7 +42,7 @@ Keep history append-only; supersede rather than delete.
 - Status: VERIFIED
 - Risk: R2
 - Goal: Reconcile Project Memory against current PR/main/cross-repo state.
-- Result: detected missing active-work records, stale PR #1, stale branch-protection enforcement, and over-broad Buddy/mobile ownership wording; registers are being corrected in this reconciliation PR.
+- Result: detected missing active-work records, stale PR #1, stale branch-protection enforcement, and over-broad Buddy/mobile ownership wording; registers were corrected. A later same-day countercheck corrected one stale PR #2 mergeability claim while preserving its unaccepted state.
 - Evidence: current main/PR/branch metadata and current Project Memory files.
 - Falsification question: What observation would prove this reconciliation wrong? A newer accepted visual baseline or current CI/owner acceptance bound to a different exact revision would supersede WFG-VIS-001 and must be recorded before further implementation.
-- Next step: merge this memory reconciliation after green checks, then reconcile PR #2.
+- Next step: keep WFG-VIS-001 open until PR #2 is reconciled against current main and receives exact-head visual/CI evidence.
