@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "repository": "Bernds-tech/WellFit",
-  "project_role": "visual_landing_ui",
-  "actual_code_location": "Most current product UI/landing implementation is still in Bernds-tech/WellFit-now; this repository currently contains governance/memory rather than the migrated visual runtime.",
+  "project_role": "graphical_ui_ux",
+  "actual_code_location": "Most current product UI/landing implementation is still in Bernds-tech/WellFit-now; this repository is the graphical/UI/UX authority, while physical migration remains incomplete.",
   "gates": {
-    "visual_system": {"state": "PARTIAL", "risk": "R2", "evidence": "Visual direction and landing work exist in WellFit-now history, including landing hero work; no equivalent product runtime is present in this repo main."},
-    "landing_ui": {"state": "IMPLEMENTED_NOT_VERIFIED", "risk": "R2", "evidence": "Landing implementation exists in WellFit-now; ownership migration and current visual acceptance in this repo are not complete."},
-    "technical_alignment": {"state": "PARTIAL", "risk": "R3", "evidence": "UI/product claims must be reconciled against WellFit-now backend and WellFit-Buddy native evidence; V9 master contracts are only partially baselined."},
-    "cross_repo_handoff": {"state": "PARTIAL", "risk": "R3", "evidence": "Repository roles are defined, but visual code ownership has not been physically migrated from WellFit-now."}
+    "visual_system": {"state": "PARTIAL", "risk": "R2", "evidence": "Visual direction and landing work exist in WellFit-now history; no complete accepted visual runtime has yet been migrated into this repository."},
+    "landing_ui": {"state": "IMPLEMENTED_NOT_VERIFIED", "risk": "R2", "evidence": "Landing implementation exists in WellFit-now; ownership migration and current visual acceptance in this repository are not complete."},
+    "technical_alignment": {"state": "PARTIAL", "risk": "R3", "evidence": "UI/product claims must be reconciled against WellFit-now technical capability and WellFit-Buddy Buddy capability."},
+    "cross_repo_handoff": {"state": "PARTIAL", "risk": "R3", "evidence": "Repository roles are defined, but graphical code ownership has not been physically migrated from WellFit-now."}
   },
   "accepted_states": ["ACCEPTED", "PRODUCTION_CONFIRMED"],
-  "rule": "Do not infer visual acceptance or technical capability alignment from implementation alone; distinguish intended repository role from current physical code location."
+  "rule": "WellFit owns graphics, UI and UX. Do not infer technical or Buddy authority from graphical implementation; distinguish intended repository role from current physical code location."
 }

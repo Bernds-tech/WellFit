@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "repository": "Bernds-tech/WellFit",
-  "local_role": "visual_landing_ui",
+  "local_role": "graphical_ui_ux",
   "program_master": "Bernds-tech/WellFit:project-memory/WELLFIT_MASTER_STATE.json",
   "master_authority_for": ["cross_repo_dependencies","shared_contract_registry","integration_gates","cross_repo_locks","convergence_ledger","master_next_action"],
-  "local_authority_for": ["visual_landing_ui_truth","local_finishline","local_evidence","local_next_best_action"],
-  "rule": "Program master coordinates; it does not overwrite local domain truth without evidence."
+  "local_authority_for": ["graphical_ui_ux_truth","local_finishline","local_evidence","local_next_best_action"],
+  "rule": "WellFit is the graphical/UI/UX authority. The program master coordinates cross-repository truth but does not grant technical or Buddy authority to this repository."
 }
