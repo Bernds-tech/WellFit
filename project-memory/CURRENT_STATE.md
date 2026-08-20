@@ -11,7 +11,7 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 
 ## Current physical-code reality
 - Most existing product UI/landing implementation still physically lives in `WellFit-now`.
-- PR #2 (`agent/import-wellfit-landingpage`) is the current candidate visual import into this graphical repository, but it is still an old draft, is currently not mergeable, and has no current exact-head GitHub Actions evidence.
+- PR #2 (`agent/import-wellfit-landingpage`) is the current candidate visual import into this graphical repository. Fresh GitHub metadata on 2026-08-20 reports it as **draft and mergeable**, but it is based on an older `main` and has **no GitHub Actions runs on exact head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`**. Mergeability alone is not acceptance.
 - PR #1 is an obsolete/incorrect product-direction branch (flavor/size/subscription product preview) and must not be treated as current WellFit product truth.
 
 ## Current direction
@@ -24,5 +24,6 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 - Do not recreate Buddy runtime/AR behavior here.
 - Do not introduce a parallel visual system without classifying existing visual branches/assets first.
 - Do not merge PR #1.
+- Do not treat GitHub `mergeable=true` as visual/CI acceptance.
 
 Before changing product visuals, inspect current `main`, active visual branches/PRs, `WELLFIT_MASTER_STATE.json`, the relevant WellFit-now capability state and the relevant WellFit-Buddy capability state.
