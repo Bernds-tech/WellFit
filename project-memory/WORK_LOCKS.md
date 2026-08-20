@@ -9,20 +9,19 @@ Prevents two agents/sessions from independently working the same task.
 - Locks older than 24h are STALE, not free: reconcile `STARTED_WORK.md`, PRs, commits and receipts before replacing.
 - Release only after updating `STARTED_WORK.md` and the execution receipt.
 
-## Template
-```text
-## LOCK-<TASK-ID>
-- Task: <TASK-ID>
-- Status: ACTIVE|STALE|RELEASED|SUPERSEDED
-- Holder: agent/session identifier
-- Branch/PR:
-- Acquired: YYYY-MM-DD HH:MM TZ
-- Updated: YYYY-MM-DD HH:MM TZ
-- Scope:
-- Resume from:
-- Released:
-```
+## Active/stale locks
 
-## Active locks
+## LOCK-WFG-VIS-001
+- Task: WFG-VIS-001
+- Status: STALE
+- Holder: legacy branch/agent ownership; exact session no longer authoritative
+- Branch/PR: `agent/import-wellfit-landingpage` / PR #2
+- Acquired: work existed by 2026-08-15
+- Updated: 2026-08-20
+- Scope: graphical/landing/UI candidate baseline only
+- Resume from: reconcile PR #2 against current main and cross-repo capability before modifying visual product code
+- Released: not released; stale until deliberately resumed or superseded
 
-None recorded yet.
+## Released/superseded locks
+
+No additional locks recorded.

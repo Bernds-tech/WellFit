@@ -9,25 +9,24 @@ Canonical register for work that has started but is not yet fully completed.
 - Never delete history; close with status, date, result, evidence and next step.
 - Cross-link Task ID, Change Request, PR/branch, dependencies, work lock and execution receipt.
 
-## Entry template
-```text
-## <TASK-ID>
-- Started: YYYY-MM-DD HH:MM TZ
-- Updated: YYYY-MM-DD
-- Status: IN_PROGRESS|PARTIAL|BLOCKED|IMPLEMENTED_NOT_VERIFIED|RECONCILIATION_REQUIRED
-- Risk: R1|R2|R3|R4
-- Scope:
-- Branch/PR:
-- Work lock:
-- Dependencies:
-- Assumptions:
-- Completed so far:
-- Still open:
-- Evidence so far:
-- Exact next step:
-- Owner action needed: yes|no
-```
-
 ## Active work
 
-No active records have been migrated automatically. Existing active tasks must be reconciled before being marked complete.
+## WFG-VIS-001
+- Started: 2026-08-15
+- Updated: 2026-08-20
+- Status: RECONCILIATION_REQUIRED
+- Risk: R2
+- Scope: canonical graphical/landing/UI baseline for WellFit.
+- Branch/PR: `agent/import-wellfit-landingpage` / PR #2.
+- Work lock: `LOCK-WFG-VIS-001` is STALE until the old branch is deliberately resumed or superseded.
+- Dependencies: current WellFit-now technical capability, current WellFit-Buddy Buddy capability, `WF-CONTRACT-*` and `WF-XDEP-*` alignment.
+- Assumptions: PR #2 is a candidate, not automatically the accepted canonical visual baseline.
+- Completed so far: responsive landing/visual world and visual-only auth previews implemented on PR #2 according to its exact branch content and PR description.
+- Still open: current-main reconciliation, exact visual acceptance, current CI/browser evidence, capability-claim cross-check, decision to rebase/replace selected portions.
+- Evidence so far: PR #2 head `7da05d9e4fd191b0a7f239ee9fa9c94175066894`; no current Actions runs are attached to that exact head.
+- Exact next step: inventory and classify current visual variants before further graphical implementation.
+- Owner action needed: visual acceptance only after current preview/evidence exists.
+
+## Closed work
+
+No additional closed product work is recorded here yet.

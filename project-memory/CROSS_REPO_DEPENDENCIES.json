@@ -1,27 +1,27 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "program": "WellFit",
   "dependencies": [
     {
       "id": "WF-XDEP-001",
-      "feature": "Outdoor missions",
+      "feature": "Outdoor missions with Buddy interaction",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit-Buddy",
       "contract": "WF-CONTRACT-MISSION-001",
       "state": "PARTIAL",
       "blocks_acceptance": true,
-      "evidence": "Backend/global-location mission authority exists; native consumer integration and device evidence are open."
+      "evidence": "Technical mission/global-location authority exists; Buddy-specific AR/event integration and device evidence are open."
     },
     {
       "id": "WF-XDEP-002",
-      "feature": "Outdoor missions UI",
+      "feature": "Outdoor missions graphical presentation",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit",
       "contract": "WF-CONTRACT-MISSION-001",
       "state": "OWNERSHIP_DRIFT",
       "blocks_acceptance": true,
-      "evidence": "Mission/UI surfaces still physically live in WellFit-now while WellFit is intended visual authority."
+      "evidence": "Mission/UI surfaces still physically live mostly in WellFit-now while WellFit is the graphical authority."
     },
     {
       "id": "WF-XDEP-003",
@@ -31,33 +31,44 @@
       "contract": "WF-CONTRACT-BUDDY-001",
       "state": "OWNERSHIP_DRIFT",
       "blocks_acceptance": true,
-      "evidence": "Unity AR project and server Buddy foundations currently live in WellFit-now; intended native authority is WellFit-Buddy and real-device acceptance is open."
+      "evidence": "Unity Buddy AR project currently lives in WellFit-now; intended Buddy authority is WellFit-Buddy and real-device acceptance is open. General technical mobile logic remains in WellFit-now."
     },
     {
       "id": "WF-XDEP-004",
-      "feature": "AR Buddy presentation",
+      "feature": "Buddy graphical presentation",
       "producer": "Bernds-tech/WellFit-Buddy",
       "consumer": "Bernds-tech/WellFit",
       "contract": "WF-CONTRACT-BUDDY-001",
-      "state": "BLOCKED_BY_NATIVE_ACCEPTANCE",
+      "state": "BLOCKED_BY_BUDDY_ACCEPTANCE",
       "blocks_acceptance": false,
-      "evidence": "No accepted real-device native Buddy behavior exists yet, so visual claims must remain conservative."
+      "evidence": "No accepted real-device Buddy behavior exists yet, so graphical claims must remain conservative."
     },
     {
       "id": "WF-XDEP-005",
-      "feature": "Auth/session identity for future native app",
+      "feature": "Identity/session use by Buddy surfaces",
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit-Buddy",
       "contract": "WF-CONTRACT-AUTH-001",
       "state": "PARTIAL",
       "blocks_acceptance": true,
-      "evidence": "Web Closed-Beta auth/session model is hardened, but a native auth/session bridge has not been baselined in WellFit-Buddy."
+      "evidence": "Technical auth/session authority is hardened in WellFit-now; any Buddy-specific client bridge remains to be baselined."
+    },
+    {
+      "id": "WF-XDEP-006",
+      "feature": "General mobile application technical shell",
+      "producer": "Bernds-tech/WellFit-now",
+      "consumer": "Bernds-tech/WellFit",
+      "contract": "WF-CONTRACT-AUTH-001",
+      "state": "TECHNICAL_DOMAIN",
+      "blocks_acceptance": false,
+      "evidence": "Current role split keeps general technical mobile application logic in WellFit-now; only Buddy-specific runtime/AR belongs in WellFit-Buddy."
     }
   ],
   "rules": [
     "A dependent feature cannot be ACCEPTED while a blocking dependency is unresolved.",
-    "Dependency state is evidence-based and never inferred from chat claims.",
+    "Dependency state is evidence-based and never inferred from obsolete memory wording.",
     "Add a stable WF-XDEP ID before introducing a new cross-repository dependency.",
-    "OWNERSHIP_DRIFT records a real implementation living in a different repository than the intended responsibility; it does not mean the implementation is missing."
+    "OWNERSHIP_DRIFT records a real implementation living in a different repository than its intended responsibility; it does not mean the implementation is missing.",
+    "Repository responsibility is domain-based: technical=WellFit-now, graphical=WellFit, Buddy=WellFit-Buddy."
   ]
 }

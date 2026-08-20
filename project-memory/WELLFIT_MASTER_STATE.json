@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-20",
   "program": "WellFit",
   "authority_repository": "Bernds-tech/WellFit",
   "repositories": {
-    "Bernds-tech/WellFit": {"role": "visual_landing_ui", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Most current landing/UI runtime is still in WellFit-now."},
-    "Bernds-tech/WellFit-now": {"role": "technical_web_backend", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PRIMARY_PRODUCT_CODEBASE", "note": "Contains web/backend plus current landing/UI and legacy-location Unity AR project."},
-    "Bernds-tech/WellFit-Buddy": {"role": "native_mobile_ar_buddy", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Intended native authority; Unity project has not yet been migrated here."}
+    "Bernds-tech/WellFit": {"role": "graphical_ui_landing", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PARTIAL_GRAPHICAL_CANDIDATE", "note": "Graphical authority. PR #2 is a candidate visual import but is not yet accepted; much current product UI still physically lives in WellFit-now."},
+    "Bernds-tech/WellFit-now": {"role": "technical_product", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PRIMARY_PRODUCT_CODEBASE", "note": "Technical authority for web/backend/auth/data/APIs/mission/economy/server logic and general technical mobile application logic outside the Buddy domain. Also still contains current landing/UI and legacy-location Unity Buddy AR code."},
+    "Bernds-tech/WellFit-Buddy": {"role": "buddy_domain", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Buddy authority: Buddy behavior, presentation/animation and Buddy-specific AR/camera interaction. Existing Unity Buddy AR code has not yet been migrated here."}
   },
   "convergence": {
     "status": "PLANNED_NOT_SCHEDULED",
@@ -16,16 +16,17 @@
     "current_ownership_drift": true
   },
   "master_gates": {
-    "repo_memory_alignment": {"state": "VERIFIED", "risk": "R3", "evidence": "All three repositories run the V4-V9 memory chain and point to one master authority."},
-    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3", "evidence": "Backend authority is substantially implemented, but native/visual consumer contracts and ownership migration are not accepted end-to-end."},
-    "integration_e2e": {"state": "TODO", "risk": "R3", "evidence": "No exact-version UI + backend + native end-to-end mission/Buddy journey is accepted."},
-    "convergence_readiness": {"state": "PARTIAL", "risk": "R3", "evidence": "Roles and ledger exist; actual visual/native code still resides in WellFit-now and no migration has been accepted."}
+    "repo_memory_alignment": {"state": "RECONCILIATION_REQUIRED", "risk": "R3", "evidence": "V9 exists across all three repos, but the 2026-08-19 role wording over-assigned general mobile responsibility to WellFit-Buddy and the active product tasks were not fully propagated into V5 registers."},
+    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3", "evidence": "Backend authority is substantially implemented; visual/Buddy consumer contracts and physical ownership migration remain incomplete."},
+    "integration_e2e": {"state": "TODO", "risk": "R3", "evidence": "No exact-version graphical + technical + Buddy end-to-end mission/Buddy journey is accepted."},
+    "convergence_readiness": {"state": "PARTIAL", "risk": "R3", "evidence": "Roles are now clarified; actual graphical and Buddy code still partly resides in WellFit-now and migration is not accepted."}
   },
   "real_program_truth": [
-    "WellFit-now is currently the physical primary codebase.",
+    "WellFit-now is the technical product authority and currently the physical primary codebase.",
+    "WellFit is the graphical authority.",
+    "WellFit-Buddy is the Buddy authority, not the owner of all general technical mobile application logic.",
     "Closed-Beta auth/session hardening, server-authoritative missions/economy, Buddy backend and global-location foundations exist in WellFit-now.",
-    "The Unity AR project exists under WellFit-now/native/unity/WellFitBuddyAR and remains real-device unaccepted.",
-    "WellFit and WellFit-Buddy are intended authorities but currently mostly contain governance/memory.",
+    "The Unity Buddy AR project exists under WellFit-now/native/unity/WellFitBuddyAR and remains real-device unaccepted.",
     "The three repositories may later converge; no final target or timing has been chosen."
   ],
   "rules": [
@@ -33,6 +34,7 @@
     "Local repositories own their domain truth; this master owns only cross-repository coordination truth.",
     "A local accepted state does not imply cross-repository integration acceptance.",
     "No convergence target, date or strategy may be inferred before an explicit reviewed decision.",
-    "Always distinguish intended repository ownership from current physical code location."
+    "Always distinguish intended repository ownership from current physical code location.",
+    "General technical mobile logic follows the technical WellFit-now domain unless it is specifically Buddy behavior/presentation/AR."
   ]
 }
