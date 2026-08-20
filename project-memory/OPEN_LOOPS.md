@@ -14,9 +14,9 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Related: WFG-VIS-001
 - Status: OPEN
 - Updated: 2026-08-20
-- Gap: substantive visual work exists in PR #2, but it is not reconciled to current main/cross-repo capability, is draft/not mergeable, and lacks current exact-head Actions acceptance.
+- Gap: substantive visual work exists in PR #2, but it is not reconciled to current main/cross-repo capability. Fresh GitHub metadata reports it as draft and mergeable, while its exact head has no current Actions acceptance. It remains unaccepted.
 - Close when: one canonical visual baseline is selected, current checks/browser evidence are green, capability claims match WellFit-now/WellFit-Buddy, and visual acceptance is recorded.
-- Next check: classify PR #2/current main/current visual assets; do not start a parallel redesign first.
+- Next check: classify PR #2/current main/current visual assets; do not start a parallel redesign first. Treat mergeability only as Git compatibility, not acceptance.
 
 ## WF-LOOP-003
 - Related: WFG-VIS-001 / PR #1
