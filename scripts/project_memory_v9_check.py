@@ -12,10 +12,18 @@ try:
     master=json.loads((PM/'WELLFIT_MASTER_STATE.json').read_text())
     if master.get('authority_repository')!='Bernds-tech/WellFit': errors.append('master-authority-invalid')
     repos=master.get('repositories',{})
-    for repo in ['Bernds-tech/WellFit','Bernds-tech/WellFit-now','Bernds-tech/WellFit-Buddy']:
+    expected_roles={
+      'Bernds-tech/WellFit':'graphical_ui_ux',
+      'Bernds-tech/WellFit-now':'technical_product',
+      'Bernds-tech/WellFit-Buddy':'buddy_domain'
+    }
+    for repo, role in expected_roles.items():
         if repo not in repos: errors.append('master-repo-missing:'+repo)
+        elif repos[repo].get('role')!=role: errors.append('master-role-invalid:'+repo)
     if master.get('convergence',{}).get('target_repository') is not None: errors.append('convergence-target-must-remain-unset')
     if master.get('master_gates',{}).get('repo_memory_alignment',{}).get('state')=='IMPLEMENTED_NOT_VERIFIED': errors.append('master-real-state-not-populated')
+    coord=json.loads((PM/'PROJECT_COORDINATION.json').read_text())
+    if coord.get('local_role')!='graphical_ui_ux': errors.append('coordination-role-invalid')
 except Exception as e: errors.append('master-json-invalid:'+str(e))
 try:
     deps=json.loads((PM/'CROSS_REPO_DEPENDENCIES.json').read_text())
