@@ -17,7 +17,7 @@ for name in required:
     if not p.exists() or not p.read_text(encoding='utf-8').strip(): errors.append(f'missing-or-empty:{name}')
 try:
     state=json.loads((PM/'FINISHLINE_STATE.json').read_text())
-    if state.get('repository')!='Bernds-tech/WellFit' or state.get('project_role')!='visual_landing_ui': errors.append('finishline-identity-invalid')
+    if state.get('repository')!='Bernds-tech/WellFit' or state.get('project_role')!='graphical_ui_ux': errors.append('finishline-identity-invalid')
 except Exception as e: errors.append(f'finishline-invalid:{e}')
 try:
     ttl=json.loads((PM/'EVIDENCE_TTL.json').read_text())
