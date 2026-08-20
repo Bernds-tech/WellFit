@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import json, sys
+import json, re, sys
 ROOT=Path(__file__).resolve().parents[1]
 PM=ROOT/'project-memory'
-required=['WELLFIT_MASTER_STATE.json','PROJECT_COORDINATION.json','CROSS_REPO_DEPENDENCIES.json','CONTRACT_REGISTRY.json','INTEGRATION_GATES.json','CROSS_REPO_LOCKS.md','CONVERGENCE_LEDGER.json','WELLFIT_MASTER_NEXT_ACTION.md','REAL_WORK_BASELINE_2026-08-19.md','REAL_WORK_PROGRAM_BASELINE_2026-08-19.md','PROTOCOL.md']
+required=['WELLFIT_MASTER_STATE.json','PROJECT_COORDINATION.json','CROSS_REPO_DEPENDENCIES.json','CONTRACT_REGISTRY.json','INTEGRATION_GATES.json','CROSS_REPO_LOCKS.md','CONVERGENCE_LEDGER.json','WELLFIT_MASTER_NEXT_ACTION.md','REAL_WORK_BASELINE_2026-08-19.md','REAL_WORK_PROGRAM_BASELINE_2026-08-19.md','PROTOCOL.md','AUTO_HANDOFF.md','NEXT_BEST_ACTION.md']
 errors=[]
 for name in required:
     p=PM/name
@@ -42,6 +42,17 @@ except Exception as e: errors.append('v9-json-invalid:'+str(e))
 protocol=(PM/'PROTOCOL.md').read_text(encoding='utf-8') if (PM/'PROTOCOL.md').exists() else ''
 for token in ['Protocol v9','V9 — Multi-repository orchestration','WF-CONTRACT-*','WF-XDEP-*','XLOCK-*','WF-MIG-*']:
     if token not in protocol: errors.append('protocol-v9-token-missing:'+token)
+
+handoff=(PM/'AUTO_HANDOFF.md').read_text(encoding='utf-8') if (PM/'AUTO_HANDOFF.md').exists() else ''
+for token in ['Role: graphical / UI / UX authority','Program master: `project-memory/WELLFIT_MASTER_STATE.json`','Before answering project-state questions or proposing/executing work, read Project Memory first','Chat memory or claims from another session are navigation hints only, never Source of Truth','general technical app/mobile logic -> `Bernds-tech/WellFit-now`','Buddy-specific behavior, presentation/animation and Buddy AR/camera interaction -> `Bernds-tech/WellFit-Buddy`']:
+    if token not in handoff: errors.append('auto-handoff-v9-token-missing:'+token)
+next_action=(PM/'NEXT_BEST_ACTION.md').read_text(encoding='utf-8') if (PM/'NEXT_BEST_ACTION.md').exists() else ''
+m=re.search(r"Selected action: `([^`]+)`", next_action)
+if not m or f"Current next action: `{m.group(1)}`" not in handoff: errors.append('auto-handoff-next-action-stale')
+agents=(ROOT/'AGENTS.md').read_text(encoding='utf-8') if (ROOT/'AGENTS.md').exists() else ''
+for token in ['Before answering project-state questions','project-memory/AUTO_HANDOFF.md','project-memory/WELLFIT_MASTER_STATE.json','This repository is the graphical/UI/UX authority for WellFit','Chat memory is a navigation hint only']:
+    if token not in agents: errors.append('agents-project-memory-entry-token-missing:'+token)
+
 if errors:
     print('PROJECT_MEMORY_V9_RESULT=failed')
     [print('PROJECT_MEMORY_V9_ERROR='+e) for e in errors]
