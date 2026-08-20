@@ -10,4 +10,19 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Close when: Project Memory Protocol v2 is merged and active.
 - Result: Closed by the v2 governance upgrade.
 
-Rules: `PARTIAL`, `BLOCKED` and `IMPLEMENTED_NOT_VERIFIED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
+## WF-LOOP-002
+- Related: WFG-VIS-001
+- Status: OPEN
+- Updated: 2026-08-20
+- Gap: substantive visual work exists in PR #2, but it is not reconciled to current main/cross-repo capability, is draft/not mergeable, and lacks current exact-head Actions acceptance.
+- Close when: one canonical visual baseline is selected, current checks/browser evidence are green, capability claims match WellFit-now/WellFit-Buddy, and visual acceptance is recorded.
+- Next check: classify PR #2/current main/current visual assets; do not start a parallel redesign first.
+
+## WF-LOOP-003
+- Related: WFG-VIS-001 / PR #1
+- Status: SUPERSEDED
+- Updated: 2026-08-20
+- Gap: PR #1 represents a flavor/size/subscription product-preview concept inconsistent with current WellFit product truth.
+- Resolution: exclude and close the stale PR; preserve history, do not merge it.
+
+Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
