@@ -76,3 +76,17 @@ Keep history append-only; supersede rather than delete.
 - Countercheck: Project Memory Guard and Quality passed on PR #22; the diff contains specification/governance only and preserves the Unity editor/server-authority gates.
 - Falsification question: an existing accepted exact-version one-screen mobile implementation, or evidence that ordinary overlay navigation must recreate the AR scene, would require this contract to be reconciled.
 - Next step: merge after fresh Status/review, then hand off separate implementation slices to WellFit-now and WellFit-Buddy after their prerequisites.
+
+## WFG-AVATAR-ATTN-001
+- Date: 2026-08-26
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Goal: make Rudi and other WellFit web mascots/avatars attentively follow the pointer and look toward hovered/focused controls such as login/register while preserving graphical and technical authority boundaries.
+- Starting state: current qualifying mascot/avatar images were static; current web UI physically resides in WellFit-now; public Sites-v71 is a separate visual candidate checkout.
+- Action: authorized and coordinated WellFit-now PR #387, which adds the global web `AvatarAttentionSystem`; WellFit PR #23 records the graphical task, cross-repo lock, open loop and evidence boundary.
+- Result: PR #387 exact implementation revision `16a779992250879380a17deb8c040a9a628acbae` passed Build #1188, DB tests #165 and Project Memory checks and is mergeable; PR #23 coordination revision `a9bf45ff5ca0118e2023a96bf372d43d189d8a44` passed Guard/Quality/Status after generated status refresh. Final postflight heads, Container Build and runnable browser/preview evidence remain open.
+- Evidence: WellFit-now PR #387 and implementation commits `15347fa7e451976afe8f59400ac9978394608046` / `5c88cb9f9f8421ed6fa7ed2647ea4edd46329855`; WellFit PR #23; RECEIPT-WFN-AVATAR-ATTN-20260826; RECEIPT-WFG-AVATAR-ATTN-20260826.
+- Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changed; motion is disabled for coarse pointers/reduced-motion clients.
+- Rollback/recovery: revert PRs #387 and #23; no data/state migration exists.
+- Falsification question: a transform-composition visual regression, a missed qualifying avatar, or a different canonical/Sites source requires reconciliation before visual acceptance.
+- Next step: complete final-head CI/countercheck and release implementation/cross-repo locks if green; keep Sites-v71 synchronization and visual acceptance explicitly open until runnable evidence exists.
