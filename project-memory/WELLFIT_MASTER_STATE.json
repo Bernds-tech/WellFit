@@ -62,7 +62,8 @@
     "Closed-Beta auth/session hardening, server-authoritative missions/economy, Buddy backend and global-location foundations exist in WellFit-now.",
     "At WellFit-now commit 447093decd783b33a6e724170dbe4667e899348b, native/unity/WellFitBuddyAR is useful scaffold/reference material but not a complete or compile-ready Unity project; WellFit-Buddy main contains the reviewed baseline only and has no accepted build/device runtime.",
     "WF-MIG-002 is approved as MIGRATE_NOW through a fresh version-pinned destination and incremental reviewed ports while preserving the source until acceptance.",
-    "The three repositories may later converge further; no single final target repository or target date has been chosen."
+    "The three repositories may later converge further; no single final target repository or target date has been chosen.",
+    "The owner-approved mobile target is a single persistent full-screen camera/AR world with minimal logo/menu chrome and overlay feature panels; it is specified by WF-CONTRACT-MOBILE-SHELL-001 but not yet implemented or device-accepted."
   ],
   "rules": [
     "This file is the only WellFit program-level memory authority while the three repositories remain separate.",
@@ -72,6 +73,7 @@
     "No final convergence target repository or date may be inferred before an explicit reviewed decision.",
     "Always distinguish intended repository ownership from current physical code location.",
     "General technical mobile/application logic follows WellFit-now unless it is specifically Buddy behavior, Buddy presentation/animation or Buddy-specific AR/camera interaction.",
-    "MIGRATE_NOW for WF-MIG-002 authorizes only fresh destination initialization and incremental reviewed Buddy-domain ports; it does not authorize source deletion or server-authority transfer before acceptance."
+    "MIGRATE_NOW for WF-MIG-002 authorizes only fresh destination initialization and incremental reviewed Buddy-domain ports; it does not authorize source deletion or server-authority transfer before acceptance.",
+    "The one-screen mobile UX does not transfer general mobile/server authority to WellFit-Buddy or reward/mission authority to the client."
   ]
 }
