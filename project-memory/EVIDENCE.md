@@ -45,3 +45,14 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Result: `main` is currently `protected=false`, while `BRANCH_PROTECTION_CONTRACT.json` requires PRs/status checks/conversation resolution and blocks force-push/delete.
 - Limitations: branch protection/ruleset activation remains an owner/governance action.
 - Acceptance: VERIFIED
+
+
+## WF-EV-005
+- Related: WFG-MASTER-MIG-002-RECON / WF-MIG-002
+- Date: 2026-08-26
+- Target: WellFit program-level Buddy migration readiness
+- Type: immutable cross-repository source/baseline countercheck
+- Reference: WellFit-now `447093decd783b33a6e724170dbe4667e899348b:native/unity/WellFitBuddyAR`; WellFit-Buddy merged PRs #18/#19 and main `48405aad8489c03d68f58526867eb14bb4458823`
+- Result: the exact source is valuable scaffold/reference material, not a complete or compile-ready Unity project; WellFit-Buddy contains the reviewed baseline and Git LFS preparation but no Unity runtime, successful build or device acceptance.
+- Limitations: static repository and CI evidence only; no Unity editor, Android build or real-device execution occurred.
+- Acceptance: COUNTERCHECKED
