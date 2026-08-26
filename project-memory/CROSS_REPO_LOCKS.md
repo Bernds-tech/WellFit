@@ -27,7 +27,18 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
-None.
+## XLOCK-WF-AVATAR-ATTN-20260826
+- Cross-ID: `WFG-AVATAR-ATTN-001` / `WFN-AVATAR-ATTN-001`
+- Status: ACTIVE
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: owner-requested web-only pointer/focus attention behavior for existing Rudi/Buddy/avatar graphics while the current physical web UI still resides in WellFit-now; no backend, mission, reward, auth or native AR authority changes.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`
+- Branches/PRs: WellFit `codex/avatar-attention-master-20260826` / PR pending; WellFit-now `codex/avatar-attention-20260826` / PR pending
+- Acquired: 2026-08-26 Europe/Vienna
+- Updated: 2026-08-26 after owner authorization and initial bounded implementation
+- Resume from: open both PRs, run exact branch CI/diff/browser evidence, then reconcile local/master memory. Separate Sites-v71 synchronization is not implied by the GitHub implementation.
 
 ## Released locks
 
