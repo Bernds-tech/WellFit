@@ -2,7 +2,7 @@
   "schema_version": 1,
   "updated": "2026-08-26",
   "program": "WellFit",
-  "status": "PHASED_MIGRATION_IN_PROGRESS",
+  "status": "PLANNED_NOT_SCHEDULED",
   "entries": [
     {
       "id": "WF-MIG-001",
