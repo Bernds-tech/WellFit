@@ -57,6 +57,18 @@
       "state": "VERIFIED",
       "acceptance": "verified user session can access protected app flow and server-authoritative mission/economy boundaries remain enforced",
       "evidence": "Closed-Beta session hardening PRs #369-#371 plus repository build/database/container gates; this is technical verification, not real-user Production acceptance."
+    },
+    {
+      "id": "WF-INT-006",
+      "flow": "one-screen AR world -> overlay menu -> feature panel -> same AR world",
+      "repos": [
+        "Bernds-tech/WellFit",
+        "Bernds-tech/WellFit-now",
+        "Bernds-tech/WellFit-Buddy"
+      ],
+      "state": "TODO",
+      "acceptance": "on an exact Android build, logo/menu and feature overlays work without intentional AR scene reset; server authority and permission/tracking negative paths remain enforced",
+      "evidence": "Owner target is specified by WF-CONTRACT-MOBILE-SHELL-001. Runtime, build and device evidence are absent."
     }
   ],
   "rules": [
