@@ -11,18 +11,6 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WFG-MASTER-MIG-002-RECON
-- Started: 2026-08-26
-- Status: IN_PROGRESS
-- Risk: R3
-- Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged WellFit-Buddy baseline.
-- Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / pending.
-- Cross-repo lock: `XLOCK-WF-MIG-002-20260826`.
-- Dependencies: exact WellFit-now source commit `447093decd783b33a6e724170dbe4667e899348b`, WellFit-Buddy PRs #18/#19 and current contracts/gates.
-- Assumptions: source is scaffold/reference material, not a complete Unity project; fresh destination initialization can begin without transferring technical/server authority.
-- Still open: update master state/dependencies/contracts/gates/convergence decision, countercheck, CI and review.
-- Exact next step: replace stale real-project claims and set the bounded `MIGRATE_NOW` decision for a fresh destination while retaining source through acceptance.
-
 ## WFG-VIS-001
 - Started: 2026-08-15
 - Updated: 2026-08-20
@@ -41,4 +29,14 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Closed work
 
-No additional closed product work is recorded here yet.
+## WFG-MASTER-MIG-002-RECON
+- Started: 2026-08-26
+- Closed: 2026-08-26
+- Status: COUNTERCHECKED
+- Risk: R3
+- Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged WellFit-Buddy baseline.
+- Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / PR #20.
+- Cross-repo lock: `XLOCK-WF-MIG-002-20260826` released.
+- Result: stale Unity-project claims corrected; `MIGRATE_NOW` bounded to fresh destination initialization and incremental Buddy-domain ports while source/server authority remain preserved.
+- Evidence: WF-EV-005, merged Buddy PRs #18/#19 and green Quality/Status checks on PR #20 before final closeout.
+- Next step: merge after final green Guard/review, then begin the separately locked Unity destination task.
