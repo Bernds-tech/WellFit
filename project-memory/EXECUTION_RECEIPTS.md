@@ -67,18 +67,20 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 ## RECEIPT-WFG-AVATAR-ATTN-20260826
 - Task: WFG-AVATAR-ATTN-001 / WFG-CR-006 / WFN-AVATAR-ATTN-001
 - Started: 2026-08-26 Europe/Vienna
-- Branches/PRs: WellFit `codex/avatar-attention-master-20260826` / PR #23; WellFit-now `codex/avatar-attention-20260826` / PR #387
+- Finished: 2026-08-26 after final-head cross-repo checks and merges
+- Branches/PRs: WellFit PR #23; WellFit-now PR #387
 - Risk: R2
 - Preflight checked: mandatory WellFit graphical/program memory, current main/PR/CI, WellFit-now mandatory local memory and runtime source, Buddy contract/dependency boundaries, prior visual attempts/locks and current Sites-v71 evidence boundary.
 - Prior attempts found: no existing registered avatar-attention implementation; current visual code ownership is transitional and the public ChatGPT Sites-v71 checkout is separate from GitHub source.
 - Dependency result: a reversible web-only visual layer is allowed while code physically resides in WellFit-now; native Buddy behavior and server authority remain unchanged.
-- Changes made: WellFit-now PR #387 implements a global pointer/focus attention system for qualifying Buddy/Rudi/avatar images; WellFit PR #23 records visual authority, WFG task, cross-repo lock and open evidence loop.
-- Exact implementation evidence: PR #387 revision `16a779992250879380a17deb8c040a9a628acbae` passed Build #1188 including lint/typecheck/full Next.js build, DB tests #165 and all Project Memory checks; PR is mergeable. WellFit PR #23 coordination revision `a9bf45ff5ca0118e2023a96bf372d43d189d8a44` passed Guard/Quality/Status after generated status repair.
-- Final diff counterchecked: implementation scope is two web runtime files plus scoped memory; no business/server/native code. Master scope is Project Memory only.
+- Changes made: WellFit-now PR #387 implemented a global pointer/focus attention system for qualifying Buddy/Rudi/avatar images; WellFit PR #23 recorded visual authority, WFG task, cross-repo lock and open evidence loop.
+- Exact implementation evidence: WellFit-now PR #387 final head `3a6bdfb43e1f613614301eb5f9952071ecf79202` passed Build #1194, Container Build #179, Database Package Tests #171 and Project Memory Guard/Quality/Status; merged as `f687d2ba7c7bc46450301b9c92dbc0845feffa5f`. WellFit PR #23 final head `964537c92cee439f99e3605e339e10923294f6f4` passed Guard/Quality/Status; merged as `e760ac6c2394770eed698c95139765fa5479d5da`.
+- Final diff counterchecked: implementation scope remained web presentation plus scoped memory; no business/server/native code. Master scope remained Project Memory only.
 - Regression/security countercheck: no login/register semantics, auth, data, mission/reward/economy authority, camera/location or Unity runtime changed; reduced-motion/coarse-pointer paths are fail-safe.
-- Result status: IMPLEMENTED_NOT_VERIFIED because final-head CI, Container Build, runnable browser/preview evidence and Sites-v71 synchronization/visual acceptance are still open.
-- Recovery: revert PR #387 and PR #23; no data/state migration is involved.
-- Cross-repo lock: `XLOCK-WF-AVATAR-ATTN-20260826` remains ACTIVE until final-head CI/countercheck; later Sites-v71 sync/visual acceptance remains an open graphical loop even after implementation lock release.
+- Result status: COUNTERCHECKED for implementation and cross-repo coordination.
+- Recovery: revert merged PRs #387/#23; no data/state migration is involved.
+- Cross-repo lock released: `XLOCK-WF-AVATAR-ATTN-20260826`.
+- Open follow-up: `WF-LOOP-005` remains OPEN because runnable browser/preview evidence and deliberate synchronization to the separate Sites-v71 surface are still required for visual acceptance.
 - Falsification question: a transform-composition visual regression, a qualifying avatar not being detected, or a canonical/Sites surface using different source would require immediate adjustment/reconciliation.
 
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.
