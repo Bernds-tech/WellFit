@@ -79,14 +79,14 @@ Keep history append-only; supersede rather than delete.
 
 ## WFG-AVATAR-ATTN-001
 - Date: 2026-08-26
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED
 - Risk: R2
 - Goal: make Rudi and other WellFit web mascots/avatars attentively follow the pointer and look toward hovered/focused controls such as login/register while preserving graphical and technical authority boundaries.
 - Starting state: current qualifying mascot/avatar images were static; current web UI physically resides in WellFit-now; public Sites-v71 is a separate visual candidate checkout.
-- Action: authorized and coordinated WellFit-now PR #387, which adds the global web `AvatarAttentionSystem`; WellFit PR #23 records the graphical task, cross-repo lock, open loop and evidence boundary.
-- Result: PR #387 exact implementation revision `16a779992250879380a17deb8c040a9a628acbae` passed Build #1188, DB tests #165 and Project Memory checks and is mergeable; PR #23 coordination revision `a9bf45ff5ca0118e2023a96bf372d43d189d8a44` passed Guard/Quality/Status after generated status refresh. Final postflight heads, Container Build and runnable browser/preview evidence remain open.
-- Evidence: WellFit-now PR #387 and implementation commits `15347fa7e451976afe8f59400ac9978394608046` / `5c88cb9f9f8421ed6fa7ed2647ea4edd46329855`; WellFit PR #23; RECEIPT-WFN-AVATAR-ATTN-20260826; RECEIPT-WFG-AVATAR-ATTN-20260826.
+- Action: WellFit-now PR #387 added the global web `AvatarAttentionSystem`; WellFit PR #23 recorded the graphical task, cross-repo lock, open loop and evidence boundary.
+- Result: WellFit-now PR #387 final head `3a6bdfb43e1f613614301eb5f9952071ecf79202` passed Build #1194, Container Build #179, DB #171 and Project Memory checks and merged as `f687d2ba7c7bc46450301b9c92dbc0845feffa5f`; WellFit PR #23 final head `964537c92cee439f99e3605e339e10923294f6f4` passed Guard/Quality/Status and merged as `e760ac6c2394770eed698c95139765fa5479d5da`.
+- Evidence: WellFit-now PR #387; WellFit PR #23; `RECEIPT-WFN-AVATAR-ATTN-20260826`; `RECEIPT-WFG-AVATAR-ATTN-20260826`.
 - Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changed; motion is disabled for coarse pointers/reduced-motion clients.
-- Rollback/recovery: revert PRs #387 and #23; no data/state migration exists.
+- Rollback/recovery: revert merged PRs #387 and #23; no data/state migration exists.
 - Falsification question: a transform-composition visual regression, a missed qualifying avatar, or a different canonical/Sites source requires reconciliation before visual acceptance.
-- Next step: complete final-head CI/countercheck and release implementation/cross-repo locks if green; keep Sites-v71 synchronization and visual acceptance explicitly open until runnable evidence exists.
+- Next step: keep `WF-LOOP-005` open for runnable graphical preview/browser evidence and deliberate Sites-v71 synchronization; the implementation/cross-repo lock is released.
