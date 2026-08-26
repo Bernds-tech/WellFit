@@ -74,3 +74,15 @@
 - Dependencies: visual authority in WellFit, general mobile/server authority in WellFit-now, Buddy-specific AR/camera authority in WellFit-Buddy, real Unity compile/build/device evidence.
 - Decision: accept the one-screen AR shell as target UX; specify it now without claiming runtime implementation or bypassing the Unity editor gate.
 - Related task: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
+
+## WFG-CR-006
+- Date: 2026-08-26
+- Status: ACCEPTED_FOR_IMPLEMENTATION
+- Source: owner
+- Idea: wherever Rudi or another WellFit mascot/avatar appears in the web UI, the character should attentively follow the mouse and especially look toward controls the user is hovering or activating, such as login and registration.
+- Classification: graphical interaction behavior with current physical-code bridge
+- Affected areas: web visual presentation, landing/auth CTAs and existing mascot/avatar image surfaces.
+- Existing task/decision checked: WFG-VIS-001, WFN-XREPO-001, WF-CONTRACT-BUDDY-001 and WF-XDEP-004.
+- Dependencies: WellFit remains graphical authority; current physical web code is still in WellFit-now pending WF-MIG-001; no native Buddy behavior or backend authority is transferred.
+- Decision: authorize a bounded, reversible web attention layer in the current physical WellFit-now UI. It may follow fine-pointer input, prioritize interactive control centers, add a subtle click/focus reaction, respect reduced-motion/coarse-pointer clients and auto-discover qualifying Buddy/Rudi/avatar images. Separate Sites-v71 deployment and visual acceptance remain explicit later evidence steps.
+- Related task: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001
