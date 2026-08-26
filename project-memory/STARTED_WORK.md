@@ -11,21 +11,6 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WFG-AVATAR-ATTN-001
-- Started: 2026-08-26
-- Updated: 2026-08-26
-- Status: IMPLEMENTED_NOT_VERIFIED
-- Risk: R2
-- Scope: owner-requested pointer/focus attention behavior for Rudi and other WellFit web mascots/avatars.
-- Branch/PR: WellFit master record `codex/avatar-attention-master-20260826` / PR #23; physical implementation `Bernds-tech/WellFit-now:codex/avatar-attention-20260826` / PR #387.
-- Cross-repo lock: `XLOCK-WF-AVATAR-ATTN-20260826`.
-- Dependencies: `WF-XDEP-004`, current graphical ownership drift, later `WF-MIG-001` convergence; no native Buddy runtime dependency is required for this web-only visual behavior.
-- Completed so far: WellFit-now contains a global client attention layer that auto-detects existing Buddy/Rudi/avatar images, follows fine-pointer input, prioritizes interactive element centers such as login/register CTAs, adds a subtle pointer-down pulse and keyboard-focus attention, and disables motion for reduced-motion/coarse-pointer clients. The exact implementation revision `16a779992250879380a17deb8c040a9a628acbae` passed the complete Build workflow, Database Package Tests and Project Memory checks; PR #387 is mergeable. WellFit PR #23 Project Memory Guard/Quality/Status are green after regenerating `PROJECT_STATUS.md`.
-- Still open: final Container Build on the implementation line, final-head CI after postflight-only memory commits, browser/preview countercheck, separate Sites-v71 synchronization and final visual acceptance.
-- Evidence so far: WellFit-now PR #387 / Build #1188 / DB tests #165; implementation commits `15347fa7e451976afe8f59400ac9978394608046`, `5c88cb9f9f8421ed6fa7ed2647ea4edd46329855`; WellFit PR #23 and green Project Memory checks at coordination head `a9bf45ff5ca0118e2023a96bf372d43d189d8a44`.
-- Exact next step: complete final CI/countercheck on the postflight heads, then release locks if green. Runnable visual preview and Sites-v71 synchronization remain separate graphical evidence steps; do not claim them from GitHub code alone.
-- Owner action needed: none for implementation; owner visual acceptance remains separate after preview evidence.
-
 ## WFG-VIS-001
 - Started: 2026-08-15
 - Updated: 2026-08-20
@@ -43,6 +28,19 @@ Canonical register for work that has started but is not yet fully completed.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
 ## Closed work
+
+## WFG-AVATAR-ATTN-001
+- Started: 2026-08-26
+- Closed: 2026-08-26
+- Status: COUNTERCHECKED
+- Risk: R2
+- Scope: owner-requested pointer/focus attention behavior for Rudi and other WellFit web mascots/avatars.
+- Branch/PR: WellFit coordination PR #23 merged as `e760ac6c2394770eed698c95139765fa5479d5da`; physical WellFit-now implementation PR #387 merged as `f687d2ba7c7bc46450301b9c92dbc0845feffa5f`.
+- Cross-repo lock: `XLOCK-WF-AVATAR-ATTN-20260826` released in post-merge closeout.
+- Result: current physical web code contains a global `AvatarAttentionSystem` that auto-detects Buddy/Rudi/avatar images, follows fine-pointer input, prioritizes interactive control centers such as login/register, reacts subtly to activation, supports keyboard focus and disables motion for coarse-pointer/reduced-motion clients.
+- Evidence: WellFit-now PR #387 final head `3a6bdfb43e1f613614301eb5f9952071ecf79202` passed Build #1194, Container Build #179, DB #171 and Project Memory Guard/Quality/Status; WellFit PR #23 final head `964537c92cee439f99e3605e339e10923294f6f4` passed Guard/Quality/Status before merge.
+- Limitations: this is implementation/coordination countercheck, not visual acceptance of the public Sites-v71 candidate. `WF-LOOP-005` remains OPEN for runnable visual evidence and deliberate Sites synchronization.
+- Next step: preserve the merged implementation; synchronize/test the selected graphical/Sites surface when its editable preview source is available.
 
 ## WFG-MOBILE-UX-001
 - Started: 2026-08-26
