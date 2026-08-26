@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-20",
+  "updated": "2026-08-26",
   "program": "WellFit",
   "dependencies": [
     {
@@ -11,7 +11,7 @@
       "contract": "WF-CONTRACT-MISSION-001",
       "state": "PARTIAL",
       "blocks_acceptance": true,
-      "evidence": "Technical mission/global-location authority exists; Buddy-specific AR/event integration and device evidence are open."
+      "evidence": "Technical mission/global-location authority exists; the exact Buddy scaffold baseline is merged in WellFit-Buddy, while Buddy-specific event integration, destination runtime and device evidence remain open."
     },
     {
       "id": "WF-XDEP-002",
@@ -29,9 +29,9 @@
       "producer": "Bernds-tech/WellFit-now",
       "consumer": "Bernds-tech/WellFit-Buddy",
       "contract": "WF-CONTRACT-BUDDY-001",
-      "state": "OWNERSHIP_DRIFT",
+      "state": "MIGRATION_IN_PROGRESS",
       "blocks_acceptance": true,
-      "evidence": "Unity Buddy AR project currently lives in WellFit-now; intended Buddy authority is WellFit-Buddy and real-device acceptance is open. General technical mobile logic remains in WellFit-now."
+      "evidence": "Exact source at WellFit-now commit 447093decd783b33a6e724170dbe4667e899348b is an incomplete Unity scaffold/reference set. WellFit-Buddy merged the reviewed baseline in PR #18 and audit correction in PR #19; fresh destination, build, device and authority acceptance remain open. General technical mobile logic remains in WellFit-now."
     },
     {
       "id": "WF-XDEP-004",
@@ -51,7 +51,7 @@
       "contract": "WF-CONTRACT-AUTH-001",
       "state": "PARTIAL",
       "blocks_acceptance": true,
-      "evidence": "Technical auth/session authority is hardened in WellFit-now; any Buddy-specific client bridge remains to be baselined."
+      "evidence": "Technical auth/session authority is hardened in WellFit-now; the Buddy source baseline maps the boundary, while an implemented and verified Buddy client bridge remains open."
     },
     {
       "id": "WF-XDEP-006",
@@ -68,7 +68,7 @@
     "A dependent feature cannot be ACCEPTED while a blocking dependency is unresolved.",
     "Dependency state is evidence-based and never inferred from obsolete memory wording.",
     "Add a stable WF-XDEP ID before introducing a new cross-repository dependency.",
-    "OWNERSHIP_DRIFT records a real implementation living in a different repository than its intended responsibility; it does not mean the implementation is missing.",
+    "OWNERSHIP_DRIFT records implementation or source material living in a different repository than intended; exact readiness must be stated and never inferred from directory names.",
     "Repository responsibility is domain-based: technical=WellFit-now, graphical=WellFit, Buddy=WellFit-Buddy."
   ]
 }
