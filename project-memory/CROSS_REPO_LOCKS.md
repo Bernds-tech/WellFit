@@ -13,7 +13,7 @@ Use this register for work that touches more than one WellFit repository.
 ```text
 ## XLOCK-<ID>
 - Cross-ID:
-- Status: ACTIVE|STALE|RELEASED|SUPERSEDED
+- Status: RELEASED|STALE|RELEASED|SUPERSEDED
 - Lead repository:
 - Participating repositories:
 - Scope:
@@ -27,6 +27,10 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
+None.
+
+## Released locks
+
 ## XLOCK-WF-MIG-002-20260826
 - Cross-ID: `WF-MIG-002`
 - Status: ACTIVE
@@ -37,9 +41,6 @@ Use this register for work that touches more than one WellFit repository.
 - Dependency IDs: `WF-XDEP-001`, `WF-XDEP-003`, `WF-XDEP-005`
 - Branches/PRs: WellFit `codex/wf-mig-002-master-reconcile-20260826` / pending; WellFit-Buddy merged PRs #18 and #19
 - Acquired: 2026-08-26 Europe/Vienna
-- Updated: 2026-08-26
+- Updated: 2026-08-26 after bounded diff countercheck and PR #20 receipt
+- Released: 2026-08-26; no runtime/source mutation occurred.
 - Resume from: WellFit-Buddy main `48405aad8489c03d68f58526867eb14bb4458823` and exact WellFit-now source `447093decd783b33a6e724170dbe4667e899348b:native/unity/WellFitBuddyAR`.
-
-## Released locks
-
-None.
