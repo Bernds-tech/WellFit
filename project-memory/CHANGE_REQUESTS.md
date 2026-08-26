@@ -61,3 +61,16 @@
 - Decision:
 - Related task:
 ```
+
+
+## WFG-CR-005
+- Date: 2026-08-26
+- Status: ACCEPTED
+- Source: owner
+- Idea: make the phone game a single persistent full-screen real-world camera/AR surface with only a small WellFit logo and opposite three-line menu; open Buddy care, daily/weekly missions, adventures/challenges, arenas, mayor/checkpoints and essential settings as overlays; keep deeper configuration on PC.
+- Classification: cross-repository mobile UX architecture
+- Affected areas: graphical mobile shell, general technical mobile state/routing, Buddy AR-session continuity, mission/Buddy contracts.
+- Existing task/decision checked: WFG-VIS-001, WFB-UNITY-EDITOR-RESOLVE-001, WF-CONTRACT-BUDDY-001, WF-CONTRACT-MISSION-001 and WF-XDEP-006.
+- Dependencies: visual authority in WellFit, general mobile/server authority in WellFit-now, Buddy-specific AR/camera authority in WellFit-Buddy, real Unity compile/build/device evidence.
+- Decision: accept the one-screen AR shell as target UX; specify it now without claiming runtime implementation or bypassing the Unity editor gate.
+- Related task: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
