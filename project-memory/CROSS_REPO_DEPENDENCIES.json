@@ -62,6 +62,16 @@
       "state": "TECHNICAL_DOMAIN",
       "blocks_acceptance": false,
       "evidence": "Current role split keeps general technical mobile application logic in WellFit-now; only Buddy-specific runtime/AR belongs in WellFit-Buddy."
+    },
+    {
+      "id": "WF-XDEP-007",
+      "feature": "One-screen AR mobile game shell",
+      "producer": "SPLIT: WellFit visuals + WellFit-now general shell/data + WellFit-Buddy Buddy AR",
+      "consumer": "WellFit mobile player",
+      "contract": "WF-CONTRACT-MOBILE-SHELL-001",
+      "state": "SPECIFIED_NOT_IMPLEMENTED",
+      "blocks_acceptance": true,
+      "evidence": "Owner target and responsibility split are specified. No accepted graphical shell, general mobile state composition, Unity/Buddy integration, Android build or real-device evidence exists."
     }
   ],
   "rules": [

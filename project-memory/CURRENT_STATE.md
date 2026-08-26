@@ -28,3 +28,9 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 - Do not treat GitHub `mergeable=true` as visual/CI acceptance.
 
 Before changing product visuals, inspect current `main`, active visual branches/PRs, `WELLFIT_MASTER_STATE.json`, the relevant WellFit-now capability state and the relevant WellFit-Buddy capability state.
+
+## Accepted mobile target (not runtime evidence)
+- Owner decision 2026-08-26: the phone game uses one persistent full-screen camera/AR world with only a small WellFit logo and opposite three-line menu as permanent navigation chrome.
+- Buddy care, daily/weekly missions, adventures/challenges, arenas, mayor/checkpoints and essential settings open as overlays; deeper configuration remains PC-first.
+- Canonical specification: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md` / `WF-CONTRACT-MOBILE-SHELL-001`.
+- Evidence boundary: this is accepted target UX, not proof of graphical implementation, Unity compilation, Android build or real-device behavior.

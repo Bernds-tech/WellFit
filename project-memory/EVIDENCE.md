@@ -56,3 +56,14 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Result: the exact source is valuable scaffold/reference material, not a complete or compile-ready Unity project; WellFit-Buddy contains the reviewed baseline and Git LFS preparation but no Unity runtime, successful build or device acceptance.
 - Limitations: static repository and CI evidence only; no Unity editor, Android build or real-device execution occurred.
 - Acceptance: COUNTERCHECKED
+
+
+## WF-EV-006
+- Related: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
+- Date: 2026-08-26
+- Target: canonical mobile one-screen AR UX
+- Type: owner product decision plus bounded cross-repository contract
+- Reference: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md` and PR #22
+- Result: full-screen persistent camera/AR root, minimal logo/menu chrome, overlay feature navigation, PC-first deep configuration and split repository authority are specified.
+- Limitations: this accepts the target specification only; no visual runtime, Unity compile, Android build or real-device behavior is implemented or accepted.
+- Acceptance: COUNTERCHECKED

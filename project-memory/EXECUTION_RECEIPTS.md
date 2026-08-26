@@ -42,4 +42,27 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Work lock released: `XLOCK-WF-MIG-002-20260826`.
 - Falsification question: a complete compile-ready project at the exact source commit or an already accepted destination runtime on another exact revision would invalidate this reconciliation.
 
+
+## RECEIPT-WFG-MOBILE-UX-20260826
+- Task: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
+- Started: 2026-08-26 Europe/Vienna
+- Finished: 2026-08-26 after bounded diff and initial CI countercheck
+- Status: COUNTERCHECKED
+- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22
+- Risk: R3
+- Preflight checked: mandatory WellFit and WellFit-Buddy memory, current V9 master/contracts/dependencies/integration gates, current Unity destination/editor blocker and prior mobile/Buddy decisions.
+- Prior attempts found: existing mobile routes and incomplete Unity scaffold; no accepted one-screen AR shell contract or exact cross-repository runtime implementation.
+- Dependency result: product decision can be specified now; runtime work remains split by domain and Unity controller work remains blocked until editor resolution/clean compile.
+- Evidence classes: owner product decision, current repository/project-memory state and bounded contract diff.
+- Changes made: canonical UX spec, change/decision/task continuity and new contract/dependency/integration records.
+- Negative-path countercheck: preserve server authority; do not claim compile/build/device runtime; do not create a second dashboard navigation model.
+- Recovery: revert/discard only this specification branch.
+- Checks: Project Memory Guard and Quality passed on PR #22; Status required regeneration after the intentional ledger changes.
+- Final diff counterchecked: yes; specification/governance only, with no runtime, binary, secret or capability claim.
+- Result status: COUNTERCHECKED
+- Work locks released: `LOCK-WFG-MOBILE-UX-001` and `XLOCK-WF-MOBILE-SHELL-001`.
+- Open follow-up: fresh Status/review and merge, then separately governed implementation slices.
+- Falsification question: an already accepted exact-version one-screen implementation or a platform constraint requiring normal overlays to destroy the AR world would invalidate the current implementation contract.
+
+
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.

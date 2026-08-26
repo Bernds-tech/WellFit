@@ -44,3 +44,19 @@ None.
 - Updated: 2026-08-26 after bounded diff countercheck and PR #20 receipt
 - Released: 2026-08-26; no runtime/source mutation occurred.
 - Resume from: WellFit-Buddy main `48405aad8489c03d68f58526867eb14bb4458823` and exact WellFit-now source `447093decd783b33a6e724170dbe4667e899348b:native/unity/WellFitBuddyAR`.
+
+
+## XLOCK-WF-MOBILE-SHELL-001
+- Cross-ID: `WF-CONTRACT-MOBILE-SHELL-001`
+- Status: RELEASED
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`, `Bernds-tech/WellFit-Buddy`
+- Scope: record the owner-approved one-screen camera/AR shell, consumer responsibilities, dependency and integration gate; no runtime code or authority transfer.
+- Contract IDs: `WF-CONTRACT-MOBILE-SHELL-001`, `WF-CONTRACT-BUDDY-001`, `WF-CONTRACT-MISSION-001`, `WF-CONTRACT-AUTH-001`
+- Dependency IDs: `WF-XDEP-006`, `WF-XDEP-007`
+- Branches/PRs: WellFit `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22
+- Acquired: 2026-08-26 Europe/Vienna
+- Updated: 2026-08-26 after bounded contract diff and green Guard/Quality countercheck.
+- Released: 2026-08-26; no runtime code or authority transfer occurred.
+- Result: target UX, responsibilities, dependency and integration gate are registered.
+- Resume from: WF-INT-006 plus the WellFit-now shell implementation prerequisite and WFB-UNITY-EDITOR-RESOLVE-001 blocked editor gate.

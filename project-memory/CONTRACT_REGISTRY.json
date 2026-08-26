@@ -63,6 +63,19 @@
       "state": "PARTIAL",
       "compatibility": "SERVER_LOCATION_AUTHORITY_VERIFIED_BUDDY_EVENT_BOUNDARY_OPEN",
       "evidence": "Worldwide published mission locations, geo-cell search, Haversine checks and safety-review fingerprints exist in WellFit-now. Buddy-specific sensor/location evidence contracts and real-device privacy validation are not accepted."
+    },
+    {
+      "id": "WF-CONTRACT-MOBILE-SHELL-001",
+      "domain": "mobile_one_screen_ar_shell",
+      "authority": "SPLIT_GRAPHICAL_TECHNICAL_BUDDY_BY_DOMAIN",
+      "consumers": [
+        "Bernds-tech/WellFit",
+        "Bernds-tech/WellFit-now",
+        "Bernds-tech/WellFit-Buddy"
+      ],
+      "state": "SPECIFIED_NOT_IMPLEMENTED",
+      "compatibility": "OWNER_TARGET_ACCEPTED_RUNTIME_E2E_OPEN",
+      "evidence": "Owner-approved target: full-screen persistent camera/AR root with small WellFit logo and opposite three-line menu; Buddy care, missions, arenas, mayor/checkpoints and essential settings open as overlays. WellFit owns visuals, WellFit-now owns general mobile/server integration, WellFit-Buddy owns Buddy-specific AR/camera continuity. No exact runtime/build/device acceptance exists."
     }
   ],
   "rules": [
@@ -71,6 +84,7 @@
     "Server-authoritative reward, mission and anti-cheat decisions remain in the technical WellFit-now domain.",
     "WellFit-Buddy owns Buddy-specific behavior/presentation/AR, not the whole general technical mobile application.",
     "A contract may be centralized before source code is physically migrated during convergence.",
-    "PARTIAL means a real implementation exists but at least one consumer, migration, semantic decision or integration acceptance remains open."
+    "PARTIAL means a real implementation exists but at least one consumer, migration, semantic decision or integration acceptance remains open.",
+    "WF-CONTRACT-MOBILE-SHELL-001 requires normal menu navigation to preserve the active AR world state; OS lifecycle, permission loss and tracking failure remain explicit recovery paths."
   ]
 }

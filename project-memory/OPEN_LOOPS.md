@@ -25,4 +25,13 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Gap: PR #1 represents a flavor/size/subscription product-preview concept inconsistent with current WellFit product truth.
 - Resolution: exclude and close the stale PR; preserve history, do not merge it.
 
+
+## WF-LOOP-004
+- Related: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
+- Status: OPEN
+- Updated: 2026-08-26
+- Gap: the one-screen AR shell target is owner-approved and specified, but graphical acceptance, general mobile-shell implementation, Unity/Buddy integration, build and exact-device evidence do not yet exist.
+- Close when: the canonical contract is counterchecked and later exact-version visual + technical shell + Buddy AR implementation passes WF-INT-006 and the applicable device gates.
+- Next check: countercheck this specification PR, then create separate repository-owned implementation tasks without bypassing WFB-UNITY-EDITOR-RESOLVE-001.
+
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.

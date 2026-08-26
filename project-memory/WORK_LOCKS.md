@@ -24,4 +24,16 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Released/superseded locks
 
+## LOCK-WFG-MOBILE-UX-001
+- Task: WFG-MOBILE-UX-001
+- Status: RELEASED
+- Risk: R3
+- Holder: Codex session 2026-08-26
+- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22
+- Acquired: 2026-08-26 Europe/Vienna
+- Released: 2026-08-26 after bounded diff and green Guard/Quality countercheck.
+- Scope: canonical one-screen AR mobile UX contract and master registry reconciliation only; no visual runtime, backend or Unity controller implementation.
+- Result: specification and coordination records created; runtime gates remain open.
+- Recovery: revert PR #22; runtime repositories remain unchanged.
+
 No additional locks recorded.
