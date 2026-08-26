@@ -60,3 +60,16 @@ Keep history append-only; supersede rather than delete.
 - Rollback/recovery: preserve WellFit-now source unchanged; revert the bounded destination or this master PR if any acceptance gate fails.
 - Falsification question: a complete compile-ready Unity project at the exact source commit, or a destination runtime/build/device acceptance already present on a different exact revision, would invalidate this state and require immediate reconciliation.
 - Next step: fresh Project Memory CI/review, merge, then acquire a Buddy-local R3 implementation lock for the genuine Unity 6.3 LTS destination.
+
+
+## WFG-MOBILE-UX-001
+- Date: 2026-08-26
+- Status: IN_PROGRESS
+- Risk: R3
+- Goal: bind the owner-approved one-screen mobile AR shell as the canonical cross-repository UX contract without claiming an implemented runtime.
+- Starting state: mobile routes and Buddy/backend foundations exist, but no accepted cross-repository one-screen AR shell contract or exact implementation exists.
+- Action: add the canonical UX specification and register its graphical, technical/server and Buddy-domain responsibilities.
+- Evidence: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md`, WFG-CR-005, WFG-DEC-004 and WF-CONTRACT-MOBILE-SHELL-001.
+- Negative/fail-closed path: no client reward/mission authority, no fabricated Unity compile/build/device claim, no permanent dashboard/bottom navigation and no AR reset on ordinary menu navigation.
+- Rollback/recovery: revert this specification branch; existing runtime repositories remain unchanged.
+- Next step: countercheck the contract/registries through PR CI and review, then hand off separate implementation slices to WellFit-now and WellFit-Buddy after their prerequisites.
