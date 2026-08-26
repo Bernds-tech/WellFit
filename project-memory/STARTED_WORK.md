@@ -11,19 +11,6 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WFG-MOBILE-UX-001
-- Started: 2026-08-26
-- Status: IN_PROGRESS
-- Risk: R3
-- Scope: canonical one-screen camera/AR mobile UX contract and cross-repository responsibility mapping; no runtime implementation.
-- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR pending.
-- Work lock: `LOCK-WFG-MOBILE-UX-001`.
-- Cross-repo lock: `XLOCK-WF-MOBILE-SHELL-001`.
-- Dependencies: WF-CONTRACT-MOBILE-SHELL-001, WF-CONTRACT-BUDDY-001, WF-CONTRACT-MISSION-001, WF-XDEP-006/007 and Unity editor/build/device gates.
-- Completed so far: owner product decision received and current repository boundaries/preconditions reconciled.
-- Still open: commit specification, run Project Memory checks, review consumer impacts and close/release documentation locks.
-- Exact next step: publish the bounded contract PR; do not start an uncompiled Unity controller or claim runtime acceptance.
-
 ## WFG-VIS-001
 - Started: 2026-08-15
 - Updated: 2026-08-20
@@ -41,6 +28,20 @@ Canonical register for work that has started but is not yet fully completed.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
 ## Closed work
+
+## WFG-MOBILE-UX-001
+- Started: 2026-08-26
+- Closed: 2026-08-26
+- Status: COUNTERCHECKED
+- Risk: R3
+- Scope: canonical one-screen camera/AR mobile UX contract and cross-repository responsibility mapping; no runtime implementation.
+- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22.
+- Work lock: `LOCK-WFG-MOBILE-UX-001` released.
+- Cross-repo lock: `XLOCK-WF-MOBILE-SHELL-001` released.
+- Result: owner target, no-dashboard constraint, overlay navigation state, repository responsibilities and future exact-device integration acceptance are bound.
+- Limitations: no visual runtime, Unity compile, Android build or device behavior is claimed.
+- Evidence: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md`, WF-EV-006 and green Guard/Quality on PR #22.
+- Next step: implement separately in WellFit-now and WellFit-Buddy after their repository prerequisites; keep WF-LOOP-004 open until exact E2E acceptance.
 
 ## WFG-MASTER-MIG-002-RECON
 - Started: 2026-08-26
