@@ -21,4 +21,25 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Work lock released: reconciliation task does not own product implementation lock; LOCK-WFG-VIS-001 remains STALE.
 - Falsification question: What observation would prove our conclusion wrong? A newer accepted/green visual branch or explicit canonical visual acceptance on another exact revision would require this candidate classification to be superseded.
 
+## RECEIPT-WFG-MASTER-MIG-002-20260826
+- Task: WFG-MASTER-MIG-002-RECON / WF-MIG-002
+- Started: 2026-08-26 Europe/Vienna
+- Finished: 2026-08-26 after exact cross-repo source/master countercheck and PR #20 closeout
+- Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / PR #20
+- Risk: R3
+- Preflight checked: mandatory WellFit local/V9 memory, current WellFit master, exact WellFit-now source baseline, WellFit-Buddy main plus merged PRs #18/#19, contracts, dependencies, integration gates, locks and convergence entries.
+- Prior attempts found: V9 master overstated the Unity scaffold as a real project and described WellFit-Buddy as governance-only.
+- Dependency result: source truth is bound; fresh destination, compile/build, device and end-to-end contract acceptance remain open.
+- Evidence classes: immutable exact source commit/tree, merged Buddy baseline/audit PRs and fresh WellFit Project Memory CI/review.
+- Changes made: corrected master physical state and claims; aligned dependencies/contracts/gates; advanced WF-MIG-002 to bounded `MIGRATE_NOW`; selected fresh Unity destination initialization.
+- Checks/tests: Project Memory Quality and Status passed on PR #20 before final closeout; final Guard/review are required before merge.
+- Final diff counterchecked: yes; V9/Project Memory only, no runtime/source move/backend/UI/build/device/secrets.
+- Regression/security countercheck: no wholesale copy, source deletion, technical/server authority transfer, client reward authority or device-success claim.
+- Recovery: preserve WellFit-now source and revert PR #20 if master evidence/boundaries fail.
+- Evidence produced: WF-EV-005 and reconciled V9 master registers.
+- Result status: COUNTERCHECKED
+- Open follow-up: merge after final green checks/review, then separately lock and initialize the Unity 6.3 LTS destination in WellFit-Buddy.
+- Work lock released: `XLOCK-WF-MIG-002-20260826`.
+- Falsification question: a complete compile-ready project at the exact source commit or an already accepted destination runtime on another exact revision would invalidate this reconciliation.
+
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.

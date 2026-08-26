@@ -1,13 +1,23 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-08-26",
   "program": "WellFit",
-  "current_repositories": ["Bernds-tech/WellFit", "Bernds-tech/WellFit-now", "Bernds-tech/WellFit-Buddy"],
+  "current_repositories": [
+    "Bernds-tech/WellFit",
+    "Bernds-tech/WellFit-now",
+    "Bernds-tech/WellFit-Buddy"
+  ],
   "status": "PLANNED_NOT_SCHEDULED",
   "target_repository": null,
   "target_date": null,
-  "strategy": "UNDECIDED",
-  "allowed_strategies": ["BIG_BANG", "PHASED_BY_DOMAIN", "PHASED_BY_FEATURE", "SHARED_MONOREPO_WITH_APPS", "OTHER_REVIEWED"],
+  "strategy": "PHASED_BY_DOMAIN",
+  "allowed_strategies": [
+    "BIG_BANG",
+    "PHASED_BY_DOMAIN",
+    "PHASED_BY_FEATURE",
+    "SHARED_MONOREPO_WITH_APPS",
+    "OTHER_REVIEWED"
+  ],
   "rules": [
     "Do not force a repository merge before architecture/evidence supports it.",
     "Incremental convergence is allowed and may happen feature by feature or domain by domain.",
@@ -18,7 +28,7 @@
   ],
   "current_roles": {
     "Bernds-tech/WellFit": "visual_landing_ui",
-    "Bernds-tech/WellFit-now": "technical_web_backend",
-    "Bernds-tech/WellFit-Buddy": "native_mobile_ar_buddy"
+    "Bernds-tech/WellFit-now": "technical_product_backend_and_general_technical_app_mobile",
+    "Bernds-tech/WellFit-Buddy": "buddy_behavior_presentation_animation_and_buddy_specific_ar_camera"
   }
 }

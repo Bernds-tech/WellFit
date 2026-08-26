@@ -46,3 +46,17 @@ Keep history append-only; supersede rather than delete.
 - Evidence: current main/PR/branch metadata and current Project Memory files.
 - Falsification question: What observation would prove this reconciliation wrong? A newer accepted visual baseline or current CI/owner acceptance bound to a different exact revision would supersede WFG-VIS-001 and must be recorded before further implementation.
 - Next step: keep WFG-VIS-001 open until PR #2 is reconciled against current main and receives exact-head visual/CI evidence.
+
+## WFG-MASTER-MIG-002-RECON
+- Date: 2026-08-26
+- Status: COUNTERCHECKED
+- Risk: R3
+- Goal: reconcile the V9 program master to the exact merged WF-MIG-002 source baseline and select the bounded next migration step.
+- Starting state: master memory overstated the WellFit-now directory as a real Unity project and still described WellFit-Buddy as governance-only.
+- Action: aligned repository physical state, dependencies, Buddy contract evidence, integration gates, convergence plan/ledger and master next action to the exact source and merged Buddy evidence.
+- Result: `WF-MIG-002` is `IN_PROGRESS` with decision `MIGRATE_NOW` limited to a fresh version-pinned destination and incremental reviewed Buddy-domain ports.
+- Evidence: WellFit-Buddy PR #18, PR #19, main `48405aad8489c03d68f58526867eb14bb4458823`, exact WellFit-now source commit `447093decd783b33a6e724170dbe4667e899348b` and WF-EV-005.
+- Negative/fail-closed path: no wholesale copy, source deletion, server-authority transfer, build claim or device claim.
+- Rollback/recovery: preserve WellFit-now source unchanged; revert the bounded destination or this master PR if any acceptance gate fails.
+- Falsification question: a complete compile-ready Unity project at the exact source commit, or a destination runtime/build/device acceptance already present on a different exact revision, would invalidate this state and require immediate reconciliation.
+- Next step: fresh Project Memory CI/review, merge, then acquire a Buddy-local R3 implementation lock for the genuine Unity 6.3 LTS destination.

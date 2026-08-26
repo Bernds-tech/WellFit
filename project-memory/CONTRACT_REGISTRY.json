@@ -1,13 +1,69 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-20",
+  "updated": "2026-08-26",
   "program": "WellFit",
   "contracts": [
-    {"id":"WF-CONTRACT-AUTH-001","domain":"auth_identity","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"TECHNICAL_AUTHORITY_VERIFIED_CONSUMER_HANDOFF_OPEN","evidence":"Closed-Beta age>=16, email verification, onboarding/account gating, HttpOnly sessions, revocation and device-session management are merged in WellFit-now. Graphical and Buddy surfaces may consume identity but do not own authentication authority."},
-    {"id":"WF-CONTRACT-MISSION-001","domain":"missions_completion","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"SERVER_AUTHORITY_VERIFIED_BUDDY_E2E_OPEN","evidence":"Server flow attempt->evidence->admin review->completion->ledger->wallet exists. Buddy-specific AR/evidence events are not accepted end-to-end."},
-    {"id":"WF-CONTRACT-REWARD-001","domain":"rewards_economy_authority","authority":"Bernds-tech/WellFit-now","consumers":["Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"SERVER_AUTHORITY_VERIFIED_TERMINOLOGY_OPEN","evidence":"Server-authoritative internal ledger/wallet and Buddy spend exist with replay/idempotency/audit protections. WFXP versus WFP/XP semantics require explicit owner-reviewed migration; no token/real-money authority is active."},
-    {"id":"WF-CONTRACT-BUDDY-001","domain":"buddy_state_and_events","authority":"SHARED_CONTRACT_TECHNICAL_SERVER_BUDDY_CLIENT","consumers":["Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy","Bernds-tech/WellFit"],"state":"PARTIAL","compatibility":"SERVER_STATE_EXISTS_BUDDY_CLIENT_MIGRATION_OPEN","evidence":"WellFit-now owns server-authoritative Buddy projections/actions and general technical app integration. WellFit-Buddy owns Buddy behavior/presentation/animation and Buddy-specific AR/camera events. Existing Unity Buddy AR code is still physically in WellFit-now; migration/event-schema/device acceptance remain open."},
-    {"id":"WF-CONTRACT-LOCATION-001","domain":"buddy_location_sensor_event_boundary","authority":"SHARED_TECHNICAL_SERVER_AND_BUDDY_EVENT","consumers":["Bernds-tech/WellFit-now","Bernds-tech/WellFit-Buddy"],"state":"PARTIAL","compatibility":"SERVER_LOCATION_AUTHORITY_VERIFIED_BUDDY_EVENT_BOUNDARY_OPEN","evidence":"Worldwide published mission locations, geo-cell search, Haversine checks and safety-review fingerprints exist in WellFit-now. Buddy-specific sensor/location evidence contracts and real-device privacy validation are not accepted."}
+    {
+      "id": "WF-CONTRACT-AUTH-001",
+      "domain": "auth_identity",
+      "authority": "Bernds-tech/WellFit-now",
+      "consumers": [
+        "Bernds-tech/WellFit-Buddy",
+        "Bernds-tech/WellFit"
+      ],
+      "state": "PARTIAL",
+      "compatibility": "TECHNICAL_AUTHORITY_VERIFIED_CONSUMER_HANDOFF_OPEN",
+      "evidence": "Closed-Beta age>=16, email verification, onboarding/account gating, HttpOnly sessions, revocation and device-session management are merged in WellFit-now. Graphical and Buddy surfaces may consume identity but do not own authentication authority."
+    },
+    {
+      "id": "WF-CONTRACT-MISSION-001",
+      "domain": "missions_completion",
+      "authority": "Bernds-tech/WellFit-now",
+      "consumers": [
+        "Bernds-tech/WellFit-Buddy",
+        "Bernds-tech/WellFit"
+      ],
+      "state": "PARTIAL",
+      "compatibility": "SERVER_AUTHORITY_VERIFIED_BUDDY_E2E_OPEN",
+      "evidence": "Server flow attempt->evidence->admin review->completion->ledger->wallet exists. Buddy-specific AR/evidence events are not accepted end-to-end."
+    },
+    {
+      "id": "WF-CONTRACT-REWARD-001",
+      "domain": "rewards_economy_authority",
+      "authority": "Bernds-tech/WellFit-now",
+      "consumers": [
+        "Bernds-tech/WellFit-Buddy",
+        "Bernds-tech/WellFit"
+      ],
+      "state": "PARTIAL",
+      "compatibility": "SERVER_AUTHORITY_VERIFIED_TERMINOLOGY_OPEN",
+      "evidence": "Server-authoritative internal ledger/wallet and Buddy spend exist with replay/idempotency/audit protections. WFXP versus WFP/XP semantics require explicit owner-reviewed migration; no token/real-money authority is active."
+    },
+    {
+      "id": "WF-CONTRACT-BUDDY-001",
+      "domain": "buddy_state_and_events",
+      "authority": "SHARED_CONTRACT_TECHNICAL_SERVER_BUDDY_CLIENT",
+      "consumers": [
+        "Bernds-tech/WellFit-now",
+        "Bernds-tech/WellFit-Buddy",
+        "Bernds-tech/WellFit"
+      ],
+      "state": "PARTIAL",
+      "compatibility": "SERVER_STATE_EXISTS_DESTINATION_RUNTIME_OPEN",
+      "evidence": "WellFit-now owns server-authoritative Buddy projections/actions and general technical app integration. WellFit-Buddy owns Buddy behavior/presentation/animation and Buddy-specific AR/camera events. The exact WellFit-now Unity source is an incomplete scaffold/reference set baselined by merged Buddy PR #18; fresh destination, event schema, build and device acceptance remain open."
+    },
+    {
+      "id": "WF-CONTRACT-LOCATION-001",
+      "domain": "buddy_location_sensor_event_boundary",
+      "authority": "SHARED_TECHNICAL_SERVER_AND_BUDDY_EVENT",
+      "consumers": [
+        "Bernds-tech/WellFit-now",
+        "Bernds-tech/WellFit-Buddy"
+      ],
+      "state": "PARTIAL",
+      "compatibility": "SERVER_LOCATION_AUTHORITY_VERIFIED_BUDDY_EVENT_BOUNDARY_OPEN",
+      "evidence": "Worldwide published mission locations, geo-cell search, Haversine checks and safety-review fingerprints exist in WellFit-now. Buddy-specific sensor/location evidence contracts and real-device privacy validation are not accepted."
+    }
   ],
   "rules": [
     "Every cross-repository API, event, identifier or shared state must have a stable contract ID before acceptance.",

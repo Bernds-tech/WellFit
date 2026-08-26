@@ -1,41 +1,77 @@
 {
   "schema_version": 1,
-  "updated": "2026-08-20",
+  "updated": "2026-08-26",
   "program": "WellFit",
   "authority_repository": "Bernds-tech/WellFit",
   "repositories": {
-    "Bernds-tech/WellFit": {"role": "graphical_ui_ux", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PARTIAL_GRAPHICAL_CANDIDATE", "note": "Graphical/UI/UX authority. Much current product UI still physically lives in WellFit-now; migration is not yet accepted."},
-    "Bernds-tech/WellFit-now": {"role": "technical_product", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "PRIMARY_PRODUCT_CODEBASE", "note": "Technical authority for web/backend/auth/data/APIs/mission/economy/server logic, security/runtime and general technical application/mobile logic outside the Buddy domain. It still contains graphical/UI code and Buddy-specific Unity AR code pending explicit migration."},
-    "Bernds-tech/WellFit-Buddy": {"role": "buddy_domain", "memory_version": 9, "state": "ACTIVE", "physical_code_state": "GOVERNANCE_ONLY", "note": "Buddy authority: Buddy behavior, presentation/animation and Buddy-specific AR/camera interaction. General technical mobile/application ownership remains in WellFit-now."}
+    "Bernds-tech/WellFit": {
+      "role": "graphical_ui_ux",
+      "memory_version": 9,
+      "state": "ACTIVE",
+      "physical_code_state": "PARTIAL_GRAPHICAL_CANDIDATE",
+      "note": "Graphical/UI/UX authority. Much current product UI still physically lives in WellFit-now; migration is not yet accepted."
+    },
+    "Bernds-tech/WellFit-now": {
+      "role": "technical_product",
+      "memory_version": 9,
+      "state": "ACTIVE",
+      "physical_code_state": "PRIMARY_PRODUCT_CODEBASE",
+      "note": "Technical authority for web/backend/auth/data/APIs/mission/economy/server logic, security/runtime and general technical application/mobile logic outside the Buddy domain. It still contains graphical/UI code and the preserved incomplete Unity Buddy AR source scaffold pending destination acceptance."
+    },
+    "Bernds-tech/WellFit-Buddy": {
+      "role": "buddy_domain",
+      "memory_version": 9,
+      "state": "ACTIVE",
+      "physical_code_state": "MIGRATION_BASELINE_ONLY",
+      "note": "Buddy authority with merged WF-MIG-002 source baseline and Git LFS preparation, but no complete Unity runtime, successful build or real-device acceptance. General technical mobile/application ownership remains in WellFit-now."
+    }
   },
   "convergence": {
     "status": "PLANNED_NOT_SCHEDULED",
     "target_repository": null,
     "target_date": null,
-    "strategy": "UNDECIDED",
+    "strategy": "PHASED_BY_DOMAIN",
     "current_ownership_drift": true
   },
   "master_gates": {
-    "repo_memory_alignment": {"state": "RECONCILIATION_REQUIRED", "risk": "R3", "evidence": "Roles are now explicit and consistent, but physical code ownership still differs from final domain ownership."},
-    "cross_repo_contracts": {"state": "PARTIAL", "risk": "R3", "evidence": "Technical authority is substantially implemented; graphical and Buddy consumer contracts plus physical ownership migration remain incomplete."},
-    "integration_e2e": {"state": "TODO", "risk": "R3", "evidence": "No exact-version graphical + technical + Buddy end-to-end mission/Buddy journey is accepted."},
-    "convergence_readiness": {"state": "PARTIAL", "risk": "R3", "evidence": "Roles are fixed; actual graphical and Buddy code still partly resides in WellFit-now and migration is not accepted."}
+    "repo_memory_alignment": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "evidence": "Roles and the exact WF-MIG-002 source baseline are aligned; physical graphical ownership and Buddy runtime migration remain incomplete."
+    },
+    "cross_repo_contracts": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "evidence": "Technical authority is substantially implemented; Buddy contract boundaries are baselined, while event schemas, graphical consumer handoff and end-to-end acceptance remain incomplete."
+    },
+    "integration_e2e": {
+      "state": "TODO",
+      "risk": "R3",
+      "evidence": "No exact-version graphical + technical + Buddy end-to-end mission/Buddy journey is accepted."
+    },
+    "convergence_readiness": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "evidence": "WF-MIG-002 is approved for bounded fresh-destination initialization; source retention, destination compile/build/device proof and graphical migration remain open."
+    }
   },
   "real_program_truth": [
     "WellFit-now is the technical product authority and currently the physical primary codebase.",
     "WellFit is the graphical/UI/UX authority.",
     "WellFit-Buddy is the Buddy authority, not the owner of all general technical mobile application logic.",
     "Closed-Beta auth/session hardening, server-authoritative missions/economy, Buddy backend and global-location foundations exist in WellFit-now.",
-    "The Unity Buddy AR project exists under WellFit-now/native/unity/WellFitBuddyAR and remains real-device unaccepted.",
-    "The three repositories may later converge; no final target or timing has been chosen."
+    "At WellFit-now commit 447093decd783b33a6e724170dbe4667e899348b, native/unity/WellFitBuddyAR is useful scaffold/reference material but not a complete or compile-ready Unity project; WellFit-Buddy main contains the reviewed baseline only and has no accepted build/device runtime.",
+    "WF-MIG-002 is approved as MIGRATE_NOW through a fresh version-pinned destination and incremental reviewed ports while preserving the source until acceptance.",
+    "The three repositories may later converge further; no single final target repository or target date has been chosen."
   ],
   "rules": [
     "This file is the only WellFit program-level memory authority while the three repositories remain separate.",
     "Local repositories own their domain truth; this master owns only cross-repository coordination truth.",
     "WellFit = graphics/UI/UX; WellFit-now = technical product; WellFit-Buddy = Buddy domain.",
     "A local accepted state does not imply cross-repository integration acceptance.",
-    "No convergence target, date or strategy may be inferred before an explicit reviewed decision.",
+    "No final convergence target repository or date may be inferred before an explicit reviewed decision.",
     "Always distinguish intended repository ownership from current physical code location.",
-    "General technical mobile/application logic follows WellFit-now unless it is specifically Buddy behavior, Buddy presentation/animation or Buddy-specific AR/camera interaction."
+    "General technical mobile/application logic follows WellFit-now unless it is specifically Buddy behavior, Buddy presentation/animation or Buddy-specific AR/camera interaction.",
+    "MIGRATE_NOW for WF-MIG-002 authorizes only fresh destination initialization and incremental reviewed Buddy-domain ports; it does not authorize source deletion or server-authority transfer before acceptance."
   ]
 }
