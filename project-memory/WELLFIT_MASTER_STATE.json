@@ -27,7 +27,7 @@
     }
   },
   "convergence": {
-    "status": "PHASED_MIGRATION_STARTED",
+    "status": "PLANNED_NOT_SCHEDULED",
     "target_repository": null,
     "target_date": null,
     "strategy": "PHASED_BY_DOMAIN",
