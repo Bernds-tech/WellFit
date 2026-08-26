@@ -7,7 +7,7 @@
     "Bernds-tech/WellFit-now",
     "Bernds-tech/WellFit-Buddy"
   ],
-  "status": "PHASED_MIGRATION_IN_PROGRESS",
+  "status": "PLANNED_NOT_SCHEDULED",
   "target_repository": null,
   "target_date": null,
   "strategy": "PHASED_BY_DOMAIN",
