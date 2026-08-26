@@ -38,8 +38,8 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Related: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001
 - Status: OPEN
 - Updated: 2026-08-26
-- Gap: the owner-requested web avatar attention layer is implemented on a WellFit-now branch, but exact PR CI/build/lint, browser/preview evidence, separate Sites-v71 synchronization and final visual acceptance are still open.
-- Close when: exact implementation and coordination revisions are green/counterchecked, a runnable preview proves pointer-to-avatar and control-target attention behavior without layout regressions, and the selected canonical/Sites surface is deliberately synchronized or explicitly deferred.
-- Next check: open the implementation and master-record PRs, run branch checks, then obtain visual preview evidence. Do not claim the public Sites-v71 candidate changed merely because the GitHub web code changed.
+- Gap: the web avatar-attention implementation and cross-repo coordination are merged and COUNTERCHECKED, but runnable browser/preview evidence on the selected graphical surface and deliberate synchronization to the separate Sites-v71 candidate are still unavailable; visual acceptance must not be inferred from CI.
+- Close when: the selected canonical/Sites surface proves pointer-to-avatar and control-target attention behavior without layout/transform regressions and the Sites-v71 synchronization/acceptance decision is recorded.
+- Next check: preserve merged PRs #387/#23; when the editable Sites/canonical preview source is available, synchronize and visually countercheck the behavior before owner acceptance.
 
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
