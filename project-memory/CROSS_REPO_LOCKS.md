@@ -35,10 +35,10 @@ Use this register for work that touches more than one WellFit repository.
 - Scope: owner-requested web-only pointer/focus attention behavior for existing Rudi/Buddy/avatar graphics while the current physical web UI still resides in WellFit-now; no backend, mission, reward, auth or native AR authority changes.
 - Contract IDs: `WF-CONTRACT-BUDDY-001`
 - Dependency IDs: `WF-XDEP-004`
-- Branches/PRs: WellFit `codex/avatar-attention-master-20260826` / PR pending; WellFit-now `codex/avatar-attention-20260826` / PR pending
+- Branches/PRs: WellFit `codex/avatar-attention-master-20260826` / PR #23; WellFit-now `codex/avatar-attention-20260826` / PR #387
 - Acquired: 2026-08-26 Europe/Vienna
-- Updated: 2026-08-26 after owner authorization and initial bounded implementation
-- Resume from: open both PRs, run exact branch CI/diff/browser evidence, then reconcile local/master memory. Separate Sites-v71 synchronization is not implied by the GitHub implementation.
+- Updated: 2026-08-26 after exact PRs were opened and initial implementation/coordination checks passed.
+- Resume from: complete final-head CI/countercheck on PRs #387/#23, then release this cross-repo implementation lock if green. Separate Sites-v71 synchronization and visual acceptance remain open evidence, not part of a backend/native authority switch.
 
 ## Released locks
 
