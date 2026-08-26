@@ -35,6 +35,18 @@
 - Decision: close/supersede PR #1; keep PR #2 as candidate only until current-main/CI/visual acceptance is refreshed.
 - Related task: WFG-VIS-001
 
+## WFG-CR-004
+- Date: 2026-08-26
+- Status: ACCEPTED
+- Source: owner continuation plus merged WellFit-Buddy WF-MIG-002 baseline
+- Idea: continue setting up WellFit-Buddy by reconciling the program master and authorizing the next bounded Unity destination step.
+- Classification: cross-repository migration decision/reconciliation
+- Affected areas: V9 master state, dependencies, contracts, integration gates and convergence ledger.
+- Existing task/decision checked: `WF-MIG-002`, WFB-MIG-002-BASELINE, merged Buddy PRs #18/#19.
+- Dependencies: exact source baseline, source retention, fresh destination compile/build/device evidence and unchanged WellFit-now server authority.
+- Decision: `MIGRATE_NOW` means initialize a fresh version-pinned Unity destination and port only reviewed Buddy-domain material incrementally; it does not authorize wholesale copy, source deletion or an authority switch before acceptance.
+- Related task: WFG-MASTER-MIG-002-RECON
+
 ## Intake template
 ```text
 ## WFG-CR-XXX
