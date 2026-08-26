@@ -42,20 +42,20 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Work lock released: `XLOCK-WF-MIG-002-20260826`.
 - Falsification question: a complete compile-ready project at the exact source commit or an already accepted destination runtime on another exact revision would invalidate this reconciliation.
 
-## RECEIPT-WFG-VIS-SITES-V69-20260826
+## RECEIPT-WFG-VIS-SITES-V70-20260826
 - Task: WFG-VIS-001 graphical candidate continuation
 - Started: 2026-08-26 Europe/Vienna
-- Finished: 2026-08-26 after local build, browser countercheck and Sites version 69 deployment verification
-- Source/deployment: parallel Sites checkout `wellfit-bewegt`, commit `85dce25681c139a8ca9eba227187c466c9085bcf`, public version 69
+- Finished: 2026-08-26 after local build, browser countercheck and Sites version 70 deployment verification
+- Source/deployment: parallel Sites checkout `wellfit-bewegt`, commit `2d0d1d1a9fa42701523a3fd6714a545fb86f4105`, public version 70
 - Risk: R2 visual-only candidate; no runtime or technical authority changed
 - Preflight checked: mandatory WellFit Project Memory, current WellFit/WellFit-now/WellFit-Buddy main and PR state, protected WellFit-now canonical truth, exact current mission/buddy-care/mobile-pose catalogs.
 - Prior attempts found: the existing graphical candidate was visually strong but over-scaled; it also required explicit protection against the previously corrected `WFP-Laden` and `Leon-Suche` labels.
 - Dependency result: current visible runtime terminology remains WFXP; XP remains separate progress; the mobile design follows the existing summary-only pose-review path; Leon is not a standalone module name.
-- Changes made: compact cinematic density across landing and desktop headquarters; header, journey rail, world dock, sidebar, headings, cards and overlays reduced without shrinking visible metadata below 10 px; added the graphical six-stage mobile mission path from briefing through confirmed 9 WFXP.
+- Changes made: compact cinematic density across landing and desktop headquarters; header, journey rail, world dock, sidebar, headings, cards and overlays reduced without shrinking visible metadata below 10 px; the landing header is now one transparent 70 px row with the logo preserved at 92 px and the world dock is 330 x 38 px; added the graphical six-stage mobile mission path from briefing through confirmed 9 WFXP.
 - Checks/tests: ESLint passed; production build and artifact validation passed; 24/24 tests passed; browser checks found no horizontal overflow and no WellFit page errors.
 - Final diff counterchecked: yes; four Sites files changed, visual-only scope preserved.
 - Regression/security countercheck: no backend, account, camera, upload, location, persistence or real WFXP booking added; raw media remains explicitly not stored in the visual flow.
-- Evidence produced: Sites version 69 at https://wellfit-bewegt.bernd-guggenberger.chatgpt.site and static regression coverage for density, WFXP wording and the phone review path.
+- Evidence produced: Sites version 70 at https://wellfit-bewegt.bernd-guggenberger.chatgpt.site and static regression coverage for density, WFXP wording and the phone review path.
 - Result status: COUNTERCHECKED_PARALLEL_VISUAL_CANDIDATE
 - Open follow-up: canonical WellFit visual inventory and acceptance still require explicit reconciliation; this receipt does not promote the Sites candidate into accepted repository truth.
 - Work lock: no canonical product-code lock claimed or released.
