@@ -35,11 +35,11 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Next check: countercheck this specification PR, then create separate repository-owned implementation tasks without bypassing WFB-UNITY-EDITOR-RESOLVE-001.
 
 ## WF-LOOP-005
-- Related: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001
+- Related: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001 / WFG-CR-007
 - Status: OPEN
-- Updated: 2026-08-26
-- Gap: the owner-requested web avatar attention layer is implemented on a WellFit-now branch, but exact PR CI/build/lint, browser/preview evidence, separate Sites-v71 synchronization and final visual acceptance are still open.
-- Close when: exact implementation and coordination revisions are green/counterchecked, a runnable preview proves pointer-to-avatar and control-target attention behavior without layout regressions, and the selected canonical/Sites surface is deliberately synchronized or explicitly deferred.
-- Next check: open the implementation and master-record PRs, run branch checks, then obtain visual preview evidence. Do not claim the public Sites-v71 candidate changed merely because the GitHub web code changed.
+- Updated: 2026-08-28
+- Gap: owner live validation of the actual public `wellfit-bewegt` Sites-v71 surface shows no Rudi head movement and no visible avatar mouse-follow behavior. The merged WellFit-now PR #387 is therefore not the target Site implementation; it modified a separate web codebase and only transformed whole flat PNGs.
+- Close when: the editable ChatGPT Sites source for `wellfit-bewegt` is loaded, Rudi and relevant avatars use visible articulated/rigged presentation (at minimum separate head + body, eyes where practical), pointer and important controls drive attention, the exact Site preview is visually tested without regressions, and the verified version is deliberately published.
+- Next check: resume the Site through ChatGPT Sites/Work or Codex with the Site referenced in the composer. Do not perform another GitHub-only implementation and do not accept whole-image rotation as head tracking.
 
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
