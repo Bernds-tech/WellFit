@@ -75,4 +75,19 @@ Statuses: `OPEN`, `RECONCILIATION_REQUIRED`, `RESOLVED`, `SUPERSEDED`.
 - Falsification question: What observation would prove our conclusion wrong? Fresh exact-head CI/browser evidence plus current visual/capability acceptance would invalidate the candidate-only status and permit advancement through the required V5 status path.
 - Evidence: current PR #2 metadata and exact-head workflow lookup on 2026-08-20.
 
+## CTR-WFG-006
+- Date: 2026-08-28
+- Updated: 2026-08-28
+- Related task/change: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001 / PR #387 / PR #23
+- Risk: R2
+- Source A: merged WellFit-now PR #387 and prior task wording
+- Claim A: avatar attention implementation exists and passed technical CI in the WellFit-now web code.
+- Source B: owner direct review of the actual public ChatGPT Site `wellfit-bewegt` / Sites-v71
+- Claim B: Rudi's head does not move and the avatars do not visibly follow the mouse at all.
+- Stronger/current evidence: direct live visual validation of the target public surface plus Project Memory's existing boundary that Sites-v71 is a separate checkout not synchronized by PR #387.
+- Status: RECONCILIATION_REQUIRED
+- Resolution/action: close/supersede the technical closeout PR #388; do not claim public visual completion. Resume the actual editable ChatGPT Sites source and replace whole-PNG transforms with articulated layered/rigged head/body attention, then visually verify on the exact Site before publishing/acceptance.
+- Evidence: owner validation 2026-08-28; PR #388 closed unmerged as superseded; WF-LOOP-005.
+- Falsification question: only a preview of the exact `wellfit-bewegt` Site showing clearly visible head/body pointer tracking and control targeting without regression can resolve this contradiction.
+
 Never resolve a contradiction by deleting the older record. Preserve the stale claim and record why it was superseded.
