@@ -5,7 +5,7 @@ Keep history append-only; supersede rather than delete.
 ## WFG-MEM-001
 - Date: 2026-08-19
 - Status: DONE
-- Goal: Introduce durable project memory and duplicate-work prevention.
+- Goal: Introduce durable project-memory and duplicate-work prevention.
 - Starting state: Visual/landing work existed without a dedicated micro-attempt/change-request ledger.
 - Action: Added Project Memory Protocol v1, agent preflight and PR guard.
 - Result: Operational execution memory established.
@@ -61,7 +61,6 @@ Keep history append-only; supersede rather than delete.
 - Falsification question: a complete compile-ready Unity project at the exact source commit, or a destination runtime/build/device acceptance already present on a different exact revision, would invalidate this state and require immediate reconciliation.
 - Next step: fresh Project Memory CI/review, merge, then acquire a Buddy-local R3 implementation lock for the genuine Unity 6.3 LTS destination.
 
-
 ## WFG-MOBILE-UX-001
 - Date: 2026-08-26
 - Status: COUNTERCHECKED
@@ -79,14 +78,25 @@ Keep history append-only; supersede rather than delete.
 
 ## WFG-AVATAR-ATTN-001
 - Date: 2026-08-26
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: SUPERSEDED
 - Risk: R2
-- Goal: make Rudi and other WellFit web mascots/avatars attentively follow the pointer and look toward hovered/focused controls such as login/register while preserving graphical and technical authority boundaries.
-- Starting state: current qualifying mascot/avatar images were static; current web UI physically resides in WellFit-now; public Sites-v71 is a separate visual candidate checkout.
-- Action: authorized and coordinated WellFit-now PR #387, which adds the global web `AvatarAttentionSystem`; WellFit PR #23 records the graphical task, cross-repo lock, open loop and evidence boundary.
-- Result: PR #387 exact implementation revision `16a779992250879380a17deb8c040a9a628acbae` passed Build #1188, DB tests #165 and Project Memory checks and is mergeable; PR #23 coordination revision `a9bf45ff5ca0118e2023a96bf372d43d189d8a44` passed Guard/Quality/Status after generated status refresh. Final postflight heads, Container Build and runnable browser/preview evidence remain open.
-- Evidence: WellFit-now PR #387 and implementation commits `15347fa7e451976afe8f59400ac9978394608046` / `5c88cb9f9f8421ed6fa7ed2647ea4edd46329855`; WellFit PR #23; RECEIPT-WFN-AVATAR-ATTN-20260826; RECEIPT-WFG-AVATAR-ATTN-20260826.
-- Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changed; motion is disabled for coarse pointers/reduced-motion clients.
-- Rollback/recovery: revert PRs #387 and #23; no data/state migration exists.
-- Falsification question: a transform-composition visual regression, a missed qualifying avatar, or a different canonical/Sites source requires reconciliation before visual acceptance.
-- Next step: complete final-head CI/countercheck and release implementation/cross-repo locks if green; keep Sites-v71 synchronization and visual acceptance explicitly open until runnable evidence exists.
+- Goal: initial whole-image pointer/focus attention for Rudi and other web mascots/avatars.
+- Action: coordinated WellFit-now PR #387 and recorded the bridge in WellFit PR #23.
+- Result: technical whole-image code merged, but owner live validation on 2026-08-28 showed no visible movement on the actual ChatGPT Site and no accepted independent head articulation. Closeout PR #388 was closed unmerged as superseded.
+- Evidence: merged PR #25, WFG-CR-007, CTR-WFG-006, owner live validation 2026-08-28.
+- Negative/countercheck path: do not infer public Site completion from GitHub CI and do not accept whole-image rotation as head tracking.
+- Rollback/recovery: preserved as historical evidence only; corrective work continues under WFG-AVATAR-PUPPET-001.
+- Next step: use articulated corrective task only.
+
+## WFG-AVATAR-PUPPET-001
+- Date: 2026-08-28
+- Status: IN_PROGRESS
+- Risk: R2
+- Goal: visibly articulate Rudi/Buddy/avatar head and body toward pointer and priority controls, then port the verified behavior to the actual ChatGPT Site source without altering v71/v73 public state until deliberate visual release.
+- Starting state: public Site live validation invalidated the previous approach; current physical web code remains in WellFit-now and the actual ChatGPT Site source is a separate editable surface.
+- Action: acquire `XLOCK-WF-AVATAR-PUPPET-20260828`; coordinate WellFit-now PR #389 implementing separate head/body layers from transparent PNGs with per-asset pivots, head-led attention, delayed torso lean, click nod, idle breathing and motion fallbacks.
+- Evidence: merged PR #25; WFG-CR-007; CTR-WFG-006; WellFit-now branch `codex/avatar-puppet-attention-20260828` / PR #389; coordination branch `codex/avatar-puppet-coordination-20260828`.
+- Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changes; GitHub implementation is not itself a ChatGPT Site publish.
+- Rollback/recovery: revert the bounded Puppet renderer/coordination PRs; original PNG assets and public Site remain unchanged.
+- Falsification question: a runnable preview showing seams/ghosting, wrong head crop, no visible independent head motion or layout stacking regression requires per-asset tuning before merge/port.
+- Next step: pass exact PR #389 technical gates, capture runnable GitHub visual evidence, then synchronize the actual editable ChatGPT Site and create a new preview version for owner review before any public replacement.
