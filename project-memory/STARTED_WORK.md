@@ -11,20 +11,19 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WFG-AVATAR-ATTN-001
-- Started: 2026-08-26
-- Updated: 2026-08-26
-- Status: IMPLEMENTED_NOT_VERIFIED
+## WFG-AVATAR-PUPPET-001
+- Started: 2026-08-28
+- Updated: 2026-08-28
+- Status: IN_PROGRESS
 - Risk: R2
-- Scope: owner-requested pointer/focus attention behavior for Rudi and other WellFit web mascots/avatars.
-- Branch/PR: WellFit master record `codex/avatar-attention-master-20260826` / PR #23; physical implementation `Bernds-tech/WellFit-now:codex/avatar-attention-20260826` / PR #387.
-- Cross-repo lock: `XLOCK-WF-AVATAR-ATTN-20260826`.
-- Dependencies: `WF-XDEP-004`, current graphical ownership drift, later `WF-MIG-001` convergence; no native Buddy runtime dependency is required for this web-only visual behavior.
-- Completed so far: WellFit-now contains a global client attention layer that auto-detects existing Buddy/Rudi/avatar images, follows fine-pointer input, prioritizes interactive element centers such as login/register CTAs, adds a subtle pointer-down pulse and keyboard-focus attention, and disables motion for reduced-motion/coarse-pointer clients. The exact implementation revision `16a779992250879380a17deb8c040a9a628acbae` passed the complete Build workflow, Database Package Tests and Project Memory checks; PR #387 is mergeable. WellFit PR #23 Project Memory Guard/Quality/Status are green after regenerating `PROJECT_STATUS.md`.
-- Still open: final Container Build on the implementation line, final-head CI after postflight-only memory commits, browser/preview countercheck, separate Sites-v71 synchronization and final visual acceptance.
-- Evidence so far: WellFit-now PR #387 / Build #1188 / DB tests #165; implementation commits `15347fa7e451976afe8f59400ac9978394608046`, `5c88cb9f9f8421ed6fa7ed2647ea4edd46329855`; WellFit PR #23 and green Project Memory checks at coordination head `a9bf45ff5ca0118e2023a96bf372d43d189d8a44`.
-- Exact next step: complete final CI/countercheck on the postflight heads, then release locks if green. Runnable visual preview and Sites-v71 synchronization remain separate graphical evidence steps; do not claim them from GitHub code alone.
-- Owner action needed: none for implementation; owner visual acceptance remains separate after preview evidence.
+- Scope: corrective visual target for visibly articulated Rudi/Buddy/avatar head/body pointer and CTA attention after owner live validation invalidated the whole-image approach.
+- Branch/PR: WellFit coordination `codex/avatar-puppet-coordination-20260828` / PR pending; physical implementation `Bernds-tech/WellFit-now:codex/avatar-puppet-attention-20260828` / PR #389.
+- Cross-repo lock: `XLOCK-WF-AVATAR-PUPPET-20260828`.
+- Dependencies: `WF-XDEP-004`, current physical UI ownership drift and later actual ChatGPT Site source synchronization; no native Buddy runtime dependency for this web-only presentation behavior.
+- Completed so far: live failure recorded by merged PR #25; old cross-repo attention lock superseded; new articulated cross-lock acquired; WellFit-now corrective Puppet branch/PR #389 created.
+- Still open: exact PR #389 build/container/DB checks, runnable visual proof of independent head/body motion, final per-asset pivot tuning, then deliberate port/synchronization to the actual ChatGPT Site source and separate publication/visual acceptance.
+- Exact next step: countercheck PR #389 technical gates and runnable landing preview; do not claim the public ChatGPT Site changed from GitHub code alone.
+- Owner action needed: no implementation input; public Site replacement/publication remains a separate explicit visual release decision after preview.
 
 ## WFG-VIS-001
 - Started: 2026-08-15
@@ -42,7 +41,18 @@ Canonical register for work that has started but is not yet fully completed.
 - Exact next step: inventory and classify current visual variants before further graphical implementation, then produce current exact-head CI/browser evidence for the selected baseline.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
-## Closed work
+## Closed / superseded work
+
+## WFG-AVATAR-ATTN-001
+- Started: 2026-08-26
+- Superseded: 2026-08-28
+- Status: SUPERSEDED
+- Risk: R2
+- Scope: initial whole-image pointer/focus attention behavior for Rudi and other WellFit web mascots/avatars.
+- Branch/PR: WellFit merged PR #23; physical implementation WellFit-now merged PR #387; attempted closeout PR #388 closed unmerged.
+- Result: technical whole-image transform code exists but owner live validation on the actual ChatGPT Site showed no visible movement and independent head articulation was not provided.
+- Evidence: merged PR #25, WFG-CR-007, CTR-WFG-006, owner live validation 2026-08-28.
+- Do not repeat: do not equate whole-image rotation with head tracking and do not infer public Site acceptance from GitHub CI.
 
 ## WFG-MOBILE-UX-001
 - Started: 2026-08-26
