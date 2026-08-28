@@ -77,12 +77,24 @@
 
 ## WFG-CR-006
 - Date: 2026-08-26
-- Status: ACCEPTED_FOR_IMPLEMENTATION
+- Status: SUPERSEDED_BY_LIVE_VALIDATION
 - Source: owner
 - Idea: wherever Rudi or another WellFit mascot/avatar appears in the web UI, the character should attentively follow the mouse and especially look toward controls the user is hovering or activating, such as login and registration.
 - Classification: graphical interaction behavior with current physical-code bridge
 - Affected areas: web visual presentation, landing/auth CTAs and existing mascot/avatar image surfaces.
 - Existing task/decision checked: WFG-VIS-001, WFN-XREPO-001, WF-CONTRACT-BUDDY-001 and WF-XDEP-004.
 - Dependencies: WellFit remains graphical authority; current physical web code is still in WellFit-now pending WF-MIG-001; no native Buddy behavior or backend authority is transferred.
-- Decision: authorize a bounded, reversible web attention layer in the current physical WellFit-now UI. It may follow fine-pointer input, prioritize interactive control centers, add a subtle click/focus reaction, respect reduced-motion/coarse-pointer clients and auto-discover qualifying Buddy/Rudi/avatar images. Separate Sites-v71 deployment and visual acceptance remain explicit later evidence steps.
+- Decision: initial whole-image attention implementation was technically merged but is not accepted for the public Site. It is superseded as the target solution by WFG-CR-007 after owner live validation showed no movement on Sites-v71 and confirmed that true head/body articulation is required.
 - Related task: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001
+
+## WFG-CR-007
+- Date: 2026-08-28
+- Status: ACCEPTED_FOR_RECONCILIATION
+- Source: owner live validation
+- Idea: the public `wellfit-bewegt` Site must visibly animate Rudi and the avatars; Rudi's head must actually follow the pointer, and avatars should visibly turn their head/body attention toward the mouse and important controls.
+- Classification: live visual defect + target-behavior correction
+- Affected areas: actual ChatGPT Sites source/preview, Rudi and avatar presentation, cursor/control attention behavior.
+- Existing task/decision checked: WFG-AVATAR-ATTN-001, WFN-AVATAR-ATTN-001, PR #387, PR #23, WF-LOOP-005.
+- Dependencies: the editable ChatGPT Sites source for `wellfit-bewegt` must be loaded; flat PNG whole-image transforms are insufficient for the requested head movement, so the selected characters need layered/rigged presentation (at minimum head + body; eyes where practical).
+- Decision: do not treat the WellFit-now whole-PNG transform as completion. Reconcile against the actual Sites source, implement visible articulated 2D/rigged attention there, preview on that exact Site, and publish only after direct visual verification.
+- Related task: WFG-AVATAR-ATTN-001 / WF-LOOP-005
