@@ -89,14 +89,15 @@ Keep history append-only; supersede rather than delete.
 - Next step: use articulated corrective task only.
 
 ## WFG-AVATAR-PUPPET-001
-- Date: 2026-08-28
-- Status: IN_PROGRESS
+- Date: 2026-08-28 to 2026-08-29
+- Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R2
-- Goal: visibly articulate Rudi/Buddy/avatar head and body toward pointer and priority controls, then port the verified behavior to the actual ChatGPT Site source without altering v71/v73 public state until deliberate visual release.
-- Starting state: public Site live validation invalidated the previous approach; current physical web code remains in WellFit-now and the actual ChatGPT Site source is a separate editable surface.
-- Action: acquire `XLOCK-WF-AVATAR-PUPPET-20260828`; coordinate WellFit-now PR #389 implementing separate head/body layers from transparent PNGs with per-asset pivots, head-led attention, delayed torso lean, click nod, idle breathing and motion fallbacks.
-- Evidence: merged PR #25; WFG-CR-007; CTR-WFG-006; WellFit-now branch `codex/avatar-puppet-attention-20260828` / PR #389; coordination branch `codex/avatar-puppet-coordination-20260828`.
-- Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changes; GitHub implementation is not itself a ChatGPT Site publish.
-- Rollback/recovery: revert the bounded Puppet renderer/coordination PRs; original PNG assets and public Site remain unchanged.
-- Falsification question: a runnable preview showing seams/ghosting, wrong head crop, no visible independent head motion or layout stacking regression requires per-asset tuning before merge/port.
-- Next step: pass exact PR #389 technical gates, capture runnable GitHub visual evidence, then synchronize the actual editable ChatGPT Site and create a new preview version for owner review before any public replacement.
+- Goal: visibly articulate Rudi/Buddy/avatar head and body toward pointer and priority controls, then port the verified behavior to the actual ChatGPT Site source without altering the public Site until deliberate visual release.
+- Starting state: public Site live validation invalidated the previous whole-image approach; current physical web code remains in WellFit-now and the actual ChatGPT Site source is a separate editable surface.
+- Action: coordinated the articulated Puppet implementation in WellFit-now with separate head/body layers from transparent PNGs, per-asset pivots, head-led attention, delayed torso lean, click nod, idle breathing, reduced-motion/coarse-pointer fallback, and explicit Landing-Hero Luma calibration.
+- Result: exact implementation head `f2b2bdb89655bea3398687a35540704b091672d7` passed Build #1198, Container Build #183, Database Package Tests #175 and Project Memory Guard/Quality/Status; normal PR #390 merged to WellFit-now main as `d374e4db4777406d93a8aad72adc10ab47db216f`. The public ChatGPT Site remains unchanged and therefore this task is not visually verified/accepted.
+- Evidence: merged WellFit PR #25; WFG-CR-007; CTR-WFG-006; WellFit-now PR #390 and merge `d374e4db4777406d93a8aad72adc10ab47db216f`.
+- Negative/fail-closed path: no backend/auth/navigation semantics, mission/reward/economy authority, camera/location or Unity/native behavior changed; GitHub implementation is not itself a ChatGPT Site publish.
+- Rollback/recovery: revert WellFit-now merge if the renderer proves visually defective; original PNG assets and public Site remain unchanged.
+- Falsification question: a preview of the actual `wellfit-bewegt` Site that still shows no movement, seams/ghosting, wrong head crop or layout stacking regression requires further Site-specific tuning before publication.
+- Next step: open the actual Site via ChatGPT Sites/Edit so it is referenced in the composer, port the verified renderer/pivots, review the exact preview, then deliberately publish the updated version.
