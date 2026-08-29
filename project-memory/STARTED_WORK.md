@@ -13,17 +13,17 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WFG-AVATAR-PUPPET-001
 - Started: 2026-08-28
-- Updated: 2026-08-28
-- Status: IN_PROGRESS
+- Updated: 2026-08-29
+- Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R2
 - Scope: corrective visual target for visibly articulated Rudi/Buddy/avatar head/body pointer and CTA attention after owner live validation invalidated the whole-image approach.
-- Branch/PR: WellFit coordination `codex/avatar-puppet-coordination-20260828` / PR pending; physical implementation `Bernds-tech/WellFit-now:codex/avatar-puppet-attention-20260828` / PR #389.
-- Cross-repo lock: `XLOCK-WF-AVATAR-PUPPET-20260828`.
-- Dependencies: `WF-XDEP-004`, current physical UI ownership drift and later actual ChatGPT Site source synchronization; no native Buddy runtime dependency for this web-only presentation behavior.
-- Completed so far: live failure recorded by merged PR #25; old cross-repo attention lock superseded; new articulated cross-lock acquired; WellFit-now corrective Puppet branch/PR #389 created.
-- Still open: exact PR #389 build/container/DB checks, runnable visual proof of independent head/body motion, final per-asset pivot tuning, then deliberate port/synchronization to the actual ChatGPT Site source and separate publication/visual acceptance.
-- Exact next step: countercheck PR #389 technical gates and runnable landing preview; do not claim the public ChatGPT Site changed from GitHub code alone.
-- Owner action needed: no implementation input; public Site replacement/publication remains a separate explicit visual release decision after preview.
+- Branch/PR: WellFit coordination `codex/avatar-puppet-coordination-20260828`; physical implementation merged through `Bernds-tech/WellFit-now` PR #390.
+- Cross-repo lock: `XLOCK-WF-AVATAR-PUPPET-20260828` released after technical merge; Site visual loop remains open.
+- Dependencies: `WF-XDEP-004`, current physical UI ownership drift and actual ChatGPT Site source synchronization; no native Buddy runtime dependency for this web-only presentation behavior.
+- Completed so far: live failure recorded by merged WellFit PR #25; old whole-image attention path superseded; articulated head/body Puppet renderer implemented in WellFit-now; exact head `f2b2bdb89655bea3398687a35540704b091672d7` passed Build #1198, Container Build #183, Database Package Tests #175 and Project Memory Guard/Quality/Status; PR #390 merged to WellFit-now main as `d374e4db4777406d93a8aad72adc10ab47db216f`.
+- Still open: the actual public ChatGPT Site `wellfit-bewegt` is a separate Sites source and still lacks this Puppet behavior. It must be opened via ChatGPT Sites/Edit so the Site is referenced in the composer, then the verified renderer/pivots must be ported, previewed on that exact Site and deliberately published.
+- Exact next step: load the editable ChatGPT Site source; do not perform another GitHub-only substitute and do not claim the public Site changed from the WellFit-now merge.
+- Owner action needed: only the product UI handoff that loads the Site into an editable composer; after that the implementation can be applied without new product decisions.
 
 ## WFG-VIS-001
 - Started: 2026-08-15
