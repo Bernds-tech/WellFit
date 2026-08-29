@@ -27,20 +27,38 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
+No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
+
+## Superseded locks
+
 ## XLOCK-WF-AVATAR-ATTN-20260826
 - Cross-ID: `WFG-AVATAR-ATTN-001` / `WFN-AVATAR-ATTN-001`
-- Status: ACTIVE
+- Status: SUPERSEDED
 - Lead repository: `Bernds-tech/WellFit`
 - Participating repositories: `Bernds-tech/WellFit-now`
-- Scope: owner-requested web-only pointer/focus attention behavior for existing Rudi/Buddy/avatar graphics while the current physical web UI still resides in WellFit-now; no backend, mission, reward, auth or native AR authority changes.
+- Scope: initial whole-image pointer/focus transform experiment.
 - Contract IDs: `WF-CONTRACT-BUDDY-001`
 - Dependency IDs: `WF-XDEP-004`
-- Branches/PRs: WellFit `codex/avatar-attention-master-20260826` / PR #23; WellFit-now `codex/avatar-attention-20260826` / PR #387
+- Branches/PRs: WellFit merged PR #23; WellFit-now merged PR #387; closeout PR #388 closed unmerged.
 - Acquired: 2026-08-26 Europe/Vienna
-- Updated: 2026-08-26 after exact PRs were opened and initial implementation/coordination checks passed.
-- Resume from: complete final-head CI/countercheck on PRs #387/#23, then release this cross-repo implementation lock if green. Separate Sites-v71 synchronization and visual acceptance remain open evidence, not part of a backend/native authority switch.
+- Superseded: 2026-08-28 after owner live validation proved no visible movement on the actual Site and whole-image rotation did not satisfy head tracking.
+- Resume from: do not resume; articulated correction superseded it.
 
 ## Released locks
+
+## XLOCK-WF-AVATAR-PUPPET-20260828
+- Cross-ID: `WFG-AVATAR-PUPPET-001` / `WFN-AVATAR-PUPPET-001`
+- Status: RELEASED
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: corrective articulated web head/body puppet behavior for existing Rudi/Buddy/avatar graphics after live Site validation invalidated whole-image transforms; no backend, mission, reward, auth or native AR authority changes.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`
+- Branches/PRs: WellFit `codex/avatar-puppet-coordination-20260828`; WellFit-now implementation merged through PR #390.
+- Acquired: 2026-08-28 Europe/Vienna
+- Released: 2026-08-29 after exact head `f2b2bdb89655bea3398687a35540704b091672d7` passed Build #1198, Container #183, DB #175 and Project Memory checks and PR #390 merged as `d374e4db4777406d93a8aad72adc10ab47db216f`.
+- Result: reusable technical Puppet renderer is merged. Public ChatGPT Site synchronization/preview/publication remains open and is not claimed by this release.
+- Resume from: WF-LOOP-005 and the actual editable `wellfit-bewegt` ChatGPT Site source.
 
 ## XLOCK-WF-MIG-002-20260826
 - Cross-ID: `WF-MIG-002`
@@ -55,7 +73,6 @@ Use this register for work that touches more than one WellFit repository.
 - Updated: 2026-08-26 after bounded diff countercheck and PR #20 receipt
 - Released: 2026-08-26; no runtime/source mutation occurred.
 - Resume from: WellFit-Buddy main `48405aad8489c03d68f58526867eb14bb4458823` and exact WellFit-now source `447093decd783b33a6e724170dbe4667e899348b:native/unity/WellFitBuddyAR`.
-
 
 ## XLOCK-WF-MOBILE-SHELL-001
 - Cross-ID: `WF-CONTRACT-MOBILE-SHELL-001`

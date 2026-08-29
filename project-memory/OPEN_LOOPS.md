@@ -25,7 +25,6 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Gap: PR #1 represents a flavor/size/subscription product-preview concept inconsistent with current WellFit product truth.
 - Resolution: exclude and close the stale PR; preserve history, do not merge it.
 
-
 ## WF-LOOP-004
 - Related: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
 - Status: OPEN
@@ -35,11 +34,11 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Next check: countercheck this specification PR, then create separate repository-owned implementation tasks without bypassing WFB-UNITY-EDITOR-RESOLVE-001.
 
 ## WF-LOOP-005
-- Related: WFG-AVATAR-ATTN-001 / WFN-AVATAR-ATTN-001 / WFG-CR-007
+- Related: WFG-AVATAR-PUPPET-001 / WFG-CR-007 / CTR-WFG-006
 - Status: OPEN
-- Updated: 2026-08-28
-- Gap: owner live validation of the actual public `wellfit-bewegt` Sites-v71 surface shows no Rudi head movement and no visible avatar mouse-follow behavior. The merged WellFit-now PR #387 is therefore not the target Site implementation; it modified a separate web codebase and only transformed whole flat PNGs.
-- Close when: the editable ChatGPT Sites source for `wellfit-bewegt` is loaded, Rudi and relevant avatars use visible articulated/rigged presentation (at minimum separate head + body, eyes where practical), pointer and important controls drive attention, the exact Site preview is visually tested without regressions, and the verified version is deliberately published.
-- Next check: resume the Site through ChatGPT Sites/Work or Codex with the Site referenced in the composer. Do not perform another GitHub-only implementation and do not accept whole-image rotation as head tracking.
+- Updated: 2026-08-29
+- Gap: the reusable articulated head/body Puppet renderer is now merged and fully green in WellFit-now (`d374e4db4777406d93a8aad72adc10ab47db216f`), but the actual public `wellfit-bewegt` ChatGPT Site is a separate Sites source and still does not contain the behavior. The user therefore correctly still sees no head movement on the public Landingpage.
+- Close when: the owner opens `wellfit-bewegt` through ChatGPT Sites/Edit (or the original Site chat) so the Site is referenced in the composer; the verified Puppet renderer and Luma/Rudi/avatar pivots are ported to that Site source; pointer/CTA tracking is visually tested on the exact preview without seams/ghosting/layout regressions; and the verified version is deliberately published to the existing public Site URL.
+- Next check: no more GitHub-only substitute work. The next execution context must be the actual ChatGPT Site reference in the composer.
 
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
