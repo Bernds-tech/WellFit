@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "Bernds-tech/WellFit",
-  "updated": "2026-08-19",
+  "updated": "2026-08-29",
   "classes": {
     "immutable_commit": {"expires": false},
     "visual_preview": {"ttl_hours": 24},
