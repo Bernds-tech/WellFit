@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-01-v2",
+  "version": "2026-09-01-v3",
   "checked_at": "2026-09-01",
   "policy": {
     "verified": "Primärquelle am angegebenen Prüftag geöffnet und inhaltlich gegen die auf der Website verwendete Kernaussage geprüft.",
@@ -8,6 +8,8 @@
     "publication_rule": "Zeitabhängige Zahlen dürfen nur mit Datenstand und Primärquelle als Fakt veröffentlicht werden. Politische Zielwerte und Szenarien werden getrennt gekennzeichnet."
   },
   "sources": [
+    {"id":"STAT-DEBT","topic":"Gesamtstaatlicher Maastricht-Schuldenstand","authority":"STATISTIK AUSTRIA","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/maastricht-indikatoren/oeffentlicher-schuldenstand","checked_at":"2026-09-01","data_date":"2026-Q1","status":"verified","freshness":"watch","website_claim":"Der gesamtstaatliche Schuldenstand beträgt im 1. Quartal 2026 431,4 Mrd. Euro bzw. 83,5 % des BIP.","next_check":"30.09.2026 bzw. bei Veröffentlichung neuer Quartalsdaten"},
+    {"id":"STAT-FISCAL","topic":"Gesamtstaatliche Einnahmen, Ausgaben und Defizit","authority":"STATISTIK AUSTRIA","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/einnahmen-und-ausgaben-des-staates","checked_at":"2026-09-01","data_date":"2025","status":"verified","freshness":"watch","website_claim":"2025 standen gesamtstaatlichen Einnahmen von 261,5 Mrd. Euro Ausgaben von 283,0 Mrd. Euro gegenüber; das Defizit betrug rund 21,5 Mrd. Euro bzw. 4,2 % des BIP.","next_check":"30.09.2026 bzw. bei Revision der Jahresdaten"},
     {"id":"OEBFA-DEBT","topic":"Bundesfinanzschuld","authority":"Oesterreichische Bundesfinanzierungsagentur (OeBFA)","url":"https://www.oebfa.at/budget-und-schulden/finanzschulden.html","checked_at":"2026-09-01","data_date":"2026-07-31","status":"verified","freshness":"watch","website_claim":"Bundesfinanzschuld und Portfolio-Kennzahlen werden mit dem jeweiligen OeBFA-Datenstand geführt.","next_check":"bei Veröffentlichung und danach mindestens monatlich"},
     {"id":"BMF-BUDGET-2026","topic":"Budgetdefizit / Budgetvollzug","authority":"Bundesministerium für Finanzen","url":"https://www.bmf.gv.at/presse/pressemeldungen/2026/maerz-2026/budgetdefizit.html","checked_at":"2026-09-01","data_date":"2026-03-31","status":"verified","freshness":"watch","website_claim":"Das gesamtstaatliche Defizit 2025 lag bei 4,2 % des BIP; für 2026 erwartete das BMF zu diesem Zeitpunkt ebenfalls 4,2 %.","next_check":"bei neuer BMF-/Statistik-Austria-Prognose bzw. vor Publikation"},
     {"id":"BMF-SUBSIDIES-2026","topic":"Bundesförderungen","authority":"Bundesministerium für Finanzen","url":"https://www.bmf.gv.at/presse/pressemeldungen/2026/maerz-2026/bericht-foerder-taskforce.html","checked_at":"2026-09-01","data_date":"2026-03-04","status":"verified","freshness":"watch","website_claim":"Direkte Bundesförderungen sind 2026 mit 10,1 Mrd. € veranschlagt; laut Förder-Taskforce verbleiben 7,7 Mrd. € gestaltbares Volumen.","next_check":"bei aktualisiertem Förderungsbericht/BVA"},
