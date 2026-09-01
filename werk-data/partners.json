@@ -1,0 +1,56 @@
+{
+  "version": "2026-09-01-v1",
+  "registry_status": "Vorbereitung",
+  "public_notice": "In der Vorschau werden noch keine Bürgerlisten als bestätigte WERK-Partner veröffentlicht. Einträge erscheinen erst nach Prüfung und formeller Anerkennung des WERK-Grundkodex.",
+  "partner_models": [
+    {
+      "id": "gliederung",
+      "name": "WERK-Gliederung",
+      "description": "Vollständig in die Parteistruktur integriert und nach den WERK-Statuten organisiert."
+    },
+    {
+      "id": "partnerliste",
+      "name": "WERK-Partnerliste",
+      "description": "Regional und rechtlich eigenständig, aber vertraglich an WERK-Grundkodex, Compliance und gemeinsame Bundesziele gebunden; rechtliche Einordnung vor Aufnahme prüfen."
+    }
+  ],
+  "binding_requirements": [
+    "Solide Staatsfinanzen und langfristiger Schuldenabbau",
+    "Fairness und nachvollziehbare Regeln",
+    "Gleichberechtigung, gleiche Würde und gleiche Grundrechte",
+    "Rechtsstaat, Demokratie und unabhängige Gerichte",
+    "Innere und äußere Sicherheit als gemeinsamer Kern",
+    "Subsidiarität und regionale Freiheit",
+    "Direkte Bürgerbeteiligung bei qualifizierten Großfragen im rechtlich zulässigen Rahmen",
+    "Wirkung vor Ideologie und verpflichtende Wirkungsprüfung",
+    "Transparente Finanzierung und Compliance",
+    "Regionale Programme dürfen den WERK-Kern ergänzen, aber nicht widersprechen"
+  ],
+  "admission_process": [
+    "Identität und Rechtsform der Liste prüfen",
+    "WERK-Grundkodex formell anerkennen",
+    "Finanz- und Compliance-Prüfung durchführen",
+    "Regionale Programmpunkte auf Widersprüche zum WERK-Kern prüfen",
+    "Parteienrechtliche Einordnung als Gliederung/Partnerorganisation prüfen",
+    "Partnervereinbarung oder Statutenanbindung abschließen",
+    "Öffentlichen Registereintrag freigeben"
+  ],
+  "conflict_process": [
+    "Klärung",
+    "Korrektur/Auflage",
+    "Integritäts- oder Schiedsverfahren",
+    "Suspendierung",
+    "Ausschluss bei schwerwiegendem oder fortgesetztem Verstoß"
+  ],
+  "states": [
+    {"name":"Burgenland","verified":[]},
+    {"name":"Kärnten","verified":[]},
+    {"name":"Niederösterreich","verified":[]},
+    {"name":"Oberösterreich","verified":[]},
+    {"name":"Salzburg","verified":[]},
+    {"name":"Steiermark","verified":[]},
+    {"name":"Tirol","verified":[]},
+    {"name":"Vorarlberg","verified":[]},
+    {"name":"Wien","verified":[]}
+  ]
+}
