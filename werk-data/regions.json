@@ -1,22 +1,23 @@
 {
-  "version": "2026-09-01-v1",
+  "version": "2026-09-01-v2",
   "country": "Österreich",
   "principle": "Ein Staat. Gemeinsame Verantwortung. Regionale Freiheit.",
+  "summary": "WERK ordnet Aufgaben der niedrigsten Ebene zu, die sie wirksam, finanzierbar und rechtskonform erfüllen kann. Bestehende Bundeskompetenzen werden nicht ignoriert, sondern nur durch rechtlich zulässige Kompetenz- oder Öffnungsreformen verändert.",
   "levels": [
     {"id": "bund", "label": "Bund", "rule": "Nur was zwingend gesamtstaatlich oder überregional einheitlich geregelt werden muss."},
     {"id": "land", "label": "Bundesland", "rule": "Regionale Lebens-, Wirtschafts-, Kultur-, Raum- und Strukturfragen, soweit rechtlich möglich."},
     {"id": "gemeinde", "label": "Gemeinde/Region", "rule": "Überwiegend örtliche Angelegenheiten möglichst vor Ort."}
   ],
   "states": [
-    {"name": "Burgenland", "slug": "burgenland", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Kärnten", "slug": "kaernten", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Niederösterreich", "slug": "niederoesterreich", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Oberösterreich", "slug": "oberoesterreich", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Salzburg", "slug": "salzburg", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Steiermark", "slug": "steiermark", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Tirol", "slug": "tirol", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Vorarlberg", "slug": "vorarlberg", "citizen_lists": [], "votes": [], "reforms": []},
-    {"name": "Wien", "slug": "wien", "citizen_lists": [], "votes": [], "reforms": []}
+    {"name": "Burgenland", "slug": "burgenland", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Kärnten", "slug": "kaernten", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Niederösterreich", "slug": "niederoesterreich", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Oberösterreich", "slug": "oberoesterreich", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Salzburg", "slug": "salzburg", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Steiermark", "slug": "steiermark", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Tirol", "slug": "tirol", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Vorarlberg", "slug": "vorarlberg", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Wien", "slug": "wien", "profile_status":"Regionalprofil in Vorbereitung", "citizen_lists": [], "votes": [], "reforms": []}
   ],
   "centralisation_check": [
     "Muss die Materie überhaupt staatlich geregelt werden?",
@@ -26,5 +27,10 @@
     "Reicht ein bundesweiter Mindeststandard mit regionaler Ausgestaltung?",
     "Welche Grundrechts-, Gleichheits-, EU- und Verfassungsgrenzen bestehen?",
     "Kann die Zuständigkeit nach fünf Jahren wieder nach unten verlagert werden?"
+  ],
+  "sources": [
+    {"label":"RIS – B-VG Art. 15 (Länder-Restkompetenz)","url":"https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=15&Gesetzesnummer=10000138"},
+    {"label":"RIS – B-VG Art. 118 (eigener Wirkungsbereich der Gemeinden)","url":"https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=118&Gesetzesnummer=10000138"},
+    {"label":"RIS – B-VG Art. 10 (Bundeskompetenzen)","url":"https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=10&Gesetzesnummer=10000138"}
   ]
 }
