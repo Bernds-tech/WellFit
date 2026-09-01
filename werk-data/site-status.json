@@ -1,0 +1,24 @@
+{
+  "version":"2026-09-01-v1",
+  "current_preview":"V54",
+  "current_file":"werk-v54.html",
+  "brand":{"status_pct":97,"note":"WERK Österreich / Erst rechnen. Dann entscheiden. verbindlich gesetzt"},
+  "website_architecture":{"status_pct":88,"note":"HTML, CSS, JavaScript und politische Daten modular getrennt"},
+  "reform_register":{"status_pct":72,"note":"Entscheidungsakten funktionieren; weitere Reformblöcke und Rechnungen fehlen"},
+  "regional_model":{"status_pct":90,"note":"Bund/Land/Gemeinde, neun Länder und Zentralisierungscheck integriert"},
+  "werk_vote":{"status_pct":68,"note":"Transparenz- und Demoarchitektur vorhanden; amtliche Rechts-/Sicherheitsarchitektur offen"},
+  "citizen_list_model":{"status_pct":82,"note":"Grundkodex, Aufnahmeprozess und Registerschema vorhanden; keine verifizierten Partner veröffentlicht"},
+  "legal_sources":{"status_pct":78,"note":"Zentrale Primärquellenstruktur vorhanden; Reform-für-Reform-Juristenprüfung bleibt offen"},
+  "financial_calculations":{"status_pct":55,"note":"Methodik vorhanden; viele Transformations-, 5-/10-Jahres- und Break-even-Rechnungen noch offen"},
+  "publication_readiness":{"status_pct":61,"note":"Gute Konzeptvorschau, aber noch kein öffentlicher Parteiseiten-Publikationskandidat"},
+  "gates_before_public_candidate":[
+    "Reformregister inhaltlich vervollständigen und priorisieren",
+    "Kritische Reformen verfassungs-, EU- und völkerrechtlich prüfen",
+    "Transformationskosten und 5-/10-Jahresrechnungen für Kernreformen schließen",
+    "Statuten und Bürgerlisten-Partnervertrag juristisch prüfen",
+    "WERK-VOTE-Sicherheits- und Identitätsarchitektur nur als Reformziel belassen, bis Rechtsgrundlage geklärt ist",
+    "Barrierefreiheit, mobile Bedienung, Druckansicht und SEO abnehmen",
+    "Dauerhaftes Hosting außerhalb der Entwicklungs-CDN-Vorschau einrichten",
+    "Impressum/Datenschutz/Betreiber erst mit realer Organisations- und Betreiberstruktur veröffentlichen"
+  ]
+}
