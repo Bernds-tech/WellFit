@@ -1,0 +1,30 @@
+{
+  "version": "2026-09-01-v1",
+  "country": "Österreich",
+  "principle": "Ein Staat. Gemeinsame Verantwortung. Regionale Freiheit.",
+  "levels": [
+    {"id": "bund", "label": "Bund", "rule": "Nur was zwingend gesamtstaatlich oder überregional einheitlich geregelt werden muss."},
+    {"id": "land", "label": "Bundesland", "rule": "Regionale Lebens-, Wirtschafts-, Kultur-, Raum- und Strukturfragen, soweit rechtlich möglich."},
+    {"id": "gemeinde", "label": "Gemeinde/Region", "rule": "Überwiegend örtliche Angelegenheiten möglichst vor Ort."}
+  ],
+  "states": [
+    {"name": "Burgenland", "slug": "burgenland", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Kärnten", "slug": "kaernten", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Niederösterreich", "slug": "niederoesterreich", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Oberösterreich", "slug": "oberoesterreich", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Salzburg", "slug": "salzburg", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Steiermark", "slug": "steiermark", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Tirol", "slug": "tirol", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Vorarlberg", "slug": "vorarlberg", "citizen_lists": [], "votes": [], "reforms": []},
+    {"name": "Wien", "slug": "wien", "citizen_lists": [], "votes": [], "reforms": []}
+  ],
+  "centralisation_check": [
+    "Muss die Materie überhaupt staatlich geregelt werden?",
+    "Wenn ja: Warum reicht Gemeinde/Region nicht?",
+    "Wenn nein: Warum reicht das Bundesland nicht?",
+    "Welche gesamtstaatlichen oder grenzüberschreitenden Effekte rechtfertigen den Bund?",
+    "Reicht ein bundesweiter Mindeststandard mit regionaler Ausgestaltung?",
+    "Welche Grundrechts-, Gleichheits-, EU- und Verfassungsgrenzen bestehen?",
+    "Kann die Zuständigkeit nach fünf Jahren wieder nach unten verlagert werden?"
+  ]
+}
