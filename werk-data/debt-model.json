@@ -1,0 +1,30 @@
+{
+  "version":"2026-09-01-v1",
+  "title":"WERK Schulden-Szenariorechner",
+  "status":"illustratives Modell – keine Budgetprognose",
+  "baseline":{
+    "federal_financial_debt_eur_billion":320.167,
+    "data_date":"2026-07-31",
+    "source_id":"OEBFA-DEBT"
+  },
+  "default_inputs":{
+    "annual_net_principal_reduction_eur_billion":10,
+    "years":10,
+    "assumed_avoided_refinancing_rate_pct":2.5,
+    "start_delay_years":0
+  },
+  "input_rules":[
+    "Die jährliche Tilgung ist Nettotilgung aus realen Überschüssen; sie darf nicht durch neue Kreditaufnahme finanziert werden.",
+    "Der angenommene vermiedene Refinanzierungszins ist ein Szenariowert und kein prognostizierter Marktzins.",
+    "Zinsersparnis tritt zeitverzögert ein, weil bestehende Anleihen erst bei Fälligkeit ersetzt oder nicht ersetzt werden.",
+    "Das einfache Modell berücksichtigt noch keine Änderung von BIP, Inflation, Primärsaldo, Fälligkeitsstruktur, Risikoprämien oder Konjunktur.",
+    "Vor einem politischen Tilgungsbeschluss ist ein OeBFA-/Budget-kompatibles Fälligkeitsmodell erforderlich."
+  ],
+  "formulas":{
+    "remaining_principal":"max(starting_debt - annual_net_principal_reduction * effective_years, 0)",
+    "gross_principal_reduction":"starting_debt - remaining_principal",
+    "simple_cumulative_avoided_interest":"Summe der bereits wirksamen jährlichen Nettotilgungen × angenommener vermiedener Refinanzierungszins; Tilgung am Jahresende, Wirkung frühestens ab Folgejahr",
+    "effective_years":"max(years - start_delay_years, 0)"
+  },
+  "publication_warning":"Die angezeigte einfache Zinsdifferenz ist keine OeBFA-Zinsprognose und darf nicht als gesicherte Budgeteinsparung veröffentlicht werden. Für den offiziellen Reformpfad wird die tatsächliche Fälligkeitsstruktur modelliert."
+}
