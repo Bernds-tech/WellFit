@@ -1,33 +1,35 @@
 {
-  "version": "2026-09-01-v4",
-  "current_preview": "V59 (V58 stabile Basis + V59 Freigabemodul + erweitertes Reformregister v2)",
-  "overall_phase": "Prüffassung / Regierungsregister-Aufbau",
+  "version": "2026-09-01-v5",
+  "current_preview": "V59 (V58 stabile Basis + V59 Freigabemodul + Reformregister v2 + Finanzmodelle)",
+  "overall_phase": "Prüffassung / Regierungsregister-Aufbau / Finanzmodellierung",
   "components": [
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"advanced","estimate_pct":95},
+    {"id":"architecture","name":"Website-Architektur","status":"advanced","estimate_pct":96},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"advanced","estimate_pct":92},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
-    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":58},
-    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":91},
+    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":63},
+    {"id":"fiscal-model","name":"Budget-, Saldo- und Tilgungsmodell","status":"scenario-model-ready-net-effects-open","estimate_pct":76},
+    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":94},
     {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype","estimate_pct":86},
     {"id":"legal","name":"Juristische Detailprüfung","status":"in-progress","estimate_pct":65},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":72}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":74}
   ],
   "register": {
     "reform_count": 14,
     "new_blocks": ["Budgetpfad", "10-Mrd.-Tilgungsziel", "Förderreform", "Bundesbeteiligungen", "RRF/EU-Mittel", "Körperschaftsteuer-Neubewertung", "Gewinnverlagerungsprüfung", "Digital-Governance", "Glücksspiel-Systemprüfung"],
+    "financial_models": ["werk-data/debt-model.json", "werk-data/fiscal-model.json", "werk-data/funding-matrix.json"],
     "correction_log": "werk-data/corrections.json"
   },
   "blocking_items_for_public_release": [
-    "vollständige finanzielle Durchrechnung der prioritären Reformen",
+    "dauerhafte Nettoeffekte der prioritären Reformen einzeln quantifizieren und in der Finanzierungsmatrix verifizieren",
     "juristische Detailprüfung der Kompetenz-, Steuer- und WERK-VOTE-Reformen",
     "tatsächlichen Betreiber und reale Impressums-/Datenschutzangaben festlegen",
     "manuelle mobile, Tastatur- und Screenreader-Abnahme",
     "öffentliche Partnerlisten erst nach realer Verifikation",
     "finale redaktionelle Quellen- und Aktualitätsprüfung"
   ],
-  "note": "Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. Sie dienen nur der Projektsteuerung."
+  "note": "Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. Sie dienen nur der Projektsteuerung. Verifizierte Milliardenbeträge werden erst nach abgeschlossener Netto-Wirkungsrechnung in die Finanzierungsmatrix übernommen."
 }
