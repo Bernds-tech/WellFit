@@ -1,20 +1,20 @@
 {
-  "version": "2026-09-01-v1",
-  "current_preview": "V58",
+  "version": "2026-09-01-v2",
+  "current_preview": "V59 (V58 stabile Basis + V59 Freigabemodul)",
   "overall_phase": "Prüffassung",
   "components": [
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"advanced","estimate_pct":94},
+    {"id":"architecture","name":"Website-Architektur","status":"advanced","estimate_pct":95},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"advanced","estimate_pct":92},
-    {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":86},
-    {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":94},
+    {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
+    {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":95},
     {"id":"reform-content","name":"Vollständige Reformrechnungen","status":"in-progress","estimate_pct":48},
-    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"in-progress","estimate_pct":72},
-    {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype","estimate_pct":78},
-    {"id":"legal","name":"Juristische Detailprüfung","status":"in-progress","estimate_pct":61},
-    {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":84},
+    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"in-progress","estimate_pct":84},
+    {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype","estimate_pct":86},
+    {"id":"legal","name":"Juristische Detailprüfung","status":"in-progress","estimate_pct":63},
+    {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"open","estimate_pct":20},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":64}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":68}
   ],
   "blocking_items_for_public_release": [
     "vollständige finanzielle Durchrechnung der prioritären Reformen",
