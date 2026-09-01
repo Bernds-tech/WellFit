@@ -1,0 +1,58 @@
+{
+  "version": "2026-09-01-v1",
+  "status": "Vorlage – nicht öffentlich freigegeben",
+  "rule": "Betreiber-, Medien-, Parteien-, Datenschutz- und sonstige Pflichtangaben werden vor dem öffentlichen Start anhand der tatsächlichen Organisationsform und eingesetzten Dienste final geprüft. Fehlende Angaben dürfen nicht erfunden werden.",
+  "operator": {
+    "status": "open",
+    "fields": [
+      "rechtlich verantwortlicher Betreiber / Medieninhaber",
+      "Rechtsform",
+      "Sitz / ladungsfähige Anschrift",
+      "vertretungsbefugte Personen",
+      "öffentliche Kontaktmöglichkeit",
+      "gegebenenfalls Register-/Parteienangaben"
+    ]
+  },
+  "imprint": {
+    "status": "template-ready",
+    "sections": [
+      "Betreiber / Medieninhaber",
+      "Anschrift",
+      "Vertretung",
+      "Kontakt",
+      "grundlegende Richtung / Offenlegung soweit anwendbar",
+      "Haftungs- und Quellenhinweise nur soweit rechtlich sinnvoll"
+    ],
+    "publication_gate": "erst nach Festlegung des tatsächlichen Betreibers und juristischer Prüfung"
+  },
+  "privacy": {
+    "status": "template-ready",
+    "sections": [
+      "Verantwortlicher",
+      "Hosting und technische Zugriffsdaten",
+      "Kontaktformulare nur falls aktiviert",
+      "Newsletter nur falls aktiviert",
+      "Analytics/Tracking nur falls tatsächlich eingesetzt",
+      "WERK PULS / WERK VOTE Datenverarbeitung getrennt beschreiben",
+      "Speicherdauer",
+      "Betroffenenrechte",
+      "Empfänger / Auftragsverarbeiter",
+      "Drittlandtransfers nur falls tatsächlich vorhanden"
+    ],
+    "publication_gate": "Dienste- und Datenflussinventar muss vor Finaltext feststehen"
+  },
+  "vote_privacy": {
+    "status": "concept-only",
+    "requirements": [
+      "offene Demo speichert in der Vorschau keine Stimme",
+      "spätere verifizierte Beteiligung: Identitätsprüfung und Stimmgeheimnis technisch trennen",
+      "keine öffentliche Blockchain-Verknüpfung von Person und Stimme",
+      "Auditdaten datensparsam und zweckgebunden",
+      "Lösch-/Aufbewahrungsregeln vor Produktivbetrieb definieren"
+    ]
+  },
+  "cookies": {
+    "status": "not_required_in_current_static_preview",
+    "rule": "Kein Consent-Banner nur vorsorglich einbauen. Erst nach Festlegung real eingesetzter nicht notwendiger Speicher-/Tracking-Technologien entscheiden."
+  }
+}
