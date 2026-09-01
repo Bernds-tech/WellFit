@@ -1,30 +1,45 @@
 {
-  "version":"2026-09-01-v1",
+  "version":"2026-09-01-v2",
   "title":"WERK Schulden-Szenariorechner",
   "status":"illustratives Modell – keine Budgetprognose",
-  "baseline":{
-    "federal_financial_debt_eur_billion":320.167,
-    "data_date":"2026-07-31",
-    "source_id":"OEBFA-DEBT"
+  "baselines":{
+    "general_government":{
+      "label":"Gesamtstaatlicher Maastricht-Schuldenstand",
+      "debt_eur_billion":431.4,
+      "debt_ratio_gdp_pct":83.5,
+      "data_date":"2026-Q1",
+      "source_id":"STAT-DEBT",
+      "use":"politisches Ziel eines langfristig schuldenfreien österreichischen Gesamtstaats"
+    },
+    "federal_refinancing":{
+      "label":"Bundesfinanzschuld / OeBFA-Portfolio",
+      "debt_eur_billion":320.167,
+      "data_date":"2026-07-31",
+      "source_id":"OEBFA-DEBT",
+      "use":"DEBT-01 Refinanzierungs-, Laufzeiten- und Nicht-Refinanzierungsstrategie des Bundes"
+    }
   },
   "default_inputs":{
+    "model":"general_government",
     "annual_net_principal_reduction_eur_billion":10,
-    "years":10,
+    "years":45,
     "assumed_avoided_refinancing_rate_pct":2.5,
     "start_delay_years":0
   },
   "input_rules":[
-    "Die jährliche Tilgung ist Nettotilgung aus realen Überschüssen; sie darf nicht durch neue Kreditaufnahme finanziert werden.",
+    "Für das politische Ziel 'Österreich schuldenfrei' ist der konsolidierte Maastricht-Schuldenstand des Gesamtstaats die richtige Bezugsgröße; die OeBFA-Bundesfinanzschuld ist nicht mit der gesamten Staatsschuld gleichzusetzen.",
+    "Die jährliche Tilgung ist Nettotilgung aus realen gesamtstaatlichen Überschüssen; sie darf nicht durch neue Kreditaufnahme an anderer Stelle kompensiert werden.",
     "Der angenommene vermiedene Refinanzierungszins ist ein Szenariowert und kein prognostizierter Marktzins.",
-    "Zinsersparnis tritt zeitverzögert ein, weil bestehende Anleihen erst bei Fälligkeit ersetzt oder nicht ersetzt werden.",
-    "Das einfache Modell berücksichtigt noch keine Änderung von BIP, Inflation, Primärsaldo, Fälligkeitsstruktur, Risikoprämien oder Konjunktur.",
-    "Vor einem politischen Tilgungsbeschluss ist ein OeBFA-/Budget-kompatibles Fälligkeitsmodell erforderlich."
+    "Zinsersparnis tritt zeitverzögert ein, weil bestehende Anleihen und Kredite erst bei Fälligkeit ersetzt oder nicht ersetzt werden.",
+    "Das einfache Modell berücksichtigt noch keine Änderung von BIP, Inflation, Primärsaldo, Fälligkeitsstruktur, Länder-/Gemeindeschulden, Risikoprämien oder Konjunktur.",
+    "Für DEBT-01 bleibt zusätzlich ein OeBFA-kompatibles Fälligkeitsmodell des Bundes erforderlich."
   ],
   "formulas":{
     "remaining_principal":"max(starting_debt - annual_net_principal_reduction * effective_years, 0)",
     "gross_principal_reduction":"starting_debt - remaining_principal",
+    "simple_years_to_zero":"starting_debt / annual_net_principal_reduction, sofern annual_net_principal_reduction > 0",
     "simple_cumulative_avoided_interest":"Summe der bereits wirksamen jährlichen Nettotilgungen × angenommener vermiedener Refinanzierungszins; Tilgung am Jahresende, Wirkung frühestens ab Folgejahr",
     "effective_years":"max(years - start_delay_years, 0)"
   },
-  "publication_warning":"Die angezeigte einfache Zinsdifferenz ist keine OeBFA-Zinsprognose und darf nicht als gesicherte Budgeteinsparung veröffentlicht werden. Für den offiziellen Reformpfad wird die tatsächliche Fälligkeitsstruktur modelliert."
+  "publication_warning":"Der Rechner zeigt Szenarien, keine Prognosen. Insbesondere die Zinsdifferenz ist keine gesicherte Budgeteinsparung. Für politische Beschlüsse müssen Gesamtstaat, Bund, Länder, Gemeinden, Sozialversicherung, Fälligkeiten und Konjunktur konsistent modelliert werden."
 }
