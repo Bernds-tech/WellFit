@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-01-v1",
+  "version":"2026-09-01-v2",
   "purpose":"Historische Projektannahmen, die durch neue Primärdaten oder geänderte Rechtslage korrigiert wurden, werden hier nachvollziehbar dokumentiert.",
   "corrections":[
     {
@@ -15,6 +15,13 @@
       "corrected":"2026 wurde mit dem Budgetbegleitgesetz 2027/2028 bereits die Einführung eines progressiven Körperschaftsteuersatzes beschlossen. Der bisherige allgemeine Ausgangssatz beträgt 23 %.",
       "effect":"Die 33-%-Idee ist nicht mehr als fertige WERK-Forderung geführt. TAX-01 verlangt zuerst eine aktualisierte Aufkommens-, Investitions-, Verteilungs- und Standortrechnung.",
       "source_id":"BMF-BBG-2026"
+    },
+    {
+      "id":"CORR-DEBT-01",
+      "previous":"Die OeBFA-Bundesfinanzschuld wurde in Teilen des frühen Projektstands als Bezugsgröße für das Ziel 'Österreich schuldenfrei' verwendet.",
+      "corrected":"Für die gesamtstaatliche politische Zielgröße ist der konsolidierte Maastricht-Schuldenstand des Gesamtstaats maßgeblich. Statistik Austria weist für Q1/2026 431,4 Mrd. € bzw. 83,5 % des BIP aus. Die OeBFA-Bundesfinanzschuld von 320,167 Mrd. € per 31.07.2026 ist dagegen die richtige Bezugsgröße für die Refinanzierungs- und Laufzeitenstrategie des Bundes.",
+      "effect":"Der WERK-Schuldenrechner trennt ab V2 strikt zwischen Gesamtstaat und Bundesrefinanzierung. Das 10-Mrd.-Tilgungsziel wird für die gesamtstaatliche Schuldenfreiheit gegen den Maastricht-Schuldenstand gerechnet.",
+      "source_id":"STAT-DEBT"
     }
   ]
 }
