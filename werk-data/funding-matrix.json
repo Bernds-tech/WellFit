@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-01-v2",
+  "version":"2026-09-01-v3",
   "title":"WERK Finanzierungsmatrix – 10-Mrd.-Tilgungsziel",
   "baseline_year":2025,
   "baseline_general_government_balance_eur_billion":-21.5,
@@ -10,11 +10,11 @@
     {"reform_id":"FISC-01","label":"Förder- und Transferbereinigung","status":"offizieller Zielpfad vorhanden; WERK-Nettoverifikation offen","verified_annual_net_eur_billion":null,"official_plan":{"basis_eur_billion":7.7,"annual_saving_target_eur_billion":{"2027":0.25,"2028":0.45,"2029":0.65},"annual_saving_target_pct":{"2027":3.2,"2028":5.8,"2029":8.4},"source_id":"BMF-SUBSIDIES-2026"},"note":"Der offizielle Förder-Taskforce-Pfad ist ein budgetpolitisches Ziel, keine bereits realisierte WERK-Einsparung. Bruttofördervolumen ist keine Einsparung; nur nach Streichung/Umgestaltung tatsächlich verbleibender Nettoeffekt zählt."},
     {"reform_id":"ADM-01","label":"Genehmigungs- und Verwaltungsdigitalisierung","status":"Business Case offen","verified_annual_net_eur_billion":null,"note":"Personal-, Zeit- und Prozessentlastung erst nach Pilot und Baseline als Nettoeffekt zählen."},
     {"reform_id":"ADM-02","label":"Digital-Governance / Projektportfolio","status":"Business Case offen","verified_annual_net_eur_billion":null,"note":"Vermeidbare Fehlprojekte und Skaleneffekte separat quantifizieren."},
-    {"reform_id":"PART-01","label":"Bundesbeteiligungen / Eigentümersteuerung","status":"Unternehmensweise Rechnung offen","verified_annual_net_eur_billion":null,"note":"Nur nachhaltige Ausschüttungen oder echte strukturelle Entlastungen; Einmalverkäufe nicht als Dauereffekt."},
+    {"reform_id":"PART-01","label":"Bundesbeteiligungen / Eigentümersteuerung","status":"offizielle Zahlungsströme bekannt; zusätzlicher Maastricht-Nettoeffekt offen","verified_annual_net_eur_billion":null,"official_plan":{"federal_inflows_eur_billion":{"2027":1.9335,"2028":2.0248},"federal_outflows_eur_billion":{"2027":14.2516,"2028":14.3980},"source_id":"BMF-HOLDINGS-2026","maastricht_warning":"Nicht jede Einzahlung aus staatlichen Beteiligungen verbessert den gesamtstaatlichen Maastricht-Saldo. Ausschüttungen aus Einheiten innerhalb des Sektors Staat und reine Liquiditätsverschiebungen sind gesamtstaatlich anders zu behandeln."},"note":"WERK rechnet nicht Einzahlungen gegen Auszahlungen als pauschalen 'Verlust' oder 'Gewinn'. Gemeinwirtschaftliche Leistungen, Investitionen, Förderaufgaben und Dividenden werden beteiligungsspezifisch bewertet. Nur ein zusätzlicher, nachhaltiger und Maastricht-wirksamer Nettoeffekt darf später angerechnet werden."},
     {"reform_id":"TAX-01","label":"Körperschaftsteuer-Architektur","status":"Mikrosimulation offen","verified_annual_net_eur_billion":null,"note":"Aufkommen nach Investitions-, Verhaltens- und Standortreaktionen rechnen."},
     {"reform_id":"TAX-02","label":"Gewinnverlagerung / Steuerbasis sichern","status":"Aufkommensanalyse offen","verified_annual_net_eur_billion":null,"note":"Nur realistisch zusätzlich einbringbares Nettoaufkommen ansetzen; Doppelzählung mit bestehendem Vollzug vermeiden."},
     {"reform_id":"GMBL-01","label":"Glücksspielabgaben und Regulierung","status":"Markt-/Kanalisierungsmodell offen","verified_annual_net_eur_billion":null,"note":"Steuermehreinnahmen gegen Schwarzmarkt-, Kanalisierungs- und Vollzugseffekte rechnen."},
     {"reform_id":"OTHER","label":"Weitere prioritäre Reformen","status":"noch nicht zugeordnet","verified_annual_net_eur_billion":null,"note":"Neue Positionen nur mit eigener Reform-ID und Wirkungsakte zulassen."}
   ],
-  "publication_rule":"Potenzial, Bruttoeffekt, offizielles Planungsziel und verifizierter WERK-Nettoeffekt werden niemals vermischt. Für die Deckungsanzeige zählt ausschließlich verified_annual_net_eur_billion."
+  "publication_rule":"Potenzial, Bruttoeffekt, offizielles Planungsziel, Zahlungsstrom und verifizierter WERK-Nettoeffekt werden niemals vermischt. Für die Deckungsanzeige zählt ausschließlich verified_annual_net_eur_billion."
 }
