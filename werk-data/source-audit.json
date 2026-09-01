@@ -1,0 +1,101 @@
+{
+  "version": "2026-09-01-v1",
+  "checked_at": "2026-09-01",
+  "policy": {
+    "verified": "Primärquelle am angegebenen Prüftag geöffnet und inhaltlich gegen die auf der Website verwendete Kernaussage geprüft.",
+    "watch": "Quelle ist gültig, enthält aber zeitabhängige Werte oder eine Rechtslage, die regelmäßig neu geprüft werden muss.",
+    "open": "Zuordnung oder Detailprüfung noch nicht abgeschlossen.",
+    "publication_rule": "Zeitabhängige Zahlen dürfen nur mit Datenstand und Primärquelle als Fakt veröffentlicht werden. Politische Zielwerte und Szenarien werden getrennt gekennzeichnet."
+  },
+  "sources": [
+    {
+      "id": "OEBFA-DEBT",
+      "topic": "Bundesfinanzschuld",
+      "authority": "Oesterreichische Bundesfinanzierungsagentur (OeBFA)",
+      "url": "https://www.oebfa.at/budget-und-schulden/finanzschulden.html",
+      "checked_at": "2026-09-01",
+      "data_date": "2026-07-31",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Bundesfinanzschuld und Portfolio-Kennzahlen werden mit dem jeweiligen OeBFA-Datenstand geführt.",
+      "next_check": "bei Veröffentlichung und danach mindestens monatlich"
+    },
+    {
+      "id": "BMI-EVOTE",
+      "topic": "E-Voting",
+      "authority": "Bundesministerium für Inneres",
+      "url": "https://www.bmi.gv.at/412/",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Für Wahlen besteht derzeit keine geeignete bundesverfassungsrechtliche Grundlage für E-Voting.",
+      "next_check": "vor jeder öffentlichen WERK-VOTE-Veröffentlichung"
+    },
+    {
+      "id": "BVG-44",
+      "topic": "Verfassungsänderungen / Volksabstimmung",
+      "authority": "RIS / Bundes-Verfassungsgesetz",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=44&Gesetzesnummer=10000138",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Verfassungsänderungen unterliegen qualifizierten Beschlusserfordernissen; eine Gesamtänderung ist einer Abstimmung des gesamten Bundesvolkes zu unterziehen.",
+      "next_check": "vor juristischer Publikationsfreigabe"
+    },
+    {
+      "id": "BVG-49B",
+      "topic": "Volksbefragung Bund",
+      "authority": "RIS / Bundes-Verfassungsgesetz",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=49b&Gesetzesnummer=10000138",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Eine Bundes-Volksbefragung betrifft eine grundsätzliche gesamtösterreichische Angelegenheit, für deren Regelung die Bundesgesetzgebung zuständig ist.",
+      "next_check": "vor juristischer Publikationsfreigabe"
+    },
+    {
+      "id": "BVG-10",
+      "topic": "Bundeskompetenzen",
+      "authority": "RIS / Bundes-Verfassungsgesetz",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=10&Gesetzesnummer=10000138",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Asyl sowie Ein- und Auswanderungswesen liegen nach der geltenden Kompetenzordnung im Kern beim Bund.",
+      "next_check": "vor jeder Kompetenzreform-Publikation"
+    },
+    {
+      "id": "BVG-15",
+      "topic": "Länder-Restkompetenz",
+      "authority": "RIS / Bundes-Verfassungsgesetz",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=15&Gesetzesnummer=10000138",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Soweit eine Angelegenheit nicht ausdrücklich dem Bund übertragen ist, verbleibt Gesetzgebung und Vollziehung grundsätzlich bei den Ländern.",
+      "next_check": "vor jeder Kompetenzreform-Publikation"
+    },
+    {
+      "id": "BVG-118",
+      "topic": "Eigener Wirkungsbereich der Gemeinden",
+      "authority": "RIS / Bundes-Verfassungsgesetz",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=118&Gesetzesnummer=10000138",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Gemeinden besitzen einen eigenen Wirkungsbereich für Angelegenheiten mit überwiegend örtlichem Interesse.",
+      "next_check": "vor jeder Kompetenzreform-Publikation"
+    },
+    {
+      "id": "TNRSG-12",
+      "topic": "Rauchverbot Gastronomie",
+      "authority": "RIS / TNRSG",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10010907&Paragraf=12",
+      "checked_at": "2026-09-01",
+      "status": "verified",
+      "freshness": "watch",
+      "website_claim": "Das Rauchverbot in Gastronomieräumen ist derzeit bundesrechtlich geregelt.",
+      "next_check": "vor Veröffentlichung einer konkreten Regionalisierungsfrage"
+    }
+  ]
+}
