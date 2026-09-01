@@ -1,0 +1,107 @@
+{
+  "version": "2026-09-01-v1",
+  "release_policy": "Eine öffentliche WERK-Seite oder Reform darf nur als freigegeben markiert werden, wenn alle für sie relevanten Pflichtgates bestanden sind. Offene Gates bleiben sichtbar und verhindern den Status 'publikationsreif'.",
+  "status_values": ["pass", "partial", "open", "not_applicable"],
+  "gates": [
+    {
+      "id": "GATE-LEGAL",
+      "name": "Rechtsprüfung",
+      "mandatory": true,
+      "status": "partial",
+      "criteria": [
+        "Geltendes Recht und Reformziel getrennt dargestellt",
+        "Bund/Land/Gemeinde-Zuständigkeit geprüft",
+        "Verfassungs-, Grundrechts-, EU- und Völkerrechtsfragen gekennzeichnet",
+        "Kritische Aussagen durch Primärquellen gestützt",
+        "Vor endgültiger Veröffentlichung juristische Detailprüfung abgeschlossen"
+      ]
+    },
+    {
+      "id": "GATE-FINANCE",
+      "name": "Rechnung & Finanzierung",
+      "mandatory": true,
+      "status": "partial",
+      "criteria": [
+        "Transformationskosten ausgewiesen oder ausdrücklich offen",
+        "laufende Kosten ausgewiesen oder ausdrücklich offen",
+        "Finanzierungspfad benannt",
+        "1-/5-/10-Jahreswirkung nachvollziehbar",
+        "keine erfundenen Zahlen zur Schließung offener Rechenfelder"
+      ]
+    },
+    {
+      "id": "GATE-SOURCES",
+      "name": "Quellen & Datenstand",
+      "mandatory": true,
+      "status": "partial",
+      "criteria": [
+        "Primärquelle zugeordnet",
+        "Prüftag dokumentiert",
+        "zeitabhängige Daten mit Datenstand versehen",
+        "nächster Aktualitätscheck definiert",
+        "veraltete Daten werden vor Publikation erneut geprüft"
+      ]
+    },
+    {
+      "id": "GATE-EDITORIAL",
+      "name": "Redaktion & Neutralität",
+      "mandatory": true,
+      "status": "partial",
+      "criteria": [
+        "Behauptung, Ziel, Szenario und Beispiel klar getrennt",
+        "WERK-VOTE-Fragen neutral formuliert",
+        "Pro und Contra nach denselben Darstellungsregeln",
+        "keine nicht verifizierten Partnerlisten als WERK-Partner dargestellt",
+        "verständliche Kurzfassung und fachliche Detailfassung widersprechen einander nicht"
+      ]
+    },
+    {
+      "id": "GATE-A11Y",
+      "name": "Barrierefreiheit & Mobil",
+      "mandatory": true,
+      "status": "partial",
+      "criteria": [
+        "Tastaturbedienung",
+        "sichtbarer Fokus",
+        "mobile Navigation",
+        "Reduced-Motion-Unterstützung",
+        "ausreichende Kontraste",
+        "manuelle Screenreader- und Geräteabnahme vor Veröffentlichung"
+      ]
+    },
+    {
+      "id": "GATE-LEGAL-PAGES",
+      "name": "Betreiber, Datenschutz & Pflichtseiten",
+      "mandatory": true,
+      "status": "open",
+      "criteria": [
+        "verantwortlicher Betreiber festgelegt",
+        "Impressum nach anwendbarer Rechtslage",
+        "Datenschutzerklärung",
+        "Kontaktstelle",
+        "Cookie-/Tracking-Logik nur falls tatsächlich erforderlich",
+        "Parteien-/Medienrechtliche Pflichtangaben vor öffentlichem Start geprüft"
+      ]
+    },
+    {
+      "id": "GATE-VOTE",
+      "name": "WERK VOTE Sicherheits- und Rechtsgate",
+      "mandatory": false,
+      "status": "open",
+      "criteria": [
+        "Demo und amtliche Abstimmung eindeutig getrennt",
+        "keine Stimme in der Vorschau gespeichert",
+        "Identität und Stimme bei späterer Verifikation technisch getrennt",
+        "unabhängiges Auditmodell",
+        "analoger Zugang",
+        "amtliche Nutzung erst nach eigener gesetzlicher/verfassungsrechtlicher Grundlage und Sicherheitsfreigabe"
+      ]
+    }
+  ],
+  "release_levels": [
+    {"id":"draft","label":"Entwurf","rule":"Inhalt oder Struktur noch im Aufbau."},
+    {"id":"review","label":"Prüffassung","rule":"Inhalt vorhanden, mindestens ein Pflichtgate noch partial/open."},
+    {"id":"candidate","label":"Publikationskandidat","rule":"Alle Pflichtgates pass; finale Abnahme noch ausständig."},
+    {"id":"public","label":"Öffentlich freigegeben","rule":"Finale rechtliche, redaktionelle und technische Abnahme dokumentiert."}
+  ]
+}
