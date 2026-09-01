@@ -1,0 +1,81 @@
+{
+  "version": "2026-09-01-v1",
+  "platform": "WERK VOTE",
+  "tagline": "Politik schlägt vor. Fachleute rechnen. Bürger entscheiden. Regionen gestalten.",
+  "status_notice": "Alle Einträge dieser Vorschau sind Demonstrations- oder Reformmodelle. Es läuft keine amtliche Abstimmung und es wird keine Stimme gespeichert.",
+  "guardrails": [
+    "Zuständigkeit vor Abstimmung prüfen",
+    "Grund- und Menschenrechte dürfen nicht durch Mehrheitsentscheid aufgehoben werden",
+    "EU- und Völkerrecht vor Freigabe prüfen",
+    "Kosten und Finanzierungsfolgen vor der Abstimmung offenlegen",
+    "Fragestellung neutral und verständlich formulieren",
+    "Minderheitenschutz und Auswirkungen auf andere Regionen prüfen",
+    "Analoger Zugang muss neben digitalem Zugang möglich bleiben",
+    "Identität und geheime Stimme technisch strikt trennen"
+  ],
+  "participation_model": {
+    "qualified_major_questions": "politisches Ziel: Teilnahmeverpflichtung mit Ja, Nein oder Enthaltung; verfassungsrechtlich auszuarbeiten",
+    "ordinary_questions": "keine automatische Teilnahmeverpflichtung",
+    "hardship": "Befreiungs- und Härtefallregeln sowie analoger Abstimmungsweg vorzusehen"
+  },
+  "questions": [
+    {
+      "id": "VOTE-DEMO-REG-01",
+      "title": "Soll eine regional regelbare Lebensfrage künftig vom Bundesland statt bundesweit einheitlich entschieden werden?",
+      "scope": "Bundesland",
+      "region": "alle",
+      "type": "Grundsatzbeispiel",
+      "status": "Demo – keine laufende Abstimmung",
+      "binding": false,
+      "choices": ["Ja", "Nein", "Enthaltung"],
+      "legal_note": "Nur für Materien, die nach geltender oder künftig geänderter Kompetenzordnung regional entschieden werden dürfen.",
+      "finance_note": "Entscheidungs- und Finanzierungsverantwortung sollen möglichst zusammenfallen."
+    },
+    {
+      "id": "VOTE-DEMO-SMOKE-01",
+      "title": "Soll ein Bundesland bei Gastronomie-Rauchregeln innerhalb bundesweiter Schutzstandards eigene Regeln beschließen dürfen?",
+      "scope": "Bundesland",
+      "region": "alle",
+      "type": "Reformbeispiel",
+      "status": "Rechtsöffnung erforderlich",
+      "binding": false,
+      "choices": ["Ja", "Nein", "Enthaltung"],
+      "legal_note": "Das Rauchverbot in Gastronomieräumen ist derzeit bundesrechtlich im TNRSG geregelt. Eine landesabhängige Ausgestaltung setzt daher eine entsprechende bundesrechtliche bzw. kompetenzrechtliche Öffnung voraus.",
+      "minimum_safeguards": ["Jugendschutz", "Arbeitnehmerschutz", "Gesundheitsschutz", "klare Kennzeichnung"],
+      "sources": [
+        {"label": "RIS – TNRSG § 12", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10010907&Paragraf=12"}
+      ]
+    },
+    {
+      "id": "VOTE-DEMO-MIG-01",
+      "title": "Soll ein Bundesland über zusätzliche freiwillige Aufnahme über zwingende bundes-, EU- oder völkerrechtliche Verpflichtungen hinaus mitentscheiden?",
+      "scope": "Bundesland",
+      "region": "alle",
+      "type": "Reformbeispiel",
+      "status": "Kompetenz- und Rechtsmodell offen",
+      "binding": false,
+      "choices": ["Ja", "Nein", "Enthaltung"],
+      "legal_note": "Asyl sowie Ein- und Auswanderungswesen sind derzeit im Kern Bundessache. Ein regionales Opt-in/Opt-out kann daher nur für rechtlich übertragbare oder zusätzliche freiwillige Bereiche konstruiert werden und darf zwingende Verpflichtungen nicht unterlaufen.",
+      "finance_note": "Zusätzliche regionale freiwillige Leistungen sollen grundsätzlich mit regionaler Finanzierungsverantwortung gekoppelt werden.",
+      "sources": [
+        {"label": "RIS – B-VG Art. 10", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=10&Gesetzesnummer=10000138"}
+      ]
+    },
+    {
+      "id": "VOTE-DEMO-CONST-01",
+      "title": "Soll bei außergewöhnlich grundlegenden Staats- und Verfassungsfragen eine Doppelmehrheit gelten?",
+      "scope": "Bund",
+      "region": "Österreich",
+      "type": "Verfassungsreform-Modell",
+      "status": "juristisch auszuarbeiten",
+      "binding": false,
+      "choices": ["Ja", "Nein", "Enthaltung"],
+      "legal_note": "WERK-Prüfmodell: Mehrheit der österreichweit gültigen Stimmen plus Mehrheit der Bundesländer. Schwellen und konkrete Anwendungsfälle sind verfassungsrechtlich auszuarbeiten."
+    }
+  ],
+  "digital_status": {
+    "current": "Für Wahlen besteht derzeit laut BMI keine geeignete bundesverfassungsrechtliche Grundlage für E-Voting.",
+    "target": "Sichere digitale Teilnahme als langfristiges Reformziel; bis dahin nur nichtamtliche Demo-/Beteiligungsfunktionen auf der WERK-Plattform.",
+    "source": {"label": "BMI – E-Voting", "url": "https://www.bmi.gv.at/412/index.html"}
+  }
+}
