@@ -1,8 +1,15 @@
 {
-  "version": "2026-09-01-v1",
+  "version": "2026-09-01-v2",
   "platform": "WERK VOTE",
   "tagline": "Politik schlägt vor. Fachleute rechnen. Bürger entscheiden. Regionen gestalten.",
   "status_notice": "Alle Einträge dieser Vorschau sind Demonstrations- oder Reformmodelle. Es läuft keine amtliche Abstimmung und es wird keine Stimme gespeichert.",
+  "question_rules": [
+    "Die Frage muss so formuliert sein, dass Ja und Nein gleichwertig verständlich sind.",
+    "Pro- und Contra-Argumente werden nach denselben Platz- und Quellenregeln dargestellt.",
+    "Unbekannte Kosten werden als offen ausgewiesen und nicht geschätzt, nur um eine Lücke zu füllen.",
+    "Geltendes Recht, notwendige Gesetzesänderung und politisches Ziel werden getrennt dargestellt.",
+    "Eine Frage darf erst als entscheidungsreif markiert werden, wenn Zuständigkeit, Recht, Budgetwirkung und Umsetzungspfad geprüft sind."
+  ],
   "guardrails": [
     "Zuständigkeit vor Abstimmung prüfen",
     "Grund- und Menschenrechte dürfen nicht durch Mehrheitsentscheid aufgehoben werden",
@@ -18,32 +25,68 @@
     "ordinary_questions": "keine automatische Teilnahmeverpflichtung",
     "hardship": "Befreiungs- und Härtefallregeln sowie analoger Abstimmungsweg vorzusehen"
   },
+  "double_majority_model": {
+    "status": "politisches Prüfmodell – nicht geltendes Verfahren",
+    "possible_scope": "außergewöhnlich grundlegende Staats- und Verfassungsfragen",
+    "condition_a": "Mehrheit der gültigen österreichweiten Stimmen",
+    "condition_b": "Mehrheit der Bundesländer nach noch festzulegender, verfassungsrechtlich geprüfter Landeswertung",
+    "purpose": "Bevölkerungsmehrheit und föderale Breite gemeinsam berücksichtigen.",
+    "open_points": [
+      "Welche Fragen qualifizieren sich?",
+      "Wie wird ein Bundesland in der zweiten Mehrheit gewertet?",
+      "Wie werden Enthaltungen behandelt?",
+      "Welche Mindestbeteiligung ist sachgerecht?",
+      "Wie fügt sich das Modell in Art. 44 B-VG und bestehende Volksabstimmungsverfahren ein?"
+    ]
+  },
   "questions": [
     {
       "id": "VOTE-DEMO-REG-01",
-      "title": "Soll eine regional regelbare Lebensfrage künftig vom Bundesland statt bundesweit einheitlich entschieden werden?",
+      "title": "Soll eine rechtlich regional regelbare Lebensfrage künftig vom Bundesland statt bundesweit einheitlich entschieden werden?",
       "scope": "Bundesland",
       "region": "alle",
       "type": "Grundsatzbeispiel",
       "status": "Demo – keine laufende Abstimmung",
+      "decision_readiness": "Konzept",
       "binding": false,
       "choices": ["Ja", "Nein", "Enthaltung"],
       "legal_note": "Nur für Materien, die nach geltender oder künftig geänderter Kompetenzordnung regional entschieden werden dürfen.",
-      "finance_note": "Entscheidungs- und Finanzierungsverantwortung sollen möglichst zusammenfallen."
+      "budget_status": "Je Materie gesondert zu berechnen.",
+      "finance_note": "Entscheidungs- und Finanzierungsverantwortung sollen möglichst zusammenfallen.",
+      "pro_arguments": [
+        "Regeln können näher an regionalen Lebens- und Wirtschaftsbedingungen ausgestaltet werden.",
+        "Politische Verantwortung wird für die betroffene Region sichtbarer."
+      ],
+      "contra_arguments": [
+        "Unterschiedliche Länderregeln können Komplexität für Bürger und Unternehmen erhöhen.",
+        "Bei grenzüberschreitenden Auswirkungen kann ein gemeinsamer Bundesstandard effizienter sein."
+      ],
+      "implementation_gate": "Kompetenz- und Zentralisierungscheck je konkreter Materie"
     },
     {
       "id": "VOTE-DEMO-SMOKE-01",
-      "title": "Soll ein Bundesland bei Gastronomie-Rauchregeln innerhalb bundesweiter Schutzstandards eigene Regeln beschließen dürfen?",
+      "title": "Soll ein Bundesland bei Gastronomie-Rauchregeln innerhalb zwingender Schutzstandards eigene Regeln beschließen dürfen?",
       "scope": "Bundesland",
       "region": "alle",
       "type": "Reformbeispiel",
       "status": "Rechtsöffnung erforderlich",
+      "decision_readiness": "nicht entscheidungsreif",
       "binding": false,
       "choices": ["Ja", "Nein", "Enthaltung"],
       "legal_note": "Das Rauchverbot in Gastronomieräumen ist derzeit bundesrechtlich im TNRSG geregelt. Eine landesabhängige Ausgestaltung setzt daher eine entsprechende bundesrechtliche bzw. kompetenzrechtliche Öffnung voraus.",
+      "budget_status": "Öffentliche und betriebliche Folgekosten noch nicht modelliert.",
+      "pro_arguments": [
+        "Ein Land könnte regionale Präferenzen stärker berücksichtigen, sofern zwingende Schutzstandards eingehalten werden.",
+        "Unterschiedliche Modelle könnten als begrenzter föderaler Vergleich dienen."
+      ],
+      "contra_arguments": [
+        "Unterschiedliche Regeln können Gesundheitsschutz und Vollzug uneinheitlicher machen.",
+        "Arbeitnehmer, Gäste und Betriebe könnten bei Länderwechseln mit komplexeren Regeln konfrontiert sein."
+      ],
       "minimum_safeguards": ["Jugendschutz", "Arbeitnehmerschutz", "Gesundheitsschutz", "klare Kennzeichnung"],
+      "implementation_gate": "Rechtsöffnung plus unabhängige Gesundheits-, Arbeitnehmer- und Vollzugsprüfung",
       "sources": [
-        {"label": "RIS – TNRSG § 12", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10010907&Paragraf=12"}
+        {"id": "TNRSG-12", "label": "RIS – TNRSG § 12", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10010907&Paragraf=12"}
       ]
     },
     {
@@ -53,29 +96,54 @@
       "region": "alle",
       "type": "Reformbeispiel",
       "status": "Kompetenz- und Rechtsmodell offen",
+      "decision_readiness": "nicht entscheidungsreif",
       "binding": false,
       "choices": ["Ja", "Nein", "Enthaltung"],
       "legal_note": "Asyl sowie Ein- und Auswanderungswesen sind derzeit im Kern Bundessache. Ein regionales Opt-in/Opt-out kann daher nur für rechtlich übertragbare oder zusätzliche freiwillige Bereiche konstruiert werden und darf zwingende Verpflichtungen nicht unterlaufen.",
+      "budget_status": "Kosten für Unterbringung, Integration, Verwaltung und Infrastruktur müssen je Modell vorab beziffert werden.",
       "finance_note": "Zusätzliche regionale freiwillige Leistungen sollen grundsätzlich mit regionaler Finanzierungsverantwortung gekoppelt werden.",
+      "pro_arguments": [
+        "Regionen könnten zusätzliche freiwillige Kapazitäten entsprechend lokaler Bereitschaft und Infrastruktur übernehmen.",
+        "Entscheidungs- und Finanzierungsverantwortung könnten enger miteinander verbunden werden."
+      ],
+      "contra_arguments": [
+        "Migrations- und Asylpolitik hat erhebliche bundesweite, europäische und völkerrechtliche Wechselwirkungen.",
+        "Stark unterschiedliche regionale Modelle können Verteilung, Verwaltung und Gleichbehandlung komplexer machen."
+      ],
+      "implementation_gate": "Verfassungs-, EU-, Völkerrechts-, Gleichheits- und Finanzierungsprüfung",
       "sources": [
-        {"label": "RIS – B-VG Art. 10", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=10&Gesetzesnummer=10000138"}
+        {"id": "BVG-10", "label": "RIS – B-VG Art. 10", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=10&Gesetzesnummer=10000138"}
       ]
     },
     {
       "id": "VOTE-DEMO-CONST-01",
-      "title": "Soll bei außergewöhnlich grundlegenden Staats- und Verfassungsfragen eine Doppelmehrheit gelten?",
+      "title": "Soll bei außergewöhnlich grundlegenden Staats- und Verfassungsfragen zusätzlich zur österreichweiten Stimmenmehrheit eine föderale Mehrheit der Bundesländer erforderlich sein?",
       "scope": "Bund",
       "region": "Österreich",
       "type": "Verfassungsreform-Modell",
       "status": "juristisch auszuarbeiten",
+      "decision_readiness": "Prüfmodell",
       "binding": false,
       "choices": ["Ja", "Nein", "Enthaltung"],
-      "legal_note": "WERK-Prüfmodell: Mehrheit der österreichweit gültigen Stimmen plus Mehrheit der Bundesländer. Schwellen und konkrete Anwendungsfälle sind verfassungsrechtlich auszuarbeiten."
+      "legal_note": "WERK-Prüfmodell. Art. 44 B-VG enthält die geltenden Regeln für Verfassungsänderungen und zwingende Volksabstimmungen bei einer Gesamtänderung. Eine zusätzliche Doppelmehrheit wäre neu zu normieren.",
+      "budget_status": "Direkte Verfahrenskosten gering gegenüber der verfassungsrechtlichen Systemwirkung; genaue Umsetzungskosten offen.",
+      "pro_arguments": [
+        "Sehr grundlegende Entscheidungen müssten sowohl eine Bevölkerungsmehrheit als auch breite föderale Zustimmung erreichen.",
+        "Kleinere Länder erhielten bei außergewöhnlichen Staatsstrukturfragen zusätzliches institutionelles Gewicht."
+      ],
+      "contra_arguments": [
+        "Eine zusätzliche Mehrheit erhöht die Hürde für Verfassungsänderungen und kann klare österreichweite Mehrheiten blockieren.",
+        "Die Gewichtung der Länder muss so gestaltet werden, dass sehr unterschiedliche Bevölkerungsgrößen demokratisch vertretbar berücksichtigt werden."
+      ],
+      "implementation_gate": "vollständiges Verfassungsmodell inklusive Schwellen, Landeswertung und Verhältnis zu Art. 44 B-VG",
+      "sources": [
+        {"id": "BVG-44", "label": "RIS – B-VG Art. 44", "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Artikel=44&Gesetzesnummer=10000138"}
+      ]
     }
   ],
   "digital_status": {
     "current": "Für Wahlen besteht derzeit laut BMI keine geeignete bundesverfassungsrechtliche Grundlage für E-Voting.",
     "target": "Sichere digitale Teilnahme als langfristiges Reformziel; bis dahin nur nichtamtliche Demo-/Beteiligungsfunktionen auf der WERK-Plattform.",
-    "source": {"label": "BMI – E-Voting", "url": "https://www.bmi.gv.at/412/index.html"}
+    "source": {"id": "BMI-EVOTE", "label": "BMI – E-Voting", "url": "https://www.bmi.gv.at/412/"}
   }
 }
