@@ -1,0 +1,49 @@
+{
+  "version":"2026-09-01-v1",
+  "principle":"Erst Reihenfolge rechnen. Dann umsetzen.",
+  "note":"Die Zeitachsen sind Umsetzungslogik, kein Versprechen eines konkreten Amtsantrittsdatums. Zeitkritische Programme werden separat geführt.",
+  "tracks":[
+    {
+      "id":"prepare",
+      "name":"Vor Regierungsverantwortung vorbereiten",
+      "purpose":"Rechts-, Daten- und Rechenarbeit so weit schließen, dass ein späterer Regierungsstart nicht mit Konzeptsuche beginnt.",
+      "reforms":["BUD-01","BUD-02","TAX-01","TAX-02","REG-01","DIR-01","ORG-01"],
+      "deliverables":["vollständige Wirkungsblätter","Verfassungs- und EU-Prüfung","Budgetbaselines","Statuten/Partnervertrag","technisches WERK-VOTE-Sicherheitsmodell"]
+    },
+    {
+      "id":"100d",
+      "name":"Erste 100 Tage nach Regierungsverantwortung",
+      "purpose":"Kontrolle, Transparenz und institutionelle Voraussetzungen zuerst herstellen – bevor große dauerhafte Eingriffe beschlossen werden.",
+      "reforms":["BUD-01","DEBT-02","SUB-01","PART-01","ADM-02","REG-01"],
+      "deliverables":["monatliches gesamtstaatliches Sanierungs-Cockpit","gesetzlicher Tilgungs-/Sinking-Fund-Entwurf","Förderinventar mit Sunset-Status","Eigentümeraufträge für wesentliche Bundesbeteiligungen","Digitalprojekt-Business-Case-Standard","Kompetenzinventar Bund/Land/Gemeinde"]
+    },
+    {
+      "id":"legislature",
+      "name":"Erste Legislaturperiode",
+      "purpose":"Strukturreformen umsetzen, deren Kosten, Rechtslage und Nebenwirkungen nachweisbar geklärt sind.",
+      "reforms":["DEBT-01","ADM-01","SUB-01","PART-01","TAX-01","TAX-02","GAME-01","REG-01"],
+      "deliverables":["dauerhafter Schuldenabbaupfad","digitales Genehmigungsportal in prioritären Materien","bereinigte Förderlandschaft","professionelle Beteiligungssteuerung","evidenzbasierte Unternehmenssteuerreform","erste Kompetenzverschiebungen mit Finanzierung"]
+    },
+    {
+      "id":"long",
+      "name":"Langfristiger Staatsumbau",
+      "purpose":"Nur Reformen mit besonders hoher institutioneller, verfassungsrechtlicher oder technischer Komplexität.",
+      "reforms":["BUD-02","REG-01","DIR-01"],
+      "deliverables":["dauerhaftes Tilgungsniveau nach Budgetbalance","stabile subsidiäre Kompetenzordnung","rechtssichere digitale direkte Demokratie bei geeigneten Großfragen"]
+    }
+  ],
+  "time_critical":[
+    {
+      "id":"EU-01",
+      "reason":"RRF-Abschlussfristen liegen 2026; die Akte ist daher ein zeitkritischer aktueller Staatsfall und kein dauerhaftes zukünftiges 100-Tage-Versprechen.",
+      "action":"Restmeilensteine, finalen Zahlungsantrag und Wirkungs-Nachlauf aktuell verfolgen. Nach Abschluss in eine EU-Förder-Wirkungsakte überführen."
+    }
+  ],
+  "dependency_rules":[
+    "Keine dauerhafte Tilgungsquote ohne vorherige Budgetbalance- und Fälligkeitsrechnung.",
+    "Keine Steuererhöhung oder -senkung ohne Aufkommens-, Verteilungs- und Standortmodell.",
+    "Keine Kompetenzverschiebung ohne gleichzeitige Finanzierungs- und Personalzuordnung.",
+    "Keine amtliche digitale Abstimmung ohne Rechtsgrundlage, Sicherheitsnachweis, Geheimhaltung und analogen Zugang.",
+    "Keine Förderstreichung allein nach Förderhöhe; zuerst Zweck, Zusätzlichkeit, Wirkung und Übergangsfolgen prüfen."
+  ]
+}
