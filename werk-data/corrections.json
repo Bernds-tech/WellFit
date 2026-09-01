@@ -1,0 +1,20 @@
+{
+  "version":"2026-09-01-v1",
+  "purpose":"Historische Projektannahmen, die durch neue Primärdaten oder geänderte Rechtslage korrigiert wurden, werden hier nachvollziehbar dokumentiert.",
+  "corrections":[
+    {
+      "id":"CORR-PART-01",
+      "previous":"Die Zahl von rund 14,25 Mrd. € wurde im Projekt zeitweise als Dividendenziel für Bundesbeteiligungen bezeichnet.",
+      "corrected":"Der Beteiligungsbericht 2027/2028 weist rund 14,25 Mrd. € als geplante Auszahlungen an Beteiligungen für 2027 aus, nicht als Dividendeneinzahlungen an den Bund.",
+      "effect":"Kein WERK-Dividendenziel von 14,25 Mrd. €. PART-01 verwendet stattdessen eine beteiligungsspezifische Eigentümer- und Ausschüttungslogik.",
+      "source_id":"BMF-HOLDINGS-2026"
+    },
+    {
+      "id":"CORR-TAX-01",
+      "previous":"Im frühen Reformkonzept wurde ein pauschaler Körperschaftsteuersatz von 33 % als politische Idee geführt.",
+      "corrected":"2026 wurde mit dem Budgetbegleitgesetz 2027/2028 bereits die Einführung eines progressiven Körperschaftsteuersatzes beschlossen. Der bisherige allgemeine Ausgangssatz beträgt 23 %.",
+      "effect":"Die 33-%-Idee ist nicht mehr als fertige WERK-Forderung geführt. TAX-01 verlangt zuerst eine aktualisierte Aufkommens-, Investitions-, Verteilungs- und Standortrechnung.",
+      "source_id":"BMF-BBG-2026"
+    }
+  ]
+}
