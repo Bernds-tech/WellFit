@@ -1,7 +1,20 @@
 {
-  "version": "2026-09-01-v1",
+  "version": "2026-09-01-v2",
   "registry_status": "Vorbereitung",
   "public_notice": "In der Vorschau werden noch keine Bürgerlisten als bestätigte WERK-Partner veröffentlicht. Einträge erscheinen erst nach Prüfung und formeller Anerkennung des WERK-Grundkodex.",
+  "profile_disclosure": "Ein öffentliches Partnerprofil muss klar zwischen gemeinsamem WERK-Kern und eigenständigem regionalem Programm unterscheiden. WERK darf keine regionale Position als eigene Bundesposition darstellen, wenn sie nur für die jeweilige Partnerliste gilt.",
+  "profile_schema": [
+    {"field":"name","label":"Name der Bürgerliste","required":true},
+    {"field":"region","label":"Bundesland / Gemeinde / Region","required":true},
+    {"field":"legal_form","label":"Rechtsform / organisatorische Einordnung","required":true},
+    {"field":"partner_model","label":"WERK-Gliederung oder WERK-Partnerliste","required":true},
+    {"field":"verified_at","label":"WERK-Prüfung abgeschlossen am","required":true},
+    {"field":"werk_core_acknowledged","label":"WERK-Grundkodex formell anerkannt","required":true},
+    {"field":"regional_program","label":"Eigenständige regionale Programmpunkte","required":true},
+    {"field":"regional_votes","label":"Regionale Bürgerfragen / Abstimmungen","required":false},
+    {"field":"finance_disclosure","label":"Finanz- und Compliance-Status","required":true},
+    {"field":"contact","label":"Öffentlich verantwortliche Kontaktstelle","required":true}
+  ],
   "partner_models": [
     {
       "id": "gliederung",
