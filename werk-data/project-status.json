@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-01-v2",
+  "version": "2026-09-01-v3",
   "current_preview": "V59 (V58 stabile Basis + V59 Freigabemodul)",
   "overall_phase": "Prüffassung",
   "components": [
@@ -13,13 +13,13 @@
     {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype","estimate_pct":86},
     {"id":"legal","name":"Juristische Detailprüfung","status":"in-progress","estimate_pct":63},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
-    {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"open","estimate_pct":20},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":68}
+    {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":70}
   ],
   "blocking_items_for_public_release": [
     "vollständige finanzielle Durchrechnung der prioritären Reformen",
     "juristische Detailprüfung der Kompetenz- und WERK-VOTE-Reformen",
-    "Betreiber/Impressum/Datenschutz festlegen",
+    "tatsächlichen Betreiber und reale Impressums-/Datenschutzangaben festlegen",
     "manuelle mobile, Tastatur- und Screenreader-Abnahme",
     "öffentliche Partnerlisten erst nach realer Verifikation",
     "finale redaktionelle Quellen- und Aktualitätsprüfung"
