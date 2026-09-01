@@ -3,8 +3,10 @@ async function renderProfileSchema(){try{const r=await fetch('./werk-data/partne
 function enhanceA11y(){document.querySelectorAll('nav').forEach(n=>n.setAttribute('aria-label','Hauptnavigation'));document.querySelectorAll('.choice').forEach(b=>{b.setAttribute('aria-pressed',b.classList.contains('active')?'true':'false');b.addEventListener('click',()=>{const card=b.closest('.dossier,.voteCard');if(card)card.querySelectorAll('.choice').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'))})});document.querySelectorAll('.filter,.regionBtn,.reformBtn').forEach(b=>b.setAttribute('type','button'));const main=document.getElementById('main');if(location.hash&&main)main.focus({preventScroll:true})}
 function watch(){const ob=new MutationObserver(()=>enhanceA11y());ob.observe(document.body,{subtree:true,childList:true});setTimeout(()=>ob.disconnect(),5000)}
 function loadScript(src,key){if(document.querySelector(`script[data-module="${key}"]`))return;const js=document.createElement('script');js.src=src;js.dataset.module=key;document.body.appendChild(js)}
+function loadStyle(href,key){if(document.querySelector(`link[data-module="${key}"]`))return;const css=document.createElement('link');css.rel='stylesheet';css.href=href;css.dataset.module=key;document.head.appendChild(css)}
 function loadRegisterModule(){loadScript('./werk-assets/site-register-v2.js?v=20260901-v2','register-v2')}
 function loadProgramModule(){loadScript('./werk-assets/site-program-v2.js?v=20260901-v2','program-v2')}
+function loadDebtModule(){loadStyle('./werk-assets/site-debt-model.css?v=20260901-v1','debt-model-css');loadScript('./werk-assets/site-debt-model.js?v=20260901-v1','debt-model-js')}
 function loadReleaseModule(){if(document.querySelector('link[data-v59]'))return;const css=document.createElement('link');css.rel='stylesheet';css.href='./werk-assets/site-v59.css?v=20260901-v59';css.dataset.v59='1';document.head.appendChild(css);loadScript('./werk-assets/site-v59.js?v=20260901-v59','release-v59')}
-window.addEventListener('DOMContentLoaded',()=>{renderProfileSchema();enhanceA11y();watch();loadRegisterModule();loadProgramModule();loadReleaseModule()});
+window.addEventListener('DOMContentLoaded',()=>{renderProfileSchema();enhanceA11y();watch();loadRegisterModule();loadProgramModule();loadDebtModule();loadReleaseModule()});
 })();
