@@ -1,0 +1,47 @@
+{
+  "version": "2026-09-01-v1",
+  "status": "Testplan vorbereitet – manuelle Geräteabnahme offen",
+  "automatable_checks": [
+    "alle internen Navigationsziele vorhanden",
+    "alle JSON-Datenquellen ladbar",
+    "keine nicht verifizierten Partnerlisten öffentlich markiert",
+    "Vorschau enthält noindex/nofollow",
+    "WERK-VOTE-Demo speichert keine Stimme",
+    "zeitabhängige Fakten besitzen Quellen-/Datenstatus"
+  ],
+  "manual_mobile_matrix": [
+    "Android Chrome – kleines Display",
+    "Android Chrome – großes Display",
+    "iPhone Safari – kleines Display",
+    "iPhone Safari – großes Display",
+    "Tablet Hochformat",
+    "Tablet Querformat",
+    "Desktop Chrome",
+    "Desktop Safari",
+    "Desktop Firefox/Edge"
+  ],
+  "keyboard_checks": [
+    "Skip-Link erreichbar und funktionsfähig",
+    "Navigation vollständig per Tastatur erreichbar",
+    "sichtbarer Fokus auf Links, Buttons und Suche",
+    "Reformfilter und Reformauswahl ohne Maus bedienbar",
+    "WERK-VOTE-Demobuttons ohne Maus bedienbar",
+    "kein Tastatur-Fokus wird in unsichtbaren Bereichen gefangen"
+  ],
+  "screenreader_checks": [
+    "Seitentitel und Hauptüberschrift verständlich",
+    "Navigation als Navigation erkennbar",
+    "Formularfelder besitzen zugängliche Namen",
+    "Auswahlzustände der Demo-Abstimmung werden als Zustand vermittelt",
+    "Tabellen besitzen sinnvolle Überschriften",
+    "Statusinformationen sind nicht ausschließlich farbcodiert"
+  ],
+  "visual_checks": [
+    "Textkontrast manuell gegen WCAG-Ziel prüfen",
+    "200 Prozent Browser-Zoom ohne Funktionsverlust",
+    "Textvergrößerung auf Mobilgeräten",
+    "keine horizontale Seitennavigation außerhalb bewusst scrollbarer Navigation",
+    "Druckansicht für Reformakten lesbar"
+  ],
+  "release_rule": "Eine automatische oder visuelle Vorprüfung ersetzt die manuelle Abnahme mit realen Geräten und mindestens einem Screenreader nicht."
+}
