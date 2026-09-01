@@ -1,0 +1,21 @@
+{
+  "version": "2026-09-01-v1",
+  "brand": "WERK Österreich",
+  "tagline": "Erst rechnen. Dann entscheiden.",
+  "goal": "Ein schuldenfreies, sicheres, faires und gleichberechtigtes Österreich mit starken Regionen und verbindlicher Verantwortung.",
+  "four_goals": ["Schuldenfrei", "Fair", "Gleichberechtigt", "Sicher"],
+  "pillars": [
+    {"id": 1, "name": "Solide Staatsfinanzen", "binding": true},
+    {"id": 2, "name": "Fairness", "binding": true},
+    {"id": 3, "name": "Gleichberechtigung", "binding": true},
+    {"id": 4, "name": "Rechtsstaat", "binding": true},
+    {"id": 5, "name": "Sicherheit", "binding": true},
+    {"id": 6, "name": "Regionale Freiheit / Subsidiarität", "binding": true},
+    {"id": 7, "name": "Direkte Bürgerbeteiligung bei qualifizierten Großfragen", "binding": true},
+    {"id": 8, "name": "Wirkung vor Ideologie", "binding": true}
+  ],
+  "decision_model": ["Problem offenlegen", "Optionen rechnen", "Recht und Zuständigkeit prüfen", "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig", "Umsetzen", "KPI messen", "Review"],
+  "regional_rule": "Gemeinsam, was gemeinsam sein muss. Regional, was regional besser entschieden wird.",
+  "finance_rule": "Wer entscheidet, soll möglichst auch die Finanzierung verantworten.",
+  "partner_rule": "Regionale Programme dürfen den WERK-Kern ergänzen, aber nicht widersprechen."
+}
