@@ -1,0 +1,37 @@
+{
+  "version":"2026-09-01-v1",
+  "title":"WERK Saldo- und Tilgungsbrücke",
+  "status":"illustratives Rechenmodell – keine Sparliste und keine Prognose",
+  "baseline":{
+    "year":2025,
+    "general_government_revenue_eur_billion":261.5,
+    "general_government_expenditure_eur_billion":283.0,
+    "general_government_balance_eur_billion":-21.5,
+    "deficit_gdp_pct":-4.2,
+    "source_id":"STAT-FISCAL"
+  },
+  "default_target":{
+    "annual_general_government_surplus_eur_billion":10.0,
+    "purpose":"Nettotilgung der gesamtstaatlichen Verschuldung"
+  },
+  "derived_baseline":{
+    "balance_improvement_needed_eur_billion":31.5,
+    "explanation":"Vom Defizit von 21,5 Mrd. Euro zu einem Überschuss von 10 Mrd. Euro ist gegenüber dem Ausgangsjahr rechnerisch eine Saldoverbesserung von 31,5 Mrd. Euro erforderlich. Das ist keine Vorgabe, diese Summe ausschließlich durch Ausgabenkürzungen zu erzielen."
+  },
+  "bridge_categories":[
+    {"id":"spending","label":"Netto-Ausgabenentlastung / Effizienz","default":0,"note":"Nur dauerhaft realisierte Nettoentlastungen nach Transformationskosten."},
+    {"id":"revenue","label":"Netto-Mehreinnahmen / Steuerbasis","default":0,"note":"Nur nach Verhaltens-, Investitions- und Verteilungswirkung."},
+    {"id":"subsidies","label":"Förder- und Transferbereinigung netto","default":0,"note":"Keine Bruttoförderung als Einsparung zählen; Ersatzmaßnahmen und Folgekosten abziehen."},
+    {"id":"participations","label":"Beteiligungs-/Vermögensbeitrag netto","default":0,"note":"Dividenden, Verkäufe und Sondererlöse getrennt behandeln; Einmalerlöse nicht zur dauerhaften Saldoverbesserung zählen."},
+    {"id":"other","label":"Sonstige strukturelle Verbesserung","default":0,"note":"Muss vor Aufnahme mit eigener Reformakte belegt werden."}
+  ],
+  "rules":[
+    "Bruttoeffekte verschiedener Reformen dürfen nicht addiert werden, wenn sie sich überschneiden.",
+    "Einmalerlöse dürfen nicht als dauerhafte strukturelle Verbesserung verkauft werden.",
+    "Transformationskosten und laufende Mehrkosten werden vor dem Nettoeffekt abgezogen.",
+    "Zinsersparnisse aus Tilgung werden zeitverzögert und nicht doppelt als Primärmaßnahme gezählt.",
+    "Die Rechnung wird bei neuen Statistik-Austria-Jahresdaten neu basiert.",
+    "Eine echte 10-Mrd.-Tilgung startet erst, wenn der Gesamtstaat nach allen Ausgaben einschließlich Zinsen einen entsprechenden Überschuss erzielt."
+  ],
+  "publication_warning":"Die Regler zeigen nur, wie groß der verbleibende Saldoabstand wäre. Sie beweisen nicht, dass eine bestimmte Einsparung oder Einnahme politisch, rechtlich oder volkswirtschaftlich erreichbar ist. Jede Eingabe benötigt eine eigene geprüfte Reformakte."
+}
