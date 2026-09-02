@@ -1,6 +1,6 @@
 {
   "name": "werk-ideenwerk-backend",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
@@ -9,13 +9,16 @@
     "dev": "node --watch src/app.js",
     "worker": "node src/worker.js",
     "worker:dev": "node --watch src/worker.js",
+    "migrate": "node scripts/migrate.mjs",
     "test": "node --test",
     "smoke": "node scripts/smoke.mjs",
     "eval:cluster": "node scripts/evaluate-clustering.mjs",
     "load:seed": "node scripts/seed-synthetic.mjs",
     "load:benchmark": "node scripts/benchmark-queue.mjs",
     "load:cleanup": "node scripts/cleanup-synthetic.mjs",
-    "retention:run": "node scripts/retention-maintenance.mjs"
+    "retention:run": "node scripts/retention-maintenance.mjs",
+    "backup": "node scripts/backup.mjs",
+    "restore:verify": "node scripts/restore-verify.mjs"
   },
   "dependencies": {
     "@fastify/cors": "^11.0.1",
