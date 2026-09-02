@@ -1,13 +1,14 @@
 {
-  "version":"2026-09-02-v15",
-  "current_preview":"V65 – Prüffassung mit WERK IDEENWERK Schutz-/Qualitäts-/Trust-/Backend-Scaffold, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
-  "overall_phase":"Prüffassung / Regierungsregister-Aufbau / Bürgerbeteiligungs-, Datenschutz-, Qualitäts-, Finanz-, Kompetenz-, Demokratie- und Rechtsmodellierung",
+  "version":"2026-09-03-v16",
+  "current_preview":"V66 – Prüffassung mit WERK IDEENWERK Security-/Betriebsreife, Schutz-/Qualitäts-/Trust-/Backend-Scaffold, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
+  "overall_phase":"Prüffassung / Regierungsregister-Aufbau / Bürgerbeteiligungs-, Betriebs-, Datenschutz-, Qualitäts-, Finanz-, Kompetenz-, Demokratie- und Rechtsmodellierung",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check-and-backend-scaffold","estimate_pct":98},
-    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Problemcluster/Lösungsvarianten, API/DB/Worker/Docker/Loadtest-Scaffold","status":"runnable-scaffold-not-deployed","estimate_pct":95},
-    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"goldset-and-100k-benchmark-prepared-not-run","estimate_pct":80},
-    {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"privacy-governance-and-token-api-scaffolded-legal-review-open","estimate_pct":82},
+    {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check-and-versioned-runtime-scaffold","estimate_pct":98},
+    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Problemcluster/Lösungsvarianten, API/DB/Worker/Docker/Loadtest-Scaffold","status":"runnable-scaffold-not-deployed","estimate_pct":96},
+    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"goldset-and-100k-benchmark-prepared-not-run","estimate_pct":82},
+    {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"privacy-governance-token-api-retention-scaffolded-legal-review-open","estimate_pct":86},
+    {"id":"ideenwerk-security","name":"IDEENWERK Security & Betriebsreife","status":"http-hardening-migrations-retention-backup-ci-prepared-runtime-open","estimate_pct":86},
     {"id":"ideenwerk-operator","name":"IDEENWERK menschliche Prüfung / Operator / Appeal","status":"roles-schema-and-demo-cockpit-ready-auth-not-implemented","estimate_pct":80},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"competence-inventory-state-audit-minimum-standard-fit-matrix","estimate_pct":97},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
@@ -18,34 +19,34 @@
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"frontend-backend-privacy-operator-files-covered","estimate_pct":98},
+    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"frontend-backend-privacy-operator-security-ops-files-covered","estimate_pct":98},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":84}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":85}
   ],
   "register":{
     "reform_count":14,
     "core_modules":["WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
     "ideas_model":[
-      "werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-data/ideenwerk-cluster-policy.json","werk-data/ideenwerk-moderation.json","werk-data/ideenwerk-quality.json","werk-data/ideenwerk-privacy.json","werk-data/ideenwerk-operator-governance.json",
-      "ideenwerk-backend/sql/001_init.sql","ideenwerk-backend/sql/002_jobs.sql","ideenwerk-backend/sql/003_similarity.sql","ideenwerk-backend/sql/004_semantic_features.sql","ideenwerk-backend/sql/005_cluster_variants.sql","ideenwerk-backend/sql/006_operator_review.sql","ideenwerk-backend/sql/007_privacy_requests.sql",
+      "werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-data/ideenwerk-cluster-policy.json","werk-data/ideenwerk-moderation.json","werk-data/ideenwerk-quality.json","werk-data/ideenwerk-privacy.json","werk-data/ideenwerk-operator-governance.json","werk-data/ideenwerk-security.json","werk-data/ideenwerk-retention.json",
+      "ideenwerk-backend/sql/001_init.sql","ideenwerk-backend/sql/002_jobs.sql","ideenwerk-backend/sql/003_similarity.sql","ideenwerk-backend/sql/004_semantic_features.sql","ideenwerk-backend/sql/005_cluster_variants.sql","ideenwerk-backend/sql/006_operator_review.sql","ideenwerk-backend/sql/007_privacy_requests.sql","ideenwerk-backend/sql/008_retention.sql",
       "ideenwerk-backend/src/app.js","ideenwerk-backend/src/worker.js","ideenwerk-backend/src/lib/semantic-provider.js","ideenwerk-backend/src/lib/cluster-decision.js",
-      "ideenwerk-backend/evaluation/cluster-goldset.json","ideenwerk-backend/scripts/evaluate-clustering.mjs","ideenwerk-backend/scripts/seed-synthetic.mjs","ideenwerk-backend/scripts/benchmark-queue.mjs","ideenwerk-backend/scripts/cleanup-synthetic.mjs","ideenwerk-backend/scripts/smoke.mjs",
-      "werk-operator-v1.html"
+      "ideenwerk-backend/evaluation/cluster-goldset.json","ideenwerk-backend/scripts/migrate.mjs","ideenwerk-backend/scripts/retention-maintenance.mjs","ideenwerk-backend/scripts/backup.mjs","ideenwerk-backend/scripts/restore-verify.mjs","ideenwerk-backend/scripts/evaluate-clustering.mjs","ideenwerk-backend/scripts/seed-synthetic.mjs","ideenwerk-backend/scripts/benchmark-queue.mjs","ideenwerk-backend/scripts/cleanup-synthetic.mjs","ideenwerk-backend/scripts/smoke.mjs",
+      ".github/workflows/ideenwerk-backend-check.yml","werk-operator-v1.html"
     ],
     "financial_models":["werk-data/debt-model.json","werk-data/fiscal-model.json","werk-data/funding-matrix.json","werk-data/admin-model.json","werk-data/tax-compliance-model.json","werk-data/gambling-model.json","werk-data/medium-term-fiscal-path.json"],
     "legal_models":["werk-data/legal-roadmap.json","werk-data/state-direct-democracy-audit.json","werk-data/state-procedure-matrix.json","werk-data/vote-format.json","werk-data/vote-constitutional-options.json","werk-data/competence-inventory.json","werk-data/democracy-minimum-standard.json","werk-data/state-democracy-fit.json","werk-data/legal.json"],
-    "transparency_models":["werk-data/source-audit.json","werk-data/implementation-overlap.json","werk-data/corrections.json","werk-data/preview-manifest.json"],
+    "transparency_models":["werk-data/source-audit.json","werk-data/implementation-overlap.json","werk-data/corrections.json","werk-data/preview-manifest.json","werk-data/ideenwerk-security.json","werk-data/ideenwerk-retention.json"],
     "correction_log":"werk-data/corrections.json"
   },
   "blocking_items_for_public_release":[
-    "IDEENWERK Docker/API/Worker real starten bzw. deployen und Migrationen/erweiterten Smoke-Test erfolgreich ausführen",
+    "IDEENWERK Integrations-CI bzw. Testdeploy tatsächlich ausführen und Migrationen/Smoke/Retention/Backup-Restore grün nachweisen",
     "semantischen Provider auf repräsentativem Goldset evaluieren; False-Merge, Variantenerhalt und False-Split tatsächlich messen",
     "100k- und Spike-Lasttest auf definierter Testinfrastruktur tatsächlich ausführen und Queue-Latenzen dokumentieren",
+    "verteiltes Rate Limit, progressive Bot-Challenge und WAF für Multi-Instance-Betrieb implementieren",
     "Operator-Authentifizierung über externes OIDC/MFA sowie serverseitige Rollen- und Vier-Augen-Prüfung implementieren",
-    "Privacy-Request-Workflow real ausführen und rechtlich abnehmen; Aufbewahrungs-/Löschfristen festlegen",
-    "Moderations-, Datenschutz-, Lösch-, Auskunfts- und Aufbewahrungsprozess rechtlich abnehmen",
-    "Status-Token-, Rate-Limit-, Bot-/Spam- und Penetrationstests durchführen",
-    "CI-Workflow bei normalem GitHub-Push tatsächlich ausführen und grün bestätigen",
+    "Privacy-Request-/Retention-/Lösch-/Auskunftsprozess real ausführen und juristisch abnehmen; Fristen finalisieren",
+    "Status-Token-Threat-Model und Penetrationstest durchführen",
+    "Backup-RPO/RTO, verschlüsselte externe Ablage und wiederkehrenden Restore-Drill festlegen",
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln quantifizieren und in der Finanzierungsmatrix verifizieren",
     "zweite Länder-Auditstufe abschließen: exakte Fristen, Schwellen, Antwortformate, Bindungswirkung und digitale Zulässigkeit",
     "Verfassungsvarianten für amtlichen digitalen Zusatzkanal, Großfragenformat, Teilnahmeoption und Doppelmehrheit ausformulieren",
@@ -58,6 +59,7 @@
   "method_rules":[
     "Ideen dürfen ohne Login eingebracht werden; formale Unterstützung und amtliche Entscheidung werden getrennt verifiziert",
     "Datenschutzrechte der eigenen Einreichung werden ohne Konto über einen privaten Status-Token ermöglicht",
+    "Bürgerideen werden nicht allein wegen ihres Alters automatisch gelöscht; automatische Retention betrifft nur klar definierte technische Kurzzeitdaten",
     "KI sortiert, strukturiert und erkennt Ähnlichkeiten, entscheidet aber nicht politisch",
     "Mehrheit bestimmt Aufmerksamkeit; Qualität bestimmt Prüfung",
     "keine geheime KI-Gesamtnote: Aufmerksamkeitssignale und Qualitätsgates bleiben getrennt",
@@ -70,6 +72,8 @@
     "eine Einzelidee kann über einen Qualitäts-Sonderpfad trotz geringer Reichweite geprüft werden",
     "anonyme Reaktionen und verifizierte Unterstützer werden niemals zu einer einzigen Zahl vermischt",
     "Qualitätswerte werden erst nach tatsächlich ausgeführtem Test veröffentlicht; vorbereitet ist nicht gemessen",
+    "Datenbankmigrationen sind versioniert und dürfen nach Anwendung nicht still verändert werden",
+    "Backup gilt erst nach erfolgreichem Restore in eine getrennte Testdatenbank als geprüft",
     "bestehender Vollzug ist keine neue WERK-Einnahme",
     "offizieller Budgetpfad ist kein WERK-Erfolg",
     "Sensitivität und Szenario sind keine Prognose",
@@ -78,7 +82,7 @@
     "regional gewünscht und regional rechtlich zuständig werden strikt getrennt",
     "politisches Zielbild und heute geltendes Verfahren werden sichtbar getrennt",
     "bestehende stärkere Volksrechte eines Landes werden nicht durch WERK abgeschwächt",
-    "technische Erreichbarkeit ist keine politische, juristische, finanzielle, sicherheitstechnische, datenschutzrechtliche oder moderative Freigabe"
+    "technische Erreichbarkeit ist keine politische, juristische, finanzielle, sicherheitstechnische, datenschutzrechtliche, moderative oder betriebliche Freigabe"
   ],
-  "note":"Prozentwerte sind interne Arbeitsreifegrade. V65 enthält einen lokal startbaren IDEENWERK-Scaffold mit PostgreSQL, API, Worker, Rate-Limit-Grundlage, PII-Vorstufe, Near-Duplicate-Vorbündelung, providerneutraler Semantik, Problemcluster/Lösungsvarianten, Goldset-Evaluation, vorbereiteten 100k-Lasttests, Privacy-Requests und Operator-/Appeal-Schema. Er ist noch nicht deployed und verarbeitet keine realen Bürgerdaten."
+  "note":"Prozentwerte sind interne Arbeitsreifegrade. V66 ergänzt HTTP-Randhärtung, minimierte Logs, versionierte Migrationen mit Checksumme, Retention-Dry-Run, Backup/Restore-Verifikation und eine vorbereitete PostgreSQL-Integrations-CI. Diese Tests sind durch Connector-Commits weiterhin nicht als tatsächlich grün nachgewiesen."
 }
