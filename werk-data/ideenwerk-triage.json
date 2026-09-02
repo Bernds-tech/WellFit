@@ -1,0 +1,50 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – öffentliche Sortierlogik",
+  "motto":"Mehrheit bestimmt Aufmerksamkeit. Qualität bestimmt Prüfung.",
+  "rule":"Es gibt keine geheime KI-Gesamtnote. Signale werden getrennt ausgewiesen und nur für Warteschlangen-/Prüfentscheidungen verwendet.",
+  "attention_signals":[
+    {"id":"unique_submissions","label":"Unabhängige Einreichungen","meaning":"Anzahl technisch nicht als identische Massenkopie klassifizierter Einreichungen im Cluster","not_equal_to":"verifizierte Personen"},
+    {"id":"verified_support","label":"Verifizierte Unterstützung","meaning":"Eindeutig verifizierte Personen, höchstens einmal je Ziel","not_equal_to":"amtliche Stimme"},
+    {"id":"public_interest","label":"Öffentliches Interesse","meaning":"unverbindliche Reaktionen, Aufrufe oder Ergänzungen","not_equal_to":"politische Mehrheit"},
+    {"id":"geographic_spread","label":"Regionale Breite","meaning":"wie breit ein Problem über Regionen verteilt gemeldet wird","not_equal_to":"Doppelmehrheit"},
+    {"id":"recurrence","label":"Wiederkehr","meaning":"wie lange/regelmäßig ein Problem neu gemeldet wird","not_equal_to":"Dringlichkeit allein"}
+  ],
+  "quality_gates":[
+    {"id":"clarity","label":"Problem verständlich?","result_values":["ja","Rückfrage nötig"]},
+    {"id":"duplicate","label":"Bestehende Idee/Reform vorhanden?","result_values":["neu","ähnlich","Duplikat","bereits im Reformregister"]},
+    {"id":"competence","label":"Zuständigkeit geklärt?","result_values":["Bund","Land","Gemeinde","gemischt","offen"]},
+    {"id":"law","label":"Rechtslage","result_values":["grundsätzlich möglich","Gesetzesänderung nötig","Verfassungsprüfung","EU/Völkerrecht prüfen","offen"]},
+    {"id":"cost","label":"Kosten-/Finanzstatus","result_values":["gering/nicht wesentlich","zu berechnen","Finanzierung offen","Wirkungsblatt vorhanden"]},
+    {"id":"werk_core","label":"WERK-Grundkodex","result_values":["vereinbar","Klärung nötig","nicht vereinbar"]},
+    {"id":"evidence","label":"Datenlage","result_values":["belegt","plausibel","unzureichend","offen"]}
+  ],
+  "queues":[
+    {"id":"fast_duplicate","label":"Schnell zusammenführen","condition":"hohe semantische Ähnlichkeit + identisches Problem/Ziel; Original bleibt erhalten","human_review":"nur bei Konflikt oder hoher öffentlicher Relevanz"},
+    {"id":"clarification","label":"Rückfrage","condition":"Problem oder gewünschte Änderung nicht eindeutig","human_review":"optional; KI darf neutrale Rückfragen formulieren"},
+    {"id":"standard_review","label":"Standard-Vorprüfung","condition":"hinreichend klar und nicht bereits erledigt","human_review":"bei Übergang in Themenraum"},
+    {"id":"high_attention","label":"Hohe Aufmerksamkeit","condition":"starke unabhängige Einreichungs-/Unterstützungssignale","human_review":"priorisiert, aber keine automatische politische Annahme"},
+    {"id":"high_quality_low_attention","label":"Qualitäts-Sonderpfad","condition":"geringe Aufmerksamkeit, aber plausibel hoher Nutzen / klarer Lösungsansatz / belegbares Problem","human_review":"muss regelmäßig Stichproben erhalten, damit Einzelideen nicht systematisch untergehen"},
+    {"id":"rights_sensitive","label":"Rechts-/Grundrechtsprüfung","condition":"Grundrechte, Minderheitenschutz, Migration, Wahlrecht, Sanktionen oder vergleichbar sensible Materie","human_review":"verpflichtend vor öffentlicher politischer Empfehlung"},
+    {"id":"quarantine","label":"Quarantäne","condition":"Spam-, Bot-, personenbezogene oder Rechtswidrigkeitsrisiken","human_review":"nach Risikoklasse"}
+  ],
+  "fairness_rules":[
+    "Eine einzelne gute Idee darf wegen geringer Popularität nicht automatisch aussortiert werden.",
+    "Organisierte Massenkampagnen dürfen nicht so erscheinen, als seien sie tausende unabhängige Unterstützer.",
+    "Regionen mit weniger Einwohnern werden in Themenansichten nicht allein durch absolute Mengen unsichtbar gemacht.",
+    "KI darf keine politische Ideologie- oder Sympathienote vergeben.",
+    "Ablehnungs-/Zusammenführungsgründe werden mit standardisiertem Reason Code protokolliert.",
+    "Regelmäßige Stichprobe aus niedrig frequentierten Ideen schützt vor Popularitäts-Bias."
+  ],
+  "public_display":[
+    "Einreichungen im Cluster",
+    "verifizierte Unterstützer",
+    "Regionen mit Meldungen",
+    "Status der Vorprüfung",
+    "Zuständigkeitsstatus",
+    "Rechtsstatus",
+    "Kostenstatus",
+    "Daten-/Quellenstatus",
+    "letzte Statusänderung"
+  ]
+}
