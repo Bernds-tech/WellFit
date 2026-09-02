@@ -1,0 +1,30 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"ADM-01/ADM-02 – Verwaltungs- und Digitalisierungsmodell",
+  "status":"Sensitivitätsmodell – kein Einsparversprechen",
+  "baseline":{
+    "year":2026,
+    "ug15_financial_administration_outlays_eur_billion":1.4553,
+    "tax_customs_administration_outlays_eur_billion":0.9790,
+    "digitalisation_fund_original_allocation_eur_million":160,
+    "digitalisation_fund_paid_to_end_2024_eur_million":105,
+    "dadex_budget_to_2028_eur_million":15,
+    "id_austria_activated_accounts_million_approx":6,
+    "source_ids":["BMF-UG15-2026","RH-DIGIFUND-2026","BKA-DADEX-2026","BKA-IDA-2026"]
+  },
+  "model":{
+    "purpose":"Zeigen, welche Größenordnung eine nachgewiesene Effizienzsteigerung in einem klar abgegrenzten Verwaltungsbereich hätte. Das Modell ist nicht auf die gesamte österreichische Verwaltung übertragbar.",
+    "default_addressable_base_eur_billion":0.9790,
+    "default_efficiency_gain_pct":1.0,
+    "default_additional_annual_operating_cost_eur_million":0,
+    "formula":"Bruttoeffekt = adressierbare Kostenbasis × Effizienzgewinn. Nettoeffekt = Bruttoeffekt minus zusätzliche laufende Kosten. Transformationskosten werden separat amortisiert.",
+    "publication_rule":"Ein positiver Szenariowert wird erst dann Finanzierungseffekt, wenn Prozessbaseline, Personal-/Sachkostenwirkung, Transformationskosten und Servicequalität in einem Pilot nachgewiesen sind."
+  },
+  "guardrails":[
+    "Keine lineare Kürzung von Personalbudgets aus einem Digitalisierungsszenario ableiten.",
+    "Servicequalität, Bearbeitungsdauer, Fehlerquote und Barrierefreiheit gemeinsam messen.",
+    "Once-Only, One-Stop und Automatisierung zuerst in standardisierten Massenverfahren pilotieren.",
+    "Neue IT nur mit Business Case, Lebenszykluskosten und Abschaltplan für Alt-Systeme.",
+    "Einsparungen erst nach tatsächlich vermiedenen Kosten anrechnen."
+  ]
+}
