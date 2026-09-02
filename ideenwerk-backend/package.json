@@ -1,6 +1,6 @@
 {
   "name": "werk-ideenwerk-backend",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
@@ -9,7 +9,8 @@
     "dev": "node --watch src/app.js",
     "worker": "node src/worker.js",
     "worker:dev": "node --watch src/worker.js",
-    "test": "node --test"
+    "test": "node --test",
+    "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@fastify/rate-limit": "^10.2.1",
