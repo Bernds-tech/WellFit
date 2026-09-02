@@ -1,9 +1,13 @@
 {
-  "version":"2026-09-02-v3",
-  "current_preview":"werk-v61.html",
+  "version":"2026-09-02-v4",
+  "current_preview":"werk-v62.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Ideenwerk","path":"./werk-data/ideenwerk.json"},
+    {"group":"Ideenwerk","path":"./werk-data/ideenwerk-backend.json"},
+    {"group":"Ideenwerk","path":"./werk-data/ideenwerk-triage.json"},
+    {"group":"Ideenwerk","path":"./werk-data/ideenwerk-status-machine.json"},
+    {"group":"Ideenwerk","path":"./werk-data/ideenwerk-api-contract.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
     {"group":"WERK VOTE","path":"./werk-data/votes.json"},
@@ -30,9 +34,11 @@
     {"group":"Assets","path":"./werk-assets/site-ideenwerk.js"},
     {"group":"Assets","path":"./werk-assets/site-ideenwerk-home.js"},
     {"group":"Assets","path":"./werk-assets/site-ideenwerk.css"},
+    {"group":"Assets","path":"./werk-assets/site-ideenwerk-governance.js"},
+    {"group":"Assets","path":"./werk-assets/site-ideenwerk-governance.css"},
     {"group":"Assets","path":"./werk-assets/site-competence.js"},
     {"group":"Assets","path":"./werk-assets/site-democracy-standard.js"},
     {"group":"Assets","path":"./werk-assets/site-state-fit.js"}
   ],
-  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine juristische, finanzielle, moderative oder redaktionelle Freigabe."
+  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine juristische, finanzielle, moderative, datenschutzrechtliche oder redaktionelle Freigabe."
 }
