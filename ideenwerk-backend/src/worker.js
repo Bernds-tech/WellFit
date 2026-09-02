@@ -45,6 +45,15 @@ async function claimJob() {
   }
 }
 
+async function enqueue(client, jobType, subjectId, payload={}) {
+  await client.query(
+    `INSERT INTO processing_jobs(job_type,subject_type,subject_id,payload)
+     VALUES($1,'submission',$2,$3::jsonb)
+     ON CONFLICT DO NOTHING`,
+    [jobType, subjectId, JSON.stringify(payload)]
+  );
+}
+
 async function statusChange(client, publicId, to, actor='system', reasonCode=null, payload={}) {
   const q = await client.query('SELECT current_status FROM submissions WHERE public_id=$1 FOR UPDATE', [publicId]);
   if (!q.rowCount) throw new Error(`submission not found: ${publicId}`);
@@ -63,22 +72,25 @@ async function handlePiiScan(job) {
   if (!q.rowCount) throw new Error('submission missing');
   const row = q.rows[0];
   const flags = piiFlags(row.original_text);
-  if (!flags.length) return { flags: [] };
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
-    await client.query(
-      `INSERT INTO abuse_signals(submission_id,signal_type,signal_value,expires_at)
-       VALUES($1,'pii_detected',$2::jsonb,now()+interval '30 days')`,
-      [row.id, JSON.stringify({ flags })]
-    );
-    if (row.current_status === 'received') await statusChange(client, row.public_id, 'privacy_hold', 'system', 'PII_REVIEW', { flags });
+    if (flags.length) {
+      await client.query(
+        `INSERT INTO abuse_signals(submission_id,signal_type,signal_value,expires_at)
+         VALUES($1,'pii_detected',$2::jsonb,now()+interval '30 days')`,
+        [row.id, JSON.stringify({ flags })]
+      );
+      if (row.current_status === 'received') await statusChange(client, row.public_id, 'privacy_hold', 'system', 'PII_REVIEW', { flags });
+    } else {
+      await enqueue(client, 'structure_submission', row.public_id, { source: 'pii_scan_pass' });
+    }
     await client.query('COMMIT');
   } catch (e) {
     await client.query('ROLLBACK');
     throw e;
   } finally { client.release(); }
-  return { flags };
+  return { flags, next: flags.length ? 'privacy_hold' : 'structure_submission' };
 }
 
 async function handleStructure(job) {
@@ -100,7 +112,7 @@ async function handleStructure(job) {
     await client.query('ROLLBACK');
     throw e;
   } finally { client.release(); }
-  return { mode: 'safe_fallback_without_ai' };
+  return { mode: 'safe_fallback_without_ai', next_planned_job: 'similarity_search/cluster_assignment' };
 }
 
 const handlers = {
@@ -116,8 +128,9 @@ async function finishJob(job, result) {
 }
 
 async function failJob(job, error) {
-  const terminal = Number(job.attempts) + 1 >= Number(job.max_attempts);
-  const delaySeconds = Math.min(300, Math.max(5, 2 ** Number(job.attempts) * 5));
+  const attemptAfterClaim = Number(job.attempts) + 1;
+  const terminal = attemptAfterClaim >= Number(job.max_attempts);
+  const delaySeconds = Math.min(300, Math.max(5, 2 ** attemptAfterClaim * 5));
   await pool.query(
     `UPDATE processing_jobs
         SET status=$2,last_error=$3,locked_at=NULL,locked_by=NULL,
@@ -130,8 +143,9 @@ async function failJob(job, error) {
 
 async function loop() {
   while (!stopping) {
+    let job = null;
     try {
-      const job = await claimJob();
+      job = await claimJob();
       if (!job) { await new Promise(r => setTimeout(r, POLL_MS)); continue; }
       const handler = handlers[job.job_type];
       if (!handler) throw new Error(`No worker handler for job_type=${job.job_type}`);
@@ -139,6 +153,10 @@ async function loop() {
       await finishJob(job, result);
     } catch (e) {
       console.error('[ideenwerk-worker]', e);
+      if (job) {
+        try { await failJob(job, e); }
+        catch (failErr) { console.error('[ideenwerk-worker] failJob failed', failErr); }
+      }
       await new Promise(r => setTimeout(r, POLL_MS));
     }
   }
