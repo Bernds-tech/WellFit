@@ -1,6 +1,6 @@
 {
   "name": "werk-ideenwerk-backend",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
@@ -10,7 +10,10 @@
     "worker": "node src/worker.js",
     "worker:dev": "node --watch src/worker.js",
     "test": "node --test",
-    "smoke": "node scripts/smoke.mjs"
+    "smoke": "node scripts/smoke.mjs",
+    "load:seed": "node scripts/seed-synthetic.mjs",
+    "load:benchmark": "node scripts/benchmark-queue.mjs",
+    "load:cleanup": "node scripts/cleanup-synthetic.mjs"
   },
   "dependencies": {
     "@fastify/rate-limit": "^10.2.1",
