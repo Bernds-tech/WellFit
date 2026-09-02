@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-02-v5",
+  "version":"2026-09-02-v6",
   "current_preview":"werk-v63.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -11,10 +11,17 @@
     {"group":"Ideenwerk","path":"./werk-data/ideenwerk-cluster-policy.json"},
     {"group":"Ideenwerk","path":"./werk-data/ideenwerk-moderation.json"},
     {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/package.json"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/README.md"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/Dockerfile"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/docker-compose.yml"},
     {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/sql/001_init.sql"},
     {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/sql/002_jobs.sql"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/sql/003_similarity.sql"},
     {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/src/app.js"},
     {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/src/worker.js"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/test/status-machine.test.js"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/test/triage.test.js"},
+    {"group":"Ideenwerk Backend","path":"./ideenwerk-backend/scripts/smoke.mjs"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
     {"group":"WERK VOTE","path":"./werk-data/votes.json"},
@@ -48,5 +55,5 @@
     {"group":"Assets","path":"./werk-assets/site-democracy-standard.js"},
     {"group":"Assets","path":"./werk-assets/site-state-fit.js"}
   ],
-  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine juristische, finanzielle, moderative, datenschutzrechtliche, sicherheitstechnische oder redaktionelle Freigabe."
+  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine Runtime-, Datenbank-, juristische, finanzielle, moderative, datenschutzrechtliche, sicherheitstechnische oder redaktionelle Freigabe."
 }
