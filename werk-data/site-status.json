@@ -1,10 +1,11 @@
 {
-  "version":"2026-09-02-v2",
-  "current_preview":"V60",
-  "current_file":"werk-v60.html",
-  "cache_key":"20260902-v9",
+  "version":"2026-09-02-v3",
+  "current_preview":"V61",
+  "current_file":"werk-v61.html",
+  "cache_key":"20260902-v10",
   "brand":{"status_pct":97,"note":"WERK Österreich / Erst rechnen. Dann entscheiden. verbindlich gesetzt"},
   "website_architecture":{"status_pct":97,"note":"HTML, CSS, JavaScript und politische Daten modular getrennt; Preview-Integritätscheck vorhanden"},
+  "ideenwerk":{"status_pct":78,"note":"No-Login-Frontend, lokale Demo-Speicherung, Status-ID, Cluster-/Triage-/Missbrauchsmodell vorhanden; persistentes Backend und echte Moderation offen"},
   "reform_register":{"status_pct":97,"note":"14 Entscheidungsakten, Quellenstatus, Prioritätenlogik sowie Finanz- und Szenariomodule integriert"},
   "regional_model":{"status_pct":97,"note":"Bund/Land/Gemeinde, Kompetenzinventar, neun Länder, Verfahrensaudit, WERK-Mindeststandard und Länder-Fit integriert"},
   "werk_vote":{"status_pct":92,"note":"Frageakten, amtliches-vs-WERK-Format, gestufte Rechtsausbaustufen und Doppelmehrheits-Prüfmodell vorhanden; amtliche Rechts-/Sicherheitsfreigabe offen"},
@@ -14,6 +15,7 @@
   "publication_readiness":{"status_pct":80,"note":"Fortgeschrittene Prüffassung; noch kein öffentlicher Parteiseiten-Publikationskandidat"},
   "technical_integrity":{"status_pct":94,"note":"Selbsttest prüft zentrale Daten- und Assetdateien im Browser; externes dauerhaftes Produktionshosting bleibt offen"},
   "gates_before_public_candidate":[
+    "IDEENWERK-Backend, Moderation, Spam-/Bot-Schutz, persistente Status-Links und Datenschutz implementieren",
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln verifizieren",
     "zweite Länder-Auditstufe für alle neun Länder vollständig abschließen",
     "Verfassungsvarianten für digitalen Zusatzkanal, Teilnahmeoption, Enthaltung und Doppelmehrheit juristisch ausformulieren",
