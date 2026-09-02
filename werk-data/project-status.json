@@ -1,11 +1,11 @@
 {
-  "version":"2026-09-02-v10",
-  "current_preview":"V61 – Prüffassung mit WERK IDEENWERK ohne Login, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
+  "version":"2026-09-02-v11",
+  "current_preview":"V62 – Prüffassung mit WERK IDEENWERK Backend-/Governance-Modell, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
   "overall_phase":"Prüffassung / Regierungsregister-Aufbau / Bürgerbeteiligungs-, Finanz-, Kompetenz-, Demokratie- und Rechtsmodellierung",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check","estimate_pct":97},
-    {"id":"ideenwerk","name":"WERK IDEENWERK – Ideen ohne Login, Status-/Cluster-/Triage-Modell","status":"frontend-prototype-no-backend","estimate_pct":78},
+    {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check","estimate_pct":98},
+    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Status, Backend-Architektur, Triage und Governance","status":"production-architecture-ready-backend-not-deployed","estimate_pct":86},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"competence-inventory-state-audit-minimum-standard-fit-matrix","estimate_pct":97},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
@@ -15,22 +15,23 @@
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"implemented","estimate_pct":94},
+    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"implemented-including-ideenwerk-governance","estimate_pct":95},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":80}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":81}
   ],
   "register":{
     "reform_count":14,
     "core_modules":["WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":["werk-data/ideenwerk.json","werk-assets/site-ideenwerk.js","werk-assets/site-ideenwerk.css"],
+    "ideas_model":["werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-assets/site-ideenwerk.js","werk-assets/site-ideenwerk-governance.js"],
     "financial_models":["werk-data/debt-model.json","werk-data/fiscal-model.json","werk-data/funding-matrix.json","werk-data/admin-model.json","werk-data/tax-compliance-model.json","werk-data/gambling-model.json","werk-data/medium-term-fiscal-path.json"],
     "legal_models":["werk-data/legal-roadmap.json","werk-data/state-direct-democracy-audit.json","werk-data/state-procedure-matrix.json","werk-data/vote-format.json","werk-data/vote-constitutional-options.json","werk-data/competence-inventory.json","werk-data/democracy-minimum-standard.json","werk-data/state-democracy-fit.json","werk-data/legal.json"],
     "transparency_models":["werk-data/source-audit.json","werk-data/implementation-overlap.json","werk-data/corrections.json","werk-data/preview-manifest.json"],
     "correction_log":"werk-data/corrections.json"
   },
   "blocking_items_for_public_release":[
-    "IDEENWERK-Backend für persistente Einreichung, Clusterbildung, Moderation, Status-Link und Datenschutz bauen",
-    "Missbrauchsschutz/Rate-Limits/Bot-Erkennung sowie Trennung anonymer Reaktionen und verifizierter Unterstützer implementieren",
+    "IDEENWERK-Backend entsprechend dem API-/Datenvertrag implementieren und produktiv betreiben",
+    "Moderations-, Datenschutz-, Lösch-, Auskunfts- und Missbrauchsschutzprozesse für anonyme Einreichungen abnehmen",
+    "Clustering-/KI-Evaluation auf Fehlzusammenführungen, Popularitäts-Bias und Regionen-Bias durchführen",
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln quantifizieren und in der Finanzierungsmatrix verifizieren",
     "zweite Länder-Auditstufe abschließen: exakte Fristen, Schwellen, Antwortformate, Bindungswirkung und digitale Zulässigkeit",
     "Verfassungsvarianten für amtlichen digitalen Zusatzkanal, Großfragenformat, Teilnahmeoption und Doppelmehrheit ausformulieren",
@@ -44,6 +45,9 @@
     "Ideen dürfen ohne Login eingebracht werden; formale Unterstützung und amtliche Entscheidung werden getrennt verifiziert",
     "KI sortiert, strukturiert und erkennt Duplikate, entscheidet aber nicht politisch",
     "Mehrheit bestimmt Aufmerksamkeit; Qualität bestimmt Prüfung",
+    "keine geheime KI-Gesamtnote: Aufmerksamkeitssignale und Qualitätsgates bleiben getrennt",
+    "Originaleinreichungen bleiben bei Clusterzusammenführung erhalten und nachvollziehbar",
+    "eine Einzelidee kann über einen Qualitäts-Sonderpfad trotz geringer Reichweite geprüft werden",
     "anonyme Reaktionen und verifizierte Unterstützer werden niemals zu einer einzigen Zahl vermischt",
     "bestehender Vollzug ist keine neue WERK-Einnahme",
     "offizieller Budgetpfad ist kein WERK-Erfolg",
@@ -53,7 +57,7 @@
     "regional gewünscht und regional rechtlich zuständig werden strikt getrennt",
     "politisches Zielbild und heute geltendes Verfahren werden sichtbar getrennt",
     "bestehende stärkere Volksrechte eines Landes werden nicht durch WERK abgeschwächt",
-    "technische Erreichbarkeit ist keine politische, juristische oder finanzielle Freigabe"
+    "technische Erreichbarkeit ist keine politische, juristische, finanzielle oder moderative Freigabe"
   ],
-  "note":"Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. IDEENWERK speichert in der V61-Prüffassung ausschließlich lokal im Browser; eine reale öffentliche Beteiligungsplattform benötigt Backend, Moderation, Missbrauchsschutz und Datenschutzfreigabe."
+  "note":"Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. IDEENWERK ist in V62 als Frontend- und Governance-/Backend-Architektur ausgearbeitet; produktive Speicherung, Moderation, KI-Verarbeitung, Identitätsprüfung und Datenschutzbetrieb sind noch nicht implementiert."
 }
