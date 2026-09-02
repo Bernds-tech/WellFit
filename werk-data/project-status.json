@@ -1,35 +1,35 @@
 {
-  "version": "2026-09-02-v7",
-  "current_preview": "V59 (V58 stabile Basis + Freigabemodul + Regierungsregister + Finanzmodelle + Bundes-/Länder-Rechtsaudit)",
-  "overall_phase": "Prüffassung / Regierungsregister-Aufbau / Finanz- und Rechtsmodellierung",
+  "version": "2026-09-02-v8",
+  "current_preview": "V59 (V58 stabile Basis + Freigabemodul + Regierungsregister + Finanzmodelle + Kompetenz-/Bundes-/Länder-Rechtsaudit)",
+  "overall_phase": "Prüffassung / Regierungsregister-Aufbau / Finanz-, Kompetenz- und Rechtsmodellierung",
   "components": [
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
     {"id":"architecture","name":"Website-Architektur","status":"advanced","estimate_pct":96},
-    {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"advanced-legal-audit","estimate_pct":94},
+    {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"competence-inventory-and-state-audit","estimate_pct":96},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
-    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":66},
-    {"id":"fiscal-model","name":"Budget-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"scenario-models-ready-net-effects-open","estimate_pct":82},
+    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":67},
+    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"scenario-models-ready-net-effects-open","estimate_pct":84},
     {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":97},
-    {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype-with-legal-roadmap","estimate_pct":88},
-    {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-nine-state-audit-in-progress","estimate_pct":73},
+    {"id":"vote","name":"WERK VOTE Frageakten und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model","estimate_pct":91},
+    {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory","estimate_pct":79},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":77}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":79}
   ],
   "register": {
     "reform_count": 14,
     "new_blocks": ["Budgetpfad", "10-Mrd.-Tilgungsziel", "Förderreform", "Bundesbeteiligungen", "RRF/EU-Mittel", "Körperschaftsteuer-Neubewertung", "Gewinnverlagerungsprüfung", "Digital-Governance", "Glücksspiel-Systemprüfung"],
     "financial_models": ["werk-data/debt-model.json", "werk-data/fiscal-model.json", "werk-data/funding-matrix.json", "werk-data/admin-model.json", "werk-data/tax-compliance-model.json", "werk-data/gambling-model.json", "werk-data/medium-term-fiscal-path.json"],
-    "legal_models": ["werk-data/legal-roadmap.json", "werk-data/state-direct-democracy-audit.json", "werk-data/legal.json"],
+    "legal_models": ["werk-data/legal-roadmap.json", "werk-data/state-direct-democracy-audit.json", "werk-data/state-procedure-matrix.json", "werk-data/vote-format.json", "werk-data/vote-constitutional-options.json", "werk-data/competence-inventory.json", "werk-data/legal.json"],
     "transparency_models": ["werk-data/source-audit.json", "werk-data/implementation-overlap.json", "werk-data/corrections.json"],
     "correction_log": "werk-data/corrections.json"
   },
   "blocking_items_for_public_release": [
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln quantifizieren und in der Finanzierungsmatrix verifizieren",
-    "zweite Auditstufe der neun Landesverfahren: Verfahrensgesetze, Fristen, Antwortformate und digitale Zulässigkeit",
-    "Verfassungsentwurf für amtliches WERK-VOTE-Zielmodell einschließlich Teilnahme-/Enthaltungsfrage",
-    "Grundrechts-, EU- und Völkerrechtsprüfung der konkreten Kompetenzreformen",
+    "zweite Länder-Auditstufe abschließen: exakte Fristen, Schwellen, Antwortformate, Bindungswirkung und digitale Zulässigkeit",
+    "Verfassungsvarianten für amtlichen digitalen Zusatzkanal, Großfragenformat, Teilnahmeoption und Doppelmehrheit ausformulieren",
+    "Grundrechts-, EU- und Völkerrechtsprüfung der konkreten Kompetenzreformen Migration/Rauchen und weiterer Großfragen",
     "tatsächlichen Betreiber und reale Impressums-/Datenschutzangaben festlegen",
     "manuelle mobile, Tastatur- und Screenreader-Abnahme",
     "öffentliche Partnerlisten erst nach realer Verifikation",
@@ -41,6 +41,7 @@
     "Sensitivität und Szenario sind keine Prognose",
     "nur dauerhafter verifizierter Nettoeffekt reduziert die Finanzierungslücke",
     "direkte Demokratie erweitert niemals automatisch die Gesetzgebungskompetenz einer Region",
+    "regional gewünscht und regional rechtlich zuständig werden strikt getrennt",
     "politisches Zielbild und heute geltendes Verfahren werden sichtbar getrennt"
   ],
   "note": "Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. Sie dienen nur der Projektsteuerung. Verifizierte Milliardenbeträge und rechtsverbindliche Abstimmungsmodelle werden erst nach abgeschlossener Netto-Wirkungs- bzw. Rechtsprüfung freigegeben."
