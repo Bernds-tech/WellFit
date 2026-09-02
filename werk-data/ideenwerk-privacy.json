@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – Datenschutz ohne Login",
+  "principle":"Für das Einbringen einer Idee ist kein Konto notwendig. Datenschutzrechte und private Nachverfolgung werden über einen unguessbaren Status-Token ermöglicht; dieser wird serverseitig nur gehasht gespeichert.",
+  "data_minimisation":[
+    "Ideentext, optionaler Themen-/Regionsbezug und technische Prozessmetadaten genügen für die Einreichung.",
+    "Name, E-Mail-Adresse und Telefonnummer sind für eine normale Ideeneinreichung nicht erforderlich.",
+    "Personenbezogene Kontaktdaten im Freitext werden vor öffentlicher Veröffentlichung erkannt und redigiert bzw. in einen Privacy-Hold gesetzt.",
+    "Anonyme/pseudonyme Idee, verifizierte Unterstützung und spätere geheime Abstimmung bleiben technisch getrennte Vertrauensbereiche.",
+    "IP-/Netzwerkdaten dürfen nur für eng begrenzten Missbrauchsschutz verarbeitet werden; konkrete Speicherfristen werden erst nach Datenschutz-/Rechtsprüfung festgelegt und nicht vorab erfunden."
+  ],
+  "citizen_rights_without_account":[
+    {"id":"export","label":"Meine gespeicherten Daten ansehen/exportieren","auth":"Status-Token","backend":"direkter privater Export bzw. Anfrage"},
+    {"id":"correction","label":"Korrektur oder Klarstellung verlangen","auth":"Status-Token","backend":"Privacy-/Review-Anfrage"},
+    {"id":"deletion","label":"Löschung verlangen","auth":"Status-Token","backend":"Anfrage mit Rechts-/Aufbewahrungsprüfung; keine automatische irreversible Löschung ohne Prüfung"},
+    {"id":"restriction","label":"Öffentliche Anzeige einschränken lassen","auth":"Status-Token","backend":"sofortiger/prüfbarer Privacy-Hold je Fall"},
+    {"id":"cluster_appeal","label":"Falsche Cluster-/Variantenzuordnung melden","auth":"Status-Token oder öffentlicher Meldeweg","backend":"Appeal-Workflow"}
+  ],
+  "retention_policy_status":"noch rechtlich festzulegen",
+  "retention_rule":"Es werden keine endgültigen Speicherfristen behauptet, bevor Rechtsgrundlage, Betreiber, Zweck, öffentliches Archivinteresse und Löschkonzept geprüft sind. Technische Logs, Missbrauchssignale und private Statuszugänge erhalten getrennte Fristen.",
+  "public_release_gates":[
+    "Datenschutzerklärung mit realem Betreiber und tatsächlichen Dienstleistern",
+    "Verzeichnis der Datenkategorien und Verarbeitungszwecke",
+    "Aufbewahrungs-/Löschfristen je Datenkategorie",
+    "Auftragsverarbeiter und Hostingstandorte dokumentiert",
+    "Privacy-Request-Workflow getestet",
+    "PII-Redaktion und versehentliche Veröffentlichung getestet",
+    "Backup-Lösch-/Wiederherstellungslogik geklärt",
+    "Missbrauchsschutz so gestaltet, dass keine unnötige dauerhafte Identitätsprofilbildung entsteht"
+  ],
+  "prototype_notice":"Die öffentliche V64/Vorschau speichert IDEENWERK-Demoideen weiterhin nur lokal im Browser. Das Backend-Scaffold verarbeitet noch keine realen Bürgerdaten."
+}
