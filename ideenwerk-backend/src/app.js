@@ -1,12 +1,16 @@
 import Fastify from 'fastify';
+import rateLimit from '@fastify/rate-limit';
 import pg from 'pg';
 import { z } from 'zod';
 import { createEventId, createPublicId, createStatusToken, hashStatusToken } from './lib/status-token.js';
 
 const { Pool } = pg;
 const app = Fastify({ logger: true, bodyLimit: 64 * 1024 });
+await app.register(rateLimit, { global: false });
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const PORT = Number(process.env.PORT || 3000);
+const SUBMISSION_RATE_LIMIT = Number(process.env.SUBMISSION_RATE_LIMIT || 20);
+const REPORT_RATE_LIMIT = Number(process.env.REPORT_RATE_LIMIT || 30);
 
 const submissionSchema = z.object({
   text: z.string().trim().min(20).max(5000),
@@ -27,9 +31,11 @@ function bearerToken(req) {
   return h.startsWith('Bearer ') ? h.slice(7).trim() : null;
 }
 
-app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.1.0' }));
+app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.2.0' }));
 
-app.post('/api/ideenwerk/v1/submissions', async (req, reply) => {
+app.post('/api/ideenwerk/v1/submissions', {
+  config: { rateLimit: { max: SUBMISSION_RATE_LIMIT, timeWindow: '1 minute' } }
+}, async (req, reply) => {
   const parsed = submissionSchema.safeParse(req.body);
   if (!parsed.success) return reply.code(400).send({ code: 'INVALID_SUBMISSION', message: 'Einreichung ist unvollständig oder ungültig.' });
 
@@ -65,6 +71,11 @@ app.post('/api/ideenwerk/v1/submissions', async (req, reply) => {
        VALUES($1,'submission',$2,'status_created','citizen',NULL,$3::jsonb)`,
       [createEventId(), publicId, JSON.stringify({ status: 'received', consent_public_anonymous: parsed.data.consent_public_anonymous })]
     );
+    await client.query(
+      `INSERT INTO processing_jobs(job_type,subject_type,subject_id,payload)
+       VALUES('pii_scan','submission',$1,'{}'::jsonb)
+       ON CONFLICT DO NOTHING`, [publicId]
+    );
     await client.query('COMMIT');
   } catch (e) {
     await client.query('ROLLBACK');
@@ -94,7 +105,9 @@ app.get('/api/ideenwerk/v1/submissions/:publicId', async (req, reply) => {
   return q.rows[0];
 });
 
-app.get('/api/ideenwerk/v1/status/:publicId', async (req, reply) => {
+app.get('/api/ideenwerk/v1/status/:publicId', {
+  config: { rateLimit: { max: 60, timeWindow: '1 minute' } }
+}, async (req, reply) => {
   const token = bearerToken(req);
   if (!token) return reply.code(401).send({ code: 'STATUS_TOKEN_REQUIRED', message: 'Status-Token fehlt.' });
   const tokenHash = hashStatusToken(token);
@@ -126,7 +139,9 @@ app.get('/api/ideenwerk/v1/status/:publicId', async (req, reply) => {
   };
 });
 
-app.post('/api/ideenwerk/v1/moderation/report', async (req, reply) => {
+app.post('/api/ideenwerk/v1/moderation/report', {
+  config: { rateLimit: { max: REPORT_RATE_LIMIT, timeWindow: '1 minute' } }
+}, async (req, reply) => {
   const parsed = reportSchema.safeParse(req.body);
   if (!parsed.success) return reply.code(400).send({ code: 'INVALID_REPORT', message: 'Meldung ist ungültig.' });
   const reportId = `REP-${createPublicId().slice(5)}`;
