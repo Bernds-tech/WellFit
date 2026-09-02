@@ -1,12 +1,18 @@
 {
-  "version":"2026-09-02-v1",
+  "version":"2026-09-02-v2",
   "title":"WERK IDEENWERK – transparente Clusterregeln",
   "rule":"Ähnlichkeit dient der Übersicht, nicht dem Verschwinden von Minderheitsvarianten. Jede Originaleinreichung bleibt erhalten und ihre Zuordnung muss korrigierbar sein.",
+  "hierarchy":{
+    "level_1":"Problemcluster – bündelt Einreichungen, die im Kern dasselbe Problem beschreiben.",
+    "level_2":"Lösungsvarianten – unterschiedliche politische, rechtliche oder organisatorische Antworten auf dasselbe Problem bleiben getrennt sichtbar.",
+    "level_3":"Originalideen – jeder Bürgertext bleibt mit eigener Status-ID erhalten.",
+    "interpretation_rule":"Die Zahl der Einreichungen in einem Problemcluster darf niemals als Zustimmung zu einer bestimmten Lösungsvariante dargestellt werden."
+  },
   "classes":[
-    {"id":"duplicate","label":"Nahezu gleicher Vorschlag","action":"zu demselben Vorschlag/Cluster bündeln","preserve":"Originaltext und eigene Status-ID bleiben erhalten"},
+    {"id":"duplicate","label":"Nahezu gleicher Vorschlag","action":"in dieselbe Lösungsvariante innerhalb desselben Problemclusters bündeln","preserve":"Originaltext und eigene Status-ID bleiben erhalten"},
     {"id":"same_problem_variant","label":"Gleiches Problem, andere Lösung","action":"gemeinsamer Problemcluster, aber getrennte Lösungsvariante","preserve":"Varianten werden öffentlich getrennt sichtbar"},
-    {"id":"regional_variant","label":"Gleiches Grundproblem, regionale Besonderheit","action":"Dachcluster plus regionale Untervariante","preserve":"Region darf durch bundesweite Menge nicht überschrieben werden"},
-    {"id":"related_not_same","label":"Verwandtes Thema, aber anderes Problem/Ziel","action":"nur verlinken, nicht zusammenführen","preserve":"eigener Cluster"},
+    {"id":"regional_variant","label":"Gleiches Grundproblem, regionale Besonderheit","action":"Dach-Problemcluster plus regionale Lösungs-/Umsetzungsvariante","preserve":"Region darf durch bundesweite Menge nicht überschrieben werden"},
+    {"id":"related_not_same","label":"Verwandtes Thema, aber anderes Problem/Ziel","action":"nur verlinken, nicht zusammenführen","preserve":"eigener Problemcluster"},
     {"id":"uncertain","label":"Zuordnung unsicher","action":"vorläufiger Kandidat oder menschliche Prüfung","preserve":"keine automatische harte Zusammenführung"}
   ],
   "merge_requirements":[
@@ -14,15 +20,15 @@
     "bei unterschiedlichen Lösungen muss mindestens eine Variantenebene erhalten bleiben",
     "bei Grundrechts-, Minderheiten-, Wahlrechts- oder vergleichbar sensiblen Themen keine irreversible Auto-Zusammenführung",
     "große oder stark wachsende Cluster werden stichprobenartig auf Fehlzuordnungen geprüft",
-    "Bürger können eine offensichtlich falsche Clusterzuordnung melden",
+    "Bürger können eine offensichtlich falsche Cluster- oder Variantenzuordnung melden",
     "jede Zusammenführung erzeugt einen Audit-Eintrag mit Methode und Modell-/Regelversion"
   ],
   "campaign_rule":"Organisierte Kampagnen dürfen sichtbar sein, aber Copy-Paste-Mengen werden nicht als ebenso viele unabhängige verifizierte Unterstützer dargestellt.",
   "public_cluster_fields":[
-    "Cluster-Titel und Problemdefinition",
-    "Lösungsvarianten",
-    "Anzahl Einreichungen",
-    "Anzahl verifizierter Unterstützer getrennt",
+    "Problemcluster-Titel und Problemdefinition",
+    "Lösungsvarianten mit jeweils eigener Einreichungs-/Unterstützungszahl",
+    "Gesamtzahl Originaleinreichungen",
+    "Anzahl verifizierter Unterstützer je Variante getrennt",
     "regionale Verteilung",
     "Zeitverlauf",
     "Clusterregel-/Modellversion",
