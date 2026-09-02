@@ -1,8 +1,9 @@
 {
-  "version":"2026-09-02-v1",
-  "current_preview":"werk-v60.html",
+  "version":"2026-09-02-v2",
+  "current_preview":"werk-v61.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
+    {"group":"Ideenwerk","path":"./werk-data/ideenwerk.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
     {"group":"WERK VOTE","path":"./werk-data/votes.json"},
@@ -26,9 +27,11 @@
     {"group":"Assets","path":"./werk-assets/site-v56.js"},
     {"group":"Assets","path":"./werk-assets/site-v58.js"},
     {"group":"Assets","path":"./werk-assets/site-v58.css"},
+    {"group":"Assets","path":"./werk-assets/site-ideenwerk.js"},
+    {"group":"Assets","path":"./werk-assets/site-ideenwerk.css"},
     {"group":"Assets","path":"./werk-assets/site-competence.js"},
     {"group":"Assets","path":"./werk-assets/site-democracy-standard.js"},
     {"group":"Assets","path":"./werk-assets/site-state-fit.js"}
   ],
-  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine juristische, finanzielle oder redaktionelle Freigabe."
+  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine juristische, finanzielle, moderative oder redaktionelle Freigabe."
 }
