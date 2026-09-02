@@ -1,0 +1,75 @@
+{
+  "version":"2026-09-02-v1",
+  "name":"WERK IDEENWERK Backend-Architektur",
+  "status":"Produktionsentwurf – noch nicht betrieben",
+  "principle":"Mitdenken ohne Konto. Entscheiden verifiziert.",
+  "architecture_rules":[
+    "Ideeneinreichung darf ohne Benutzerkonto möglich sein.",
+    "Eine anonyme/pseudonyme Einreichung ist noch keine verifizierte politische Unterstützung.",
+    "Identitätsdaten, Statuszugang und öffentlicher Ideentext werden technisch getrennt gespeichert.",
+    "Die KI strukturiert, clustert und markiert Prüfbedarf; sie entscheidet nicht über politische Annahme oder Ablehnung.",
+    "Jede Statusänderung erzeugt einen unveränderlichen Audit-Eintrag.",
+    "Personenbezogene Daten werden nicht öffentlich angezeigt und vor Veröffentlichung automatisiert sowie bei Bedarf manuell geprüft.",
+    "Clusterzusammenführung löscht keine Originaleinreichung.",
+    "Keine geheime politische Gesamtnote: Aufmerksamkeitssignale und Qualitäts-/Prüfgates bleiben getrennt sichtbar."
+  ],
+  "entities":[
+    {"name":"submission","purpose":"Originaleinreichung eines Bürgers","public_fields":["public_id","created_at","region","topic","public_text","status","cluster_id"],"private_fields":["status_token_hash","abuse_signals","technical_metadata","pii_flags"]},
+    {"name":"structured_proposal","purpose":"bestätigte strukturierte Fassung der Idee","fields":["problem","proposal","goal","region","suggested_level","topic","open_questions","citizen_confirmed"]},
+    {"name":"cluster","purpose":"Bündel ähnlicher Vorschläge","fields":["cluster_id","title","topic","region_scope","submission_count","verified_support_count","attention_signals","review_status"]},
+    {"name":"support","purpose":"Unterstützung eines Clusters oder Reformkandidaten","fields":["target_id","support_type","verification_state","created_at"],"rule":"Für das Signal 'verifizierte Unterstützung' darf eine verifizierte Person je Ziel nur einmal zählen."},
+    {"name":"review","purpose":"fachliche, rechtliche oder finanzielle Prüfung","fields":["review_type","reviewer_role","result","findings","sources","created_at"]},
+    {"name":"audit_event","purpose":"unveränderliche Status- und Moderationshistorie","fields":["event_id","subject_id","event_type","actor_type","reason_code","created_at"]},
+    {"name":"status_access","purpose":"Wiederaufruf ohne Konto","private_fields":["submission_id","token_hash","expires_at","revoked_at"]}
+  ],
+  "storage_separation":{
+    "public_content_store":"öffentliche, moderierte Ideen- und Clusterdaten",
+    "private_status_store":"Status-Token und private Rückrufinformationen",
+    "security_store":"Rate-Limit-, Bot- und Missbrauchssignale mit kurzer Aufbewahrung",
+    "identity_store":"nur für freiwillig verifizierte Unterstützung / WERK VOTE; logisch getrennt von Ideentext und geheimer Stimme"
+  },
+  "privacy":{
+    "default_public_identity":"Anonyme Bürgeridee",
+    "optional_display_name":"später optional, getrennte ausdrückliche Einwilligung",
+    "status_access":"unguessbarer Link/Token statt Login",
+    "token_storage":"nur gehashter Token serverseitig",
+    "pii_policy":"Kontaktdaten und unnötige personenbezogene Angaben vor öffentlicher Darstellung entfernen oder zurückhalten",
+    "ip_policy":"IP-/Netzwerksignale nur für Sicherheit/Missbrauchsschutz, nicht öffentlich und nicht als politische Identität",
+    "retention":"Aufbewahrungsfristen je Datenklasse vor Produktivstart rechtlich festlegen"
+  },
+  "abuse_protection":{
+    "default":"friktionsarm; kein CAPTCHA für normales Verhalten",
+    "controls":[
+      "Rate Limits je technischem Risikosignal",
+      "progressive Challenge/CAPTCHA nur bei Auffälligkeit",
+      "Copy-Paste-/Burst-/Bot-Muster erkennen",
+      "sehr ähnliche Texte clustern statt als unabhängige Unterstützung zählen",
+      "Block- und Quarantänepfad für automatisierten Spam",
+      "Meldemöglichkeit für rechtswidrige oder missbräuchliche öffentliche Inhalte",
+      "menschliche Überprüfung bei Grenzfällen"
+    ]
+  },
+  "scaling":{
+    "target_design":"mindestens 100.000 Einreichungen pro Kampagnen-/Spitzenzeitraum ohne manuelle Einzeltriage",
+    "batch_jobs":["Embedding/Ähnlichkeit","Cluster-Rebuild","PII-Scan","Themen-/Kompetenz-Vorschlag","Spam-Signale"],
+    "queues":["ingest","moderation","cluster","legal_precheck","finance_precheck","human_review"],
+    "rule":"Keine synchrone KI-Pflicht für das erfolgreiche Absenden; Einreichung muss auch bei KI-Ausfall angenommen und später verarbeitet werden können."
+  },
+  "backend_candidates":{
+    "database":"PostgreSQL",
+    "vector_similarity":"pgvector oder äquivalenter Vektorspeicher",
+    "object_storage":"nur falls Anhänge später zugelassen werden; zum MVP keine Anhänge nötig",
+    "queue":"verwaltete Queue/Job-System",
+    "api":"serverseitige REST-/RPC-Endpunkte hinter Rate Limiting",
+    "observability":"strukturierte Logs, Moderationsmetriken, Fehlerquoten, Queue-Alter, Missbrauchsraten"
+  },
+  "production_gates":[
+    "Datenschutz-/DSGVO-Prüfung und Lösch-/Auskunftsprozess",
+    "Moderations- und Rechtswidrigkeitsprozess",
+    "Spam-/Bot-Lasttest",
+    "Status-Token-Sicherheitsprüfung",
+    "KI-Fehler-/Bias-Evaluation für Strukturierung und Clustering",
+    "öffentliche Transparenzregeln für Zusammenführung, Ausblendung und Moderation",
+    "Backup/Restore und Audit-Log-Abnahme"
+  ]
+}
