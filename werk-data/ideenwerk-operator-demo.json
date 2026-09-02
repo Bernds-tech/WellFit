@@ -1,0 +1,24 @@
+{
+  "version":"2026-09-02-v1",
+  "notice":"Fiktive Demonstrationsdaten. Keine realen Bürgerideen und keine realen Moderationsfälle.",
+  "queues":[
+    {"id":"cluster_review","label":"Cluster-Prüfung","open":18,"oldest_hours":6},
+    {"id":"moderation","label":"Moderation / PII / Spam","open":7,"oldest_hours":3},
+    {"id":"legal","label":"Rechtliche Eskalation","open":3,"oldest_hours":11},
+    {"id":"appeal","label":"Appeals / Überprüfung","open":4,"oldest_hours":9}
+  ],
+  "tasks":[
+    {
+      "task_id":"TASK-DEMO-001","queue":"cluster_review","priority":82,"topic":"Soziales & Pensionen","problem":"Pensionssystem langfristig finanzierbar gestalten","candidate_a":{"id":"IDEA-DEMO-A","summary":"Tatsächliches Pensionsalter schrittweise erhöhen."},"candidate_b":{"id":"IDEA-DEMO-B","summary":"Freiwillig längeres Arbeiten stärker belohnen, ohne allgemeine Altersanhebung."},"suggested_relation":"same_problem_different_solution","problem_similarity":0.94,"solution_similarity":0.41,"recommended_action":"Gleicher Problemcluster, getrennte Lösungsvarianten behalten"
+    },
+    {
+      "task_id":"TASK-DEMO-002","queue":"cluster_review","priority":66,"topic":"Verwaltung","problem":"Doppelte Dateneingaben bei Behörden","candidate_a":{"id":"IDEA-DEMO-C","summary":"Once-Only-Portal mit Registerdaten."},"candidate_b":{"id":"IDEA-DEMO-D","summary":"Bürger sollen dieselben Angaben nicht mehrfach eintragen müssen; Registerdaten wiederverwenden."},"suggested_relation":"same_problem_same_solution","problem_similarity":0.97,"solution_similarity":0.95,"recommended_action":"Dieselbe Lösungsvariante – Zusammenführungskandidat"
+    },
+    {
+      "task_id":"TASK-DEMO-003","queue":"moderation","priority":95,"topic":"Datenschutz","problem":"Kontaktdaten im öffentlichen Ideentext erkannt","candidate_a":{"id":"IDEA-DEMO-E","summary":"Idee enthält eine fiktive Telefonnummer im Text."},"candidate_b":null,"suggested_relation":"PII_HOLD","recommended_action":"Nicht veröffentlichen, Kontaktinformation redigieren und danach erneut prüfen"
+    },
+    {
+      "task_id":"TASK-DEMO-004","queue":"appeal","priority":88,"topic":"Regionen","problem":"Bürger bestreitet Zuordnung zu einem bundesweiten statt regionalen Cluster","candidate_a":{"id":"IDEA-DEMO-F","summary":"Gemeindespezifischer Mobilitätsvorschlag wurde einem österreichweiten Mobilitätscluster zugeordnet."},"candidate_b":null,"suggested_relation":"APPEAL_CLUSTER_SCOPE","recommended_action":"Von anderer Person als Erstreviewer neu prüfen"
+    }
+  ]
+}
