@@ -1,0 +1,21 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"Offizieller Referenzpfad vs. WERK-Überschussziel",
+  "status":"Referenzrechnung – keine WERK-Prognose",
+  "target_surplus_eur_billion":10.0,
+  "rows":[
+    {"year":2025,"type":"Ist","nominal_gdp_eur_billion":513,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-21.546,"bridge_to_target_surplus_eur_billion":31.546},
+    {"year":2026,"type":"Plan/Prognose","nominal_gdp_eur_billion":529,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-22.218,"bridge_to_target_surplus_eur_billion":32.218},
+    {"year":2027,"type":"BMF-Plan","nominal_gdp_eur_billion":547,"maastricht_balance_pct":-3.5,"maastricht_balance_eur_billion":-19.145,"bridge_to_target_surplus_eur_billion":29.145},
+    {"year":2028,"type":"BMF-Plan","nominal_gdp_eur_billion":565,"maastricht_balance_pct":-3.0,"maastricht_balance_eur_billion":-16.950,"bridge_to_target_surplus_eur_billion":26.950},
+    {"year":2029,"type":"Stabilitätspfad","nominal_gdp_eur_billion":583,"maastricht_balance_pct":-2.8,"maastricht_balance_eur_billion":-16.324,"bridge_to_target_surplus_eur_billion":26.324}
+  ],
+  "source_ids":["PARL-BUDGET-2027-28","OESTP-2025"],
+  "warnings":[
+    "Die nominalen BIP-Werte 2025 bis 2029 stammen aus der WIFO-Rahmenprognose der Budgetanalyse 2027/2028; sie können revidiert werden.",
+    "Die Defizitwerte 2027 bis 2029 sind Plan-/Stabilitätspfadwerte, keine gesicherten Ergebnisse.",
+    "Der Budgetdienst weist ausdrücklich darauf hin, dass der Zielpfad insbesondere ab 2028 mit den bisher vorgesehenen Maßnahmen unter aktuellen makroökonomischen Annahmen möglicherweise nicht erreicht wird.",
+    "Bereits beschlossene Konsolidierungsmaßnahmen sind in diesem Referenzpfad enthalten und dürfen nicht nochmals als WERK-Finanzierungsbeitrag gezählt werden.",
+    "Das +10-Mrd.-Ziel ist ein politisches WERK-Ziel und liegt deutlich über dem derzeitigen offiziellen Defizitpfad."
+  ]
+}
