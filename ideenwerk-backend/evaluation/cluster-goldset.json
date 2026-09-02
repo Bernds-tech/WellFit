@@ -1,0 +1,22 @@
+{
+  "version":"2026-09-02-v1",
+  "purpose":"Manuell gelabelte Beispielpaare zur Prüfung, ob IDEENWERK gleiche Probleme, gleiche Lösungen und Lösungsvarianten korrekt trennt.",
+  "labels":["same_problem_same_solution","same_problem_different_solution","separate"],
+  "pairs":[
+    {"id":"G01","expected":"same_problem_same_solution","a":"Behörden sollen Daten nur einmal verlangen. Ich will ein Once-Only-Portal, das vorhandene Registerdaten wiederverwendet.","b":"Ein Once-Only-System soll verhindern, dass Bürger dieselben Angaben bei mehreren Behörden nochmals eintragen müssen."},
+    {"id":"G02","expected":"same_problem_different_solution","a":"Pensionen sollen langfristig finanzierbar bleiben. Das tatsächliche Pensionsalter soll schrittweise steigen.","b":"Pensionen sollen langfristig finanzierbar bleiben. Wer freiwillig länger arbeitet, soll deutlich höhere Zuschläge bekommen, ohne allgemeine Altersanhebung."},
+    {"id":"G03","expected":"same_problem_different_solution","a":"Pflege zuhause ist für Familien schwierig. Das Land soll mehr mobile Pflegedienste finanzieren.","b":"Pflege zuhause ist für Familien schwierig. Pflegende Angehörige sollen vor allem bezahlte Ersatzpflege und mehr freie Tage bekommen."},
+    {"id":"G04","expected":"same_problem_same_solution","a":"Fällige Staatsschulden sollen bei Budgetüberschüssen nicht automatisch refinanziert werden.","b":"Wenn der Staat Überschüsse erzielt, soll er fällige Schulden tilgen statt dafür neue Anleihen aufzunehmen."},
+    {"id":"G05","expected":"separate","a":"Mehr Nachtzüge sollen Österreich mit europäischen Städten verbinden.","b":"Schulen sollen mehr Unterstützungspersonal für Administration bekommen."},
+    {"id":"G06","expected":"same_problem_different_solution","a":"Lange Genehmigungsverfahren bremsen Investitionen. Nach Ablauf einer Frist soll bei geeigneten Verfahren eine Genehmigungsfiktion greifen.","b":"Lange Genehmigungsverfahren bremsen Investitionen. Statt Genehmigungsfiktion sollen zusätzliche spezialisierte Behörden-Teams verbindliche Fristen einhalten."},
+    {"id":"G07","expected":"same_problem_same_solution","a":"Förderungen sollen regelmäßig auf Wirkung geprüft und wirkungslose Programme beendet werden.","b":"Öffentliche Förderprogramme brauchen verbindliche Wirkungsreviews; Programme ohne nachweisbare Wirkung sollen auslaufen."},
+    {"id":"G08","expected":"same_problem_different_solution","a":"Wohnen ist teuer. Gemeinden sollen mehr Bauland mobilisieren und Widmungsverfahren beschleunigen.","b":"Wohnen ist teuer. Der Schwerpunkt soll auf mehr gemeinnützigem Wohnbau und langfristiger Bodenbevorratung liegen."},
+    {"id":"G09","expected":"separate","a":"Glücksspiel braucht ein zentrales Sperrregister und strengeren Spielerschutz.","b":"Regionale Buslinien sollen nach tatsächlicher Nachfrage und Anschlussqualität geplant werden."},
+    {"id":"G10","expected":"same_problem_same_solution","a":"Bürger sollen politische Ideen ohne Konto einreichen können und später über eine Status-ID den Bearbeitungsstand sehen.","b":"Für Bürgerideen soll keine Registrierung nötig sein; jede Einreichung bekommt einen privaten Statuscode zur Nachverfolgung."},
+    {"id":"G11","expected":"same_problem_different_solution","a":"Integration soll schneller gelingen. Sprachkurse sollen früher und verbindlicher angeboten werden.","b":"Integration soll schneller gelingen. Der wichtigste Hebel soll ein rascher Zugang zu Arbeit und betrieblicher Qualifizierung sein."},
+    {"id":"G12","expected":"separate","a":"Die Körperschaftsteuer soll nach Investitions- und Standortwirkungen neu gerechnet werden.","b":"Gemeinden sollen ihre Rettungs- und Bestattungsleistungen effizient organisieren können."},
+    {"id":"G13","expected":"same_problem_same_solution","a":"Sehr ähnliche Bürgerideen sollen gebündelt werden, aber der Originaltext muss erhalten bleiben.","b":"Duplikate im Ideenportal sollen in Cluster kommen, ohne die ursprünglichen Einreichungen zu löschen."},
+    {"id":"G14","expected":"same_problem_different_solution","a":"Energieversorgung muss sicherer werden. Netze und Speicher sollen schneller ausgebaut werden.","b":"Energieversorgung muss sicherer werden. Mehr dezentrale Erzeugung und lokale Energiegemeinschaften sollen Abhängigkeiten reduzieren."},
+    {"id":"G15","expected":"separate","a":"Bei grundlegenden Verfassungsfragen soll eine föderale Doppelmehrheit geprüft werden.","b":"Der Digitalisierungsfonds des Bundes soll einen verbindlichen Business Case für jedes IT-Projekt verlangen."}
+  ]
+}
