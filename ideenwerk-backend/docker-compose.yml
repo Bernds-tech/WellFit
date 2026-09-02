@@ -9,25 +9,38 @@ services:
       - "54329:5432"
     volumes:
       - werk_ideenwerk_pg:/var/lib/postgresql/data
-      - ./sql:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U werk -d werk"]
       interval: 3s
       timeout: 3s
       retries: 20
 
+  migrate:
+    build: .
+    command: ["npm","run","migrate"]
+    environment:
+      DATABASE_URL: postgres://werk:werk-local-only@db:5432/werk
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: "no"
+
   api:
     build: .
     environment:
       DATABASE_URL: postgres://werk:werk-local-only@db:5432/werk
       PORT: 3000
+      LOG_LEVEL: info
+      TRUST_PROXY: "false"
+      ALLOWED_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
       SUBMISSION_RATE_LIMIT: 20
       REPORT_RATE_LIMIT: 30
+      PRIVACY_RATE_LIMIT: 30
     ports:
       - "8787:3000"
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
 
   worker:
     build: .
@@ -37,8 +50,21 @@ services:
       WORKER_POLL_MS: 800
       LEXICAL_DUPLICATE_THRESHOLD: 0.90
     depends_on:
-      db:
-        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+
+  retention-dry-run:
+    profiles: ["ops"]
+    build: .
+    command: ["npm","run","retention:run"]
+    environment:
+      DATABASE_URL: postgres://werk:werk-local-only@db:5432/werk
+      RETENTION_DRY_RUN: "true"
+      RETENTION_POLICY_VERSION: 2026-09-03-v1
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: "no"
 
 volumes:
   werk_ideenwerk_pg:
