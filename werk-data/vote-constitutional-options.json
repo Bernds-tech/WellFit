@@ -1,0 +1,39 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK VOTE – rechtliche Ausbaustufen",
+  "principle":"Nicht alles gleichzeitig verfassungsrechtlich erzwingen. Jede Stufe muss eigenständig funktionieren und darf erst nach Abschluss ihrer Sicherheits- und Rechtsgates in die nächste Stufe übergehen.",
+  "options":[
+    {
+      "id":"A","name":"WERK PULS / private Bürgerbeteiligung","legal_level":"kein neues amtliches Wahlrecht erforderlich","binding":false,"digital":true,"participation_duty":false,"explicit_abstention":true,"double_majority":false,
+      "description":"Nichtamtliche Plattform für offene oder verifizierte Stimmungsbilder. Ergebnisse werden transparent veröffentlicht, entfalten aber keine staatliche Bindungswirkung.",
+      "why_first":"Technik, Frageneutralität, Datenschutz, Barrierefreiheit und Auditmethodik können erprobt werden, ohne amtliche Wahlrechtsgarantien vorzutäuschen.",
+      "gate":"Datenschutz, Betreiber, IT-Sicherheit und klare Nichtamtlichkeitskennzeichnung."
+    },
+    {
+      "id":"B","name":"Amtliche digitale Zusatzteilnahme","legal_level":"Bundesverfassung + Verfahrensgesetze ändern","binding":"wie bestehendes amtliches Verfahren","digital":"zusätzlicher Kanal neben analog","participation_duty":false,"explicit_abstention":"nur wenn separat normiert","double_majority":false,
+      "description":"Bestehende Volksabstimmungs-/Volksbefragungsinstrumente erhalten einen sicheren digitalen Zusatzkanal; ihre materielle Zuständigkeit und Auslösung bleiben zunächst unverändert.",
+      "why_first":"Trennt die schwierige technische Frage des E-Votings von einer gleichzeitigen vollständigen Neugestaltung der direkten Demokratie.",
+      "gate":"Verfassungsgrundlage, Wahlgeheimnis, Einmaligkeit über mehrere Kanäle, unabhängige Zertifizierung, Nachzählbarkeit/Audit, Cybersecurity und analoger Ersatzkanal."
+    },
+    {
+      "id":"C","name":"Qualifizierte Großfragen mit eigener Enthaltungsoption","legal_level":"Bundesverfassung + Volksbefragungs-/Abstimmungsrecht ändern","binding":"je Instrument gesondert festzulegen","digital":"nach Freigabe von Stufe B möglich","participation_duty":"politische Option, gesondert zu prüfen","explicit_abstention":true,"double_majority":false,
+      "description":"Für eng definierte Großfragen wird ein eigenes Verfahren mit neutraler Frageakte, vollständiger Kosten-/Rechtsprüfung und optionaler dritten Antwort 'Enthaltung / keine Variante' geschaffen.",
+      "why_first":"Eine Enthaltungsoption kann unabhängig von einer Teilnahmepflicht normiert werden. Dadurch wird die Teilnahmefrage nicht unnötig zum Blocker für bessere Antwortformate.",
+      "gate":"Definition Großfrage, Bindungswirkung, Antwortformat, Minderheitenschutz, Kostenfolgen und Grundrechtsprüfung."
+    },
+    {
+      "id":"D","name":"Teilnahmeverpflichtung bei eng definierten Großfragen","legal_level":"vertiefte Verfassungs- und Grundrechtsprüfung","binding":"abhängig vom zugrunde liegenden Instrument","digital":"nicht zwingend; analoger Zugang bleibt erforderlich","participation_duty":true,"explicit_abstention":true,"double_majority":false,
+      "description":"Stimmberechtigte müssen teilnehmen, können aber Ja, Nein oder Enthaltung wählen. Härtefälle und analoge Teilnahme sind zwingend vorzusehen.",
+      "why_separate":"Die Teilnahmeverpflichtung ist grundrechtlich und politisch deutlich sensibler als digitale Technik oder eine Enthaltungsoption und darf diese Reformen nicht blockieren.",
+      "gate":"Verhältnismäßigkeit, Befreiungen, Sanktionen oder sanktionsfreies Modell, Gleichheit, Wahlgeheimnis und freie Willensbildung."
+    },
+    {
+      "id":"E","name":"Doppelmehrheit für außergewöhnliche Staatsstrukturfragen","legal_level":"Bundesverfassungsänderung; Gesamtänderungsrisiko prüfen","binding":true,"digital":"unabhängig vom Abstimmungskanal","participation_duty":"nicht Voraussetzung","explicit_abstention":"separat regelbar","double_majority":true,
+      "description":"Nur für eng umrissene außergewöhnliche Verfassungs-/Staatsstrukturfragen: österreichweite Mehrheit plus föderale Mehrheit der Bundesländer.",
+      "why_last":"Greift am stärksten in das Verhältnis von demokratischem und bundesstaatlichem Prinzip ein und benötigt deshalb die tiefste Verfassungsprüfung.",
+      "gate":"Gesamtänderungsanalyse, Länderwertung, Schwellen, Gleichheit der Stimmen und Verhältnis zu Art. 44 B-VG."
+    }
+  ],
+  "recommended_sequence":["A","B","C","D","E"],
+  "policy_note":"WERK muss nicht alle Stufen verwirklichen, damit die vorherigen Stufen sinnvoll funktionieren. Jede Stufe bleibt politisch separat entscheidbar."
+}
