@@ -37,6 +37,16 @@ jobs:
           node --check src/lib/status-token.js
           node --check src/lib/status-machine.js
           node --check src/lib/triage.js
+          node --check src/lib/cluster-decision.js
+          node --check src/lib/semantic-provider.js
+          node --check scripts/smoke.mjs
+          node --check scripts/seed-synthetic.mjs
+          node --check scripts/benchmark-queue.mjs
+          node --check scripts/cleanup-synthetic.mjs
+          node --check scripts/evaluate-clustering.mjs
 
       - name: Unit tests
         run: npm test
+
+      - name: Clustering goldset diagnostic
+        run: npm run eval:cluster
