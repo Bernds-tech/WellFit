@@ -1,0 +1,4 @@
+(()=>{
+function inject(){if(document.getElementById('iwHomeCta'))return;const host=document.querySelector('.page[data-page="start"] .sec.tight');if(!host)return;const box=document.createElement('div');box.id='iwHomeCta';box.className='iwHomeCta';box.innerHTML='<div><div class="ey">Jetzt mitwirken</div><h3>Deine Idee für Österreich – ohne Konto.</h3><p>Schreib deinen Vorschlag in eigenen Worten. WERK IDEENWERK strukturiert, bündelt ähnliche Ideen und macht den Bearbeitungsstatus sichtbar. Eine formale Unterstützung oder spätere Abstimmung wird davon getrennt verifiziert.</p></div><a class="iwBtn" href="#ideenwerk">Idee einbringen</a>';host.appendChild(box)}
+if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',inject);else inject();
+})();
