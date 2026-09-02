@@ -1,0 +1,17 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"Antwortformat: geltendes Recht vs. WERK-Ziel",
+  "federal_current":{
+    "volksbefragung":"Art. 49b B-VG: Ja/Nein oder zwei alternative Lösungsvorschläge; das Volksbefragungsgesetz bildet diese Formen am amtlichen Stimmzettel ab.",
+    "volksabstimmung":"Volksabstimmungen über Gesetzesbeschlüsse werden nach dem Volksabstimmungsgesetz mit Ja/Nein durchgeführt.",
+    "explicit_abstention_option":false,
+    "source_ids":["BVG-49B","VBEFRG-1989","VABSTG-1972"]
+  },
+  "werk_target":{
+    "qualified_major_question_choices":["Ja","Nein","Enthaltung / keine der angebotenen Varianten"],
+    "reason":"Eine allfällige Teilnahmeverpflichtung darf nicht in einen Zwang zu Ja oder Nein umschlagen.",
+    "legal_change_required":true,
+    "note":"Die konkrete verfassungs- und einfachgesetzliche Konstruktion ist offen. Bis dahin ist 'Enthaltung' nur Demo-/Zieloption auf der WERK-Plattform."
+  },
+  "publication_rule":"Jede WERK-VOTE-Frage zeigt getrennt: Demo-Auswahl auf der Plattform, heute zulässiges amtliches Antwortformat und gewünschtes zukünftiges Antwortformat."
+}
