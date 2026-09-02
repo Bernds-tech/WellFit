@@ -1,0 +1,49 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – API-Vertrag",
+  "status":"Backend-Vertrag – noch nicht produktiv",
+  "base_path":"/api/ideenwerk/v1",
+  "principles":[
+    "Einreichen ohne Konto",
+    "Statusabruf über unguessbaren Token",
+    "öffentliche Daten getrennt von privaten Status-/Sicherheitsdaten",
+    "idempotente Wiederholbarkeit bei Netzfehlern",
+    "Rate Limiting und Abuse Protection auf allen schreibenden Endpunkten",
+    "keine KI-Abhängigkeit im synchronen Einreichungspfad"
+  ],
+  "endpoints":[
+    {"method":"POST","path":"/submissions","auth":"keine Anmeldung; Abuse-Schutz","request":["text","region?","topic?","consent_public_anonymous"],"response":["public_id","status_token_once","status_url","status=received"],"notes":"status_token wird nur einmal im Klartext ausgegeben; serverseitig nur Hash speichern"},
+    {"method":"GET","path":"/submissions/{public_id}","auth":"öffentlich","response":["public_id","public_text","topic","region","status","cluster_id?","status_history_public"],"notes":"nur moderierte öffentliche Felder"},
+    {"method":"GET","path":"/status/{public_id}","auth":"Bearer/Query Status-Token","response":["private_status","clarification_questions?","next_step","history","cluster_link?"],"notes":"kein Benutzerkonto nötig"},
+    {"method":"POST","path":"/status/{public_id}/clarification","auth":"Status-Token","request":["answers"],"response":["accepted","new_status"],"notes":"nur zur eigenen Einreichung"},
+    {"method":"GET","path":"/clusters","auth":"öffentlich","query":["topic","region","status","sort"],"response":["clusters","pagination"]},
+    {"method":"GET","path":"/clusters/{cluster_id}","auth":"öffentlich","response":["cluster","attention_signals","quality_gates","linked_submissions_summary","linked_reforms","status_history_public"]},
+    {"method":"POST","path":"/clusters/{cluster_id}/reactions","auth":"keine Anmeldung; Abuse-Schutz","request":["reaction_type"],"response":["accepted"],"notes":"unverbindliches Interesse; nicht als verifizierte Unterstützung zählen"},
+    {"method":"POST","path":"/clusters/{cluster_id}/support","auth":"verifizierte Identität erforderlich","request":["support=true"],"response":["counted_once"],"notes":"getrennte Verifikationskomponente; keine amtliche Stimme"},
+    {"method":"POST","path":"/moderation/report","auth":"keine Anmeldung; Abuse-Schutz","request":["target_type","target_id","reason","details?"],"response":["report_id"]},
+    {"method":"GET","path":"/transparency/metrics","auth":"öffentlich","response":["submissions_total","clusters_total","status_distribution","median_processing_times","moderation_counts","appeal_counts"],"notes":"nur aggregierte, datenschutzkonforme Werte"}
+  ],
+  "internal_jobs":[
+    {"name":"structure_submission","input":"submission_id","output":"structured_proposal","failure":"retry; Einreichung bleibt received"},
+    {"name":"pii_scan","input":"submission_id","output":"pii_flags/publication_hold"},
+    {"name":"similarity_search","input":"structured_proposal","output":"candidate_clusters"},
+    {"name":"cluster_assignment","input":"candidate_clusters + rules","output":"cluster_id or new_cluster"},
+    {"name":"competence_precheck","input":"structured_proposal","output":"suggested_level + source references"},
+    {"name":"existing_measure_check","input":"structured_proposal","output":"linked law/program/reform candidates"},
+    {"name":"queue_router","input":"signals + gates","output":"review_queue"}
+  ],
+  "http_rules":{
+    "idempotency":"POST /submissions akzeptiert Idempotency-Key, um Doppelanlage bei Wiederholung zu vermeiden",
+    "pagination":"cursor-basiert für Cluster-/Listenendpunkte",
+    "error_format":["code","message","request_id"],
+    "security_headers":"Produktiv erzwingen",
+    "cors":"nur freigegebene WERK-Origin(s)"
+  },
+  "production_gates":[
+    "OpenAPI/JSON-Schema daraus ableiten",
+    "Threat Model für Status-Token und anonyme Schreibendpunkte",
+    "Lasttest mit Burst-Einreichungen",
+    "DSGVO-Verzeichnis/AVV/Unterauftragsverarbeiter prüfen",
+    "Moderations-SLA und Eskalationsrollen festlegen"
+  ]
+}
