@@ -10,6 +10,7 @@ function loadDebtModule(){loadStyle('./werk-assets/site-debt-model.css?v=2026090
 function loadFiscalModule(){loadStyle('./werk-assets/site-fiscal-model.css?v=20260901-v1','fiscal-model-css');loadScript('./werk-assets/site-fiscal-model.js?v=20260901-v1','fiscal-model-js')}
 function loadFundingModule(){loadStyle('./werk-assets/site-funding-matrix.css?v=20260901-v1','funding-matrix-css');loadScript('./werk-assets/site-funding-matrix.js?v=20260901-v1','funding-matrix-js')}
 function loadSensitivityModule(){loadStyle('./werk-assets/site-fiscal-sensitivity.css?v=20260902-v1','fiscal-sensitivity-css');loadScript('./werk-assets/site-fiscal-sensitivity.js?v=20260902-v1','fiscal-sensitivity-js')}
+function loadOverlapModule(){loadStyle('./werk-assets/site-overlap.css?v=20260902-v1','overlap-css');loadScript('./werk-assets/site-overlap.js?v=20260902-v1','overlap-js')}
 function loadReleaseModule(){if(document.querySelector('link[data-v59]'))return;const css=document.createElement('link');css.rel='stylesheet';css.href='./werk-assets/site-v59.css?v=20260901-v59';css.dataset.v59='1';document.head.appendChild(css);loadScript('./werk-assets/site-v59.js?v=20260901-v59','release-v59')}
-window.addEventListener('DOMContentLoaded',()=>{renderProfileSchema();enhanceA11y();watch();loadRegisterModule();loadProgramModule();loadDebtModule();loadFiscalModule();loadFundingModule();loadSensitivityModule();loadReleaseModule()});
+window.addEventListener('DOMContentLoaded',()=>{renderProfileSchema();enhanceA11y();watch();loadRegisterModule();loadProgramModule();loadDebtModule();loadFiscalModule();loadFundingModule();loadSensitivityModule();loadOverlapModule();loadReleaseModule()});
 })();
