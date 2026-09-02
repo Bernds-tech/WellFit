@@ -1,6 +1,6 @@
 {
-  "version": "2026-09-01-v5",
-  "current_preview": "V59 (V58 stabile Basis + V59 Freigabemodul + Reformregister v2 + Finanzmodelle)",
+  "version": "2026-09-02-v6",
+  "current_preview": "V59 (V58 stabile Basis + Freigabemodul + Regierungsregister + Finanzmodelle + Transparenz-Abgrenzung)",
   "overall_phase": "Prüffassung / Regierungsregister-Aufbau / Finanzmodellierung",
   "components": [
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
@@ -8,19 +8,20 @@
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"advanced","estimate_pct":92},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
-    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":63},
-    {"id":"fiscal-model","name":"Budget-, Saldo- und Tilgungsmodell","status":"scenario-model-ready-net-effects-open","estimate_pct":76},
-    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":94},
+    {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":66},
+    {"id":"fiscal-model","name":"Budget-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"scenario-models-ready-net-effects-open","estimate_pct":82},
+    {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":96},
     {"id":"vote","name":"WERK VOTE Frageakten","status":"prototype","estimate_pct":86},
     {"id":"legal","name":"Juristische Detailprüfung","status":"in-progress","estimate_pct":65},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":74}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":75}
   ],
   "register": {
     "reform_count": 14,
     "new_blocks": ["Budgetpfad", "10-Mrd.-Tilgungsziel", "Förderreform", "Bundesbeteiligungen", "RRF/EU-Mittel", "Körperschaftsteuer-Neubewertung", "Gewinnverlagerungsprüfung", "Digital-Governance", "Glücksspiel-Systemprüfung"],
-    "financial_models": ["werk-data/debt-model.json", "werk-data/fiscal-model.json", "werk-data/funding-matrix.json"],
+    "financial_models": ["werk-data/debt-model.json", "werk-data/fiscal-model.json", "werk-data/funding-matrix.json", "werk-data/admin-model.json", "werk-data/tax-compliance-model.json", "werk-data/gambling-model.json"],
+    "transparency_models": ["werk-data/source-audit.json", "werk-data/implementation-overlap.json", "werk-data/corrections.json"],
     "correction_log": "werk-data/corrections.json"
   },
   "blocking_items_for_public_release": [
@@ -30,6 +31,12 @@
     "manuelle mobile, Tastatur- und Screenreader-Abnahme",
     "öffentliche Partnerlisten erst nach realer Verifikation",
     "finale redaktionelle Quellen- und Aktualitätsprüfung"
+  ],
+  "method_rules": [
+    "bestehender Vollzug ist keine neue WERK-Einnahme",
+    "offizieller Budgetpfad ist kein WERK-Erfolg",
+    "Sensitivität und Szenario sind keine Prognose",
+    "nur dauerhafter verifizierter Nettoeffekt reduziert die Finanzierungslücke"
   ],
   "note": "Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. Sie dienen nur der Projektsteuerung. Verifizierte Milliardenbeträge werden erst nach abgeschlossener Netto-Wirkungsrechnung in die Finanzierungsmatrix übernommen."
 }
