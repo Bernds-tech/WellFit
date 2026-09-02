@@ -1,0 +1,37 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"Was läuft bereits – was ist WERK zusätzlich?",
+  "rule":"WERK übernimmt keine bestehende Maßnahme als eigenen Erfolg. Jede Reformakte soll sichtbar machen, welche Rechtslage oder Reform bereits existiert und welcher zusätzliche WERK-Schritt tatsächlich vorgeschlagen wird.",
+  "items":[
+    {
+      "reform_id":"ADM-01",
+      "existing":"2026 wird die digitale Verwaltung bereits durch AVG-Novelle, Once-Only/One-Stop/No-Stop und den Ausbau von dadeX vorangetrieben; für dadeX sind bis 2028 15 Mio. € budgetiert.",
+      "werk_delta":"Jede Digitalisierung erhält vor Freigabe eine Kostenbaseline, Service-KPIs, Lebenszykluskosten und einen verbindlichen Alt-System-Abschaltplan. Einsparungen werden erst nach tatsächlich vermiedenen Kosten angerechnet.",
+      "source_ids":["BKA-DADEX-2026","RH-DIGIFUND-2026"]
+    },
+    {
+      "reform_id":"ADM-02",
+      "existing":"Der frühere Digitalisierungsfonds sollte IT-Konsolidierung und Effizienz fördern; der Rechnungshof stellte fest, dass die Zielerreichung nicht ausreichend klar war.",
+      "werk_delta":"Portfolio-Governance mit Stop/Go-Gates: kein Großprojekt ohne Business Case, Baseline, Nutzenverantwortlichen, Exit-Kriterien und öffentlich messbare Wirkung.",
+      "source_ids":["RH-DIGIFUND-2026"]
+    },
+    {
+      "reform_id":"FISC-01",
+      "existing":"Die Förder-Taskforce des Bundes hat bereits ein gestaltbares Volumen und Einsparziele bis 2029 definiert.",
+      "werk_delta":"Dauerhafte Förderarchitektur mit Befristung, Doppelstrukturprüfung, Wirkungsmessung und Veröffentlichung des tatsächlich realisierten Nettoeffekts statt bloßer Zielbeträge.",
+      "source_ids":["BMF-SUBSIDIES-2026"]
+    },
+    {
+      "reform_id":"TAX-02",
+      "existing":"Österreich verfügt bereits über Fremdvergleichsregeln, Verrechnungspreisdokumentation, Betriebsprüfungen und die globale Mindestbesteuerung von 15 % für große Unternehmensgruppen.",
+      "werk_delta":"Keine pauschale 'Nachversteuerung von Auslandsgewinnen', sondern integrierte Risikoanalyse über Mindeststeuer-, Verrechnungspreis- und Prüfungsdaten; veröffentlicht werden Mehrergebnis, tatsächliche Einbringung, Rechtskraft und Vollzugskosten getrennt.",
+      "source_ids":["BMF-MINBEST-2026","BMF-VP-2026","BMF-ABB-2025"]
+    },
+    {
+      "reform_id":"GMBL-01",
+      "existing":"Das BMF arbeitet 2026 bereits an einer umfassenden Glücksspielgesetz-Reform mit Neuregulierung des Online-Glücksspiels und zentralem Sperrregister; bestehende Abgabenerhöhungen sind bereits im Budgetpfad enthalten.",
+      "werk_delta":"Abgaben, Kanalisierung, Schwarzmarkt, Vollzug und Spielerschutz werden in einem gemeinsamen Wirkungsmodell bewertet. Bestehende Steuererhöhungen werden nicht nochmals als WERK-Mehreinnahme gezählt.",
+      "source_ids":["BMF-GAMBLING-2026","BMF-GAMBLING-BUDGET-2026"]
+    }
+  ]
+}
