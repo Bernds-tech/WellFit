@@ -1,0 +1,26 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK-Mindeststandard für direkte Demokratie",
+  "principle":"Gemeinsame Qualität – regionale Verfahren. Der Standard ist eine Untergrenze, keine Obergrenze.",
+  "non_regression_rule":"Bestehende stärkere Volksrechte eines Bundeslandes werden durch WERK nicht abgeschwächt. Landesrechtlich weitergehende Initiativ-, Befragungs- oder Abstimmungsrechte bleiben erhalten.",
+  "standards":[
+    {"id":"STD-01","name":"Kompetenz vor Abstimmung","rule":"Vor Freigabe wird geprüft, ob Bund, Land oder Gemeinde die Materie rechtlich entscheiden darf. Direkte Demokratie erweitert keine Kompetenz automatisch."},
+    {"id":"STD-02","name":"Neutrale Frageakte","rule":"Frage, Rechtslage, Kosten, Umsetzungspfad sowie Pro- und Contra-Argumente werden nach einheitlichen Neutralitätsregeln veröffentlicht."},
+    {"id":"STD-03","name":"Kosten- und Finanzierungsblatt","rule":"Bei budgetwirksamen Fragen werden Transformationskosten, laufende Kosten, Finanzierung und 1-/5-/10-Jahreswirkung offengelegt. Unbekannte Werte bleiben offen."},
+    {"id":"STD-04","name":"Grund- und Minderheitenschutz","rule":"Grundrechte, Gleichheit, EU- und Völkerrecht sowie Minderheitenschutz werden vor einer Freigabe geprüft und können nicht durch eine einfache Mehrheit aufgehoben werden."},
+    {"id":"STD-05","name":"Unabhängige Verfahrensprüfung","rule":"Frageneutralität, Stimmberechtigung, technische Integrität und Auszählung werden durch eine unabhängige Prüf-/Wahlfunktion kontrolliert."},
+    {"id":"STD-06","name":"Analoger Zugang bleibt","rule":"Ein späterer digitaler Zusatzkanal ersetzt den analogen Zugang nicht. Barrierefreiheit und Härtefallzugang werden verpflichtend vorgesehen."},
+    {"id":"STD-07","name":"Klare Bindungswirkung","rule":"Vor der Abstimmung steht unmissverständlich fest, ob das Instrument konsultativ, politisch verpflichtend oder rechtlich bindend ist und wie die Umsetzung erfolgt."},
+    {"id":"STD-08","name":"Keine Rückstufung starker Länderrechte","rule":"Verbindliche oder weitergehende Landesinstrumente werden nicht durch ein schwächeres bundesweites WERK-Verfahren ersetzt."},
+    {"id":"STD-09","name":"Transparenter Datenstand","rule":"Quellen, Prüftag, Rechtsstand und Änderungen nach der Abstimmung bleiben öffentlich nachvollziehbar."},
+    {"id":"STD-10","name":"Evaluation nach Anwendung","rule":"Nach jeder qualifizierten Abstimmung werden Beteiligung, Kosten, Umsetzungsprobleme und Rechtsstreitigkeiten ausgewertet; Verfahren können danach verbessert werden."}
+  ],
+  "state_strategy":[
+    {"group":"starke bestehende Bindungsrechte","states":["Oberösterreich","Steiermark","Salzburg","Vorarlberg"],"werk_approach":"bestehende Bindungsrechte bewahren; vor allem Frageakte, Kosten-/Rechtscheck, Audit und später optional digitalen Zusatzkanal ergänzen"},
+    {"group":"bestehende konsultative bzw. noch teilweise zu prüfende Systeme","states":["Burgenland","Kärnten","Niederösterreich","Tirol"],"werk_approach":"bestehende Instrumente verwenden; Bindungswirkung, Schwellen und Antwortformate landesspezifisch vertiefen und nur bei politischer Entscheidung erweitern"},
+    {"group":"Sonderfall Land und Gemeinde","states":["Wien"],"werk_approach":"Landes- und Gemeindeebene getrennt prüfen; lokale Teilgebiets-Befragungen erhalten und Landesgesetzgebung separat behandeln"}
+  ],
+  "federal_rule":"Für Bundesverfahren gelten die bundesverfassungsrechtlichen Vorgaben separat. Landesstandards dürfen keine Bundesmaterie auf Landesebene entscheidbar machen.",
+  "digital_rule":"Amtliche digitale Teilnahme wird erst nach eigener Verfassungs-, Wahlgeheimnis-, Sicherheits-, Audit- und Barrierefreiheitsfreigabe aktiviert.",
+  "publication_status":"Konzeptstandard – juristische Detailfreigabe noch offen"
+}
