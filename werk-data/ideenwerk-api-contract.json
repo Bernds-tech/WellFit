@@ -1,36 +1,41 @@
 {
-  "version":"2026-09-02-v1",
+  "version":"2026-09-02-v2",
   "title":"WERK IDEENWERK – API-Vertrag",
-  "status":"Backend-Vertrag – noch nicht produktiv",
+  "status":"Backend-Vertrag – teilweise scaffolded, noch nicht produktiv",
   "base_path":"/api/ideenwerk/v1",
   "principles":[
     "Einreichen ohne Konto",
-    "Statusabruf über unguessbaren Token",
+    "Status- und Datenschutzrechte über unguessbaren Status-Token",
     "öffentliche Daten getrennt von privaten Status-/Sicherheitsdaten",
     "idempotente Wiederholbarkeit bei Netzfehlern",
     "Rate Limiting und Abuse Protection auf allen schreibenden Endpunkten",
-    "keine KI-Abhängigkeit im synchronen Einreichungspfad"
+    "keine KI-Abhängigkeit im synchronen Einreichungspfad",
+    "Problemcluster, Lösungsvarianten und Originalideen werden getrennt abgebildet"
   ],
   "endpoints":[
-    {"method":"POST","path":"/submissions","auth":"keine Anmeldung; Abuse-Schutz","request":["text","region?","topic?","consent_public_anonymous"],"response":["public_id","status_token_once","status_url","status=received"],"notes":"status_token wird nur einmal im Klartext ausgegeben; serverseitig nur Hash speichern"},
-    {"method":"GET","path":"/submissions/{public_id}","auth":"öffentlich","response":["public_id","public_text","topic","region","status","cluster_id?","status_history_public"],"notes":"nur moderierte öffentliche Felder"},
-    {"method":"GET","path":"/status/{public_id}","auth":"Bearer/Query Status-Token","response":["private_status","clarification_questions?","next_step","history","cluster_link?"],"notes":"kein Benutzerkonto nötig"},
-    {"method":"POST","path":"/status/{public_id}/clarification","auth":"Status-Token","request":["answers"],"response":["accepted","new_status"],"notes":"nur zur eigenen Einreichung"},
-    {"method":"GET","path":"/clusters","auth":"öffentlich","query":["topic","region","status","sort"],"response":["clusters","pagination"]},
-    {"method":"GET","path":"/clusters/{cluster_id}","auth":"öffentlich","response":["cluster","attention_signals","quality_gates","linked_submissions_summary","linked_reforms","status_history_public"]},
-    {"method":"POST","path":"/clusters/{cluster_id}/reactions","auth":"keine Anmeldung; Abuse-Schutz","request":["reaction_type"],"response":["accepted"],"notes":"unverbindliches Interesse; nicht als verifizierte Unterstützung zählen"},
-    {"method":"POST","path":"/clusters/{cluster_id}/support","auth":"verifizierte Identität erforderlich","request":["support=true"],"response":["counted_once"],"notes":"getrennte Verifikationskomponente; keine amtliche Stimme"},
-    {"method":"POST","path":"/moderation/report","auth":"keine Anmeldung; Abuse-Schutz","request":["target_type","target_id","reason","details?"],"response":["report_id"]},
-    {"method":"GET","path":"/transparency/metrics","auth":"öffentlich","response":["submissions_total","clusters_total","status_distribution","median_processing_times","moderation_counts","appeal_counts"],"notes":"nur aggregierte, datenschutzkonforme Werte"}
+    {"method":"POST","path":"/submissions","implementation":"scaffolded","auth":"keine Anmeldung; Abuse-Schutz","request":["text","region?","topic?","consent_public_anonymous"],"response":["public_id","status_token_once","status_url","status=received"],"notes":"status_token wird nur einmal im Klartext ausgegeben; serverseitig nur Hash speichern"},
+    {"method":"GET","path":"/submissions/{public_id}","implementation":"scaffolded","auth":"öffentlich","response":["public_id","public_text","topic","region","status"],"notes":"nur moderierte öffentliche Fassung; public_text ist vor Freigabe leer"},
+    {"method":"GET","path":"/status/{public_id}","implementation":"scaffolded","auth":"Bearer Status-Token","response":["private_status","original_text","history"],"notes":"kein Benutzerkonto nötig"},
+    {"method":"GET","path":"/privacy/export/{public_id}","implementation":"scaffolded","auth":"Bearer Status-Token","response":["submission","structured_proposal","cluster_memberships","audit_history","privacy_requests"],"notes":"privater Datenexport zur eigenen Einreichung"},
+    {"method":"POST","path":"/privacy/requests/{public_id}","implementation":"scaffolded","auth":"Bearer Status-Token","request":["request_type: export|correction|deletion|restriction|cluster_appeal","details?"],"response":["request_id","status"],"notes":"Löschwunsch wird als prüfbarer Vorgang geführt; keine blinde sofortige irreversible Löschung"},
+    {"method":"GET","path":"/privacy/requests/{public_id}","implementation":"scaffolded","auth":"Bearer Status-Token","response":["requests"]},
+    {"method":"POST","path":"/status/{public_id}/clarification","implementation":"planned","auth":"Status-Token","request":["answers"],"response":["accepted","new_status"],"notes":"nur zur eigenen Einreichung"},
+    {"method":"GET","path":"/clusters","implementation":"planned","auth":"öffentlich","query":["topic","region","status","sort"],"response":["problem_clusters","pagination"]},
+    {"method":"GET","path":"/clusters/{cluster_id}","implementation":"planned","auth":"öffentlich","response":["problem_cluster","solution_variants","attention_signals","quality_gates","linked_reforms","status_history_public"],"notes":"Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren"},
+    {"method":"POST","path":"/clusters/{cluster_id}/reactions","implementation":"planned","auth":"keine Anmeldung; Abuse-Schutz","request":["reaction_type","variant_id?"],"response":["accepted"],"notes":"unverbindliches Interesse; nicht als verifizierte Unterstützung zählen"},
+    {"method":"POST","path":"/clusters/{cluster_id}/variants/{variant_id}/support","implementation":"planned","auth":"verifizierte Identität erforderlich","request":["support=true"],"response":["counted_once"],"notes":"verifizierte Unterstützung gilt für eine konkrete Lösungsvariante; keine amtliche Stimme"},
+    {"method":"POST","path":"/moderation/report","implementation":"scaffolded","auth":"keine Anmeldung; Abuse-Schutz","request":["target_type","target_id","reason","details?"],"response":["report_id"]},
+    {"method":"GET","path":"/transparency/metrics","implementation":"planned","auth":"öffentlich","response":["submissions_total","problem_clusters_total","variants_total","status_distribution","processing_times","moderation_counts","appeal_counts","quality_metrics"],"notes":"nur aggregierte, datenschutzkonforme Werte"}
   ],
   "internal_jobs":[
-    {"name":"structure_submission","input":"submission_id","output":"structured_proposal","failure":"retry; Einreichung bleibt received"},
-    {"name":"pii_scan","input":"submission_id","output":"pii_flags/publication_hold"},
-    {"name":"similarity_search","input":"structured_proposal","output":"candidate_clusters"},
-    {"name":"cluster_assignment","input":"candidate_clusters + rules","output":"cluster_id or new_cluster"},
-    {"name":"competence_precheck","input":"structured_proposal","output":"suggested_level + source references"},
-    {"name":"existing_measure_check","input":"structured_proposal","output":"linked law/program/reform candidates"},
-    {"name":"queue_router","input":"signals + gates","output":"review_queue"}
+    {"name":"pii_scan","implementation":"scaffolded","input":"submission_id","output":"pii_flags/publication_hold"},
+    {"name":"structure_submission","implementation":"scaffolded","input":"submission_id","output":"structured_proposal","failure":"retry/fallback; Einreichung bleibt erhalten"},
+    {"name":"lexical_duplicate_search","implementation":"scaffolded","input":"submission_id","output":"near-duplicate candidate/cluster"},
+    {"name":"semantic_feature_extract","implementation":"scaffolded-provider-neutral","input":"structured_proposal","output":"problem_signature + solution_signature"},
+    {"name":"semantic_cluster_review","implementation":"scaffolded","input":"semantic features","output":"same solution | solution variant | overlap | separate"},
+    {"name":"competence_precheck","implementation":"planned","input":"structured_proposal","output":"suggested_level + source references"},
+    {"name":"existing_measure_check","implementation":"planned","input":"structured_proposal","output":"linked law/program/reform candidates"},
+    {"name":"queue_router","implementation":"planned","input":"signals + gates","output":"review_queue"}
   ],
   "http_rules":{
     "idempotency":"POST /submissions akzeptiert Idempotency-Key, um Doppelanlage bei Wiederholung zu vermeiden",
@@ -42,8 +47,9 @@
   "production_gates":[
     "OpenAPI/JSON-Schema daraus ableiten",
     "Threat Model für Status-Token und anonyme Schreibendpunkte",
-    "Lasttest mit Burst-Einreichungen",
+    "OIDC/MFA/RBAC für Operator-Endpunkte",
+    "Lasttest mit Burst- und 100k-Einreichungen real ausführen",
     "DSGVO-Verzeichnis/AVV/Unterauftragsverarbeiter prüfen",
-    "Moderations-SLA und Eskalationsrollen festlegen"
+    "Privacy-Request-, Moderations- und Appeal-Workflow abnehmen"
   ]
 }
