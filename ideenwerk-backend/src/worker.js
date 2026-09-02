@@ -1,4 +1,5 @@
 import os from 'node:os';
+import { randomBytes } from 'node:crypto';
 import pg from 'pg';
 import { createEventId } from './lib/status-token.js';
 import { assertTransition } from './lib/status-machine.js';
@@ -7,6 +8,7 @@ const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const WORKER_ID = process.env.WORKER_ID || `${os.hostname()}-${process.pid}`;
 const POLL_MS = Number(process.env.WORKER_POLL_MS || 1500);
+const LEXICAL_DUPLICATE_THRESHOLD = Number(process.env.LEXICAL_DUPLICATE_THRESHOLD || 0.90);
 let stopping = false;
 
 function piiFlags(text='') {
@@ -14,6 +16,10 @@ function piiFlags(text='') {
   if (/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(text)) flags.push('email');
   if (/(?:\+43|0043|0)\s?\d[\d\s\/-]{6,}/.test(text)) flags.push('phone');
   return flags;
+}
+
+function createClusterId() {
+  return `CLU-${randomBytes(8).toString('hex').toUpperCase()}`;
 }
 
 async function claimJob() {
@@ -107,17 +113,80 @@ async function handleStructure(job) {
       [row.id, row.original_text, row.original_text, row.topic, row.region]
     );
     if (row.current_status === 'received') await statusChange(client, row.public_id, 'structured', 'system', null, { mode: 'safe_fallback_without_ai' });
+    await enqueue(client, 'lexical_duplicate_search', row.public_id, { threshold: LEXICAL_DUPLICATE_THRESHOLD });
     await client.query('COMMIT');
   } catch (e) {
     await client.query('ROLLBACK');
     throw e;
   } finally { client.release(); }
-  return { mode: 'safe_fallback_without_ai', next_planned_job: 'similarity_search/cluster_assignment' };
+  return { mode: 'safe_fallback_without_ai', next: 'lexical_duplicate_search' };
+}
+
+async function handleLexicalDuplicateSearch(job) {
+  const q = await pool.query('SELECT id,public_id,original_text,region,topic,current_status,cluster_id FROM submissions WHERE public_id=$1', [job.subject_id]);
+  if (!q.rowCount) throw new Error('submission missing');
+  const row = q.rows[0];
+  const threshold = Number(job.payload?.threshold || LEXICAL_DUPLICATE_THRESHOLD);
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    if (row.current_status === 'structured') await statusChange(client, row.public_id, 'cluster_review', 'system', null, { method: 'pg_trgm', threshold });
+    const candidates = await client.query(
+      `SELECT id,public_id,cluster_id,similarity(original_text,$2) AS sim
+         FROM submissions
+        WHERE public_id<>$1 AND similarity(original_text,$2) >= $3
+        ORDER BY sim DESC, created_at ASC
+        LIMIT 5`,
+      [row.public_id, row.original_text, threshold]
+    );
+    if (!candidates.rowCount) {
+      await client.query('COMMIT');
+      return { match: false, threshold, next: 'semantic_similarity_pending' };
+    }
+
+    const candidate = candidates.rows[0];
+    let clusterDbId = candidate.cluster_id;
+    let clusterPublicId = null;
+    if (!clusterDbId) {
+      clusterPublicId = createClusterId();
+      const c = await client.query(
+        `INSERT INTO clusters(cluster_id,title,topic,region_scope,review_status)
+         VALUES($1,'Vorläufiger Cluster – interne Prüfung',$2,$3,'cluster_review') RETURNING id`,
+        [clusterPublicId, row.topic || null, row.region || null]
+      );
+      clusterDbId = c.rows[0].id;
+      await client.query('UPDATE submissions SET cluster_id=$2,updated_at=now() WHERE id=$1', [candidate.id, clusterDbId]);
+      await client.query(
+        `INSERT INTO cluster_members(cluster_id,submission_id,similarity,assignment_method)
+         VALUES($1,$2,$3,'lexical_pg_trgm') ON CONFLICT DO NOTHING`,
+        [clusterDbId, candidate.id, candidate.sim]
+      );
+    } else {
+      const c = await client.query('SELECT cluster_id FROM clusters WHERE id=$1', [clusterDbId]);
+      clusterPublicId = c.rows[0]?.cluster_id || null;
+    }
+
+    await client.query('UPDATE submissions SET cluster_id=$2,updated_at=now() WHERE id=$1', [row.id, clusterDbId]);
+    await client.query(
+      `INSERT INTO cluster_members(cluster_id,submission_id,similarity,assignment_method)
+       VALUES($1,$2,$3,'lexical_pg_trgm') ON CONFLICT DO NOTHING`,
+      [clusterDbId, row.id, candidate.sim]
+    );
+    await statusChange(client, row.public_id, 'clustered', 'system', 'DUPLICATE_CLUSTERED', {
+      method: 'lexical_pg_trgm', threshold, matched_public_id: candidate.public_id, similarity: Number(candidate.sim), cluster_id: clusterPublicId
+    });
+    await client.query('COMMIT');
+    return { match: true, cluster_id: clusterPublicId, matched_public_id: candidate.public_id, similarity: Number(candidate.sim), method: 'lexical_pg_trgm' };
+  } catch (e) {
+    await client.query('ROLLBACK');
+    throw e;
+  } finally { client.release(); }
 }
 
 const handlers = {
   pii_scan: handlePiiScan,
-  structure_submission: handleStructure
+  structure_submission: handleStructure,
+  lexical_duplicate_search: handleLexicalDuplicateSearch
 };
 
 async function finishJob(job, result) {
