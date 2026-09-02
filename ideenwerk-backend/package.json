@@ -8,7 +8,8 @@
     "start": "node src/app.js",
     "dev": "node --watch src/app.js",
     "worker": "node src/worker.js",
-    "worker:dev": "node --watch src/worker.js"
+    "worker:dev": "node --watch src/worker.js",
+    "test": "node --test"
   },
   "dependencies": {
     "@fastify/rate-limit": "^10.2.1",
