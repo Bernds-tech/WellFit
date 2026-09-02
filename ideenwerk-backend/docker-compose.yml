@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: werk
+      POSTGRES_USER: werk
+      POSTGRES_PASSWORD: werk-local-only
+    ports:
+      - "54329:5432"
+    volumes:
+      - werk_ideenwerk_pg:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U werk -d werk"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgres://werk:werk-local-only@db:5432/werk
+      PORT: 3000
+      SUBMISSION_RATE_LIMIT: 20
+      REPORT_RATE_LIMIT: 30
+    ports:
+      - "8787:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  worker:
+    build: .
+    command: ["npm","run","worker"]
+    environment:
+      DATABASE_URL: postgres://werk:werk-local-only@db:5432/werk
+      WORKER_POLL_MS: 800
+      LEXICAL_DUPLICATE_THRESHOLD: 0.90
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  werk_ideenwerk_pg:
