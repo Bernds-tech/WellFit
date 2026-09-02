@@ -1,0 +1,57 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – Statusmaschine",
+  "rule":"Jeder Statuswechsel wird mit Zeit, Actor-Typ und Reason Code protokolliert. Originaltexte bleiben nachvollziehbar; öffentliche Fassungen können personenbezogene Daten bereinigen.",
+  "states":[
+    {"id":"received","label":"Eingelangt","public":true,"description":"Einreichung technisch angenommen; noch keine inhaltliche Bewertung."},
+    {"id":"privacy_hold","label":"Datenschutzprüfung","public":true,"description":"Mögliche personenbezogene Daten oder sensible Angaben müssen bereinigt werden."},
+    {"id":"structured","label":"Strukturiert","public":true,"description":"Problem, Vorschlag, Ziel, Region und offene Fragen wurden standardisiert."},
+    {"id":"clarification","label":"Rückfrage offen","public":true,"description":"Für eine sachgerechte Prüfung fehlen Informationen."},
+    {"id":"cluster_review","label":"Clusterprüfung","public":true,"description":"Ähnliche bestehende Einreichungen und Reformen werden gesucht."},
+    {"id":"clustered","label":"Themencluster","public":true,"description":"Einreichung ist einem öffentlichen Themencluster zugeordnet; Original bleibt erhalten."},
+    {"id":"precheck","label":"WERK-Vorcheck","public":true,"description":"Zuständigkeit, Rechtslage, Kostenstatus, WERK-Kern und bestehende Maßnahmen werden geprüft."},
+    {"id":"theme_room","label":"Themenraum","public":true,"description":"Cluster ist öffentlich zur Ergänzung, Argumentation und Unterstützung sichtbar."},
+    {"id":"impact_review","label":"Wirkungsprüfung","public":true,"description":"Problem-, Daten-, Rechts- und Finanzakte wird vertieft."},
+    {"id":"reform_candidate","label":"Reformkandidat","public":true,"description":"Vollständiger Kandidat mit eigener Reform-ID oder vorgelagerter Kandidaten-ID."},
+    {"id":"reform_register","label":"Reformregister","public":true,"description":"Als offizielle WERK-Reformakte in das öffentliche Register übernommen."},
+    {"id":"decision_path","label":"Entscheidungspfad","public":true,"description":"Politisches Organ oder qualifizierter WERK-VOTE-Pfad ist festgelegt."},
+    {"id":"not_pursued","label":"Derzeit nicht weiterverfolgt","public":true,"description":"Sachlich begründete Nichtweiterverfolgung; Idee bleibt recherchierbar."},
+    {"id":"implemented_elsewhere","label":"Bereits umgesetzt / bestehende Maßnahme","public":true,"description":"Das Anliegen ist bereits geltendes Recht oder Bestandteil einer bestehenden Maßnahme; Quelle wird verlinkt."},
+    {"id":"quarantine","label":"Nicht öffentlich / Prüfung","public":false,"description":"Spam-, Rechtswidrigkeits-, Sicherheits- oder Datenschutzprüfung."},
+    {"id":"removed","label":"Entfernt","public":false,"description":"Nur nach dokumentiertem Rechts-/Missbrauchsgrund; Auditspur bleibt intern entsprechend Aufbewahrungsrecht."}
+  ],
+  "allowed_transitions":[
+    ["received","privacy_hold"],["received","structured"],["received","quarantine"],
+    ["privacy_hold","structured"],["privacy_hold","clarification"],["privacy_hold","quarantine"],
+    ["structured","clarification"],["structured","cluster_review"],["structured","implemented_elsewhere"],
+    ["clarification","structured"],["clarification","not_pursued"],
+    ["cluster_review","clustered"],["cluster_review","precheck"],["cluster_review","implemented_elsewhere"],
+    ["clustered","precheck"],["clustered","theme_room"],
+    ["precheck","theme_room"],["precheck","impact_review"],["precheck","not_pursued"],["precheck","implemented_elsewhere"],
+    ["theme_room","impact_review"],["theme_room","not_pursued"],
+    ["impact_review","reform_candidate"],["impact_review","not_pursued"],
+    ["reform_candidate","reform_register"],["reform_candidate","not_pursued"],
+    ["reform_register","decision_path"],
+    ["quarantine","privacy_hold"],["quarantine","structured"],["quarantine","removed"]
+  ],
+  "reason_codes":[
+    {"id":"DUPLICATE_CLUSTERED","label":"Mit ähnlichen Vorschlägen zusammengeführt"},
+    {"id":"NEEDS_CLARIFICATION","label":"Rückfrage erforderlich"},
+    {"id":"EXISTING_LAW","label":"Bereits geltendes Recht"},
+    {"id":"EXISTING_PROGRAM","label":"Bereits bestehende Maßnahme/Programm"},
+    {"id":"WRONG_LEVEL","label":"Andere Zuständigkeitsebene"},
+    {"id":"LEGAL_BLOCKER","label":"Derzeit rechtlich nicht umsetzbar"},
+    {"id":"WERK_CORE_CONFLICT","label":"Konflikt mit verbindlichem WERK-Grundkodex"},
+    {"id":"INSUFFICIENT_EVIDENCE","label":"Datenlage reicht derzeit nicht"},
+    {"id":"FINANCE_OPEN","label":"Finanzierung/Wirkung offen"},
+    {"id":"PII_REVIEW","label":"Personenbezogene Daten prüfen"},
+    {"id":"SPAM_BOT","label":"Spam-/Botverdacht"},
+    {"id":"ILLEGAL_CONTENT","label":"Rechtswidrigkeitsprüfung/Entfernung"},
+    {"id":"PROMOTED_QUALITY","label":"Qualitäts-Sonderpfad trotz geringer Reichweite"}
+  ],
+  "citizen_visibility":{
+    "always_show":["current_status","status_history","cluster_link_if_any","reason_code_if_not_pursued","next_step_if_known"],
+    "never_show":["raw_ip","security_fingerprint","moderator_identity_unless_public_role","status_token_hash","internal_abuse_score"]
+  },
+  "review_right":"Für produktive öffentliche Nichtweiterverfolgung wird ein einfacher Überprüfungs-/Korrekturweg vorgesehen, insbesondere bei falscher Clusterung, falscher Zuständigkeitszuordnung oder offensichtlichem Missverständnis."
+}
