@@ -1,0 +1,31 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – transparente Clusterregeln",
+  "rule":"Ähnlichkeit dient der Übersicht, nicht dem Verschwinden von Minderheitsvarianten. Jede Originaleinreichung bleibt erhalten und ihre Zuordnung muss korrigierbar sein.",
+  "classes":[
+    {"id":"duplicate","label":"Nahezu gleicher Vorschlag","action":"zu demselben Vorschlag/Cluster bündeln","preserve":"Originaltext und eigene Status-ID bleiben erhalten"},
+    {"id":"same_problem_variant","label":"Gleiches Problem, andere Lösung","action":"gemeinsamer Problemcluster, aber getrennte Lösungsvariante","preserve":"Varianten werden öffentlich getrennt sichtbar"},
+    {"id":"regional_variant","label":"Gleiches Grundproblem, regionale Besonderheit","action":"Dachcluster plus regionale Untervariante","preserve":"Region darf durch bundesweite Menge nicht überschrieben werden"},
+    {"id":"related_not_same","label":"Verwandtes Thema, aber anderes Problem/Ziel","action":"nur verlinken, nicht zusammenführen","preserve":"eigener Cluster"},
+    {"id":"uncertain","label":"Zuordnung unsicher","action":"vorläufiger Kandidat oder menschliche Prüfung","preserve":"keine automatische harte Zusammenführung"}
+  ],
+  "merge_requirements":[
+    "semantische Ähnlichkeit allein reicht nicht; Problem und gewünschte Änderung müssen ausreichend übereinstimmen",
+    "bei unterschiedlichen Lösungen muss mindestens eine Variantenebene erhalten bleiben",
+    "bei Grundrechts-, Minderheiten-, Wahlrechts- oder vergleichbar sensiblen Themen keine irreversible Auto-Zusammenführung",
+    "große oder stark wachsende Cluster werden stichprobenartig auf Fehlzuordnungen geprüft",
+    "Bürger können eine offensichtlich falsche Clusterzuordnung melden",
+    "jede Zusammenführung erzeugt einen Audit-Eintrag mit Methode und Modell-/Regelversion"
+  ],
+  "campaign_rule":"Organisierte Kampagnen dürfen sichtbar sein, aber Copy-Paste-Mengen werden nicht als ebenso viele unabhängige verifizierte Unterstützer dargestellt.",
+  "public_cluster_fields":[
+    "Cluster-Titel und Problemdefinition",
+    "Lösungsvarianten",
+    "Anzahl Einreichungen",
+    "Anzahl verifizierter Unterstützer getrennt",
+    "regionale Verteilung",
+    "Zeitverlauf",
+    "Clusterregel-/Modellversion",
+    "Korrektur-/Meldeweg"
+  ]
+}
