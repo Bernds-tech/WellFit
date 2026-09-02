@@ -1,0 +1,26 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"IDEENWERK Qualitäts- & Skalierungstafel",
+  "rule":"Messwerte werden erst veröffentlicht, wenn der jeweilige Test tatsächlich auf einer dokumentierten Version und Infrastruktur ausgeführt wurde. Vorher steht ausdrücklich 'noch nicht gemessen'.",
+  "prepared_tests":[
+    {"id":"cluster-goldset","name":"Cluster-Goldstandard","status":"vorbereitet, noch nicht mit produktivem Semantikprovider gemessen","scope":"15 manuell gelabelte Beispielpaare: gleiche Lösung, Lösungsvariante, getrennte Idee"},
+    {"id":"load-100k","name":"100.000-Einreichungen-Lasttest","status":"Generator und Benchmark vorbereitet, noch nicht auf definierter Testinfrastruktur ausgeführt","scope":"PostgreSQL, Queue, PII-Prüfung, Strukturierung, Near-Duplicate- und Semantikpipeline"},
+    {"id":"smoke-intake","name":"No-Login-Smoke-Test","status":"Testskript vorbereitet; Runtime-Ausführung auf echtem Backend offen","scope":"Einreichung -> Status-Token -> privater Statusabruf"}
+  ],
+  "metrics":[
+    {"id":"false_merge","label":"False Merge","meaning":"Zwei inhaltlich unterschiedliche Lösungsvarianten werden fälschlich als dieselbe Idee zusammengeführt.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset und produktionsnaher Provider-Version"},
+    {"id":"variant_preservation","label":"Variantenerhalt","meaning":"Gleiches Problem mit unterschiedlichen Lösungen bleibt als Varianten sichtbar.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset"},
+    {"id":"false_split","label":"False Split","meaning":"Nahezu gleiche Ideen werden unnötig getrennt und erzeugen Doppelarbeit.","priority":"hoch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset"},
+    {"id":"queue_latency","label":"Queue-Latenz p50 / p95 / p99","meaning":"Zeit von Einreichung bis abgeschlossener automatischer Vorverarbeitung.","priority":"hoch","current":"noch nicht gemessen","publication":"nach 100k- und Spike-Test"},
+    {"id":"review_backlog","label":"Manueller Prüfrückstand","meaning":"Zahl und Alter der Einreichungen, die auf menschliche Cluster-/Moderationsprüfung warten.","priority":"hoch","current":"noch nicht gemessen","publication":"ab echtem Betreiberbetrieb"},
+    {"id":"regional_drift","label":"Regionale Verzerrung","meaning":"Prüft, ob Ideen aus bestimmten Ländern/Regionen systematisch schlechter weiterkommen als vergleichbare Ideen.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab ausreichender realer Stichprobe"},
+    {"id":"pii_hold","label":"PII-Hold-Qualität","meaning":"Wie zuverlässig personenbezogene Kontaktdaten erkannt werden, ohne harmlose Ideen unnötig zu blockieren.","priority":"kritisch","current":"noch nicht gemessen","publication":"nach Datenschutz-/Testdatensatz-Abnahme"}
+  ],
+  "release_gates":[
+    "Kein semantischer Provider wird produktiv freigegeben, solange False-Merge und Variantenerhalt nicht auf einem repräsentativen Goldset geprüft wurden.",
+    "Kein 100k-Skalierungsversprechen ohne tatsächlich dokumentierten Lasttest auf definierter Infrastruktur.",
+    "Qualitätswerte werden mit Softwareversion, Provider-/Modellversion, Testdatensatzversion und Testdatum veröffentlicht.",
+    "Ein Providerwechsel setzt die relevanten Cluster- und Bias-Tests erneut zurück auf 'zu prüfen'.",
+    "Politisch sensible Themen erhalten zusätzliche manuelle Stichproben und dürfen nicht ausschließlich aufgrund automatischer Clusterung weitergereicht werden."
+  ]
+}
