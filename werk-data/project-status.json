@@ -1,11 +1,11 @@
 {
-  "version":"2026-09-02-v12",
+  "version":"2026-09-02-v13",
   "current_preview":"V63 – Prüffassung mit WERK IDEENWERK Trust-/Backend-Scaffold, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
   "overall_phase":"Prüffassung / Regierungsregister-Aufbau / Bürgerbeteiligungs-, Finanz-, Kompetenz-, Demokratie- und Rechtsmodellierung",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
     {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check-and-backend-scaffold","estimate_pct":98},
-    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Status, transparente Triage, Trust-Regeln und Backend-Scaffold","status":"backend-scaffolded-not-deployed","estimate_pct":89},
+    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Trust-Regeln, API/DB/Worker/Docker-Scaffold","status":"runnable-scaffold-not-deployed","estimate_pct":91},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"competence-inventory-state-audit-minimum-standard-fit-matrix","estimate_pct":97},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
@@ -15,24 +15,25 @@
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"frontend-and-backend-scaffold-files-covered","estimate_pct":96},
+    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"frontend-and-runtime-scaffold-files-covered","estimate_pct":97},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
     {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":82}
   ],
   "register":{
     "reform_count":14,
     "core_modules":["WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":["werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-data/ideenwerk-cluster-policy.json","werk-data/ideenwerk-moderation.json","ideenwerk-backend/sql/001_init.sql","ideenwerk-backend/sql/002_jobs.sql","ideenwerk-backend/src/app.js","ideenwerk-backend/src/worker.js","ideenwerk-backend/test/status-machine.test.js","ideenwerk-backend/test/triage.test.js"],
+    "ideas_model":["werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-data/ideenwerk-cluster-policy.json","werk-data/ideenwerk-moderation.json","ideenwerk-backend/sql/001_init.sql","ideenwerk-backend/sql/002_jobs.sql","ideenwerk-backend/sql/003_similarity.sql","ideenwerk-backend/src/app.js","ideenwerk-backend/src/worker.js","ideenwerk-backend/Dockerfile","ideenwerk-backend/docker-compose.yml","ideenwerk-backend/scripts/smoke.mjs","ideenwerk-backend/test/status-machine.test.js","ideenwerk-backend/test/triage.test.js"],
     "financial_models":["werk-data/debt-model.json","werk-data/fiscal-model.json","werk-data/funding-matrix.json","werk-data/admin-model.json","werk-data/tax-compliance-model.json","werk-data/gambling-model.json","werk-data/medium-term-fiscal-path.json"],
     "legal_models":["werk-data/legal-roadmap.json","werk-data/state-direct-democracy-audit.json","werk-data/state-procedure-matrix.json","werk-data/vote-format.json","werk-data/vote-constitutional-options.json","werk-data/competence-inventory.json","werk-data/democracy-minimum-standard.json","werk-data/state-democracy-fit.json","werk-data/legal.json"],
     "transparency_models":["werk-data/source-audit.json","werk-data/implementation-overlap.json","werk-data/corrections.json","werk-data/preview-manifest.json"],
     "correction_log":"werk-data/corrections.json"
   },
   "blocking_items_for_public_release":[
-    "IDEENWERK PostgreSQL/API/Worker produktiv deployen und Migrationen/Runtime testen",
-    "Clustering-/Embedding-Provider und Themen-/Kompetenz-KI implementieren; False-Merge-, Popularitäts- und Regionen-Bias evaluieren",
+    "IDEENWERK Docker/API/Worker real starten bzw. deployen und Migrationen/Smoke-Test erfolgreich ausführen",
+    "semantischen Embedding-/Clusterprovider implementieren; False-Merge-/False-Split-, Popularitäts- und Regionen-Bias evaluieren",
     "Moderations-, Datenschutz-, Lösch-, Auskunfts- und Aufbewahrungsprozess rechtlich abnehmen",
     "Status-Token-, Rate-Limit-, Bot-/Spam-, Burst- und Lasttests durchführen",
+    "CI-Workflow bei normalem GitHub-Push tatsächlich ausführen und grün bestätigen",
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln quantifizieren und in der Finanzierungsmatrix verifizieren",
     "zweite Länder-Auditstufe abschließen: exakte Fristen, Schwellen, Antwortformate, Bindungswirkung und digitale Zulässigkeit",
     "Verfassungsvarianten für amtlichen digitalen Zusatzkanal, Großfragenformat, Teilnahmeoption und Doppelmehrheit ausformulieren",
@@ -62,5 +63,5 @@
     "bestehende stärkere Volksrechte eines Landes werden nicht durch WERK abgeschwächt",
     "technische Erreichbarkeit ist keine politische, juristische, finanzielle, sicherheitstechnische oder moderative Freigabe"
   ],
-  "note":"Prozentwerte sind interne Arbeitsreifegrade, keine objektiven Qualitätskennzahlen. V63 enthält einen echten IDEENWERK-Backend-Scaffold mit PostgreSQL-Schema, API, Worker, Rate-Limit-Grundlage und Unit-Tests; er ist noch nicht deployed und verarbeitet keine realen Bürgerdaten."
+  "note":"Prozentwerte sind interne Arbeitsreifegrade. V63 enthält einen lokal startbaren IDEENWERK-Scaffold mit PostgreSQL, API, Worker, Rate-Limit-Grundlage, PII-Vorstufe, Near-Duplicate-Vorbündelung, Docker Compose, Unit- und Smoke-Tests; er ist noch nicht deployed und verarbeitet keine realen Bürgerdaten."
 }
