@@ -1,0 +1,41 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – Moderations- und Überprüfungsregeln",
+  "principle":"Moderation schützt Menschen, Recht und technische Funktionsfähigkeit. Sie darf nicht dazu dienen, politisch unbequeme oder unpopuläre legale Ideen verschwinden zu lassen.",
+  "not_removal_reasons":[
+    "Kritik an WERK, Regierung, Parteien oder Institutionen",
+    "eine unpopuläre politische Position",
+    "geringe Unterstützung",
+    "Widerspruch zu einer bestehenden WERK-Reform",
+    "eine Idee, die nach Prüfung nicht in den WERK-Grundkodex passt – sie kann als nicht weiterverfolgt gekennzeichnet werden, sofern ihre Veröffentlichung rechtlich zulässig ist"
+  ],
+  "publication_holds":[
+    {"id":"PII","label":"Personenbezogene Daten","action":"vor Veröffentlichung redigieren oder Rückfrage"},
+    {"id":"ILLEGAL","label":"Rechtswidrige Inhalte / konkrete strafbare Inhalte","action":"nicht veröffentlichen bzw. entfernen; Rechtsprüfung/Eskalation"},
+    {"id":"THREAT","label":"Konkrete Drohungen oder Aufrufe zu Gewalt","action":"sofortige Sicherheits-/Rechtsprüfung"},
+    {"id":"DOXXING","label":"Doxxing oder Veröffentlichung privater Kontaktdaten","action":"nicht öffentlich anzeigen"},
+    {"id":"SPAM","label":"Spam / automatisierte Masseninhalte","action":"quarantäne oder bündeln; nicht als unabhängige Unterstützung zählen"},
+    {"id":"IMPERSONATION","label":"Täuschende Identitätsbehauptung bei freiwilliger Namensnennung","action":"Name nicht veröffentlichen bis geklärt"}
+  ],
+  "moderation_levels":[
+    {"id":"automatic_hold","label":"Automatischer Hold","scope":"nur vorläufig; keine endgültige politische Entscheidung"},
+    {"id":"human_review","label":"Menschliche Moderation","scope":"Grenzfälle, Beschwerden, sensible Inhalte"},
+    {"id":"legal_escalation","label":"Rechtliche Eskalation","scope":"mögliche Rechtswidrigkeit, Drohung, gerichtliche/behördliche Anforderung"}
+  ],
+  "review_path":[
+    "Bürger kann Fehlverständnis, falsche Clusterung oder Moderationsentscheidung melden",
+    "Überprüfung durch eine andere Rolle/Person als die Erstentscheidung bei substantiellen Fällen",
+    "Ergebnis mit standardisiertem Reason Code dokumentieren",
+    "öffentlicher Status wird korrigiert, wenn die ursprüngliche Entscheidung falsch war"
+  ],
+  "transparency_metrics":[
+    "Anzahl Einreichungen",
+    "automatische Holds nach Grundkategorie",
+    "menschliche Moderationsentscheidungen",
+    "Entfernungen nach Grundkategorie",
+    "Korrekturen nach Überprüfung",
+    "Median-Bearbeitungszeiten",
+    "Spam-/Bot-Anteil als technische Kennzahl"
+  ],
+  "privacy_note":"Öffentliche Transparenzmetriken werden aggregiert und enthalten keine privaten Identitäts-, IP- oder Sicherheitsdaten."
+}
