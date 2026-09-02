@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-02-v2",
+  "version":"2026-09-02-v3",
   "current_preview":"werk-v61.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -28,6 +28,7 @@
     {"group":"Assets","path":"./werk-assets/site-v58.js"},
     {"group":"Assets","path":"./werk-assets/site-v58.css"},
     {"group":"Assets","path":"./werk-assets/site-ideenwerk.js"},
+    {"group":"Assets","path":"./werk-assets/site-ideenwerk-home.js"},
     {"group":"Assets","path":"./werk-assets/site-ideenwerk.css"},
     {"group":"Assets","path":"./werk-assets/site-competence.js"},
     {"group":"Assets","path":"./werk-assets/site-democracy-standard.js"},
