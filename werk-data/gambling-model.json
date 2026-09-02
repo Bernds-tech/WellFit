@@ -1,0 +1,27 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"GMBL-01 – Glücksspielabgaben, Kanalisierung und Spielerschutz",
+  "status":"Sensitivitätsmodell – kein Einnahmenversprechen",
+  "baseline":{
+    "gambling_act_revenue_2025_eur_million":763.0,
+    "gambling_act_budget_2026_eur_million":820.5,
+    "official_2026_additional_measure_yield_eur_million":71.0,
+    "source_ids":["BMF-TAX-OUTTURN-2025","BMF-GAMBLING-BUDGET-2026","BMF-GAMBLING-2026"]
+  },
+  "model":{
+    "purpose":"Abgabensatz, legales Marktvolumen, Kanalisierung, Vollzug und Spielerschutz gemeinsam betrachten. Ein höherer Satz ist nicht automatisch ein höheres Nettoaufkommen.",
+    "default_legal_market_revenue_change_pct":0,
+    "default_effective_tax_yield_change_pct":0,
+    "default_additional_enforcement_cost_eur_million":10,
+    "formula":"Brutto-Sensitivität = Basisaufkommen × kombinierte angenommene Veränderung aus legaler Markt-/Kanalisierungsentwicklung und effektiver Abgabenwirkung. Netto = Brutto minus zusätzliche Vollzugskosten.",
+    "publication_rule":"Nur tatsächlich zusätzliches, dauerhaftes Aufkommen nach Kanalisierungs-, Verhaltens- und Vollzugseffekten darf als Finanzierungseffekt gelten."
+  },
+  "guardrails":[
+    "Spielerschutz ist Zielgröße, nicht bloß Einnahmenmaximierung.",
+    "Illegales und nicht konzessioniertes Angebot in die Wirkungsanalyse aufnehmen.",
+    "Steuersatzänderungen gegen Abwanderung in illegale Angebote testen.",
+    "Konzessionsabgabe, Glücksspielabgabe und Spielbankabgabe getrennt analysieren.",
+    "Einmaleffekte aus Nachzahlungen für vergangene Zeiträume nicht als Dauerertrag behandeln."
+  ],
+  "current_context":"Das BMF arbeitet 2026 an einer umfassenden Neuregulierung einschließlich Online-Glücksspiel und zentralem Sperrregister. WERK bewertet deshalb nicht isoliert nur einen höheren Abgabensatz."
+}
