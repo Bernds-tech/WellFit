@@ -1,0 +1,121 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"Juristische Umsetzungsstraße",
+  "status":"Arbeits- und Prüfmodell – keine Rechtsberatung",
+  "rule":"Jede WERK-Idee wird vor Veröffentlichung danach eingeordnet, ob sie heute bereits möglich ist, ein einfaches Gesetz, Landesrecht, eine Verfassungsänderung oder möglicherweise eine Gesamtänderung der Bundesverfassung benötigt. EU-, Völker- und Grundrechte bleiben zusätzliche Freigabegates.",
+  "classes":[
+    {"id":"possible_now","label":"heute grundsätzlich möglich"},
+    {"id":"ordinary_law","label":"einfachgesetzliche Änderung nötig"},
+    {"id":"state_law","label":"Landesrecht / Landesverfassung prüfen"},
+    {"id":"constitutional","label":"Bundesverfassungsänderung nötig"},
+    {"id":"possible_total_change","label":"Gesamtänderungsrisiko – zwingende Volksabstimmung prüfen"},
+    {"id":"external_law","label":"EU-/Völker-/Grundrechtsgate"}
+  ],
+  "items":[
+    {
+      "id":"DIR-PULS",
+      "reform_id":"DIR-01",
+      "title":"WERK PULS – unverbindliches Online-Stimmungsbild",
+      "current_law":"Eine private politische Plattform kann unverbindliche Meinungsbilder erheben, sofern Datenschutz, Transparenz, IT-Sicherheit und sonstiges geltendes Recht eingehalten werden. Das Ergebnis ist keine amtliche Volksbefragung oder Volksabstimmung.",
+      "target":"Öffentliche, klar als unverbindlich gekennzeichnete Bürgerstimmungsbilder mit offen gelegter Methodik.",
+      "change_class":["possible_now"],
+      "blockers":["Datenschutz- und Betreiberkonzept","Schutz gegen Mehrfachabstimmung ohne falschen Anschein amtlicher Wahlprüfung","klare Kennzeichnung als nichtamtlich"],
+      "source_ids":[],
+      "release_gate":"Kann als nichtamtliche Funktion umgesetzt werden, sobald Datenschutz, Betreiber und Methodik freigegeben sind."
+    },
+    {
+      "id":"DIR-VERIFIED",
+      "reform_id":"DIR-01",
+      "title":"Verifizierte WERK-Bürgerbeteiligung",
+      "current_law":"Eine verifizierte partei- oder plattforminterne Beteiligung ist nicht automatisch ein verfassungsrechtliches Volksabstimmungsverfahren. Identitätsprüfung darf nicht mit der geheimen Stimmabgabe verknüpft werden.",
+      "target":"Verifizierte Teilnahme über geeignete Identitätsprüfung mit technischer Trennung von Identität und Stimme; weiterhin ausdrücklich nichtamtlich, solange keine gesetzliche Grundlage besteht.",
+      "change_class":["possible_now"],
+      "blockers":["Datenschutz-Folgenabschätzung","technisches Wahlgeheimnis","Auditierbarkeit","Barrierefreiheit","keine Verwechslung mit amtlicher Abstimmung"],
+      "source_ids":[],
+      "release_gate":"Nur als private/nichtamtliche Beteiligung; amtliche Bindungswirkung ausdrücklich ausgeschlossen."
+    },
+    {
+      "id":"DIR-FEDERAL-POLL",
+      "reform_id":"DIR-01",
+      "title":"Amtliche Bundes-Volksbefragung",
+      "current_law":"Art. 49b B-VG erlaubt eine Volksbefragung nur über eine Angelegenheit von grundsätzlicher und gesamtösterreichischer Bedeutung, für deren Regelung die Bundesgesetzgebung zuständig ist. Wahlen sowie gerichtliche oder verwaltungsbehördliche Einzelfallentscheidungen sind ausgeschlossen. Die Frage ist derzeit Ja/Nein oder zwei Alternativen.",
+      "target":"WERK will qualifizierte Großfragen systematischer für amtliche Bürgerbefragungen öffnen.",
+      "change_class":["ordinary_law","constitutional"],
+      "blockers":["Anwendungsfälle exakt definieren","Bindungswirkung getrennt klären","Frageneutralität institutionell absichern","bei gewünschter dritter Option 'Enthaltung' Art. 49b und Volksbefragungsgesetz anpassen"],
+      "source_ids":["BVG-49B","VBEFRG-1989"],
+      "release_gate":"Konkretes Modell erst nach Verfassungs- und Verfahrensentwurf veröffentlichen."
+    },
+    {
+      "id":"DIR-OFFICIAL-EVOTE",
+      "reform_id":"DIR-01",
+      "title":"Amtliche digitale Abstimmung per Smartphone/Internet",
+      "current_law":"Das BMI hält fest, dass derzeit keine geeignete bundesverfassungsrechtliche Grundlage für Wahlen auf elektronischem Weg besteht. Volksabstimmungen und Volksbefragungen werden nach bestehenden Wahlbehörden- und Stimmzettelverfahren durchgeführt.",
+      "target":"Digitaler amtlicher Abstimmungskanal als zusätzlicher Zugang neben analoger Teilnahme.",
+      "change_class":["constitutional","ordinary_law"],
+      "blockers":["Bundesverfassungsgrundlage","Änderungen der Abstimmungs-/Befragungsgesetze","Wahlgeheimnis und freie Stimmabgabe außerhalb kontrollierter Wahlräume","Einmaligkeit über mehrere Kanäle","End-to-End-Audit und Nachzählbarkeit","Cybersecurity und unabhängige Zertifizierung","analoger Ersatzkanal"],
+      "source_ids":["BMI-EVOTE","VABSTG-1972","VBEFRG-1989"],
+      "release_gate":"Kein amtlicher Smartphone-Vote ohne Verfassungs-, Sicherheits- und Auditfreigabe."
+    },
+    {
+      "id":"DIR-ABSTENTION",
+      "reform_id":"DIR-01",
+      "title":"Teilnahmepflicht mit eigener Option Enthaltung",
+      "current_law":"Bei Bundes-Volksbefragungen sieht Art. 49b B-VG Ja/Nein oder zwei Alternativen vor; das Volksbefragungsgesetz bildet diese Auswahl am amtlichen Stimmzettel ab. Eine ausdrückliche dritte Antwort 'Enthaltung' ist damit im heutigen Bundesmodell nicht vorgesehen.",
+      "target":"Bei qualifizierten WERK-Großfragen soll Teilnahme politisches Ziel sein, ohne Zwang zu Ja oder Nein; eine vollwertige Enthaltungsoption soll möglich sein.",
+      "change_class":["constitutional","ordinary_law","external_law"],
+      "blockers":["Grundrechts- und Verhältnismäßigkeitsprüfung einer Teilnahmeverpflichtung","Sanktions- bzw. Nicht-Sanktionsmodell","Härtefälle","Änderung des zulässigen Antwortformats","Wahlgeheimnis und freie Willensbildung"],
+      "source_ids":["BVG-49B","VBEFRG-1989"],
+      "release_gate":"Teilnahmepflicht bleibt politisches Zielbild und darf vor juristischer Prüfung nicht als fertiger Gesetzesvorschlag dargestellt werden."
+    },
+    {
+      "id":"REG-STATE-VOTES",
+      "reform_id":"REG-01",
+      "title":"Regionale Volksentscheide",
+      "current_law":"Länder können direkte-demokratische Instrumente im Rahmen ihrer Landesverfassungen und ihrer Zuständigkeiten ausgestalten. Ein Landesentscheid kann aber keine Materie wirksam an sich ziehen, die das B-VG dem Bund zuweist.",
+      "target":"Große regionale Lebensfragen sollen auf Landesebene entschieden werden, wenn das Land dafür gesetzgeberisch zuständig ist oder der Bund zuvor einen rechtlichen Gestaltungsspielraum eröffnet.",
+      "change_class":["state_law","constitutional"],
+      "blockers":["Landesverfassungen und Landesgesetze für alle neun Länder einzeln auditieren","Materienkompetenz vor jeder Frage prüfen","Finanzierungsverantwortung koppeln"],
+      "source_ids":["BVG-10","BVG-15"],
+      "release_gate":"Jede konkrete regionale Frage erhält vor Freigabe einen Kompetenzcheck und einen landesspezifischen Verfahrenscheck."
+    },
+    {
+      "id":"REG-MIGRATION",
+      "reform_id":"REG-01",
+      "title":"Regionale Mitentscheidung bei Zuwanderung/Aufnahme",
+      "current_law":"Art. 10 B-VG weist Eintritt/Austritt, Ein- und Auswanderungswesen, Aufenthaltsrecht in den genannten Bereichen und Asyl der Bundesgesetzgebung und Bundesvollziehung zu.",
+      "target":"Länder sollen – soweit rechtlich gestaltbar – über zusätzliche freiwillige Aufnahme, regionale Integrationsmodelle oder andere übertragbare Komponenten mitentscheiden und die zusätzlichen Kosten grundsätzlich mitverantworten.",
+      "change_class":["constitutional","ordinary_law","external_law"],
+      "blockers":["Bundeskompetenz nach Art. 10","EU-Recht","Genfer Flüchtlingskonvention und sonstiges Völkerrecht","Grund- und Menschenrechte","bundesweite Mindest- und Verteilungsmechanismen"],
+      "source_ids":["BVG-10"],
+      "release_gate":"Kein pauschales Landes-Opt-out aus Asyl-/Fremdenrecht versprechen. Nur rechtlich definierte freiwillige/zusätzliche oder neu übertragene Komponenten regionalisieren."
+    },
+    {
+      "id":"REG-SMOKING",
+      "reform_id":"REG-01",
+      "title":"Regionale Gastronomie-Rauchregeln",
+      "current_law":"§ 12 TNRSG enthält ein bundesrechtliches Rauchverbot unter anderem in Gastronomieräumen; die tagesaktuelle Fassung gilt seit 20.08.2026 weiterhin in diesem Kern.",
+      "target":"Prüfen, ob ein bundesweiter Mindestschutz mit rechtlich eröffnetem regionalem Gestaltungsspielraum an die Stelle vollständiger Einheitlichkeit treten könnte.",
+      "change_class":["ordinary_law","constitutional","external_law"],
+      "blockers":["Bundesrecht TNRSG","gesundheitsrechtliche Kompetenzordnung","Arbeitnehmerschutz","Jugendschutz","Grund- und Gesundheitsschutz","EU-rechtliche Vorgaben soweit einschlägig"],
+      "source_ids":["TNRSG-12","BVG-10"],
+      "release_gate":"Eine Landesregel ist erst nach ausdrücklicher bundes-/kompetenzrechtlicher Öffnung möglich."
+    },
+    {
+      "id":"DIR-DOUBLE-MAJORITY",
+      "reform_id":"DIR-01",
+      "title":"Doppelmehrheit bei außergewöhnlichen Staatsfragen",
+      "current_law":"Das geltende B-VG kennt für Volksabstimmungen nicht das von WERK skizzierte generelle Modell 'Mehrheit der Stimmen plus Mehrheit der Bundesländer'. Art. 44 regelt jedoch besonders qualifizierte Verfassungsänderungen und die zwingende Volksabstimmung bei einer Gesamtänderung.",
+      "target":"Für eng definierte außergewöhnliche Staats- und Verfassungsstrukturfragen soll geprüft werden, ob zusätzlich zur österreichweiten Mehrheit eine föderale Mehrheit der Länder erforderlich sein soll.",
+      "change_class":["constitutional","possible_total_change"],
+      "blockers":["Anwendungsbereich extrem eng definieren","Berechnung der Ländermehrheit","Verhältnis zum demokratischen und bundesstaatlichen Grundprinzip","Prüfung, ob die konkrete Ausgestaltung selbst eine Gesamtänderung darstellt"],
+      "source_ids":["BVG-44","VABSTG-1972"],
+      "release_gate":"Nur als Prüfmodell führen, bis ein Verfassungsentwurf und eine Gesamtänderungsanalyse vorliegen."
+    }
+  ],
+  "next_legal_work":[
+    "Landesverfassungen und Landes-Volksabstimmungs-/Volksbefragungsgesetze aller neun Länder einzeln erfassen",
+    "DIR-01 Verfassungsentwurf in Varianten: nur digitaler Zusatzkanal / neue Großfragenlogik / Teilnahmeoption",
+    "REG-01 Kompetenzinventar der prioritären Lebensmaterien erstellen",
+    "Grundrechts- und EU/Völkerrechtsgate als eigenes Prüfblatt je Großfrage bauen"
+  ]
+}
