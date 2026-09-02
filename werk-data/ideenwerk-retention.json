@@ -1,0 +1,26 @@
+{
+  "version":"2026-09-03-v1",
+  "status":"technischer Entwurf – juristische Datenschutzfreigabe offen",
+  "title":"WERK IDEENWERK – Aufbewahrung und Löschung",
+  "principle":"Bürgerideen werden nicht allein wegen ihres Alters automatisch gelöscht. Automatisch bereinigt werden nur klar definierte technische Kurzzeitdaten. Korrektur, Einschränkung, Anonymisierung oder Löschung einer Einreichung erfolgt über einen dokumentierten Privacy-Workflow mit Reason Code.",
+  "automatic_cleanup":[
+    {"data":"abgelaufene Abuse-/PII-Signale","default_days":30,"rule":"nach expires_at löschen, sofern kein offener Moderations-/Rechtsfall sie benötigt"},
+    {"data":"erfolgreich abgeschlossene Processing-Jobs","default_days":14,"rule":"Job-Nutzdaten nach Ablauf entfernen; aggregierte Betriebsmetriken dürfen getrennt erhalten bleiben"},
+    {"data":"Dead Jobs / Fehlerdiagnose","default_days":90,"rule":"nur solange für Fehleranalyse erforderlich; keine unnötigen Bürgertexte in last_error schreiben"},
+    {"data":"widerrufene oder abgelaufene Statuszugänge","default_grace_days":30,"rule":"nach Ablauf der technischen Nachfrist entfernen, sofern kein offener Privacy-Fall besteht"},
+    {"data":"erledigte Moderationsmeldungs-Details","default_days":180,"rule":"Freitextdetails minimieren/anonymisieren; aggregierte Grundkategorie kann für Transparenzstatistik erhalten bleiben"}
+  ],
+  "never_automatic_by_age":[
+    "Original-Bürgeridee",
+    "öffentliche Problem-/Lösungsvariante",
+    "Reformkandidat",
+    "begründete Status-/Entscheidungshistorie"
+  ],
+  "privacy_actions":[
+    {"action":"restriction","effect":"nicht weiter öffentlich/automatisch verarbeiten, bis der Fall geprüft ist"},
+    {"action":"correction","effect":"Korrektur mit Auditspur; ursprüngliche öffentliche Fehlfassung darf nicht unbemerkt weiterleben"},
+    {"action":"anonymization","effect":"personenbeziehbare Inhalte entfernen, soweit Erhalt der Sachidee rechtlich zulässig ist"},
+    {"action":"erasure","effect":"Inhalte nach bestätigter Löschentscheidung entfernen; technisch kann ein minimaler Tombstone/Reason Code verbleiben, sofern dafür eine Rechtsgrundlage besteht"}
+  ],
+  "public_rule":"WERK veröffentlicht keine fixen gesetzlichen Aufbewahrungsfristen als bereits freigegeben, solange die Datenschutz-/Rechtsprüfung nicht abgeschlossen ist. Technische Defaults sind konfigurierbar und vor Produktivbetrieb juristisch zu bestätigen."
+}
