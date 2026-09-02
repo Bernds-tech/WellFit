@@ -3,6 +3,8 @@ import { randomBytes } from 'node:crypto';
 import pg from 'pg';
 import { createEventId } from './lib/status-token.js';
 import { assertTransition } from './lib/status-machine.js';
+import { extractSemanticFeatures } from './lib/semantic-provider.js';
+import { decideClusterRelation } from './lib/cluster-decision.js';
 
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -140,8 +142,9 @@ async function handleLexicalDuplicateSearch(job) {
       [row.public_id, row.original_text, threshold]
     );
     if (!candidates.rowCount) {
+      await enqueue(client, 'semantic_feature_extract', row.public_id, { source: 'no_lexical_duplicate' });
       await client.query('COMMIT');
-      return { match: false, threshold, next: 'semantic_similarity_pending' };
+      return { match: false, threshold, next: 'semantic_feature_extract' };
     }
 
     const candidate = candidates.rows[0];
@@ -183,10 +186,118 @@ async function handleLexicalDuplicateSearch(job) {
   } finally { client.release(); }
 }
 
+async function handleSemanticFeatureExtract(job) {
+  const q = await pool.query(
+    `SELECT s.id,s.public_id,s.original_text,s.region,s.topic,s.current_status,
+            p.problem,p.proposal,p.goal,p.suggested_level,p.open_questions
+       FROM submissions s
+       LEFT JOIN structured_proposals p ON p.submission_id=s.id
+      WHERE s.public_id=$1`, [job.subject_id]
+  );
+  if (!q.rowCount) throw new Error('submission missing');
+  const row = q.rows[0];
+  const features = await extractSemanticFeatures({
+    original_text: row.original_text,
+    problem: row.problem,
+    proposal: row.proposal,
+    goal: row.goal,
+    suggested_level: row.suggested_level,
+    topic: row.topic,
+    region: row.region,
+    open_questions: row.open_questions
+  });
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query(
+      `INSERT INTO proposal_features(submission_id,provider,model_version,problem_signature,solution_signature,topic,suggested_level,region_scope,open_questions,raw_payload)
+       VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb,$10::jsonb)
+       ON CONFLICT(submission_id) DO UPDATE SET provider=excluded.provider,model_version=excluded.model_version,
+         problem_signature=excluded.problem_signature,solution_signature=excluded.solution_signature,topic=excluded.topic,
+         suggested_level=excluded.suggested_level,region_scope=excluded.region_scope,open_questions=excluded.open_questions,
+         raw_payload=excluded.raw_payload,updated_at=now()`,
+      [row.id,features.provider,features.model_version,features.problem_signature,features.solution_signature,features.topic,
+       features.suggested_level,features.region_scope,JSON.stringify(features.open_questions||[]),JSON.stringify(features.raw||{})]
+    );
+    await enqueue(client, 'semantic_cluster_review', row.public_id, { provider: features.provider, model_version: features.model_version });
+    await client.query('COMMIT');
+  } catch (e) {
+    await client.query('ROLLBACK');
+    throw e;
+  } finally { client.release(); }
+  return { provider: features.provider, model_version: features.model_version, next: 'semantic_cluster_review' };
+}
+
+async function handleSemanticClusterReview(job) {
+  const q = await pool.query(
+    `SELECT s.id,s.public_id,s.current_status,f.provider,f.model_version,f.problem_signature,f.solution_signature,
+            f.topic,f.suggested_level,f.region_scope
+       FROM submissions s JOIN proposal_features f ON f.submission_id=s.id
+      WHERE s.public_id=$1`, [job.subject_id]
+  );
+  if (!q.rowCount) throw new Error('semantic features missing');
+  const row = q.rows[0];
+  const candidates = await pool.query(
+    `SELECT s.id,s.public_id,f.provider,f.model_version,f.problem_signature,f.solution_signature,f.topic,f.suggested_level,f.region_scope,
+            similarity(f.problem_signature,$2) AS problem_sim,
+            similarity(f.solution_signature,$3) AS solution_sim
+       FROM proposal_features f JOIN submissions s ON s.id=f.submission_id
+      WHERE s.id<>$1
+        AND ($4::text IS NULL OR f.topic=$4 OR f.topic IS NULL)
+      ORDER BY GREATEST(similarity(f.problem_signature,$2), similarity(f.solution_signature,$3)) DESC, s.created_at ASC
+      LIMIT 20`,
+    [row.id,row.problem_signature,row.solution_signature,row.topic]
+  );
+
+  const client = await pool.connect();
+  let relevant = 0;
+  try {
+    await client.query('BEGIN');
+    for (const c of candidates.rows) {
+      const decision = decideClusterRelation({
+        problemSimilarity: Number(c.problem_sim),
+        solutionSimilarity: Number(c.solution_sim),
+        sameLevel: !row.suggested_level || !c.suggested_level || row.suggested_level===c.suggested_level,
+        sameRegionScope: !row.region_scope || !c.region_scope || row.region_scope===c.region_scope
+      });
+      if (decision.relation === 'separate') continue;
+      relevant++;
+      await client.query(
+        `INSERT INTO cluster_candidates(submission_id,candidate_submission_id,relation,problem_similarity,solution_similarity,assignment_action,method,rationale)
+         VALUES($1,$2,$3,$4,$5,$6,$7,$8)
+         ON CONFLICT(submission_id,candidate_submission_id,method) DO UPDATE SET relation=excluded.relation,
+           problem_similarity=excluded.problem_similarity,solution_similarity=excluded.solution_similarity,
+           assignment_action=excluded.assignment_action,rationale=excluded.rationale`,
+        [row.id,c.id,decision.relation,Number(c.problem_sim),Number(c.solution_sim),decision.action,
+         `semantic_signatures:${row.provider}:${row.model_version}`,decision.reason]
+      );
+    }
+
+    if (relevant === 0 && row.current_status === 'cluster_review') {
+      await statusChange(client,row.public_id,'precheck','system','NO_CLUSTER_OVERLAP',{
+        provider: row.provider, model_version: row.model_version, candidates_checked: candidates.rowCount
+      });
+    } else {
+      await client.query(
+        `INSERT INTO audit_events(event_id,subject_type,subject_id,event_type,actor_type,reason_code,payload)
+         VALUES($1,'submission',$2,'cluster_candidates_created','system',NULL,$3::jsonb)`,
+        [createEventId(),row.public_id,JSON.stringify({ relevant_candidates: relevant, provider: row.provider, model_version: row.model_version })]
+      );
+    }
+    await client.query('COMMIT');
+  } catch (e) {
+    await client.query('ROLLBACK');
+    throw e;
+  } finally { client.release(); }
+  return { candidates_checked: candidates.rowCount, relevant_candidates: relevant, next: relevant ? 'human_cluster_review' : 'precheck' };
+}
+
 const handlers = {
   pii_scan: handlePiiScan,
   structure_submission: handleStructure,
-  lexical_duplicate_search: handleLexicalDuplicateSearch
+  lexical_duplicate_search: handleLexicalDuplicateSearch,
+  semantic_feature_extract: handleSemanticFeatureExtract,
+  semantic_cluster_review: handleSemanticClusterReview
 };
 
 async function finishJob(job, result) {
