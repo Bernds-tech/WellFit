@@ -11,6 +11,7 @@ const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const PORT = Number(process.env.PORT || 3000);
 const SUBMISSION_RATE_LIMIT = Number(process.env.SUBMISSION_RATE_LIMIT || 20);
 const REPORT_RATE_LIMIT = Number(process.env.REPORT_RATE_LIMIT || 30);
+const PRIVACY_RATE_LIMIT = Number(process.env.PRIVACY_RATE_LIMIT || 30);
 
 const submissionSchema = z.object({
   text: z.string().trim().min(20).max(5000),
@@ -26,12 +27,38 @@ const reportSchema = z.object({
   details: z.string().trim().max(2000).optional()
 });
 
+const privacyRequestSchema = z.object({
+  request_type: z.enum(['export','correction','deletion','restriction','cluster_appeal']),
+  details: z.string().trim().max(3000).optional()
+});
+
 function bearerToken(req) {
   const h = req.headers.authorization || '';
   return h.startsWith('Bearer ') ? h.slice(7).trim() : null;
 }
 
-app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.2.0' }));
+async function resolveStatusAccess(publicId, token) {
+  if (!token) return { error: 'STATUS_TOKEN_REQUIRED', code: 401, message: 'Status-Token fehlt.' };
+  const tokenHash = hashStatusToken(token);
+  const q = await pool.query(
+    `SELECT s.id,s.public_id,s.original_text,s.public_text,s.region,s.topic,s.current_status,s.created_at,s.updated_at,
+            a.expires_at,a.revoked_at
+       FROM submissions s JOIN status_access a ON a.submission_id=s.id
+      WHERE s.public_id=$1 AND a.token_hash=$2 LIMIT 1`,
+    [publicId, tokenHash]
+  );
+  if (!q.rowCount) return { error: 'STATUS_ACCESS_DENIED', code: 403, message: 'Statuszugang ungültig.' };
+  const row = q.rows[0];
+  if (row.revoked_at) return { error: 'STATUS_ACCESS_REVOKED', code: 403, message: 'Statuszugang wurde widerrufen.' };
+  if (row.expires_at && new Date(row.expires_at) < new Date()) return { error: 'STATUS_ACCESS_EXPIRED', code: 403, message: 'Statuszugang ist abgelaufen.' };
+  return { row };
+}
+
+function privacyRequestId() {
+  return `PRIV-${createPublicId().slice(5)}`;
+}
+
+app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.4.0' }));
 
 app.post('/api/ideenwerk/v1/submissions', {
   config: { rateLimit: { max: SUBMISSION_RATE_LIMIT, timeWindow: '1 minute' } }
@@ -108,24 +135,12 @@ app.get('/api/ideenwerk/v1/submissions/:publicId', async (req, reply) => {
 app.get('/api/ideenwerk/v1/status/:publicId', {
   config: { rateLimit: { max: 60, timeWindow: '1 minute' } }
 }, async (req, reply) => {
-  const token = bearerToken(req);
-  if (!token) return reply.code(401).send({ code: 'STATUS_TOKEN_REQUIRED', message: 'Status-Token fehlt.' });
-  const tokenHash = hashStatusToken(token);
-  const { publicId } = req.params;
-  const q = await pool.query(
-    `SELECT s.public_id,s.original_text,s.region,s.topic,s.current_status,s.created_at,s.updated_at,
-            a.expires_at,a.revoked_at
-       FROM submissions s JOIN status_access a ON a.submission_id=s.id
-      WHERE s.public_id=$1 AND a.token_hash=$2 LIMIT 1`,
-    [publicId, tokenHash]
-  );
-  if (!q.rowCount) return reply.code(403).send({ code: 'STATUS_ACCESS_DENIED', message: 'Statuszugang ungültig.' });
-  const row = q.rows[0];
-  if (row.revoked_at) return reply.code(403).send({ code: 'STATUS_ACCESS_REVOKED', message: 'Statuszugang wurde widerrufen.' });
-  if (row.expires_at && new Date(row.expires_at) < new Date()) return reply.code(403).send({ code: 'STATUS_ACCESS_EXPIRED', message: 'Statuszugang ist abgelaufen.' });
+  const access = await resolveStatusAccess(req.params.publicId, bearerToken(req));
+  if (access.error) return reply.code(access.code).send({ code: access.error, message: access.message });
+  const row = access.row;
   const history = await pool.query(
     `SELECT event_type,actor_type,reason_code,payload,created_at
-       FROM audit_events WHERE subject_type='submission' AND subject_id=$1 ORDER BY created_at ASC`, [publicId]
+       FROM audit_events WHERE subject_type='submission' AND subject_id=$1 ORDER BY created_at ASC`, [row.public_id]
   );
   return {
     public_id: row.public_id,
@@ -137,6 +152,85 @@ app.get('/api/ideenwerk/v1/status/:publicId', {
     updated_at: row.updated_at,
     history: history.rows
   };
+});
+
+app.get('/api/ideenwerk/v1/privacy/export/:publicId', {
+  config: { rateLimit: { max: PRIVACY_RATE_LIMIT, timeWindow: '1 minute' } }
+}, async (req, reply) => {
+  const access = await resolveStatusAccess(req.params.publicId, bearerToken(req));
+  if (access.error) return reply.code(access.code).send({ code: access.error, message: access.message });
+  const row = access.row;
+  const [structured, memberships, audit, requests] = await Promise.all([
+    pool.query(`SELECT problem,proposal,goal,suggested_level,topic,region,open_questions,citizen_confirmed,created_at,updated_at FROM structured_proposals WHERE submission_id=$1`, [row.id]),
+    pool.query(`SELECT c.cluster_id,c.title,cm.assignment_method,cm.similarity,cm.created_at FROM cluster_members cm JOIN clusters c ON c.id=cm.cluster_id WHERE cm.submission_id=$1`, [row.id]),
+    pool.query(`SELECT event_type,actor_type,reason_code,payload,created_at FROM audit_events WHERE subject_type='submission' AND subject_id=$1 ORDER BY created_at ASC`, [row.public_id]),
+    pool.query(`SELECT request_id,request_type,details,status,decision_reason_code,created_at,resolved_at FROM privacy_requests WHERE submission_id=$1 ORDER BY created_at ASC`, [row.id])
+  ]);
+  return {
+    export_type: 'IDEENWERK_PRIVATE_SUBMISSION_EXPORT',
+    generated_at: new Date().toISOString(),
+    submission: {
+      public_id: row.public_id,
+      original_text: row.original_text,
+      public_text: row.public_text,
+      region: row.region,
+      topic: row.topic,
+      current_status: row.current_status,
+      created_at: row.created_at,
+      updated_at: row.updated_at
+    },
+    structured_proposal: structured.rows[0] || null,
+    cluster_memberships: memberships.rows,
+    audit_history: audit.rows,
+    privacy_requests: requests.rows
+  };
+});
+
+app.post('/api/ideenwerk/v1/privacy/requests/:publicId', {
+  config: { rateLimit: { max: PRIVACY_RATE_LIMIT, timeWindow: '1 minute' } }
+}, async (req, reply) => {
+  const parsed = privacyRequestSchema.safeParse(req.body);
+  if (!parsed.success) return reply.code(400).send({ code: 'INVALID_PRIVACY_REQUEST', message: 'Datenschutzanfrage ist ungültig.' });
+  const access = await resolveStatusAccess(req.params.publicId, bearerToken(req));
+  if (access.error) return reply.code(access.code).send({ code: access.error, message: access.message });
+  const row = access.row;
+  const requestId = privacyRequestId();
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query(
+      `INSERT INTO privacy_requests(request_id,submission_id,request_type,details)
+       VALUES($1,$2,$3,$4)`,
+      [requestId,row.id,parsed.data.request_type,parsed.data.details||null]
+    );
+    await client.query(
+      `INSERT INTO audit_events(event_id,subject_type,subject_id,event_type,actor_type,reason_code,payload)
+       VALUES($1,'submission',$2,'privacy_request_created','citizen',$3,$4::jsonb)`,
+      [createEventId(),row.public_id,`PRIVACY_${parsed.data.request_type.toUpperCase()}`,JSON.stringify({request_id:requestId})]
+    );
+    await client.query('COMMIT');
+  } catch (e) {
+    await client.query('ROLLBACK');
+    throw e;
+  } finally { client.release(); }
+  return reply.code(201).send({
+    request_id: requestId,
+    request_type: parsed.data.request_type,
+    status: 'received',
+    note: 'Die Anfrage wird geprüft. Ein Löschwunsch ist keine sofortige irreversible Client-Löschung; Ergebnis und Reason Code werden nachvollziehbar dokumentiert.'
+  });
+});
+
+app.get('/api/ideenwerk/v1/privacy/requests/:publicId', {
+  config: { rateLimit: { max: PRIVACY_RATE_LIMIT, timeWindow: '1 minute' } }
+}, async (req, reply) => {
+  const access = await resolveStatusAccess(req.params.publicId, bearerToken(req));
+  if (access.error) return reply.code(access.code).send({ code: access.error, message: access.message });
+  const q = await pool.query(
+    `SELECT request_id,request_type,details,status,decision_reason_code,created_at,resolved_at
+       FROM privacy_requests WHERE submission_id=$1 ORDER BY created_at DESC`, [access.row.id]
+  );
+  return { public_id: access.row.public_id, requests: q.rows };
 });
 
 app.post('/api/ideenwerk/v1/moderation/report', {
