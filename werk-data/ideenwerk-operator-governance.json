@@ -1,0 +1,31 @@
+{
+  "version":"2026-09-02-v1",
+  "title":"WERK IDEENWERK – menschliche Prüfung & Vier-Augen-Prinzip",
+  "principle":"Automatisierung darf vorsortieren und Holds setzen. Endgültige sensible Moderations-, Cluster- und Eskalationsentscheidungen müssen nachvollziehbar menschlich geprüft werden; substantielle Beschwerden werden von einer anderen Person/Rolle behandelt als die Erstentscheidung.",
+  "auth_rule":"Operator-Zugang später ausschließlich über einen externen Identitätsanbieter/OIDC mit MFA und serverseitiger Rollenprüfung. Keine lokalen IDEENWERK-Admin-Passwörter.",
+  "roles":[
+    {"id":"cluster_reviewer","label":"Cluster-Prüfung","may":["Clusterkandidaten bestätigen/ablehnen","Lösungsvarianten trennen","falsche Zuordnungen korrigieren"],"may_not":["eigene substanzielle Appeal-Entscheidung bestätigen"]},
+    {"id":"moderator","label":"Moderation","may":["PII-Redaktion freigeben","Spam/Impersonation prüfen","Veröffentlichungs-Holds entscheiden"],"may_not":["politische Qualität bewerten","rechtliche Grenzfälle endgültig allein entscheiden"]},
+    {"id":"legal_reviewer","label":"Rechtsprüfung","may":["mögliche Rechtswidrigkeit bewerten","Rechts-Holds freigeben/aufrechterhalten","juristische Findings dokumentieren"],"may_not":["politische Zustimmung/Ablehnung ersetzen"]},
+    {"id":"impact_reviewer","label":"Wirkungsprüfung","may":["Kosten-/Daten-/Kompetenzprüfungen bearbeiten","Reformkandidaten fachlich vorbereiten"],"may_not":["Moderationsentscheidungen aufgrund politischer Position treffen"]},
+    {"id":"appeal_reviewer","label":"Überprüfung / Appeal","may":["substanzielle Cluster-/Moderationsbeschwerden neu prüfen","Erstentscheidung bestätigen oder korrigieren"],"may_not":["Appeal gegen eigene Erstentscheidung entscheiden"]},
+    {"id":"auditor","label":"Audit","may":["Audit-Events und Kennzahlen lesen","Stichproben und Regelverstöße dokumentieren"],"may_not":["Inhalte verändern"]}
+  ],
+  "four_eyes_cases":[
+    "endgültige Entfernung einer zuvor veröffentlichten legal erscheinenden politischen Idee",
+    "Bestätigung einer substantiellen Beschwerde gegen Cluster-/Variantenzuordnung",
+    "rechtlich sensible Löschung oder Nichtveröffentlichung außerhalb eindeutiger PII-/Spamfälle",
+    "Änderung eines bereits veröffentlichten Reformkandidaten-Ursprungsclusters",
+    "Aufhebung oder Bestätigung eines automatischen Holds nach Bürgerbeschwerde"
+  ],
+  "reason_code_rule":"Jede menschliche Entscheidung braucht einen standardisierten Reason Code plus kurze sachliche Begründung. Freitext allein reicht für sensible Eingriffe nicht.",
+  "sla_rule":"Bearbeitungszeiten werden gemessen und veröffentlicht; konkrete SLA-Ziele werden erst nach Pilotdaten festgelegt und nicht vorab erfunden.",
+  "public_transparency":[
+    "Zahl offener Clusterreviews",
+    "Median und p95 Alter offener Reviews",
+    "Zahl Moderationsholds nach Grundkategorie",
+    "Appeals und Korrekturquote",
+    "Zahl Vier-Augen-Fälle",
+    "Anteil automatisch vs. menschlich abgeschlossener Prozessschritte"
+  ]
+}
