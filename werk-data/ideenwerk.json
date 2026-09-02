@@ -1,0 +1,68 @@
+{
+  "version":"2026-09-02-v1",
+  "name":"WERK IDEENWERK",
+  "tagline":"Mitdenken ohne Konto. Entscheiden mit verifizierter Identität.",
+  "status":"Konzept- und Frontend-Prototyp",
+  "public_rule":"Ideen dürfen ohne Login eingebracht werden. Eine formale Unterstützung mit dem Prinzip 1 Mensch = 1 Unterstützung und spätere amtliche Abstimmungen benötigen getrennte Verifikation.",
+  "submission_without_login":true,
+  "anonymous_by_default":true,
+  "public_identity_options":["Anonyme Bürgeridee","Bundesland anzeigen","freiwilliger Anzeigename"],
+  "pipeline":[
+    {"id":"eingang","label":"Eingelangt","description":"Freier Vorschlag wurde angenommen und erhält eine Status-ID."},
+    {"id":"struktur","label":"Strukturiert","description":"Problem, Ziel, Lösungsidee, mögliche Ebene und offene Fragen werden in ein einheitliches Format gebracht."},
+    {"id":"cluster","label":"Clusterprüfung","description":"Ähnliche Vorschläge werden zusammengeführt, Originalbeiträge bleiben nachvollziehbar erhalten."},
+    {"id":"vorcheck","label":"WERK-Vorcheck","description":"Zuständigkeit, WERK-Kern, bestehendes Recht, bestehende Maßnahmen, Kosten- und Datenbedarf werden geprüft."},
+    {"id":"themenraum","label":"Öffentlicher Themenraum","description":"Cluster, Argumente, Ergänzungen und unterschiedliche Varianten werden sichtbar gemacht."},
+    {"id":"wirkung","label":"Wirkungsprüfung","description":"Problem, Varianten, Kosten, Finanzierung, Recht, 1-/5-/10-Jahreswirkung und KPI werden ausgearbeitet."},
+    {"id":"reformkandidat","label":"Reformkandidat","description":"Nach fachlicher Prüfung erhält die Idee eine Reform-ID und kann ins Reformregister übernommen werden."},
+    {"id":"entscheidung","label":"Entscheidung","description":"Je nach Zuständigkeit politischer Beschluss oder – bei qualifizierter Großfrage und Rechtsgrundlage – WERK VOTE."}
+  ],
+  "triage_rules":[
+    "Mehrheit bestimmt Aufmerksamkeit; Qualität bestimmt Prüfung.",
+    "Viele ähnliche Texte werden geclustert statt tausendfach einzeln gerankt.",
+    "Eine Einzelidee darf auch ohne hohe Unterstützerzahl weiterkommen, wenn Problemrelevanz und Wirkung hoch sind.",
+    "KI darf sortieren, strukturieren, Duplikate erkennen und Prüfbedarf markieren, aber nicht politisch entscheiden.",
+    "Keine geheime KI-Gesamtnote. Signale wie Unterstützung, Datenlage, Rechtsstatus, Umsetzbarkeit und Finanzierungsstand bleiben getrennt sichtbar.",
+    "Bestehendes Recht oder bereits laufende staatliche Maßnahmen werden als Überschneidung markiert, nicht als neue WERK-Idee verkauft."
+  ],
+  "public_signals":[
+    "ähnliche Einreichungen",
+    "anonyme/pseudonyme Reaktionen",
+    "verifizierte Unterstützer",
+    "Zuständigkeit",
+    "Rechtsstatus",
+    "Kostenstatus",
+    "Datenlage",
+    "Überschneidung mit bestehender Reform",
+    "aktueller Bearbeitungsstatus"
+  ],
+  "support_model":{
+    "anonymous_reaction":"ohne Login möglich und ausdrücklich unverbindlich",
+    "verified_support":"separate Verifikation; 1 Mensch = 1 Unterstützung",
+    "official_vote":"nur mit sicherer Identitätsprüfung und entsprechender Rechtsgrundlage",
+    "display_rule":"Anonyme Reaktionen und verifizierte Unterstützer werden niemals zu einer einzigen Zahl vermischt."
+  },
+  "abuse_controls":[
+    "Rate Limits pro Browser/Netzwerk",
+    "Bot- und Spam-Erkennung",
+    "CAPTCHA nur bei verdächtigem Verhalten",
+    "Duplikat- und Copy-Paste-Erkennung",
+    "Erkennung koordinierter Massenkampagnen",
+    "Moderation rechtswidriger oder missbräuchlicher Inhalte",
+    "Erkennung und Entfernung persönlicher Daten vor öffentlicher Veröffentlichung",
+    "Einreichungszahl und Zahl eindeutig verifizierter Unterstützer strikt getrennt"
+  ],
+  "privacy":{
+    "public_by_default":"Ideentext nach Moderation, Status, Cluster, Thema und optional grobe Region",
+    "never_public_by_default":["E-Mail-Adresse","IP-Adresse","technische Missbrauchssignale","Identitätsnachweis"],
+    "tracking_without_account":"Status-ID plus privater Wiederaufruf-Code oder sicherer Status-Link",
+    "prototype_notice":"In der Vorschau werden Einreichungen ausschließlich lokal im Browser gespeichert und nicht an einen WERK-Server übertragen."
+  },
+  "topics":["Finanzen & Schulden","Verwaltung","Steuern","Wirtschaft","Soziales & Pensionen","Gesundheit & Pflege","Bildung","Sicherheit","Migration & Integration","Regionen & Gemeinden","Verkehr & Infrastruktur","Umwelt & Energie","Demokratie & Staat","Sonstiges"],
+  "regions":["Österreich","Burgenland","Kärnten","Niederösterreich","Oberösterreich","Salzburg","Steiermark","Tirol","Vorarlberg","Wien"],
+  "demo_clusters":[
+    {"id":"DEMO-VERW-001","topic":"Verwaltung","title":"Behördenwege und Mehrfacheingaben reduzieren","submissions":0,"verified_supporters":0,"status":"Beispielcluster – keine realen Bürgerdaten"},
+    {"id":"DEMO-PFLEGE-001","topic":"Gesundheit & Pflege","title":"Pflege zuhause einfacher organisieren","submissions":0,"verified_supporters":0,"status":"Beispielcluster – keine realen Bürgerdaten"},
+    {"id":"DEMO-REG-001","topic":"Regionen & Gemeinden","title":"Mehr Entscheidungen näher an Gemeinden und Ländern","submissions":0,"verified_supporters":0,"status":"Beispielcluster – keine realen Bürgerdaten"}
+  ]
+}
