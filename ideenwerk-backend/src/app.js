@@ -1,12 +1,51 @@
 import Fastify from 'fastify';
+import cors from '@fastify/cors';
+import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
 import pg from 'pg';
 import { z } from 'zod';
 import { createEventId, createPublicId, createStatusToken, hashStatusToken } from './lib/status-token.js';
 
 const { Pool } = pg;
-const app = Fastify({ logger: true, bodyLimit: 64 * 1024 });
+const TRUST_PROXY = process.env.TRUST_PROXY === 'true';
+const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
+const allowedOrigins = new Set((process.env.ALLOWED_ORIGINS || '')
+  .split(',')
+  .map(x => x.trim())
+  .filter(Boolean));
+
+const app = Fastify({
+  bodyLimit: 64 * 1024,
+  trustProxy: TRUST_PROXY,
+  logger: {
+    level: LOG_LEVEL,
+    redact: {
+      paths: [
+        'req.headers.authorization',
+        'req.headers.cookie',
+        'res.headers.set-cookie',
+        '*.status_token_once',
+        '*.token'
+      ],
+      censor: '[REDACTED]'
+    }
+  }
+});
+
+await app.register(helmet, {
+  contentSecurityPolicy: false,
+  crossOriginEmbedderPolicy: false
+});
+await app.register(cors, {
+  credentials: false,
+  origin(origin, cb) {
+    if (!origin) return cb(null, true);
+    if (allowedOrigins.has(origin)) return cb(null, true);
+    return cb(new Error('CORS_ORIGIN_DENIED'), false);
+  }
+});
 await app.register(rateLimit, { global: false });
+
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 const PORT = Number(process.env.PORT || 3000);
 const SUBMISSION_RATE_LIMIT = Number(process.env.SUBMISSION_RATE_LIMIT || 20);
@@ -58,7 +97,22 @@ function privacyRequestId() {
   return `PRIV-${createPublicId().slice(5)}`;
 }
 
-app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.4.0' }));
+app.addHook('onRequest', async (req, reply) => {
+  if (req.url.startsWith('/api/ideenwerk/')) {
+    reply.header('cache-control', 'no-store');
+    reply.header('pragma', 'no-cache');
+  }
+});
+
+app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.6.0' }));
+app.get('/ready', async (_req, reply) => {
+  try {
+    await pool.query('SELECT 1');
+    return { ok: true, database: 'ready' };
+  } catch {
+    return reply.code(503).send({ ok: false, database: 'unavailable' });
+  }
+});
 
 app.post('/api/ideenwerk/v1/submissions', {
   config: { rateLimit: { max: SUBMISSION_RATE_LIMIT, timeWindow: '1 minute' } }
@@ -106,7 +160,7 @@ app.post('/api/ideenwerk/v1/submissions', {
     await client.query('COMMIT');
   } catch (e) {
     await client.query('ROLLBACK');
-    req.log.error(e);
+    req.log.error({ err: e }, 'submission failed');
     return reply.code(500).send({ code: 'SUBMISSION_FAILED', message: 'Die Idee konnte technisch nicht angenommen werden.', request_id: req.id });
   } finally {
     client.release();
@@ -248,7 +302,10 @@ app.post('/api/ideenwerk/v1/moderation/report', {
 });
 
 app.setErrorHandler((err, req, reply) => {
-  req.log.error(err);
+  if (err?.message === 'CORS_ORIGIN_DENIED') {
+    return reply.code(403).send({ code: 'CORS_ORIGIN_DENIED', message: 'Origin nicht freigegeben.', request_id: req.id });
+  }
+  req.log.error({ err }, 'unhandled error');
   reply.code(500).send({ code: 'INTERNAL_ERROR', message: 'Interner Fehler.', request_id: req.id });
 });
 
