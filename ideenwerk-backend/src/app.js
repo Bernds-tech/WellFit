@@ -17,6 +17,7 @@ const allowedOrigins = new Set((process.env.ALLOWED_ORIGINS || '')
 const app = Fastify({
   bodyLimit: 64 * 1024,
   trustProxy: TRUST_PROXY,
+  disableRequestLogging: true,
   logger: {
     level: LOG_LEVEL,
     redact: {
@@ -104,7 +105,16 @@ app.addHook('onRequest', async (req, reply) => {
   }
 });
 
-app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.6.0' }));
+app.addHook('onResponse', async (req, reply) => {
+  req.log.info({
+    method: req.method,
+    route: req.routeOptions?.url || 'unmatched',
+    status_code: reply.statusCode,
+    request_id: req.id
+  }, 'request completed');
+});
+
+app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.7.0' }));
 app.get('/ready', async (_req, reply) => {
   try {
     await pool.query('SELECT 1');
