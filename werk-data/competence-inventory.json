@@ -1,0 +1,65 @@
+{
+  "version":"2026-09-02-v1",
+  "checked_at":"2026-09-02",
+  "title":"WERK Kompetenz-Inventar – Bund, Land, Gemeinde",
+  "status":"erste belastbare Systemmatrix; Detailmaterien werden einzeln weiter auditiert",
+  "principle":"Nicht danach fragen, wer politisch gerne entscheiden würde, sondern wer nach geltender Kompetenzordnung entscheiden darf – und ob WERK diese Zuständigkeit überhaupt ändern will.",
+  "classes":[
+    {"id":"bund","label":"heute Bund","description":"Gesetzgebung und Vollziehung liegen im Kern beim Bund."},
+    {"id":"bund_land_exec","label":"Bundesgesetz · Landesvollziehung","description":"Der Bund setzt den gesetzlichen Rahmen, die Länder vollziehen."},
+    {"id":"land","label":"heute Land","description":"Materie fällt grundsätzlich in die Länderzuständigkeit bzw. Restkompetenz, vorbehaltlich spezieller Kompetenznormen."},
+    {"id":"gemeinde","label":"Gemeinde / eigener Wirkungsbereich","description":"Örtliche Angelegenheiten werden in verfassungsrechtlich geschützter kommunaler Selbstverwaltung besorgt."},
+    {"id":"mixed","label":"gemischt / mehrere Ebenen","description":"Mehrere Ebenen haben eigene Teilzuständigkeiten; pauschale Zuordnung wäre falsch."},
+    {"id":"opening","label":"Regionalisierung nur nach Rechtsöffnung","description":"Derzeit zentral geregelt; echte regionale Gesetzgebungsautonomie braucht Gesetzes- und/oder Kompetenzänderung."}
+  ],
+  "items":[
+    {
+      "id":"COMP-CONST-DEMO","topic":"Bundesverfassung und bundesweite direkte Demokratie","current_class":"bund","current_rule":"Bundesverfassung sowie Volksbegehren, Volksabstimmungen und Volksbefragungen auf Grund der Bundesverfassung sind Bundessache in Gesetzgebung und Vollziehung.","werk_position":"Bundesweite Staats- und Verfassungsfragen bleiben gemeinsamer Bundesrahmen. Regionale Volksrechte werden daneben landesrechtlich organisiert.","regionalisation":"nicht vorgesehen für den bundesweiten Kern","source_ids":["BVG-10","BVG-49B"]
+    },
+    {
+      "id":"COMP-MIGRATION","topic":"Asyl, Ein-/Auswanderung und Kern-Fremdenrecht","current_class":"bund","current_rule":"Eintritt/Austritt, Ein- und Auswanderungswesen, Aufenthaltsrecht in den von Art. 10 erfassten Bereichen sowie Asyl liegen im Kern beim Bund.","werk_position":"Zwingende Bundes-, EU- und Völkerrechtsverpflichtungen bleiben bundesweit. Nur rechtlich übertragbare oder zusätzliche freiwillige Komponenten sollen regional mitentschieden werden können.","regionalisation":"Kernmaterie nur nach Kompetenz-/Rechtsänderung; freiwillige Zusatzleistungen separat prüfen","source_ids":["BVG-10"]
+    },
+    {
+      "id":"COMP-FINANCE","topic":"Bundesfinanzen und Bundesabgaben","current_class":"bund","current_rule":"Bundesfinanzen und öffentliche Abgaben, die ausschließlich oder teilweise für den Bund eingehoben werden, sind Bundessache.","werk_position":"Gesamtstaatliche Finanzstabilität und Bundeshaushalt bleiben einheitlicher WERK-Kern. Regionale Ausgabenautonomie soll mit regionaler Finanzierungsverantwortung gekoppelt werden.","regionalisation":"Bundeskern bleibt; Finanzausgleich und regionale Finanzverantwortung separat reformieren","source_ids":["BVG-10"]
+    },
+    {
+      "id":"COMP-CITIZENSHIP","topic":"Staatsbürgerschaft","current_class":"bund_land_exec","current_rule":"Art. 11 nennt Staatsbürgerschaft als Bundesgesetzgebung bei Landesvollziehung.","werk_position":"Beispiel dafür, dass föderale Aufgabenteilung nicht immer 'entweder Bund oder Land' bedeutet. WERK soll Mischmodelle erhalten, wenn sie sachlich funktionieren.","regionalisation":"keine pauschale Kompetenzverschiebung vorgesehen","source_ids":["BVG-11"]
+    },
+    {
+      "id":"COMP-LAND-RESIDUAL","topic":"Nicht ausdrücklich dem Bund übertragene Materien","current_class":"land","current_rule":"Soweit eine Angelegenheit nicht ausdrücklich durch die Bundesverfassung dem Bund übertragen ist, verbleibt sie grundsätzlich im selbständigen Wirkungsbereich der Länder.","werk_position":"WERK will diese föderale Ausgangslogik konsequenter anwenden und unnötige Zentralisierung bei neuen Gesetzen begründungspflichtig machen.","regionalisation":"bereits föderale Grundlogik; konkrete Materie immer einzeln prüfen","source_ids":["BVG-15"]
+    },
+    {
+      "id":"COMP-LOCAL-PLANNING","topic":"Örtliche Raumplanung","current_class":"gemeinde","current_rule":"Örtliche Raumplanung gehört zum eigenen Wirkungsbereich der Gemeinde; die gesetzliche Rahmenordnung liegt in der jeweiligen Kompetenzordnung der Länder.","werk_position":"Lokale Planungsentscheidungen sollen grundsätzlich lokal bleiben, mit transparenten Landesstandards und klaren überregionalen Infrastrukturgrenzen.","regionalisation":"bereits stark regional/lokal; WERK fokussiert Vereinfachung und klare Standards","source_ids":["BVG-118","OEST-GEMEINDE"]
+    },
+    {
+      "id":"COMP-MUNICIPAL-SERVICES","topic":"Gemeindevermögen, Gemeindesteuern, Gemeindestraßen, Rettungs- und Bestattungswesen","current_class":"gemeinde","current_rule":"Diese Bereiche werden auf oesterreich.gv.at als typische Beispiele des eigenen Wirkungsbereiches der Gemeinden genannt.","werk_position":"WERK schützt echte kommunale Selbstverwaltung und will neue Bundes-/Landesdetailregeln nur mit nachgewiesenem überörtlichem Bedarf.","regionalisation":"bereits kommunal; bundesweite Mindeststandards nur bei sachlicher Notwendigkeit","source_ids":["BVG-118","OEST-GEMEINDE"]
+    },
+    {
+      "id":"COMP-REGIONAL-DEMOCRACY","topic":"Landes- und Gemeinde-Volksrechte","current_class":"land","current_rule":"Die Länder verfügen bereits über unterschiedlich ausgebaute direkte-demokratische Instrumente; diese können nur über Materien wirken, für die die jeweilige Ebene zuständig ist.","werk_position":"Keine bundesweit identische Schablone. Gemeinsame WERK-Qualitätsregeln für Frageakte, Kosten, Recht und Transparenz – das Verfahren selbst bleibt soweit möglich landesspezifisch.","regionalisation":"bereits regional; digitale amtliche Kanäle und neue Bindungsmodelle brauchen zusätzliche Rechtsprüfung","source_ids":["BVG-15","BVG-10"]
+    },
+    {
+      "id":"COMP-SMOKING","topic":"Rauchen in Gastronomieräumen","current_class":"opening","current_rule":"Das derzeitige Rauchverbot in Gastronomieräumen ist bundesrechtlich im TNRSG geregelt. Eine echte landesgesetzliche Abweichung besteht heute nicht allein aufgrund eines Landesvotums.","werk_position":"Prüfen, ob ein zwingender bundesweiter Gesundheitsschutzsockel mit regionalem Gestaltungsspielraum rechtlich sinnvoll konstruiert werden kann.","regionalisation":"Landesgesetzgebung nur nach entsprechender bundes-/kompetenzrechtlicher Öffnung; Schutzrechte bleiben Gate","source_ids":["TNRSG-12","BVG-10"]
+    },
+    {
+      "id":"COMP-GAMBLING","topic":"Glücksspielregulierung und Glücksspielabgaben","current_class":"bund","current_rule":"Das Glücksspielwesen wird zentral durch Bundesrecht geregelt; Bundesfinanzen/Monopolwesen sind in Art. 10 dem Bund zugeordnet.","werk_position":"Abgaben, Spielerschutz, Kanalisierung und illegalen Markt systemisch prüfen. Regionale Lebensrealität kann Vollzug/Prävention informieren, die Kernregulierung bleibt vorerst Bundesmaterie.","regionalisation":"keine pauschale Verlagerung vorgesehen","source_ids":["BVG-10","BMF-GAMBLING-2026"]
+    },
+    {
+      "id":"COMP-ADMIN-DIGITAL","topic":"Digitale Verwaltung und Genehmigungsportal","current_class":"mixed","current_rule":"Die materielle Zuständigkeit bleibt je Fachmaterie bei Bund, Land oder Gemeinde; gemeinsame digitale Standards können ebenenübergreifend organisiert werden, ohne die Fachkompetenz automatisch zu verschieben.","werk_position":"Ein gemeinsamer technischer Zugang, aber fachliche Entscheidung auf der zuständigen Ebene. Digitalisierung darf nicht zur verdeckten Zentralisierung werden.","regionalisation":"Technik standardisieren, Fachkompetenz nicht automatisch zentralisieren","source_ids":["BVG-10","BVG-15","BVG-118"]
+    },
+    {
+      "id":"COMP-FINANCING","topic":"Finanzierung föderaler Aufgaben","current_class":"mixed","current_rule":"Bund, Länder und Gemeinden sind eigene Gebietskörperschaften; Aufgaben- und Finanzierungsbeziehungen werden unter anderem über den Finanzausgleich und weitere Kooperationsinstrumente geregelt.","werk_position":"Wer zusätzliche Leistungen oder Regeln beschließt, soll deren Finanzierung möglichst selbst sichtbar verantworten. Kompetenzverschiebung ohne Finanzierungsverschiebung ist unvollständig.","regionalisation":"Finanzierungsarchitektur muss jede Kompetenzreform begleiten","source_ids":["OEST-GEBIET","FAG-INFO"]
+    }
+  ],
+  "centralisation_test":[
+    "Muss die Materie überhaupt staatlich geregelt werden?",
+    "Welche Ebene ist heute verfassungsrechtlich zuständig?",
+    "Kann die Aufgabe innerhalb der bestehenden Kompetenzordnung näher zu Land/Gemeinde verlagert oder nur flexibler vollzogen werden?",
+    "Braucht echte regionale Gesetzgebungsautonomie eine Verfassungsänderung?",
+    "Welche überregionalen Externalitäten rechtfertigen einen Bundesstandard?",
+    "Reicht ein Bundes-Mindeststandard mit regionaler Ausgestaltung?",
+    "Wer trägt nach einer Verschiebung Kosten, Personal und Haftung?",
+    "Welche EU-, Völker-, Grund- und Gleichheitsrechte begrenzen Varianten?",
+    "Kann die Kompetenz nach fünf Jahren erneut überprüft werden?"
+  ],
+  "publication_rule":"Die Website darf nie aus einem regionalen politischen Wunsch eine bestehende Landeskompetenz ableiten. 'Regional gewünscht' und 'regional rechtlich zuständig' werden getrennt angezeigt."
+}
