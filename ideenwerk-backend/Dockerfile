@@ -5,5 +5,6 @@ COPY package.json ./
 RUN npm install --omit=dev --ignore-scripts --no-audit --no-fund
 COPY src ./src
 COPY scripts ./scripts
+COPY sql ./sql
 EXPOSE 3000
 CMD ["npm","start"]
