@@ -1,32 +1,36 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "title":"Fortschritt – Österreich analysieren und verbessern Runde 2",
   "priority_1":"BUD-01 strukturell ausgeglichener Staatshaushalt – locked bis Zielerreichung",
-  "mode":"Analysephase vor Endrechnung",
+  "mode":"Tiefenphase 2 vor Endrechnung",
   "master":"werk-data/austria-analysis-master.json",
   "legacy_register":"werk-data/legacy-idea-register.json",
+  "government_baseline":"werk-data/current-government-measures-register.json",
   "completed_initial_blocks":[
     {"id":"A","file":"werk-data/austria-analysis-round2-block-a.json","domains":["Staatshaushalt/Ausgabenstruktur","Pensionen/Demografie","Gesundheit/Pflege","Arbeitsvolumen/Abgabenkeil","Produktivität/Unternehmen","Gemeindefinanzen","Wohnen","Bildung"]},
     {"id":"B","file":"werk-data/austria-analysis-round2-block-b.json","domains":["Steuersystem/Vollzug","Staatsaufgaben-/Programmreview","Sozialsystem","Migration/Asyl/Integration","Justiz/innere Sicherheit","Bundesheer/Resilienz","Energie/Industrie"]},
     {"id":"C","file":"werk-data/austria-analysis-round2-block-c.json","domains":["öffentliche Beschaffung/BBG","Digitalstaat/Once Only/Public AI","Korruption/Parteienfinanzierung/Transparenz","Bundesbeteiligungen/Staatsvermögen","Landwirtschaft","Tourismus","EU-Mittel/EU-Regeln","Transformationskosten/Reformfonds"]},
-    {"id":"D","file":"werk-data/austria-analysis-round2-block-d.json","domains":["Klima/Naturgefahren","Verkehr/ÖBB/Infrastruktur","Forschung/Innovation/Start-ups","regionale Disparitäten","Demografie/Generationenbilanz","Vermögensbilanz/Haftungen/Eventualverbindlichkeiten","State ROI/Investitions-TÜV"]}
+    {"id":"D","file":"werk-data/austria-analysis-round2-block-d.json","domains":["Klima/Naturgefahren","Verkehr/ÖBB/Infrastruktur","Forschung/Innovation/Start-ups","regionale Disparitäten","Demografie/Generationenbilanz","Vermögensbilanz/Haftungen/Eventualverbindlichkeiten","State ROI/Investitions-TÜV"]},
+    {"id":"E","file":"werk-data/austria-analysis-round2-block-e.json","domains":["Kinder/Familie/Elementarpädagogik","Haushaltskosten/Leistbarkeit","Banken/Finanzmarkt","Außenhandel/Lieferketten","Kultur/Medien","Behinderung/Reha – Marker","Wasser/Kreislauf – Marker","Telekom – Marker"]},
+    {"id":"F","file":"werk-data/austria-analysis-round2-block-f.json","domains":["Behinderung/Erwerbsteilhabe/Rehabilitation","Trinkwasser/Abwasser","Abfall/Kreislaufwirtschaft","Telekommunikation/Breitband"]}
   ],
-  "initial_domains_covered":30,
-  "master_domains_total":41,
-  "important_remaining_initial_pass":[
-    "Kultur/Medien/öffentliche Information",
-    "Kinder/Familie/Elementarpädagogik als eigener Finanz- und Arbeitsmarktblock",
-    "Behinderung/Invalidität/Rehabilitation",
-    "Wasser/Abfall/Kreislaufwirtschaft",
-    "Telekommunikation/Breitband/kritische digitale Infrastruktur",
-    "Banken/Finanzmarkt/Immobilienkreditrisiken",
-    "Außenhandel/Exportabhängigkeit/Lieferketten",
-    "staatliche Immobilien und Flächennutzung vertieft",
-    "internationale Benchmark-Matrix für Staatsausgaben und Outcomes",
-    "vollständige COFOG-/UG-Programmzerlegung",
-    "Gesamtinventar bestehender Regierungsreformen, damit WERK-Zusatzwirkung sauber abgegrenzt wird"
+  "thematic_initial_pass":"weitgehend vollständig – alle wesentlichen Masterbereiche mindestens erfasst; einzelne Unterbereiche werden in Tiefenphase weiter getrennt",
+  "completed_crosscut":[
+    "Altideen-/Entscheidungsregister",
+    "laufende Regierungsmaßnahmen als Baseline gegen Doppelzählung",
+    "State-ROI-Grundschema",
+    "BUD-01 als unverrückbare Priorität 1"
   ],
-  "next_block":"E",
-  "next_rule":"Nach Block E/F werden zunächst Datenlücken geschlossen und internationale Benchmarks ergänzt. Erst danach beginnt das vollständige WERK-Schattenbudget und die Nettoeffektrechnung für BUD-01.",
-  "completion_definition":"Kein Übergang zur Endrechnung, solange wesentliche Analysefelder oder Altideen ohne dokumentierten Status verbleiben."
+  "depth_phase_2":[
+    {"id":"BENCH","name":"Internationale Benchmark-Matrix","status":"jetzt starten"},
+    {"id":"COFOG","name":"Vollständige COFOG-/Gesamtstaatsausgabenzerlegung","status":"jetzt starten"},
+    {"id":"UG","name":"Bundesbudget-Untergliederungen und Programme","status":"jetzt starten"},
+    {"id":"PROGRAM","name":"Staatsaufgaben-/Programmreview","status":"nach COFOG/UG-Inventar systematisch durchführen"},
+    {"id":"GOV-OVERLAP","name":"Inventar bereits beschlossener Regierungsreformen","status":"erste Baseline angelegt, laufend erweitern"},
+    {"id":"STRESS","name":"Makro-/Budget-Stresstests","status":"nach Baseline- und Ausgabenzerlegung"},
+    {"id":"DISTRIBUTION","name":"Haushalts-/Verteilungsmodell","status":"nach Baseline- und Steuer-/Transferinventar"}
+  ],
+  "do_not_start_yet":["endgültiges WERK-Schattenbudget","verifizierte Gesamteinsparung","finale Steuer-/Abgabensätze","finale 10-Mrd.-Tilgungsrechnung"],
+  "next_rule":"Erst Benchmarks, Ausgaben-/Programminventar, Regierungsbaseline, Stresstest und Verteilungsmodell ausreichend schließen. Dann Maßnahmen einzeln netto rechnen und zum BUD-01-Sanierungsbudget zusammenführen.",
+  "completion_definition":"Nichts Wesentliches darf unklassifiziert bleiben; Altideen, neue Analysen und bestehende staatliche Maßnahmen müssen jeweils dokumentierten Status haben."
 }
