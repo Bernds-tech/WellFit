@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Fortschritt – Österreich analysieren und verbessern Runde 2",
+  "priority_1":"BUD-01 strukturell ausgeglichener Staatshaushalt – locked bis Zielerreichung",
+  "mode":"Analysephase vor Endrechnung",
+  "master":"werk-data/austria-analysis-master.json",
+  "legacy_register":"werk-data/legacy-idea-register.json",
+  "completed_initial_blocks":[
+    {"id":"A","file":"werk-data/austria-analysis-round2-block-a.json","domains":["Staatshaushalt/Ausgabenstruktur","Pensionen/Demografie","Gesundheit/Pflege","Arbeitsvolumen/Abgabenkeil","Produktivität/Unternehmen","Gemeindefinanzen","Wohnen","Bildung"]},
+    {"id":"B","file":"werk-data/austria-analysis-round2-block-b.json","domains":["Steuersystem/Vollzug","Staatsaufgaben-/Programmreview","Sozialsystem","Migration/Asyl/Integration","Justiz/innere Sicherheit","Bundesheer/Resilienz","Energie/Industrie"]},
+    {"id":"C","file":"werk-data/austria-analysis-round2-block-c.json","domains":["öffentliche Beschaffung/BBG","Digitalstaat/Once Only/Public AI","Korruption/Parteienfinanzierung/Transparenz","Bundesbeteiligungen/Staatsvermögen","Landwirtschaft","Tourismus","EU-Mittel/EU-Regeln","Transformationskosten/Reformfonds"]},
+    {"id":"D","file":"werk-data/austria-analysis-round2-block-d.json","domains":["Klima/Naturgefahren","Verkehr/ÖBB/Infrastruktur","Forschung/Innovation/Start-ups","regionale Disparitäten","Demografie/Generationenbilanz","Vermögensbilanz/Haftungen/Eventualverbindlichkeiten","State ROI/Investitions-TÜV"]}
+  ],
+  "initial_domains_covered":30,
+  "master_domains_total":41,
+  "important_remaining_initial_pass":[
+    "Kultur/Medien/öffentliche Information",
+    "Kinder/Familie/Elementarpädagogik als eigener Finanz- und Arbeitsmarktblock",
+    "Behinderung/Invalidität/Rehabilitation",
+    "Wasser/Abfall/Kreislaufwirtschaft",
+    "Telekommunikation/Breitband/kritische digitale Infrastruktur",
+    "Banken/Finanzmarkt/Immobilienkreditrisiken",
+    "Außenhandel/Exportabhängigkeit/Lieferketten",
+    "staatliche Immobilien und Flächennutzung vertieft",
+    "internationale Benchmark-Matrix für Staatsausgaben und Outcomes",
+    "vollständige COFOG-/UG-Programmzerlegung",
+    "Gesamtinventar bestehender Regierungsreformen, damit WERK-Zusatzwirkung sauber abgegrenzt wird"
+  ],
+  "next_block":"E",
+  "next_rule":"Nach Block E/F werden zunächst Datenlücken geschlossen und internationale Benchmarks ergänzt. Erst danach beginnt das vollständige WERK-Schattenbudget und die Nettoeffektrechnung für BUD-01.",
+  "completion_definition":"Kein Übergang zur Endrechnung, solange wesentliche Analysefelder oder Altideen ohne dokumentierten Status verbleiben."
+}
