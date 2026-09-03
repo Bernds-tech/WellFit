@@ -10,8 +10,8 @@ import { createAbuseSubjectHash, distributedRatePolicy } from './lib/abuse-subje
 const { Pool } = pg;
 const TRUST_PROXY = process.env.TRUST_PROXY === 'true';
 const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
-const APP_VERSION = '0.9.0';
-const LATEST_MIGRATION = '011_distributed_rate_limit.sql';
+const APP_VERSION = '0.10.0';
+const LATEST_MIGRATION = '016_pg_net_internal_only.sql';
 const allowedOrigins = new Set((process.env.ALLOWED_ORIGINS || '')
   .split(',')
   .map(x => x.trim())
