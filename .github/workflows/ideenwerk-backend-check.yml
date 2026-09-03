@@ -65,6 +65,7 @@ jobs:
           node --check src/lib/triage.js
           node --check src/lib/cluster-decision.js
           node --check src/lib/semantic-provider.js
+          node --check src/lib/lexical-policy.js
           node --check scripts/migrate.mjs
           node --check scripts/retention-maintenance.mjs
           node --check scripts/backup.mjs
