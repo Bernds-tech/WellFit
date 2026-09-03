@@ -1,0 +1,40 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Arbeitsmarkt, Erwerbspotenzial und Produktivität",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"BUD-01 darf nicht nur über Kürzungen erreicht werden. Höhere produktive Erwerbsbeteiligung, bessere Arbeitsanreize und höhere Produktivität können Einnahmen stärken und Transfers reduzieren; diese Effekte müssen aber konservativ und ohne Doppelzählung gerechnet werden.",
+  "current_facts":[
+    {"fact":"Erwerbstätigenquote 15–64 im Jahr 2025: Frauen 71,0 %, Männer 77,7 %.","source":"Statistik Austria Gender-Statistik Erwerbstätigkeit 2025"},
+    {"fact":"Teilzeitquote 2025: Frauen 49,8 %, Männer 14,0 %; insgesamt arbeiteten rund 1,397 Mio. Menschen in Teilzeit.","source":"Statistik Austria Arbeitsmarkt 2025"},
+    {"fact":"Bei 25- bis 49-jährigen Frauen mit Kindern unter 15 Jahren lag die aktive Teilzeitquote 2025 bei 75,3 %, bei Männern mit Kindern bei 8,5 %.","source":"Statistik Austria Vereinbarkeit Beruf/Familie"},
+    {"fact":"39,9 % der teilzeitbeschäftigten Frauen nannten 2025 Betreuung von Kindern oder pflegebedürftigen Erwachsenen als Hauptgrund; bei 30- bis 44-jährigen Frauen waren es 70,3 %.","source":"Statistik Austria Gender-Factsheet 2026"},
+    {"fact":"Statistik Austria erwartet bis 2040 trotz steigender Erwerbsquoten rund 256.000 weniger Menschen im Alter 20–64 als 2024.","source":"Statistik Austria Erwerbspersonenprognose"},
+    {"fact":"Für 2028 ist bereits eine Lohnnebenkostensenkung von 2 Mrd. Euro vorgesehen; deren Wirkung und Gegenfinanzierung gehören in den Referenzpfad.","source":"BMF 18.06.2026"}
+  ],
+  "existing_changes_to_baseline":[
+    "Frauenpensionsalter steigt bereits und erhöht die Erwerbsbeteiligung älterer Frauen; dieser Effekt ist kein zusätzlicher WERK-Effekt.",
+    "Abschaffung des bisherigen Bildungskarenzmodells und Nachfolgeregelung sind Teil der laufenden Konsolidierung.",
+    "Geplante Lohnnebenkostensenkung ab 2028 muss in jedem WERK-Abgabenkeil-Szenario als Baseline berücksichtigt werden."
+  ],
+  "structural_questions":[
+    "Wie viele zusätzliche Vollzeitäquivalente wären realistisch durch bessere Kinderbetreuung, Pflegeentlastung, Arbeitszeitwünsche und Abgabenanreize mobilisierbar?",
+    "Welche Teilzeit ist freiwillig und soll politisch ausdrücklich nicht problematisiert werden?",
+    "Welche Grenzbelastungen entstehen durch Einkommensteuer, Sozialversicherung und Transferentzug beim Aufstocken von Arbeitsstunden?",
+    "Welche Branchen verlieren Erwerbspersonen bis 2040 besonders stark und wie hoch ist dort das Produktivitätspotenzial durch Digitalisierung/Automatisierung?",
+    "Wie wirken höhere Erwerbsquoten älterer Menschen auf Arbeitslosigkeit, Gesundheit, Invalidität und Pension gleichzeitig?",
+    "Welche AMS-Maßnahmen liefern nachweislich nachhaltige Beschäftigung statt bloßer Teilnahme?",
+    "Welche arbeitsrechtlichen/steuerlichen Hemmnisse verhindern Vollzeit oder zusätzliche Stunden, ohne Schutzstandards unnötig abzubauen?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Kinderbetreuung und Ganztagsangebote gezielt dort ausbauen, wo nachweislich Arbeitszeitpotenzial besteht",
+    "Transfer- und Abgabenkanten glätten, sodass zusätzliche Arbeitsstunden netto spürbar bleiben",
+    "freiwillige Mehrarbeit und längeres Arbeiten attraktiver machen, ohne pauschalen Vollzeitzwang",
+    "AMS stärker auf nachhaltige Vermittlung, Engpassberufe und messbare Qualifikationsrendite ausrichten",
+    "Fachkräftezuwanderung stärker nach tatsächlichen Engpässen, Qualifikation, Sprache und Integrationsfähigkeit steuern",
+    "Produktivitätsreformen mit Digitalisierung, Wettbewerb, Kapitalzugang und Qualifizierung koppeln",
+    "Pflege-/Betreuungsinfrastruktur als Arbeitsmarktpolitik mitrechnen statt nur als Sozialausgabe"
+  ],
+  "do_not_count_yet":["keine pauschale Umrechnung aller Teilzeit in Vollzeit","keine vollständige Einkommensteuermehrerwartung aus theoretischen Arbeitsstunden","keine Doppelzählung derselben Erwerbsperson in Pensions-, Kinderbetreuungs- und Arbeitsmarktreformen","keine Lohnnebenkostensenkung als Nettoentlastung ohne Gegenfinanzierung"],
+  "next_data_needed":["Arbeitszeitwünsche nach Geschlecht/Alter/Familie","Grenzabgabenbelastung nach Haushaltstyp","AMS Wirkungsdaten nach Instrument","offene Stellen und Engpassberufe nach Region","Produktivitätsdaten nach Branche","Kinderbetreuungs- und Pflegekapazität nach Gemeinde/Region","Beschäftigungswirkung bisheriger Lohnnebenkostensenkungen"]
+}
