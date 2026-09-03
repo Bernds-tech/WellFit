@@ -1,0 +1,24 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – Risiko- und Annahmenregister",
+  "priority":"P1",
+  "rule":"Eine Sanierungsrechnung ohne Risikoregister ist keine belastbare Planung. Risiken werden mit Richtung, Eintrittswahrscheinlichkeit, Wirkungskanal und Gegenmaßnahme geführt.",
+  "current_external_warning":"Unabhängige Institutionen sind derzeit pessimistischer als der offizielle Budgetpfad: Budgetdienst, Fiskalrat, OeNB und IMF sehen zusätzlichen Konsolidierungsbedarf. Dieser Prognoseabstand ist selbst ein P1-Risiko.",
+  "risks":[
+    {"id":"R-MACRO-GROWTH","name":"schwächeres reales Wachstum","direction":"verschlechtert Saldo","evidence":"OeNB/WIFO/IHS/OECD/IMF/EU-Prognosen zeigen merkliche Bandbreite; mittelfristiges Potenzialwachstum niedrig","required_test":"Base/Conservative/Severe"},
+    {"id":"R-INFLATION","name":"höhere bzw. persistente Inflation","direction":"kurzfristig gemischt, später ausgabenerhöhend","evidence":"OeNB Juni 2026 mit Energie-/Nahostszenarien","required_test":"indexierte Pensionen, Löhne, Transfers, Zinsen und Steuereinnahmen getrennt"},
+    {"id":"R-INTEREST","name":"steigende Zinslast","direction":"verschlechtert Saldo","evidence":"Budgetdienst: erheblicher Teil der Konsolidierung wird von höherer Zinslast aufgezehrt","required_test":"Fälligkeitsprofil und Zinsband"},
+    {"id":"R-DEMOGRAPHY","name":"Alterung stärker/kostspieliger als geplant","direction":"verschlechtert Saldo","evidence":"Fiskalrat Nachhaltigkeit: Demografie Haupttreiber langfristiger Verschlechterung; OECD/IMF ebenso","required_test":"Pension/Gesundheit/Pflege Langfristpfad"},
+    {"id":"R-IMPLEMENTATION","name":"Maßnahmen werden verspätet oder nur teilweise umgesetzt","direction":"verschlechtert Saldo","evidence":"Budgetdienst weist darauf hin, dass mehrere eingeplante Konsolidierungsmaßnahmen noch nicht umgesetzt sind","required_test":"50/75/100-Prozent-Umsetzung"},
+    {"id":"R-BASELINE","name":"Referenz-/Doppelzählungsfehler","direction":"überschätzt WERK-Effekt","evidence":"Rechnungshof konnte tatsächliches Konsolidierungsvolumen wegen uneinheitlicher Referenzen teilweise nicht nachvollziehen","required_test":"jede Maßnahme mit eindeutiger Baseline-ID"},
+    {"id":"R-FEDERAL","name":"Länder/Gemeinden/SV liefern erwarteten Beitrag nicht","direction":"verschlechtert gesamtstaatlichen Saldo","evidence":"Fiskalrat und Budgetdienst sehen gesamtstaatliche Zielerreichung von anderen Gebietskörperschaften abhängig","required_test":"Teilsektorpfade und verbindliche Finanzierungsverantwortung"},
+    {"id":"R-DEFENCE","name":"höhere Verteidigungs-/Sicherheitsausgaben","direction":"verschlechtert Saldo, kann zwingend sein","evidence":"Budgetdienst nennt nicht vollständig budgetierte mögliche Beschaffungen","required_test":"ÖBH2032+ plus zusätzliche Beschaffungsvarianten"},
+    {"id":"R-CLIMATE","name":"EU-Klima-Zielerreichungskosten","direction":"verschlechtert Saldo","evidence":"Budgetdienst nennt mögliche Zielerreichungskosten von etwa 2,9 Mrd. Euro bzw. 1,6 Mrd. mit zusätzlichen Maßnahmen für 2026-2030","required_test":"Kaufen vs. inländische Maßnahmen, Lebenszykluskosten"},
+    {"id":"R-EU","name":"höherer EU-Beitrag ab neuem MFR","direction":"verschlechtert Saldo","evidence":"Budgetdienst kritisiert konstante BMF-Annahme 2027-2031 trotz neuem MFR ab 2028","required_test":"EU-Beitragsband"},
+    {"id":"R-BEHAVIOUR","name":"Verhaltensreaktionen reduzieren Steuer-/Einsparungseffekt","direction":"meist verschlechtert erwarteten Nettoeffekt","required_test":"Elastizitäten/Sensitivität, keine statische Vollrechnung"},
+    {"id":"R-LEGAL","name":"Reform rechtlich nicht oder nur verzögert umsetzbar","direction":"verschiebt/eliminiert Effekt","required_test":"Rechtsprüfung vor Buchung als verifiziert"},
+    {"id":"R-ONEOFF","name":"Einmalmaßnahmen werden mit Dauerwirkung verwechselt","direction":"überschätzt strukturelle Konsolidierung","required_test":"dauerhaft/temporär/Einmal getrennt"},
+    {"id":"R-OFFBUDGET","name":"außerbudgetäre Einheiten/Haftungen erzeugen Stock-Flow-Effekte","direction":"erhöht Schulden trotz Saldo","evidence":"EU-Kommission verweist auf kreditfinanzierte Investitionen außerbudgetärer Einheiten als Schuldenfaktor","required_test":"Staatsbilanz/Eventualrisiken"}
+  ],
+  "risk_publication":"Endrechnungen zeigen nicht nur einen Punktwert, sondern Base-, Conservative- und Stresspfad sowie die größten fünf ungelösten Risiken."
+}
