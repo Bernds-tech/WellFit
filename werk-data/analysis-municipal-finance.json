@@ -1,34 +1,27 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "domain":"Gemeindefinanzen und kommunale Sanierung",
-  "status":"vertieft – Endrechnung offen",
+  "status":"vertieft – Finanzausgleich/Datenarchitektur ergänzt, Endrechnung offen",
   "budget_priority_link":"BUD-01",
-  "principle":"Gemeinden dürfen nicht durch bloße Kürzungsquoten in Investitionsstopp und Leistungsabbau gedrängt werden. WERK trennt strukturelle Unterfinanzierung, ineffiziente Aufgabenverteilung, lokale Fehlsteuerung und einmalige Investitionsspitzen.",
+  "principle":"Gemeinden dürfen nicht durch bloße Kürzungsquoten in Investitionsstopp und Leistungsabbau gedrängt werden. WERK trennt strukturelle Unterfinanzierung, ineffiziente Aufgabenverteilung, lokale Fehlsteuerung, Transferarchitektur und einmalige Investitionsspitzen.",
   "current_facts":[
-    {"fact":"Maastricht-Schulden des Gemeindesektors ohne Wien Ende 2025: rund 12,273 Mrd. Euro; Wien als Landes-/Gemeindeeinheit rund 14,993 Mrd. Euro.","source":"Statistik Austria öffentlicher Schuldenstand, 31.03.2026"},
-    {"fact":"Gemeindeschulden ohne Wien stiegen von 11,360 Mrd. Euro 2024 auf 12,273 Mrd. Euro 2025; Wien von 12,674 auf 14,993 Mrd. Euro.","source":"Statistik Austria"},
-    {"fact":"Statistik Austria meldete für 2025 einen zusätzlichen Schuldenanstieg des Gemeindesektors von rund 3,2 Mrd. Euro inklusive Wien; laufende Defizite waren ein wesentlicher Grund.","source":"Statistik Austria Maastricht 2025"},
-    {"fact":"Der Städtebund berichtet für Gemeinden ohne Wien 2025 bereits eine Reduktion des Defizits um rund 25 %, allerdings unter anderem durch Leistungskürzungen, geschlossene Infrastruktur und reduzierte Investitionen.","source":"Österreichischer Städtebund/KDZ, Gemeindefinanzbericht 2026"},
-    {"fact":"Seit 2026 besteht das Österreichische Koordinationskomitee für halbjährliche Haushaltskoordinierung von Bund, Ländern und Gemeinden.","source":"BMF 23.03.2026"}
+    {"fact":"Maastricht-Schulden des Gemeindesektors ohne Wien Ende 2025: rund 12,273 Mrd. Euro; Wien als Landes-/Gemeindeeinheit rund 14,993 Mrd. Euro.","source":"Statistik Austria 31.03.2026","evidence_grade":"A1"},
+    {"fact":"Gesamtstaatlicher Gemeindesektor 2025 mit Defizit rund 3,3 Mrd. Euro; gegenüber 2024 weitere Verschlechterung um rund 0,3 Mrd. Euro.","source":"Statistik Austria Maastricht 2025","evidence_grade":"A1"},
+    {"fact":"Ertragsanteile der Gemeinden lagen im Bundes-Abgabenerfolg 2025 bei rund 13,755 Mrd. Euro; Länderertragsanteile rund 21,359 Mrd. Euro. Diese Größen sind Transfers aus gemeinschaftlichen Bundesabgaben, keine frei zusätzliche Bundesausgabe.","source":"BMF UG16 Abgabenerfolg 2025","evidence_grade":"A1/A2"},
+    {"fact":"Finanzausgleich ab 2024: Zukunftsfonds ursprünglich 1,1 Mrd. Euro jährlich mit Valorisierung; zusätzliche Finanzzuweisung wurde von 300 auf 600 Mio. Euro erhöht, davon 120 Mio. Euro für den Strukturfonds der Gemeinden. Diese Mittel gehören in die Baseline.","source":"BMF Finanzausgleich Änderungen ab 2024","evidence_grade":"A2"},
+    {"fact":"2024 erhielten Gemeinden einen rückzahlbaren Sonder-Vorschuss auf Ertragsanteile von 300 Mio. Euro, Rückzahlung 2025–2027 in drei Tranchen à 100 Mio. Euro – relevant für kurzfristige Cash-/Trendinterpretation.","source":"BMF Finanzausgleich","evidence_grade":"A2"},
+    {"fact":"ÖStP 2025: monatliche Cash-Haushaltsdaten einzelner Länder und Wiens werden seit 2026 veröffentlicht; eine monatliche gemeindeweise bzw. bundeslandweise Cash-Datenübermittlung der übrigen Gemeinden ist noch nicht vollständig verfügbar.","source":"BMF/Budgetdienst ÖStP 2025 und Budgetanalyse 2027/28","evidence_grade":"A2/B1"}
   ],
-  "structural_questions":[
-    "Welche Gemeinden sind strukturell defizitär und welche nur wegen einzelner Investitionen oder Konjunktureffekte?",
-    "Welche Pflichtaufgaben wachsen schneller als Ertragsanteile und eigene Einnahmen?",
-    "Welche Transferströme zwischen Gemeinden, Ländern und Fonds sind für lokale Entscheidungsträger kaum steuerbar?",
-    "Welche kommunalen Leistungen profitieren tatsächlich von interkommunaler Kooperation, gemeinsamen Backoffices oder Beschaffung?",
-    "Wo wären Zusammenlegungen von Infrastruktur sinnvoll, ohne regionale Erreichbarkeit zu zerstören?",
-    "Wie viel Investitionsstau entsteht, wenn Konsolidierung primär über Investitionskürzungen erfolgt?",
-    "Welche Gemeinden haben hohe Haftungen, ausgelagerte Gesellschaften oder außerbudgetäre Risiken, die in der Maastricht-Schuld nicht vollständig sichtbar sind?"
+  "data_quality_problem":"Für BUD-01 ist der Gemeindesektor materiell, aber kurzfristig schlechter beobachtbar als Bund/Länder. Jahres-Maastrichtdaten reichen für ein monatliches Sanierungs-Cockpit nicht. Fehlende zeitnahe, bundeslandweise Gemeinde-Cashdaten werden deshalb als eigenes Transparenz-/Controllingproblem behandelt.",
+  "finanzausgleich_questions":[
+    "Wie stark unterscheiden sich Aufgabenlast, eigene Einnahmen, Ertragsanteile und Transfers je Einwohner nach Gemeindegrößenklasse/Region?",
+    "Welche Transfers werden durch Länder zweckgebunden weitergereicht und wie stark schwächt dies lokale Finanzierungsverantwortung?",
+    "Welche Pflichtaufgaben sind strukturell unterfinanziert bzw. durch Bund/Land beschlossen, aber kommunal zu tragen?",
+    "Welche Verteilungsformeln im Finanzausgleich setzen Fehlanreize oder bilden Demografie/Sozial-/Infrastrukturkosten unzureichend ab?",
+    "Welche zeitlich befristeten Sonderhilfen kaschieren strukturelle Defizite?"
   ],
-  "reform_hypotheses_for_later_testing":[
-    "kommunales Finanz-Dashboard mit vergleichbaren Kennzahlen und Frühwarnsystem",
-    "Sanierungsverträge für strukturell gefährdete Gemeinden mit klarer Ursachenanalyse statt pauschaler Auflagen",
-    "Pflichtaufgaben und Finanzierung stärker zusammenführen; Wer bestellt, finanziert möglichst mit",
-    "interkommunale Kooperation bei IT, Beschaffung, Bauhof, Verwaltung und Spezialdiensten nach Kosten-/Qualitätstest fördern",
-    "Investitionen mit Lebenszyklus-/State-ROI-Prüfung schützen, statt sie als erste Sparposition zu opfern",
-    "kommunale Gesellschaften, Haftungen und PPP-Verpflichtungen in eine konsolidierte Risikosicht aufnehmen",
-    "Finanzausgleich stärker auf Aufgabenlast, Demografie und nachvollziehbare Leistungsindikatoren prüfen"
-  ],
-  "do_not_count_yet":["keine pauschale Gemeinde-Fusionsersparnis","keine Transferkürzung als gesamtstaatliche Einsparung, wenn nur Kosten auf andere Ebene wandern","keine Investitionsstreichung als dauerhafte strukturelle Einsparung ohne Folgekosten","keine Wien-Zahlen doppelt als Land und Gemeinde addieren"],
-  "next_data_needed":["Maastricht-Salden 2025 nach Bundesland/Gemeindesektor","Gemeindefinanzbericht 2026 Detailtabellen","Ertragsanteile/Transfers je Einwohner","Pflichtausgaben nach Gemeindegrößenklasse","kommunale Investitionen und Instandhaltungsrückstand","Haftungen/ausgelagerte Einheiten","Abgangsgemeinden/Sanierungsgemeinden nach Bundesland"]
+  "structural_questions":["Welche Gemeinden sind strukturell defizitär vs. investitions-/konjunkturbedingt?","Welche Pflichtaufgaben wachsen schneller als Ertragsanteile/eigene Einnahmen?","Welche Transferströme sind lokal nicht steuerbar?","Welche Leistungen eignen sich für interkommunale Shared Services?","Wie viel Investitionsstau entsteht durch Konsolidierung via Investitionskürzung?","Welche Haftungen/Gesellschaften/PPP-Risiken fehlen in einfacher Schuldenbetrachtung?"],
+  "reform_hypotheses_for_later_testing":["kommunales Finanz-Dashboard mit Frühwarnsystem","Sanierungsverträge nach Ursachen statt pauschaler Auflagen","Besteller-/Finanziererprinzip stärken","interkommunale Kooperation nach Kosten-/Qualitätstest","Investitionen mit State-ROI schützen","kommunale Gesellschaften/Haftungen konsolidiert zeigen","Finanzausgleich auf Aufgabenlast/Demografie/Transparenz prüfen","monatliche bundeslandweise Gemeinde-Cashdaten als gesamtstaatlichen Monitoringstandard etablieren"],
+  "do_not_count_yet":["keine pauschale Gemeinde-Fusionsersparnis","keine Transferkürzung als gesamtstaatliche Einsparung","keine Investitionsstreichung als Dauerersparnis ohne Folgekosten","Wien nicht doppelt Land+Gemeinde zählen","Ertragsanteile nicht als beliebig kürzbare Förderungen behandeln","Sondervorschuss/Rückzahlung nicht als strukturelle Verbesserung/Verschlechterung fehlinterpretieren"],
+  "next_data_needed":["Maastricht-/Cash-Salden nach Land/Gemeindegruppe","Ertragsanteile/Transfers je Einwohner und Aufgabenlast","Pflichtausgaben nach Gemeindegrößenklasse","kommunale Investitionen/Instandhaltungsrückstand","Haftungen/ausgelagerte Einheiten","Abgangs-/Sanierungsgemeinden nach Land","vollständige monatliche Gemeinde-Cashdaten"]
 }
