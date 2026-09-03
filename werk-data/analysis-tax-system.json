@@ -1,0 +1,35 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Steuern, Abgaben und Steuerbasis",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Steuerpolitik wird nicht anhand einzelner Sätze optimiert. WERK betrachtet Gesamtbelastung, Steuerbasis, Arbeits-/Investitionsanreize, Verteilung, Vollzugskosten, EU-Recht und tatsächliches Aufkommen gemeinsam.",
+  "current_facts":[
+    {"fact":"Österreichs Abgabenquote aus Steuern und Sozialbeiträgen lag 2025 bei 44,3 % des BIP; gesamte Einnahmen aus Steuern und Sozialbeiträgen betrugen rund 227,0 Mrd. Euro.","source":"Statistik Austria Steuereinnahmen, 2026"},
+    {"fact":"Bundes-Abgabenerfolg 2025: Lohnsteuer rund 37,85 Mrd. Euro, Körperschaftsteuer rund 11,87 Mrd. Euro und Kapitalertragsteuer rund 6,77 Mrd. Euro im Ergebnisstand.","source":"BMF Abgabenerfolg UG16 Dezember 2025"},
+    {"fact":"Die Körperschaftsteuer lag 2025 unter dem Vorjahreswert; einzelne Jahresbewegungen dürfen nicht als dauerhafte Aufkommenselastizität interpretiert werden.","source":"BMF UG16"},
+    {"fact":"Für 2028 ist bereits eine Lohnnebenkostensenkung von 2 Mrd. Euro politisch vorgesehen; sie gehört in den Referenzpfad und darf nicht nochmals als WERK-Entlastung gezählt werden.","source":"BMF 18.06.2026"}
+  ],
+  "tax_system_questions":[
+    "Wie verteilt sich die gesamte Abgabenlast auf Arbeit, Konsum, Unternehmen, Kapital, Immobilien, Umwelt/Energie und sonstige Basen?",
+    "Welche Grenzbelastung entsteht bei zusätzlicher Arbeitsstunde nach Einkommensteuer, SV und Transferentzug?",
+    "Welche Steuerbegünstigungen/Absetzbeträge verfolgen dasselbe Ziel wie direkte Förderungen?",
+    "Welche Steuern verursachen hohe administrative Kosten relativ zum Aufkommen?",
+    "Welche Bemessungsgrundlagen werden durch Ausnahmen stark verengt und welche Ausnahmen haben nachweisbare Wirkungsgründe?",
+    "Wie reagieren Investitionen, Unternehmensstandorte, Ausschüttungen und Finanzierungsstruktur auf unterschiedliche Unternehmens-/Kapitalsteuern?",
+    "Welche Vermögens-/Erbschafts-/Immobilienmodelle wären rechtlich, administrativ und verteilungspolitisch tragfähig und welche Ausweichreaktionen wären zu erwarten?",
+    "Wie groß sind Steuerlücke, Zahlungsrückstände und tatsächlich einbringbare zusätzliche Vollzugsergebnisse?",
+    "Welche EU-Vorgaben begrenzen Umsatzsteuer, Kapitalverkehr, Mindeststeuer, Beihilfen und Unternehmensbesteuerung?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Abgabenkeil auf Arbeit senken, aber nur mit vollständiger Gegenfinanzierung und Beschäftigungsmodell",
+    "Steuerbasis verbreitern, wenn Ausnahmen geringe Zielwirkung und hohe Mitnahmeeffekte haben",
+    "Direktförderungen und steuerliche Förderungen gemeinsam statt getrennt evaluieren",
+    "Steuer-Compliance stärker daten-/risikobasiert steuern und real eingebrachte Mehrergebnisse ausweisen",
+    "Unternehmenssteuerreform nach Investitions-, Standort-, Aufkommens- und Verteilungswirkung statt politischem Zielsatz entwickeln",
+    "Kapital-/Vermögensmodelle nur nach Mobilitäts-, Bewertungs-, Verfassungs- und Verwaltungsprüfung weiterverfolgen",
+    "Steuersystem vereinfachen, wenn Komplexitätsabbau ohne neue Verteilungs-/Aufkommensprobleme möglich ist"
+  ],
+  "do_not_count_yet":["keinen Steuersatz mechanisch mit heutiger Bemessungsgrundlage multiplizieren","keine Steuerlücke zu 100 % als einbringbar annehmen","keine 33-%-KÖSt als festes WERK-Ziel behandeln","keine Vermögenssteuer-Einnahme ohne Bewertungs-/Ausweich-/Rechtsmodell ansetzen","keine Lohnnebenkostensenkung ohne Gegenfinanzierung als BUD-01-Verbesserung buchen"],
+  "next_data_needed":["ESVG-Steuern nach Kategorie und Empfängerebene","SV-/Lohnnebenkosten nach Beitragsart","Tax Expenditure / indirekte Förderungen im Detail","Mikrodaten Grenzbelastung nach Haushaltstyp","Unternehmenssteuer-Bemessungsgrundlagen","Steuerrückstände/Einbringung/Vollzugskosten","internationale Vergleichsmodelle","Immobilien-/Vermögensbasisdaten"]
+}
