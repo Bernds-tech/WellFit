@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – externe Gegenprüfungs-Matrix",
+  "rule":"WERK zitiert externe Institutionen nicht als Autoritätsargument. Ihre Befunde werden als unabhängige Gegenprüfung genutzt: bestätigt, ergänzt, widerspricht oder bleibt offen.",
+  "institutions":[
+    {"name":"Rechnungshof Österreich","role":"Gebarung, Wirtschaftlichkeit, Transparenz, Good Governance","weight":"hoch"},
+    {"name":"Budgetdienst des Parlaments","role":"regierungsunabhängige Budget-, Gesetzes- und Wirkungsanalyse","weight":"hoch"},
+    {"name":"Fiskalrat","role":"unabhängige Fiskalprognose, Fiskalregeln, Nachhaltigkeit","weight":"hoch"},
+    {"name":"OeNB","role":"Makro-/Inflations-/Fiskalprognosen und Finanzstabilität","weight":"hoch"},
+    {"name":"OECD","role":"Strukturvergleich und internationale Reformempfehlungen","weight":"ergänzend hoch"},
+    {"name":"IMF","role":"jährliche makro-/fiskalische Außenprüfung und Finanzstabilität","weight":"ergänzend hoch"},
+    {"name":"EU-Kommission","role":"EU-Fiskalrahmen, Länderbericht, Rechts-/Reformkontext","weight":"hoch für EU-Rahmen"}
+  ],
+  "current_cross_check":[
+    {"werk_topic":"BUD-01 struktureller Budgetausgleich","external":"Budgetdienst, Fiskalrat, IMF und OeNB sehen zusätzlichen Konsolidierungsbedarf gegenüber der derzeitigen Planung.","relation":"bestätigt Reformdruck; WERK-Ziel Nullsaldo ist politisch ambitionierter als externe Mindestanforderungen"},
+    {"werk_topic":"Förder-/Programmreview","external":"Fiskalrat fordert zeitliche Begrenzung, systematische Evaluierung und strukturelle Bereinigung von Förderungen; Rechnungshof kritisiert fehlende Nachvollziehbarkeit von Konsolidierungsreferenzen.","relation":"starke Bestätigung der Methodik"},
+    {"werk_topic":"Gesundheit/Pflege","external":"Rechnungshof, Fiskalrat, OECD und IMF nennen Gesundheit/Pflege als zentralen Strukturreformbereich.","relation":"starke Bestätigung; konkrete WERK-Maßnahmen trotzdem eigenständig rechnen"},
+    {"werk_topic":"Pensionen/Demografie","external":"OECD und IMF sehen Alterung und Pensionen als wesentlichen Ausgaben-/Arbeitsangebotsblock; Fiskalrat sieht Demografie als Haupttreiber langfristiger Verschlechterung.","relation":"starke Bestätigung"},
+    {"werk_topic":"Länder/Gemeinden/Finanzausgleich","external":"Fiskalrat fordert Länder/Gemeinden in Konsolidierung einzubinden; IMF fordert transparentere, regelbasierte Transfers und stärkere Verantwortung.","relation":"bestätigt WERK-Regel Entscheidung und Finanzierung zusammenzuführen"},
+    {"werk_topic":"außerbudgetäre Einheiten/Staatsvermögen","external":"Fiskalrat fordert Transparenz und Kontrolle außerbudgetärer Einheiten; EU-Kommission weist auf schuldenwirksame kreditfinanzierte Investitionen außerbudgetärer Einheiten hin.","relation":"bestätigt Bilanz-/Eventualrisikoanalyse"},
+    {"werk_topic":"Produktivität/Innovation","external":"OECD und IMF sehen schwache Produktivität und nachlassende Unternehmensdynamik als Kernproblem.","relation":"bestätigt, dass reine Konsolidierung ohne Wachstumspolitik nicht genügt"},
+    {"werk_topic":"Wohnen/Bauen","external":"OECD sieht steigende Leistbarkeitsprobleme und Reformbedarf bei Zielgenauigkeit, Boden-/Baurecht und Immobilienbesteuerung.","relation":"ergänzt WERK-Analyse; konkrete Steuerposition noch offen"},
+    {"werk_topic":"Wirkungsmessung","external":"Budgetdienst sieht Qualitätsunterschiede und eher geringes Ambitionsniveau bei WFA/Wirkungszielen sowie zu wenig internationale Vergleichskennzahlen.","relation":"WERK soll höhere Outcome- und Benchmark-Anforderungen setzen"}
+  ],
+  "mandatory_external_challenge_before_final_reform":[
+    "Welche unabhängige Institution hat denselben Problembefund bestätigt oder widersprochen?",
+    "Welche Empfehlung der externen Institution übernimmt WERK nicht – und warum?",
+    "Gibt es eine Minderheiten-/Gegenposition oder alternative wissenschaftliche Sicht?",
+    "Ist die externe Empfehlung normativ oder empirisch begründet?",
+    "Wurde die Empfehlung bereits teilweise umgesetzt und gehört daher in die Baseline?"
+  ],
+  "publication_rule":"Eine Übereinstimmung mit OECD/IMF/Fiskalrat ist kein Gütesiegel an sich. WERK veröffentlicht auch relevante externe Einwände und begründet Abweichungen."
+}
