@@ -1,0 +1,79 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – Programmreview Start: weitere fünf der Top-10 Bundesblöcke",
+  "rule":"Diese Blöcke werden wegen fiskalischer Größe und Systemwirkung zuerst vertieft. Noch kein verifizierter WERK-Nettoeffekt.",
+  "reviews":[
+    {
+      "id":"PR-UG58",
+      "ug":"58",
+      "name":"Finanzierungen, Währungstauschverträge / Zins- und Finanzierungskosten",
+      "outflow_2027_eur_billion":8.748917,
+      "status":"Tiefenreview gestartet",
+      "result_expense_2027_eur_billion":8.195851,
+      "cash_detail_2027_eur_billion":{"langfristige_Finanzierungen_WTV_Wertpapiere":8.436187,"kurzfristige_Verpflichtungen":0.312730},
+      "financing_activity_2027_eur_billion":{"new_financial_debt_inflows":152.780442,"financial_debt_repayments":135.829865,"federal_financing":15.515072},
+      "baseline_drivers":["Schuldenstand","Fälligkeitsprofil","Neuverschuldung","Marktrenditen","Restlaufzeit","Zinsfixierungsdauer","Agio/Disagio","kurzfristige Liquiditätsinstrumente"],
+      "facts":["OeBFA verwaltet die Finanzierung professionell und risikoavers.","2027 liegt der strategische Restlaufzeit-Korridor laut Teilheft bei 10,25–11,75 Jahren, der Zinsfixierungskorridor bei 11,0–12,5 Jahren.","Höhere erwartete Refinanzierungskosten neuer Schulden gegenüber auslaufenden Altschulden treiben den Aufwand."],
+      "review_questions":["Welche Fälligkeiten 2027–2040 können bei Budgetüberschüssen nicht refinanziert werden?","Wie schnell wirkt BUD-01 auf Zinsaufwand unter realem Fälligkeitsprofil?","Welcher Anteil der Zinskosten ist kurzfristig unvermeidbar?","Sinking Fund und Zinsersparnis-Feedback modellieren","Laufzeit-/Zinsrisiko nicht für kurzfristige optische Einsparung erhöhen","Brutto-Finanzierungsumsätze nicht mit neuer Verschuldung verwechseln"],
+      "no_shortcut":"Zinsen lassen sich nicht per Verwaltungsschnitt kürzen. Der dauerhafte Hebel ist zuerst BUD-01, danach Schuldenabbau; Altanleihen werden nicht hektisch zurückgekauft.",
+      "net_effect_status":"TO_CALCULATE"
+    },
+    {
+      "id":"PR-UG31",
+      "ug":"31",
+      "name":"Frauen, Wissenschaft und Forschung",
+      "outflow_2027_eur_billion":7.3605,
+      "status":"Tiefenreview gestartet",
+      "global_budgets_2027_eur_billion":{"Steuerung_und_Services":0.0795,"Tertiaere_Bildung":6.1893,"Forschung_und_Entwicklung":1.0364,"Frauen_Gleichstellung":0.0553},
+      "economic_structure":{"transfers_2027_eur_billion":7.1995,"transfers_public_bodies_eur_billion":6.1274},
+      "baseline_drivers":["Universitätsfinanzierung","Studierenden-/Abschlusszahlen","Forschungsprogramme","Leistungsvereinbarungen","Inflation/Personal","Forschungsinfrastruktur","Gleichstellungsprogramme"],
+      "review_questions":["Universitäten: Finanzierung je Studienaktivität/Abschluss und Qualität","Dropout/Studiendauer/MINT/Fachkräftewirkung","Leistungsvereinbarungen und Outcomes","Forschung: Output/Patente/Spin-offs/Transfer statt Inputquote allein","Überschneidung UG31/33/34/FFG/aws/Forschungsprämie","Infrastruktur und Großgeräte State-ROI","internationale Spitzenfähigkeit vs Breitenfinanzierung","Frauen-/Gleichstellungsprogramme nach messbarem Ziel separat"],
+      "no_shortcut":"Österreich hat hohe F&E-Inputs. Ziel ist höherer wissenschaftlicher und wirtschaftlicher Output, nicht pauschale Kürzung eines Standortstärkebereichs.",
+      "net_effect_status":"TO_CALCULATE"
+    },
+    {
+      "id":"PR-UG41",
+      "ug":"41",
+      "name":"Mobilität",
+      "outflow_2027_eur_billion":6.7257,
+      "status":"Tiefenreview gestartet",
+      "global_budgets_2027_eur_billion":{"Steuerung_und_Services":0.3349,"Mobilitaet_und_Infrastruktur":5.6601,"Klimaticket":0.7306},
+      "transfers_2027_eur_billion":6.0271,
+      "transfers_to_companies_2027_eur_billion":5.6563,
+      "inflows_2027_eur_billion":1.2854,
+      "baseline_drivers":["ÖBB-Infrastruktur/Leistungsverträge","öffentlicher Verkehr","Verkehrsdienste","Klimaticket","Investitionsprogramme","gesetzliche/vertragliche Verpflichtungen","Nachfrage und Tarife"],
+      "review_questions":["Transferzahlungen nach ÖBB-Infrastruktur, Personenverkehr, Privatbahnen und sonstigen Empfängern trennen","Rahmenplan-Projekte mit State-ROI, Baukosten- und Terminrisiko","Bestandsnetz/Instandhaltung vs Neubau","Klimaticket: Nettokosten, zusätzliche Fahrgäste, Verteilungswirkung und Tarifintegration","Straße/Schiene/Bus/aktive Mobilität als System vergleichen","Bund/Land/Gemeinde-Verkehrsbestellungen und Doppelstrukturen","Öffentliche Verkehrsleistung pro Euro und regionale Erreichbarkeit"],
+      "no_shortcut":"Hohe Transfers enthalten Infrastruktur und bestellte Verkehrsleistung. Kürzung ohne Leistungs-/Vertragsanalyse kann Investitionsstau oder schlechtere Erreichbarkeit erzeugen.",
+      "net_effect_status":"TO_CALCULATE"
+    },
+    {
+      "id":"PR-UG21",
+      "ug":"21",
+      "name":"Soziales und Konsumentenschutz",
+      "outflow_2027_eur_billion":6.3627,
+      "status":"Tiefenreview gestartet",
+      "global_budgets_2027_eur_billion":{"Steuerung_und_Services":0.4713,"Pflege":5.5974,"Versorgungs_und_Entschaedigungsgesetze":0.1237,"Menschen_mit_Behinderungen":0.1703},
+      "care_details_2027_eur_billion":{"Pflegegeld_und_Pflegekarenz":3.649117,"Pflegefonds_und_Zuwendungen":1.948268},
+      "facts":["Mit Stand März 2026 hatten 505.999 Menschen Anspruch auf Pflegegeld.","Pflegeausgaben steigen strukturell mit Demografie und Valorisierung.","Die durchschnittliche Pflegegeld-Verfahrensdauer lag 2025 bei 53,6 Tagen."],
+      "baseline_drivers":["Zahl Pflegegeldbezieher","Pflegestufen","Valorisierung","Pflegefonds/Länder","pflegende Angehörige","Demografie","Behinderten-/Entschädigungsleistungen"],
+      "review_questions":["Pflegegeld vs Sachleistungen und Pflegefonds zusammen analysieren","stationär/mobil/24h/Angehörige nach Kosten und Outcome","Bundes-/Länder-/Gemeindefinanzierung und Umlagen","Pflegepersonal und Gesundheits-Schnittstelle","Prävention/Rehabilitation als möglicher Folgekostenhebel","Pflegegeld-Treffsicherheit ohne Schutzabbau","Angehörigenbonus/Pflegekarenz nach Entlastungs- und Erwerbswirkung","Behindertenmaßnahmen separat nach Teilhabe/Reha"],
+      "no_shortcut":"Pflege ist demografiegetrieben und kann nicht nachhaltig durch bloße Leistungskürzung gelöst werden; Versorgungskapazität und Arbeitsmarkt sind Teil der Rechnung.",
+      "net_effect_status":"TO_CALCULATE"
+    },
+    {
+      "id":"PR-UG14",
+      "ug":"14",
+      "name":"Militärische Angelegenheiten",
+      "outflow_2027_eur_billion":5.1484,
+      "status":"Tiefenreview gestartet",
+      "global_budgets_2027_eur_billion":{"Zentrale_Steuerung":0.2885,"Landesverteidigung":4.8599},
+      "baseline_drivers":["Personal","Betrieb","Rüstung/Beschaffung","Munition/Ersatzteile","Infrastruktur","Cyber/IKT","Ausbildung","Miliz","langfristige Verträge"],
+      "facts":["Der Bereich Landesverteidigung enthält Einsatz, Luftstreitkräfte, Ausbildung, Logistik, Rüstung, IKT/Cyber und Infrastruktur.","2027 steigt der Finanzierungshaushalt gegenüber 2026 deutlich; geopolitische und Fähigkeitsziele bestimmen den Mehrjahrespfad."],
+      "review_questions":["Fähigkeitsziele statt Budgetquote definieren","Beschaffungen mit 20-/30-Jahres-Lebenszykluskosten","Personal/Miliz/Ausbildung gegen Einsatzbereitschaft","Munition/Ersatzteilreserve und Lieferketten","Kasernen-/Infrastrukturportfolio","Cyber und kritische Infrastruktur","gemeinsame EU-Beschaffung/Interoperabilität","Projektverzug und Nachträge","Zivilschutz-/Katastrophenschutz-Schnittstellen"],
+      "no_shortcut":"Verteidigung ist Sicherheits- und Resilienzfunktion. BUD-01 verlangt Effizienz und Priorisierung, aber keine fiskalisch motivierte Fähigkeitslücke.",
+      "net_effect_status":"TO_CALCULATE"
+    }
+  ],
+  "coverage_note":"Mit den Dateien bud01-top5-review-kickoff.json und bud01-top10-review-second5.json ist für jene zehn Untergliederungen, die zusammen rund 80,46 % der Bundesauszahlungen 2027 ausmachen, mindestens ein strukturierter Tiefenreview gestartet.",
+  "next":"Top-10 um Empfänger-/Mengen-/Outcome-/Rechts-/Langfristdaten ergänzen; danach weitere UGs und 69 COFOG-Gruppen systematisch bearbeiten."
+}
