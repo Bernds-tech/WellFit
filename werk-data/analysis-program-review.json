@@ -1,0 +1,62 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Vollständiger Staatsaufgaben- und Programmreview",
+  "status":"Methodik definiert – Programminventar offen",
+  "budget_priority_link":"BUD-01",
+  "purpose":"Nicht nur Förderungen oder einzelne Ressorts prüfen, sondern jede wesentliche staatliche Aufgabe, jedes dauerhafte Programm und jede größere Transfer-/Servicearchitektur nach Notwendigkeit, Wirkung, Zuständigkeit und Kosten untersuchen.",
+  "unit_of_review":"Programm/Aufgabe, nicht bloß Budget-Untergliederung. Ein Ressort kann mehrere Programme enthalten; ein Programm kann mehrere Ebenen betreffen.",
+  "mandatory_questions":[
+    "Welches konkrete Problem soll das Programm lösen?",
+    "Ist dieses Problem heute noch relevant und staatliche Tätigkeit erforderlich?",
+    "Was wäre ohne das Programm voraussichtlich anders?",
+    "Welche Zielgruppe profitiert tatsächlich und welche war ursprünglich vorgesehen?",
+    "Welche messbaren Outputs und Outcomes wurden erreicht?",
+    "Welche Kosten entstehen direkt, administrativ und bei Dritten?",
+    "Existieren parallele Programme von Bund, Ländern, Gemeinden, EU, Sozialversicherung oder öffentlichen Unternehmen?",
+    "Ist die heutige Staatsebene sachlich und rechtlich die richtige?",
+    "Kann das Ziel einfacher durch Regeländerung, Information, Wettbewerb oder einmalige Investition statt Dauerprogramm erreicht werden?",
+    "Welche Mitnahme-, Fehlanreiz-, Betrugs- oder Verdrängungseffekte bestehen?",
+    "Welche Übergangs-/Abwicklungskosten entstünden bei Änderung oder Ende?",
+    "Welche Gruppen würden bei Kürzung/Ende unverhältnismäßig getroffen?",
+    "Welche EU-/Verfassungs-/Grundrechts-/Vertragsbindungen bestehen?",
+    "Ist Verlängerung nur nach neuem Wirkungsnachweis gerechtfertigt?"
+  ],
+  "decision_classes":[
+    {"id":"KEEP","meaning":"beibehalten – Wirkung/Notwendigkeit belegt"},
+    {"id":"IMPROVE","meaning":"beibehalten, aber Zielgruppe/Prozess/Wirkungssteuerung verbessern"},
+    {"id":"MERGE","meaning":"mit parallelem Programm bündeln"},
+    {"id":"DECENTRALISE","meaning":"auf niedrigere Staatsebene verlagern, inklusive Finanzierung/Personal"},
+    {"id":"CENTRALISE_STANDARD","meaning":"gemeinsamen Standard/Shared Service schaffen, Fachentscheidung aber nicht automatisch zentralisieren"},
+    {"id":"SUNSET","meaning":"befristet auslaufen lassen"},
+    {"id":"STOP","meaning":"beenden – staatliche Notwendigkeit/Wirkung nicht ausreichend"},
+    {"id":"INVEST_ONCE","meaning":"Dauerprogramm durch einmalige Transformationsinvestition ersetzen"},
+    {"id":"REVIEW_MORE","meaning":"Datenlage reicht noch nicht für Entscheidung"}
+  ],
+  "financial_rules":[
+    "Keine Bruttoausgabe als Sparpotenzial behandeln.",
+    "Erst Übergangs-, Abwicklungs-, IT-, Personal- und Ersatzleistungskosten abziehen.",
+    "Kostenverschiebung auf Land/Gemeinde/SV/Haushalte ist keine gesamtstaatliche Einsparung.",
+    "Bereits beschlossene Kürzungen gehören in die Baseline.",
+    "Verkaufserlöse/Einmaleffekte dürfen BUD-01 nicht dauerhaft finanzieren.",
+    "Einsparungen erst nach realer Budget-/ESVG-Wirkung verifizieren."
+  ],
+  "review_sequence":[
+    "Phase 1: vollständiges Programminventar aus Budget, Fördertransparenz, Transfers, öffentlichen Einheiten und gesetzlichen Dauerleistungen",
+    "Phase 2: Schnelltriage nach Volumen, Wachstum, Überschneidung und Evidenzlage",
+    "Phase 3: Tiefenreview der größten/auffälligsten Programme",
+    "Phase 4: Rechts-/Verteilungs-/Transformationsprüfung",
+    "Phase 5: Entscheidungsklasse und 1/5/10-Jahres-Wirkungsblatt",
+    "Phase 6: Umsetzung nur mit messbarem Soll-Ist-Pfad",
+    "Phase 7: Ex-post-Review und gegebenenfalls Rücknahme/Korrektur"
+  ],
+  "priority_order_for_review":[
+    "große schnell wachsende Dauerprogramme",
+    "Programme mit mehreren staatlichen Ebenen/Trägern",
+    "Programme ohne klare Outcome-KPI",
+    "Subventionen/Transfers mit Mitnahmeverdacht",
+    "Verwaltungs-/IT-Parallelstrukturen",
+    "Programme mit hohen externen Erfüllungskosten",
+    "kleine Programme erst danach – nicht wegen politischer Symbolik priorisieren"
+  ],
+  "next_data_needed":["gesamtstaatliches Programminventar","Förder-/Transferinventar","gesetzliche Dauerleistungen","Budgetwachstum 5–10 Jahre je Programm","Outcome-/Evaluierungsberichte","Personalkosten/Abwicklungsstellen","EU-/Landes-/Gemeinde-Parallelen"]
+}
