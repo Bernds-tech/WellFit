@@ -1,0 +1,135 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block B",
+  "principle":"Analyse vor Endrechnung. Bestehenden Vollzug, bereits beschlossene Maßnahmen und zusätzliche WERK-Effekte strikt trennen.",
+  "priority_anchor":"BUD-01 bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"TAX-COMPLIANCE",
+      "name":"Steuersystem, Steuerbasis und Vollzug",
+      "status":"vertieft – Steuerlücken-/Verteilungsmodell offen",
+      "facts":[
+        "Bundesabgabenerfolg 2025: Lohnsteuer rund 37,85 Mrd. Euro, Körperschaftsteuer rund 11,87 Mrd. Euro, Kapitalertragsteuer rund 6,77 Mrd. Euro.",
+        "Österreich weist 2025 bei durchschnittlichen Alleinstehenden einen OECD-Steuerkeil von rund 47,1 % der Arbeitskosten auf.",
+        "Bestehende Maßnahmen gegen Betrug, Gewinnverlagerung und internationale Mindestbesteuerung sind bereits Teil des Vollzugs und dürfen nicht als zusätzlicher WERK-Effekt doppelt gezählt werden."
+      ],
+      "diagnosis":[
+        "Die Steueranalyse muss gleichzeitig Budgetertrag, Arbeitsanreize, Standort, Kapitalmobilität und Verteilung betrachten.",
+        "Eine pauschale Erhöhung einzelner Sätze ist keine ausreichende Reformstrategie; zuerst Steuerbasis, Ausnahmen, Vollzugskosten und Ausweichreaktionen analysieren.",
+        "Lohn-/Arbeitsabgaben sind hoch; jede Entlastung muss wegen BUD-01 dauerhaft gegenfinanziert sein."
+      ],
+      "next_analysis":["Steueraufkommen je Steuerart 10-Jahres-Trend","Steuerausnahmen/Tax Expenditures","Umsatzsteuerlücke und Schattenwirtschaft","Transfer Pricing/Verrechnungspreise und Großbetriebsprüfung","Grenzbelastungen Einkommen+Transfers","Vermögens-/Erbschaftsmodelle nur mit Rechts-, Aufkommens- und Kapitalmobilitätsanalyse","Unternehmenssteuer international vergleichen","Verwaltungskosten je Steuerart"]
+    },
+    {
+      "id":"PROGRAM-ADMIN",
+      "name":"Vollständiger Staatsaufgaben-/Programmreview und Verwaltung",
+      "status":"neu vertiefen – zentral für BUD-01",
+      "facts":[
+        "Österreichs Staatsausgaben sind stark auf soziale Sicherung, Gesundheit, allgemeine Verwaltung und Bildung konzentriert.",
+        "Förderinventar und einzelne Digitalisierungsreformen existieren bereits, aber kein vollständiger WERK-Review aller staatlichen Aufgaben und Programme ist abgeschlossen."
+      ],
+      "diagnosis":[
+        "BUD-01 kann nicht seriös nur über einzelne Sparvorschläge erreicht werden; erforderlich ist ein vollständiger Aufgaben- und Programmreview.",
+        "Nicht jede Aufgabe muss gestrichen werden: mögliche Entscheidungen sind behalten, verbessern, bündeln, digitalisieren, dezentralisieren, zentralisieren, befristen oder beenden.",
+        "Personalabbau darf nie vor Prozess-/Aufgabenabbau gerechnet werden; sonst werden nur Wartezeiten verlagert."
+      ],
+      "review_questions":["Warum existiert die Aufgabe?","Welche gesetzliche Verpflichtung besteht?","Welches messbare Ergebnis wird erzielt?","Gibt es Doppelstrukturen?","Ist Bund/Land/Gemeinde die richtige Ebene?","Kann Digitalisierung Bearbeitung oder Personalbedarf senken?","Welche Übergangs-/IT-/Personalfolgekosten entstehen?","Was passiert bei Beendigung?","Wie sieht das internationale Benchmark aus?"],
+      "next_analysis":["alle UG/COFOG-Programme inventarisieren","große Transfers und Förderungen erfassen","Behörden-/Agentur-/Fondslandschaft kartieren","Verfahrens- und Personalkennzahlen je Kernprozess","Doppelzuständigkeiten Bund/Land/Gemeinde","Sunset- und Ex-post-Wirkungsprüfung als Standard entwerfen"]
+    },
+    {
+      "id":"SOCIAL",
+      "name":"Sozialsystem, Armutsbekämpfung und Arbeitsanreize",
+      "status":"erste Vertiefung – Gesamttransfermodell offen",
+      "facts":[
+        "Sozialausgaben 2025 vorläufig: 171,8 Mrd. Euro bzw. 33,4 % des BIP.",
+        "Mindestsicherung/Sozialhilfe 2024: durchschnittlich 205.781 Personen; Ausgaben rund 1,317 Mrd. Euro.",
+        "Die großen Sozialleistungsblöcke sind Alter, Krankheit/Gesundheit, Familie/Kinder, Arbeitslosigkeit, Invalidität und Hinterbliebene."
+      ],
+      "diagnosis":[
+        "Die Gesamthöhe der Sozialausgaben darf nicht mit frei kürzbarem Volumen verwechselt werden; Pensionen, Gesundheit und Versicherungsleistungen dominieren.",
+        "WERK muss Treffsicherheit und Arbeitsanreize prüfen, ohne niedrige Einkommen und Menschen mit realem Unterstützungsbedarf pauschal zu belasten.",
+        "Transferkumulation und Grenzbelastungen sind wichtiger als isolierte Leistungshöhen."
+      ],
+      "next_analysis":["Haushaltsmodell aller zentralen Geld-/Sachleistungen","Transferkumulation bei Aufnahme zusätzlicher Arbeit","Kinder-/Familienleistungen","Wohnbeihilfen","Sozialhilfe je Bundesland","Invalidität/Behinderung","Arbeitslosengeld/Notstandshilfe","Verwaltungskosten und Mehrfachnachweise","Missbrauch vs Unterinanspruchnahme getrennt messen"]
+    },
+    {
+      "id":"MIGRATION-INTEGRATION",
+      "name":"Migration, Asyl, Rückkehr und Integration",
+      "status":"vertieft – Kosten-/Integrationsmodell offen",
+      "facts":[
+        "BMI-Jahresstatistik 2025: 16.668 Asylanträge, davon 12.506 Erstantragsteller und 4.162 Mehrfachantragsteller nach statistischer Definition.",
+        "Von Jänner bis Juli 2026 wurden 5.743 Asylanträge registriert, rund 45 % weniger als im Vergleichszeitraum 2025.",
+        "Grundversorgung: zu Jahresbeginn 2026 rund 52.834 Personen; davon rund 29.923 aus der Ukraine.",
+        "2025 wurden laut BMI 14.156 Außerlandesbringungen verzeichnet, davon 6.801 zwangsweise und 7.355 freiwillig."
+      ],
+      "diagnosis":[
+        "Aktuelle Asylantragszahlen sind deutlich rückläufig; ältere Krisenjahre dürfen nicht als heutiger Normalzustand verwendet werden.",
+        "Asyl, Schutz für Vertriebene, Arbeitsmigration und Familiennachzug müssen getrennt analysiert werden.",
+        "Für BUD-01 braucht es eine echte Kostenrechnung nach Bund/Ländern/Gemeinden sowie Integrations- und Erwerbsverläufe; bloße Antragzahlen reichen nicht.",
+        "Rechtslage ist stark durch Bundes-, EU- und Völkerrecht gebunden; regionale Wünsche sind keine automatische Landeskompetenz."
+      ],
+      "next_analysis":["Kosten Grundversorgung/Unterbringung/BFA/Schulen/Gesundheit je Statusgruppe","Verfahrensdauer und offene Verfahren","Rückkehrkosten und Erfolgsquote","Arbeitsmarktintegration nach Aufenthaltsdauer","Sprach-/Bildungsindikatoren","Nettofiskalwirkung langfristig","Fachkräftezuwanderung separat","Gemeindekapazitäten und regionale Verteilung"]
+    },
+    {
+      "id":"JUSTICE-SECURITY",
+      "name":"Justiz, innere Sicherheit und Rechtsstaat",
+      "status":"erste Vertiefung – Ressourcen-/Outcome-Modell offen",
+      "facts":[
+        "2025 erledigte Zivilverfahren dauerten im Durchschnitt 8,6 Monate an Bezirksgerichten und 16,3 Monate an Landesgerichten.",
+        "Ermittlungsverfahren 2025 dauerten durchschnittlich 3,9 Monate bei bezirksgerichtlicher und 2,7 Monate bei landesgerichtlicher Zuständigkeit; Hauptverhandlungen durchschnittlich 4,4 Monate.",
+        "Bundesbudget 2026 sieht für Inneres Auszahlungen von rund 4,14 Mrd. Euro und für Justiz rund 2,41 Mrd. Euro vor."
+      ],
+      "diagnosis":[
+        "Österreichs durchschnittliche Justizdauer ist nicht pauschal als Systemversagen zu behandeln; problematisch können einzelne Verfahrensarten, Rückstände oder komplexe Großverfahren sein.",
+        "Sicherheitsreform sollte Ressourcen nach Delikts-/Risikostruktur und nicht nach Schlagzeilen steuern.",
+        "Digitalisierung, Cybercrime, organisierte Kriminalität, Gewalt und Korruption benötigen getrennte Kennzahlen."
+      ],
+      "next_analysis":["Gerichts-/Staatsanwaltschaftsrückstände nach Materie","Kosten und Belegung Strafvollzug","Polizeipersonal und Einsatzstunden","Cybercrime-Trends","Gewalt-/Jugendkriminalität","organisierte Kriminalität","Verfahrenskosten großer Wirtschafts-/Korruptionsfälle","Opferschutz und Prävention","Digitalisierungseffekte"]
+    },
+    {
+      "id":"DEFENCE-RESILIENCE",
+      "name":"Bundesheer, Zivilschutz und staatliche Resilienz",
+      "status":"erste Vertiefung – Fähigkeits-/Lebenszyklusrechnung offen",
+      "facts":[
+        "Bundesvoranschlag 2026: Untergliederung Militärische Angelegenheiten sieht in der Finanzierungsrechnung Auszahlungen von rund 4,76 Mrd. Euro vor.",
+        "Für die Generaldirektion Landesverteidigung entfallen davon rund 4,49 Mrd. Euro; Rüstung ist mit rund 2,02 Mrd. Euro ein besonders großer Auszahlungsblock.",
+        "OECD und EU sehen steigende Verteidigungs- und Resilienzkosten als zusätzlichen Druck auf den Staatshaushalt."
+      ],
+      "diagnosis":[
+        "Verteidigung kann wegen geopolitischer Lage nicht als gewöhnlicher Sparblock behandelt werden; entscheidend ist Fähigkeitswirkung pro Euro.",
+        "Beschaffung muss Lebenszykluskosten, Personal, Betrieb, Munition, Infrastruktur und Interoperabilität gemeinsam rechnen.",
+        "Zivilschutz, Cyber, Blackout, Katastrophenschutz und kritische Infrastruktur gehören in einen gemeinsamen Resilienzrahmen."
+      ],
+      "next_analysis":["Zielbild Fähigkeiten vs Bestand","Beschaffungspipeline und Folgekosten 10/20 Jahre","Personal/Miliz","Munitions-/Ersatzteilreserven","Cyber","Kasernen/Infrastruktur","Katastrophenschutz Bund/Länder/Gemeinden","kritische Infrastruktur","Neutralitäts-/EU-Rechtsrahmen"]
+    },
+    {
+      "id":"ENERGY-INDUSTRY",
+      "name":"Energiepreise, Industrie und Versorgungssicherheit",
+      "status":"erste Vertiefung – Preis-/Netzmodell offen",
+      "facts":[
+        "Erzeugerpreise im Bereich Energie lagen 2025 im Jahresdurchschnitt 3,7 % unter 2024.",
+        "Trotz rückläufiger Energiepreise beurteilt die OECD hohe Energieintensität und Energiekosten weiterhin als Wettbewerbsproblem für Teile der österreichischen Industrie.",
+        "OECD nennt Netzausbau, Genehmigungsbeschleunigung, Speicher und geringere fossile Abhängigkeit als zentrale strukturelle Themen."
+      ],
+      "diagnosis":[
+        "Kurzfristig gesunkene Preise bedeuten nicht, dass das strukturelle Kostenproblem gelöst ist.",
+        "Strompreis, Netzentgelt, Steuern/Abgaben, Systemkosten, Versorgungssicherheit und Investitionsbedarf müssen getrennt dargestellt werden.",
+        "Förderungen dürfen nur nach Kosten pro Wirkung und zusätzlicher Investition bewertet werden."
+      ],
+      "next_analysis":["Industrie-/KMU-Energiepreise im EU-Vergleich","Netzentgelte und Netzinvestitionen","Speicherbedarf","Redispatch/Systemkosten","Gasimportabhängigkeit","Erneuerbaren-Ausbau und Genehmigungsdauer","Energieintensität nach Branche","Förderkosten und Mitnahmeeffekte","Versorgungssicherheits-Stresstest"]
+    }
+  ],
+  "sources":[
+    {"id":"BMF-TAX-2025","title":"BMF Abgabenerfolg 2025","url":"https://service.bmf.gv.at/budget/akthh/2025/202512_HTML_UG16_E.htm"},
+    {"id":"STAT-SOCIAL-2025","title":"Statistik Austria Sozialquote/Sozialausgaben","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/sozialleistungen/sozialquote-sozialausgaben-und-finanzierung"},
+    {"id":"STAT-SOCIALHELP-2024","title":"Statistik Austria Mindestsicherung und Sozialhilfe","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/sozialleistungen/mindestsicherung-und-sozialhilfe"},
+    {"id":"BMI-ASYL-2025","title":"BMI Asylstatistik 2025","url":"https://www.bmi.gv.at/301/Statistiken/files/Jahresstatistiken/asylstatistik_jahr_2025.pdf"},
+    {"id":"BMI-ASYL-2026","title":"BMI Asylentwicklung bis Juli 2026","url":"https://www.bmi.gv.at/news9a07.html?id=5649692b45632b574d76303d"},
+    {"id":"JUSTIZ-DURATION-2025","title":"BMJ Verfahrensdauer 2025","url":"https://www.justiz.gv.at/justiz/daten-und-fakten/verfahrensdauer.1e7.de.html"},
+    {"id":"BMF-BUDGET-2026","title":"BMF Budgetvollzug/UG-Auszahlungen 2026","url":"https://service.bmf.gv.at/budget/akthh/2026/202605_HTML_UG_FA.htm"},
+    {"id":"BMF-UG14-2026","title":"BMF Militärische Angelegenheiten 2026","url":"https://service.bmf.gv.at/Budget/Budgets/VBB/de/2026/Home/Treemap?currency=MioEuro&filter=140801&houseHold=2&showGrafic=false&showTable=true&type=FV"},
+    {"id":"OECD-AUT-2026","title":"OECD Economic Surveys Austria 2026","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-austria-2026_7cea027b-en.html"},
+    {"id":"STAT-PRODUCER-ENERGY-2025","title":"Statistik Austria Erzeugerpreise 2025","url":"https://www.statistik.at/fileadmin/announcement/2026/01/20260130EPIDezember2025.pdf"}
+  ],
+  "next_block":"Block C: Beschaffung/BBG, Korruption/Parteienfinanzierung, Digitalstaat/AI, Landwirtschaft, Tourismus, Kultur/Medien, staatliches Vermögen/Eventualverbindlichkeiten, Klima/Naturgefahren, EU-Mittel und Transformationsfonds."
+}
