@@ -71,6 +71,7 @@ jobs:
           node --check scripts/backup.mjs
           node --check scripts/restore-verify.mjs
           node --check scripts/smoke.mjs
+          node --check scripts/operator-guardrails-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
           node --check scripts/cleanup-synthetic.mjs
@@ -84,6 +85,9 @@ jobs:
 
       - name: Migration idempotency check
         run: npm run migrate
+
+      - name: Operator/cluster DB guardrails
+        run: npm run guardrails:operator
 
       - name: Start API and worker
         run: |
