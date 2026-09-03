@@ -1,0 +1,22 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – öffentliches Transparenzpaket",
+  "purpose":"WERK soll nicht verlangen, dass Bürger oder Medien den eigenen Zahlen vertrauen. Sie sollen sie prüfen können.",
+  "public_modules_before_final_program":[
+    {"module":"Quellenregister","content":"jede Kernaussage mit Quelle, Datenstand, Prüftag und Evidenzklasse"},
+    {"module":"Annahmenregister","content":"alle materiellen Modellannahmen, Elastizitäten, Wachstums-/Inflations-/Zinsannahmen und politische Setzungen"},
+    {"module":"Forecast-Fächer","content":"BMF, Fiskalrat, OeNB, WIFO/IHS, EU, OECD/IMF soweit vergleichbar"},
+    {"module":"Rechenbuch","content":"Baseline, Brutto, Interaktionen, Transformation, Netto, Sensitivität"},
+    {"module":"Korrekturregister","content":"Fehler/Revisionen mit alter und neuer Aussage, Datum und Grund"},
+    {"module":"Versionsarchiv","content":"jede veröffentlichte Reform-/Budgetversion bleibt referenzierbar"},
+    {"module":"Risiko-Register","content":"größte Risiken, Wahrscheinlichkeit/Impact soweit sinnvoll, Gegenmaßnahmen"},
+    {"module":"Externe Kritik","content":"relevante Einwände externer Prüfer und WERK-Antwort – auch wenn WERK nicht folgt"},
+    {"module":"Interessenkonflikte","content":"Fachreviewer, Berater und Entscheidungsträger legen relevante finanzielle/organisatorische Konflikte offen"},
+    {"module":"Soll-Ist-Cockpit","content":"nach Umsetzung: versprochener Effekt versus tatsächlich gemessener Effekt"}
+  ],
+  "forecast_track_record_rule":"Sobald WERK eigene Prognoseannahmen veröffentlicht, wird der damalige Datenvintage eingefroren. Nach Vorliegen der Ist-Daten wird Prognosefehler ausgewiesen; Prognosen werden nicht rückwirkend überschrieben.",
+  "precision_rule":"Unsichere Effekte werden als Band oder konservativer gerundeter Wert ausgewiesen. Keine Scheingenauigkeit auf Millionenebene, wenn Daten/Modell nur Milliardenbandbreite tragen.",
+  "open_model_rule":"Wo Datenschutz, Lizenz- oder Sicherheitsgründe nicht entgegenstehen, werden Inputtabellen, Formeln und maschinenlesbare Ergebnisdateien veröffentlicht.",
+  "political_rule":"Politische Präferenzen werden ausdrücklich als solche ausgewiesen. Eine fachliche Modellrechnung entscheidet nicht automatisch, welches Verteilungs- oder Leistungsniveau politisch richtig ist.",
+  "media_test":"Eine externe Person soll aus den veröffentlichten Unterlagen erklären können: Woher kommt die Zahl? Was ist bereits Baseline? Was kostet die Umsetzung? Wer verliert/gewinnt? Was passiert, wenn die Annahme falsch ist? Wer hat dagegen argumentiert?"
+}
