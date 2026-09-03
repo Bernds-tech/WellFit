@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Landwirtschaft, Ernährung und Versorgungssicherheit",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Landwirtschaftspolitik wird auf Versorgungssicherheit, Einkommen, Wettbewerb, Umweltwirkung und Förder-Zusätzlichkeit geprüft. EU-GAP-Mittel, nationale Kofinanzierung und Marktpreise werden getrennt betrachtet.",
+  "current_facts":[
+    {"fact":"Der Grüne Bericht 2025 ist der aktuelle offizielle Hauptbericht zur wirtschaftlichen Lage der österreichischen Land- und Forstwirtschaft und dokumentiert für 2024 nach dem Einkommensrückgang im Vorjahr wieder eine leicht positive Einkommensentwicklung.","source":"Grüner Bericht 2025, veröffentlicht 17.09.2025"},
+    {"fact":"Die Einkommensentwicklung 2024 wurde unter anderem durch höhere ÖPUL-Prämien und höhere Ausgleichszahlungen für benachteiligte Gebiete beeinflusst; diese bereits laufenden Programme gehören in den Referenzpfad.","source":"Grüner Bericht 2025"},
+    {"fact":"Landwirtschaft erfüllt neben Lebensmittelproduktion auch Umwelt-, Raum-, Landschafts- und Versorgungssicherheitsfunktionen; daher ist Fördervolumen nicht automatisch vermeidbare Staatsausgabe.","source":"BMLUK / Grüner Bericht"}
+  ],
+  "structural_questions":[
+    "Welche Betriebsgruppen erzielen ohne Direktzahlungen ein nachhaltig positives Einkommen und welche nicht?",
+    "Welche Förderungen vergüten tatsächlich öffentliche Leistungen und welche kompensieren vor allem historisch gewachsene Strukturen?",
+    "Wie verteilen sich EU-, Bundes- und Landesmittel nach Betriebsgröße, Produktionsart und Region?",
+    "Welche Bürokratie-/Kontrollkosten entstehen Landwirten und Verwaltung pro Förder-Euro?",
+    "Wie stark beeinflussen Boden-, Pacht-, Energie-, Dünger-, Futter- und Finanzierungskosten die Wettbewerbsfähigkeit?",
+    "Welche Abhängigkeiten bestehen bei Futtermitteln, Dünger, Energie, Saatgut und kritischen Lebensmitteln?",
+    "Welche Klima-/Wasser-/Naturgefahrenkosten steigen regional und welche Anpassungen sind am kosteneffizientesten?",
+    "Wie hoch sind Margen und Marktmacht entlang Verarbeitung, Großhandel und Lebensmittelhandel?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Förderungen stärker nach klar definierten öffentlichen Leistungen und messbaren Outcomes ausrichten",
+    "Mehrfachkontrollen und Dateneingaben durch Once-Only reduzieren, ohne Förderkontrolle zu schwächen",
+    "Investitionsförderungen auf Zusätzlichkeit, Produktivität, Tierwohl-/Umweltwirkung und Resilienz prüfen",
+    "Versorgungssicherheitsrisiken für kritische Inputs und Produkte transparent monitoren",
+    "Wasser-/Dürre-/Bodenanpassung mit regionalem State-ROI priorisieren",
+    "Wettbewerb und Preisbildung entlang der Lebensmittelkette analysieren, bevor Preis- oder Margeneingriffe vorgeschlagen werden"
+  ],
+  "do_not_count_yet":["keine Agrarförderung pauschal als Sparpotenzial behandeln","EU-Mittel und nationale Kofinanzierung nicht doppelt zählen","keine Marktpreisänderung als staatlichen Reformeffekt verbuchen","keine Produktionsaufgabe als Einsparung ohne Versorgungs-/Regionalfolgen"],
+  "next_data_needed":["Grüner Bericht 2025 Detailtabellen nach Betriebstyp","GAP-/ÖPUL-/AZ-Förderverteilung","nationale Kofinanzierung","Betriebsaufgabe/Strukturwandel","Lebensmittelimportabhängigkeiten","Pacht-/Bodenpreise","Marktmargen Lebensmittelkette","Dürre-/Wasser-Risikodaten"]
+}
