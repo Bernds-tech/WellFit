@@ -1,0 +1,40 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Makro- und Budget-Stresstests",
+  "status":"Methodik definiert – Parameter noch mit aktuellen Daten zu kalibrieren",
+  "budget_priority_link":"BUD-01",
+  "principle":"Ein ausgeglichener Haushalt ist nur belastbar, wenn er nicht beim ersten realistischen Schock sofort wieder strukturell entgleist. Deshalb wird jede BUD-01-Endrechnung gegen mehrere Stresspfade geprüft.",
+  "scenarios":[
+    {"id":"REC","name":"Rezession","variables":["reales BIP","Beschäftigung","Arbeitslosigkeit","Lohnsumme","Unternehmensgewinne","Steuereinnahmen","Arbeitslosen-/Sozialausgaben"],"rule":"keine starre Kürzungsautomatik, die die Rezession prozyklisch verstärkt"},
+    {"id":"RATE","name":"Zins- und Refinanzierungsschock","variables":["Marktzinsen","Fälligkeitsprofil","Neuaufnahmezins","Zinsausgaben","Banken/Immobilien"],"rule":"Altanleihenstruktur und zeitverzögerte Zinswirkung berücksichtigen"},
+    {"id":"INFL","name":"Inflationsschock","variables":["Löhne","Pensionen","Transfers","Sachkosten","Umsatz-/Lohnsteuer","Zinsniveau"],"rule":"kalte Progression/Indexierungen und verzögerte Ausgabeneffekte getrennt modellieren"},
+    {"id":"ENERGY","name":"Energiepreis-/Import-Schock","variables":["Gas/Strompreise","Industrieproduktion","Haushaltsentlastungen","Inflation","Leistungsbilanz","Netz-/Reservekosten"],"rule":"keine Wiederholung breit gestreuter Krisenhilfen ohne Zielgenauigkeitsprüfung"},
+    {"id":"LABOUR","name":"Arbeitsmarkt-/Fachkräfteschock","variables":["Erwerbsbevölkerung","offene Stellen","Arbeitslosigkeit","Teilzeit","Migration","Lohnwachstum","Produktivität"],"rule":"Demografie und konjunkturelle Arbeitslosigkeit getrennt behandeln"},
+    {"id":"MIG","name":"Flucht-/Migrationsschock","variables":["Unterbringung","Grundversorgung","Schule","Gesundheit","Integration","Gemeindekosten","Arbeitsmarkt","EU-Kofinanzierung"],"rule":"Bund/Land/Gemeinde-Kosten separat und Rechtsverpflichtungen unverändert berücksichtigen"},
+    {"id":"HEALTH","name":"Pandemie/Gesundheitskrise","variables":["Gesundheitsausgaben","Krankenstände","BIP","Beschaffung","Transfers","Pflege"],"rule":"strategische Reserve-/Krisenkapazität nicht als normale Überkapazität abbauen"},
+    {"id":"FIN","name":"Banken-/Finanzmarktstress","variables":["Bankenabgabe","Garantien","Liquidität","Kreditvergabe","Immobilienpreise","Staatsfinanzierung"],"rule":"Eventualverbindlichkeiten und Zweitrundeneffekte einbeziehen"},
+    {"id":"CLIMATE","name":"Naturkatastrophe/Klimaschaden","variables":["Katastrophenfonds","Infrastruktur","Landwirtschaft","Versicherung","Gemeinden/Länder","Steuerausfälle"],"rule":"Prävention und Wiederaufbaukosten über mehrere Jahre modellieren"},
+    {"id":"SEC","name":"Sicherheits-/Verteidigungsschock","variables":["Verteidigung","Cyber","kritische Infrastruktur","Energie","Migration","Lieferketten"],"rule":"Sicherheitskern nicht durch ungeplante Finanzierung aus Dauerausgaben verdrängen"}
+  ],
+  "outputs_per_scenario":[
+    "Maastricht-Saldo jährlich",
+    "struktureller Saldo",
+    "Primärsaldo",
+    "Schuldenquote und Schuldenstand",
+    "Zinsausgaben",
+    "Bund/Länder/Gemeinden/SV-Salden",
+    "Beschäftigung/Arbeitslosigkeit",
+    "Verteilungswirkung Unter-/Mittel-/Oberschicht",
+    "notwendige automatische Stabilisatoren",
+    "Abweichung vom BUD-01-Pfad",
+    "Rückkehrdauer zum Ausgleich"
+  ],
+  "fiscal_guardrails":[
+    "Krisenabweichung muss zeitlich befristet und transparent sein.",
+    "Krisenmaßnahmen erhalten Sunset-Datum und Ex-post-Abrechnung.",
+    "Keine dauerhaften neuen Ausgaben aus temporärem Schock ohne eigene Gegenfinanzierung.",
+    "Automatische Stabilisatoren werden nicht als Reformversagen behandelt.",
+    "BUD-01 bleibt Priorität 1; Krisen verschieben den Zeitpfad, nicht das Ziel."
+  ],
+  "calibration_needed":["historische österreichische Elastizitäten Einnahmen/BIP","Arbeitslosen-/Transferelastizitäten","Zins-Fälligkeitsmodell OeBFA","Energiepreis-Pass-through","Katastrophen-/Pandemieerfahrungen","Bankengarantie-/Haftungsdaten","Demografie-/Migration-Szenarien"]
+}
