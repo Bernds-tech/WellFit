@@ -1,0 +1,79 @@
+{
+  "version":"2026-09-03-v1",
+  "reform_id":"BUD-01",
+  "title":"Priorität 1 – strukturell ausgeglichener Staatshaushalt",
+  "status":"Analysephase – Endrechnung ausdrücklich noch nicht freigegeben",
+  "priority_locked":true,
+  "objective":"Nachhaltig ausgeglichener gesamtstaatlicher Haushalt, ohne bereits beschlossene Konsolidierung doppelt zu zählen und ohne kurzfristige Einmaleffekte als strukturelle Sanierung auszugeben.",
+  "current_baseline":[
+    {"date":"2025","metric":"Gesamtstaatliche Einnahmen","value_eur_billion":261.5,"source":"Statistik Austria"},
+    {"date":"2025","metric":"Gesamtstaatliche Ausgaben","value_eur_billion":283.0,"source":"Statistik Austria"},
+    {"date":"2025","metric":"Maastricht-Defizit","value_eur_billion":21.5,"value_pct_gdp":4.2,"source":"Statistik Austria"},
+    {"date":"2025-12-31","metric":"Maastricht-Schuldenstand","value_eur_billion":418.1,"value_pct_gdp":81.5,"source":"Statistik Austria"},
+    {"date":"2026-Q1","metric":"Maastricht-Schuldenstand","value_eur_billion":431.4,"value_pct_gdp":83.5,"source":"Statistik Austria"},
+    {"date":"2026-Q1","metric":"Quartalsdefizit","value_eur_billion":7.3,"value_pct_quarterly_gdp":5.8,"source":"Statistik Austria"},
+    {"date":"BVA-2026","metric":"Bund Nettofinanzierungssaldo","value_eur_billion":-18.3,"source":"BMF","warning":"Bundeshaushalt ist nicht identisch mit Maastricht-Gesamtstaat"}
+  ],
+  "official_reference_path_rules":[
+    "Beschlossene Konsolidierungsmaßnahmen 2025/2026 sind Baseline.",
+    "Weitere Maßnahmen des Budgetbegleitgesetzes 2027/2028 sind Baseline, sobald ihr geltender/aktueller Stand bestätigt ist.",
+    "Ziel der Bundesregierung, 2028 wieder unter 3 % Maastricht-Defizit zu kommen, ist Referenzpfad und nicht WERK-Zielerreichung.",
+    "WERK-BUD-01 geht darüber hinaus bis zum strukturellen Ausgleich.",
+    "Jeder neue Datenstand ersetzt ältere Prognosen; keine Differenz zwischen alter und neuer Prognose automatisch als WERK-Effekt buchen."
+  ],
+  "accounting_dimensions":[
+    "Maastricht/ESVG gesamtstaatlich",
+    "Finanzierungsrechnung Bund",
+    "Ergebnisrechnung Bund",
+    "Länder",
+    "Gemeinden inklusive korrekter Wien-Behandlung",
+    "Sozialversicherung",
+    "außerbudgetäre staatliche Einheiten",
+    "Garantien/Eventualverbindlichkeiten separat"
+  ],
+  "structural_balance_test":[
+    "Einmaleinnahmen und Einmalausgaben bereinigen",
+    "Konjunkturkomponente separat ausweisen",
+    "auslaufende Krisenmaßnahmen separat ausweisen",
+    "Zinsentwicklung nicht als politisch frei verfügbare Einsparung behandeln",
+    "demografisch automatisch wachsende Ausgaben separat modellieren",
+    "bereits gesetzlich beschlossene Maßnahmen im Referenzpfad belassen",
+    "Transformationskosten neuer WERK-Reformen vor Nettoeffekt abziehen",
+    "Kostenverlagerungen zwischen Staatsebenen eliminieren"
+  ],
+  "largest_system_blocks_to_analyse_before_end_calculation":[
+    "Pensionen und Alterssicherung",
+    "Gesundheit und Pflege",
+    "Arbeit/Arbeitslosenversicherung/Erwerbsbeteiligung",
+    "Bildung/Forschung",
+    "Familie/Soziales",
+    "Förderungen",
+    "öffentliche Verwaltung und Personal",
+    "Länder- und Gemeindefinanzen",
+    "Zinsen/Schuldenmanagement",
+    "Infrastruktur/Verkehr",
+    "Sicherheit/Verteidigung",
+    "Steuern/Abgaben/Steuerlücke",
+    "Bundesbeteiligungen und öffentliche Unternehmen"
+  ],
+  "mandatory_output_before_final_budget":[
+    "aktueller offizieller Referenzpfad mindestens 5 Jahre",
+    "Teilsektor-Salden Bund/Länder/Gemeinden/SV",
+    "vollständige Maßnahmenliste der Regierung mit jährlichem ESVG-Effekt",
+    "WERK-Delta je Maßnahme",
+    "Transformationskosten und Break-even",
+    "Verteilungs- und Wachstumseffekt",
+    "Stressszenarien",
+    "Doppelzählungsprüfung",
+    "Finanzierungsmatrix mit nur verifizierten dauerhaften Nettoeffekten"
+  ],
+  "forbidden_shortcuts":[
+    "2025-Defizit von 21,5 Mrd. Euro nicht einfach als heutige fixe Sanierungslücke behandeln",
+    "Bundes-Nettofinanzierungssaldo nicht mit Maastricht-Defizit vermischen",
+    "offizielle Regierungsmaßnahmen nicht als WERK-Effekt zählen",
+    "Einmaleinnahmen nicht zur dauerhaften Gegenfinanzierung verwenden",
+    "Brutto-Einsparung nicht ohne Folge-/Transformationskosten buchen",
+    "Steuer-Potenzial nicht als kassierte Einnahme ausweisen"
+  ],
+  "next_steps":["offiziellen mittelfristigen Referenzpfad 2026–2031 aktualisieren","Teilsektor-Salden und Ausgabenwachstum zerlegen","große Ausgabenblöcke nach Ursache statt nur Ressort analysieren","Regierungsmaßnahmen-Overlap vervollständigen","erst danach erste BUD-01-Szenariorechnung"]
+}
