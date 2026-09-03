@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"EU-Mittel, EU-Beiträge und EU-Regeln",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"EU-Beiträge, Rückflüsse, Kofinanzierungen und regulatorische Pflichten werden getrennt analysiert. Österreichs Nettoposition ist kein Maß dafür, ob eine einzelne EU-Mitgliedschaftsleistung wirtschaftlich sinnvoll ist; für BUD-01 zählen reale Budgetflüsse und zusätzlicher nationaler Finanzierungsbedarf.",
+  "current_facts":[
+    {"fact":"Das BMF weist Österreich für 2021–2023 ohne schuldenfinanzierte Rückflüsse mit einem durchschnittlichen realisierten EU-Nettosaldo von -0,29 % des Bruttonationaleinkommens als Nettozahler aus.","source":"BMF Budgetangelegenheiten der EU"},
+    {"fact":"Für 2021–2027 stehen Österreich aus der Kohäsionspolitik EU-Mittel u.a. aus ERDF, ESF+, JTF und Interreg zur Verfügung; die EU-Zuteilungen liegen nach Kommissionsdaten in der Größenordnung von rund 1,3 Mrd. Euro EU-Mitteln für zentrale Kohäsionsfonds, zusätzlich zu nationaler Kofinanzierung.","source":"Europäische Kommission Cohesion Open Data"},
+    {"fact":"Die Kommissionsvertretung nennt für Österreich im EU-Haushalt 2021–2027 unter anderem 741,1 Mio. Euro ERDF, etwas über 409,7 Mio. Euro ESF+, 135,8 Mio. Euro JTF sowie 4,1 Mrd. Euro ELER-Mittel; Programmstände können sich durch Umschichtungen ändern.","source":"Europäische Kommission – EU-Budget in Österreich"},
+    {"fact":"RRF-/NextGenerationEU-Mittel sind befristete, meilensteinabhängige Zuschüsse und dürfen nicht als dauerhafte nationale Einnahmen behandelt werden.","source":"Europäische Kommission/BMF RRF"}
+  ],
+  "structural_questions":[
+    "Wie hoch sind jährlicher österreichischer EU-Beitrag, tatsächliche Rückflüsse und Nettoposition nach aktuellem Zahlungsstand?",
+    "Welche Rückflüsse landen direkt im Bundeshaushalt, bei Ländern/Gemeinden, Unternehmen, Landwirtschaft, Hochschulen oder anderen Empfängern?",
+    "Welche EU-Förderungen erfordern nationale Kofinanzierung und wie hoch ist deren Nettozusätzlichkeit?",
+    "Welche verfügbaren Mittel werden nicht oder verspätet abgerufen und warum?",
+    "Welche EU-Regeln verursachen nationale administrative Erfüllungskosten und welche ersetzen zugleich nationale Regeln/Marktbarrieren?",
+    "Welche WERK-Reformen werden durch Beihilfenrecht, Binnenmarkt, Kapitalverkehr, Fiskalrahmen, Klima-/Umweltrecht oder Grundrechte begrenzt?",
+    "Welche EU-Investitionen erzeugen nachweisbare langfristige Wirkung nach Ende der Förderung?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "EU-Fördermittel-Pipeline mit Fristen, Kofinanzierung, Abrufstatus und Wirkungs-KPI zentral transparent machen",
+    "nationale Programme vor Neuschaffung auf vorhandene EU-Finanzierung prüfen",
+    "Kofinanzierungen nur als WERK-Kosten verbuchen, soweit sie zusätzlich zum Referenzpfad entstehen",
+    "EU-Regulierungsumsetzung auf Gold-Plating prüfen: nationale Zusatzregeln klar von EU-Mindestpflicht trennen",
+    "RRF-/Kohäsionsprojekte nach Förderende 5-/10-Jahres-Wirkungsreview unterziehen",
+    "bei EU-Reformvorschlägen österreichische fiskalische und regionale Folgen früh quantifizieren"
+  ],
+  "do_not_count_yet":["Brutto-EU-Rückflüsse nicht als freie Budgeteinnahme behandeln","EU-Beitrag nicht isoliert als vermeidbare Ausgabe ausweisen","Kofinanzierung und EU-Anteil nicht doppelt zählen","bewilligte Mittel nicht als bereits ausbezahlte Mittel darstellen","einmalige RRF-Mittel nicht zur dauerhaften Gegenfinanzierung verwenden"],
+  "next_data_needed":["BMF EU-Haushaltsbericht aktuell mit Jahresbeiträgen/Rückflüssen","2021–2027 Zahlungs-/Absorptionsstand Österreich je Fonds","RRF finaler Zahlungsstand/Meilensteine","ELER/GAP-Mittel und Kofinanzierung","EU-Programme außerhalb Kohäsion","Gold-Plating-/Umsetzungskosten ausgewählter Richtlinien"]
+}
