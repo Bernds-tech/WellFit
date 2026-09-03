@@ -1,0 +1,158 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block A",
+  "principle":"Noch keine Endrechnung. Zuerst aktuelle Fakten, strukturelle Ursachen, bestehende Maßnahmen, Reformhebel und Datenlücken vollständig erfassen.",
+  "priority_anchor":"BUD-01 – strukturell ausgeglichener Staatshaushalt bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"FISCAL-SOCIAL",
+      "name":"Staatshaushalt und Ausgabenstruktur",
+      "status":"vertieft – weitere Detailzerlegung nötig",
+      "facts":[
+        "Öffentliches Defizit 2025: 4,2 % des BIP.",
+        "EU-Kommission erwartet 2026 rund 4,1 % und 2027 rund 4,1 % Defizit bei unveränderter Politikannahme.",
+        "Staatsausgaben für soziale Sicherung 2025: 116,8 Mrd. Euro bzw. 41,3 % aller Staatsausgaben.",
+        "Sozialausgaben nach ESSOSS 2025 vorläufig: 171,8 Mrd. Euro bzw. 33,4 % des BIP.",
+        "Pensionsleistungen entsprechen 2025 vorläufig 15,9 % des BIP."
+      ],
+      "diagnosis":[
+        "Die Budgetlücke ist kein einzelnes Ressortproblem; große Ausgabenblöcke liegen bei sozialer Sicherung, Gesundheit, Verwaltung und Bildung.",
+        "Alterung, Gesundheit/Pflege, Zinsen und Verteidigung erzeugen zusätzlichen strukturellen Ausgabendruck.",
+        "Pauschale lineare Kürzungen wären methodisch schwach; erforderlich ist ein Aufgaben-/Programmreview mit Verteilungs- und Wachstumsprüfung."
+      ],
+      "next_analysis":["COFOG-Ausgaben 2025 auf Gruppenebene vollständig zerlegen","Bund/Länder/Gemeinden/SV getrennt analysieren","größte dynamische Ausgabenposten seit 2019 identifizieren","bestehende Konsolidierungsmaßnahmen 2025/26 von möglichen zusätzlichen WERK-Effekten trennen"]
+    },
+    {
+      "id":"PENSIONS-DEMOGRAPHY",
+      "name":"Pensionen und Demografie",
+      "status":"vertieft – Systemrechnung offen",
+      "facts":[
+        "Alter/Pensionen sind 2025 der größte Sozialleistungsblock: 46,1 % der Sozialleistungen.",
+        "Österreichs öffentliche Pensionsausgaben zählen laut OECD bereits zu den höchsten im OECD-Raum und steigen voraussichtlich bis 2035 weiter.",
+        "Die Bevölkerung im Erwerbsalter 20–64 sinkt im Trendszenario bis 2040 gegenüber 2024 um rund 256.000 Personen auf 5,32 Mio.",
+        "Die Zahl der Erwerbspersonen bleibt im Trendszenario bis 2040 mit 4,74 Mio. ungefähr stabil, setzt aber höhere Erwerbsquoten älterer Menschen und Frauen voraus."
+      ],
+      "diagnosis":[
+        "Pensionsfinanzierung, Arbeitskräfteangebot, Gesundheit und Pflege sind ein gemeinsamer demografischer Reformblock und dürfen nicht getrennt gerechnet werden.",
+        "Ein höheres tatsächliches Erwerbsaustrittsalter kann gleichzeitig Budget und Arbeitskräfteangebot verbessern, hat aber Verteilungs-, Berufs- und Gesundheitsfolgen.",
+        "Pauschale Kürzungen niedriger Pensionen widersprechen dem WERK-Fairnessziel; Differenzierung nach Einkommen, Erwerbsbiografie und Belastung ist zu prüfen."
+      ],
+      "options_to_test":["frühere Pensionierungswege und Altersteilzeit enger auf tatsächlichen Bedarf ausrichten","Anreize für freiwillig längeres Arbeiten","Beschäftigung älterer Arbeitnehmer verbessern","Lebensarbeitszeit-/Lebenserwartungsmodelle prüfen","Pensionsindexierung niedrige/hohe Pensionen differenziert modellieren","Beamten- und Sondersysteme separat transparent rechnen"],
+      "no_decision_yet":"Keine automatische Übernahme externer Empfehlung zur Anhebung des gesetzlichen Pensionsalters; zuerst österreichische Berufs-, Gesundheits-, Verteilungs- und Arbeitsmarktdaten rechnen."
+    },
+    {
+      "id":"HEALTH-CARE",
+      "name":"Gesundheit und Pflege",
+      "status":"vertieft – Struktur- und Effizienzrechnung offen",
+      "facts":[
+        "Laufende Gesundheitsausgaben 2025: 61,338 Mrd. Euro bzw. 11,9 % des BIP.",
+        "Öffentliche laufende Gesundheitsausgaben 2025: 46,384 Mrd. Euro.",
+        "Die laufenden Gesundheitsausgaben stiegen 2025 nominell um 6,1 % gegenüber 2024.",
+        "OECD sieht strukturelle und finanzielle Fragmentierung sowie eine hohe Abhängigkeit von stationärer Versorgung."
+      ],
+      "diagnosis":[
+        "Ein reines Ausgabenkürzungsziel wäre falsch; Österreich muss zuerst Versorgungsergebnis pro Euro und Finanzierungs-/Kompetenzfragmentierung messen.",
+        "Mehr Primärversorgung, Dateninteroperabilität und günstigere Generikaversorgung sind konkrete Effizienzhebel, müssen aber österreichisch quantifiziert werden.",
+        "Pflegebedarf und Pflegepersonal müssen gemeinsam mit Demografie und Frauenarbeitsangebot analysiert werden."
+      ],
+      "next_analysis":["Spitals-/ambulante Ausgaben und Fallzahlen nach Ländern","Primärversorgungskosten und vermeidbare stationäre Fälle","Medikamentenausgaben und Generikaquote","Pflegegeld, mobile und stationäre Pflege getrennt","Finanzierungsströme Bund/Land/Kassen/Gemeinden","Wartezeiten und Outcome-KPI statt nur Ausgaben"]
+    },
+    {
+      "id":"LABOUR-TAX",
+      "name":"Arbeit, Arbeitsvolumen und Abgabenkeil",
+      "status":"vertieft – Reformkombination offen",
+      "facts":[
+        "OECD-Steuerkeil für einen durchschnittlichen alleinstehenden Arbeitnehmer ohne Kinder 2025: 47,1 % der Arbeitskosten; OECD-Durchschnitt 35,1 %; Österreich Rang 4 von 38.",
+        "Erwerbstätigenquote 15–64 im Jahr 2025: Frauen 71,0 %, Männer 77,7 %.",
+        "Teilzeitquote 2025: Frauen 49,8 %, Männer 14,0 %.",
+        "2025 arbeiteten insgesamt rund 1,397 Mio. Erwerbstätige in Teilzeit.",
+        "Trotz rund 750.000 mehr Erwerbstätigen als 2005 stieg das gesamte Arbeitsvolumen bis 2025 nur um 2,1 %; tatsächlich geleistete Wochenarbeitszeit sank auf 29,4 Stunden."
+      ],
+      "diagnosis":[
+        "Österreich hat gleichzeitig hohe Beschäftigung, hohe Teilzeit und einen sehr hohen Steuer-/Abgabenkeil auf Arbeit.",
+        "Eine reine Forderung nach mehr Arbeitsstunden greift zu kurz: Kinderbetreuung, Pflege, Abgaben, Arbeitszeitpräferenzen, Altersteilzeit und Branchenstruktur wirken zusammen.",
+        "Eine Senkung des Abgabenkeils wäre wachstumsrelevant, verschlechtert aber BUD-01, wenn sie nicht aus dauerhaften Einsparungen oder einer besseren Steuerbasis gegenfinanziert wird."
+      ],
+      "next_analysis":["Teilzeitgründe nach Geschlecht/Alter/Kindern/Pflege","Grenzabgaben nach Einkommensstufe","Mehrarbeits- und Überstundenanreize","Kinderbetreuungsangebot und Öffnungszeiten","AMS-/Qualifizierungswirkung","ältere Arbeitnehmer und effektives Austrittsalter","Lohnnebenkostenkomponenten einzeln auf Wirkung und Zweck prüfen"]
+    },
+    {
+      "id":"PRODUCTIVITY-BUSINESS",
+      "name":"Produktivität, Unternehmen und Wettbewerbsfähigkeit",
+      "status":"vertieft – Sektoranalyse offen",
+      "facts":[
+        "OECD diagnostiziert seit Jahren schwächere Produktivitätsdynamik, sinkende Unternehmensdynamik, niedrige Kapitalintensität und Wettbewerbsdruck durch hohe Energie- und Arbeitskosten.",
+        "Reales Wachstum wird für 2026 nur moderat erwartet; strukturelle Reformen sind für höheres langfristiges Wachstum zentral.",
+        "Im 2. Quartal 2026 wurden 15.533 rechtliche Einheiten registriert, 11,1 % weniger als im Vorjahresquartal; Insolvenzen lagen bei 1.668, 3,0 % unter Q2/2025."
+      ],
+      "diagnosis":[
+        "Budgetkonsolidierung darf Investitionen und produktive Unternehmensdynamik nicht weiter schwächen.",
+        "Regulierungsdauer, Kapitalzugang, Energiepreise, Wettbewerb, Forschungstransfer und Fachkräfte müssen als gemeinsames Standortpaket untersucht werden.",
+        "Neue Förderungen sind nicht automatisch die Antwort; zuerst bestehende Förderlandschaft und regulatorische Hemmnisse vergleichen."
+      ],
+      "next_analysis":["Produktivität nach Branchen","Unternehmensgründungen vs echte Neugründungen und Überlebensraten","Investitionsquote und Kapitalintensität","Energiekosten Industrie/KMU","Regulierungs-/Genehmigungsdauer","Scale-up-/VC-Lücke","F&E-Ausgaben vs Output/Patente/Spin-offs","Wettbewerbshemmnisse in geschützten Dienstleistungen"]
+    },
+    {
+      "id":"MUNICIPAL",
+      "name":"Gemeinden und Finanzausgleich",
+      "status":"neu vertieft – Sanierungsmodell offen",
+      "facts":[
+        "Gemeinden ohne Wien nahmen 2024 insgesamt 2,121 Mrd. Euro neue Finanzschulden auf, 28,6 % mehr als 2023.",
+        "Der Schuldendienst der Gemeinden ohne Wien lag 2024 bei 1,608 Mrd. Euro.",
+        "Finanzschulden der Gemeinden ohne Wien stiegen 2024 in mehreren Ländern; besonders deutlich in Niederösterreich, Steiermark und Vorarlberg.",
+        "Ertragsanteile der Gemeinden lagen 2025 laut Bundesgebarung bei rund 13,75 Mrd. Euro."
+      ],
+      "diagnosis":[
+        "Kommunale Finanzprobleme dürfen nicht nur als Schuldenproblem betrachtet werden: Pflichtaufgaben, Umlagen, Investitionsbedarf, Ertragsanteile und lokale Steuerbasis müssen zusammengeführt werden.",
+        "Ein WERK-Sanierungsmodell braucht objektive kommunale Kennzahlen und darf gute Investitionsverschuldung nicht mit strukturellem laufendem Defizit gleichsetzen.",
+        "Finanzierungsverantwortung ist zentral für das Subsidiaritätsmodell: neue Aufgaben ohne Gegenfinanzierung verschärfen kommunale Probleme."
+      ],
+      "next_analysis":["Gemeinden nach laufendem Saldo, Verschuldung und Investitionen clustern","Pflichtausgaben/Umlagen je Land","Ertragsanteile und eigene Abgabenbasis","Gemeinde-Kooperationen und gemeinsame Services","Infrastruktur-Lebenszykluskosten","Sanierungsvertrag mit Transparenz und zeitlich begrenzter Hilfe entwickeln"]
+    },
+    {
+      "id":"HOUSING",
+      "name":"Wohnen, Bauverfahren und Boden",
+      "status":"vertieft – österreichische Detaildaten offen",
+      "facts":[
+        "OECD sieht steigende Leistbarkeitsprobleme, besonders in großen Städten, trotz grundsätzlich starkem österreichischem Wohnungsmodell.",
+        "Bauverfahren sind regional/kommunal fragmentiert; OECD verweist auf typischerweise rund zehn Verfahren und etwa 215 Tage für Baugenehmigungen.",
+        "Der Neubauzyklus hat sich seit 2021 deutlich abgeschwächt."
+      ],
+      "diagnosis":[
+        "Wohnen ist zugleich Sozial-, Standort-, Raumordnungs-, Baukosten- und Gemeindefinanzthema.",
+        "WERK sollte nicht nur Mietrecht diskutieren, sondern Bodenmobilisierung, Genehmigungszeit, Normen, Fördertreffsicherheit und gemeinnützigen Wohnbau gemeinsam analysieren.",
+        "Grund-/Immobiliensteuerreformen dürfen erst nach Verteilungs- und Gemeindefinanzprüfung bewertet werden."
+      ],
+      "next_analysis":["Miet-/Eigentumsbelastung nach Einkommen und Region","Wohnbauförderung je Land","Baugenehmigungsdauer je Land/Gemeinde","Baulandreserven/Leerstand","Normen- und Baukostenanteile","Gemeinnütziger vs privater Neubau","Grundsteuerbasis und Verteilung"]
+    },
+    {
+      "id":"EDUCATION",
+      "name":"Bildung und Humankapital",
+      "status":"erste Vertiefung – Outcome-Analyse offen",
+      "facts":[
+        "Staatliche Bildungsausgaben 2024 umfassen allein 17,399 Mrd. Euro Personalaufwand, 6,311 Mrd. Euro Sachaufwand und 2,170 Mrd. Euro Investitionen, zusätzlich Transfers.",
+        "OECD bewertet bessere Bildungsergebnisse und höhere Hochschulleistung als zentral für langfristige Produktivität."
+      ],
+      "diagnosis":[
+        "Ausgabenhöhe allein beantwortet nicht, ob Ressourcen dort ankommen, wo Lerndefizite und Fachkräftebedarf am größten sind.",
+        "Bildungsreform muss frühkindliche Bildung, Schule, Berufsbildung und Hochschulen als Humankapitalkette betrachten.",
+        "Verwaltungs- und Kompetenzstruktur zwischen Bund, Ländern und Gemeinden ist Teil des Problems und muss mit analysiert werden."
+      ],
+      "next_analysis":["Ausgaben je Schüler/Student und Ergebnisindikatoren","PISA/BIST/Lernstand nach sozialem Hintergrund und Region","Lehrerarbeitszeit Verwaltung vs Unterricht","Elementarpädagogik Plätze/Öffnungszeiten/Personal","Berufsbildung und Fachkräftebedarf","Dropout/NEET","Hochschulabschlussdauer und MINT","Schulautonomie und Verantwortungs-KPI"]
+    }
+  ],
+  "sources":[
+    {"id":"STAT-FIN-2025","title":"Statistik Austria – Einnahmen und Ausgaben des Staates / Defizit 2025","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/einnahmen-und-ausgaben-des-staates"},
+    {"id":"STAT-COFOG-2025","title":"Statistik Austria – Staatsausgaben nach Aufgabenbereichen 2025","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/staatsausgaben-nach-aufgabenbereichen"},
+    {"id":"STAT-SOCIAL-2025","title":"Statistik Austria – Sozialquote und Sozialausgaben 2025","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/sozialleistungen/sozialquote-sozialausgaben-und-finanzierung"},
+    {"id":"STAT-HEALTH-2025","title":"Statistik Austria – Gesundheitsausgaben 2025","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/gesundheit/gesundheitsversorgung-und-ausgaben/gesundheitsausgaben"},
+    {"id":"STAT-LABOUR-2025","title":"Statistik Austria – Arbeitsmarkt/Teilzeit 2025","url":"https://www.statistik.at/statistiken/arbeitsmarkt/arbeitszeit/teilzeitarbeit-teilzeitquote"},
+    {"id":"STAT-LABOUR-FORECAST","title":"Statistik Austria – Erwerbspersonenprognose bis 2040","url":"https://www.statistik.at/statistiken/arbeitsmarkt/erwerbspersonenprognosen"},
+    {"id":"OECD-AUT-2026","title":"OECD Economic Surveys: Austria 2026","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-austria-2026_7cea027b-en.html"},
+    {"id":"OECD-TAX-2026","title":"OECD Taxing Wages 2026 – Austria","url":"https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/04/taxing-wages-2026-country-notes_491a0e97/austria_32eb2e04/156b95ae-en.pdf"},
+    {"id":"EU-AUT-FORECAST-2026","title":"European Commission – Economic forecast for Austria 2026","url":"https://economy-finance.ec.europa.eu/economic-surveillance-eu-member-states/country-pages-including-country-reports/austria/economic-forecast-austria_en"},
+    {"id":"STAT-MUNICIPAL-2024","title":"Statistik Austria – Gebarungsübersicht 2024","url":"https://www.statistik.at/services/tools/serviceangebote/publikationen/detail/2398"},
+    {"id":"STAT-BUSINESS-Q2-2026","title":"Statistik Austria – Registrierungen und Insolvenzen Q2 2026","url":"https://www.statistik.at/statistiken/industrie-bau-handel-und-dienstleistungen/unternehmensdemografie/registrierungen-und-insolvenzen"},
+    {"id":"STAT-EDUCATION-2024","title":"Statistik Austria – Bildungsausgaben","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bildung/bildungsausgaben"}
+  ],
+  "next_block":"Block B: Energie/Industrie, Steuersystem/Steuerlücke, Verwaltung/Programmreview, Sozialsystem, Migration/Integration, innere Sicherheit/Justiz, Bundesheer/Resilienz, öffentliche Beschaffung/Korruption."
+}
