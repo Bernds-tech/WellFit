@@ -1,11 +1,45 @@
 {
-  "version":"2026-09-02-v1",
+  "version":"2026-09-03-v2",
   "title":"Was läuft bereits – was ist WERK zusätzlich?",
-  "rule":"WERK übernimmt keine bestehende Maßnahme als eigenen Erfolg. Jede Reformakte soll sichtbar machen, welche Rechtslage oder Reform bereits existiert und welcher zusätzliche WERK-Schritt tatsächlich vorgeschlagen wird.",
+  "rule":"WERK übernimmt keine bestehende Maßnahme als eigenen Erfolg. Beschlossene oder im offiziellen Referenzpfad bereits eingerechnete Effekte bleiben Baseline. Nur ein zusätzlich nachgewiesener dauerhafter Nettoeffekt darf später BUD-01 zugerechnet werden.",
+  "baseline_facts":[
+    {"id":"BASE-STATE-2025","fact":"Gesamtstaat 2025: 261,5 Mrd. Euro Einnahmen, 283,0 Mrd. Euro Ausgaben, Defizit 21,5 Mrd. Euro bzw. 4,2 % des BIP.","source":"Statistik Austria, Einnahmen und Ausgaben des Staates / Maastricht 2025, erstellt 31.03./30.06.2026"},
+    {"id":"BASE-DEBT-Q1-2026","fact":"Öffentlicher Schuldenstand Ende Q1 2026: 431,4 Mrd. Euro bzw. 83,5 % des BIP; Q1-Defizit 7,3 Mrd. Euro bzw. 5,8 % des Quartals-BIP.","source":"Statistik Austria, 30.06.2026"},
+    {"id":"BASE-FED-2026","fact":"Bundesvoranschlag 2026: Einzahlungen 107,6 Mrd. Euro, Auszahlungen 125,9 Mrd. Euro, Nettofinanzierungssaldo -18,3 Mrd. Euro. Dieser Bundeswert ist nicht mit dem Maastricht-Gesamtstaatsdefizit gleichzusetzen.","source":"BMF Budget 2025/2026"}
+  ],
   "items":[
     {
+      "id":"OVER-BUD-01",
+      "reform_id":"BUD-01",
+      "existing":"Die Bundesregierung hat bereits ein mehrjähriges Konsolidierungsprogramm beschlossen. Das erste Paket vom März 2025 wurde vom BMF mit 1,24 Mrd. Euro Wirkung 2025 und 1,65 Mrd. Euro 2026 beziffert. Weitere Budgetsanierungsmaßnahmen 2025 wurden gesetzlich umgesetzt. Für 2027/2028 wurden zusätzliche Maßnahmen beschlossen; das BMF nennt weitere Konsolidierungsanstrengungen von 2,5 Mrd. Euro bis 2028 und das Ziel, gesamtstaatlich 2028 unter 3 % Defizit zu kommen.",
+      "werk_delta":"WERK setzt nicht bloß auf die Maastricht-3-%-Grenze, sondern hält BUD-01 als Priorität 1 bis zum nachhaltigen strukturellen Budgetausgleich. Der WERK-Effekt beginnt nur dort, wo Maßnahmen über den jeweils aktuellen offiziellen Referenzpfad hinausgehen oder bestehende Maßnahmen nachweislich verbessert werden.",
+      "accounting_rule":"Alle offiziellen Konsolidierungseffekte werden vor einer WERK-Endrechnung in den Referenzpfad übernommen und dürfen nicht doppelt gezählt werden.",
+      "sources":["BMF Konsolidierungspaket 10.03.2025","BMF Budgetsanierungsmaßnahmengesetz 2025 II","BMF Budgetbegleitgesetz 2027/2028"]
+    },
+    {
+      "id":"OVER-SV-2025",
+      "domain":"Gesundheit / Sozialversicherung",
+      "existing":"Seit 1.6.2025 wurde der Krankenversicherungsbeitrag für Pensionistinnen und Pensionisten erhöht; die höhere e-card-Gebühr wurde für 2026 erstmals fällig. Die ÖGK setzte zusätzlich eigene Maßnahmen wie Selbstbehalte für Krankentransporte um.",
+      "werk_delta":"Eine WERK-Gesundheitsreform darf diese Effekte nicht nochmals als neue Einsparung ausweisen. Entscheidend sind zusätzliche Strukturwirkungen: Geld-folgt-Leistung, stärkere Primärversorgung, weniger unnötig teure stationäre Leistungen, Beschaffung/Medikamente und klare Finanzierungsverantwortung.",
+      "sources":["BMF ÜD-Bericht Herbst 2025","Rechnungshof Ärztliche Versorgung 2025"]
+    },
+    {
+      "id":"OVER-LNK-2028",
+      "domain":"Arbeitsmarkt / Lohnnebenkosten",
+      "existing":"Für 2028 ist eine Senkung der Lohnnebenkosten um 2 Mrd. Euro vorgesehen. Bund, Länder und Gemeinden haben sich 2026 auf die Finanzierung des daraus entstehenden FLAF-Minus geeinigt; Länder und Gemeinden sollen sich mit 200 Mio. Euro pro Jahr beteiligen.",
+      "werk_delta":"Eine spätere WERK-Abgabenkeil-Reform muss diese bereits geplante Entlastung im Basisszenario abziehen. Zusätzlich sind Netto-Budgeteffekt, Beschäftigungswirkung, Gegenfinanzierung und Verteilung neu zu rechnen.",
+      "sources":["BMF 18.06.2026 Lohnnebenkostensenkung"]
+    },
+    {
+      "id":"OVER-FISC-COORD",
+      "domain":"Föderale Haushaltssteuerung",
+      "existing":"Das Österreichische Koordinationskomitee wurde 2026 als halbjährliches Gremium für die Haushaltskoordinierung von Bund, Ländern und Gemeinden etabliert.",
+      "werk_delta":"WERK braucht daher kein paralleles politisches Gremium. Der zusätzliche Ansatz ist ein öffentliches gesamtstaatliches Sanierungs-Cockpit mit klaren Teilsektor-Sollwerten, Finanzierungsverantwortung, Frühwarnschwellen und Korrekturmechanismus.",
+      "sources":["BMF 23.03.2026 Österreichisches Koordinationskomitee"]
+    },
+    {
       "reform_id":"ADM-01",
-      "existing":"2026 wird die digitale Verwaltung bereits durch AVG-Novelle, Once-Only/One-Stop/No-Stop und den Ausbau von dadeX vorangetrieben; für dadeX sind bis 2028 15 Mio. € budgetiert.",
+      "existing":"2026 wird die digitale Verwaltung bereits durch AVG-Novelle, Once-Only/One-Stop/No-Stop und den Ausbau von dadeX vorangetrieben; für dadeX sind bis 2028 15 Mio. Euro budgetiert.",
       "werk_delta":"Jede Digitalisierung erhält vor Freigabe eine Kostenbaseline, Service-KPIs, Lebenszykluskosten und einen verbindlichen Alt-System-Abschaltplan. Einsparungen werden erst nach tatsächlich vermiedenen Kosten angerechnet.",
       "source_ids":["BKA-DADEX-2026","RH-DIGIFUND-2026"]
     },
@@ -24,7 +58,7 @@
     {
       "reform_id":"TAX-02",
       "existing":"Österreich verfügt bereits über Fremdvergleichsregeln, Verrechnungspreisdokumentation, Betriebsprüfungen und die globale Mindestbesteuerung von 15 % für große Unternehmensgruppen.",
-      "werk_delta":"Keine pauschale 'Nachversteuerung von Auslandsgewinnen', sondern integrierte Risikoanalyse über Mindeststeuer-, Verrechnungspreis- und Prüfungsdaten; veröffentlicht werden Mehrergebnis, tatsächliche Einbringung, Rechtskraft und Vollzugskosten getrennt.",
+      "werk_delta":"Keine pauschale Nachversteuerung von Auslandsgewinnen, sondern integrierte Risikoanalyse über Mindeststeuer-, Verrechnungspreis- und Prüfungsdaten; veröffentlicht werden Mehrergebnis, tatsächliche Einbringung, Rechtskraft und Vollzugskosten getrennt.",
       "source_ids":["BMF-MINBEST-2026","BMF-VP-2026","BMF-ABB-2025"]
     },
     {
@@ -33,5 +67,13 @@
       "werk_delta":"Abgaben, Kanalisierung, Schwarzmarkt, Vollzug und Spielerschutz werden in einem gemeinsamen Wirkungsmodell bewertet. Bestehende Steuererhöhungen werden nicht nochmals als WERK-Mehreinnahme gezählt.",
       "source_ids":["BMF-GAMBLING-2026","BMF-GAMBLING-BUDGET-2026"]
     }
+  ],
+  "mandatory_end_calculation_checks":[
+    "Ist die Maßnahme bereits beschlossen?",
+    "Ist ihr Effekt bereits im BMF-/Stabilitätsprogramm-/EU-Referenzpfad enthalten?",
+    "Ist der ausgewiesene Betrag Brutto, Zahlungsfluss, ESVG-Effekt oder dauerhafter Nettoeffekt?",
+    "Gibt es gegenläufige Ausgaben oder Mindereinnahmen?",
+    "Wurde derselbe Effekt in einer anderen WERK-Reform bereits verbucht?",
+    "Welche Ebene trägt den Effekt: Bund, Land, Gemeinde oder Sozialversicherung?"
   ]
 }
