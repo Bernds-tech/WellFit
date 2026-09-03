@@ -1,0 +1,64 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – Verteilungs- und Haushaltsmodell",
+  "rule":"Keine Konsolidierungsmaßnahme gilt als vollständig gerechnet, solange nicht sichtbar ist, welche Haushalte, Einkommensgruppen und Regionen netto gewinnen oder verlieren und wie sich Arbeitsanreize verändern.",
+  "principles":[
+    "Unter- und Mittelschicht vor unverhältnismäßiger Belastung schützen.",
+    "Gleiche Euro-Belastung ist nicht automatisch gleiche Belastungsfähigkeit.",
+    "Steuer- und Transferänderungen immer gemeinsam rechnen.",
+    "Sachleistungen wie Kinderbetreuung, Gesundheit, Bildung, Pflege und öffentlicher Verkehr nicht nur als Geldtransfer bewerten.",
+    "Mieter/Eigentümer, Autoabhängigkeit, Energieform und regionale Preise berücksichtigen.",
+    "Grenzbelastung bei zusätzlicher Erwerbsarbeit explizit messen.",
+    "Einmaleffekte und dauerhafte Haushaltswirkungen trennen."
+  ],
+  "income_groups":["unterstes Dezil","Dezil 2","Dezil 3","Dezil 4","Dezil 5","Dezil 6","Dezil 7","Dezil 8","Dezil 9","oberstes Dezil","Top 5 %","Top 1 % soweit Daten belastbar"],
+  "household_archetypes":[
+    "Single erwerbstätig ohne Kinder",
+    "Single arbeitslos",
+    "Alleinerziehend mit 1/2 Kindern",
+    "Paar ein Einkommen mit Kindern",
+    "Paar zwei Einkommen mit Kindern",
+    "Paar ohne Kinder",
+    "Pensionist/in allein niedrig/mittel/hoch",
+    "Pensionistenpaar",
+    "Student/in",
+    "Selbständige/r bzw. EPU",
+    "Haushalt mit Pflegebedarf",
+    "Haushalt mit Behinderung/Invalidität",
+    "Mieterhaushalt",
+    "Eigentümer mit/ohne Kredit"
+  ],
+  "regional_dimensions":["Wien","andere Landeshauptstädte","Stadt/Umland","ländlicher Raum","Tourismusregion","strukturschwache/abnehmende Region","Pendlerhaushalt","Bundesländer einzeln bei regional unterschiedlichen Leistungen"],
+  "calculation_layers":[
+    {"id":"market_income","includes":["Lohn/Gehalt","Selbständigeneinkommen","Pension vor Steuer soweit passend","Kapital-/Vermietungseinkommen"]},
+    {"id":"direct_taxes","includes":["Einkommen-/Lohnsteuer","SV-Beiträge Arbeitnehmer","relevante direkte Abgaben"]},
+    {"id":"cash_transfers","includes":["Familienbeihilfe","Kinderbetreuungsgeld","Arbeitslosengeld/Notstandshilfe","Sozialhilfe","Pflegegeld","Wohn-/Landesleistungen soweit modellierbar"]},
+    {"id":"indirect_taxes","includes":["Umsatzsteuer","Energie-/Verbrauchsabgaben","Verkehrsabgaben","relevante kommunale Gebühren"]},
+    {"id":"in_kind","includes":["Kinderbetreuung","Schule","Gesundheit","Pflege","ÖPNV/Subventionen","Wohnförderung/Sachleistungen"]},
+    {"id":"essential_costs","includes":["Wohnen/Energie","Lebensmittel","Verkehr","Kinder","Gesundheit/Pflege"]},
+    {"id":"net_disposable","measure":"verfügbares Einkommen nach Reform plus wesentliche Sachleistungs-/Kostenänderungen"}
+  ],
+  "labour_incentive_tests":[
+    "Nettoeffekt von +5/+10 Wochenstunden",
+    "Übergang Teilzeit auf Vollzeit",
+    "Aufnahme Beschäftigung aus Arbeitslosigkeit/Sozialhilfe",
+    "Weiterarbeiten über mögliches Pensionsantrittsalter",
+    "Zweitverdiener in Paarhaushalten",
+    "Kinderbetreuungskosten und Transferverlust bei Mehrarbeit",
+    "Pflegeverpflichtung und Erwerbsreduktion"
+  ],
+  "mandatory_outputs_per_reform":[
+    "Euro netto pro Monat/Jahr je Haushaltstyp",
+    "Prozent des verfügbaren Einkommens",
+    "Verteilung nach Dezilen",
+    "Armuts-/Ausgrenzungsrisiko soweit messbar",
+    "Grenzbelastung zusätzlicher Arbeit",
+    "Mieter/Eigentümer-Unterschied",
+    "regionale Differenz",
+    "Kinder-/Pensions-/Pflegewirkung",
+    "kurzfristig vs 5-/10-Jahreswirkung"
+  ],
+  "data_sources_to_integrate":["Statistik Austria EU-SILC","Konsumerhebung 2024/25","Lohnsteuer-/Einkommensstatistik","Sozialleistungsstatistik","Mikrozensus Arbeitskräfte","Wohnkosten","Landesleistungen","EUROMOD oder vergleichbares Mikrosimulationsmodell soweit zugänglich"],
+  "distribution_gate":"Eine Maßnahme mit positivem Budgeteffekt kann verworfen oder angepasst werden, wenn sie erhebliche Armuts-, Arbeitsanreiz-, Gesundheits-, Bildungs- oder Wachstumsfolgen erzeugt, die den Nettoeffekt wirtschaftlich oder politisch nicht rechtfertigen.",
+  "publication_rule":"WERK zeigt nicht nur 'wer zahlt mehr/weniger', sondern Nettoeffekt nach Steuer, Transfer, Sachleistung und wesentlichen Kosten."
+}
