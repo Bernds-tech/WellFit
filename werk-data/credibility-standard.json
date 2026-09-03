@@ -1,0 +1,34 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Seriositäts- und Evidenzstandard",
+  "purpose":"Jede öffentlich verwendete Zahl, Reformwirkung und politische Schlussfolgerung soll von außen nachvollzogen, angegriffen und bei neuen Daten korrigiert werden können.",
+  "core_rules":[
+    "Eine Zahl ohne Datenstand, Definition und Quelle ist kein veröffentlichungsfähiger Fakt.",
+    "Eine Quelle belegt nur die konkrete Aussage, nicht automatisch die politische Schlussfolgerung.",
+    "Ist-Daten, Prognosen, Szenarien, Potenziale und politische Ziele werden sichtbar getrennt.",
+    "Planwerte einer Regierung werden nie als gesicherte Zukunftswerte dargestellt.",
+    "Bei Prognosen wird nach Möglichkeit ein Institutionenvergleich statt einer einzelnen Hausprognose gezeigt.",
+    "Jede Reform nennt Gegenargumente, relevante Zielkonflikte und Bedingungen, unter denen sie nicht funktioniert.",
+    "Korrekturen bleiben öffentlich nachvollziehbar; alte Versionen verschwinden nicht still.",
+    "BUD-01 bleibt Priorität 1, aber auch Priorität 1 darf keine unsicheren Zahlen als sicher ausweisen."
+  ],
+  "evidence_grades":[
+    {"grade":"A1","label":"amtliche Ist-Primärdaten","examples":["Statistik Austria","OeBFA","amtlicher Rechnungsabschluss","RIS"],"publication":"als Fakt mit Datenstand verwendbar; Revisionen beobachten"},
+    {"grade":"A2","label":"amtlicher Plan-/Budgetwert","examples":["BMF Budget","Bundesfinanzrahmen","beschlossene Haushaltsplanung"],"publication":"als Plan/Referenzpfad kennzeichnen, niemals als gesichertes Ergebnis"},
+    {"grade":"B1","label":"unabhängige österreichische Institution","examples":["Budgetdienst des Parlaments","Fiskalrat","Rechnungshof","OeNB"],"publication":"für Plausibilisierung, Risiken, unabhängige Prognose und institutionelle Kritik besonders hoch gewichten"},
+    {"grade":"B2","label":"internationale öffentliche Institution","examples":["EU-Kommission","OECD","IMF","Eurostat"],"publication":"für Vergleich, externe Gegenprüfung und internationale Rechts-/Fiskalrahmen nutzen"},
+    {"grade":"C","label":"wissenschaftliche/peer-reviewte oder etablierte Forschungsquelle","examples":["WIFO","IHS","Universitäten","Fachjournale"],"publication":"Methodik und Annahmen nennen; keine Einzelstudie als endgültigen Beweis darstellen"},
+    {"grade":"D","label":"eigene WERK-Modellrechnung","examples":["Szenario","Mikrosimulation","Kostenmodell"],"publication":"Annahmen, Formeln, Inputdaten, Sensitivität und Versionsstand veröffentlichen"},
+    {"grade":"E","label":"politische Annahme/Zielwert","examples":["10-Mrd.-Tilgungsziel","gewünschtes Leistungsniveau"],"publication":"klar als politische Entscheidung oder Ziel markieren, nie als Datenbefund"
+    }
+  ],
+  "claim_statuses":["belegt","plausibilisiert","Modellwert","noch zu rechnen","Rechtsprüfung offen","politische Entscheidung erforderlich","widerlegt/ersetzt"],
+  "mandatory_metadata_for_numeric_claims":["definition","unit","geographic_scope","institutional_scope","data_date","publication_date","source_id","evidence_grade","nominal_or_real","gross_or_net","cash_or_maastricht_if_relevant","revision_risk"],
+  "forecast_rule":"Für zentrale Makro- und Fiskalannahmen wird ein Forecast-Fächer aus mehreren Institutionen geführt. WERK darf nicht still die günstigste Prognose auswählen.",
+  "correction_rule":"Wenn Primärdaten oder Rechtslage eine frühere Aussage ändern, wird die neue Aussage übernommen und die alte im Korrekturregister mit Grund erhalten.",
+  "inspiration_and_checks":[
+    "Rechnungshof 2026: tatsächliches Konsolidierungsvolumen war wegen uneinheitlicher Referenzwerte teilweise nicht nachvollziehbar – WERK verwendet daher für jede Maßnahme eine explizite Baseline.",
+    "Budgetdienst: Wirkungsziele/Kennzahlen weisen teils geringes Ambitionsniveau und Qualitätsunterschiede auf – WERK verlangt externe Benchmarks und Outcome-KPIs.",
+    "Fiskalrat: Konsolidierung, Förderbereinigung, Gesundheit, Länder/Gemeinden, außerbudgetäre Einheiten und Zukunftsinvestitionen gemeinsam betrachten – WERK bildet diese Bereiche als Querschnittsgates ab."
+  ]
+}
