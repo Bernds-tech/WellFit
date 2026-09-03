@@ -1,0 +1,34 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Energie, Netze und Versorgungssicherheit",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Energiepolitik wird auf Versorgungssicherheit, Systemkosten, Wettbewerbsfähigkeit und langfristige Infrastrukturwirkung geprüft. Förderungen oder Netzinvestitionen werden nicht isoliert betrachtet.",
+  "current_facts":[
+    {"fact":"E-Control bewertet die Stromversorgungssicherheit in Österreich weiterhin als hoch; Netzanschluss und Netzentwicklung bleiben zentrale Ausbauaufgaben.","source":"E-Control Tätigkeitsbericht/Versorgungssicherheit 2026"},
+    {"fact":"Für Gas sieht E-Control die Versorgung für Winter 2026/27 bei gleichbleibender Importsituation und Infrastruktur als gewährleistet; seit 1.1.2025 werden benötigte Mengen über Deutschland und Italien statt über ukrainische russische Transitströme bezogen.","source":"E-Control Gasversorgungssicherheitsbericht 2026"},
+    {"fact":"Zu Beginn der Heizsaison 2025/26 lag der österreichische Gasspeicherfüllstand laut E-Control bei rund 85 % bzw. 85,6 TWh.","source":"E-Control Tätigkeitsbericht 2026"},
+    {"fact":"E-Control führt laufendes Monitoring bei 60 Verteilernetzbetreibern durch; 16 große Betreiber decken über 85 % der Zählpunkte ab. Netzintegration erneuerbarer Anlagen ist damit als Engpass messbar.","source":"E-Control Netzanschluss-Monitoring 2026"},
+    {"fact":"Zehnjährige Netzentwicklungspläne müssen technische und wirtschaftliche Zweckmäßigkeit sowie Versorgungssicherheit berücksichtigen.","source":"E-Control Netzentwicklungsplanung"}
+  ],
+  "structural_questions":[
+    "Wie verteilen sich Strom-/Gas-Systemkosten auf Erzeugung, Netze, Reserven, Abgaben, Förderungen und Beschaffung?",
+    "Welche Netzausbauten sind unvermeidbar und welche können durch Speicher, Lastmanagement oder lokale Erzeugung vermieden/verschoben werden?",
+    "Wie hoch sind volkswirtschaftliche Kosten von Netzengpässen und langen Anschlusszeiten?",
+    "Wie stark belasten Energiepreise energieintensive Industrie und Haushalte relativ zu Vergleichsländern?",
+    "Welche Förderungen senken tatsächlich Systemkosten/Emissionen und welche erzeugen Mitnahmeeffekte oder zusätzliche Netzkosten?",
+    "Welche strategischen Gasreserven sind risikoadäquat und wie hoch sind ihre jährlichen Kosten?",
+    "Wie hängen Energiewende, Versorgungssicherheit, Klimaziele und Staatsbudget über Förderungen/Abgaben/Investitionen zusammen?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Netzprojekte nach Systemnutzen, Engpasswirkung und Lebenszykluskosten priorisieren",
+    "Anschlussverfahren standardisieren und beschleunigen, ohne technische Sicherheit zu senken",
+    "Förderungen stärker an CO2-, Netz- und Systemkosteneffekt koppeln",
+    "Speicher/Lastmanagement als Alternative zu Netzausbau projektbezogen mitrechnen",
+    "Industrieunterstützung nur mit klarer Zusätzlichkeit, Befristung und Standort-/Beschäftigungswirkung",
+    "strategische Reserven regelmäßig per Risiko-/Kostenmodell neu dimensionieren",
+    "Energieabgaben und Entlastungen als Gesamtpaket statt Einzelmaßnahmen prüfen"
+  ],
+  "do_not_count_yet":["keine Förderkürzung ohne Systemkostenfolge","keinen Netzausbauverzicht als Einsparung ohne Engpass-/Versorgungseffekt","keine sinkenden Marktpreise als WERK-Budgeteffekt","keine Reserveauflösung als dauerhafte Finanzierung"],
+  "next_data_needed":["Netzentwicklungsinvestitionen 10 Jahre","Netzentgelte nach Kundengruppe","Redispatch/Engpasskosten","Fördervolumen nach Technologie","strategische Reservekosten","Industrie-Energiepreisvergleich","Netzanschlusswartezeiten und Projektpipeline"]
+}
