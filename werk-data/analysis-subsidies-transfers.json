@@ -1,0 +1,44 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Förderungen, Steuerbegünstigungen und Transfers",
+  "status":"vertieft – vollständiges Programminventar noch offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Fördervolumen ist nicht Sparpotenzial. WERK unterscheidet direkte Förderungen, steuerliche Förderungen, Sozialtransfers, EU-kofinanzierte Leistungen und Leistungsentgelte. Gespart ist erst, was nach Ziel-, Rechts-, Verteilungs- und Übergangsprüfung dauerhaft netto entfällt.",
+  "current_facts":[
+    {"fact":"Förderungsbericht 2024: direkte Förderungen des Bundes rund 12,6 Mrd. Euro, +11,5 % gegenüber 2023.","source":"BMF Förderungsbericht 2024"},
+    {"fact":"Quantifizierbare indirekte Förderungen/Steuererleichterungen des Bundes 2024: rund 26,7 Mrd. Euro, +5,3 % gegenüber 2023.","source":"BMF Förderungsbericht 2024"},
+    {"fact":"BMF weist Österreich im internationalen Vergleich 2024 mit Förderungen von 6,7 % des BIP aus, gegenüber 5,1 % EU-gesamt und 5,2 % Eurozone; Definitionen und Vergleichbarkeit müssen bei jeder Interpretation beachtet werden.","source":"BMF Förderungsbericht 2024"},
+    {"fact":"Seit August 2026 stehen BMF-Datensätze für Förderungen des Bundes 2014–2028 und gesamtstaatliche ESVG-Transaktionen mit Förderungscharakter bis 2025 bzw. Prognose bis 2031 zur Verfügung.","source":"BMF Förderdaten 07.08.2026"},
+    {"fact":"Die Förder-Taskforce 2026 verfolgt bereits Fokussierung, Evaluierung, Befristung und Effizienzsteigerung. Ihre beschlossenen Einsparungen sind Referenzpfad, nicht WERK-Delta.","source":"BMF Förder-Taskforce 04.03.2026"}
+  ],
+  "inventory_layers":[
+    "direkte Bundesförderungen",
+    "direkte Länder-/Gemeindeförderungen",
+    "indirekte Förderungen/Steuererleichterungen",
+    "EU-Förderungen und nationale Kofinanzierung",
+    "Unternehmensförderungen öffentlicher Fonds/Gesellschaften",
+    "Sozialtransfers – separat, weil andere Ziel-/Rechtslogik",
+    "Leistungsentgelte/Subventionen an öffentliche Unternehmen – nicht automatisch Förderung im gleichen Sinn"
+  ],
+  "structural_questions":[
+    "Welche Programme verfolgen denselben Zweck auf mehreren Ebenen?",
+    "Welche Förderungen sind tatsächlich zusätzlich und welche finanzieren Investitionen/Handlungen, die ohnehin erfolgt wären?",
+    "Welche Programme sind befristet, welche laufen historisch fort und welche haben klare Exit-Kriterien?",
+    "Wie hoch sind administrative Kosten beim Fördergeber und Erfüllungskosten beim Empfänger?",
+    "Welche steuerlichen Förderungen sind weniger transparent als vergleichbare Direktförderungen?",
+    "Welche Förderungen erzeugen Preis-/Mitnahme-/Verdrängungseffekte?",
+    "Welche EU-Kofinanzierungen würden bei nationaler Kürzung ebenfalls verloren gehen?",
+    "Wie verteilt sich Förderung nach Einkommen, Unternehmensgröße, Branche und Region?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "ein gesamtstaatliches Förder- und Tax-Expenditure-Inventar nach Ziel statt nur Ressort",
+    "Sunset und Evaluationsdatum als Standard für gestaltbare Programme",
+    "direkte und indirekte Förderung desselben Ziels gemeinsam evaluieren",
+    "Doppelprogramme bündeln und Abwicklungsstellen nur nach realem Prozess-/Personaleffekt reduzieren",
+    "Unternehmensförderung auf Zusätzlichkeit, Produktivität, Innovation, Beschäftigung und Mitnahmeeffekte testen",
+    "Förderdaten maschinenlesbar mit Empfängergruppen-/Outcome-Analyse verbinden",
+    "kleine symbolische Kürzungen nicht vor großen volumen-/wirkungsrelevanten Programmen priorisieren"
+  ],
+  "do_not_count_yet":["12,6 Mrd. direkte Bundesförderungen nicht als Sparsumme behandeln","26,7 Mrd. Steuerbegünstigungen nicht als sofort verfügbares Aufkommen behandeln","EU-kofinanzierte Bruttokürzung nicht als Nettoersparnis buchen","Sozialtransfers nicht mit Unternehmensförderungen methodisch vermischen","offizielle Förder-Taskforce-Einsparungen nicht nochmals zählen"],
+  "next_data_needed":["BMF Förderdatensatz 2014–2028 auf Programmebene","ESVG-Fördertransaktionen gesamtstaatlich","indirekte Förderungen je Steuerregel","Transparenzdatenbank nach Ziel/Empfänger","Länderförderinventare","EU-Kofinanzierungsquoten","Evaluationen/Outcome-KPI","Abwicklungskosten je Programm"]
+}
