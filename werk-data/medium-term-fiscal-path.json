@@ -1,18 +1,18 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-03-v3",
   "title":"Offizieller Referenzpfad 2025–2031 vs. WERK BUD-01",
   "status":"Referenzrechnung – keine WERK-Prognose",
   "priority_rule":"Stufe 1 ist ein nachhaltig strukturell ausgeglichener gesamtstaatlicher Haushalt. Erst danach gilt BUD-02 mit mindestens 10 Mrd. Euro jährlicher Schuldentilgung als zweite Sanierungsstufe.",
   "stage_1_target_balance_eur_billion":0.0,
   "stage_2_target_annual_debt_repayment_eur_billion":10.0,
   "rows":[
-    {"year":2025,"type":"Ist","nominal_gdp_eur_billion":512.8,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-21.5,"bridge_to_balance_eur_billion":21.5,"debt_ratio_pct":81.5},
-    {"year":2026,"type":"BMF-Plan/Prognose","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":82.9},
-    {"year":2027,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-3.5,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":83.6},
-    {"year":2028,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-3.0,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":83.8,"note":"Politisches BMF-Ziel ist unter 3 %, Budgetpräsentation rundet den Pfad auf -3,0 %."},
-    {"year":2029,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-2.8,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":84.2},
-    {"year":2030,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":84.6},
-    {"year":2031,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":null,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":null,"bridge_to_balance_eur_billion":null,"debt_ratio_pct":85.0}
+    {"year":2025,"type":"Ist","nominal_gdp_eur_billion":512.8,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-21.5,"bridge_to_balance_eur_billion":21.5,"primary_balance_pct":-2.6,"interest_expenditure_pct":1.6,"debt_ratio_pct":81.5},
+    {"year":2026,"type":"BMF-Plan/Prognose","nominal_gdp_eur_billion":528.5,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-22.2,"bridge_to_balance_eur_billion":22.2,"primary_balance_pct":-2.4,"interest_expenditure_pct":1.8,"debt_ratio_pct":82.9},
+    {"year":2027,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":547.2,"maastricht_balance_pct":-3.5,"maastricht_balance_eur_billion":-19.1,"bridge_to_balance_eur_billion":19.1,"primary_balance_pct":-1.6,"interest_expenditure_pct":1.9,"debt_ratio_pct":83.6},
+    {"year":2028,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":564.9,"maastricht_balance_pct":-3.0,"maastricht_balance_eur_billion":-16.9,"bridge_to_balance_eur_billion":16.9,"primary_balance_pct":-0.9,"interest_expenditure_pct":2.1,"debt_ratio_pct":83.8,"note":"Politisches BMF-Ziel ist unter 3 %; Budgetpräsentation rundet den Pfad auf -3,0 %."},
+    {"year":2029,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":582.6,"maastricht_balance_pct":-2.8,"maastricht_balance_eur_billion":-16.5,"bridge_to_balance_eur_billion":16.5,"primary_balance_pct":-0.6,"interest_expenditure_pct":2.2,"debt_ratio_pct":84.2},
+    {"year":2030,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":600.1,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-17.1,"bridge_to_balance_eur_billion":17.1,"primary_balance_pct":-0.5,"interest_expenditure_pct":2.4,"debt_ratio_pct":84.6},
+    {"year":2031,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":617.5,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-18.0,"bridge_to_balance_eur_billion":18.0,"primary_balance_pct":-0.4,"interest_expenditure_pct":2.5,"debt_ratio_pct":85.0}
   ],
   "sector_baseline_2025_eur_billion":{
     "federal_sector":-15.19,
@@ -22,21 +22,34 @@
     "general_government":-21.5,
     "source":"Statistik Austria Maastricht-Notifikation März 2026; Rundungsdifferenzen möglich"
   },
+  "sector_reference_path_pct_gdp":[
+    {"year":2025,"federal_sector":-3.0,"states_municipalities_social_security":-1.2},
+    {"year":2026,"federal_sector":-3.0,"states_municipalities_social_security":-1.2},
+    {"year":2027,"federal_sector":-2.7,"states_municipalities_social_security":-0.8},
+    {"year":2028,"federal_sector":-2.3,"states_municipalities_social_security":-0.7},
+    {"year":2029,"federal_sector":-2.1,"states_municipalities_social_security":-0.7},
+    {"year":2030,"federal_sector":-2.2,"states_municipalities_social_security":-0.6},
+    {"year":2031,"federal_sector":-2.3,"states_municipalities_social_security":-0.6}
+  ],
   "interpretation":[
-    "Der offizielle Pfad verbessert das Defizit deutlich, erreicht aber bis 2031 keinen ausgeglichenen Haushalt.",
+    "Der offizielle Pfad verbessert das Defizit von 22,2 Mrd. Euro 2026 auf 16,9 Mrd. Euro 2028, erreicht aber bis 2031 keinen ausgeglichenen Haushalt.",
+    "Die rechnerische Brücke zum einfachen Maastricht-Nulldefizit liegt im offiziellen Pfad 2031 weiterhin bei rund 18,0 Mrd. Euro; die strukturelle BUD-01-Lücke kann davon abweichen und wird erst nach Konjunktur-/Einmalbereinigung final bestimmt.",
     "Die Schuldenquote steigt im BMF-Pfad trotz Konsolidierung von 81,5 % 2025 auf rund 85,0 % 2031.",
+    "Der Primärsaldo verbessert sich, bleibt aber bis 2031 negativ; gleichzeitig steigen Zinsausgaben von 1,6 % des BIP 2025 auf 2,5 % 2031.",
     "BUD-01 muss deshalb den zusätzlichen dauerhaften Nettoeffekt gegenüber diesem aktuellen Referenzpfad bestimmen – nicht gegenüber einem hypothetischen Szenario ohne bereits beschlossene Konsolidierung.",
-    "Die 10-Mrd.-Tilgungsstufe wird nicht mehr in die aktuelle Budgetbalance-Lücke hineingerechnet; sie folgt erst nach Erreichen von Stufe 1."
+    "Die 10-Mrd.-Tilgungsstufe wird nicht in die aktuelle Budgetbalance-Lücke hineingerechnet; sie folgt erst nach Erreichen von Stufe 1."
   ],
   "sources":[
-    "BMF Budgetpräsentation 2027/2028, Juni/Juli 2026",
-    "BMF Budget 2027/2028 und Bundesfinanzrahmen bis 2031",
-    "Statistik Austria Maastricht-Ergebnis 2025 / Notifikation März 2026"
+    "BMF Budget 2027/2028 und Strategiebericht 2027-2030/2028-2031",
+    "BMF Budget 2027 im Überblick / gesamtstaatliche Eckwerte",
+    "Parlamentarischer Budgetdienst Budgetanalyse 2027/2028",
+    "Statistik Austria Maastricht-Ergebnis 2025"
   ],
   "warnings":[
     "Planwerte 2026–2031 sind keine gesicherten Ergebnisse und können mit Konjunktur, Vollzug und Revisionen variieren.",
-    "Nominale BIP- und Euro-Salden werden erst wieder eingetragen, wenn sie aus dem aktuellen beschlossenen Tabellenwerk konsistent übernommen sind; keine alten WIFO-BIP-Werte weiterverwenden.",
+    "Die ausgewiesenen Defizit-Eurobeträge sind die aktuellen offiziellen Tabellenwerte bzw. gerundeten Budgetwerte und nicht mechanisch aus dem gerundeten Prozentwert rückgerechnet.",
+    "Länder, Gemeinden und Sozialversicherung sind im aktuellen BMF-Mittelfristpfad zusammengefasst; ihre getrennten Planpfade bleiben eine Datenlücke.",
     "Bereits beschlossene Konsolidierungsmaßnahmen sind im Referenzpfad enthalten und dürfen nicht nochmals als WERK-Finanzierungsbeitrag gezählt werden.",
-    "Der langfristige No-Policy-Change-Pfad des BMF zeigt zusätzliche demografische und zinsbedingte Risiken; er ist ein Stresstest/ Langfristbaseline, nicht der mittelfristige beschlossene Budgetpfad."
+    "Der langfristige No-Policy-Change-Pfad des BMF zeigt zusätzliche demografische und zinsbedingte Risiken; er ist eine Langfristbaseline, nicht der mittelfristige beschlossene Budgetpfad."
   ]
 }
