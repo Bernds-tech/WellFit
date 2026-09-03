@@ -1,0 +1,42 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Umsetzungsreife statt Wunschliste",
+  "purpose":"Eine Reform gilt nicht als fertig, nur weil Ziel und Finanzierung beschrieben sind. Vor Programmlock muss ein nachvollziehbarer Umsetzungspfad existieren.",
+  "mandatory_fields":[
+    "zuständige Ebene und verantwortliche Stelle",
+    "geltende Rechtslage",
+    "konkrete Gesetzes-/Verordnungsänderungen",
+    "EU-/Völkerrechtsabhängigkeiten",
+    "betroffene Organisationen und Stakeholder",
+    "Personalbedarf oder Personalabbau/-umbau",
+    "IT-/Daten-/Registerbedarf",
+    "Beschaffungsbedarf",
+    "einmalige Transformationskosten",
+    "Parallelbetriebs-/Übergangskosten",
+    "laufende Vollzugskosten",
+    "Zeitplan mit kritischem Pfad",
+    "Abhängigkeiten zu anderen Reformen",
+    "Risiken und Abbruch-/Korrekturpunkte",
+    "Outcome-KPI statt nur Aktivitäts-KPI",
+    "Baseline und Zielwert",
+    "Messfrequenz",
+    "Reviewtermin",
+    "Sunset-/Rücknahmelogik falls geeignet"
+  ],
+  "readiness_levels":[
+    {"level":0,"label":"Idee","rule":"Problem/Vorschlag vorhanden, noch keine Umsetzungsprüfung"},
+    {"level":1,"label":"Analyse","rule":"Daten, Ursachen, bestehende Maßnahmen und Optionen beschrieben"},
+    {"level":2,"label":"Entscheidungsakte","rule":"Kosten/Recht/Verteilung/Kompetenz grundsätzlich geprüft"},
+    {"level":3,"label":"umsetzungsplanbar","rule":"Gesetz, Organisation, Personal, IT, Zeitplan und Transformation konkretisiert"},
+    {"level":4,"label":"programmlock-fähig","rule":"Rechnung extern plausibilisiert, kritische Rechtsfragen geschlossen, Stress-/Red-Team bestanden"},
+    {"level":5,"label":"vollzugsbereit","rule":"operative Verantwortliche, Projektplan, Monitoring und Budgetmittel verfügbar"}
+  ],
+  "failure_pre_mortem":[
+    "Was sind die fünf wahrscheinlichsten Gründe, warum die Reform politisch oder operativ scheitert?",
+    "Welche Gruppe trägt Übergangskosten, obwohl der Gesamtstaat später gewinnt?",
+    "Welche Verwaltung oder Ebene hat einen Anreiz, die Reform zu blockieren?",
+    "Welche IT-/Datenabhängigkeit wird typischerweise unterschätzt?",
+    "Was passiert, wenn nur 50 % des erwarteten Verhaltens-/Effizienzeffekts eintritt?"
+  ],
+  "publication_rule":"Auf der Website wird bei jeder großen Reform neben dem Inhalt ein Umsetzungsreifegrad gezeigt. 'Gute Idee' und 'vollzugsbereit' dürfen nicht gleich aussehen."
+}
