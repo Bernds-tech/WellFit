@@ -1,10 +1,11 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "status":"technischer Entwurf – juristische Datenschutzfreigabe offen",
   "title":"WERK IDEENWERK – Aufbewahrung und Löschung",
   "principle":"Bürgerideen werden nicht allein wegen ihres Alters automatisch gelöscht. Automatisch bereinigt werden nur klar definierte technische Kurzzeitdaten. Korrektur, Einschränkung, Anonymisierung oder Löschung einer Einreichung erfolgt über einen dokumentierten Privacy-Workflow mit Reason Code.",
   "automatic_cleanup":[
     {"data":"abgelaufene Abuse-/PII-Signale","default_days":30,"rule":"nach expires_at löschen, sofern kein offener Moderations-/Rechtsfall sie benötigt"},
+    {"data":"verteilte Rate-Limit-Buckets","default_rule":"maximal rund zwei Zeitfenster; aktuell 60-Sekunden-Fenster","rule":"nur HMAC-pseudonymisierte Subject-Hashes; nach expires_at automatisch löschen"},
     {"data":"erfolgreich abgeschlossene Processing-Jobs","default_days":14,"rule":"Job-Nutzdaten nach Ablauf entfernen; aggregierte Betriebsmetriken dürfen getrennt erhalten bleiben"},
     {"data":"Dead Jobs / Fehlerdiagnose","default_days":90,"rule":"nur solange für Fehleranalyse erforderlich; keine unnötigen Bürgertexte in last_error schreiben"},
     {"data":"widerrufene oder abgelaufene Statuszugänge","default_grace_days":30,"rule":"nach Ablauf der technischen Nachfrist entfernen, sofern kein offener Privacy-Fall besteht"},
