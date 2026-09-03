@@ -33,6 +33,11 @@ const queries = [
         AND s.current_status NOT IN ('privacy_hold','quarantine')`
   },
   {
+    key: 'expired_rate_limit_buckets',
+    count: `SELECT count(*)::int AS n FROM rate_limit_buckets WHERE expires_at < now()`,
+    cleanup: `DELETE FROM rate_limit_buckets WHERE expires_at < now()`
+  },
+  {
     key: 'done_jobs',
     count: `SELECT count(*)::int AS n FROM processing_jobs
       WHERE status='done' AND updated_at < now()-$1::interval`,
