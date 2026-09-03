@@ -1,14 +1,14 @@
 {
-  "version":"2026-09-03-v20",
-  "current_preview":"V70 – IDEENWERK Staging live mit echter No-Login Edge API, realen PostgreSQL-/Security-/100k-Messungen sowie Rechts-/Kompetenz-/Finanzmodellen",
-  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime wird schrittweise real verifiziert",
+  "version":"2026-09-03-v21",
+  "current_preview":"V70 – IDEENWERK Staging live mit No-Login Edge API, automatischem Minutenworker und realen DB-/Security-/100k-Messungen",
+  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb und noch nicht öffentlich produktiv freigegeben",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"v70-staging-live-with-rollback-loader","estimate_pct":99},
-    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login Intake/Status, DB, Edge API, Cluster-/Review-Architektur","status":"staging-active-edge-intake-status-e2e-pass-worker-open","estimate_pct":97},
-    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"db-100k-and-local-goldset-measured-full-worker-load-open","estimate_pct":93},
-    {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"token-hash-default-deny-staging-tested-legal-review-open","estimate_pct":88},
-    {"id":"ideenwerk-security","name":"IDEENWERK Security & Betriebsreife","status":"supabase-lockdown-advisor-clean-edge-e2e-pass","estimate_pct":94},
+    {"id":"architecture","name":"Website-Architektur","status":"v70-staging-live-with-v69-rollback","estimate_pct":99},
+    {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login Intake/Status, Edge API, DB-Worker, Cluster-/Review-Architektur","status":"staging-active-end-to-end-pass","estimate_pct":98},
+    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"db-100k-worker-e2e-and-goldset-measured","estimate_pct":94},
+    {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"token-hash-and-pii-hold-runtime-pass-legal-open","estimate_pct":90},
+    {"id":"ideenwerk-security","name":"IDEENWERK Security & Betriebsreife","status":"advisor-clean-cors-rate-limit-runtime-pass","estimate_pct":95},
     {"id":"ideenwerk-operator","name":"IDEENWERK menschliche Prüfung / Operator / Appeal","status":"db-guardrails-runtime-pass-auth-open","estimate_pct":90},
     {"id":"regional","name":"Regionalitäts-/Subsidiaritätsmodell","status":"competence-inventory-state-audit-minimum-standard-fit-matrix","estimate_pct":97},
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
@@ -21,49 +21,43 @@
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
     {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v70-critical-files-and-runtime-evidence","estimate_pct":99},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":87}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":88}
   ],
   "register":{
     "reform_count":14,
     "core_modules":["WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":[
-      "werk-assets/site-ideenwerk-v2.js","werk-assets/site-v70-loader.js","werk-v70.html",
-      "ideenwerk-backend/sql/009_cluster_review_queue.sql","ideenwerk-backend/sql/010_operator_enforcement.sql","ideenwerk-backend/sql/011_distributed_rate_limit.sql","ideenwerk-backend/sql/012_supabase_lockdown.sql","ideenwerk-backend/sql/013_supabase_perf_hardening.sql","ideenwerk-backend/sql/014_fix_review_queue_search_path.sql","ideenwerk-backend/sql/015_review_lookup_indexes.sql","ideenwerk-backend/sql/016_internal_pg_net.sql","ideenwerk-backend/sql/017_edge_intake_status.sql",
-      "werk-data/ideenwerk-quality.json","werk-data/ideenwerk-security.json","werk-data/ideenwerk-test-runs.json"
-    ],
+    "ideas_model":["werk-v70.html","werk-assets/site-v70-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
     "measured_quality":[
-      "18/18 lokale Kern-/Security-Tests bestanden",
-      "Fallback-v2 Goldset 10/15; False Merge 0; Variant Loss 0; False Split 5",
-      "DB-Guardrails Staging 8/8 grün",
-      "1.000 Kandidaten -> 1.000 Review-Tasks in 145,45 ms",
-      "10.000 Kandidaten -> 10.000 Review-Tasks in 1,58 s",
-      "100.000 Kandidaten -> 100.000 Review-Tasks; Trigger 18,93 s; Gesamtinsert inkl. 200.000 Einreichungen 30,24 s; Cleanup 17,78 s; 0 Restdaten",
-      "Supabase Security Advisor nach Lockdown: 0 ERROR / 0 WARN",
-      "No-Login Edge E2E: POST 201; Status mit richtigem Token 200; falscher Token 403; idempotente Wiederholung 200 ohne erneute Token-Ausgabe"
+      "No-Login Edge: Submit 201; privater Status 200; falscher Token 403; idempotenter Replay 200 ohne Token-Neuausgabe",
+      "Worker E2E: 5/5 Jobs, 0 Fehler; received -> structured -> cluster_review -> precheck",
+      "Duplikat: 2 Originalideen im selben Cluster, zweite Idee status=clustered",
+      "PII: privacy_hold=true; kein structured_proposal",
+      "pg_cron: mindestens 3 automatische Minutenläufe succeeded",
+      "CORS: raw.githack.com HTTP 200 + Allow-Origin; fremder Origin HTTP 403",
+      "100k DB-Test: 100.000 Kandidaten -> 100.000 Review-Tasks; 0 Restdaten"
     ]
   },
   "blocking_items_for_public_release":[
-    "Worker-Pipeline dauerhaft gegen WERK-Staging betreiben und vollständige Statuskette messen",
     "Backup/Restore-Drill real auf getrennter Datenbank durchführen",
-    "produktiven Semantikprovider auf größerem Goldset evaluieren und regionale/Bias-Messungen ergänzen",
+    "produktiven Semantikprovider auf größerem repräsentativem Goldset evaluieren und regionale/Bias-Messungen ergänzen",
     "vollständigen API+Worker-Lasttest mit Queue-Latenzen p50/p95/p99 durchführen",
     "progressive Bot-Challenge/WAF sowie Status-Token-Threat-Model/Penetrationstest abschließen",
     "OIDC/MFA/RBAC für Operatoren produktiv anbinden",
-    "DSGVO-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen",
+    "Privacy-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen und Fristen finalisieren",
     "prioritäre Reform-Nettoeffekte verifizieren und Finanzierungslücke schließen",
-    "zweite Länder-Auditstufe, WERK-VOTE-Verfassungsvarianten, Statuten/Partnervertrag und Betreiber-/Pflichtangaben abschließen",
+    "zweite Länder-Auditstufe, WERK-VOTE-Verfassungsvarianten, Statuten/Partnervertrag und Betreiberangaben abschließen",
     "manuelle mobile, Tastatur- und Screenreader-Abnahme durchführen"
   ],
   "method_rules":[
-    "Ideen dürfen ohne Login eingebracht werden; Statuszugang erfolgt über getrennte Status-ID und geheimen Token",
-    "Status-Token wird serverseitig nur gehasht gespeichert und nicht in URLs eingebettet",
-    "Problemcluster, Lösungsvarianten und Originalideen bleiben getrennte Ebenen",
-    "KI/Heuristik schlägt vor; sensible Clusterentscheidungen benötigen menschliche Review",
-    "RLS/Default-Deny verhindert direkten anon/authenticated-Zugriff auf interne Tabellen und RPCs",
-    "100k-DB-Test ist kein 100k-End-to-End-API-/Worker-Test",
-    "Qualitätswerte werden nur nach tatsächlich ausgeführtem Test veröffentlicht",
+    "Ideen dürfen ohne Login eingebracht werden; Status-ID und geheimer Wiederaufruf-Code bleiben getrennt",
+    "Status-Token wird serverseitig nur gehasht und nie in URLs eingebettet",
+    "PII stoppt vor Strukturierung und Clustering",
+    "Near-Duplicate-Autobündelung bleibt auf gleichen Region-/Thema-Scope beschränkt",
+    "Originalideen bleiben bei Clustering erhalten",
+    "semantische Kandidaten benötigen menschliche Review-Tasks",
+    "100k-DB-Test ist kein vollständiger 100k-API-/Worker-Test",
     "politisch unbequem oder WERK-kritisch ist kein Moderationsgrund",
-    "technische Staging-Freigabe ersetzt keine politische, juristische oder datenschutzrechtliche Produktivfreigabe"
+    "technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe"
   ],
-  "note":"V70 markiert den Übergang vom Scaffold zum realen Staging: eigenes Supabase-Projekt, Migrationen 001–017, Security-Lockdown, 100k-DB-/Review-Queue-Test sowie echte No-Login Edge-E2E-Tests sind durchgeführt. Dauerworker, Backup/Restore und öffentliche Produktivfreigabe bleiben offen."
+  "note":"V70 hat jetzt eine real laufende No-Login Edge API plus automatischen pg_cron-Worker. Submit/Status/Idempotenz, Worker-Hauptpfad, Duplikatcluster, PII-Hold, CORS und Cron wurden auf WERK Staging tatsächlich geprüft."
 }
