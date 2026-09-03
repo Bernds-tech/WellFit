@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-03-v3",
   "title":"IDEENWERK Qualitäts- & Skalierungstafel",
   "rule":"Messwerte werden nur veröffentlicht, wenn der jeweilige Test tatsächlich auf einer dokumentierten Version und Umgebung ausgeführt wurde. Teiltests werden nicht als vollständige Runtime-Freigabe dargestellt.",
   "measured_runs":[
@@ -10,7 +10,16 @@
       "environment":"isolierter lokaler Spiegel der testbaren Kernmodule; Node.js 22.16.0; kein PostgreSQL/Docker in der Ausführungsumgebung",
       "result":{"tests":14,"passed":14,"failed":0},
       "scope":"Statusmaschine, Triage, Clusterentscheidung und konservativer Semantik-Fallback",
-      "limitation":"Kein API-, Datenbank-, Worker- oder Integrationsruntime-Test."
+      "limitation":"Erster gemessener Kernlauf; später am selben Tag durch den erweiterten 18-Test-Lauf ergänzt. Kein API-/Datenbank-/Worker-Runtime-Test."
+    },
+    {
+      "id":"unit-security-20260903-02",
+      "type":"Node Unit Tests",
+      "executed_at":"2026-09-03",
+      "environment":"isolierter lokaler Spiegel der aktuellen testbaren Kern-/Securitymodule; Node.js 22.16.0; kein PostgreSQL/Docker in der Ausführungsumgebung",
+      "result":{"tests":18,"passed":18,"failed":0},
+      "scope":"Statusmaschine, Triage, Clusterentscheidung, Fallback-Satztrennung, Status-Token-Hashing/Public-IDs sowie Semantikprovider fail-open/fail-closed",
+      "limitation":"Kein PostgreSQL-, Fastify-API-, Worker-, Migrations-, Backup/Restore- oder Lasttest."
     },
     {
       "id":"cluster-fallback-v2-20260903-01",
