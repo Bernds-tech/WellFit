@@ -8,18 +8,22 @@ function normalizeText(value='') {
 }
 
 function fallbackSignatures(proposal={}) {
-  const problem = normalizeText(proposal.problem || proposal.original_text || '');
-  const solution = normalizeText(proposal.proposal || proposal.original_text || '');
+  const raw = String(proposal.original_text || proposal.problem || proposal.proposal || '').trim();
+  const sentences = raw.split(/(?<=[.!?])\s+/).map(x=>x.trim()).filter(Boolean);
+  const problemRaw = sentences.length > 1 ? sentences[0] : (proposal.problem || raw);
+  const solutionRaw = sentences.length > 1 ? sentences.slice(1).join(' ') : (proposal.proposal || raw);
+  const problem = normalizeText(problemRaw);
+  const solution = normalizeText(solutionRaw);
   return {
     provider: 'deterministic_fallback',
-    model_version: 'fallback-v1',
+    model_version: 'fallback-v2-sentence-split',
     problem_signature: problem.slice(0,1200),
     solution_signature: solution.slice(0,1200),
     topic: proposal.topic || null,
     suggested_level: proposal.suggested_level || null,
     region_scope: proposal.region || null,
     open_questions: [],
-    raw: { mode: 'fallback-no-semantic-provider' }
+    raw: { mode: 'fallback-no-semantic-provider', sentence_split: sentences.length > 1 }
   };
 }
 
