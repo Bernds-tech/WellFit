@@ -1,0 +1,42 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Staatsverschlankung: Costing Inputs",
+  "purpose":"Für neue Verschlankungsideen stehen sofort reale Baselines zur Verfügung. Abgeleitete Durchschnittswerte dürfen nur für Vor-Szenarien verwendet werden und werden vor finaler BUD-01-Buchung durch echte Kosten der betroffenen Einheit ersetzt.",
+  "inputs":[
+    {"id":"STATE-PERSONNEL-2025","metric":"Gesamtstaatlicher Personalaufwand","value_eur_billion":58.8,"year":2025,"type":"Ist","evidence":"A1","source":"Statistik Austria Öffentliche Finanzen März 2026","use":"Größenordnung/Perimeter; niemals pauschale Prozentkürzung"},
+    {"id":"STATE-SACH-2025","metric":"Gesamtstaatlicher Sachaufwand","value_eur_billion":36.1,"year":2025,"type":"Ist","evidence":"A1","source":"Statistik Austria","use":"Perimeter für Beschaffung/IT/Immobilien/Vorleistungen; nicht alles Verwaltung"},
+    {"id":"FED-VBAE-2024","metric":"Bund Kernpersonal","value":137687,"unit":"VBÄ","year":2024,"type":"Ist","evidence":"A1","source":"BKA Personal des Bundes 2025"},
+    {"id":"FED-ADMIN-VBAE-2024","metric":"Bund Verwaltungsdienst","value":47092,"unit":"VBÄ","year":2024,"type":"Ist","evidence":"A1","source":"BKA Personal des Bundes 2025"},
+    {"id":"FED-MINISTRY-ADMIN-2024","metric":"Verwaltungsbedienstete in Ministerien","value":10200,"unit":"Mitarbeiter ungefähr","year":2024,"type":"amtliche Näherungsangabe","evidence":"A1","source":"BKA Personal des Bundes 2025","warning":"Köpfe/Näherung; nicht direkt VBÄ"},
+    {"id":"FED-PERSONNEL-OUT-2025","metric":"Personalauszahlungen Bundesbedienstete gesamt","value_eur_billion":13.475,"year":2025,"type":"vorläufiger Erfolg","evidence":"B1/A2","source":"Budgetdienst Budgetanalyse 2027/2028 Tabelle Personal"},
+    {"id":"FED-PERSONNEL-OUT-2026","metric":"Personalauszahlungen Bundesbedienstete gesamt","value_eur_billion":13.757,"year":2026,"type":"BVA","evidence":"B1/A2","source":"Budgetdienst Budgetanalyse 2027/2028","warning":"Scope der Budgetdienst-Tabelle verwenden; nicht mit ESVG-Arbeitnehmerentgelt Gesamtstaat vermischen"},
+    {"id":"FED-EXISTING-REDUCTION","metric":"bereits beschlossene Verwaltungsreduktion","value":2600,"unit":"VBÄ","type":"Baseline-Maßnahme","evidence":"B1/A2","source":"Budgetdienst Budgetanalyse 2027/2028","counts_as_werk_delta":false},
+    {"id":"FED-2029-NET-VBAE-REDUCTION","metric":"Bundespersonal-Ziel Ende 2029 ggü. Ende 2025","value":1491,"unit":"VBÄ weniger","type":"Baseline-Ziel","evidence":"B1","source":"Budgetdienst Budgetanalyse 2027/2028","counts_as_werk_delta":false},
+    {"id":"FED-BD-UNIT-COST-INDICATION","metric":"Budgetdienst abgeleitete jährliche Personalauszahlungsreduktion bei ca. 1.500 VBÄ","value_eur_million":150,"effective_from":2030,"type":"Budgetdienst-Näherung","evidence":"B1","source":"Budgetdienst Budgetanalyse 2027/2028","derived_unit_cost_eur_per_vbae_approx":100000,"use":"nur Vor-Sensitivität; final echte Stellenkosten/Arbeitgeberkosten/Übergangskosten verwenden"},
+    {"id":"BBG-VOLUME-2024","metric":"BBG Beschaffungsvolumen","value_eur_billion":3.38,"year":2024,"type":"Ist/BBG Bericht","evidence":"A2/Unternehmensbericht","source":"BBG Jahresabschlussunterlagen 2025"},
+    {"id":"BBG-REPORTED-SAVING-2024","metric":"BBG gemeldeter Einsparungseffekt","value_eur_million":557.6,"year":2024,"type":"Unternehmenskennzahl","evidence":"nicht als BUD-01 verifiziert","source":"BBG","warning":"RH kritisierte frühere Berechnungsmethode; nicht als WERK-Effekt übernehmen"},
+    {"id":"PUBLIC-UNITS-S13","metric":"staatliche Einheiten S.13","value":4958,"year":2025,"type":"Ist","evidence":"A1","source":"Statistik Austria"},
+    {"id":"PUBLIC-UNITS-OTHER","metric":"sonstige öffentliche Einheiten S.11/S.12","value":2749,"year":2025,"type":"Ist","evidence":"A1","source":"Statistik Austria"},
+    {"id":"FED-SHAREHOLDINGS","metric":"direkte/mehrheitliche Bundesbeteiligungen","value":102,"year":2026,"type":"aktueller Bericht","evidence":"A2","source":"BMF Beteiligungsbericht 2027/2028"}
+  ],
+  "preliminary_sensitivity_rules":[
+    {"rule":"Für erste Personal-Sensitivitäten darf vorläufig mit rund 100.000 Euro jährlicher Personalauszahlung je tatsächlich dauerhaft entfallendem Bundes-VBÄ gearbeitet werden, weil der Budgetdienst 1.500 VBÄ mit rund 150 Mio. Euro jährlich verknüpft. Das ist kein universeller Vollkostenwert."},
+    {"rule":"Finales Costing ersetzt Durchschnittswerte durch echte Personalgruppe, Besoldung, Arbeitgeberbeiträge, Zulagen, Überstunden, Arbeitsplatz-Sachaufwand, IT/Fläche und Transformationskosten."},
+    {"rule":"Bei natürlicher Fluktuation beginnt der volle Effekt erst, wenn eine Stelle tatsächlich nicht nachbesetzt wird; Vakanz-/Pensionierungszeitpunkt im Jahresprofil berücksichtigen."},
+    {"rule":"Bei Prozessdigitalisierung werden Personalersparnisse nur verbucht, wenn Planstelle/externes Budget/Überstunden tatsächlich sinken oder Kapazität nachweislich andere budgetierte Leistung ersetzt."},
+    {"rule":"Bei Beschaffung wird nur die Preis-/TCO-Differenz auf tatsächlich migriertes Volumen gerechnet, nicht ein pauschaler Prozentsatz auf 36,1 Mrd. Sachaufwand."}
+  ],
+  "missing_inputs_for_real_costing":[
+    "Personalvollkosten je Ressort/Dienststelle/Berufsgruppe",
+    "Pensionierungs-/Fluktuationskalender 2026-2031 je Verwaltungseinheit",
+    "Planstellen/VBÄ und Aufgaben je Organisationsunit",
+    "betriebsmäßiger Sachaufwand je Prozess/Einheit",
+    "IT-Applikations-/Lizenz-/Hostingkosten je Ressort",
+    "Immobilienfläche/Miete/Betrieb je Standort",
+    "Beschaffungsvolumen je Warengruppe und heutiger Einkaufskanal",
+    "Förderabwicklungskosten je Fonds/Agentur",
+    "Backoffice-FTE und Transaktionsmengen bei Beteiligungen/öffentlichen Einheiten",
+    "Abfertigungs-/Versetzungs-/Schulungs-/Parallelbetriebskosten"
+  ],
+  "booking_rule":"Kein Wert aus dieser Datei zählt automatisch in funding-matrix.json. Erst ein konkretes Maßnahmen-Costing nach reform-costing-standard.json kann den Status 'verifizierter dauerhafter Nettoeffekt' erhalten."
+}
