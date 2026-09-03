@@ -1,0 +1,81 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Register laufender Regierungsmaßnahmen / Baseline",
+  "rule":"Bereits beschlossene, budgetierte oder konkret laufende Maßnahmen des Bundes, der Länder, Gemeinden oder der Sozialversicherung sind Referenzpfad. WERK darf daraus keinen neuen eigenen Einsparungs- oder Einnahmeneffekt ableiten. Nur ein zusätzlich nachgewiesener Nettoeffekt gegenüber dieser Baseline zählt für BUD-01.",
+  "items":[
+    {
+      "id":"GOV-SUBSIDY-2026",
+      "area":"Förderungen",
+      "status":"beschlossene Reformrichtung",
+      "baseline":"Direkte Bundesförderungen BVA 2026 10,1 Mrd. Euro; Förder-Taskforce definiert 7,7 Mrd. Euro grundsätzlich gestaltbares Volumen.",
+      "planned_effect":"250 Mio. Euro 2027, 450 Mio. Euro 2028, 650 Mio. Euro 2029; geplantes Volumen 2026–2029 insgesamt 1,95 Mrd. Euro laut Bundesregierung.",
+      "werk_rule":"SUB-01 darf nur zusätzliche Einsparungen jenseits dieses bereits vorgesehenen Pfades verbuchen. Programmstreichungen, Bündelungen oder Wirkungsverbesserungen einzeln nachweisen.",
+      "source":"BMF Förder-Taskforce 2026"
+    },
+    {
+      "id":"GOV-BUDGET-27-28",
+      "area":"Budget/Konsolidierung",
+      "status":"Bundesbudgets 2027/2028 beschlossen",
+      "baseline":"Bundesregierung budgetiert weitere Netto-Konsolidierung von 1,5 Mrd. Euro 2027 und 2,5 Mrd. Euro 2028; brutto 2,1 bzw. 5,0 Mrd. Euro, begleitet von Offensivmaßnahmen.",
+      "target":"Maastricht-Defizit 2028 rund 3,0 % des BIP; danach unter 3 % laut Budgetpfad.",
+      "werk_rule":"BUD-01 misst WERK gegen den jeweils aktuellen beschlossenen Gesamtstaatspfad. Bereits im Budget enthaltene Steuer-/Ausgabenmaßnahmen sind keine WERK-Neueffekte.",
+      "source":"BMF Budget 2027/2028"
+    },
+    {
+      "id":"GOV-TAX-27-28",
+      "area":"Steuern/Abgaben",
+      "status":"Budgetbegleitgesetz beschlossen",
+      "baseline":"Mehrere Steueränderungen für 2027/28 wurden beschlossen, darunter Einschränkungen bei Gewinnfreibetrag/Abschreibungen, Änderungen Familienbonus/Kinderabsetzbetrag, Abschaffung von Telearbeits-/Arbeitsplatzpauschalen und Anhebung der Alkoholsteuer.",
+      "werk_rule":"TAX-01/TAX-02 immer auf Rechtsstand nach Budgetbegleitgesetz 2027/28 rechnen, nicht auf älterer Steuerbasis.",
+      "source":"BMF Budgetbegleitgesetz 2027/2028"
+    },
+    {
+      "id":"GOV-FLAF-2028",
+      "area":"Arbeit/Lohnnebenkosten",
+      "status":"Budgetpolitische Offensivmaßnahme",
+      "baseline":"Ab 2028 soll der Dienstgeberbeitrag zum FLAF um einen Prozentpunkt gesenkt werden; Finanzierung ist Teil des Doppelbudgets 2027/28.",
+      "werk_rule":"Eine WERK-Lohnnebenkostensenkung muss diese bereits beschlossene Veränderung als Ausgangsbasis verwenden und dauerhafte Gegenfinanzierung ausweisen.",
+      "source":"BMF Budgetrede 2027/2028"
+    },
+    {
+      "id":"GOV-REFORMPARTNERSHIP-ADMIN",
+      "area":"Verwaltung/Föderalismus",
+      "status":"Reformpartnerschaft 2026 laufend",
+      "baseline":"Bund, Länder, Städte und Gemeinden arbeiten bereits an Neuordnung von Zuständigkeiten, Abbau von Doppelgleisigkeiten und Digitalisierung. AVG-Novelle zur digitalen Verwaltung sowie gebietskörperschaftsübergreifender Amtssachverständigenpool wurden konkret vorbereitet/beschlossen.",
+      "werk_rule":"REG-01/ADM-01 müssen den konkreten Rechtsstand der Reformpartnerschaft übernehmen. WERK-Zusatznutzen nur für darüber hinausgehende messbare Kompetenz-, Prozess- oder Kostenverbesserungen.",
+      "source":"Bundeskanzleramt Reformpartnerschaft 2026"
+    },
+    {
+      "id":"GOV-REFORMPARTNERSHIP-HEALTH",
+      "area":"Gesundheit",
+      "status":"politische Weichenstellung 2026",
+      "baseline":"Gesundheitsreform zielt bereits auf Bündelung von Finanzierungs-, Planungs- und Versorgungsverantwortung, stärkere Primärversorgung, koordinierte Patientenpfade und Leitprinzip digital vor ambulant vor stationär.",
+      "werk_rule":"WERK-Gesundheitsreform darf diese Strukturziele nicht als eigene Neuerung verkaufen. Zusätzliche Effekte müssen über konkrete Organisations-, Finanzierungs- und Outcome-Verbesserungen nachgewiesen werden.",
+      "source":"Bundeskanzleramt Reformpartnerschaft Gesundheit"
+    },
+    {
+      "id":"GOV-REFORMPARTNERSHIP-EDU",
+      "area":"Bildung",
+      "status":"Reformpartnerschaft 2026 laufend",
+      "baseline":"Geplant sind einheitlichere Personalkategorien, gemeinsames Personalmanagement, mehr Schulautonomie in der Personalverwendung und ein einheitliches IT-/Schulverwaltungssystem; Elementarpädagogik soll bundeslandübergreifende Berufsmobilität erleichtern.",
+      "werk_rule":"Bildungsanalyse muss aktuelle Reformarchitektur als Baseline berücksichtigen; nur zusätzliche Outcome- oder Kosteneffekte zählen für WERK.",
+      "source":"Bundeskanzleramt Reformpartnerschaft Bildung"
+    },
+    {
+      "id":"GOV-DADEX",
+      "area":"Digitalstaat",
+      "status":"laufendes Regierungsprojekt",
+      "baseline":"ID Austria und dadeX/Once-Only werden bereits ausgebaut. Für dadeX sind 2027/28 bis zu rund 15 Mio. Euro vorgesehen; Bundesregierung nennt Einsparungspotenzial bis rund 160 Mio. Euro in zwei Jahren.",
+      "werk_rule":"160 Mio. Euro sind ein Regierungs-Potenzialwert, kein verifizierter dauerhafter WERK-Effekt. WERK muss realisierte Prozess-/Personal-/Zeitwirkung zusätzlich messen.",
+      "source":"Bundeskanzleramt Digi-Budget 2026"
+    }
+  ],
+  "mandatory_overlap_check":[
+    "Ist die Maßnahme bereits gesetzlich beschlossen?",
+    "Ist sie im Bundes-/Landes-/Gemeindebudget bereits finanziert?",
+    "Ist der behauptete Effekt bereits im offiziellen Defizit-/Ausgabenpfad enthalten?",
+    "Ist es nur ein Potenzialwert oder bereits realisierter Nettoeffekt?",
+    "Welche zusätzliche Änderung schlägt WERK konkret vor?",
+    "Wie groß ist ausschließlich der zusätzliche dauerhafte Nettoeffekt?"
+  ]
+}
