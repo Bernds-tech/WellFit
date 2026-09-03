@@ -1,0 +1,129 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block E",
+  "principle":"Auch kleinere oder querschnittliche Bereiche werden dokumentiert, damit sie vor der Endrechnung nicht verloren gehen.",
+  "priority_anchor":"BUD-01 bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"FAMILY-CHILDCARE",
+      "name":"Kinder, Familie und Elementarpädagogik",
+      "status":"vertieft – Kosten-/Arbeitsmarktmodell offen",
+      "facts":[
+        "Aufwendungen des Familienlastenausgleichsfonds lagen 2024 bei rund 8,7 Mrd. Euro.",
+        "Betreuungsquote 0–2 Jahre 2024/25: 34,8 %; 3–5 Jahre: 94,3 %.",
+        "60,0 % der betreuten 0–5-Jährigen waren 2024/25 in VIF-konformen Einrichtungen; regional reicht der Anteil laut Monitoring von 38,5 % in Oberösterreich bis 89,1 % in Wien.",
+        "Nur 24,4 % der Einrichtungen hatten 2024/25 ganzjährig 51–52 Wochen geöffnet."
+      ],
+      "diagnosis":[
+        "Familienpolitik ist zugleich Sozial-, Bildungs-, Arbeitsmarkt- und Demografiethema.",
+        "Mehr Geldleistung ersetzt fehlende kompatible Betreuungszeiten nicht; Sachleistung und Geldtransfer müssen gemeinsam bewertet werden.",
+        "Regionale Unterschiede sind groß, daher braucht WERK Mindestziele für Vereinbarkeit, aber keine identische Betriebsform in jedem Land/Gemeinde."
+      ],
+      "next_analysis":["FLAF-Leistungen einzeln","Kinderbetreuungskosten Bund/Land/Gemeinde/Eltern","VIF-Angebot nach Bezirk","Personalbedarf/Pädagogenschlüssel","Öffnungszeiten vs Arbeitszeiten","Effekt auf Vollzeit/Teilzeit von Eltern","Kinderarmut und Verteilung","frühkindliche Bildungsoutcomes"]
+    },
+    {
+      "id":"HOUSEHOLD-COSTS",
+      "name":"Haushaltskosten und Leistbarkeit als Querschnitt",
+      "status":"neue Datenbasis für Verteilungsmodell",
+      "facts":[
+        "Durchschnittliche monatliche Haushaltsausgaben 2024/25: rund 4.170 Euro.",
+        "Wohnen und Energie bilden mit 26,4 % den größten Ausgabenblock; Verkehr 13,6 %, Ernährung 11,6 %.",
+        "Diese Durchschnittswerte ersetzen keine Einkommensdezil-/Haushaltstypanalyse."
+      ],
+      "diagnosis":[
+        "Jede Steuer-, Energie-, Verkehrs-, Wohn- oder Sozialreform muss gegen reale Haushaltsbudgets getestet werden.",
+        "Durchschnittswerte sind für Fairnessprüfung zu grob; entscheidend sind Einkommensgruppen, Haushaltstyp, Region und Wohnform."
+      ],
+      "next_analysis":["Ausgaben nach Einkommensdezilen","Single/Familie/Alleinerziehend/Pension","Mieter/Eigentümer","Stadt/Land","Autoabhängigkeit","Energieträger","Kinderkosten","Pflege-/Gesundheitsbelastung"]
+    },
+    {
+      "id":"FINANCIAL-STABILITY",
+      "name":"Banken, Kredite und Finanzmarktstabilität",
+      "status":"erste Vertiefung – Staatsrisiko-/Immobilienverknüpfung offen",
+      "facts":[
+        "OeNB bewertet die Finanzstabilität im Frühjahr 2026 insgesamt als gut und die Kapitalisierung der Banken als verbessert.",
+        "Kreditqualität bleibt insbesondere bei KMU und gewerblichen Immobilienunternehmen angespannt.",
+        "Der österreichische Bankensektor hat eine Bilanzsumme von mehr als 250 % des BIP und ist stark mit CESEE-Märkten sowie Immobilienfinanzierung verflochten.",
+        "Neue Wohnbaukredite lagen im Frühjahr 2026 wieder bei über 1,6 Mrd. Euro pro Monat, nach starkem Rückgang ab 2022."
+      ],
+      "diagnosis":[
+        "Banken sind kein akuter BUD-01-Sparblock, aber Finanzkrisen können den Staatshaushalt massiv belasten; daher gehören sie in den Stresstest.",
+        "Immobilien-, Gewerbeimmobilien- und CESEE-Risiken müssen als Eventualrisiko beobachtet werden.",
+        "Sektorabgaben dürfen nicht nur kurzfristiges Aufkommen betrachten, sondern Kreditangebot, Wettbewerb und Finanzstabilität."
+      ],
+      "next_analysis":["Bankenstresstest und mögliche Fiskalrisiken","Gewerbeimmobilien-NPL","Wohnbaukreditqualität","CESEE-Exposure","Einlagensicherung/Abwicklung","Bankenabgaben","Kreditkosten KMU","Makroprudenzielle Regeln und Wohnungsmarkt"]
+    },
+    {
+      "id":"FOREIGN-TRADE",
+      "name":"Außenhandel, Exportabhängigkeit und Lieferketten",
+      "status":"vertieft – Branchen-/Abhängigkeitsmatrix offen",
+      "facts":[
+        "Warenimporte 2025: rund 196,9 Mrd. Euro; Exporte rund 189,8 Mrd. Euro; Handelsbilanzdefizit rund 7,1 Mrd. Euro.",
+        "Rund zwei Drittel des österreichischen Warenhandels entfallen auf die EU.",
+        "Deutschland bleibt mit Abstand wichtigster Handelspartner; die USA sind wichtigster Überseemarkt, wobei Exporte dorthin 2025 deutlich zurückgingen.",
+        "Das größte bilaterale Handelsdefizit bestand 2025 mit China, gefolgt von Deutschland."
+      ],
+      "diagnosis":[
+        "Österreichs Wohlstand hängt stark von Exportfähigkeit und europäischen Wertschöpfungsketten ab; Budgetpolitik darf Wettbewerbsfähigkeit nicht isoliert betrachten.",
+        "Ein Handelsdefizit ist nicht automatisch ein politisches Versagen, zeigt aber Abhängigkeiten und Veränderungen in Branchen/Partnern.",
+        "Lieferkettenrisiken bei Energie, Technologie, Pharma, Rohstoffen und Verteidigung gehören in die Resilienzanalyse."
+      ],
+      "next_analysis":["Exportwertschöpfung nach Branche","Deutschland-Abhängigkeit","USA/China/CESEE","kritische Importe","Dienstleistungshandel","Exportförderung","Handelsfinanzierung","Lieferketten-Stresstest","EU-Binnenmarktregulierung"]
+    },
+    {
+      "id":"CULTURE-MEDIA",
+      "name":"Kultur, Medien und öffentliche Information",
+      "status":"erste Vertiefung – Förder-/Public-Value-Modell offen",
+      "facts":[
+        "Öffentliche Kulturausgaben lagen 2024 bei rund 0,74 % des BIP.",
+        "Der Kultursektor trug 2023 rund 1,8 % zur Bruttowertschöpfung bei.",
+        "Kultur- und Medienausgaben sind föderal verteilt und müssen nach Bund/Land/Gemeinde sowie Förderzweck differenziert werden."
+      ],
+      "diagnosis":[
+        "Kulturpolitik darf weder pauschal als Luxusausgabe noch als von Wirkungskontrolle ausgenommener Bereich gelten.",
+        "Förderung braucht klare Ziele: kulturelle Vielfalt, Zugang, Denkmalpflege, regionale Infrastruktur, Medienpluralität oder wirtschaftliche Wirkung.",
+        "Staatliche Inserate und Medienförderung müssen strikt von redaktioneller Unabhängigkeit getrennt sein."
+      ],
+      "next_analysis":["Kulturausgaben nach Ebene/Zweck","Institutionen vs Projektförderung","Besucher-/Zugangskennzahlen","Denkmalschutz","regionale Versorgung","ORF-Finanzierung und Auftrag","Medienförderung","staatliche Inserate","Transparenz und Unabhängigkeit"]
+    },
+    {
+      "id":"DISABILITY-REHAB",
+      "name":"Behinderung, Invalidität und Rehabilitation",
+      "status":"noch offen – eigener Datenblock zwingend",
+      "diagnosis":[
+        "Dieser Bereich darf nicht in Pensionen oder Sozialhilfe verschwinden. Leistungen, Erwerbsintegration, Rehabilitation, Pflege und Barrierefreiheit haben unterschiedliche Ziele und Zuständigkeiten.",
+        "WERK muss zwischen Schutzbedarf, Erwerbsfähigkeit, Rehabilitation und bürokratischen Mehrfachbegutachtungen unterscheiden."
+      ],
+      "next_analysis":["Invaliditäts-/Berufsunfähigkeitspensionen","Rehabilitation vor Pension","Behindertenpass/Pflegegeld/Sozialleistungen","Beschäftigungsquote Menschen mit Behinderung","Ausgleichstaxe","Arbeitsassistenz","Barrierefreiheit staatlicher Leistungen","Mehrfachbegutachtungen und Verwaltung"]
+    },
+    {
+      "id":"WATER-CIRCULAR",
+      "name":"Wasser, Abwasser, Abfall und Kreislaufwirtschaft",
+      "status":"noch offen – eigener Datenblock nötig",
+      "diagnosis":[
+        "Kommunale Infrastruktur für Wasser, Abwasser und Abfall ist kapitalintensiv und langfristig; Gebühren, Investitionen und Umweltziele müssen gemeinsam betrachtet werden.",
+        "Kreislaufwirtschaft kann Rohstoffabhängigkeit reduzieren, aber nur bei wirtschaftlich sinnvollen Stoffströmen."
+      ],
+      "next_analysis":["Trinkwasser-/Abwassernetz Investitionsbedarf","Sanierungsstau","Gebühren","kommunale Schulden","Abfallmengen/Recycling","Pfandsysteme","Deponie/Verbrennung","Sekundärrohstoffe","EU-Vorgaben","Hochwasser-/Dürre-Verknüpfung"]
+    },
+    {
+      "id":"TELECOM-CRITICAL-DIGITAL",
+      "name":"Telekommunikation, Breitband und kritische digitale Infrastruktur",
+      "status":"noch offen – Datenblock nach RTR/Breitbandatlas",
+      "diagnosis":[
+        "Digitalstaat, Wirtschaft und Sicherheit hängen von resilienter Konnektivität ab; reine Abdeckung sagt wenig über Qualität, Redundanz und Leistbarkeit.",
+        "Förderung des Netzausbaus muss zusätzliche Versorgung und Wettbewerb nachweisen."
+      ],
+      "next_analysis":["Glasfaserabdeckung Homes Passed/Connected","5G-Abdeckung und Qualität","ländliche Lücken","Preise","Netzredundanz","Strom-/Blackoutresilienz","Förderungen","Wettbewerb Wholesale/Retail","kritische Lieferanten und Cybersecurity"]
+    }
+  ],
+  "sources":[
+    {"id":"STAT-CHILDCARE-2024-25","title":"Statistik Austria Kinderbetreuung/Monitoring 2024/25","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bildung/kindertagesheime-kinderbetreuung"},
+    {"id":"STAT-FAMILY-2024","title":"Statistik Austria Familienleistungen","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/sozialleistungen/familienleistungen"},
+    {"id":"STAT-HH-2024-25","title":"Statistik Austria Konsumerhebung 2024/25","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/ausgaben-und-ausstattung-privater-haushalte/ausgaben"},
+    {"id":"OENB-FSR51","title":"OeNB Financial Stability Report 51 / April 2026","url":"https://www.oenb.at/Publikationen/Finanzmarkt/Finanzmarktstabilitaetsbericht/2026/financial-stability-report-51.html"},
+    {"id":"STAT-TRADE-2025","title":"Statistik Austria Außenhandel 2025","url":"https://www.statistik.at/fileadmin/announcement/2026/06/20260630Aussenhandel2025.pdf"},
+    {"id":"STAT-CULTURE","title":"Statistik Austria Kulturwirtschaft und öffentliche Kulturausgaben","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/kultur/kulturwirtschaft-und-oeffentliche-kulturausgaben"}
+  ],
+  "next_block":"Block F: Disability/Wasser/Telekom mit Primärdaten schließen; internationale Benchmark-Matrix, vollständige COFOG-/UG-Zerlegung und Inventar laufender Regierungsreformen aufbauen."
+}
