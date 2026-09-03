@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Transparenz, Korruptionsprävention und Parteienfinanzierung",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Transparenz und Antikorruption sind keine bloßen Moralthemen: Intransparente Beschaffung, Förderungen, Beteiligungen, Postenbesetzungen und Parteienfinanzierung können finanzielle Fehlsteuerung begünstigen. Kontrollen müssen wirksam, verhältnismäßig und rechtsstaatlich sein.",
+  "current_facts":[
+    {"fact":"Das Informationsfreiheitsgesetz gilt seit 1. September 2025 und regelt Veröffentlichung von Informationen allgemeinen Interesses sowie Informationszugang unter anderem für Organe von Bund, Ländern, Gemeinden und Gemeindeverbänden.","source":"RIS Informationsfreiheitsgesetz BGBl. I Nr. 5/2024"},
+    {"fact":"Für Rechenschaftsberichte politischer Parteien gelten seit dem Berichtsjahr 2023 erweiterte Transparenz- und Prüfregeln; Berichte sind maschinenlesbar zu übermitteln und werden vom Rechnungshof veröffentlicht und geprüft.","source":"Rechnungshof Kontrolle der Parteien"},
+    {"fact":"Der Rechnungshof hat 2026 bei mehreren Parteien für Rechenschaftsberichte 2023 Prüfungen abgeschlossen bzw. Mitteilungen an den UPTS erstattet. Das zeigt, dass das reformierte Kontrollsystem praktisch angewendet wird.","source":"Rechnungshof Rechenschaftsberichte 2023/2024"},
+    {"fact":"Rechenschaftsberichte 2024 wurden am 1. Jänner 2026 veröffentlicht; bei mehreren großen Parteien liefen Prüfungen weiter.","source":"Rechnungshof 01.01.2026"}
+  ],
+  "structural_questions":[
+    "Wie vollständig und nutzbar ist die proaktive Veröffentlichung nach IFG tatsächlich über Bund, Länder, Gemeinden und öffentliche Unternehmen?",
+    "Welche Verträge, Förderungen, Gutachten, Inserate und Beteiligungsdaten fehlen weiterhin in einheitlich maschinenlesbarer Form?",
+    "Welche Prüfrechte und Datenzugänge hat der Rechnungshof bei Parteien, öffentlichen Unternehmen und geförderten privaten Rechtsträgern tatsächlich?",
+    "Wie lange dauern Prüf-/Sanktionsverfahren und welche Verstöße treten wiederholt auf?",
+    "Wie transparent sind öffentliche Postenbesetzungen, Qualifikationskriterien und Interessenkonflikte?",
+    "Welche Lobbying-/Nebentätigkeits-/Drehtür-Risiken bestehen bei politischen und leitenden öffentlichen Funktionen?",
+    "Wie lassen sich Hinweisgeber schützen, ohne anonyme Beschuldigungen ungeprüft als Tatsache zu behandeln?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "einheitliches maschinenlesbares Transparenzportal für Verträge, Förderungen, Inserate, Beteiligungen und größere Gutachten – soweit rechtlich veröffentlichbar",
+    "IFG-Umsetzung nach Antwortzeiten, Ablehnungsgründen und Veröffentlichungspraxis messen",
+    "Parteien-/Wahlkampffinanzdaten so strukturieren, dass Spenden, Beteiligungen, nahestehende Organisationen und Ausgaben vergleichbar sind",
+    "Vergabe-/Förder-/Beteiligungsdaten automatisch auf Interessenkonflikt-/Konzentrationsrisiken vorsortieren; Entscheidung bleibt menschlich/rechtsstaatlich",
+    "Besetzungsverfahren für wesentliche öffentliche Leitungsfunktionen mit Kriterien, Hearing-/Auswahlbegründung und Compliance-Erklärung standardisieren",
+    "Sanktions- und Prüfprozesse auf Wirksamkeit und Verfahrensdauer evaluieren"
+  ],
+  "do_not_count_yet":["keine pauschale Korruptionsschadenszahl als BUD-01-Einsparung","keine Verdachtsmeldung als nachgewiesenen Verstoß behandeln","keine Veröffentlichungspflicht über Datenschutz/Geschäftsgeheimnisse hinweg annehmen","keine Kontrollbehörde nur nach Anzahl Verfahren bewerten"],
+  "next_data_needed":["IFG-Umsetzungsstatistik Bund/Länder/Gemeinden","öffentliche Inserate und Medienkooperationen gesamtstaatlich","UPTS-Sanktionsdaten","Lobbyingregister/Nebentätigkeiten","Vergabe-/Förder-Datenqualität","Besetzungsverfahren öffentlicher Unternehmen","Korruptions-/Compliance-Feststellungen Rechnungshof/BAK/WKStA in strukturierter Form"]
+}
