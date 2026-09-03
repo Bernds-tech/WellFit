@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Wohnen, Boden und Bauen",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Wohnpolitik wird auf Leistbarkeit, Angebotsausweitung, Zielgenauigkeit und Bau-/Lebenszykluskosten geprüft. Mieterschutz und Eigentumsrechte bleiben Rechtsgates; pauschale Preissteuerung ersetzt keine Ursachenanalyse.",
+  "current_facts":[
+    {"fact":"Durchschnittliche Miete inklusive Betriebskosten im 1. Quartal 2026: 695,1 Euro je Wohnung bzw. 10,5 Euro je m².","source":"Statistik Austria Wohnkosten, 18.06.2026"},
+    {"fact":"2025 lag die durchschnittliche Miete inklusive Betriebskosten bei 10,2 Euro/m²; deutliche regionale Unterschiede: etwa 7,7 Euro/m² im Burgenland, 12,2 in Salzburg, 12,0 in Tirol und 11,8 in Vorarlberg.","source":"Statistik Austria Wohnen 2025"},
+    {"fact":"8 % der Haushalte hatten 2025 Wohnkosten von mehr als 40 % des Haushaltseinkommens; bei privaten Hauptmieten waren es 21 %, bei Genossenschaftswohnungen 13 %, bei Gemeindewohnungen 11 %.","source":"Statistik Austria EU-SILC 2025"},
+    {"fact":"Wohnkosten stiegen laut Statistik Austria von 2015 bis 2025 im Schnitt um rund 35 %, bei Mietwohnungen knapp 40 %; der mittlere Einkommensanteil blieb insgesamt relativ stabil, Belastungen sind aber stark nach Haushaltstyp und Rechtsverhältnis verteilt.","source":"Statistik Austria Wohnen 2025, 10.06.2026"}
+  ],
+  "structural_questions":[
+    "Wie viel der Preissteigerung stammt aus Grundstücken, Baukosten, Normen, Finanzierung, Energieanforderungen, Abgaben und Angebotsknappheit?",
+    "Welche Förderungen erhöhen tatsächlich zusätzlichen Wohnbau und welche kapitalisieren sich teilweise in Preisen?",
+    "Wie unterscheiden sich Gemeinnützige, Gemeinde-, private Miet- und Eigentumsmodelle bei Vollkosten, Wohnqualität und Zugang?",
+    "Welche Regionen haben echten Wohnraummangel und welche eher Fehlallokation/Leerstand?",
+    "Welche Bauvorschriften verursachen hohe Kosten bei geringem Zusatznutzen und welche sind sicherheits-/qualitätsrelevant?",
+    "Wie wirken Widmung, Raumordnung und Infrastrukturkosten auf Grundstückspreise und Zersiedelung?",
+    "Welche Haushalte brauchen zielgenaue Unterstützung statt allgemeiner Preisbremsen?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Bau- und Normenreview mit Kosten/Nutzen je Vorgabe",
+    "Wohnbauförderung stärker nach zusätzlichem Angebot, Leistbarkeit und Energie-/Lebenszykluswirkung steuern",
+    "schnellere Genehmigungen und standardisierte Verfahren ohne Abbau notwendiger Sicherheits-/Nachbarrechte",
+    "Baulandmobilisierung und Infrastrukturkosten gemeinsam mit Gemeinden/Ländern prüfen",
+    "zielgenaue Wohnkostenhilfe für tatsächlich belastete Haushalte statt breit gestreuter Subventionen",
+    "öffentliche Grundstücke nur nach strategischer Wohn-/Infrastrukturprüfung veräußern",
+    "Leerstandsdaten verbessern, bevor Abgaben oder Eingriffe beschlossen werden"
+  ],
+  "do_not_count_yet":["keine Mietpreisbremse als Budgeteinsparung","keine pauschale Normenstreichung","keine Wohnbauförderkürzung ohne Angebots-/Verteilungseffekt","keinen Verkauf öffentlichen Bodens als dauerhafte Gegenfinanzierung"],
+  "next_data_needed":["Baukostenzerlegung","Bauland-/Grundstückspreise regional","Wohnbauförderung je Land und Instrument","Baubewilligungen/Fertigstellungen","Leerstandsdaten","Normen-/Abgabenanteil je Gebäudetyp","Wohnbeihilfen und Empfängerstruktur"]
+}
