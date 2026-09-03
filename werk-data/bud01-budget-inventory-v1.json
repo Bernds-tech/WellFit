@@ -1,0 +1,88 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – Budget- und Ausgabeninventar / Tiefenphase 2",
+  "priority":"P1 – strukturell ausgeglichener Staatshaushalt",
+  "method_rule":"Gesamtstaatliche COFOG-Ausgaben und Bundesbudget-Untergliederungen sind zwei unterschiedliche Sichten und dürfen nicht addiert oder verwechselt werden. COFOG zeigt konsolidierte gesamtstaatliche Aufgaben; der BVA zeigt den Bundeshaushalt und enthält große Transfers an andere Staatssektoren.",
+  "general_government":{
+    "latest_total_2025_eur_billion":283.0,
+    "expenditure_ratio_2025_pct_gdp":55.2,
+    "cofog_structure":{"divisions":10,"groups":69},
+    "largest_known_2025":{"social_protection_eur_billion":116.8,"social_protection_share_total_pct":41.3},
+    "demography_dependent_2019_pct_gdp":33.5,
+    "demography_dependent_2025_pct_gdp":37.8,
+    "growth_2019_2025_pct_points_gdp":{"social_protection":2.5,"health":1.4,"economic_affairs":0.7,"education":0.4,"environmental_protection":0.4,"general_public_services":0.4},
+    "transaction_growth_2019_2025_pct_points_gdp":{"cash_social_benefits":2.1,"employee_compensation":0.9,"intermediate_consumption":0.7,"social_transfers_in_kind":0.7,"gross_fixed_capital_formation":0.8,"capital_transfers":0.5},
+    "interpretation":"Der seit 2019 gestiegene Staatsausgabenanteil ist stark von Pensionen, Gesundheit, Bildung und Investitionen geprägt. Das ist ein Prüfauftrag für System- und Effizienzreformen, kein pauschaler Kürzungsauftrag."
+  },
+  "federal_budget_2027":{
+    "cash_outflows_eur_billion":128.2074,
+    "cash_inflows_eur_billion":112.6924,
+    "net_financing_balance_eur_billion":-15.515,
+    "warning":"Bundes-Nettofinanzierungssaldo ist nicht ident mit Maastricht-Defizit des Gesamtstaats.",
+    "rubrics_eur_billion":{"Recht und Sicherheit":15.9460,"Arbeit Soziales Gesundheit Familie":65.6696,"Bildung Forschung Kunst Kultur":21.6569,"Wirtschaft Infrastruktur Umwelt":16.1860,"Kassa und Zinsen":8.7490},
+    "underlying_units":[
+      {"ug":"01","name":"Präsidentschaftskanzlei","outflow_eur_million":12.3,"review_focus":"institutionelle Grundfunktion; Größenordnung klein"},
+      {"ug":"02","name":"Bundesgesetzgebung","outflow_eur_million":276.0,"review_focus":"Parlament/Bundesrat/Institutionen; Effizienz statt fiskalischer Haupthebel"},
+      {"ug":"03","name":"Verfassungsgerichtshof","outflow_eur_million":21.2,"review_focus":"Rechtsstaat; nicht als Konsolidierungshebel behandeln"},
+      {"ug":"04","name":"Verwaltungsgerichtshof","outflow_eur_million":27.5,"review_focus":"Rechtsstaat; Verfahrenseffizienz prüfen"},
+      {"ug":"05","name":"Volksanwaltschaft","outflow_eur_million":16.6,"review_focus":"Kontrollfunktion"},
+      {"ug":"06","name":"Rechnungshof","outflow_eur_million":48.9,"review_focus":"Kontrollfunktion; potenziell Reformhebel statt Sparobjekt"},
+      {"ug":"10","name":"Bundeskanzleramt","outflow_eur_million":652.6,"review_focus":"Verwaltung, Koordination, Digitalisierung, Förder-/Projektprogramme"},
+      {"ug":"11","name":"Inneres","outflow_eur_million":4100.4,"review_focus":"Personal-/Sachbetrieb, Sicherheit, Polizei; Outcome und Digitalisierung"},
+      {"ug":"12","name":"Äußeres","outflow_eur_million":624.1,"review_focus":"Diplomatie, Ausland, Beiträge; Verpflichtungen/Netzwerk prüfen"},
+      {"ug":"13","name":"Justiz","outflow_eur_million":2419.1,"review_focus":"Gerichte, Strafvollzug, Personal; Verfahrens-/Digitalisierungseffizienz"},
+      {"ug":"14","name":"Militärische Angelegenheiten","outflow_eur_million":5148.4,"review_focus":"Fähigkeits-/Beschaffungs-/Lebenszyklusprüfung; nicht lineare Kürzung"},
+      {"ug":"15","name":"Finanzverwaltung","outflow_eur_million":1450.2,"review_focus":"Vollzug, Steuerverwaltung, Digitalisierung; Aufwand gegen zusätzliche Einnahmensicherung"},
+      {"ug":"17","name":"Wohnen, Medien, Telekommunikation und Sport","outflow_eur_million":608.6,"review_focus":"heterogene Programme getrennt prüfen"},
+      {"ug":"18","name":"Fremdenwesen","outflow_eur_million":540.1,"review_focus":"Asyl-/Fremdenverwaltung; Verfahren, Rückkehr, Grundversorgungsschnittstellen"},
+      {"ug":"20","name":"Arbeit","outflow_eur_million":10975.2,"share_federal_outflows_pct":8.56,"review_focus":"Versicherungs-/Arbeitsmarkttransfers und aktive Arbeitsmarktpolitik getrennt prüfen"},
+      {"ug":"21","name":"Soziales und Konsumentenschutz","outflow_eur_million":6362.7,"share_federal_outflows_pct":4.96,"review_focus":"Transfers, Pflege/Soziales, gesetzliche Ansprüche und Verwaltung getrennt"},
+      {"ug":"22","name":"Pensionsversicherung","outflow_eur_million":21287.1,"share_federal_outflows_pct":16.60,"review_focus":"größter Bundes-Auszahlungsblock; System-/Demografie-/Bundeszuschussrechnung, nicht pauschale Kürzung"},
+      {"ug":"23","name":"Pensionen - Beamtinnen und Beamte","outflow_eur_million":14131.8,"share_federal_outflows_pct":11.02,"review_focus":"Alt-/Neusystem, Demografie, Verpflichtungen, Harmonisierungseffekte langfristig"},
+      {"ug":"24","name":"Gesundheit","outflow_eur_million":3358.5,"review_focus":"Bundesanteil nur Teil des gesamtstaatlichen Gesundheitsblocks; Transfers/Programme getrennt"},
+      {"ug":"25","name":"Familie und Jugend","outflow_eur_million":9554.2,"share_federal_outflows_pct":7.45,"review_focus":"FLAF/Geldleistungen/Sachleistungen, Treffsicherheit und Arbeitsmarkt-/Demografieeffekt"},
+      {"ug":"30","name":"Bildung","outflow_eur_million":12860.5,"share_federal_outflows_pct":10.03,"review_focus":"Personal/Transfers/Schulbetrieb; Outcome je Ressource und Kompetenzstruktur"},
+      {"ug":"31","name":"Frauen, Wissenschaft und Forschung","outflow_eur_million":7360.5,"share_federal_outflows_pct":5.74,"review_focus":"Hochschulen/Forschung/Frauenprogramme getrennt; Input-Output statt Pauschalreview"},
+      {"ug":"32","name":"Kunst und Kultur","outflow_eur_million":608.7,"review_focus":"Institutionen/Projekte/Denkmalschutz/Public Value getrennt"},
+      {"ug":"33","name":"Wirtschaft (Forschung)","outflow_eur_million":223.7,"review_focus":"Forschungsförderung, Zusätzlichkeit und Überschneidungen"},
+      {"ug":"34","name":"Innovation und Technologie (Forschung)","outflow_eur_million":603.5,"review_focus":"Forschungs-/Innovationsförderung, Output/Transfer"},
+      {"ug":"40","name":"Wirtschaft","outflow_eur_million":1011.5,"review_focus":"Förderungen/Standortprogramme/Krisenreste getrennt"},
+      {"ug":"41","name":"Mobilität","outflow_eur_million":6725.7,"share_federal_outflows_pct":5.25,"review_focus":"Investition, Leistungsverträge, Infrastruktur, Klimaticket/ÖV; State-ROI und Verpflichtungen"},
+      {"ug":"42","name":"Land- und Forstwirtschaft, Regionen und Wasserwirtschaft","outflow_eur_million":2842.9,"review_focus":"EU-kofinanzierte Agrar-/Regional-/Wasserprogramme getrennt"},
+      {"ug":"43","name":"Umwelt, Klima und Kreislaufwirtschaft","outflow_eur_million":965.1,"review_focus":"Förderungen, EU-Compliance, Kosten je Wirkung, Kapitaltransfers"},
+      {"ug":"44","name":"Finanzausgleich","outflow_eur_million":3605.8,"review_focus":"innerstaatliche Transfers; Gesamtstaat nicht als Einsparung durch bloße Verschiebung verbuchen"},
+      {"ug":"45","name":"Bundesvermögen","outflow_eur_million":1034.9,"review_focus":"Beteiligungs-/Vermögensströme, Investitionen, Kapitalmaßnahmen"},
+      {"ug":"46","name":"Finanzmarktstabilität","outflow_eur_million":0.3,"review_focus":"Risikovorsorge/Eventualfall; nicht nach aktueller Auszahlung bewerten"},
+      {"ug":"51","name":"Kassenverwaltung","outflow_eur_million":0.0,"review_focus":"Liquiditätsmanagement"},
+      {"ug":"58","name":"Finanzierungen, Währungstauschverträge","outflow_eur_million":8748.9,"share_federal_outflows_pct":6.82,"review_focus":"Zins-/Finanzierungskosten; über Schuldenpfad und Refinanzierung, nicht Verwaltungskürzung"}
+    ],
+    "top10":{
+      "outflow_eur_billion":103.155,
+      "share_total_federal_outflows_pct":80.46,
+      "ugs":["22","23","30","20","25","58","31","41","21","14"],
+      "interpretation":"Fiskalische Größe bestimmt die Prüfreihenfolge, nicht die Annahme von Kürzbarkeit. Die Top-10 enthalten überwiegend gesetzliche Transfers, Kernleistungen, Investitionen und Zinsen."
+    }
+  },
+  "review_priority_rules":[
+    "Priorität A: große und dynamisch wachsende Blöcke mit strukturellem Einfluss auf BUD-01.",
+    "Priorität B: große Investitions-/Transferblöcke mit möglicher Effizienz- oder Priorisierungswirkung.",
+    "Priorität C: kleinere Verwaltungsblöcke – primär Prozess-/Digitalisierungsreview, nicht fiskalischer Haupthebel.",
+    "Rechtsstaat, Kontrolle und Sicherheit werden nicht wegen geringer Größe als entbehrlich bewertet.",
+    "Innerstaatliche Transfers sind keine Einsparung, wenn Ausgaben lediglich von Bund zu Land/Gemeinde/SV verschoben werden.",
+    "Zinsausgaben werden nur über Schulden-, Laufzeit- und Refinanzierungspolitik beeinflusst.",
+    "Investitionen werden mit State-ROI/Lebenszykluskosten beurteilt, nicht als laufende Sparmasse."
+  ],
+  "next_depth_steps":[
+    "69 COFOG-Gruppen aus Statistik-Austria-Detailtabelle übernehmen, sobald maschinenlesbar verfügbar",
+    "Top-10 Bundes-UGs auf Global-/Detailbudgetebene zerlegen",
+    "gesetzliche Ansprüche, Transfers, Personal, Betrieb, Investitionen und Finanzaufwand je UG trennen",
+    "bestehende Regierungsmaßnahmen je Budgetblock als Baseline verknüpfen",
+    "erst danach Programmreview und Nettoeffektrechnung starten"
+  ],
+  "sources":[
+    {"id":"STAT-COFOG-2025","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/staatsausgaben-nach-aufgabenbereichen"},
+    {"id":"PARL-BD-SPEND-2019-2025","url":"https://www.parlament.gv.at/fachinfos/budgetdienst/Entwicklung-von-Staatsausgaben-und-Bruttoinlandsprodukt-seit-2019"},
+    {"id":"BMF-BUDGET-2027","url":"https://www.bmf.gv.at/themen/budget/budget-2027-2028.html"},
+    {"id":"BMF-VBB-2027","url":"https://service.bmf.gv.at/Budget/Budgets/VBB/de/2027/Home/Index"}
+  ]
+}
