@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-03-v3",
   "reform_id":"BUD-01",
   "title":"Priorität 1 – strukturell ausgeglichener Staatshaushalt",
   "status":"Analysephase – Endrechnung ausdrücklich noch nicht freigegeben",
@@ -14,14 +14,7 @@
     {"date":"2026-Q1","metric":"Quartalsdefizit","value_eur_billion":7.3,"value_pct_quarterly_gdp":5.8,"source":"Statistik Austria"},
     {"date":"BVA-2026","metric":"Bund Nettofinanzierungssaldo","value_eur_billion":-18.3,"source":"BMF","warning":"Bundeshaushalt ist nicht identisch mit Maastricht-Gesamtstaat"}
   ],
-  "subsector_balance_2025_eur_billion":{
-    "federal_sector":-15.19,
-    "state_sector":-2.29,
-    "municipal_sector":-3.34,
-    "social_security_sector":-0.64,
-    "general_government":-21.5,
-    "source":"Statistik Austria Maastricht-Notifikation März 2026; Rundungsdifferenzen möglich"
-  },
+  "subsector_balance_2025_eur_billion":{"federal_sector":-15.19,"state_sector":-2.29,"municipal_sector":-3.34,"social_security_sector":-0.64,"general_government":-21.5,"source":"Statistik Austria Maastricht-Notifikation März 2026; Rundungsdifferenzen möglich"},
   "official_reference_path_2026_2031":[
     {"year":2026,"maastricht_balance_pct":-4.2,"debt_ratio_pct":82.9},
     {"year":2027,"maastricht_balance_pct":-3.5,"debt_ratio_pct":83.6},
@@ -30,23 +23,21 @@
     {"year":2030,"maastricht_balance_pct":-2.9,"debt_ratio_pct":84.6},
     {"year":2031,"maastricht_balance_pct":-2.9,"debt_ratio_pct":85.0}
   ],
-  "reference_path_interpretation":"Die bereits beschlossene Konsolidierung verbessert das Defizit, erreicht aber bis 2031 keinen ausgeglichenen Haushalt; gleichzeitig steigt die Schuldenquote weiter. BUD-01 muss daher einen zusätzlichen strukturellen Nettoeffekt gegenüber diesem Pfad schaffen.",
-  "official_reference_path_rules":[
-    "Beschlossene Konsolidierungsmaßnahmen 2025/2026 und 2027/2028 sind Baseline.",
-    "Ziel der Bundesregierung, 2028 wieder unter 3 % Maastricht-Defizit zu kommen, ist Referenzpfad und nicht WERK-Zielerreichung.",
-    "WERK-BUD-01 geht darüber hinaus bis zum strukturellen Ausgleich.",
-    "Jeder neue Datenstand ersetzt ältere Prognosen; keine Differenz zwischen alter und neuer Prognose automatisch als WERK-Effekt buchen.",
-    "BUD-02 mit mindestens 10 Mrd. Euro jährlicher Schuldentilgung beginnt erst nach nachhaltiger Budgetbalance und wird nicht in die aktuelle BUD-01-Sanierungslücke hineingerechnet."
+  "independent_forecast_challenge":[
+    {"institution":"OeNB","vintage":"Juni 2026","balance_2026_pct":-4.1,"balance_2027_pct":-3.9,"balance_2028_pct":-3.8,"note":"adverse 2028 -4,2 %, severe -4,9 %"},
+    {"institution":"EU-Kommission","vintage":"Mai 2026","balance_2026_pct":-4.1,"balance_2027_pct":-4.1,"note":"Cutoff vor späterem Doppelbudget; dennoch relevanter unabhängiger Vergleich"},
+    {"institution":"Fiskalrat","vintage":"Juni 2026","note":"erwartet bis 2030 Defizite deutlich über 3 % und Schuldenquote 2030 etwa 87,8 %"},
+    {"institution":"Budgetdienst","vintage":"Juni 2026","note":"sieht Zielpfad insbesondere ab 2028 mit bisher vorgesehenen Maßnahmen unter aktuellen Annahmen nicht erreicht"},
+    {"institution":"IMF","vintage":"Juli 2026","note":"zusätzliche Konsolidierungsmaßnahmen über das bisher Angekündigte hinaus dürften nötig sein, um 3 % 2028 zu erreichen und Schulden zu senken"}
   ],
-  "long_term_warning":{
-    "source":"BMF Langfristige Budgetprognose 2025",
-    "no_policy_change_debt_ratio_2060_pct":148.2,
-    "interpretation":"Im No-Policy-Change-Szenario steigen demografie- und zinsbedingt Defizit und Schuldenquote langfristig wieder stark. Eine bloße Rückkehr knapp unter 3 % ist daher keine dauerhafte Sanierung."
-  },
+  "forecast_interpretation":"Der BMF-Pfad ist ein politischer Budgetplan, keine unabhängige Prognose. Für BUD-01 wird deshalb ein Forecast-Fächer verwendet. Die Differenz zwischen BMF und unabhängigen Institutionen wird als Risiko behandelt und nicht durch Auswahl der günstigsten Prognose aufgelöst.",
+  "reference_path_interpretation":"Die bereits beschlossene Konsolidierung verbessert das Defizit, erreicht aber bis 2031 keinen ausgeglichenen Haushalt; gleichzeitig steigt die Schuldenquote weiter. Unabhängige Prognosen sind teilweise noch pessimistischer. BUD-01 muss daher einen zusätzlichen strukturellen Nettoeffekt gegenüber einem konservativ plausibilisierten Referenzpfad schaffen.",
+  "official_reference_path_rules":["Beschlossene Konsolidierungsmaßnahmen 2025/2026 und 2027/2028 sind Baseline.","Ziel der Bundesregierung, 2028 wieder unter 3 % Maastricht-Defizit zu kommen, ist Referenzpfad und nicht WERK-Zielerreichung.","WERK-BUD-01 geht darüber hinaus bis zum strukturellen Ausgleich.","Jeder neue Datenstand ersetzt ältere Prognosen; keine Differenz zwischen alter und neuer Prognose automatisch als WERK-Effekt buchen.","BUD-02 mit mindestens 10 Mrd. Euro jährlicher Schuldentilgung beginnt erst nach nachhaltiger Budgetbalance und wird nicht in die aktuelle BUD-01-Sanierungslücke hineingerechnet."],
+  "long_term_warning":{"source":"BMF Langfristige Budgetprognose 2025 + Fiskalrat Nachhaltigkeitsbericht","no_policy_change_debt_ratio_2060_pct":148.2,"interpretation":"Demografie und Zinsen verschlechtern die langfristige Tragfähigkeit erheblich. Fiskalrat sieht demografische Faktoren als Haupttreiber der langfristigen Verschlechterung. Eine bloße Rückkehr knapp unter 3 % ist daher keine dauerhafte Sanierung."},
   "accounting_dimensions":["Maastricht/ESVG gesamtstaatlich","Finanzierungsrechnung Bund","Ergebnisrechnung Bund","Länder","Gemeinden inklusive korrekter Wien-Behandlung","Sozialversicherung","außerbudgetäre staatliche Einheiten","Garantien/Eventualverbindlichkeiten separat"],
-  "structural_balance_test":["Einmaleinnahmen und Einmalausgaben bereinigen","Konjunkturkomponente separat ausweisen","auslaufende Krisenmaßnahmen separat ausweisen","Zinsentwicklung nicht als politisch frei verfügbare Einsparung behandeln","demografisch automatisch wachsende Ausgaben separat modellieren","bereits gesetzlich beschlossene Maßnahmen im Referenzpfad belassen","Transformationskosten neuer WERK-Reformen vor Nettoeffekt abziehen","Kostenverlagerungen zwischen Staatsebenen eliminieren"],
+  "structural_balance_test":["Einmaleinnahmen und Einmalausgaben bereinigen","Konjunkturkomponente separat ausweisen","auslaufende Krisenmaßnahmen separat ausweisen","Zinsentwicklung nicht als politisch frei verfügbare Einsparung behandeln","demografisch automatisch wachsende Ausgaben separat modellieren","bereits gesetzlich beschlossene Maßnahmen im Referenzpfad belassen","Transformationskosten neuer WERK-Reformen vor Nettoeffekt abziehen","Kostenverlagerungen zwischen Staatsebenen eliminieren","unabhängigen Forecast-Fächer anwenden"],
   "largest_system_blocks_to_analyse_before_end_calculation":["Pensionen und Alterssicherung","Gesundheit und Pflege","Arbeit/Arbeitslosenversicherung/Erwerbsbeteiligung","Bildung/Forschung","Familie/Soziales","Förderungen","öffentliche Verwaltung und Personal","Länder- und Gemeindefinanzen","Zinsen/Schuldenmanagement","Infrastruktur/Verkehr","Sicherheit/Verteidigung","Steuern/Abgaben/Steuerlücke","Bundesbeteiligungen und öffentliche Unternehmen"],
-  "mandatory_output_before_final_budget":["aktueller offizieller Referenzpfad bis mindestens 2031","Teilsektor-Salden Bund/Länder/Gemeinden/SV","vollständige Maßnahmenliste der Regierung mit jährlichem ESVG-Effekt","WERK-Delta je Maßnahme","Transformationskosten und Break-even","Verteilungs- und Wachstumseffekt","Stressszenarien","Doppelzählungsprüfung","Finanzierungsmatrix mit nur verifizierten dauerhaften Nettoeffekten"],
-  "forbidden_shortcuts":["2025-Defizit von 21,5 Mrd. Euro nicht einfach als heutige fixe Sanierungslücke behandeln","Bundes-Nettofinanzierungssaldo nicht mit Maastricht-Defizit vermischen","offizielle Regierungsmaßnahmen nicht als WERK-Effekt zählen","Einmaleinnahmen nicht zur dauerhaften Gegenfinanzierung verwenden","Brutto-Einsparung nicht ohne Folge-/Transformationskosten buchen","Steuer-Potenzial nicht als kassierte Einnahme ausweisen","EU-3-%-Grenze nicht mit WERK-BUD-01-Ziel verwechseln"],
-  "next_steps":["beschlossenen Referenzpfad nach Maßnahmen und Teilsektor zerlegen","jährliche ESVG-Wirkung bestehender Regierungspakete katalogisieren","Pensions-/Gesundheits-/Förder-/Steuer-/Gemeindedatenlücken schließen","Programminventar großer Dauerprogramme aufbauen","erst danach erste BUD-01-Szenariorechnung"]
+  "mandatory_output_before_final_budget":["aktueller offizieller Referenzpfad bis mindestens 2031","unabhängiger Forecast-Fächer und konservativer Basispfad","Teilsektor-Salden Bund/Länder/Gemeinden/SV","vollständige Maßnahmenliste der Regierung mit jährlichem ESVG-Effekt","WERK-Delta je Maßnahme","Transformationskosten und Break-even","Verteilungs- und Wachstumseffekt","Stressszenarien","Doppelzählungsprüfung","Finanzierungsmatrix mit nur verifizierten dauerhaften Nettoeffekten","Red-Team-/externe Review-Dokumentation"],
+  "forbidden_shortcuts":["2025-Defizit von 21,5 Mrd. Euro nicht einfach als heutige fixe Sanierungslücke behandeln","Bundes-Nettofinanzierungssaldo nicht mit Maastricht-Defizit vermischen","offizielle Regierungsmaßnahmen nicht als WERK-Effekt zählen","Einmaleinnahmen nicht zur dauerhaften Gegenfinanzierung verwenden","Brutto-Einsparung nicht ohne Folge-/Transformationskosten buchen","Steuer-Potenzial nicht als kassierte Einnahme ausweisen","EU-3-%-Grenze nicht mit WERK-BUD-01-Ziel verwechseln","BMF-Plan nicht als alleinige Prognosebasis verwenden","optimistischste externe Prognose nicht selektiv als Baseline wählen"],
+  "next_steps":["Teilsektor-Referenzpfade und bestehende Maßnahmen weiter zerlegen","Pensions-/Gesundheits-/Förder-/Steuer-/Gemeindedatenlücken schließen","Programminventar großer Dauerprogramme aufbauen","Forecast-Fächer bei neuer Prognoserunde aktualisieren","erst danach erste konservative BUD-01-Szenariorechnung"]
 }
