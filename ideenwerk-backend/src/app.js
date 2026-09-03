@@ -5,10 +5,13 @@ import rateLimit from '@fastify/rate-limit';
 import pg from 'pg';
 import { z } from 'zod';
 import { createEventId, createPublicId, createStatusToken, hashStatusToken } from './lib/status-token.js';
+import { createAbuseSubjectHash, distributedRatePolicy } from './lib/abuse-subject.js';
 
 const { Pool } = pg;
 const TRUST_PROXY = process.env.TRUST_PROXY === 'true';
 const LOG_LEVEL = process.env.LOG_LEVEL || 'info';
+const APP_VERSION = '0.9.0';
+const LATEST_MIGRATION = '011_distributed_rate_limit.sql';
 const allowedOrigins = new Set((process.env.ALLOWED_ORIGINS || '')
   .split(',')
   .map(x => x.trim())
@@ -52,6 +55,16 @@ const PORT = Number(process.env.PORT || 3000);
 const SUBMISSION_RATE_LIMIT = Number(process.env.SUBMISSION_RATE_LIMIT || 20);
 const REPORT_RATE_LIMIT = Number(process.env.REPORT_RATE_LIMIT || 30);
 const PRIVACY_RATE_LIMIT = Number(process.env.PRIVACY_RATE_LIMIT || 30);
+const DISTRIBUTED_RATE_LIMIT = process.env.DISTRIBUTED_RATE_LIMIT === 'true';
+const REQUIRE_DISTRIBUTED_RATE_LIMIT = process.env.REQUIRE_DISTRIBUTED_RATE_LIMIT === 'true';
+const ABUSE_HASH_SECRET = process.env.ABUSE_HASH_SECRET || '';
+
+if (DISTRIBUTED_RATE_LIMIT && ABUSE_HASH_SECRET.length < 32) {
+  throw new Error('DISTRIBUTED_RATE_LIMIT=true requires ABUSE_HASH_SECRET with at least 32 characters');
+}
+if (REQUIRE_DISTRIBUTED_RATE_LIMIT && !DISTRIBUTED_RATE_LIMIT) {
+  throw new Error('REQUIRE_DISTRIBUTED_RATE_LIMIT=true but distributed rate limiting is disabled');
+}
 
 const submissionSchema = z.object({
   text: z.string().trim().min(20).max(5000),
@@ -98,12 +111,37 @@ function privacyRequestId() {
   return `PRIV-${createPublicId().slice(5)}`;
 }
 
+async function enforceDistributedRateLimit(req, reply) {
+  if (!DISTRIBUTED_RATE_LIMIT) return;
+  const policy = distributedRatePolicy(req.method, req.routeOptions?.url || '');
+  if (!policy) return;
+
+  const subjectHash = createAbuseSubjectHash({
+    ip: req.ip,
+    userAgent: req.headers['user-agent'] || ''
+  }, ABUSE_HASH_SECRET);
+
+  const q = await pool.query(
+    `SELECT ideenwerk_take_rate_limit($1,$2,$3,$4) AS allowed`,
+    [subjectHash, policy.key, policy.limit, policy.windowSeconds]
+  );
+  if (!q.rows[0]?.allowed) {
+    return reply.code(429).send({
+      code: 'RATE_LIMITED',
+      message: 'Zu viele Anfragen. Bitte später erneut versuchen.',
+      request_id: req.id
+    });
+  }
+}
+
 app.addHook('onRequest', async (req, reply) => {
   if (req.url.startsWith('/api/ideenwerk/')) {
     reply.header('cache-control', 'no-store');
     reply.header('pragma', 'no-cache');
   }
 });
+
+app.addHook('preHandler', enforceDistributedRateLimit);
 
 app.addHook('onResponse', async (req, reply) => {
   req.log.info({
@@ -114,11 +152,18 @@ app.addHook('onResponse', async (req, reply) => {
   }, 'request completed');
 });
 
-app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: '0.7.0' }));
+app.get('/health', async () => ({ ok: true, service: 'werk-ideenwerk-backend', version: APP_VERSION }));
 app.get('/ready', async (_req, reply) => {
   try {
     await pool.query('SELECT 1');
-    return { ok: true, database: 'ready' };
+    const migration = await pool.query(
+      `SELECT 1 FROM schema_migrations WHERE filename=$1 LIMIT 1`,
+      [LATEST_MIGRATION]
+    );
+    if (!migration.rowCount) {
+      return reply.code(503).send({ ok: false, database: 'reachable', migrations: 'outdated', required: LATEST_MIGRATION });
+    }
+    return { ok: true, database: 'ready', migrations: 'current', latest_migration: LATEST_MIGRATION };
   } catch {
     return reply.code(503).send({ ok: false, database: 'unavailable' });
   }
