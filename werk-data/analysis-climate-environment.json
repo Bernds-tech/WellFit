@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Klima, Umwelt und Naturgefahren",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Klima- und Umweltpolitik wird auf Zielerreichung, Kosten je Wirkung, Versorgungssicherheit, Anpassungsbedarf und EU-Rechtsbindung geprüft. Sinkende Emissionen dürfen nicht automatisch einer einzelnen Maßnahme zugerechnet werden.",
+  "current_facts":[
+    {"fact":"Österreich emittierte 2024 laut finaler Treibhausgas-Inventur 66,6 Mio. Tonnen CO2-Äquivalent, rund 3,0 % weniger als 2023 und 16,4 % weniger als 1990.","source":"Umweltbundesamt Treibhausgas-Inventur 2024, 21.01.2026"},
+    {"fact":"In den drei Jahren bis 2024 sanken die Treibhausgasemissionen um rund 15 % bzw. 11,5 Mio. Tonnen CO2-Äquivalent; Wirtschaftsleistung, Energiepreise, Strukturwandel und Klimapolitik wirkten gleichzeitig.","source":"Umweltbundesamt"},
+    {"fact":"Für 2025 zeigte der erste Ausblick des Umweltbundesamts wieder steigende Emissionen; die Zielerreichung darf daher nicht aus einem einzelnen Jahr abgeleitet werden.","source":"Umweltbundesamt 2026"},
+    {"fact":"Nicht-Emissionshandelssektoren lagen 2024 bei rund 42,7 Mio. Tonnen CO2-Äquivalent.","source":"Umweltbundesamt"},
+    {"fact":"BVA 2026: UG 42 Land-/Forstwirtschaft, Regionen und Wasser rund 2,877 Mrd. Euro Auszahlungen; UG 43 Umwelt/Klima/Kreislaufwirtschaft rund 1,370 Mrd. Euro. Diese Ressortbudgets bilden nicht sämtliche Klima- und Umweltkosten des Staates ab.","source":"BMF BVA 2026"}
+  ],
+  "structural_questions":[
+    "Welche Emissionsminderungen sind dauerhaft strukturell und welche konjunkturell/energiepreisbedingt?",
+    "Welche Förderinstrumente erzielen die geringsten staatlichen Kosten je zusätzlicher vermiedener Tonne CO2?",
+    "Wo entstehen durch Klimapolitik zusätzliche Netz-, Infrastruktur- oder Sozialkosten, die in Förderbudgets nicht sichtbar sind?",
+    "Welche EU-Vorgaben sind zwingend und wo besitzt Österreich Gestaltungsspielraum bei Instrument und Zeitpfad?",
+    "Wie hoch sind erwartete Schäden aus Hochwasser, Hitze, Dürre, Waldbrand und anderen Naturgefahren im Referenzpfad?",
+    "Welche Präventionsinvestitionen sind günstiger als spätere Wiederaufbau-/Katastrophenkosten?",
+    "Wie verteilen sich Belastungen und Förderwirkungen auf Haushalte, Regionen, Landwirtschaft und Industrie?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Förderungen nach zusätzlicher CO2-Wirkung, Systemkosten und Mitnahmeeffekt bewerten",
+    "Klimaanpassungsinvestitionen mit State-ROI und vermiedenen Schadenskosten priorisieren",
+    "Hochwasser-/Naturgefahrenprävention über Bund/Länder/Gemeinden mit klarer Finanzierungsverantwortung koordinieren",
+    "technologieoffene Zielsteuerung dort nutzen, wo EU-Recht kein konkretes Instrument vorgibt",
+    "sozialen Ausgleich zielgerichtet statt über breit gestreute Preisstützungen organisieren",
+    "Kreislaufwirtschaft und Abfallregeln nach tatsächlicher Ressourcen-/Kostenwirkung evaluieren"
+  ],
+  "do_not_count_yet":["Emissionsrückgang 2024 nicht als WERK-Effekt buchen","keine Förderstreichung ohne Gegenwirkung auf EU-Zielerreichung/Systemkosten","keine vermiedenen Klimaschäden als sichere Budgeteinnahme verbuchen","keine EU-Strafzahlung ohne Rechts-/Zielszenario als fixe Kosten ansetzen"],
+  "next_data_needed":["Emissionen nach Sektor 1990–2025","Effort-Sharing-Zielpfad und Gap","Fördervolumen nach Instrument","Kosten je vermiedener Tonne bei größeren Programmen","Naturgefahren-Schadenshistorie","Katastrophenfonds/Präventionsausgaben","EU-Ziel-/Sanktionsmechaniken"]
+}
