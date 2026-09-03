@@ -1,0 +1,45 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Standard für Reformkosten und Nettoeffekte",
+  "purpose":"Eine Reform darf erst als Beitrag zu BUD-01 gezählt werden, wenn ihr zusätzlicher dauerhafter gesamtstaatlicher Nettoeffekt gegenüber dem aktuellen Referenzpfad nachvollziehbar gerechnet ist.",
+  "calculation_waterfall":[
+    "1. aktuelle Baseline / bereits geltendes Recht",
+    "2. Bruttoeffekt der WERK-Änderung",
+    "3. zeitliches Anlaufen / Umsetzungsquote",
+    "4. Verhaltensreaktionen von Haushalten, Unternehmen und Verwaltung",
+    "5. makroökonomische Rückwirkungen, soweit materiell",
+    "6. Wechselwirkungen mit anderen Steuern, Transfers und Reformen",
+    "7. Kostenverlagerungen zwischen Bund, Ländern, Gemeinden, Sozialversicherung und außerbudgetären Einheiten eliminieren",
+    "8. laufende Vollzugs-/Administrationskosten",
+    "9. einmalige Transformationskosten und Parallelbetrieb",
+    "10. rechtlich oder politisch notwendige Ausgleichsmaßnahmen",
+    "11. dauerhafter zusätzlicher gesamtstaatlicher Nettoeffekt",
+    "12. Unsicherheitsband und Sensitivitätsanalyse"
+  ],
+  "required_time_profile":["Jahr 0 Transformation","Jahr 1","Jahr 2","Jahr 3","Jahr 5","Jahr 10"],
+  "required_effect_classes":[
+    {"id":"cash","label":"Cash/Finanzierungshaushalt","rule":"Zahlungszeitpunkt sichtbar machen"},
+    {"id":"accrual","label":"Ergebnis-/Periodeneffekt","rule":"wenn relevant getrennt vom Cash-Effekt"},
+    {"id":"maastricht","label":"ESVG/Maastricht","rule":"für BUD-01 maßgeblicher gesamtstaatlicher Saldoeffekt"},
+    {"id":"debt","label":"Schuldenstand","rule":"Stock-Flow-Adjustments und außerbudgetäre Einheiten beachten"}
+  ],
+  "effect_statuses":[
+    {"status":"nicht beziffert","counts_for_funding_gap":false},
+    {"status":"Potenzial/Brutto","counts_for_funding_gap":false},
+    {"status":"Plausibilitätsband","counts_for_funding_gap":false},
+    {"status":"Modell-Nettoeffekt","counts_for_funding_gap":false},
+    {"status":"extern plausibilisiert","counts_for_funding_gap":false},
+    {"status":"verifizierter dauerhafter Nettoeffekt","counts_for_funding_gap":true}
+  ],
+  "anti_double_counting":[
+    "Bereits beschlossene Regierungsmaßnahmen bleiben in der Baseline.",
+    "Eine höhere Beschäftigung darf nicht gleichzeitig vollständig als zusätzliche Einkommensteuer, Sozialbeitrag, weniger Arbeitslosengeld und Pensionsersparnis verbucht werden, wenn dieselben Personen mehrfach in Modulen wirken; Interaktionen werden zentral konsolidiert.",
+    "Förderabbau und Verwaltungsabbau dürfen dieselbe Stelle nicht zweimal als Einsparung zählen.",
+    "Dividenden, Vermögensverkäufe und Rücklagenentnahmen sind keine dauerhaften strukturellen Einnahmen.",
+    "Kostenverschiebung zwischen Staatsebenen ist keine gesamtstaatliche Konsolidierung.",
+    "Investitionsaufschub ist keine dauerhafte Einsparung, wenn spätere Erhaltungs-/Nachholkosten entstehen."
+  ],
+  "distribution_requirements":["Einkommensdezile","Haushaltstyp","Erwerbsstatus","Alter/Pension","Geschlecht soweit sachlich relevant","Region/Stadt-Land","Unternehmensgröße soweit relevant"],
+  "economic_requirements":["BIP/Produktivität","Beschäftigung/Arbeitsangebot","Inflation/Preise","Investitionen","Standort/Wettbewerb","Import/Export soweit relevant"],
+  "publication_rule":"Öffentlich darf zuerst der konservative verifizierte Nettoeffekt als BUD-01-Beitrag erscheinen. Ein höheres Potenzial darf separat gezeigt, aber nicht zur Schließung der Finanzierungslücke gebucht werden."
+}
