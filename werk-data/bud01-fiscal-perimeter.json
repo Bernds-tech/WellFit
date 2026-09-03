@@ -1,0 +1,37 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – fiskalischer Perimeter und außerbudgetäre Gesamtsicht",
+  "purpose":"Budgetausgleich darf nicht durch Verschiebung von Ausgaben, Schulden oder Risiken in öffentliche Unternehmen, Fonds oder andere Einheiten erreicht werden. WERK führt deshalb einen breiteren Kontrollperimeter als den Bundes-Kernhaushalt.",
+  "current_scope_facts":[
+    {"fact":"Statistik Austria ordnet für 2025 insgesamt 4.958 Einheiten dem staatlichen Sektor S.13 und 2.749 weitere Einheiten/öffentliche Unternehmen den Sektoren S.11/S.12 unter staatlicher Kontrolle zu.","source":"Statistik Austria Öffentlicher Sektor, Stand 31.03.2026","evidence_grade":"A1"},
+    {"fact":"Beteiligungs-/Finanzcontrolling des Bundes zum 30.09.2025 umfasst 118 direkte/indirekte Bundesmehrheitsbeteiligungen mit rund 127.300 VBÄ; Vorschau 2025: 18,4 Mrd. Euro Bundesauszahlungen, 1,9 Mrd. Einzahlungen und 21,7 Mrd. Haftungen im Beteiligungsscope.","source":"Budgetdienst Beteiligungscontrolling 30.09.2025","evidence_grade":"B1"},
+    {"fact":"Gesamthaftungen des Bundes für Kapital betrugen Ende 2025 brutto/nicht konsolidiert rund 87,2 Mrd. Euro. Diese sind keine Maastricht-Schulden 1:1, aber Eventualrisiken mit möglicher Budgetwirkung.","source":"Budgetdienst Bundeshaftungen 2025","evidence_grade":"B1"},
+    {"fact":"Statistik Austria veröffentlicht Maastricht-Schulden getrennt nach Kerneinheiten und außerbudgetären Einheiten; damit kann BUD-01 institutionelle Verlagerungen explizit beobachten.","source":"Statistik Austria Öffentlicher Schuldenstand","evidence_grade":"A1"}
+  ],
+  "perimeter_layers":[
+    {"id":"P1","name":"Gesamtstaat ESVG S.13","includes":"Bund, Länder, Gemeinden, Sozialversicherung und alle ESVG-staatlichen Einheiten","role":"primärer BUD-01/Maastricht-Saldoperimeter"},
+    {"id":"P2","name":"öffentliche Unternehmen außerhalb S.13","includes":"staatlich kontrollierte Marktproduzenten S.11/S.12","role":"Kapitalzuführungen, Leistungsbestellungen, Dividenden, Garantien, Verschuldung und Risiko beobachten"},
+    {"id":"P3","name":"Beteiligungen/Fonds/Agenturen","includes":"direkte/indirekte Bundes-/Landes-/Gemeindebeteiligungen, Fonds und ausgelagerte Träger","role":"Transfers, Personal, Investitionen, Governance und mögliche Reklassifikations-/Risikoauswirkungen"},
+    {"id":"P4","name":"Haftungen/Eventualverbindlichkeiten","includes":"Garantien, Bürgschaften, zugesagte Kapitalzuführungen, PPP-/Vertragsverpflichtungen","role":"kein laufender Aufwand, aber Stress-/Risikoperimeter"},
+    {"id":"P5","name":"öffentliche Vermögenswerte","includes":"Beteiligungen, Forderungen, Immobilien, Infrastruktur und liquide Vermögen soweit belastbar bewertet","role":"Nettovermögens-/State-ROI-Sicht; Vermögensverkauf nicht mit dauerhaftem Budgeteffekt verwechseln"}
+  ],
+  "anti_arbitrage_rules":[
+    "Auslagerung einer Aufgabe aus Kernbudget in öffentliches Unternehmen erzeugt keine WERK-Einsparung, wenn gesamtstaatliche Kosten gleich bleiben.",
+    "Kapitalzuführung, Darlehen, Garantie und Leistungsbestellung werden getrennt klassifiziert; keine Vermischung von Cash und ESVG-Wirkung.",
+    "Dividendensteigerung zählt nur als dauerhafter Nettoeffekt, wenn dadurch Investitionsbedarf/Schuld/Kapitalzuführung nicht später entsprechend steigt.",
+    "Asset-Verkauf ist Einmaleffekt und finanziert keine dauerhafte Ausgabe.",
+    "PPP-/Off-balance-Konstruktion wird nach Lebenszykluskosten und Risikotransfer bewertet, nicht nach kurzfristiger Budgetoptik.",
+    "Reklassifikation einer Einheit in/aus S.13 wird als Statistik-/Perimeteränderung protokolliert, nicht als politische Einsparung."
+  ],
+  "dashboard_metrics":[
+    "S.13-Saldo und Schulden nach Kern-/außerbudgetären Einheiten",
+    "Bund/Land/Gemeinde-SV Teilsektoren",
+    "öffentliche Unternehmen: Bundes-/Gebietskörperschaftszahlungen, Dividenden, Verschuldung, Investitionen",
+    "Bundes-/Länder-/Gemeindehaftungen brutto und Risikoklasse",
+    "Inanspruchnahmen aus Haftungen",
+    "Kapitalzuführungen und Gesellschafterdarlehen",
+    "große PPP-/langfristige Vertragsverpflichtungen",
+    "öffentliche Vermögensverkäufe und Folgeeffekte"
+  ],
+  "seriousness_warning":"4.958 S.13-Einheiten, 2.749 sonstige öffentliche Einheiten, 118 Bundesmehrheitsbeteiligungen und 87,2 Mrd. Euro Bundeshaftungen sind unterschiedliche statistische/organisatorische Konzepte und dürfen niemals addiert oder als eine gemeinsame Schulden-/Ausgabensumme dargestellt werden."
+}
