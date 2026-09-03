@@ -1,0 +1,30 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Verteidigung, Zivilschutz und Resilienz",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Sicherheit ist verbindlicher WERK-Kern. Konsolidierung darf notwendige Verteidigungs- und Resilienzfähigkeit nicht durch kurzfristige Kürzungen aushöhlen. Maßstab sind Auftrag, Einsatzfähigkeit, Lebenszykluskosten und Beschaffungsqualität.",
+  "current_facts":[
+    {"fact":"BVA 2026 UG 14 Militärische Angelegenheiten: rund 4,761 Mrd. Euro Auszahlungen; Ergebnisaufwendungen rund 3,433 Mrd. Euro.","source":"BMF Budgetvollzug/BVA 2026"},
+    {"fact":"Der Sicherheits-/Verteidigungsbereich befindet sich in einem mehrjährigen Fähigkeitsaufbau; einzelne Jahre enthalten daher hohe Investitions- und Beschaffungsvolumina, die nicht mit dauerhaftem laufendem Aufwand gleichgesetzt werden dürfen.","source":"BMF/BMLV Budget- und Aufbauplanung"},
+    {"fact":"Österreich benötigt neben militärischer Landesverteidigung auch Cyber-, Katastrophen-, Blackout- und kritische-Infrastruktur-Resilienz; diese Fähigkeiten liegen organisatorisch über mehrere Ressorts und Ebenen verteilt.","source":"BMLV/E-Control/Bundes-Krisenstrukturen"}
+  ],
+  "structural_questions":[
+    "Welche Fähigkeitsziele sind verfassungs-/sicherheitspolitisch zwingend und welche Beschaffungen dienen primär Komfort/Prestige?",
+    "Wie hoch sind Lebenszykluskosten großer Beschaffungsvorhaben einschließlich Betrieb, Personal, Munition, Wartung und Infrastruktur?",
+    "Welche Fähigkeiten können gemeinsam mit EU-Partnern beschafft/gewartet werden, ohne österreichische Einsatzautonomie unvertretbar einzuschränken?",
+    "Wo überschneiden sich Bundesheer, Zivilschutz, Innenministerium, Länder und kritische Infrastruktur bei Krisenvorsorge?",
+    "Welche Reserven, Lagerbestände und Redundanzen sind wirklich notwendig und welche historisch gewachsen?",
+    "Wie belastbar sind Beschaffungsplanung, Projektcontrolling und Änderungsmanagement bei Großprojekten?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "jede Großbeschaffung mit Lebenszyklus-/State-ROI- und Fähigkeitsnachweis",
+    "mehrjährige Beschaffungs- und Instandhaltungsplanung gegen kurzfristige Budgetverschiebungen absichern",
+    "gemeinsame Beschaffung/Logistik mit Partnern dort nutzen, wo echte Skaleneffekte bestehen",
+    "Cyber-/Blackout-/Krisenvorsorge ressortübergreifend mit einheitlichen Mindeststandards und Tests steuern",
+    "Personalstruktur auf Einsatzfähigkeit, Miliz, technische Spezialisten und Ausbildung ausrichten",
+    "Lager-/Reservepolitik risikobasiert statt pauschal dimensionieren"
+  ],
+  "do_not_count_yet":["keine Verteidigungskürzung als BUD-01-Sparbeitrag ohne Fähigkeitsprüfung","keine Investitionsverschiebung als dauerhafte Einsparung","keine gemeinsame Beschaffung pauschal mit Prozentersparnis ansetzen","keine Sicherheitsreserve als ineffizient behandeln ohne Risikomodell"],
+  "next_data_needed":["Aufbauplan 2032+ Fähigkeits-/Kostenpfad","Beschaffungsportfolio mit Lebenszykluskosten","Personalstruktur aktiv/Miliz/Zivil","Instandhaltungsrückstand","Cyber-/Krisenbudgets anderer Ressorts","kritische Infrastruktur-Resilienztests"]
+}
