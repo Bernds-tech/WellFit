@@ -1,0 +1,51 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"IDEENWERK – ausgeführte Testläufe",
+  "rule":"Ein Testlauf wird nur eingetragen, wenn er tatsächlich ausgeführt wurde. Frühere Läufe werden nicht durch bessere spätere Ergebnisse ersetzt, sondern bleiben als Verlauf erhalten.",
+  "runs":[
+    {
+      "id":"RUN-20260903-CORE-01",
+      "executed_at":"2026-09-03",
+      "environment":"lokale Ausführungsumgebung, Node 22.16.0; ohne PostgreSQL/Docker",
+      "scope":"Statusmaschine, Triage, Clusterentscheidung, Semantik-Fallback, Status-Token/IDs und Provider-Ausfallverhalten",
+      "result":"pass",
+      "passed":18,
+      "failed":0,
+      "limitations":"Kein DB-, API-, Worker-, Migrations-, Backup/Restore- oder Lasttest in diesem Lauf."
+    },
+    {
+      "id":"RUN-20260903-GOLDSET-FALLBACK-V2",
+      "executed_at":"2026-09-03",
+      "environment":"lokale Ausführungsumgebung, Node 22.16.0; deterministischer Fallback v2, ohne externen Semantikprovider",
+      "scope":"15 manuell gelabelte Paare für gleiche Lösung, unterschiedliche Lösungsvariante und getrennte Idee",
+      "result":"diagnostic",
+      "metrics":{
+        "correct":10,
+        "total":15,
+        "accuracy":0.6667,
+        "false_merge":0,
+        "variant_loss":0,
+        "false_split":5,
+        "same_problem_different_solution_correct":"6/6"
+      },
+      "decision":"Fallback bleibt Sicherheits-/Vorsortiermodus und erhält keine Freigabe als alleiniger produktiver Semantik-Clusterer."
+    },
+    {
+      "id":"RUN-20260903-LEXICAL-SCOPE-01",
+      "executed_at":"2026-09-03",
+      "environment":"lokale Ausführungsumgebung, Node 22.16.0; reine Policy-Tests ohne Datenbank",
+      "scope":"Near-Duplicate-Autobündelung: Ähnlichkeitsschwelle, Region, Thema und Kandidatenstatus",
+      "result":"pass",
+      "passed":5,
+      "failed":0,
+      "verified_rules":[
+        "gleicher Scope + hohe Textähnlichkeit darf auto-clustern",
+        "anderes Bundesland blockiert Auto-Cluster",
+        "anderes Thema blockiert Auto-Cluster",
+        "received/privacy_hold/quarantine/removed/clarification dürfen nicht als Auto-Cluster-Anker dienen",
+        "Ähnlichkeitsschwelle bleibt zwingend"
+      ],
+      "limitations":"Worker-/PostgreSQL-Integration dieser Policy ist committed, aber mangels PostgreSQL in dieser Umgebung noch nicht runtime-getestet."
+    }
+  ]
+}
