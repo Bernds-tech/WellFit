@@ -1,0 +1,141 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block C",
+  "principle":"Bestehende Reformen zuerst als Ausgangslage erfassen. Zusätzlicher WERK-Effekt erst nach Abgrenzung und Messung.",
+  "priority_anchor":"BUD-01 bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"PROCUREMENT",
+      "name":"Öffentliche Beschaffung und BBG",
+      "status":"erste Vertiefung – Gesamtbeschaffungsinventar offen",
+      "facts":[
+        "BBG-Unterlagen weisen für 2024 ein Beschaffungsvolumen von rund 3,38 Mrd. Euro aus.",
+        "Der ausgewiesene BBG-Warenkorb-Marktpreiseinsparungseffekt 2024 lag bei rund 557,6 Mio. Euro; Methodik und Übertragbarkeit auf weitere Beschaffungsbereiche müssen separat geprüft werden."
+      ],
+      "diagnosis":[
+        "Zentrale Beschaffung kann Skaleneffekte erzeugen, ist aber nicht automatisch für jede spezialisierte Leistung sinnvoll.",
+        "WERK muss prüfen, welche Beschaffungen bereits gut gebündelt sind und wo Fragmentierung, Sonderlösungen oder Nachträge Kosten verursachen.",
+        "Lebenszykluskosten und Qualität müssen stärker gewichtet werden als bloßer Anschaffungspreis."
+      ],
+      "next_analysis":["gesamtes öffentliches Beschaffungsvolumen Bund/Länder/Gemeinden/ausgegliederte Einheiten","BBG-Nutzungsquote je Kategorie","Ausschreibungsdauer und Transaktionskosten","Nachträge/Change Requests","IT-/Cloud-Beschaffung und Vendor Lock-in","KMU-Zugang","Lebenszykluskosten","Innovationsbeschaffung","gemeinsame Standards für wiederkehrende Güter/Services"]
+    },
+    {
+      "id":"DIGITAL-STATE",
+      "name":"Digitalstaat, Once Only und Public AI",
+      "status":"teilweise analysiert – bestehende Regierungsmaßnahmen stark fortgeschritten",
+      "facts":[
+        "ID Austria hatte laut Bundesregierung 2026 bereits mehr als 6 Mio. Nutzerinnen und Nutzer.",
+        "dadeX/Once-Only wird bereits ausgebaut; für 2027/28 sind rund 15 Mio. Euro vorgesehen und die Bundesregierung nennt ein Einsparungspotenzial von bis zu rund 160 Mio. Euro.",
+        "Public-AI- und digitale Assistenzinitiativen sind bereits gestartet."
+      ],
+      "diagnosis":[
+        "WERK darf Once Only, ID Austria oder dadeX nicht als eigene neue Erfindung verbuchen.",
+        "Der zusätzliche WERK-Hebel liegt in konsequenter Prozessvereinfachung, Registerharmonisierung, Ende paralleler Papier-/Digitalprozesse und messbarer Personal-/Zeitwirkung.",
+        "Digitalisierung ohne Aufgabenabbau kann Kosten sogar erhöhen, wenn alte Prozesse parallel weiterlaufen."
+      ],
+      "next_analysis":["digitale End-to-End-Quote der wichtigsten Amtswege","Parallelprozesse Papier/digital","Registerqualität und Mehrfachdatenerfassung","Kosten je Transaktion","Bearbeitungszeit vor/nach Digitalisierung","Legacy-IT und Betriebskosten","Vendor Lock-in/Open Standards","Public-AI-Anwendungsfälle mit messbarer Zeitersparnis","Cyber-/Datenschutzrisiko"]
+    },
+    {
+      "id":"CORRUPTION-TRANSPARENCY",
+      "name":"Korruptionsprävention, Parteienfinanzierung und staatliche Transparenz",
+      "status":"erste Vertiefung – Systeminventar offen",
+      "facts":[
+        "Seit 2023 gelten neue Rechenschafts- und Prüfregeln für im Parlament vertretene Parteien; der Rechnungshof veröffentlicht und prüft Rechenschaftsberichte.",
+        "Der Rechnungshof veröffentlichte 2025 insgesamt 63 Prüfberichte und 16 weitere Prüfungen nach Parteiengesetz; Ende 2025 liefen 90 Prüfungen."
+      ],
+      "diagnosis":[
+        "Transparenz darf nicht bei Parteienfinanzen enden; Inserate, Beteiligungen, Förderungen, Beschaffung, Lobbying und Postenbesetzungen müssen gemeinsam betrachtet werden.",
+        "Mehr Berichtspflichten sind nur sinnvoll, wenn Daten maschinenlesbar, vergleichbar und tatsächlich geprüft werden.",
+        "WERK sollte Eigenregeln strenger als das gesetzliche Minimum gestalten, aber Verwaltungsaufwand begrenzen."
+      ],
+      "next_analysis":["Parteien-/Wahlkampffinanzierung","öffentliche Inserate","Lobbyingregister","Sponsoring","Postenbesetzung und Qualifikationskriterien","Förderentscheidung/Interessenkonflikte","Beschaffung und Nachträge","Whistleblower-Schutz","Open-Data-Pflichten","Sanktionswirksamkeit"]
+    },
+    {
+      "id":"STATE-ASSETS",
+      "name":"Bundesbeteiligungen, staatliches Vermögen und Zahlungsströme",
+      "status":"vertieft – Vermögens-/Eventualbilanz offen",
+      "facts":[
+        "Der Bund hält direkte und mehrheitliche Beteiligungen an 102 Gesellschaften.",
+        "Diese Gesellschaften erzielten 2025 zusammen 33,2 Mrd. Euro Umsatz, beschäftigten 129.269 VZÄ und hatten 362,4 Mrd. Euro Bilanzsumme.",
+        "Geplante Auszahlungen an Beteiligungen ohne Pensionen/Personalämter liegen 2027 bei rund 14,25 Mrd. Euro und 2028 bei rund 14,40 Mrd. Euro; geplante Einzahlungen liegen deutlich darunter.",
+        "Diese Auszahlungen sind keine Dividendenverluste, sondern umfassen unterschiedliche Kapital-/Transferströme und müssen je Gesellschaft interpretiert werden."
+      ],
+      "diagnosis":[
+        "Staatliches Vermögen darf weder als kostenlose Sparbüchse noch als unantastbarer Bestand behandelt werden.",
+        "Jede Beteiligung braucht öffentlichen Zweck, Eigentümerziel, Investitionsbedarf, Ausschüttungslogik und Behalte-/Exit-Begründung.",
+        "Für BUD-01 zählt nur ein tatsächlich dauerhafter Nettoeffekt, nicht die Bilanzsumme oder ein einmaliger Verkaufserlös."
+      ],
+      "next_analysis":["Top-20-Beteiligungen einzeln analysieren","Dividenden vs Zuschüsse/Kapitalerhöhungen/Investitionsersatz","Garantien/Eventualverbindlichkeiten","Bundesimmobilien und sonstiges Vermögen","PPP-Verpflichtungen","Pensionsverpflichtungen","Verkäufe nur mit State-ROI und langfristigem Gegenwert"]
+    },
+    {
+      "id":"AGRICULTURE",
+      "name":"Landwirtschaft, Ernährung und Versorgung",
+      "status":"erste Vertiefung – Förder-/Versorgungsmodell offen",
+      "facts":[
+        "Produktionswert der österreichischen Landwirtschaft 2025: rund 10,9 Mrd. Euro; Bruttowertschöpfung rund 4,9 Mrd. Euro.",
+        "Anteil der landwirtschaftlichen Bruttowertschöpfung am BIP lag 2024 bei rund 0,9 %.",
+        "Agrarpreisindex inklusive öffentlicher Gelder lag 2025 bei 136,9 auf Basis 2020=100."
+      ],
+      "diagnosis":[
+        "Die geringe direkte BIP-Quote unterschätzt die Bedeutung für Versorgung, Regionen, Landschaft, Tourismus und Krisenresilienz.",
+        "Agrarförderungen müssen EU-GAP, nationale Ziele, Umweltauflagen und Einkommenswirkung gemeinsam betrachten.",
+        "Bürokratieabbau ist möglich, darf aber Kontroll- und Umweltanforderungen nicht blind beseitigen."
+      ],
+      "next_analysis":["Betriebsstruktur/Generationenwechsel","Förderungen je Ziel","Einkommen je Betriebstyp","Importabhängigkeit kritischer Lebensmittel/Betriebsmittel","Energie/Dünger/Futterkosten","Bodenverbrauch","Bewässerung/Wasser","Tierwohl/Standards","Direktvermarktung und Wettbewerb im Lebensmittelhandel"]
+    },
+    {
+      "id":"TOURISM",
+      "name":"Tourismus und regionale Wertschöpfung",
+      "status":"erste Vertiefung – Wertschöpfungs-/Arbeitskräftemodell offen",
+      "facts":[
+        "Österreich verzeichnete 2025 rund 48,17 Mio. Gästeankünfte und 157,29 Mio. Übernachtungen.",
+        "Die durchschnittliche Aufenthaltsdauer lag 2025 bei 3,3 Nächten."
+      ],
+      "diagnosis":[
+        "Nächtigungen allein messen keinen wirtschaftlichen Erfolg; Wertschöpfung, Löhne, Saisonalität, Infrastrukturkosten und regionale Belastung müssen berücksichtigt werden.",
+        "Tourismus ist stark regional unterschiedlich; ein Bundes-Einheitsmodell wäre ungeeignet.",
+        "Arbeitskräfte, Wohnen, Mobilität und Klimaabhängigkeit sind zentrale Querverbindungen."
+      ],
+      "next_analysis":["Wertschöpfung je Nächtigung/Region","Saisonabhängigkeit","Arbeitskräfte/Fachkräfte/Wohnraum","Gemeindeinfrastrukturkosten","Tourismusabgaben","Investitionsförderungen","Sommer-/Winterrisiken Klima","Overtourism und Kapazitätssteuerung","Produktivitäts-/Digitalisierungspotenzial"]
+    },
+    {
+      "id":"EU-FUNDS",
+      "name":"EU-Mittel, EU-Regeln und Zusatznutzen für Österreich",
+      "status":"teilweise analysiert – Gesamt-Nettofluss offen",
+      "facts":[
+        "RRF-Abschluss und Wirkungsnachlauf sind bereits als WERK-Akte EU-01 erfasst.",
+        "EU-Recht begrenzt zahlreiche nationale Reformoptionen bei Beihilfen, Steuern, Kapitalverkehr, Wettbewerb, Migration und Budgetregeln."
+      ],
+      "diagnosis":[
+        "EU-Finanzierung ist kein kostenloses Geld; Kofinanzierung, Folgekosten und Zusätzlichkeit müssen mitgerechnet werden.",
+        "WERK sollte den Fokus auf Abrufquote, Wirkung und Folgekosten legen, nicht auf maximale Fördersumme.",
+        "Reformideen mit EU-Rechtskonflikten müssen früh erkannt werden, bevor politische Erwartungen entstehen."
+      ],
+      "next_analysis":["EU-Beiträge Österreichs und Rückflüsse nach Programm","RRF-Abschluss","Strukturfonds/GAP/Forschung","Kofinanzierung und Folgekosten","nicht abgerufene Mittel","Regulierungskosten vs Binnenmarktnutzen","Beihilfen-/Wettbewerbsgrenzen für WERK-Reformen"]
+    },
+    {
+      "id":"TRANSFORMATION-FUND",
+      "name":"Transformationskosten und befristeter Reformfonds",
+      "status":"Konzept vertiefen",
+      "facts":[
+        "Viele Strukturreformen erzeugen zunächst IT-, Personal-, Parallelbetriebs-, Schulungs- oder Abfertigungskosten, bevor dauerhafte Einsparungen eintreten."
+      ],
+      "diagnosis":[
+        "Wenn Transformationskosten ignoriert werden, wird BUD-01 künstlich schöngerechnet.",
+        "Ein befristeter Transformationsmechanismus kann sinnvoll sein, darf aber nicht zum dauerhaften Schattenbudget werden.",
+        "Jede Finanzierung muss Reform-ID, Höchstbetrag, Auszahlungszeitraum, erwarteten Break-even und Sunset besitzen."
+      ],
+      "next_analysis":["typische Transformationskosten aus früheren österreichischen Reformen","IT-Migrationskosten","Personal-/Abfertigungskosten","Parallelbetrieb","Finanzierungsquellen","Rückflussregel aus realisierten Einsparungen","gesetzlicher Sunset und Transparenzdashboard"]
+    }
+  ],
+  "sources":[
+    {"id":"BBG-2025","title":"BBG Unterlagen zum Jahresabschluss 2025","url":"https://www.bbg.gv.at/fileadmin/Bibliothek/Ueber_uns/BBG_Unterlagen_zum_Jahresabschluss_2025.pdf"},
+    {"id":"BKA-DIGI-2026","title":"Bundeskanzleramt Digi-Budget / ID Austria / dadeX 2026","url":"https://www.bundeskanzleramt.gv.at/bundeskanzleramt/nachrichten-der-bundesregierung/2026/06/proell-zu-digi-budget-einsparungen-durch-digitalisierung-nicht-an-digitalisierung.html"},
+    {"id":"RH-PARTIES","title":"Rechnungshof Rechenschaftsberichte der Parteien","url":"https://www.rechnungshof.gv.at/rh/home/was-wir-tun/was-wir-tun_5/was-wir-tun_6/Kontrolle_der_Parteien.html"},
+    {"id":"RH-ACTIVITY-2025","title":"Rechnungshof Tätigkeitsbericht 2025","url":"https://www.rechnungshof.gv.at/rh/home/news/Meldungen_2026/Taetigkeitsbericht-2025-des-Rechnungshofes-veroeffentlich.html"},
+    {"id":"BMF-HOLDINGS-2026","title":"BMF Beteiligungsbericht 2027/2028","url":"https://www.bmf.gv.at/services/startseite-budget/Bundesbudget_und_oeffentliche_Finanzen/beteiligungsbericht_27_28.html"},
+    {"id":"STAT-AGRI-2025","title":"Statistik Austria Landwirtschaftliche Gesamtrechnung","url":"https://www.statistik.at/statistiken/land-und-forstwirtschaft/land-und-forstwirtschaftliche-oekonomie-und-preise/landwirtschaftliche-gesamtrechnung/landwirtschaftliche-gesamtrechnung-auf-nationaler-ebene"},
+    {"id":"STAT-TOURISM-2025","title":"Statistik Austria Ankünfte und Nächtigungen","url":"https://www.statistik.at/statistiken/tourismus-und-verkehr/tourismus/beherbergung/ankuenfte-naechtigungen"}
+  ],
+  "next_block":"Block D: Klima/Naturgefahren, Verkehr/ÖBB/ASFINAG, Forschung/Start-ups, staatliche Reserven/Eventualverbindlichkeiten, Kultur/Medien, regionale Disparitäten, Demografie-Generationenbilanz und vertiefter State-ROI."
+}
