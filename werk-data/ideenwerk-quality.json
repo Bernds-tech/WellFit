@@ -1,25 +1,56 @@
 {
-  "version":"2026-09-02-v1",
+  "version":"2026-09-03-v2",
   "title":"IDEENWERK Qualitäts- & Skalierungstafel",
-  "rule":"Messwerte werden erst veröffentlicht, wenn der jeweilige Test tatsächlich auf einer dokumentierten Version und Infrastruktur ausgeführt wurde. Vorher steht ausdrücklich 'noch nicht gemessen'.",
+  "rule":"Messwerte werden nur veröffentlicht, wenn der jeweilige Test tatsächlich auf einer dokumentierten Version und Umgebung ausgeführt wurde. Teiltests werden nicht als vollständige Runtime-Freigabe dargestellt.",
+  "measured_runs":[
+    {
+      "id":"unit-core-20260903-01",
+      "type":"Node Unit Tests",
+      "executed_at":"2026-09-03",
+      "environment":"isolierter lokaler Spiegel der testbaren Kernmodule; Node.js 22.16.0; kein PostgreSQL/Docker in der Ausführungsumgebung",
+      "result":{"tests":14,"passed":14,"failed":0},
+      "scope":"Statusmaschine, Triage, Clusterentscheidung und konservativer Semantik-Fallback",
+      "limitation":"Kein API-, Datenbank-, Worker- oder Integrationsruntime-Test."
+    },
+    {
+      "id":"cluster-fallback-v2-20260903-01",
+      "type":"Cluster-Goldset",
+      "executed_at":"2026-09-03",
+      "environment":"Node.js 22.16.0; SEMANTIC_PROVIDER=fallback; Modell fallback-v2-sentence-split; Goldset 2026-09-02-v1",
+      "result":{
+        "pairs":15,
+        "correct":10,
+        "accuracy":0.6667,
+        "false_merge":0,
+        "variant_loss":0,
+        "false_split":5,
+        "same_problem_same_solution":{"correct":0,"total":5},
+        "same_problem_different_solution":{"correct":6,"total":6},
+        "separate":{"correct":4,"total":4}
+      },
+      "interpretation":"Der deterministische Fallback schützt Varianten zuverlässig und erzeugte im Test keine False Merges. Er ist aber zu konservativ für Same-Solution-Erkennung und darf deshalb nicht als produktiver semantischer Clusterprovider freigegeben werden.",
+      "limitation":"Kleiner manuell kuratierter Entwicklungs-Goldset; keine Aussage über reale Bürgerdaten oder einen externen Semantikprovider."
+    }
+  ],
   "prepared_tests":[
-    {"id":"cluster-goldset","name":"Cluster-Goldstandard","status":"vorbereitet, noch nicht mit produktivem Semantikprovider gemessen","scope":"15 manuell gelabelte Beispielpaare: gleiche Lösung, Lösungsvariante, getrennte Idee"},
-    {"id":"load-100k","name":"100.000-Einreichungen-Lasttest","status":"Generator und Benchmark vorbereitet, noch nicht auf definierter Testinfrastruktur ausgeführt","scope":"PostgreSQL, Queue, PII-Prüfung, Strukturierung, Near-Duplicate- und Semantikpipeline"},
-    {"id":"smoke-intake","name":"No-Login-Smoke-Test","status":"Testskript vorbereitet; Runtime-Ausführung auf echtem Backend offen","scope":"Einreichung -> Status-Token -> privater Statusabruf"}
+    {"id":"cluster-goldset","name":"Cluster-Goldstandard","status":"Fallback v2 tatsächlich gemessen; produktionsnaher Semantikprovider noch offen","scope":"15 manuell gelabelte Beispielpaare: gleiche Lösung, Lösungsvariante, getrennte Idee"},
+    {"id":"load-100k","name":"100.000-Einreichungen-Lasttest","status":"Generator und Benchmark vorbereitet, noch nicht auf definierter PostgreSQL/Testinfrastruktur ausgeführt","scope":"PostgreSQL, Queue, PII-Prüfung, Strukturierung, Near-Duplicate- und Semantikpipeline"},
+    {"id":"smoke-intake","name":"No-Login-Smoke-Test","status":"Testskript vorbereitet; Runtime-Ausführung mit PostgreSQL/API/Worker noch offen","scope":"Einreichung -> Status-Token -> privater Statusabruf -> Datenexport -> Privacy-Anfrage"}
   ],
   "metrics":[
-    {"id":"false_merge","label":"False Merge","meaning":"Zwei inhaltlich unterschiedliche Lösungsvarianten werden fälschlich als dieselbe Idee zusammengeführt.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset und produktionsnaher Provider-Version"},
-    {"id":"variant_preservation","label":"Variantenerhalt","meaning":"Gleiches Problem mit unterschiedlichen Lösungen bleibt als Varianten sichtbar.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset"},
-    {"id":"false_split","label":"False Split","meaning":"Nahezu gleiche Ideen werden unnötig getrennt und erzeugen Doppelarbeit.","priority":"hoch","current":"noch nicht gemessen","publication":"ab repräsentativem Goldset"},
+    {"id":"false_merge","label":"False Merge","meaning":"Zwei inhaltlich unterschiedliche Lösungsvarianten werden fälschlich als dieselbe Idee zusammengeführt.","priority":"kritisch","current":"Fallback v2 Goldset: 0 / 15","publication":"Entwicklungswert; produktive Freigabe erst nach repräsentativem Goldset und produktionsnahem Provider"},
+    {"id":"variant_preservation","label":"Variantenerhalt","meaning":"Gleiches Problem mit unterschiedlichen Lösungen bleibt als Varianten sichtbar.","priority":"kritisch","current":"Fallback v2 Goldset: 6 / 6 Varianten korrekt erhalten; Variant Loss 0","publication":"Entwicklungswert; mit größerem Goldset erneut prüfen"},
+    {"id":"false_split","label":"False Split","meaning":"Nahezu gleiche Ideen werden unnötig getrennt und erzeugen Doppelarbeit.","priority":"hoch","current":"Fallback v2 Goldset: 5 Same-Solution-Paare zu vorsichtig getrennt","publication":"zeigt klar, dass der Fallback keinen produktiven Semantikprovider ersetzt"},
     {"id":"queue_latency","label":"Queue-Latenz p50 / p95 / p99","meaning":"Zeit von Einreichung bis abgeschlossener automatischer Vorverarbeitung.","priority":"hoch","current":"noch nicht gemessen","publication":"nach 100k- und Spike-Test"},
     {"id":"review_backlog","label":"Manueller Prüfrückstand","meaning":"Zahl und Alter der Einreichungen, die auf menschliche Cluster-/Moderationsprüfung warten.","priority":"hoch","current":"noch nicht gemessen","publication":"ab echtem Betreiberbetrieb"},
-    {"id":"regional_drift","label":"Regionale Verzerrung","meaning":"Prüft, ob Ideen aus bestimmten Ländern/Regionen systematisch schlechter weiterkommen als vergleichbare Ideen.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab ausreichender realer Stichprobe"},
+    {"id":"regional_drift","label":"Regionale Verzerrung","meaning":"Prüft, ob Ideen aus bestimmten Ländern/Regionen systematisch schlechter weiterkommen als vergleichbare Ideen.","priority":"kritisch","current":"noch nicht gemessen","publication":"ab ausreichender realer oder repräsentativer synthetischer Stichprobe"},
     {"id":"pii_hold","label":"PII-Hold-Qualität","meaning":"Wie zuverlässig personenbezogene Kontaktdaten erkannt werden, ohne harmlose Ideen unnötig zu blockieren.","priority":"kritisch","current":"noch nicht gemessen","publication":"nach Datenschutz-/Testdatensatz-Abnahme"}
   ],
   "release_gates":[
+    "Der deterministische Fallback darf keine produktive semantische Auto-Verschmelzung durchführen; er dient als konservative Sicherheits-/Ausfallstufe.",
     "Kein semantischer Provider wird produktiv freigegeben, solange False-Merge und Variantenerhalt nicht auf einem repräsentativen Goldset geprüft wurden.",
     "Kein 100k-Skalierungsversprechen ohne tatsächlich dokumentierten Lasttest auf definierter Infrastruktur.",
-    "Qualitätswerte werden mit Softwareversion, Provider-/Modellversion, Testdatensatzversion und Testdatum veröffentlicht.",
+    "Qualitätswerte werden mit Softwareversion, Provider-/Modellversion, Testdatensatzversion, Umgebung und Testdatum veröffentlicht.",
     "Ein Providerwechsel setzt die relevanten Cluster- und Bias-Tests erneut zurück auf 'zu prüfen'.",
     "Politisch sensible Themen erhalten zusätzliche manuelle Stichproben und dürfen nicht ausschließlich aufgrund automatischer Clusterung weitergereicht werden."
   ]
