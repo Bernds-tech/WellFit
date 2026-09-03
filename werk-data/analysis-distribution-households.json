@@ -1,56 +1,28 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "domain":"Verteilungswirkung und Haushaltsbelastung",
-  "status":"Methodik und Baseline definiert – Mikrosimulation offen",
+  "status":"Methodik vertieft – Mikrosimulation/Datenintegration offen",
   "budget_priority_link":"BUD-01",
-  "principle":"BUD-01 soll Unter- und Mittelschicht schützen. Deshalb wird keine größere Steuer-, Transfer-, Pensions-, Energie- oder Gebührenreform final gerechnet, bevor ihre Nettoauswirkung auf typische Haushalte sichtbar ist.",
+  "principle":"BUD-01 soll Unter- und Mittelschicht schützen. Deshalb wird keine größere Steuer-, Transfer-, Pensions-, Energie- oder Gebührenreform final gerechnet, bevor ihre Nettoauswirkung und ihre effektive Grenzbelastung auf typische Haushalte sichtbar ist.",
   "current_facts":[
-    {"fact":"Median des verfügbaren Nettohaushaltseinkommens 2025 liegt laut aktueller Statistik-Austria-Darstellung bei rund 51.152 Euro pro Privathaushalt; verfügbares Nettoäquivalenzeinkommen bei rund 36.546 Euro pro Person.","source":"Statistik Austria Haushaltseinkommen, aktueller Datenstand 2026"},
-    {"fact":"EU-SILC 2025: 18,8 % bzw. rund 1,699 Mio. Personen waren armuts- oder ausgrenzungsgefährdet; Armutsgefährdungsquote stieg auf 16,0 %.","source":"Statistik Austria EU-SILC 2025, 29.04.2026"},
-    {"fact":"Der Einkommensanstieg war ungleich verteilt: an der Grenze des untersten Dezils stieg das äquivalisierte Einkommen deutlich schwächer als in der Mitte der Verteilung.","source":"Statistik Austria EU-SILC 2025"},
-    {"fact":"Besonders häufig in den unteren 10 % der Einkommensverteilung sind unter anderem Arbeitslose, Menschen mit niedriger formaler Bildung, Alleinerziehende und Familien mit drei oder mehr Kindern.","source":"Statistik Austria EU-SILC 2025"}
+    {"fact":"Median verfügbares Nettohaushaltseinkommen 2025 rund 51.152 Euro; Nettoäquivalenzeinkommen rund 36.546 Euro pro Person.","source":"Statistik Austria Haushaltseinkommen 2026","evidence_grade":"A1"},
+    {"fact":"EU-SILC 2025: 18,8 % bzw. rund 1,699 Mio. Personen armuts- oder ausgrenzungsgefährdet; Armutsgefährdungsquote 16,0 %.","source":"Statistik Austria EU-SILC 2025","evidence_grade":"A1"},
+    {"fact":"OECD Austria 2026 zeigt, dass mittlere Einkommen in Österreich teils hohen effektiven Grenzbelastungen ausgesetzt sind; reine Tarifbetrachtung reicht daher nicht.","source":"OECD Economic Survey Austria 2026","evidence_grade":"B2"},
+    {"fact":"Fiskalrat empfiehlt 2026 ausdrücklich, die Datengrundlage für einkommensabhängige Transfers zu verbessern.","source":"Fiskalrat Empfehlungen Juni 2026","evidence_grade":"B1"}
   ],
-  "mandatory_household_archetypes":[
-    "Single ohne Kinder – niedrige/mittlere/hohe Erwerbseinkommen",
-    "Paar ohne Kinder – ein oder zwei Einkommen",
-    "Alleinerziehend mit 1/2 Kindern",
-    "Paar mit 1/2/3+ Kindern",
-    "Pensionistin/Pensionist allein und Paar – niedrige/mittlere/höhere Pension",
-    "Arbeitsloser Haushalt",
-    "Teilzeit-Haushalt mit Betreuungspflichten",
-    "Haushalt mit Pflege-/Behinderungsbezug",
-    "Mieter privat / Gemeindewohnung / Genossenschaft / Eigentümer mit Kredit / schuldenfreies Eigentum",
-    "Stadt / ländliche Region mit unterschiedlichen Mobilitäts-/Energiekosten"
+  "mandatory_household_archetypes":["Single ohne Kinder – niedrige/mittlere/hohe Erwerbseinkommen","Paar ohne Kinder – ein oder zwei Einkommen","Alleinerziehend 1/2 Kinder","Paar 1/2/3+ Kinder","Pensionist allein/Paar – niedrige/mittlere/höhere Pension","arbeitsloser Haushalt","Teilzeit mit Betreuungspflichten","Pflege-/Behinderungsbezug","Mieter privat/Gemeinde/Genossenschaft/Eigentümer mit Kredit/schuldenfrei","Stadt/ländliche Region"],
+  "model_components":["Bruttoeinkommen/Pension/Kapital","Lohn-/Einkommensteuer","AN-/AG-SV und Lohnnebenkosten soweit relevant","Familien-/Sozial-/Wohn-/Pflegeleistungen","einkommensabhängiger Transferentzug","indirekte Steuern/Konsum","Energie/Mobilität/Wohnen","Gebühren/Selbstbehalte","Kinderbetreuung/Pflegekosten","Nettoeinkommen","effektive Grenzbelastung"],
+  "effective_marginal_burden_formula":"Zusätzliche Belastung bei 1 Euro Mehrverdienst = zusätzliche Steuer + zusätzliche Sozialbeiträge + entzogene einkommensabhängige Leistungen + unmittelbar einkommensabhängige Gebühren/Beiträge. Ausgabe ist netto verfügbarer Mehrverdienst und effektive Grenzbelastung in Prozent.",
+  "transfer_cumulation_workstream":[
+    "Leistungen von Bund/Land/Gemeinde/SV nach Haushaltstyp zusammenführen",
+    "Einkommensdefinitionen und Schwellen harmonisiert abbilden",
+    "Sprungstellen und kumulierte Transferentzugsraten identifizieren",
+    "Kinderbetreuung/Wohnbeihilfe/Sozialhilfe/Familienleistungen/Pflegebezug soweit relevant einbeziehen",
+    "regionale Unterschiede sichtbar machen",
+    "Reformvorschläge gegen Armutsrisiko UND Arbeitsanreiz testen"
   ],
-  "model_components":[
-    "Bruttoerwerbseinkommen/Pension/Kapital-/sonstige Einkommen",
-    "Einkommen-/Lohnsteuer",
-    "Arbeitnehmer-/Arbeitgeber-SV soweit relevant für Beschäftigungskosten",
-    "Familien-/Sozial-/Wohn-/Pflegeleistungen",
-    "Transferentzug bei Mehrverdienst",
-    "indirekte Steuern/Konsumwirkung als approximierte Belastung",
-    "Energie-/Mobilitäts-/Wohnkosten bei einschlägigen Reformen",
-    "Gebühren/Selbstbehalte",
-    "Kinderbetreuungs-/Pflegekosten",
-    "Nettoeinkommen und effektive Grenzbelastung"
-  ],
-  "distribution_gates":[
-    "Unterstes Einkommensquintil darf nicht durch BUD-01-Maßnahmen unkompensiert überproportional belastet werden, außer eine zwingende Rechts-/Sicherheitsnotwendigkeit besteht und Ausgleich geprüft wurde.",
-    "Mittlere Einkommen und Erwerbsarbeit werden nicht automatisch als leicht verfügbare Steuerbasis behandelt.",
-    "Hohe Einkommen/Vermögen können stärker beitragen, aber nur nach Rechts-, Aufkommens-, Verhaltens- und Standortprüfung.",
-    "Transferreformen müssen Armutsrisiko und Arbeitsanreiz gleichzeitig ausweisen.",
-    "Pensionsreformen müssen Jahrgangs-, Geschlechts-, Berufs- und Einkommenswirkungen ausweisen.",
-    "Regionale Kostenunterschiede werden bei Energie, Wohnen, Mobilität und Infrastruktur berücksichtigt."
-  ],
-  "scenario_outputs":[
-    "Euro-Veränderung netto pro Monat/Jahr",
-    "Veränderung in % des verfügbaren Einkommens",
-    "effektive Grenzbelastung bei zusätzlicher Arbeit",
-    "Armuts-/Deprivationsrisiko",
-    "Belastungs-/Entlastungsanteil nach Dezil/Quintil",
-    "Gewinner/Verlierer nach Haushaltstyp",
-    "gesamtstaatlicher Budgeteffekt getrennt vom Haushaltsnettoeffekt"
-  ],
-  "do_not_count_yet":["keine Durchschnittshaushalt-Zahl als repräsentativ für alle verwenden","keine Steuer-/Transferreform ohne Gegenwirkung anderer Leistungen rechnen","keine nominale Mehrbelastung ohne Einkommens-/Inflationsbezug interpretieren","keine Oberschicht-Mehreinnahme ohne Ausweich-/Bewertungsmodell annehmen"],
-  "next_data_needed":["EU-SILC Mikrodaten/aggregierte Haushaltstypen","Lohn-/Einkommensteuer-Mikrosimulationsparameter","Sozial-/Familien-/Wohnleistungen nach Haushalt","Konsumausgaben nach Dezil","Wohn-/Energie-/Mobilitätskosten nach Region","Pensionsverteilung","Vermögens-/Immobiliendaten für mögliche Vermögensmodelle"]
+  "distribution_gates":["unterstes Quintil nicht unkompensiert überproportional belasten","Mittelschicht/Erwerbsarbeit nicht als einfache Steuerbasis behandeln","höhere Einkommen/Vermögen nur nach Rechts-/Aufkommens-/Verhaltensprüfung stärker belasten","Transferreform zeigt Armutsrisiko und Arbeitsanreiz gemeinsam","Pensionsreform zeigt Jahrgang/Geschlecht/Beruf/Einkommen","regionale Kostenunterschiede berücksichtigen","keine Reform darf nur wegen positiver Durchschnittswirkung freigegeben werden, wenn einzelne relevante Haushaltstypen unvertretbare Sprungbelastungen haben"],
+  "scenario_outputs":["Euro netto Monat/Jahr","% verfügbares Einkommen","effektive Grenzbelastung","Armuts-/Deprivationsrisiko","Belastung/Entlastung nach Dezil","Gewinner/Verlierer nach Haushalt","regionaler Effekt","gesamtstaatlicher Budgeteffekt getrennt vom Haushaltsnettoeffekt"],
+  "do_not_count_yet":["kein Durchschnittshaushalt als alle repräsentierend","keine Steuer-/Transferreform ohne Interaktionen","keine nominale Belastung ohne Einkommens-/Inflationsbezug","keine Mehreinnahme hoher Einkommen/Vermögen ohne Verhalten","keine Arbeitsangebotswirkung ohne Grenzbelastungs-/Betreuungsmodell"],
+  "next_data_needed":["EU-SILC/Mikrosimulationsdaten","Steuer-/SV-Parameter","Bund/Land/Gemeinde-Transfers nach Haushalt","Transparenzdatenbank und Verwaltungsdaten","Konsumausgaben nach Dezil","Wohn-/Energie-/Mobilitätskosten nach Region","Pensionsverteilung","Vermögens-/Immobiliendaten"]
 }
