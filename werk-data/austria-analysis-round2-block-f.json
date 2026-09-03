@@ -1,0 +1,96 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block F",
+  "principle":"Offene Querschnittsthemen mit Primärdaten schließen, ohne daraus vorzeitig Sparziele abzuleiten.",
+  "priority_anchor":"BUD-01 bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"DISABILITY-REHAB",
+      "name":"Behinderung, Erwerbsteilhabe, Invalidität und Rehabilitation",
+      "status":"Primärdatenblock geschlossen – Leistungs-/Reha-Systemrechnung offen",
+      "facts":[
+        "2024 berichteten rund 1,9 Mio. Menschen zwischen 15 und 89 Jahren bzw. 24,7 % dieser Bevölkerung von gesundheitsbedingten Einschränkungen bei Alltagsaktivitäten.",
+        "Von Menschen mit solchen Einschränkungen im Erwerbsalter 15–64 waren 2024 54,1 % erwerbstätig; bei starken Einschränkungen nur 27,8 %, bei leichteren Einschränkungen 63,9 %.",
+        "21,5 % der Menschen mit Behinderungen ab 16 Jahren waren 2024 armuts- oder ausgrenzungsgefährdet, gegenüber 16,2 % in der Gesamtbevölkerung.",
+        "Ende 2023 waren 781.821 Personen mit einer 'registrierten Behinderung' erfasst; davon 117.402 erwerbstätig und 544.360 mit Pensionsbezug. Diese Registergruppe ist nicht mit der breiteren selbsteingeschätzten Behinderungsgruppe gleichzusetzen.",
+        "Die Pensionsversicherung bewilligte 2025 inklusive Hilfsmitteln 658.435 medizinische, 3.379 berufliche und 508 soziale Gesundheitsvorsorge-/Rehabilitationsmaßnahmen; Aufwand rund 1,5 Mrd. Euro.",
+        "Der Pensionsaufwand der PV lag 2025 bei rund 50,5 Mrd. Euro; die Bundes-Ausfallhaftung bei rund 10,4 Mrd. Euro."
+      ],
+      "diagnosis":[
+        "Behinderung darf weder pauschal als Sozialkostenblock noch als Arbeitsmarktreserve behandelt werden. Schutzbedarf, Erwerbsteilhabe, Rehabilitation und Pflege sind unterschiedliche Fälle.",
+        "Die erhebliche Erwerbslücke – besonders bei starken Einschränkungen – rechtfertigt eine Analyse von Barrieren, Rehabilitation, Arbeitgeberanreizen und Arbeitsplatzanpassung, nicht pauschale Leistungskürzungen.",
+        "Register- und Befragungsdaten messen unterschiedliche Populationen; WERK muss diese strikt getrennt verwenden.",
+        "Reha-Ausgaben können fiskalisch sinnvoll sein, wenn sie Erwerbsfähigkeit erhalten oder Pflegebedarf verhindern; dafür ist eine Outcome-/Return-to-work-Messung nötig."
+      ],
+      "next_analysis":["Invaliditäts-/Berufsunfähigkeitspensionen nach Ursache, Alter und Dauer","Rehabilitation: Return-to-work nach 6/12/24 Monaten","berufliche Reha und Umschulung","begünstigt Behinderte/Ausgleichstaxe","Arbeitsassistenz und Arbeitsplatzanpassung","Mehrfachbegutachtungen","Pflegegeld/Behinderung/Invalidität sauber trennen","Barrierefreiheit öffentlicher Dienste","Nettofiskalwirkung erfolgreicher Erwerbsintegration"]
+    },
+    {
+      "id":"WATER-INFRA",
+      "name":"Trinkwasser, Abwasser und kommunale Wasserinfrastruktur",
+      "status":"Primärdatenblock geschlossen – Langfrist-Investitionsbedarf in Erhebung",
+      "facts":[
+        "2025 wurden in Wasserwirtschaft, Gewässerökologie und Hochwasserschutz insgesamt rund 1,15 Mrd. Euro Investitionen über 2.903 Projekte umgesetzt.",
+        "Davon entfielen rund 897,9 Mio. Euro Investitionsvolumen auf 2.132 Projekte der Siedlungswasserwirtschaft.",
+        "2025 wurden unter anderem 330 km Trinkwasserleitungen neu verlegt, 376 km Wasserleitungen saniert, 355 km Kanäle errichtet und 237 km Kanäle saniert.",
+        "Für Trinkwasser- und Abwasserprojekte wurden 2025 rund 168 Mio. Euro Bundesförderung genehmigt; 2026 stehen zusätzlich Förderrahmen bereit.",
+        "Für 2027–2033 läuft eine österreichweite Erhebung des Investitionsbedarfs der Gemeinden und Verbände; Ergebnisse sind für WERK wichtiger als eine vorzeitige eigene Kostenschätzung."
+      ],
+      "diagnosis":[
+        "Wasser-/Abwasserinfrastruktur ist überwiegend langlebige kommunale Daseinsvorsorge und keine kurzfristige Sparmasse.",
+        "BUD-01 muss zwischen Instandhaltungsinvestition, Erweiterung, Klimaanpassung und laufendem Betrieb unterscheiden; unterlassene Sanierung kann spätere Kosten erhöhen.",
+        "Der Finanzausgleich und kommunale Verschuldung sind eng mit diesem Infrastrukturblock verbunden.",
+        "WERK sollte den offiziellen Investitionsbedarf 2027–2033 übernehmen, sobald die Erhebung vorliegt, statt heute eine eigene Zahl zu erfinden."
+      ],
+      "next_analysis":["Ergebnis Investitionskostenerhebung 2027–2033","Netzalter und Sanierungsquote je Region","Gebühren-/Kostendeckung","kommunale Eigenmittel/Förderung/Verschuldung","Blackout-/Dürre-Resilienz","Leckageverluste","Kläranlagenenergie und Phosphor/Ressourcennutzung","State-ROI von Sanierung vs Ersatz"]
+    },
+    {
+      "id":"WASTE-CIRCULAR",
+      "name":"Abfallwirtschaft und Kreislaufwirtschaft",
+      "status":"Primärdatenblock geschlossen – Stoffstrom-/Kostenmodell offen",
+      "facts":[
+        "Das gesamte österreichische Abfallaufkommen 2024 lag bei rund 67 Mio. Tonnen; knapp 57 % davon waren Aushubmaterialien.",
+        "54 % des gesamten Abfallaufkommens wurden stofflich verwertet, davon 36 % recycelt und 18 % verfüllt; 38 % wurden deponiert und 6 % thermisch behandelt.",
+        "Siedlungsabfälle lagen 2024 bei rund 7,1 Mio. Tonnen; rund 4,3 Mio. Tonnen wurden recycelt. Die Recyclingquote lag bei knapp 61 % und damit über dem EU-Ziel von 55 % für 2024.",
+        "2024 wurden rund 3 Mio. Tonnen Altstoffe getrennt gesammelt.",
+        "Im Förderbereich Kreislaufwirtschaft wurden 2024/25 74 Projekte mit 117,2 Mio. Euro Investitionsvolumen und 47,9 Mio. Euro Förderung unterstützt; zusätzlich standen 2025 27,5 Mio. Euro für FFG 'Ressourcenwende' bereit."
+      ],
+      "diagnosis":[
+        "Das Gesamt-Abfallaufkommen wird stark durch Bau/Aushub geprägt; Pro-Kopf-Werte ohne diese Trennung können politisch irreführend sein.",
+        "Österreich erfüllt zentrale Recyclingziele, daher liegt der nächste Effizienzhebel stärker bei Vermeidung, hochwertiger Sekundärrohstoffnutzung, Baukreisläufen und Kosten der Sammel-/Verwertungssysteme.",
+        "Kreislaufwirtschaft ist auch Rohstoff-/Industriepolitik. Förderungen müssen deshalb auf zusätzliche Materialeinsparung und Importresilienz geprüft werden.",
+        "Kommunale Gebühren und private Produzentenverantwortung dürfen in der fiskalischen Rechnung nicht vermischt werden."
+      ],
+      "next_analysis":["Kosten je Abfallfraktion und Gemeinde","Bau-/Abbruchkreisläufe","Verpackung/Pfand/EPR","Sekundärrohstoffmärkte","Deponie-/Verbrennungskapazitäten","Lebensmittelabfälle","öffentliche Beschaffung zirkulärer Produkte","Förder-Zusätzlichkeit","EU-Circular-Economy-Regeln und Kosten"]
+    },
+    {
+      "id":"TELECOM-DIGITAL-INFRA",
+      "name":"Telekommunikation, Breitband und kritische digitale Infrastruktur",
+      "status":"Primärdatenblock geschlossen – regionale Ausbau-/Förderanalyse offen",
+      "facts":[
+        "Telekommunikationsumsätze 2025 lagen laut RTR bei rund 4,713 Mrd. Euro; Brancheninvestitionen bei rund 805 Mio. Euro, 1,4 % weniger als 2024.",
+        "Ende 2025 gab es rund 2,589 Mio. feste Breitband-/Bündelanschlüsse auf eigener Infrastruktur in der RTR-Auswertung.",
+        "Das Datenvolumen stieg 2025 auf 12.693 Petabyte, +8,9 % gegenüber 2024.",
+        "Die VHCN-Abdeckung erreichte im Digital-Decade-Vergleich 72,2 % der Haushalte (Datenstand 2024) gegenüber 82,5 % EU-Durchschnitt; Österreich lag EU-weit nur an fünftletzter Stelle.",
+        "Bei 5G-Coverage im 3,4–3,8-GHz-Band lag Österreich mit 84,0 % der Haushalte EU-weit an sechster Stelle."
+      ],
+      "diagnosis":[
+        "Österreich ist beim hochwertigen Festnetz deutlich schwächer als im Mobilfunk. Breitbandpolitik darf daher nicht mit allgemeiner 5G-Abdeckung gleichgesetzt werden.",
+        "Förderziel muss tatsächlicher Anschluss/Take-up, Qualität, Wettbewerb und Resilienz sein – nicht nur 'Homes Passed'.",
+        "Digitale Staatsreformen, KI und Standortpolitik benötigen belastbare Festnetze; VHCN-Lücken sind somit auch Produktivitäts- und Regionalthema.",
+        "Die öffentliche Hand sollte privatwirtschaftliche Investitionen ergänzen, nicht verdrängen; Fördergebiete und Open-Access-Wirkung müssen geprüft werden."
+      ],
+      "next_analysis":["FTTH/B nach Bezirk und Gemeinde","Homes Passed vs Connected","Breitbandförderungen und Kosten je zusätzlich angeschlossenem Standort","Wholesale/Open Access","ländliche Lücken","Unternehmens-/Industrieanschlüsse","Netzredundanz und Blackoutresilienz","Preise/Qualität","kritische Netzknoten/Cybersecurity","5G-SA und industrielle Nutzung"]
+    }
+  ],
+  "sources":[
+    {"id":"STAT-DISABILITY-2024","title":"Statistik Austria – Menschen mit Behinderungen 2024","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/behinderung-und-teilhabe/selbsteingeschaetzte-behinderung"},
+    {"id":"STAT-REGISTERED-DISABILITY","title":"Statistik Austria – registrierte Behinderung","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/behinderung-und-teilhabe/registrierte-behinderung"},
+    {"id":"PV-2025","title":"Pensionsversicherung – Jahresbericht und Rechnungsabschluss 2025","url":"https://www.pv.at/web/ueber-uns-und-karriere/presse/presseaussendungen/2026/jahresbericht-2025"},
+    {"id":"BMLUK-WATER-2025","title":"BMLUK – Wasserwirtschaft Maßnahmen und Investitionen 2025","url":"https://www.bmluk.gv.at/themen/wasser/foerderungen/wasserwirtschaft-in-oesterreich-massnahmen-und-investitionen-2025.html"},
+    {"id":"BMLUK-WATER-NEED","title":"BMLUK – Investitionsbedarf Trinkwasser/Abwasser 2027–2033","url":"https://www.bmluk.gv.at/themen/wasser/foerderungen/erhebung-zum-investitionsbedarf-in-der-trinkwasserver-und-abwasserentsorgung.html"},
+    {"id":"UBA-WASTE-2026","title":"Umweltbundesamt – Österreichs Abfallwirtschaft in Zahlen 2024","url":"https://www.umweltbundesamt.at/news260813-zahlen-der-abfallwirtschaft"},
+    {"id":"BMLUK-CIRCULAR-2025","title":"BMLUK – zweiter Fortschrittsbericht Kreislaufwirtschaftsstrategie 2025","url":"https://www.bmluk.gv.at/service/publikationen/abfall-und-kreislaufwirtschaft/die-oesterreichische-kreislaufwirtschaftsstrategie.html"},
+    {"id":"RTR-TELEKOM-2025","title":"RTR Telekom Monitor Jahresbericht 2025","url":"https://www.rtr.at/telekom-monitor-2025"}
+  ],
+  "next_phase":"Thematische Erstaufnahme ist damit weitgehend geschlossen. Nächste Tiefenphase: internationale Benchmark-Matrix, vollständige COFOG-/Budgetuntergliederungs-Zerlegung und Programminventar für BUD-01."
+}
