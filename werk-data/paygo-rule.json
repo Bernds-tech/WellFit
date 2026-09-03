@@ -1,0 +1,18 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – PAYGO-Regel nach Erreichen und auf dem Weg zu BUD-01",
+  "purpose":"Neue politische Wünsche dürfen die Sanierung nicht laufend wieder aufreißen. Dauerhafte Mehrausgaben und dauerhafte Steuersenkungen brauchen einen belastbaren dauerhaften Finanzierungspfad.",
+  "core_rule":"Jede neue dauerhafte budgetverschlechternde Maßnahme muss vor Beschluss durch einen mindestens gleich hohen konservativ verifizierten dauerhaften gesamtstaatlichen Nettoeffekt gegenfinanziert werden oder innerhalb eines bereits ausgewiesenen BUD-01-Spielraums liegen.",
+  "applies_to":["neue Dauerleistungen","Leistungsausweitungen","dauerhafte Steuersenkungen/Abgabenbefreiungen","neue Förderprogramme","dauerhafte Personal-/Organisationsausweitungen","neue laufende Subventionen öffentlicher Unternehmen"],
+  "does_not_treat_as_permanent_financing":["Vermögensverkäufe","Rücklagenentnahmen","einmalige Sonderdividenden","temporäre Krisensteuern","reine Buchungs-/Timingeffekte","optimistische Prognoserevision ohne Maßnahme","neue Schulden"],
+  "investment_rule":"Öffentliche Investitionen werden nicht pauschal wie Konsumausgaben behandelt. Sie brauchen State-ROI/Lebenszyklusrechnung und eine Finanzierung, die BUD-01 nicht strukturell unterläuft. Einmalkosten dürfen aus einmaligem Spielraum finanziert werden, laufende Folgekosten brauchen permanente Deckung.",
+  "recession_crisis_rule":"Automatische Stabilisatoren und klar definierte Krisenmaßnahmen dürfen temporär ausgenommen werden. Ausnahme braucht Auslösekriterium, Sunset, getrennte Krisenkostenrechnung und Rückkehrpfad.",
+  "offset_quality":[
+    "Offset muss zusätzliche Maßnahme sein, nicht bereits Referenzpfad.",
+    "Offset wird nach reform-costing-standard.json gerechnet.",
+    "Potenzialwerte reichen nicht; für dauerhafte Zusagen ist konservativ verifizierter Nettoeffekt nötig.",
+    "Zeitprofil muss zusammenpassen: ein Effekt ab Jahr 5 finanziert nicht unkompensiert eine Ausgabe ab Jahr 1.",
+    "Kostenverschiebung zwischen Staatsebenen ist kein Offset."
+  ],
+  "political_transparency":"Falls WERK bewusst von PAYGO abweicht, wird Betrag, Dauer, Grund und Rückkehrpfad öffentlich ausgewiesen. BUD-01 bleibt Priorität 1."
+}
