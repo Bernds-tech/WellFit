@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "title":"WERK Österreich – Gesamtanalyse vor der Endrechnung",
   "purpose":"Österreich möglichst vollständig analysieren, bevor das endgültige Sanierungsbudget gerechnet wird. Alte Ideen werden mit aktuellen Daten erneut geprüft; neue Problemfelder ergänzt; nichts verschwindet stillschweigend.",
   "priority_anchor":"BUD-01 bleibt Priorität 1 bis zum nachhaltig ausgeglichenen gesamtstaatlichen Haushalt.",
@@ -7,6 +7,54 @@
   "status_values":["bereits weit analysiert","teilweise analysiert","neu vertiefen","noch offen","ersetzt/korrigiert","bewusst verworfen"],
   "domains":[
     "Staatshaushalt und Fiskalregeln","Schulden/Zinsen/Refinanzierung","vollständiger Staatsaufgaben- und Programmreview","WERK-Schattenbudget","Makro- und Budget-Stresstests","Verteilungswirkung und Haushaltsbelastung","Steuern und Abgaben","Förderungen und Transfers","Verwaltung/Bürokratie/Genehmigungen","Föderalismus/Kompetenzen/Finanzausgleich","Gemeindefinanzen","Pensionen","Gesundheit","Pflege","Bildung","Arbeitsmarkt und Fachkräfte","Sozialsystem und Armut","Migration/Asyl/Integration","Innere Sicherheit/Justiz/Rechtsstaat","Bundesheer/Zivilschutz/Resilienz","Wirtschaft/Produktivität/Standort","Innovation/Forschung/Start-ups","staatlicher Investitions-TÜV/State ROI","Bundesbeteiligungen","Wohnen/Boden/Raumordnung","Energie/Netze/Versorgungssicherheit","Klima/Umwelt/Naturgefahren","Verkehr/Infrastruktur","Digitalstaat/Daten/KI","öffentliche Beschaffung","Korruption/Parteienfinanzierung/Transparenz","Demokratie/WERK VOTE/Bürgerbeteiligung","Demografie/Generationenbilanz","regionale Disparitäten/ländlicher Raum","Landwirtschaft/Ernährung","Tourismus","Kultur/Medien","EU-Mittel und EU-Regeln","Transformationskosten/Reformfonds","staatliche Reserven/Vermögensbilanz/Eventualverbindlichkeiten","Glücksspiel"
+  ],
+  "dedicated_analysis_files":[
+    {"domain":"Staatshaushalt und Fiskalregeln","file":"analysis-bud01-baseline.json"},
+    {"domain":"Pensionen + Demografie","file":"analysis-pensions-demography.json"},
+    {"domain":"Gesundheit + Pflege","file":"analysis-health-care.json"},
+    {"domain":"Arbeitsmarkt + Erwerbspotenzial","file":"analysis-labour-productivity.json"},
+    {"domain":"Gemeindefinanzen","file":"analysis-municipal-finance.json"},
+    {"domain":"Öffentlicher Sektor + Staatsvermögen","file":"analysis-public-sector-assets.json"},
+    {"domain":"Bildung + Kompetenzen","file":"analysis-education-skills.json"},
+    {"domain":"Produktivität + Innovation + Standort","file":"analysis-productivity-innovation.json"},
+    {"domain":"Verteidigung + Resilienz","file":"analysis-defence-resilience.json"},
+    {"domain":"Wohnen + Bauen","file":"analysis-housing-building.json"},
+    {"domain":"Energie + Netze","file":"analysis-energy-networks.json"},
+    {"domain":"Öffentliche Beschaffung","file":"analysis-public-procurement.json"},
+    {"domain":"Staatsaufgaben-/Programmreview","file":"analysis-program-review.json"},
+    {"domain":"Makro-/Budget-Stresstests","file":"analysis-stress-framework.json"},
+    {"domain":"State ROI + Transformationskosten","file":"analysis-state-roi-transformation.json"},
+    {"domain":"Soziales + Familie + Migration","file":"analysis-social-family-migration.json"},
+    {"domain":"Innere Sicherheit + Justiz","file":"analysis-security-justice.json"},
+    {"domain":"Verkehr + Infrastruktur","file":"analysis-transport-infrastructure.json"},
+    {"domain":"Staatsvermögen + Haftungen + Eventualrisiken","file":"analysis-state-balance-risks.json"}
+  ],
+  "mature_existing_models_or_registers":[
+    "debt-model.json – Schulden/Zinsen/Refinanzierung",
+    "fiscal-model.json + medium-term-fiscal-path.json – Fiskalpfad",
+    "funding-matrix.json – Finanzierungsmatrix",
+    "admin-model.json – Verwaltung",
+    "tax-compliance-model.json – Steuer-Compliance",
+    "gambling-model.json – Glücksspiel",
+    "competence-inventory.json – Föderalismus/Kompetenzen",
+    "implementation-overlap.json – bestehende Regierungsmaßnahmen vs WERK-Delta",
+    "priorities.json – BUD-01 Priorität 1",
+    "legacy-idea-register.json – Altideen-/Entscheidungslog",
+    "democracy-minimum-standard.json / WERK-VOTE-Modelle – direkte Demokratie"
+  ],
+  "remaining_domains_for_deep_dive":[
+    "WERK-Schattenbudget – bewusst erst nach ausreichender Gesamtanalyse rechnen",
+    "Verteilungswirkung/Haushaltstypen als eigenes Mikromodell",
+    "Steuern/Abgaben als vollständige Systemanalyse über bestehende TAX-Modelle hinaus",
+    "Förderungen/Transfers gesamtstaatlich als vollständiges Inventar",
+    "Klima/Umwelt/Naturgefahren",
+    "Digitalstaat/Daten/KI als gesamtstaatliche Architektur",
+    "Korruption/Parteienfinanzierung/Transparenz",
+    "regionale Disparitäten/ländlicher Raum",
+    "Landwirtschaft/Ernährung",
+    "Tourismus",
+    "Kultur/Medien",
+    "EU-Mittel/EU-Regeln als vollständige Netto-/Regulierungsanalyse"
   ],
   "cross_checks":["Auswirkung auf BUD-01","keine Doppelzählung","bestehende Regierungsmaßnahmen nicht als WERK-Effekt buchen","Brutto/Potenzial/Zahlungsfluss/dauerhafter Nettoeffekt trennen","Unter-/Mittelschicht/Wachstum/Beschäftigung/Preise/Regionen prüfen","Bund/Land/Gemeinde/Sozialversicherung zuordnen","Verfassung/Grundrechte/EU/Völkerrecht prüfen","Stressszenarien anwenden","große Investitionen mit State-ROI prüfen","KPI/Review/Korrekturmechanismus festlegen"],
   "completion_rule":"Die Endrechnung startet erst, wenn alle wesentlichen Analysebereiche einen aktuellen Datenstand, Problemdiagnose, bestehende Maßnahmen, Reformoptionen, Rechts-/Kompetenzstatus, Abhängigkeiten und dokumentierten Entscheidungsstatus besitzen."
