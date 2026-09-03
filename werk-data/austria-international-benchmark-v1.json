@@ -1,0 +1,118 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – internationale Benchmark-Matrix / Tiefenphase 2",
+  "rule":"Internationale Vergleiche identifizieren Auffälligkeiten und mögliche Lernfelder. Sie sind weder automatische Reformempfehlung noch WERK-Einsparung. Externe Potenzialrechnungen werden erst nach österreichischer Bottom-up-Prüfung berücksichtigt.",
+  "comparators":"Primär OECD/EU; bei Detailanalysen zusätzlich strukturell vergleichbare Staaten wie Deutschland, Schweiz, Niederlande, Dänemark, Schweden, Finnland und ausgewählte föderale Systeme.",
+  "signals":[
+    {
+      "id":"BENCH-GOV-SPEND",
+      "area":"Gesamtstaatsausgaben",
+      "austria":"55,2 % des BIP im Jahr 2024 laut OECD-National-Accounts-Darstellung.",
+      "benchmark":"Euro-Raum 49,3 % im von OECD angeführten Vergleichsjahr 2023; wegen unterschiedlicher Referenzjahre nur als Größenordnung verwenden.",
+      "signal":"Österreich ist ein Hoch-Ausgabenstaat; strukturelle Ausgabenprüfung ist für BUD-01 zwingend.",
+      "werk_action":"COFOG und Programme zerlegen statt pauschal 5–6 BIP-Punkte als Sparraum anzunehmen."
+    },
+    {
+      "id":"BENCH-SOCIAL",
+      "area":"Soziale Sicherung",
+      "austria":"22,8 % des BIP Staatsausgaben nach OECD-COFOG 2024; altersspezifische Ausgaben besonders hoch.",
+      "signal":"Größter struktureller Ausgabenblock; demografiebedingt weiter unter Druck.",
+      "werk_action":"Pensionen, Familie, Arbeitslosigkeit, Invalidität, Pflege und Sozialhilfe getrennt rechnen; niedrige Einkommen schützen."
+    },
+    {
+      "id":"BENCH-PENSION",
+      "area":"Pensionen",
+      "austria":"Öffentliche Pensionsausgaben laut OECD unter den höchsten im OECD-Raum; Ausgaben steigen voraussichtlich bis etwa 2035 weiter.",
+      "external_scenario":"OECD illustriert ein Maßnahmenpaket im Pensionsbereich mit 1,6 % des BIP Budgetwirkung. Dieser Wert ist ausdrücklich kein WERK-Effekt.",
+      "signal":"Pensionen müssen wegen Größe und Demografie in der BUD-01-Tiefenrechnung ganz oben stehen.",
+      "werk_action":"Bottom-up nach Pensionsart, Zugang, Indexierung, Bundeszuschuss, Erwerbsdauer, Berufsbelastung und Verteilung rechnen."
+    },
+    {
+      "id":"BENCH-HEALTH",
+      "area":"Gesundheit",
+      "austria":"Öffentliche Gesundheitsausgaben sind laut OECD im internationalen Vergleich hoch; österreichische SHA-Daten 2025 zeigen 9,0 % des BIP öffentliche laufende Gesundheitsausgaben.",
+      "external_scenario":"OECD illustriert Effizienzgewinne im Gesundheitswesen von 0,2 % des BIP; nicht als WERK-Effekt übernehmen.",
+      "signal":"Hohe Ausgaben plus Fragmentierung und starke stationäre Orientierung machen Outcome-pro-Euro-Vergleich erforderlich.",
+      "werk_action":"Spital/ambulant/Primärversorgung/Pharma nach Kosten und Outcome mit Peer-Staaten vergleichen."
+    },
+    {
+      "id":"BENCH-LABOUR-TAX",
+      "area":"Steuern auf Arbeit",
+      "austria":"Steuerkeil 2025 für durchschnittlichen alleinstehenden Arbeitnehmer ohne Kinder rund 47,1 %; OECD-Durchschnitt 35,1 %, Österreich Rang 4 von 38.",
+      "signal":"Arbeitsbesteuerung ist ein struktureller Wettbewerbs- und Arbeitsangebotsnachteil.",
+      "werk_action":"Entlastung erst nach Gegenfinanzierung; Sozialbeiträge, Einkommensteuer, Transfers und Grenzbelastung gemeinsam modellieren."
+    },
+    {
+      "id":"BENCH-TAX-MIX",
+      "area":"Steuermix",
+      "austria":"OECD beschreibt Österreichs Steuerquote als viert-höchste im OECD-Raum und stark arbeitsbezogen; laufende Immobilienbesteuerung ist im OECD-Vergleich niedrig.",
+      "signal":"Nicht zwingend höhere Gesamtsteuerlast, sondern mögliche Verschiebung der Steuerbasis prüfen.",
+      "werk_action":"Jede Verschiebung mit Haushalts-, Eigentümer-, Mieter-, Standort- und Gemeindefinanzmodell prüfen; keine OECD-Empfehlung automatisch übernehmen."
+    },
+    {
+      "id":"BENCH-PUBLIC-EMPLOYMENT",
+      "area":"Öffentliche Beschäftigung",
+      "austria":"Öffentliche Beschäftigung 2023 laut OECD rund 15,6 % der Gesamtbeschäftigung, unter OECD-Durchschnitt 18,4 %.",
+      "additional":"Rund 33 % der Beschäftigten der Zentralverwaltung sind 55+ und werden in der kommenden Dekade überwiegend altersbedingt ausscheiden.",
+      "signal":"Die reine Beschäftigtenzahl ist kein Beleg für einen übergroßen Staat; Hebel liegt stärker in Aufgaben-, Prozess- und Nachbesetzungssteuerung.",
+      "werk_action":"Keine pauschale Personalquote. Pensionierungswelle für Prozessumbau nutzen und Stellen nur nach Aufgabenreview nachbesetzen."
+    },
+    {
+      "id":"BENCH-PROCUREMENT",
+      "area":"Öffentliche Beschaffung und Outsourcing",
+      "austria":"Öffentliche Beschaffung 2023 laut OECD rund 15 % des BIP gegenüber OECD-Durchschnitt 12,7 %; rund 30 % der Staatsausgaben. Outsourcing rund 11,8 % des BIP.",
+      "strength":"Österreich rangiert bei Innovationsbeschaffung laut OECD/EU stark, unter anderem Rang 3 in Europa in einem Innovationsbeschaffungsvergleich.",
+      "weakness":"Digital Government Index 0,55 gegenüber OECD 0,61; bei einzelnen Beschaffungsindikatoren geringere Publikations-/Wettbewerbswerte.",
+      "signal":"Sehr großer Hebel, aber zugleich vorhandene Stärken. Fokus auf Vertragsmanagement, Wettbewerb, Standardisierung, Daten und Lebenszykluskosten.",
+      "werk_action":"Beschaffungsvolumen bottom-up nach Kategorie und Gebietskörperschaft inventarisieren; BBG-Effekte nicht hochrechnen."
+    },
+    {
+      "id":"BENCH-DIGITAL-GOV",
+      "area":"Digitalstaat",
+      "austria":"OECD Digital Government Index 0,55 gegenüber OECD-Durchschnitt 0,61.",
+      "signal":"Trotz ID Austria und fortgeschrittener E-Government-Bausteine besteht bei datengetriebener Verwaltung und End-to-End-Digitalisierung Aufholpotenzial.",
+      "werk_action":"Transaktionszeiten/-kosten und Parallelprozesse messen statt Anzahl digitaler Projekte."
+    },
+    {
+      "id":"BENCH-BROADBAND",
+      "area":"Digitale Infrastruktur",
+      "austria":"VHCN-Coverage 72,2 % der Haushalte (Digital-Decade-Daten 2024) gegenüber EU-Durchschnitt 82,5 %; fünftletzte EU-Position. 5G 3,4–3,8 GHz dagegen 84,0 %, Rang 6 EU.",
+      "signal":"Festnetz-Hochleistungsinfrastruktur ist die Schwäche, Mobilfunk vergleichsweise stark.",
+      "werk_action":"Förderung und Regulierung auf FTTH/B-Take-up, Wettbewerb und ländliche Lücken fokussieren."
+    },
+    {
+      "id":"BENCH-RD",
+      "area":"Forschung und Entwicklung",
+      "austria":"Forschungsquote 2026 geschätzt 3,34 % des BIP und damit im EU-Vergleich sehr hoch.",
+      "signal":"Input ist Stärke; Problemfrage ist Output: Produktivität, Patente, Transfers, Scale-ups und Kommerzialisierung.",
+      "werk_action":"Keine pauschale F&E-Kürzung oder Erhöhung; Output je Förder-/Steuerinstrument vergleichen."
+    },
+    {
+      "id":"BENCH-HIGHER-ED",
+      "area":"Hochschulen",
+      "austria":"OECD diagnostiziert niedrige Abschlussquoten im allgemeinen tertiären Bereich im internationalen Vergleich.",
+      "peer_examples":"Estland, Dänemark, Finnland und andere koppeln Teile der Finanzierung an Abschluss-/Beschäftigungs-/Studiendauerindikatoren.",
+      "signal":"Finanzierung und Outcome stärker verbinden, ohne Qualität oder schwierige Studienrichtungen zu bestrafen.",
+      "werk_action":"Österreichische Abschlussdauer, Dropout, ECTS, Beschäftigung und soziale Selektion nach Institution/Fach analysieren."
+    },
+    {
+      "id":"BENCH-HOUSING",
+      "area":"Wohnen/Boden",
+      "austria":"Österreichs gemeinnütziges/soziales Wohnmodell wird von OECD grundsätzlich positiv bewertet; Leistbarkeit hat sich dennoch insbesondere in großen Städten verschlechtert. Laufende Immobilienbesteuerung ist international niedrig.",
+      "signal":"Stärke bewahren, Fehlsteuerungen bei Zielgenauigkeit, Boden, Genehmigungen und Besteuerungsbasis prüfen.",
+      "werk_action":"Kein pauschaler Systemwechsel; regionale Wohn- und Bodenmärkte getrennt analysieren."
+    }
+  ],
+  "external_scenario_firewall":{
+    "rule":"OECD- oder andere externe Budgetpotenziale werden in der WERK-Finanzierungsmatrix niemals als verified_annual_net_eur_billion eingetragen.",
+    "examples":["OECD Pension 1,6 % BIP","OECD Gesundheit 0,2 % BIP","OECD LTC 0,1 % BIP","OECD Familie/Sozial 0,3 % BIP","OECD Klima/Steuer 0,4 % BIP","OECD öffentlicher Dienst 0,3 % BIP"],
+    "use":"Nur als Größenordnungs-/Prüfhinweis für österreichische Bottom-up-Rechnung."
+  },
+  "sources":[
+    {"id":"OECD-AUT-2026","title":"OECD Economic Surveys: Austria 2026","url":"https://www.oecd.org/en/publications/oecd-economic-surveys-austria-2026_7cea027b-en.html"},
+    {"id":"OECD-TAX-2026","title":"OECD Taxing Wages 2026 – Austria","url":"https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/04/taxing-wages-2026-country-notes_491a0e97/austria_32eb2e04/156b95ae-en.pdf"},
+    {"id":"RTR-2025","title":"RTR Telekom Monitor Jahresbericht 2025","url":"https://www.rtr.at/telekom-monitor-2025"},
+    {"id":"STAT-RD-2026","title":"Statistik Austria Forschungsquote 2026","url":"https://www.statistik.at/statistiken/forschung-innovation-digitalisierung/forschung-und-experimentelle-entwicklung-fe/forschungsquote-globalschaetzung"}
+  ],
+  "next":"Benchmark-Matrix in der nächsten Tiefenstufe um konkrete Peer-Werte und Outcomes je Sektor erweitern."
+}
