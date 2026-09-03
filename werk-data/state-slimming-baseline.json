@@ -1,98 +1,40 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "title":"WERK Österreich – Staat verschlanken: reale Ausgangsbasis",
   "budget_priority_link":"BUD-01",
-  "status":"Baseline aufgebaut – keine pauschale Einsparung freigegeben",
-  "principle":"Staatsverschlankung bedeutet weniger Doppelstrukturen, weniger unnötige Prozesse, weniger parallele IT/Backoffices und klarere Zuständigkeit. Sie bedeutet nicht pauschal weniger Lehrer, Polizei, Justiz, Militär, Pflege oder andere operative Leistungen.",
-  "general_government_2025_eur_billion":{
-    "total_expenditure":283.0,
-    "personnel_compensation":58.8,
-    "intermediate_consumption_sachaufwand":36.1,
-    "social_benefits":127.0,
-    "subsidies_esvg":7.2,
-    "gross_investment":20.3,
-    "interest":9.3,
-    "other":24.0,
-    "source":"Statistik Austria Öffentliche Finanzen März 2026",
-    "warning":"Diese Kategorien sind gesamtstaatliche ESVG-Größen und keine Sparpotenziale. Sachaufwand enthält z.B. Energie, Mieten, Wartung, medizinische/operative Leistungen und viele fachlich notwendige Vorleistungen."
-  },
-  "public_employment_baseline":{
-    "territorial_governments_vbae_total":374912,
-    "federal_vbae_2024":137687,
-    "states_vbae_2023":149269,
-    "municipalities_vbae_2023":87956,
-    "general_government_employment_relationships_2023":811800,
-    "state_hospitals_additional_employees_2023_approx":100430,
-    "other_state_outsourced_units_employees_2023_approx":6000,
+  "status":"Baseline aufgebaut – Pensionswelle/Regierungsbaseline ergänzt; keine pauschale Einsparung freigegeben",
+  "principle":"Staatsverschlankung bedeutet weniger Doppelstrukturen, unnötige Prozesse, parallele IT/Backoffices und klarere Zuständigkeit. Sie bedeutet nicht pauschal weniger Lehrer, Polizei, Justiz, Militär, Pflege oder andere operative Leistungen.",
+  "general_government_2025_eur_billion":{"total_expenditure":283.0,"personnel_compensation":58.8,"intermediate_consumption_sachaufwand":36.1,"social_benefits":127.0,"subsidies_esvg":7.2,"gross_investment":20.3,"interest":9.3,"other":24.0,"source":"Statistik Austria März 2026","warning":"Prüfgrundgesamtheiten, keine Sparpotenziale."},
+  "public_employment_baseline":{"territorial_governments_vbae_total":374912,"federal_vbae_2024":137687,"states_vbae_2023":149269,"municipalities_vbae_2023":87956,"general_government_employment_relationships_2023":811800,"state_hospitals_additional_employees_2023_approx":100430,"other_state_outsourced_units_employees_2023_approx":6000,"source":"BKA Das Personal des Bundes 2025","warning":"unterschiedliche Abgrenzungen, nicht addieren"},
+  "federal_personnel_structure_2024":{"total_vbae":137687,"administrative_service_vbae":47092,"teachers_vbae":38187,"executive_service_vbae":34864,"military_service_vbae":12577,"judges_prosecutors_vbae":3134,"higher_education_teachers_vbae":1159,"staff_in_ministries_share_pct":9.0,"staff_in_subordinate_offices_share_pct":90.1,"administrative_staff_in_ministries_approx":10200,"source":"BKA Personal des Bundes 2025"},
+  "administrative_service_distribution_2024_pct":{"ministries":22.2,"tax_customs":20.6,"military_administration":14.8,"justice_administration":12.5,"school_administration":8.5,"security_administration":8.3,"other_subordinate_and_supreme_organs":6.2,"school_supervision":2.7,"surveying_metrology":2.1,"foreign_representations":1.2,"social_ministry_service":1.1,"source":"BKA Personal des Bundes 2025"},
+  "personnel_cost_reference_2024_eur_billion":{"general_government_employee_compensation":55.5,"federal_sector":21.3,"state_sector":17.3,"municipal_sector":14.1,"social_security_sector":2.7,"core_federal_137687_vbae_approx":13.0,"source":"BKA/Statistik Austria","warning":"Teilsektorwerte und Kernbund unterscheiden sich."},
+  "retirement_and_attrition_window":{
+    "share_of_existing_federal_staff_expected_to_retire_by_2037_pct":42.0,
+    "reference_staff_base_vbae":137687,
+    "derived_scale_if_applied_to_2024_base_vbae_approx":57829,
     "source":"BKA Das Personal des Bundes 2025",
-    "warning":"VBÄ der Gebietskörperschaften und Beschäftigungsverhältnisse des ESVG-Staatssektors sind unterschiedliche Abgrenzungen und dürfen nicht addiert werden."
+    "timing_note":"BKA bezeichnet insbesondere den Zeitraum bis 2030 als besonders herausfordernd; der Abgang ist nicht gleichmäßig über die Jahre verteilt.",
+    "costing_rule":"Die 42-%-Pensionswelle ist kein Sparwert. Sie schafft ein natürliches Entscheidungsfenster: jede frei werdende Stelle wird nach Aufgabe/Prozess/Servicebedarf geprüft; nur tatsächlich nicht nachbesetzte Stellen nach Aufgabenentfall erzeugen einen Einsparungseffekt.",
+    "knowledge_risk":"Wissensverlust, Rekrutierungsbedarf in Sicherheit/Bildung/Justiz und demografischer Fachkräftemangel müssen parallel gemanagt werden."
   },
-  "federal_personnel_structure_2024":{
-    "total_vbae":137687,
-    "administrative_service_vbae":47092,
-    "teachers_vbae":38187,
-    "executive_service_vbae":34864,
-    "military_service_vbae":12577,
-    "judges_prosecutors_vbae":3134,
-    "higher_education_teachers_vbae":1159,
-    "staff_in_ministries_share_pct":9.0,
-    "staff_in_subordinate_offices_share_pct":90.1,
-    "administrative_staff_in_ministries_approx":10200,
-    "source":"BKA Das Personal des Bundes 2025",
-    "interpretation":"Der größte Teil des Bundespersonals erbringt operative Leistungen außerhalb der Ministerien. Eine pauschale Personalquote wäre methodisch falsch."
+  "already_planned_federal_personnel_reduction":{
+    "administrative_reduction_target_vbae":2600,
+    "government_target":"6 % des Verwaltungspersonals",
+    "net_total_federal_vbae_reduction_end_2029_vs_end_2025":1491,
+    "budgetdienst_estimated_annual_personnel_outlay_reduction_from_2030_eur_million":150,
+    "source":"Budgetdienst Budgetanalyse 2027/2028",
+    "werk_accounting":"vollständig Baseline; nicht noch einmal als WERK-Effekt zählen"
   },
-  "administrative_service_distribution_2024_pct":{
-    "ministries":22.2,
-    "tax_customs":20.6,
-    "military_administration":14.8,
-    "justice_administration":12.5,
-    "school_administration":8.5,
-    "security_administration":8.3,
-    "other_subordinate_and_supreme_organs":6.2,
-    "school_supervision":2.7,
-    "surveying_metrology":2.1,
-    "foreign_representations":1.2,
-    "social_ministry_service":1.1,
-    "source":"BKA Das Personal des Bundes 2025"
-  },
-  "personnel_cost_reference_2024_eur_billion":{
-    "general_government_employee_compensation":55.5,
-    "federal_sector":21.3,
-    "state_sector":17.3,
-    "municipal_sector":14.1,
-    "social_security_sector":2.7,
-    "core_federal_137687_vbae_approx":13.0,
-    "source":"BKA Das Personal des Bundes 2025 / Statistik Austria",
-    "warning":"Teilsektorwerte umfassen mehr als die Kernverwaltung; die rund 13 Mrd. Euro beziehen sich auf die 137.687 Bundes-VBÄ. Nicht mit 2025-Personalaufwand 58,8 Mrd. mischen."
-  },
-  "public_sector_structure":{
-    "s13_government_units_2025":4958,
-    "other_public_units_s11_s12_2025":2749,
-    "federal_direct_majority_shareholdings":102,
-    "federal_shareholdings_staff_vzae_2025":129269,
-    "federal_shareholdings_revenue_2025_eur_billion":33.2,
-    "federal_shareholdings_balance_sheet_eur_billion":362.4,
-    "source":"Statistik Austria Öffentlicher Sektor / BMF Beteiligungsbericht 2027/2028",
-    "warning":"Einheitenzahlen, Beteiligungen und Beschäftigte haben unterschiedliche Abgrenzungen; keine Addition oder pauschale Schließungsquote."
-  },
-  "procurement_reference":{
-    "bbg_procurement_volume_2024_eur_billion":3.38,
-    "bbg_reported_saving_effect_2024_eur_billion":0.5576,
-    "source":"BBG Jahresabschluss 2025 Unterlagen",
-    "audit_warning":"Rechnungshof kritisierte bei früherer BBG-Prüfung die damalige Einsparungsberechnung als nicht zuverlässig genug. WERK verwendet den BBG-Sparwert daher nicht ungeprüft als BUD-01-Effekt."
-  },
-  "digitalisation_reference":{
-    "former_federal_digitalisation_fund_dotation_eur_million":160,
-    "paid_until_dissolution_2024_eur_million":105,
-    "source":"Rechnungshof Digitalisierungsfonds 2026",
-    "audit_finding":"Ob die angestrebten Ziele erreicht wurden, war unklar; insbesondere IT-Konsolidierung und Personaleffekte sollten ex post gemessen werden."
-  },
+  "public_sector_structure":{"s13_government_units_2025":4958,"other_public_units_s11_s12_2025":2749,"federal_direct_majority_shareholdings":102,"federal_shareholdings_staff_vzae_2025":129269,"federal_shareholdings_revenue_2025_eur_billion":33.2,"federal_shareholdings_balance_sheet_eur_billion":362.4,"source":"Statistik Austria/BMF","warning":"unterschiedliche Konzepte, nicht addieren"},
+  "procurement_reference":{"bbg_procurement_volume_2024_eur_billion":3.38,"bbg_reported_saving_effect_2024_eur_billion":0.5576,"source":"BBG","audit_warning":"RH kritisierte frühere Sparmethodik; Wert nicht ungeprüft buchen."},
+  "digitalisation_reference":{"former_federal_digitalisation_fund_dotation_eur_million":160,"paid_until_dissolution_2024_eur_million":105,"source":"RH 2026","audit_finding":"Zielerreichung unklar; IT-Konsolidierung/Personaleffekte messen."},
   "initial_interpretation":[
-    "Der größte fiskalische Verschlankungshebel ist nicht automatisch Personalabbau; vor Personalmaßnahmen müssen Aufgaben und Prozesse entfallen oder zusammengelegt werden.",
-    "58,8 Mrd. Euro Personalaufwand und 36,1 Mrd. Euro Sachaufwand 2025 sind Prüfgrundgesamtheiten, keine Einsparpotenziale.",
-    "47.092 VBÄ Verwaltungsdienst beim Bund sind heterogen: Steuer-/Zoll-, Militär-, Justiz-, Schul-, Sicherheits- und andere Fachverwaltung. Jeder Teilbereich braucht eigene Leistungs-/Prozesskennzahlen.",
-    "Beschaffung, IT, Förderabwicklung, Immobilien und Shared Services sind besonders geeignet für Verschlankung, weil Leistungsniveau oft erhalten werden kann, wenn Backoffice-/Prozesskosten sinken.",
-    "Föderale Doppelzuständigkeiten können Personal- und Prozesskosten verursachen, sind aber nur nach Aufgaben-/Finanzierungsentflechtung seriös monetarisierbar.",
-    "Ausgliederungen können Kernpersonal reduzieren, ohne dass der Staat real schlanker wird; deshalb wird immer gesamtstaatlicher bzw. öffentlicher Perimeter geprüft."
+    "Die Pensionswelle bis 2037 ist die größte natürliche Gelegenheit für selektive Verschlankung ohne pauschales Kündigungsprogramm.",
+    "Vor jeder Nicht-Nachbesetzung muss die Aufgabe entfallen, automatisiert, gebündelt oder mit vertretbarem Servicelevel neu organisiert sein.",
+    "Bestehende 2.600-VBÄ-Regierungsmaßnahme ist Referenzpfad.",
+    "58,8 Mrd. Personal- und 36,1 Mrd. Sachaufwand 2025 sind Prüfgrundgesamtheiten, keine Sparquoten.",
+    "Beschaffung, IT, Förderabwicklung, Immobilien, Shared Services und Aufgabenentflechtung sind primäre Backoffice-Hebel.",
+    "Ausgliederung allein macht den Staat nicht schlanker; Gesamt-/öffentlicher Perimeter bleibt maßgeblich."
   ]
 }
