@@ -1,14 +1,44 @@
 {
-  "version":"2026-09-01-v1",
-  "principle":"Erst Reihenfolge rechnen. Dann umsetzen.",
-  "note":"Die Zeitachsen sind Umsetzungslogik, kein Versprechen eines konkreten Amtsantrittsdatums. Zeitkritische Programme werden separat geführt.",
+  "version":"2026-09-03-v2",
+  "principle":"Erst analysieren. Dann Reihenfolge rechnen. Dann umsetzen.",
+  "priority_1":{
+    "reform_id":"BUD-01",
+    "title":"Strukturell ausgeglichener Staatshaushalt",
+    "rank":1,
+    "locked":true,
+    "may_be_replaced_before_completion":false,
+    "rule":"BUD-01 bleibt ununterbrochen Priorität 1, bis Österreich einen nachhaltig ausgeglichenen gesamtstaatlichen Haushalt erreicht hat und das dafür notwendige WERK-Maßnahmenpaket vollständig analysiert, gerechnet, finanziert, rechtlich geprüft, beschlossen und im Vollzug nachweisbar wirksam ist.",
+    "crisis_rule":"Krisenklauseln dürfen das Ziel nur transparent, eng befristet und mit dokumentiertem Rückkehrpfad zum Budgetausgleich unterbrechen; die Prioritätsreihenfolge bleibt unverändert.",
+    "completion_gates":[
+      "vollständige gesamtstaatliche Ausgangsanalyse und aktueller Referenzpfad",
+      "vollständiger Maßnahmenkatalog einschließlich Transformations- und Folgekosten",
+      "dauerhafte Nettoeffekte statt Brutto-, Potenzial- oder Doppelzählungen",
+      "Verteilungs-, Wachstums-, Beschäftigungs- und Inflationsprüfung",
+      "Bund, Länder, Gemeinden und Sozialversicherung sauber zugeordnet",
+      "Rechts-, EU- und Verfassungsprüfung abgeschlossen",
+      "Stressszenarien gerechnet",
+      "jährlicher Soll-Ist-Pfad und automatischer Korrekturmechanismus definiert",
+      "struktureller Budgetausgleich im Vollzug nachgewiesen"
+    ]
+  },
+  "priority_2_after_balance":{
+    "reform_id":"BUD-02",
+    "title":"Mindestens 10 Mrd. Euro jährliche Schuldentilgung als zweite Sanierungsstufe",
+    "rule":"Die zweite Sanierungsstufe folgt auf einen nachhaltig ausgeglichenen Haushalt. Neue Schulden zur Erfüllung des Tilgungsziels sind ausgeschlossen."
+  },
+  "analysis_before_final_calculation":{
+    "binding":true,
+    "rule":"Bevor das endgültige WERK-Sanierungsbudget gerechnet wird, wird Österreich noch einmal breiter analysiert. Frühere Reformideen werden mit aktuellen Daten neu geprüft; zusätzliche bisher übersehene Problemfelder werden ergänzt. Erst danach werden die Endrechnung, Gegenfinanzierung und Priorisierung abgeschlossen.",
+    "no_forgetting_rule":"Jeder frühere oder neue Vorschlag erhält einen dokumentierten Status: übernommen, neu zu prüfen, ersetzt/korrigiert, bewusst verworfen oder noch offen. Nichts verschwindet stillschweigend."
+  },
+  "note":"Die Zeitachsen sind Umsetzungslogik, kein Versprechen eines konkreten Amtsantrittsdatums. Zeitkritische Programme werden separat geführt. BUD-01 bleibt unabhängig von anderen Themen Priorität 1, bis die Abschlussgates erfüllt sind.",
   "tracks":[
     {
       "id":"prepare",
       "name":"Vor Regierungsverantwortung vorbereiten",
-      "purpose":"Rechts-, Daten- und Rechenarbeit so weit schließen, dass ein späterer Regierungsstart nicht mit Konzeptsuche beginnt.",
+      "purpose":"Rechts-, Daten-, Analyse- und Rechenarbeit so weit schließen, dass ein späterer Regierungsstart nicht mit Konzeptsuche beginnt.",
       "reforms":["BUD-01","BUD-02","TAX-01","TAX-02","REG-01","DIR-01","ORG-01"],
-      "deliverables":["vollständige Wirkungsblätter","Verfassungs- und EU-Prüfung","Budgetbaselines","Statuten/Partnervertrag","technisches WERK-VOTE-Sicherheitsmodell"]
+      "deliverables":["vollständige Österreich-Gesamtanalyse","vollständige Wirkungsblätter","Verfassungs- und EU-Prüfung","Budgetbaselines","Statuten/Partnervertrag","technisches WERK-VOTE-Sicherheitsmodell"]
     },
     {
       "id":"100d",
@@ -21,8 +51,8 @@
       "id":"legislature",
       "name":"Erste Legislaturperiode",
       "purpose":"Strukturreformen umsetzen, deren Kosten, Rechtslage und Nebenwirkungen nachweisbar geklärt sind.",
-      "reforms":["DEBT-01","ADM-01","SUB-01","PART-01","TAX-01","TAX-02","GAME-01","REG-01"],
-      "deliverables":["dauerhafter Schuldenabbaupfad","digitales Genehmigungsportal in prioritären Materien","bereinigte Förderlandschaft","professionelle Beteiligungssteuerung","evidenzbasierte Unternehmenssteuerreform","erste Kompetenzverschiebungen mit Finanzierung"]
+      "reforms":["BUD-01","DEBT-01","ADM-01","SUB-01","PART-01","TAX-01","TAX-02","GAME-01","REG-01"],
+      "deliverables":["strukturell ausgeglichener Haushalt als oberste Priorität","danach dauerhafter Schuldenabbaupfad","digitales Genehmigungsportal in prioritären Materien","bereinigte Förderlandschaft","professionelle Beteiligungssteuerung","evidenzbasierte Unternehmenssteuerreform","erste Kompetenzverschiebungen mit Finanzierung"]
     },
     {
       "id":"long",
@@ -40,6 +70,8 @@
     }
   ],
   "dependency_rules":[
+    "BUD-01 bleibt Priorität 1 bis zur nachgewiesenen Zielerreichung.",
+    "Keine endgültige Sanierungsrechnung vor Abschluss der erweiterten Österreich-Gesamtanalyse.",
     "Keine dauerhafte Tilgungsquote ohne vorherige Budgetbalance- und Fälligkeitsrechnung.",
     "Keine Steuererhöhung oder -senkung ohne Aufkommens-, Verteilungs- und Standortmodell.",
     "Keine Kompetenzverschiebung ohne gleichzeitige Finanzierungs- und Personalzuordnung.",
