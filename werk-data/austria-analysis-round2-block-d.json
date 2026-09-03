@@ -1,0 +1,129 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Österreich analysieren und verbessern – Runde 2 / Block D",
+  "principle":"Langfristige Investitionen und Strukturthemen nicht als kurzfristige Sparmasse behandeln; Wirkung, Folgekosten und Resilienz gemeinsam bewerten.",
+  "priority_anchor":"BUD-01 bleibt Priorität 1.",
+  "domains":[
+    {
+      "id":"CLIMATE-RESILIENCE",
+      "name":"Klima, Naturgefahren und Anpassung",
+      "status":"erste Vertiefung – Kostenpfad offen",
+      "facts":[
+        "Österreichs Treibhausgasemissionen lagen 2024 bei rund 66,6 Mio. Tonnen CO2-Äquivalent, 3,0 % unter 2023.",
+        "Für 2025 prognostiziert das Umweltbundesamt vorläufig wieder einen Anstieg um rund 0,7 % auf 67,1 Mio. Tonnen.",
+        "Im Effort-Sharing-Bereich wird die zulässige Höchstmenge 2025 nach vorläufiger Schätzung um rund 0,8 Mio. Tonnen überschritten."
+      ],
+      "diagnosis":[
+        "Klimapolitik muss Vermeidungskosten, EU-Zielkosten, Versorgungssicherheit und Anpassungskosten gemeinsam betrachten.",
+        "Ein Teil früherer Emissionsrückgänge ist konjunkturell bedingt; strukturelle Zielerreichung darf nicht aus Rezession abgeleitet werden.",
+        "Naturgefahren- und Anpassungsinvestitionen gehören in State-ROI und Stresstests, weil Nichtstun ebenfalls fiskalische Kosten erzeugt."
+      ],
+      "next_analysis":["Emissionen und Kosten nach Sektor","ESR-Zielpfad und mögliche Zertifikats-/Compliance-Kosten","Hochwasser/Hitze/Dürre/Schutzwald","Versicherungs-/Katastrophenfonds","Klimaförderungen je vermiedener Tonne und Zusatzwirkung","Anpassungsinvestitionen und vermiedene Schäden","Verteilungswirkung auf Haushalte/Regionen/Industrie"]
+    },
+    {
+      "id":"TRANSPORT-INFRA",
+      "name":"Verkehr, ÖBB und Infrastruktur",
+      "status":"erste Vertiefung – Projekt-ROI offen",
+      "facts":[
+        "ÖBB-Infrastruktur investierte 2025 rund 3,72 Mrd. Euro in Infrastruktur.",
+        "Der ÖBB-Rahmenplan 2027–2032 umfasst rund 19,5 Mrd. Euro Investitionen; zusätzlich sind rund 5 Mrd. Euro für Instandhaltung vorgesehen.",
+        "2025 nutzten laut ÖBB über 347 Mio. Kundinnen und Kunden Nah- und Fernverkehrszüge im In- und Ausland."
+      ],
+      "diagnosis":[
+        "Infrastrukturinvestitionen dürfen nicht mit laufendem Konsum gleichgesetzt werden; entscheidend sind Lebenszyklus, Kapazitätsbedarf, Nutzen und Alternativen.",
+        "Großprojekte brauchen unabhängigen State-ROI inklusive Baukostenrisiko, Betrieb, Instandhaltung, Nachfrage, regionale Wirkung und Klimanutzen.",
+        "Regionalstrecken können trotz niedriger direkter Rendite hohe Erreichbarkeits- und Standortwirkung haben; das muss transparent bewertet werden."
+      ],
+      "next_analysis":["Top-Großprojekte einzeln nach Kosten/Nutzen/Terminrisiko","Bestandsnetz vs Neubau","Straße/Schiene/ÖPNV gemeinsam modellieren","ASFINAG-Finanzierung und Maut","ÖBB-Bundeszahlungen und Nutzererlöse","Pünktlichkeit/Kapazität","Güterverkehr/Logistik","regionale Erreichbarkeit","Investitionspriorisierung mit State-ROI"]
+    },
+    {
+      "id":"RDI-STARTUPS",
+      "name":"Forschung, Innovation und Start-ups",
+      "status":"vertieft – Output-/Fördervergleich offen",
+      "facts":[
+        "Österreichs F&E-Ausgaben werden 2026 auf rund 17,6 Mrd. Euro bzw. 3,34 % des BIP geschätzt; damit liegt Österreich EU-weit bei der Forschungsquote sehr weit vorne.",
+        "Der Staat finanziert 2026 voraussichtlich rund 5,8 Mrd. Euro F&E; der größte öffentliche Anteil entfällt auf den Bund.",
+        "aws berichtet 2025 über stark steigende Nachfrage nach ERP-Krediten sowie fortlaufende Start-up-/VC-/Internationalisierungsprogramme."
+      ],
+      "diagnosis":[
+        "Hohe F&E-Ausgaben sind eine Stärke, aber der politische Fokus muss stärker auf Output, Transfer, Skalierung und Produktivität liegen.",
+        "Mehr Fördervolumen ist nicht automatisch besser; Programme, Forschungsprämie, FFG/aws und Hochschultransfer müssen auf Zusätzlichkeit und Überschneidungen geprüft werden.",
+        "Österreich braucht Analyse der Scale-up- und Eigenkapitallücke, nicht nur Gründungszahlen."
+      ],
+      "next_analysis":["Patente/Publikationen/Produktivitätsoutput je F&E-Euro","Forschungsprämie Mitnahme/Zusätzlichkeit","FFG/aws-Programme Überschneidung","Universität-Spin-offs","VC/Private Equity","Mitarbeiterbeteiligung","Gründungs-/Insolvenzrecht","Scale-up-Abwanderung","öffentliche Beschaffung als Innovationshebel"]
+    },
+    {
+      "id":"REGIONAL-DISPARITIES",
+      "name":"Regionale Wirtschafts- und Lebensunterschiede",
+      "status":"vertieft – Bezirks-/Gemeindemodell offen",
+      "facts":[
+        "Bruttoregionalprodukt je Einwohner 2024 reichte auf Bundeslandebene von rund 39.000 Euro im Burgenland bis rund 65.800 Euro in Salzburg; Wien lag bei rund 61.900 Euro.",
+        "Verfügbares Haushaltseinkommen je Einwohner war regional deutlich weniger unterschiedlich als das BRP und lag 2024 zwischen rund 28.200 Euro in Wien und 31.600 Euro in Niederösterreich.",
+        "2025 lag die ILO-Arbeitslosenquote in Wien bei 9,9 % gegenüber 5,7 % österreichweit; Tirol hatte mit 78,9 % die höchste Erwerbstätigenquote."
+      ],
+      "diagnosis":[
+        "BRP und Wohlstand sind nicht dasselbe; Pendlerströme und Unternehmenssitze verzerren regionale Produktionswerte.",
+        "WERK-Regionalpolitik braucht Bezirks-/Gemeindedaten zu Einkommen, Erreichbarkeit, Demografie, Arbeitsmarkt und kommunaler Finanzkraft.",
+        "Bundesweite Programme sollten regionale Unterschiede berücksichtigen, ohne ineffiziente Dauersubventionen zu verfestigen."
+      ],
+      "next_analysis":["NUTS3/Bezirk statt nur Bundesland","Pendler","Ärzte/Schulen/ÖPNV/Breitband","Unternehmensgründungen und Jobs","Gemeindefinanzkraft","Abwanderung/Alterung","Tourismusabhängigkeit","Grenzregionen","regionale Investitions-ROI"]
+    },
+    {
+      "id":"DEMOGRAPHY-GENERATIONS",
+      "name":"Demografie und Generationenbilanz",
+      "status":"vertieft – fiskalische Generationenrechnung offen",
+      "facts":[
+        "Im Hauptszenario steigt der Anteil der Bevölkerung ab 65 Jahren von rund 20,0 % im Jahr 2024 auf rund 22,9 % im Jahr 2030.",
+        "Die Zahl der Personen 65+ steigt im Hauptszenario von rund 1,84 Mio. 2024 auf rund 2,46 Mio. 2040.",
+        "Die Bevölkerung 20–64 sinkt im selben Zeitraum von rund 5,57 Mio. auf rund 5,32 Mio."
+      ],
+      "diagnosis":[
+        "Die Alterung ist einer der stärksten langfristigen Treiber für Pension, Gesundheit, Pflege, Arbeitskräfte und Gemeindestruktur.",
+        "Eine Generationenbilanz muss nicht nur Geldtransfers, sondern auch Bildung, Infrastruktur, Vermögen und Schulden betrachten.",
+        "Zuwanderung kann Erwerbsbevölkerung beeinflussen, ersetzt aber keine Produktivitäts-, Integrations- und Pensionsreform."
+      ],
+      "next_analysis":["altersspezifische Netto-Steuer-/Transferprofile","Pension/Gesundheit/Pflege bis 2050","Bildungs-/Familienausgaben","Staatsschulden pro Generation","Erbschaften/Vermögen","Erwerbsquoten-Szenarien","Migration/Fertilität/Lebenserwartung Sensitivität","regionale Alterung"]
+    },
+    {
+      "id":"STATE-BALANCE-SHEET",
+      "name":"Vermögensbilanz, Haftungen und Eventualverbindlichkeiten",
+      "status":"neu vertiefen – vollständige Nettovermögenssicht offen",
+      "facts":[
+        "Der Bundesrechnungsabschluss 2025 weist erneut ein negatives Nettoergebnis des Bundes von rund 13,56 Mrd. Euro aus.",
+        "Der Bundesrechnungsabschluss enthält neben Schulden auch Vermögen, Haftungen und weitere Fremdmittel; diese müssen für eine vollständige Staatsbilanz gemeinsam ausgewertet werden."
+      ],
+      "diagnosis":[
+        "Schulden allein zeigen nicht die gesamte finanzielle Lage; Vermögen, Garantien, Pensionsverpflichtungen und künftige Vertragsverpflichtungen gehören dazu.",
+        "Ein Verkauf staatlichen Vermögens verbessert kurzfristig Liquidität, kann aber langfristig Einnahmen oder strategischen Nutzen vernichten.",
+        "WERK braucht eine konsolidierte Nettovermögens- und Risikobilanz zusätzlich zur Maastricht-Schuld."
+      ],
+      "next_analysis":["Bundesvermögen nach Kategorien","Haftungen/Garantien","Pensionsverpflichtungen","PPP und langfristige Verträge","Beteiligungen","Immobilien","Rückstellungen","Forderungen","Risikoklassifikation und Stresstest","Nettovermögen Bund vs Gesamtstaat"]
+    },
+    {
+      "id":"STATE-ROI",
+      "name":"Staatlicher Investitions-TÜV / State ROI",
+      "status":"Konzept vertiefen – Querschnittsgate",
+      "facts":[
+        "Österreich plant gleichzeitig hohe Investitionen in Bahn, Verteidigung, Energie/Netze, Digitalisierung, Gesundheit und Klimaanpassung; BUD-01 erfordert daher Priorisierung statt pauschalem Investitionsstopp."
+      ],
+      "diagnosis":[
+        "Jede große Investition braucht vergleichbare Entscheidungsdaten und darf nicht nur mit politischer Dringlichkeit begründet werden.",
+        "State ROI ist kein reiner Finanz-ROI: Versorgungssicherheit, Zeitersparnis, Emissionen, Sicherheit und regionale Erreichbarkeit können legitime monetarisierte oder separat ausgewiesene Nutzen sein.",
+        "Ex-post-Kontrolle muss Stoppen, Redimensionieren oder Korrigieren ermöglichen."
+      ],
+      "mandatory_fields":["Problem/Ziel","Nullvariante","Alternativen","Investitionssumme","Betrieb/Instandhaltung 10/20/30 Jahre","Personal","Finanzierung","Risiken","Sensitivität","direkter Finanznutzen","volkswirtschaftlicher Nutzen","soziale/regionale Wirkung","Klimawirkung","Rechts-/Kompetenzstatus","Meilensteine","Exit/Stop-Regeln","Ex-post-Review"],
+      "next_analysis":["Schwellenwerte für Pflichtprüfung","Diskontsatz/Sensitivitäten","unabhängige Review-Stelle","Veröffentlichungsstandard","Verknüpfung mit Budget und Beteiligungsmanagement"]
+    }
+  ],
+  "sources":[
+    {"id":"UBA-THG-2025","title":"Umweltbundesamt NowCast Treibhausgasemissionen 2025","url":"https://www.umweltbundesamt.at/news260902-treibhausgas-emissionen-2025"},
+    {"id":"OEBB-RP-2027-2032","title":"ÖBB Rahmenplan 2027–2032","url":"https://infrastruktur.oebb.at/de/projekte-fuer-oesterreich/rahmenplan"},
+    {"id":"OEBB-ZDF-2025","title":"ÖBB Infrastruktur Zahlen/Daten/Fakten 2025","url":"https://static.web.oebb.at/infra/zdf2025/49/"},
+    {"id":"STAT-RD-2026","title":"Statistik Austria Forschungsquote 2026","url":"https://www.statistik.at/statistiken/forschung-innovation-digitalisierung/forschung-und-experimentelle-entwicklung-fe/forschungsquote-globalschaetzung"},
+    {"id":"AWS-2025","title":"aws Leistungsbericht 2025","url":"https://www.aws.at/berichte/"},
+    {"id":"STAT-REGIONAL-2024","title":"Statistik Austria Regionale Gesamtrechnungen","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/volkswirtschaftliche-gesamtrechnungen/regionale-gesamtrechnungen"},
+    {"id":"STAT-POP-FORECAST-2025","title":"Statistik Austria Bevölkerungsprognose","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/bevoelkerung/demographische-prognosen/bevoelkerungsprognosen-fuer-oesterreich-und-die-bundeslaender"},
+    {"id":"RH-BRA-2025","title":"Rechnungshof Bundesrechnungsabschluss 2025","url":"https://www.rechnungshof.gv.at/rh/home/news/Meldungen_2026/Bundesrechnungsabschluss-2025.html"}
+  ],
+  "next_block":"Block E: Kultur/Medien, Kinder/Familie, Behinderung/Invalidität, Wasser/Abfall/Kreislaufwirtschaft, kritische Infrastruktur/Telekom, Banken/Finanzmarkt, Export/Handel und vertiefte internationale Benchmarks."
+}
