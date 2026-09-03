@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Innere Sicherheit, Justiz und Rechtsstaat",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Rechtsstaat und Sicherheit sind WERK-Kern. Effizienz bedeutet kürzere Verfahren, wirksamen Vollzug und gezielten Ressourceneinsatz – nicht pauschale Kürzungen bei Polizei oder Justiz.",
+  "current_facts":[
+    {"fact":"BVA 2026 Ergebnisaufwendungen: UG 11 Inneres rund 4,21 Mrd. Euro, UG 13 Justiz rund 2,524 Mrd. Euro.","source":"BMF Budgetvollzug/BVA 2026"},
+    {"fact":"Finanzierungsseitig liegen die Auszahlungen 2026 bei rund 4,14 Mrd. Euro für Inneres und 2,413 Mrd. Euro für Justiz.","source":"BMF BVA 2026"},
+    {"fact":"Die Ausgabenstruktur umfasst Personal, Polizei/Behörden, Asyl-/Fremdenvollzug, Gerichte, Staatsanwaltschaften, Strafvollzug, IT und Infrastruktur; daher ist Ressortsumme allein kein brauchbares Sparmaß.","source":"BMF Teilhefte/Struktur"}
+  ],
+  "structural_questions":[
+    "Wie entwickeln sich Verfahrensdauern bei Gerichten, Staatsanwaltschaften und Verwaltungsverfahren nach Fallart?",
+    "Welche Aufgaben binden hochqualifiziertes Personal durch vermeidbare Administration oder Medienbrüche?",
+    "Wo bestehen regionale Unter-/Überkapazitäten bei Polizei, Gerichten und Justizanstalten?",
+    "Wie hoch sind Kosten und Rückfallquoten unterschiedlicher Vollzugs-/Bewährungsmodelle?",
+    "Welche Cybercrime-/Finanzermittlungsfähigkeiten fehlen angesichts wachsender digitaler Delikte?",
+    "Wie viele Verfahren scheitern/verzögern sich durch Gutachter-, Dolmetsch-, IT- oder Zustellengpässe?",
+    "Welche Kontrollen/Compliance verhindern Korruption und welche erzeugen primär Bürokratie ohne Risikowirkung?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Verfahrensdauer-KPI nach Fallart mit Engpassanalyse statt pauschalen Zielwerten",
+    "Justiz-/Polizei-Backoffice und digitale Aktenprozesse auf echte Zeitersparnis prüfen",
+    "Cyber-/Finanzermittlung gezielt verstärken, wenn Schadens-/Erfolgsdaten dies rechtfertigen",
+    "Strafvollzug stärker nach Sicherheit, Rückfallvermeidung und Kostenwirkung evaluieren",
+    "Standort-/Kapazitätsplanung nach Falllast und Erreichbarkeit statt historischer Struktur",
+    "Beschaffung und IT-Projekte mit State-ROI und Interoperabilität verbinden",
+    "Rechtsstaatliche Kontrollmechanismen nicht aus Budgetgründen schwächen"
+  ],
+  "do_not_count_yet":["keine pauschale Personalquote als Einsparung","keine Verfahrensbeschleunigung als Budgetgewinn ohne Kapazitäts-/IT-Kosten","keine Haftplatzreduktion ohne Sicherheits-/Rückfallprüfung","keine Kostenverlagerung auf Länder/Gemeinden/Private"],
+  "next_data_needed":["Verfahrensdauern nach Gericht/Fallart","Personal-/Fallzahlen Polizei/Justiz","Strafvollzugskosten und Rückfallraten","Cybercrime-Schadens-/Ermittlungsdaten","IT-/Digitalprojektkosten","Gutachter-/Dolmetscherengpässe","Gebäude-/Standortkosten"]
+}
