@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Öffentliche Beschaffung und Vergabe",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Beschaffung wird auf Gesamtkosten, Wettbewerb, Qualität, Vergabedauer und Bündelung geprüft. Ausgewiesene 'Einsparung' ist nur belastbar, wenn Methode, Vergleichspreis und Folgekosten transparent sind.",
+  "current_facts":[
+    {"fact":"Die BBG weist für 2024 ein Beschaffungsvolumen von rund 3,38 Mrd. Euro aus.","source":"BBG Unterlagen zum Jahresabschluss 2025"},
+    {"fact":"Die BBG beziffert den Warenkorb-Marktpreiseinsparungseffekt 2024 mit rund 557,6 Mio. Euro; diese Kennzahl basiert auf einer Vergleichsmethode und ist nicht automatisch ein realisierter gesamtstaatlicher Budget-Nettoeffekt.","source":"BBG Jahresabschlussunterlagen 2025"},
+    {"fact":"BBG-Zielgruppen nach Beschaffungsvolumen umfassen Bund, Länder/Gemeinden, ausgegliederte Unternehmen, Gesundheit und Hochschulen; damit ist Beschaffung ein ebenenübergreifender Hebel.","source":"BBG"},
+    {"fact":"Die BBG berücksichtigt nach eigener Darstellung neben Einkaufspreisen auch Ausschreibungsaufwand und Folgekosten/Lebenszyklusaspekte.","source":"BBG"}
+  ],
+  "structural_questions":[
+    "Wie hoch ist das gesamte öffentliche Beschaffungsvolumen außerhalb der BBG und nach Staatsebene?",
+    "Welche Warengruppen werden unnötig parallel ausgeschrieben und welche benötigen bewusst dezentrale Spezifikation?",
+    "Wie stark unterscheiden sich tatsächliche Abrufpreise und Volumina von Rahmenvertragsannahmen?",
+    "Wo führen zu komplexe Vergabekriterien zu hohen Transaktionskosten oder geringer Bieterzahl?",
+    "Wie groß ist KMU-Zugang zu Rahmenverträgen und gibt es unbeabsichtigte Marktkonzentration?",
+    "Welche Verträge verursachen hohe Change-/Nachtrags-/Betriebskosten, die beim Zuschlag nicht sichtbar waren?",
+    "Wo kann Standardisierung Qualität steigern und wo würde sie Innovation/regionalen Wettbewerb behindern?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "einheitliche Total-Cost-of-Ownership-Standards für relevante Beschaffungen",
+    "Bündelung dort erhöhen, wo Produkte ausreichend standardisierbar sind und Wettbewerb erhalten bleibt",
+    "Abruf-/Preis-/Lieferqualitätsdaten systematisch nach Rahmenvertrag auswerten",
+    "KMU-Lose und modulare Ausschreibungen dort nutzen, wo sie Wettbewerb und Innovation verbessern",
+    "Nachträge/Change Requests in Großbeschaffungen als eigene Transparenz-KPI",
+    "Beschaffungsdaten für State-ROI und Förder-/Investitionsprüfung verbinden",
+    "gemeinsame Backoffice-Vergaben über Bund/Länder/Gemeinden auf tatsächliches Skaleneffektpotenzial prüfen"
+  ],
+  "do_not_count_yet":["BBG-Vergleichspreisersparnis nicht 1:1 als Budgetnettoeffekt buchen","keine Vollbündelung aller Beschaffung","keine Billigstbieterlogik als generelle Sparstrategie","keine regionalen/kleinen Anbieter verdrängen ohne Wettbewerbsanalyse"],
+  "next_data_needed":["gesamtstaatliches Vergabevolumen","BBG Abrufdaten nach Warengruppe","Bieterzahl/Marktkonzentration","Ausschreibungsdauer und Personalkosten","Nachtrags-/Change-Kosten","Lebenszykluskosten ausgewählter Großbeschaffungen","Anteil KMU und regionale Anbieter"]
+}
