@@ -1,0 +1,53 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Personalverschlankung über Aufgabenentfall und natürliche Fluktuation",
+  "priority_link":"BUD-01",
+  "purpose":"Die absehbare Pensionswelle wird genutzt, um Verwaltung dort dauerhaft zu verkleinern, wo Aufgaben, Prozesse oder Doppelstrukturen nachweislich entfallen. Engpass- und Frontlinebereiche werden nicht pauschal gekürzt.",
+  "baseline":[
+    "137.687 Bundes-VBÄ zum 31.12.2024",
+    "rund 42 % des bestehenden Bundespersonals scheiden laut BKA-Prognose bis 2037 pensionsbedingt aus",
+    "besonders hohe Abgänge bis 2030",
+    "bestehende Regierungsbaseline: 6 %/2.600 Verwaltungs-VBÄ Reduktionsziel; daher kein WERK-Zusatzeffekt"
+  ],
+  "vacancy_decision_tree":[
+    "1. Welche konkrete Aufgabe hängt an der frei werdenden Stelle?",
+    "2. Ist die Aufgabe gesetzlich zwingend und noch sachlich notwendig?",
+    "3. Kann die Aufgabe entfallen, vereinfacht oder dereguliert werden?",
+    "4. Kann sie durch Once-Only/Automation/Shared Service mit weniger Arbeitszeit erbracht werden?",
+    "5. Gibt es dieselbe/ähnliche Aufgabe in anderer Einheit/Staatsebene?",
+    "6. Welche Service-/Sicherheits-/Rechts-KPI würden bei Nicht-Nachbesetzung betroffen?",
+    "7. Wenn Aufgabe bleibt: interne Umschichtung vor externer Neuaufnahme prüfen.",
+    "8. Nur wenn Bedarf nach diesen Schritten verbleibt: Stelle nachbesetzen."
+  ],
+  "protected_or_separately_modelled_areas":[
+    "Lehrpersonen und Bildungs-Frontline",
+    "Polizei/Exekutive und operative Sicherheitsdienste",
+    "Richter/Staatsanwälte/gerichtliche Kernleistungen",
+    "militärischer operativer Dienst und definierte Resilienzfähigkeiten",
+    "Gesundheit/Pflege/Sozialversorgung – je nach tatsächlicher staatlicher Zuständigkeit",
+    "Steuer-/Zollvollzug dort, wo zusätzlicher Vollzug höhere Nettoeinbringung als Kosten erzeugt",
+    "kritische Cyber-/IT-/Datenfunktionen"
+  ],
+  "priority_for_non_replacement":[
+    "wegfallende Programme/Fonds",
+    "redundante Zentral-/Backofficefunktionen nach Shared-Service-Einführung",
+    "manuelle Datenerfassung nach Once-Only/automatisierter Datenübernahme",
+    "parallele Bericht-/Controllingfunktionen ohne eigenen Mehrwert",
+    "mehrfache Genehmigungs-/Prüfschritte nach Rechts-/Prozessvereinfachung",
+    "Legacy-IT-Betrieb nach Systemabschaltung",
+    "Standort-/Facility-Funktionen nach Flächenkonsolidierung"
+  ],
+  "costing":[
+    "Vor-Szenario darf für Bundes-VBÄ grob mit der Budgetdienst-Näherung von ca. 100.000 Euro Personalauszahlung pro tatsächlich dauerhaft entfallenem VBÄ arbeiten.",
+    "Final werden echte Personalkosten, Arbeitgeberanteile, Zulagen, Überstunden, Arbeitsplatz-Sachkosten, IT/Fläche und Übergangskosten verwendet.",
+    "Volle Jahreswirkung erst ab tatsächlichem Nicht-Nachbesetzungszeitpunkt; Teiljahreseffekt zeitanteilig.",
+    "Wenn Arbeitsmenge auf andere Stellen/Externe verschoben wird, deren Mehrkosten abziehen.",
+    "Qualitäts-/Wartezeit-/Vollzugsverluste müssen als Gegenwirkung bewertet werden."
+  ],
+  "governance":[
+    "Jede nicht nachbesetzte Stelle braucht einen dokumentierten Aufgaben-/Prozessgrund, nicht nur eine Sparvorgabe.",
+    "Ressorts dürfen Einsparziele durch Umschichtung auf externe Beratung/Leihpersonal nicht umgehen.",
+    "Personalabbaupfad wird jährlich mit Leistungs-KPI und Fehlzeiten/Überstunden gegengeprüft.",
+    "Wenn Wartezeiten, Rückstände, Sicherheits- oder Rechtsrisiken materiell steigen, wird die Nicht-Nachbesetzungsentscheidung neu bewertet."
+  ]
+}
