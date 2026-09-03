@@ -1,0 +1,34 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Soziales, Familie, Armut und Migration/Integration",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Soziale Sicherung wird auf Treffsicherheit, Arbeitsanreize, Armutsvermeidung und Zuständigkeitsklarheit geprüft. Migration/Asyl wird strikt von frei gestaltbarer Sozialpolitik getrennt, weil Bundes-, EU- und Völkerrecht Grenzen setzen.",
+  "current_facts":[
+    {"fact":"Sozialausgaben 2025 vorläufig: 171,8 Mrd. Euro bzw. 33,4 % des BIP; Pensionsleistungen allein 15,9 % des BIP.","source":"Statistik Austria Sozialquote/Sozialausgaben, 2026"},
+    {"fact":"Bundesbudget 2026 enthält große Ausgabenblöcke in UG 21 Soziales, UG 25 Familie/Jugend sowie UG 18 Fremdenwesen; gesamtstaatliche Sozialausgaben reichen jedoch weit über den Bundeshaushalt hinaus.","source":"BMF BVA 2026"},
+    {"fact":"Migration, Asyl und wesentliche Fremdenrechtsmaterien liegen verfassungsrechtlich im Kern beim Bund; Länder/Gemeinden tragen jedoch relevante Unterbringungs-, Integrations-, Bildungs- und Infrastrukturfolgen.","source":"B-VG Kompetenzinventar / WERK Rechtsaudit"}
+  ],
+  "structural_questions":[
+    "Welche Transfers kumulieren bei typischen Haushaltstypen und welche Grenzbelastung entsteht beim Übergang in mehr Arbeit?",
+    "Welche Leistungen sind universell, welche einkommensabhängig und welche verfolgen dasselbe Ziel mehrfach?",
+    "Wie unterscheiden sich Sozialhilfe-/Wohn-/Familienleistungen zwischen Ländern und welche Effekte haben sie auf Armut und Arbeitsanreize?",
+    "Welche Gruppen sind trotz hoher Sozialquote besonders armutsgefährdet und warum?",
+    "Welche Kosten von Asyl/Integration liegen beim Bund, welche bei Ländern/Gemeinden und welche werden EU-kofinanziert?",
+    "Wie schnell verbessern Sprache, Arbeit und Bildungsintegration den fiskalischen Nettoeffekt unterschiedlicher Zuwanderungsgruppen?",
+    "Welche Integrationsleistungen sind nachweislich wirksam und welche nur Aktivität ohne Outcome?",
+    "Wo bestehen Missbrauchs-/Fehlbezugsrisiken und wie groß sind sie tatsächlich?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Transferkonto/Haushaltssicht zur Transparenz von Gesamtleistung und Grenzbelastung",
+    "Leistungen stärker koordinieren, statt identische Ziele über mehrere Ebenen parallel zu finanzieren",
+    "Arbeitsaufnahme und Mehrarbeit so gestalten, dass zusätzliches Netto-Einkommen klar positiv bleibt",
+    "Armutsbekämpfung stärker auf Haushalte mit nachgewiesener hoher Belastung fokussieren",
+    "Integrationsleistungen stärker an messbare Sprach-, Bildungs- und Arbeitsmarktergebnisse koppeln",
+    "Kosten und Zuständigkeiten der Migration zwischen Bund/Ländern/Gemeinden transparent veröffentlichen",
+    "Rückkehr-/Vollzugsprozesse beschleunigen, soweit rechtsstaatlich und praktisch möglich",
+    "Fachkräftezuwanderung separat von Asyl nach Qualifikation/Engpass und Integrationsfähigkeit steuern"
+  ],
+  "do_not_count_yet":["keine pauschale Sozialleistungskürzung als Sparpotenzial","keine Kostenverlagerung auf Gemeinden/Haushalte als gesamtstaatliche Einsparung","keine Asyl-/Völkerrechtsverpflichtung als frei streichbare Ausgabe","keine theoretische Beschäftigungsaufnahme als sichere Steuermehreinnahme","keine Missbrauchsannahme ohne Daten"],
+  "next_data_needed":["ESSOSS-Ausgaben nach Funktion","Transferkumulation nach Haushaltstyp","EU-SILC Armut/Deprivation nach Gruppen","Sozialhilfe/Wohnbeihilfe je Land","Asyl-/Grundversorgungskosten nach Ebene","Integrationskosten und Outcomes","fiskalische Längsschnittdaten nach Zuwanderungsart","Vollzugs-/Rückkehrdaten"]
+}
