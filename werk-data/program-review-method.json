@@ -1,0 +1,83 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Programmreview – vollständige Staatsaufgaben- und Ausgabenprüfung",
+  "priority_anchor":"BUD-01 – strukturell ausgeglichener Staatshaushalt",
+  "purpose":"Jede wesentliche staatliche Aufgabe und jedes große Programm systematisch prüfen, ohne vorab ein Kürzungsziel zu unterstellen. Ergebnis kann Beibehalten, Verbessern, Bündeln, Digitalisieren, Kompetenzverschiebung, Redimensionieren, Befristen, Beenden oder auch gezieltes Aufstocken sein.",
+  "non_negotiable_rules":[
+    "Keine Einsparung ohne Baseline und dauerhaften Nettoeffekt.",
+    "Keine Doppelzählung zwischen Bund, Ländern, Gemeinden und Sozialversicherung.",
+    "Keine bloße Kostenverschiebung zwischen Gebietskörperschaften als Einsparung ausweisen.",
+    "Keine bestehende Regierungsmaßnahme als neuen WERK-Effekt verbuchen.",
+    "Keine Personalreduktion vor Aufgaben-/Prozessreduktion rechnen.",
+    "Keine Kürzung gesetzlicher Ansprüche ohne Rechts-, Verteilungs- und Übergangsprüfung.",
+    "Investitionen nicht wie laufenden Konsum behandeln; State-ROI/Lebenszyklus anwenden.",
+    "Kontroll-, Rechtsstaats- und Sicherheitsfunktionen nicht allein nach ihrer Budgetgröße bewerten.",
+    "Einmaleinnahmen oder Vermögensverkäufe sind kein dauerhafter struktureller Budgeteffekt.",
+    "Potenzialwerte sind keine verifizierten Effekte."
+  ],
+  "review_card_required_fields":[
+    {"id":"identity","field":"Programm/Aufgabe/Reform-ID und verantwortliche Ebene"},
+    {"id":"legal","field":"gesetzliche/verfassungs-/EU-/völkerrechtliche Verpflichtung"},
+    {"id":"problem","field":"welches konkrete Problem soll gelöst werden"},
+    {"id":"beneficiaries","field":"wer erhält Leistung/Nutzen, direkt und indirekt"},
+    {"id":"baseline_spend","field":"aktuelle Ausgaben, Einnahmen, Personal und Verpflichtungen"},
+    {"id":"trend","field":"5-/10-Jahres-Ausgaben- und Mengenentwicklung"},
+    {"id":"drivers","field":"Preis-, Mengen-, Demografie-, Rechts- oder Politiktreiber"},
+    {"id":"outcome","field":"messbares Ergebnis/Outcome statt nur Output"},
+    {"id":"unit_cost","field":"Kosten je relevanter Leistung/Outcome, soweit sinnvoll"},
+    {"id":"admin_cost","field":"Verwaltungs-/Abwicklungskosten"},
+    {"id":"additionality","field":"welcher Teil wäre ohne staatliche Maßnahme ohnehin entstanden"},
+    {"id":"overlap","field":"Überschneidungen mit anderen Programmen/Ebenen"},
+    {"id":"international","field":"Peer-Vergleich von Kosten und Ergebnissen"},
+    {"id":"competence","field":"richtige Ebene Bund/Land/Gemeinde/SV und Finanzierungsverantwortung"},
+    {"id":"digital","field":"Digitalisierungs-/Automatisierungs-/Once-Only-Potenzial"},
+    {"id":"options","field":"mindestens Nullvariante und zwei realistische Alternativen"},
+    {"id":"transition","field":"IT-, Personal-, Abfertigungs-, Vertrags- und Parallelbetriebskosten"},
+    {"id":"distribution","field":"Unter-/Mittel-/Oberschicht, Haushaltstypen und betroffene Gruppen"},
+    {"id":"growth","field":"Wachstum, Beschäftigung, Produktivität, Investition und Preise"},
+    {"id":"regional","field":"regionale Wirkungen und Gleichwertigkeit der Versorgung"},
+    {"id":"risks","field":"Umsetzungs-, Rechts-, Kapazitäts- und Verhaltensrisiken"},
+    {"id":"stress","field":"Wirkung in mindestens einem relevanten Stressszenario"},
+    {"id":"net_effect","field":"1-/5-/10-Jahres-Nettoeffekt; verified nur nach vollständiger Rechnung"},
+    {"id":"kpi","field":"KPI mit Baseline, Zielwert und Datenquelle"},
+    {"id":"review","field":"Reviewdatum, Sunset/Korrektur/Exit-Regel"}
+  ],
+  "decision_options":[
+    {"id":"KEEP","label":"Beibehalten","meaning":"Aufgabe notwendig und im Vergleich hinreichend wirksam/effizient."},
+    {"id":"IMPROVE","label":"Verbessern","meaning":"Ziel bleibt, Prozess/Steuerung/Outcome wird verändert."},
+    {"id":"BUNDLE","label":"Bündeln","meaning":"Doppelstrukturen oder mehrere Programme zusammenführen."},
+    {"id":"DIGITIZE","label":"Digitalisieren/automatisieren","meaning":"Aufgabe bleibt, Transaktions- oder Verwaltungskosten sinken nach Prozessumbau."},
+    {"id":"DECENTRALIZE","label":"Dezentralisieren","meaning":"nähere Ebene übernimmt Aufgabe und Finanzierung, wenn wirksamer."},
+    {"id":"CENTRALIZE_STANDARD","label":"Gemeinsamen Standard/Bündelung schaffen","meaning":"Skalen-/Interoperabilitätsvorteil rechtfertigt gemeinsame Lösung ohne unnötige Fachzentralisierung."},
+    {"id":"RETARGET","label":"Treffsicherheit erhöhen","meaning":"Leistung wird stärker auf Zielgruppe/Zielwirkung fokussiert."},
+    {"id":"REDESIGN","label":"System neu gestalten","meaning":"bestehende Mechanik verursacht Fehlanreize oder hohe Folgekosten."},
+    {"id":"SUNSET","label":"Befristen","meaning":"Fortführung nur bei erneuter Wirkungsevaluierung."},
+    {"id":"END","label":"Beenden","meaning":"Aufgabe/Programm nicht mehr ausreichend begründbar; Übergangsfolgen gerechnet."},
+    {"id":"INVEST_MORE","label":"Gezielt aufstocken","meaning":"zusätzliche Mittel haben nachweislich hohen Netto-/State-ROI und vermeiden höhere Folgekosten."}
+  ],
+  "review_sequence":[
+    "1. Gesetzliche und sachliche Notwendigkeit klären.",
+    "2. Ausgangsausgabe und Mengentreiber verifizieren.",
+    "3. Outcome und internationale Benchmarks prüfen.",
+    "4. Doppelstrukturen, Kompetenz und Verwaltungskosten identifizieren.",
+    "5. Nullvariante und Alternativen formulieren.",
+    "6. Transformations-/Folgekosten und Nebenwirkungen rechnen.",
+    "7. Verteilungs-, Wachstums-, Regional- und Rechtstest.",
+    "8. Stressszenario anwenden.",
+    "9. Erst jetzt Nettoeffekt klassifizieren: verified/plausibel/noch zu rechnen.",
+    "10. Umsetzung, KPI, Review und Rücknahmemechanismus festlegen."
+  ],
+  "net_effect_status":[
+    {"id":"VERIFIED","rule":"durch aktuelle Primärdaten und vollständige Bottom-up-Rechnung belegt"},
+    {"id":"PLAUSIBLE","rule":"Mechanismus und Größenordnung plausibel, aber mindestens ein wesentlicher Parameter offen"},
+    {"id":"TO_CALCULATE","rule":"noch keine belastbare Zahl; zählt mit 0 Euro zu BUD-01"},
+    {"id":"OFFICIAL_BASELINE","rule":"bereits im Regierungs-/Budgetpfad enthalten; zählt nicht als WERK-Zusatzeffekt"},
+    {"id":"ONE_OFF","rule":"Einmaleffekt, nicht zur dauerhaften strukturellen Konsolidierung zählen"}
+  ],
+  "priority_scoring":{
+    "purpose":"Nur Reihenfolge der Analyse, keine automatische Kürzungsentscheidung.",
+    "factors":["fiskalische Größe","Ausgabenwachstum","strukturelle/demografische Dynamik","Outcome-Lücke","internationaler Abstand","Doppelstrukturwahrscheinlichkeit","Digitalisierungspotenzial","Reformabhängigkeit für BUD-01","Datenreife"],
+    "exclusions":"Grundrechte, Rechtsstaat, Sicherheit oder Minderheitenschutz können niemals allein durch einen Scoreschwellenwert aufgehoben werden."
+  },
+  "publication_rule":"Für Öffentlichkeit wird immer sichtbar getrennt: Ausgangsausgabe, bestehender Regierungsplan, WERK-Option, Transformationskosten, dauerhafter Nettoeffekt und Unsicherheitsstatus."
+}
