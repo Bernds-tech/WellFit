@@ -1,0 +1,29 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"Regierungsmaßnahmen im Referenzpfad – nicht als WERK-Effekt zählen",
+  "purpose":"Alle bereits beschlossenen oder im offiziellen Budgetpfad eingerechneten Konsolidierungs- und Offensivmaßnahmen werden vor der WERK-Endrechnung als Baseline gekennzeichnet. Unterschiedliche offizielle Maßnahmensummen werden wegen abweichendem Scope nicht addiert.",
+  "scope_warning":"BMF-Netto-Konsolidierung des Doppelbudgets, Budgetdienst-Gesamtpaket und Budgetdienst-BBG-Analyse sind unterschiedliche Abgrenzungen. Eine Zahl darf nur innerhalb ihres dokumentierten Scopes verwendet werden.",
+  "headline_reference":[
+    {"scope":"BMF zusätzliches Doppelbudget 2027/2028 – gesamte neue Konsolidierung inkl. nicht nur BBG","2027_net_eur_billion":1.5,"2028_net_eur_billion":2.5,"2027_gross_eur_billion":2.1,"2028_gross_eur_billion":5.0,"source":"BMF Budgetrede 10.06.2026"},
+    {"scope":"Budgetdienst – nur budgetrelevante Maßnahmen des Budgetbegleitgesetzes 2027/2028 laut WFA","2027_net_eur_billion":1.9,"2028_net_eur_billion":2.2,"2029_net_eur_billion":2.2,"cumulative_2026_2030_eur_billion":8.4,"source":"Parlamentarischer Budgetdienst 18.06.2026"},
+    {"scope":"Budgetdienst – breiteres Konsolidierungspaket 2026 inkl. Maßnahmen außerhalb BBG und Offensivmaßnahmen","2026_net_eur_billion":-1.0,"2027_net_eur_billion":1.3,"2028_net_eur_billion":2.5,"cumulative_2026_2031_eur_billion":10.0,"allocation_cumulative":{"federal_eur_billion":8.1,"states_municipalities_eur_billion":1.5,"social_security_eur_billion":0.4},"source":"Budgetdienst Budgetanalyse 2027/2028"}
+  ],
+  "known_measure_groups":[
+    {"group":"Unternehmens-/Kapital-/Bankensteuern","baseline_examples":["progressive Körperschaftsteuer gemäß BBG 2027/2028","Änderungen/Verlängerung Stabilitätsabgabe Banken","temporäre Einschränkungen Gewinnfreibetrag","Altgrundstück-/Abschreibungs-/weitere steuerliche Änderungen"],"rule":"Jede spätere WERK-Unternehmenssteuerrechnung muss diese Rechtslage als Baseline verwenden."},
+    {"group":"Steuerbetrug/Compliance","baseline_examples":["Betrugsbekämpfungspaket I 2025","Nachschärfungen Wegzugsbesteuerung","Kontenregister-/Konteneinschau-Maßnahmen","weitere BBG-Betrugsbekämpfung"],"rule":"Nur zusätzlich real eingebrachte Nettoergebnisse über diesen Vollzugspfad hinaus sind WERK-Delta."},
+    {"group":"Pensionen/Sozialversicherung/Arbeit","baseline_examples":["Pensionsanpassung 2027","außertourliche Erhöhung Höchstbeitragsgrundlage 2027/2028","Abschaffung reduzierter Dienstnehmerbeiträge zur Arbeitslosenversicherung","Dienstgeberbeiträge Arbeitslosenversicherung für Ältere","BSVG-Maßnahmen"],"rule":"Pensions-/Arbeitsmarktreformen müssen Folgewirkungen dieser Baseline einbeziehen."},
+    {"group":"Familienleistungen","baseline_examples":["Einfrieren/Anpassung verschiedener Familienleistungen","Anpassungen Familienbonus","Aussetzung Valorisierung Kinderabsetzbetrag 2028"],"rule":"Verteilungsmodell muss diese Maßnahmen schon im Referenzhaushalt enthalten."},
+    {"group":"Lohnnebenkosten/Offensivmaßnahmen","baseline_examples":["FLAF-Dienstgeberbeitrag ab 2028 um einen Prozentpunkt reduzieren","Arbeitsmarkt-/Qualifizierungsmaßnahmen","Pflege/Kinder-/Jugendarmut/digitale Teilhabe/Frauenförderung"],"rule":"Entlastung und Gegenfinanzierung gemeinsam als Baseline führen; nicht nur positive Beschäftigungswirkung übernehmen."},
+    {"group":"Umwelt/Förderungen/Verwaltung","baseline_examples":["Abbau bzw. Anpassung klimaschädlicher Förderungen","Umweltförderungsmaßnahmen","Ressort-/Verwaltungseffizienz","Förder-Taskforce-Maßnahmen"],"rule":"Noch nicht konkretisierte zukünftige Ressortmaßnahmen dürfen nicht als bereits sicherer Baseline-Euroeffekt behandelt werden, aber im offiziellen Pfad vorhandene pauschale Annahmen müssen als Prognoserisiko markiert werden."},
+    {"group":"Sonstige Einnahmen","baseline_examples":["Paketsteuer","Anhebung Alkoholsteuer","Verkehrsstrafen","NoVA-/Sachbezugsänderungen"],"rule":"Bereits gesetzte Einnahmen gehören vollständig in die Steuerbaseline."}
+  ],
+  "baseline_accounting_rules":[
+    "Nicht unterschiedliche Konsolidierungssummen mit abweichendem Scope addieren.",
+    "Temporäre Maßnahmen mit Enddatum separat von permanenten Effekten führen.",
+    "Indirekte Folgeeffekte von Sozialbeitrags-/Pensionsmaßnahmen nicht doppelt mit direkten Effekten zählen.",
+    "Länder-/Gemeinde-Ertragsanteile und SV-Wirkungen bei Bundessteuermaßnahmen mitführen.",
+    "Noch nicht konkretisierte Ressort-/Fördermaßnahmen als Referenzpfad-Risiko, nicht als verifizierten Einzelmaßnahmen-Effekt behandeln.",
+    "WERK-Delta je Reform = verifizierter zusätzlicher dauerhafter Nettoeffekt gegenüber der dann geltenden Baseline."
+  ],
+  "sources":["BMF Budget 2025/2026","BMF Budget 2027/2028","BMF Budgetrede 10.06.2026","Parlamentarischer Budgetdienst Budgetanalyse 2027/2028","Parlamentarischer Budgetdienst BBG 2027/2028"]
+}
