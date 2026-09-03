@@ -1,0 +1,26 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – unabhängige Prüfung vor Programmlock",
+  "purpose":"Die Endrechnung soll nicht nur intern konsistent sein, sondern von fachlich unabhängigen Personen reproduziert und kritisiert werden können.",
+  "stages":[
+    {"stage":1,"name":"interner Rechencheck","requirements":["Formeln reproduzierbar","Quellen vollständig","Baseline aktuell","Doppelzählungscheck","Sensitivität"]},
+    {"stage":2,"name":"fachliches Red Team","requirements":["Auftrag ausdrücklich: Fehler suchen, nicht bestätigen","Gegenannahmen rechnen","größte Unsicherheit benennen","Umsetzungs- und Rechtsrisiken prüfen"]},
+    {"stage":3,"name":"externe Fachreview","requirements":["mindestens eine Person ohne WERK-Organfunktion je großer Fachdomäne","Interessenkonflikte offenlegen","schriftliche Einwände und WERK-Antwort veröffentlichen"]},
+    {"stage":4,"name":"Reproduzierbarkeit","requirements":["Inputtabellen und Rechenschritte soweit rechtlich möglich veröffentlichen","Versionsnummer","Maschinenlesbare Daten","Änderungsprotokoll"]},
+    {"stage":5,"name":"Programmlock","requirements":["keine kritischen offenen Rechenfehler","Rechtsprüfung ausreichend geschlossen","konservativer Nettoeffekt definiert","Stressszenario bestanden oder Risiko ausdrücklich akzeptiert"]}
+  ],
+  "reviewer_independence_rules":[
+    "Reviewer darf nicht die ursprüngliche Rechnung erstellt haben.",
+    "Finanzielle, parteipolitische oder geschäftliche Interessenkonflikte werden offengelegt.",
+    "Ein negativer Review-Befund darf nicht aus Kommunikationsgründen entfernt werden.",
+    "WERK darf eine Empfehlung ablehnen, muss die Ablehnung aber begründen."
+  ],
+  "minimum_review_panels":[
+    {"domain":"BUD-01 Gesamtbudget","skills":["öffentliche Finanzen/ESVG","Makroökonomie","Budgetrecht","Daten/Modellierung"]},
+    {"domain":"Pension/Gesundheit/Pflege","skills":["Sozialversicherung","Gesundheitsökonomie","Demografie","Verteilung"]},
+    {"domain":"Steuern/Abgaben","skills":["Steuerrecht","Finanzwissenschaft","Mikrosimulation","Unternehmens-/Standortwirkung"]},
+    {"domain":"Föderalismus","skills":["Verfassungsrecht","Finanzausgleich","Gemeindefinanzen"]},
+    {"domain":"WERK VOTE","skills":["Verfassungsrecht","Wahl-/Demokratierecht","IT-Sicherheit","Datenschutz/Barrierefreiheit"]}
+  ],
+  "public_disclosure":"Zu jeder finalen Großreform soll es eine Seite 'Was unsere Prüfer kritisiert haben' geben. Das erhöht Glaubwürdigkeit stärker als ein rein positives Gutachten."
+}
