@@ -1,0 +1,37 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Fiskal-Governance für BUD-01",
+  "purpose":"BUD-01 wird nicht als isolierte Parteirechnung geführt, sondern so aufgebaut, dass Bundeshaushaltsrecht, gesamtstaatliche Koordination, EU-Fiskalregeln und unabhängige Kontrolle sichtbar zusammenpassen.",
+  "legal_and_institutional_layers":[
+    {"layer":"Bundeshaushaltsgesetz 2013","current_rule":"Wirkungsorientierung, Transparenz, Effizienz, getreue Darstellung und gesamtwirtschaftliches Gleichgewicht sind Grundsätze der Haushaltsführung; der Bundeshaushalt ist nach Maßgabe des EU-Rechts grundsätzlich auszugleichen.","werk_use":"BUD-01-Wirkungsblätter an Wirkungsorientierung anbinden, aber Outcome-/Benchmark-Standard über das gesetzliche Minimum hinaus erhöhen."},
+    {"layer":"Österreichischer Stabilitätspakt 2025","current_rule":"EU-Nettoausgabenpfad wird innerstaatlich in Teilsektorziele für Bund inkl. Sozialversicherung sowie Länder/Gemeinden übersetzt; Berichtspflichten sowie Korrektur-/Sanktionsmechanismen sind vorgesehen.","werk_use":"BUD-01 nicht nur Bund rechnen; Teilsektorziele, Kontrollkonten und Vollzugsdaten als operatives Monitoring nutzen."},
+    {"layer":"EU-Fiskalrahmen / EDP","current_rule":"Österreich unterliegt dem EU-Nettoausgabenpfad und dem Verfahren bei übermäßigem Defizit; Compliance mit Nettoausgabenpfad ist eine Mindestanforderung.","werk_use":"EU-Compliance ist Gate, aber nicht WERK-Endziel. BUD-01 ist ambitionierter: nachhaltiger gesamtstaatlicher Budgetausgleich."},
+    {"layer":"unabhängige Kontrolle","current_rule":"Fiskalrat, Budgetdienst, Rechnungshof, OeNB und EU-Institutionen liefern unterschiedliche unabhängige Prüf-/Prognosefunktionen.","werk_use":"Planwerte und WERK-Modelle systematisch gegen diese Institutionen plausibilisieren; keine Hausprognose als alleinige Wahrheit."}
+  ],
+  "bud01_target_definition":{
+    "political_target":"In normalen Konjunktur- und Krisenzeiten soll der gesamtstaatliche Maastricht-Saldo nachhaltig mindestens ausgeglichen sein; strukturelle Dauerdefizite sind nicht akzeptiert.",
+    "normal_year_test":"Maastricht-Saldo >= 0 oder belastbar nahe Null aufgrund statistischer Revision/Rundung UND struktureller Saldo ohne Einmaleffekte/temporäre Maßnahmen nachhaltig ausgeglichen.",
+    "structural_test":"Konjunktur, Einmaleffekte, temporäre Krisenmaßnahmen und nicht dauerhafte Einnahmen/Ausgaben bereinigen. Eine bloße nominale Null durch Einmaleinnahmen erfüllt BUD-01 nicht.",
+    "crisis_escape":"In klar definierten schweren Krisen darf temporär ein Defizit zugelassen werden. Notwendig sind Auslösekriterium, maximale Dauer, getrennte Krisenrechnung, Rückkehrpfad und parlamentarisch/öffentlich überprüfbarer Sunset.",
+    "debt_stage":"BUD-02 mit mindestens 10 Mrd. Euro jährlicher Schuldentilgung startet erst nach nachhaltiger Erfüllung von BUD-01."
+  },
+  "monitoring_cadence":[
+    "monatlich: Bund und verfügbare Länder-Cashdaten",
+    "quartalsweise: Maastricht-/Teilsektor-Schnellindikatoren und Sozialversicherung soweit verfügbar",
+    "halbjährlich: unabhängiger Forecast-Fächer und Risiko-Refresh",
+    "jährlich: vollständiger Soll-Ist-Vergleich, Program Review, COFOG-/Förder-/Tax-Expenditure-Update",
+    "bei Budget/Novelle: Baseline-Neuschnitt und Re-Costing aller betroffenen WERK-Maßnahmen"
+  ],
+  "control_rules":[
+    "Jede Abweichung vom BUD-01-Pfad wird in Baselinefehler, Makroeffekt, Maßnahmenvollzug, Zinsen/Demografie und sonstige Stock-Flow-/Einmaleffekte zerlegt.",
+    "Eine Zielverfehlung löst nicht automatisch pauschale Kürzungen aus; zuerst wird Ursache und Wirksamkeit der verfügbaren Korrekturmaßnahmen geprüft.",
+    "Länder/Gemeinden/SV werden nicht über nachträgliche Kostenverschiebung konsolidiert; Finanzierungsverantwortung folgt Entscheidungskompetenz soweit möglich.",
+    "Neue dauerhafte Ausgaben benötigen im Normalfall dauerhafte Gegenfinanzierung oder dokumentierten Spielraum innerhalb des BUD-01-Pfads.",
+    "Einmaleinnahmen dürfen nur Einmalkosten, Reserven oder Schuldenabbau finanzieren, nicht strukturelle Dauerausgaben."
+  ],
+  "external_basis":[
+    "Budgetdienst ÖStP 2025: Teilsektorziele, Berichtspflichten und Korrekturmechanismen",
+    "BHG 2013 §2: Wirkungsorientierung, Transparenz, Effizienz, Gleichstellung, getreue Darstellung und grundsätzlich ausgeglichener Bundeshaushalt im EU-Rahmen",
+    "OECD: Spending Reviews wirksam, wenn klar geführt, transparent und direkt mit Budgetprozess/mittelfristigem Rahmen verknüpft"
+  ]
+}
