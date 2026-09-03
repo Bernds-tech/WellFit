@@ -1,0 +1,48 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Forecast-Fächer 2026",
+  "rule":"Für BUD-01 wird keine einzelne Prognose als Wahrheit verwendet. Budgetplan, unabhängige österreichische Prognosen und internationale Prognosen werden nebeneinander geführt; Szenarien müssen den Prognosefächer abdecken.",
+  "growth_2026_pct":[
+    {"institution":"OeNB","value":0.6,"published":"2026-06-12"},
+    {"institution":"WIFO","value":0.9,"vintage":"April 2026"},
+    {"institution":"IHS","value":0.5,"vintage":"April 2026"},
+    {"institution":"OECD","value":0.7,"vintage":"2026"},
+    {"institution":"IMF","value":0.6,"published":"2026-07-20"},
+    {"institution":"EU-Kommission","value":0.6,"published":"2026-05-21"}
+  ],
+  "growth_2027_pct":[
+    {"institution":"OeNB","value":1.1},
+    {"institution":"WIFO","value":1.3},
+    {"institution":"IHS","value":0.8},
+    {"institution":"OECD","value":1.1},
+    {"institution":"IMF","value":1.0},
+    {"institution":"EU-Kommission","value":0.9}
+  ],
+  "fiscal_balance_pct_gdp":[
+    {"institution":"BMF Budgetpfad","year":2026,"value":-4.2,"type":"Plan"},
+    {"institution":"OeNB","year":2026,"value":-4.1,"type":"Prognose"},
+    {"institution":"EU-Kommission","year":2026,"value":-4.1,"type":"Prognose ohne späteres Doppelbudget"},
+    {"institution":"BMF Budgetpfad","year":2027,"value":-3.5,"type":"Plan"},
+    {"institution":"OeNB","year":2027,"value":-3.9,"type":"Prognose"},
+    {"institution":"EU-Kommission","year":2027,"value":-4.1,"type":"Prognose ohne späteres Doppelbudget"},
+    {"institution":"BMF Budgetpfad","year":2028,"value":-3.0,"type":"Plan"},
+    {"institution":"OeNB","year":2028,"value":-3.8,"type":"Prognose"}
+  ],
+  "independent_risk_signals":[
+    {"institution":"Budgetdienst","signal":"Der gesamtstaatliche Zielpfad wird insbesondere ab 2028 mit den bisher vorgesehenen Maßnahmen unter aktuellen makroökonomischen Annahmen voraussichtlich nicht erreicht."},
+    {"institution":"Fiskalrat","signal":"Defizit bleibt laut Juni-2026-Prognose bis 2030 deutlich über 3 % des BIP; Schuldenquote 2030 etwa 87,8 %."},
+    {"institution":"IMF","signal":"Zusätzliche Konsolidierungsmaßnahmen über das bislang Angekündigte hinaus dürften nötig sein, um das 3-%-Ziel 2028 zu erreichen und die Schuldenquote zu senken."},
+    {"institution":"OeNB","signal":"Juni-2026-Prognose erwartet trotz Konsolidierung 2028 noch 3,8 % Defizit; adverse/severe Szenarien reichen bis 4,2 bzw. 4,9 %."}
+  ],
+  "scenario_policy":[
+    "Base Case darf nicht günstiger sein als ein sachlich begründeter Mittelpunkt des aktuellen Prognosefächers.",
+    "Conservative Case verwendet schwächeres Wachstum/höhere Zinsen bzw. Inflation aus seriösen Prognosen oder dokumentierten Stressszenarien.",
+    "Upside Case wird nur separat gezeigt und nie zur Finanzierung verbindlicher Dauerausgaben verwendet.",
+    "Bei großen Prognosedifferenzen wird die Differenz selbst als Risiko ausgewiesen."
+  ],
+  "source_notes":[
+    "OeNB Report 2026/17 vom 12.06.2026 enthält einen direkten Vergleich OeNB/WIFO/IHS/OECD/IWF/EU-Kommission.",
+    "Fiskalrat Juni 2026 dient als unabhängige gesamtstaatliche Fiskalprognose und Plausibilisierung der offiziellen Budgetplanung.",
+    "BMF-Werte sind Plan-/Referenzwerte und keine unabhängige Prognose."
+  ]
+}
