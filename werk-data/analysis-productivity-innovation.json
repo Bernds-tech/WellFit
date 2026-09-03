@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Produktivität, Innovation und Standort",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Ein ausgeglichener Haushalt ist dauerhaft leichter erreichbar, wenn die Steuerbasis durch Produktivität und Beschäftigung wächst. Wachstumsannahmen dürfen aber nie als sichere Budgeteinsparung verbucht werden.",
+  "current_facts":[
+    {"fact":"OECD 2026 diagnostiziert für Österreich schwaches Investitionswachstum, schrumpfende Bevölkerung im Erwerbsalter und rückläufiges Trendwachstum der Arbeitsproduktivität.","source":"OECD Economic Survey Austria 2026"},
+    {"fact":"Die OECD nennt geringe Kapitalintensität, regulatorische Wettbewerbsbarrieren, Dienstleistungsbeschränkungen und langsameren Digitalinfrastruktur-Ausbau als Produktivitätshemmnisse.","source":"OECD Austria Economic Snapshot 2026"},
+    {"fact":"Österreichs hohe Teilzeitquote und Betreuungspflichten begrenzen zusätzlich das verfügbare Arbeitsvolumen; dies ist mit Kinderbetreuungs-, Pflege- und Steuerpolitik verknüpft.","source":"Statistik Austria 2025 / OECD 2026"}
+  ],
+  "structural_questions":[
+    "Welche Branchen tragen am stärksten zur Produktivitätsschwäche seit 2019/2020 bei?",
+    "Welche Investitionshemmnisse sind Finanzierung, Nachfrage, Energiepreise, Fachkräfte, Genehmigungen oder Regulierung?",
+    "Welche Berufs-/Gewerberegulierungen reduzieren Wettbewerb ohne klaren Verbraucherschutznutzen?",
+    "Wie groß ist der Abstand bei Unternehmensgründung, Scale-up-Finanzierung und Eigenkapitalversorgung gegenüber Vergleichsländern?",
+    "Wie wirken öffentliche F&E-Förderungen auf zusätzliche private Forschung, Patente, Produktivität und Unternehmenswachstum?",
+    "Welche staatlichen Beschaffungsvolumina könnten Innovation fördern, ohne Vergabetransparenz zu schwächen?",
+    "Welche digitalen Infrastrukturengpässe begrenzen Produktivität regional?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Regulierungs-/Genehmigungsbarrieren systematisch nach Kosten und Schutzwirkung prüfen",
+    "Unternehmensgründung und Kapitalmaßnahmen vereinfachen, ohne Gläubiger-/Anlegerschutz auszuhöhlen",
+    "F&E-Förderungen stärker auf Zusätzlichkeit, Skalierung und messbaren Output prüfen",
+    "Mitarbeiterbeteiligung und Risikokapitalbedingungen im internationalen Vergleich neu bewerten",
+    "staatliche Beschaffung stärker für innovative Lösungen öffnen, aber Lebenszykluskosten und Wettbewerb sichern",
+    "digitale Infrastruktur- und Netzengpässe mit State-ROI priorisieren",
+    "Arbeitsmarkt-, Bildungs-, Energie- und Verwaltungsreformen als gemeinsames Produktivitätspaket statt Einzelmaßnahmen modellieren"
+  ],
+  "do_not_count_yet":["keine theoretische BIP-Steigerung direkt als Budgeteinnahme buchen","keine F&E-Förderkürzung ohne Zusätzlichkeitsprüfung","keine Deregulierung pauschal als Produktivitätsgewinn ansetzen","keine Start-up-Steuerentlastung ohne Gegenfinanzierung und Mitnahmeeffekte"],
+  "next_data_needed":["Produktivität nach Branche","Unternehmensinvestitionen und Kapitalstock","Gründungs-/Scale-up-/Insolvenzdaten","F&E-Fördermittel und Evaluationen","Risikokapitaldaten","Regulierungsindikatoren","Digitalinfrastruktur nach Region","Wettbewerbs-/Dienstleistungsbarrieren"]
+}
