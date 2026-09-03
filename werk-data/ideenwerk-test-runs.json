@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-03-v2",
   "title":"IDEENWERK – ausgeführte Testläufe",
   "rule":"Ein Testlauf wird nur eingetragen, wenn er tatsächlich ausgeführt wurde. Frühere Läufe werden nicht durch bessere spätere Ergebnisse ersetzt, sondern bleiben als Verlauf erhalten.",
   "runs":[
@@ -46,6 +46,23 @@
         "Ähnlichkeitsschwelle bleibt zwingend"
       ],
       "limitations":"Worker-/PostgreSQL-Integration dieser Policy ist committed, aber mangels PostgreSQL in dieser Umgebung noch nicht runtime-getestet."
+    },
+    {
+      "id":"RUN-20260903-ABUSE-HASH-01",
+      "executed_at":"2026-09-03",
+      "environment":"lokale Ausführungsumgebung, Node 22.16.0; reine Kryptografie-/Policy-Tests ohne Datenbank",
+      "scope":"HMAC-Pseudonymisierung für gemeinsamen Multi-Instance-Rate-Limiter und Route-Policy",
+      "result":"pass",
+      "passed":4,
+      "failed":0,
+      "verified_rules":[
+        "gleicher Clientkontext + gleiches Secret ergibt stabilen 64-stelligen HMAC-SHA256-Hash",
+        "Roh-IP und User-Agent erscheinen nicht im gespeicherten Subject-Hash",
+        "Secret-Rotation erzeugt neuen pseudonymen Subject-Hash",
+        "Secrets unter 32 Zeichen werden abgewiesen",
+        "nur definierte IDEENWERK-Status-/Privacy-/Schreibendpunkte erhalten die verteilte Rate-Policy"
+      ],
+      "limitations":"Die PostgreSQL-Funktion und API-Integration aus Migration 011 wurden in diesem Lauf mangels PostgreSQL nicht runtime-getestet."
     }
   ]
 }
