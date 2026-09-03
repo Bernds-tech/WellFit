@@ -1,0 +1,39 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Bildung, Kompetenzen und lebenslanges Lernen",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Bildung wird nicht als kurzfristiger Sparblock behandelt. Entscheidend ist die Wirkung je eingesetztem Euro: Basiskompetenzen, Chancengerechtigkeit, Abschlussquoten, Übergang in Arbeit und langfristige Produktivität.",
+  "current_facts":[
+    {"fact":"Staatliche Bildungsausgaben nach österreichischer Systematik lagen 2024 bei 28,977 Mrd. Euro, +11,0 % gegenüber 2023.","source":"Statistik Austria Bildungsausgaben, erstellt 06.03.2026"},
+    {"fact":"Davon entfielen 2024 rund 17,399 Mrd. Euro auf Personal, 6,311 Mrd. auf Sachaufwand und 2,170 Mrd. auf Investitionen.","source":"Statistik Austria"},
+    {"fact":"Nach Gebietskörperschaft: Bund rund 14,495 Mrd. Euro, Länder 6,647 Mrd., Wien 3,037 Mrd., Gemeinden inkl. Schulgemeindeverbände 4,797 Mrd. Euro.","source":"Statistik Austria"},
+    {"fact":"OECD 2026 verweist auf schwache Erwachsenen-Grundkompetenzen: rund 31 % der 25- bis 64-Jährigen erreichen beim Lesen höchstens Level 1 im PIAAC, gegenüber 27 % im OECD-Schnitt.","source":"OECD Economic Survey Austria 2026"},
+    {"fact":"OECD 2026 sieht frühe schulische Selektion und starke Abhängigkeit von sozialer Herkunft als Effizienz-/Chancenthema; ab 2026/27 startet ein Chancenbonus nach Sozialindex.","source":"OECD Economic Survey Austria 2026"}
+  ],
+  "existing_changes_to_baseline":[
+    "Chancenbonus/Sozialindex ist bereits beschlossen bzw. in Umsetzung und darf nicht als WERK-Neuerfindung verbucht werden.",
+    "Nachfolgeregelung zur Bildungskarenz ab 2026 ist Teil des laufenden politischen Pfads.",
+    "laufende Schulorganisations-/Bildungsdirektionsreformen gehören in den Referenzpfad."
+  ],
+  "structural_questions":[
+    "Wie entwickeln sich Kosten je Schüler/Studierendem nach Bildungsstufe und Ergebnisindikator?",
+    "Welcher Anteil des Personal- und Verwaltungsaufwands entfällt auf Unterricht, Unterstützung und Verwaltung?",
+    "Wo gibt es kleine Parallelstrukturen, die Qualität nicht verbessern, und wo sind kleine Standorte regional notwendig?",
+    "Welche Förderprogramme verbessern nachweislich Lesen, Mathematik, Deutsch und Abschlusswahrscheinlichkeit?",
+    "Wie hoch sind Kosten und Folgekosten früher Schulabbrüche bzw. geringer Basiskompetenzen?",
+    "Welche Rolle spielen Elementarpädagogik, Ganztag und Sprachförderung für spätere Lernergebnisse und Erwerbsbeteiligung der Eltern?",
+    "Wie wirksam sind Erwachsenenbildung und Qualifizierungsprogramme tatsächlich im Arbeitsmarkt?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Ressourcen stärker nach Schülerbedarf und messbaren Lernständen statt nur historisch verteilen",
+    "Schulen mehr operative Autonomie geben, gekoppelt an transparente Qualitätsziele",
+    "administrative Pflichten von Lehrkräften reduzieren und Shared Services ausbauen",
+    "frühe Basiskompetenzförderung priorisieren, bevor teure spätere Reparaturprogramme nötig werden",
+    "Elementarpädagogik und Ganztagsangebote gemeinsam mit Arbeitsmarkt-/Familienwirkung rechnen",
+    "Erwachsenenbildung stärker nach nachhaltigem Kompetenz-/Beschäftigungsgewinn finanzieren",
+    "Investitionen in Schulstandorte und Digitalisierung mit Lebenszykluskosten und tatsächlicher Nutzung prüfen"
+  ],
+  "do_not_count_yet":["keine pauschale Lehrer-/Schulstandortkürzung","keine Bildungsausgabensteigerung automatisch als Ineffizienz interpretieren","keine Verwaltungsdigitalisierung als Einsparung ohne realen Personal-/Zeitnachweis","keine soziale Fördermaßnahme streichen nur weil kurzfristig kein Budgeteffekt sichtbar ist"],
+  "next_data_needed":["Kosten je Schüler nach Stufe/Bundesland","Lehrer-/Support-/Verwaltungs-VZÄ","Lernstandsdaten und Abschlussquoten","Schulstandorte/Auslastung","Elementarbetreuung Kapazität/Öffnungszeiten","Universitätskosten/Abschluss/Dropout","Erwachsenenbildungs-Wirkungsdaten"]
+}
