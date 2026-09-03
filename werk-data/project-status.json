@@ -1,12 +1,12 @@
 {
-  "version":"2026-09-03-v16",
-  "current_preview":"V66 – Prüffassung mit WERK IDEENWERK Security-/Betriebsreife, Schutz-/Qualitäts-/Trust-/Backend-Scaffold, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
+  "version":"2026-09-03-v17",
+  "current_preview":"V67 – Prüffassung mit ersten real ausgeführten IDEENWERK-Kern-/Goldset-Messungen, Security-/Betriebsreife, Schutz-/Trust-/Backend-Scaffold, Rechts-/Kompetenz-/Finanzmodellen und Integritätscheck",
   "overall_phase":"Prüffassung / Regierungsregister-Aufbau / Bürgerbeteiligungs-, Betriebs-, Datenschutz-, Qualitäts-, Finanz-, Kompetenz-, Demokratie- und Rechtsmodellierung",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
     {"id":"architecture","name":"Website-Architektur","status":"modular-with-integrity-check-and-versioned-runtime-scaffold","estimate_pct":98},
     {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login, Problemcluster/Lösungsvarianten, API/DB/Worker/Docker/Loadtest-Scaffold","status":"runnable-scaffold-not-deployed","estimate_pct":96},
-    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"goldset-and-100k-benchmark-prepared-not-run","estimate_pct":82},
+    {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"core-unit-and-fallback-goldset-measured-runtime-benchmark-open","estimate_pct":86},
     {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"privacy-governance-token-api-retention-scaffolded-legal-review-open","estimate_pct":86},
     {"id":"ideenwerk-security","name":"IDEENWERK Security & Betriebsreife","status":"http-hardening-migrations-retention-backup-ci-prepared-runtime-open","estimate_pct":86},
     {"id":"ideenwerk-operator","name":"IDEENWERK menschliche Prüfung / Operator / Appeal","status":"roles-schema-and-demo-cockpit-ready-auth-not-implemented","estimate_pct":80},
@@ -30,8 +30,12 @@
       "werk-data/ideenwerk.json","werk-data/ideenwerk-backend.json","werk-data/ideenwerk-triage.json","werk-data/ideenwerk-status-machine.json","werk-data/ideenwerk-api-contract.json","werk-data/ideenwerk-cluster-policy.json","werk-data/ideenwerk-moderation.json","werk-data/ideenwerk-quality.json","werk-data/ideenwerk-privacy.json","werk-data/ideenwerk-operator-governance.json","werk-data/ideenwerk-security.json","werk-data/ideenwerk-retention.json",
       "ideenwerk-backend/sql/001_init.sql","ideenwerk-backend/sql/002_jobs.sql","ideenwerk-backend/sql/003_similarity.sql","ideenwerk-backend/sql/004_semantic_features.sql","ideenwerk-backend/sql/005_cluster_variants.sql","ideenwerk-backend/sql/006_operator_review.sql","ideenwerk-backend/sql/007_privacy_requests.sql","ideenwerk-backend/sql/008_retention.sql",
       "ideenwerk-backend/src/app.js","ideenwerk-backend/src/worker.js","ideenwerk-backend/src/lib/semantic-provider.js","ideenwerk-backend/src/lib/cluster-decision.js",
-      "ideenwerk-backend/evaluation/cluster-goldset.json","ideenwerk-backend/scripts/migrate.mjs","ideenwerk-backend/scripts/retention-maintenance.mjs","ideenwerk-backend/scripts/backup.mjs","ideenwerk-backend/scripts/restore-verify.mjs","ideenwerk-backend/scripts/evaluate-clustering.mjs","ideenwerk-backend/scripts/seed-synthetic.mjs","ideenwerk-backend/scripts/benchmark-queue.mjs","ideenwerk-backend/scripts/cleanup-synthetic.mjs","ideenwerk-backend/scripts/smoke.mjs",
+      "ideenwerk-backend/evaluation/cluster-goldset.json","ideenwerk-backend/test/status-machine.test.js","ideenwerk-backend/test/triage.test.js","ideenwerk-backend/test/cluster-decision.test.js","ideenwerk-backend/test/semantic-provider.test.js","ideenwerk-backend/scripts/migrate.mjs","ideenwerk-backend/scripts/retention-maintenance.mjs","ideenwerk-backend/scripts/backup.mjs","ideenwerk-backend/scripts/restore-verify.mjs","ideenwerk-backend/scripts/evaluate-clustering.mjs","ideenwerk-backend/scripts/seed-synthetic.mjs","ideenwerk-backend/scripts/benchmark-queue.mjs","ideenwerk-backend/scripts/cleanup-synthetic.mjs","ideenwerk-backend/scripts/smoke.mjs",
       ".github/workflows/ideenwerk-backend-check.yml","werk-operator-v1.html"
+    ],
+    "measured_quality":[
+      "2026-09-03: Node 22.16.0 Kern-Unit-Tests 14/14 bestanden",
+      "2026-09-03: Fallback-v2 Goldset 10/15 korrekt; False Merge 0; Variant Loss 0; False Split 5"
     ],
     "financial_models":["werk-data/debt-model.json","werk-data/fiscal-model.json","werk-data/funding-matrix.json","werk-data/admin-model.json","werk-data/tax-compliance-model.json","werk-data/gambling-model.json","werk-data/medium-term-fiscal-path.json"],
     "legal_models":["werk-data/legal-roadmap.json","werk-data/state-direct-democracy-audit.json","werk-data/state-procedure-matrix.json","werk-data/vote-format.json","werk-data/vote-constitutional-options.json","werk-data/competence-inventory.json","werk-data/democracy-minimum-standard.json","werk-data/state-democracy-fit.json","werk-data/legal.json"],
@@ -39,8 +43,8 @@
     "correction_log":"werk-data/corrections.json"
   },
   "blocking_items_for_public_release":[
-    "IDEENWERK Integrations-CI bzw. Testdeploy tatsächlich ausführen und Migrationen/Smoke/Retention/Backup-Restore grün nachweisen",
-    "semantischen Provider auf repräsentativem Goldset evaluieren; False-Merge, Variantenerhalt und False-Split tatsächlich messen",
+    "IDEENWERK Integrations-CI bzw. Testdeploy mit PostgreSQL/API/Worker tatsächlich ausführen und Migrationen/Smoke/Retention/Backup-Restore grün nachweisen",
+    "produktiven Semantikprovider auf größerem repräsentativem Goldset evaluieren; der gemessene Fallback v2 bleibt nur Sicherheits-/Ausfallstufe",
     "100k- und Spike-Lasttest auf definierter Testinfrastruktur tatsächlich ausführen und Queue-Latenzen dokumentieren",
     "verteiltes Rate Limit, progressive Bot-Challenge und WAF für Multi-Instance-Betrieb implementieren",
     "Operator-Authentifizierung über externes OIDC/MFA sowie serverseitige Rollen- und Vier-Augen-Prüfung implementieren",
@@ -72,6 +76,7 @@
     "eine Einzelidee kann über einen Qualitäts-Sonderpfad trotz geringer Reichweite geprüft werden",
     "anonyme Reaktionen und verifizierte Unterstützer werden niemals zu einer einzigen Zahl vermischt",
     "Qualitätswerte werden erst nach tatsächlich ausgeführtem Test veröffentlicht; vorbereitet ist nicht gemessen",
+    "der gemessene Fallback v2 darf wegen seiner hohen False-Split-Rate keine produktive semantische Auto-Verschmelzung ersetzen",
     "Datenbankmigrationen sind versioniert und dürfen nach Anwendung nicht still verändert werden",
     "Backup gilt erst nach erfolgreichem Restore in eine getrennte Testdatenbank als geprüft",
     "bestehender Vollzug ist keine neue WERK-Einnahme",
@@ -84,5 +89,5 @@
     "bestehende stärkere Volksrechte eines Landes werden nicht durch WERK abgeschwächt",
     "technische Erreichbarkeit ist keine politische, juristische, finanzielle, sicherheitstechnische, datenschutzrechtliche, moderative oder betriebliche Freigabe"
   ],
-  "note":"Prozentwerte sind interne Arbeitsreifegrade. V66 ergänzt HTTP-Randhärtung, minimierte Logs, versionierte Migrationen mit Checksumme, Retention-Dry-Run, Backup/Restore-Verifikation und eine vorbereitete PostgreSQL-Integrations-CI. Diese Tests sind durch Connector-Commits weiterhin nicht als tatsächlich grün nachgewiesen."
+  "note":"Prozentwerte sind interne Arbeitsreifegrade. In V67 wurden erstmals tatsächlich ausgeführte lokale Kernmessungen dokumentiert: 14/14 Node-Unit-Tests bestanden und Fallback-v2-Goldset 10/15 korrekt bei 0 False Merges und 0 Variant Loss. Die Umgebung hatte kein Docker/PostgreSQL; DB/API/Worker-/Backup-/100k-Runtime bleibt deshalb ausdrücklich offen."
 }
