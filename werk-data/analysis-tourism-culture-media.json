@@ -1,0 +1,31 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Tourismus, Kultur und Medien",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Tourismus- und Kulturpolitik wird nach regionaler Wertschöpfung, Infrastrukturbelastung, Arbeitsmarkt, Saisonalität, öffentlichem Auftrag und Förder-Zusätzlichkeit geprüft. Kultur- und Medienförderung benötigt Transparenz und Unabhängigkeit, darf aber nicht auf reine kurzfristige Rendite reduziert werden.",
+  "current_facts":[
+    {"fact":"Österreich verzeichnete 2025 rund 48,17 Mio. touristische Ankünfte und 157,29 Mio. Übernachtungen; durchschnittliche Aufenthaltsdauer 3,3 Nächte.","source":"Statistik Austria Beherbergungsstatistik, endgültig 13.02.2026"},
+    {"fact":"2025 entfielen laut Statistik Austria 31,8 % aller Nächtigungen auf Tirol, 19,6 % auf Salzburg und 12,8 % auf Wien – Tourismusabhängigkeit ist regional sehr unterschiedlich.","source":"Statistik Austria Wirtschaftsatlas"},
+    {"fact":"Der Kultursektor trug 2023 rund 1,8 % zur Bruttowertschöpfung bei; öffentliche Kulturausgaben lagen 2024 bei 0,74 % des BIP.","source":"Statistik Austria Kulturwirtschaft und öffentliche Kulturausgaben"}
+  ],
+  "structural_questions":[
+    "Welche Regionen sind wirtschaftlich stark vom Tourismus abhängig und wie hoch ist dort Saison-/Klima-/Arbeitskräfterisiko?",
+    "Welche touristische Infrastruktur wird überwiegend durch Gemeinden/Länder finanziert und wie werden externe Kosten/Abgaben verteilt?",
+    "Welche Förderprogramme erzeugen zusätzliche Nachfrage/Investition und welche hauptsächlich Mitnahmeeffekte?",
+    "Wie wirken Tourismusabgaben, Kommunalsteuer, Umsatzsteuer und Arbeitsmarkt auf den gesamtstaatlichen Nettoeffekt?",
+    "Welche Kulturförderungen verfolgen Daseinsvorsorge, kulturelles Erbe, regionale Teilhabe oder wirtschaftliche Ziele – und werden diese Ziele getrennt gemessen?",
+    "Wie transparent sind Medienförderungen und öffentliche Inserate über alle Staatsebenen und öffentlichen Unternehmen?",
+    "Welche Mechanismen schützen redaktionelle Unabhängigkeit bei öffentlicher Finanzierung?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Tourismusförderungen nach regionaler Zusätzlichkeit, Saisonverlängerung, Wertschöpfung und Infrastrukturkosten evaluieren",
+    "Gemeinden mit hoher touristischer Belastung Finanzierungsströme transparent zuordnen",
+    "Arbeitskräfte-/Wohn-/Verkehrsprobleme in Tourismusregionen gemeinsam statt ressortweise analysieren",
+    "Kulturförderung mit klaren Zielkategorien und nachvollziehbarer Auswahl-/Evaluierungslogik führen",
+    "öffentliche Inserate und Medienförderungen vollständig maschinenlesbar nach Auftraggeber, Medium, Betrag und Zweck veröffentlichen",
+    "Kultur- und Medieninstitutionen auf Shared Services prüfen, ohne Programm-/Redaktionsautonomie zu zentralisieren"
+  ],
+  "do_not_count_yet":["keine Tourismusförderung pauschal streichen","Nächtigungsrekorde nicht automatisch als hohe Rentabilität staatlicher Förderung interpretieren","Kulturausgaben nicht nur nach unmittelbarer Marktrendite bewerten","keine Medienförderung ohne Pluralismus-/Unabhängigkeitsprüfung verändern"],
+  "next_data_needed":["Tourismus-Satellitenkonto aktuell","touristische Wertschöpfung/Beschäftigung nach Land","Tourismusförderungen Bund/Länder","Gemeinde-Infrastrukturkosten in Hotspots","Kulturförderungen nach Ebene/Sparte","Medienförderungen/Inserate inkl. öffentliche Unternehmen","Besucher-/Nutzungs-/Outcome-Daten öffentlicher Kulturinstitutionen"]
+}
