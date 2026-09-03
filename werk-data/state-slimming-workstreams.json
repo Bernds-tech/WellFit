@@ -1,0 +1,113 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Staatsverschlankung: Arbeitsstränge und Rechenlogik",
+  "status":"Analyse-/Costing-Backlog – noch keine Einsparung gebucht",
+  "priority_link":"BUD-01",
+  "core_rule":"Kein Personal- oder Sachkosten-Euro wird eingespart, bevor die zugrunde liegende Aufgabe, der Prozess, die Fläche, das System oder die Beschaffung tatsächlich entfällt, gebündelt oder dauerhaft günstiger erbracht wird.",
+  "workstreams":[
+    {
+      "id":"SLIM-01",
+      "name":"Aufgabenkritik und Behörden-/Einheiteninventar",
+      "scope":"Bund/Länder/Gemeinden/SV sowie relevante Fonds, Agenturen und öffentliche Einheiten",
+      "baseline_needed":["Aufgabe/Rechtsgrundlage","Personal","Sachkosten","IT","Standorte","Leistungsmenge","Parallelen anderer Ebenen"],
+      "costing_formula":"wegfallende dauerhafte Vollkosten minus Transformations-, Abwicklungs-, Vertrags- und Ersatzleistungskosten",
+      "no_shortcut":"Zahl öffentlicher Einheiten nicht mit Durchschnittskosten multiplizieren."
+    },
+    {
+      "id":"SLIM-02",
+      "name":"Ministerien/Zentralstellen und strategische Steuerung",
+      "baseline":"nur rund 9 % des Bundespersonals arbeiten in Ministerien; rund 10.200 Verwaltungsbedienstete in Ministerien",
+      "test":"Sektionen/Abteilungen/Stäbe, Rechts-/HR-/Controlling-/Kommunikationsfunktionen, politische Kabinette und Querschnittsdienste auf Überschneidung und Führungsspannen prüfen",
+      "costing_formula":"tatsächlich wegfallende Planstellen + Sach-/Flächen-/IT-Folgekosten nach Reorganisation",
+      "guardrail":"Führungsspannen/Ministerienstruktur erst nach Aufgabenanalyse; keine symbolische Abteilungsstreichung ohne Prozessentfall."
+    },
+    {
+      "id":"SLIM-03",
+      "name":"Shared Services Bund und später ebenenübergreifend",
+      "candidate_functions":["Personalverrechnung","Recruiting/Tests","Buchhaltung/Zahlungsverkehr","Beschaffung","Reiseadministration","Fuhrpark","Archiv/Dokumentenmanagement","Standard-IT/Helpdesk","Lizenzmanagement","Druck/Post","Facility Management"],
+      "baseline_needed":["Vollkosten je Ressort/Einheit","FTE je Prozess","Transaktionen","Servicequalität","bestehende Shared Services"],
+      "costing_formula":"heutige konsolidierte Prozessvollkosten minus Zielbetrieb minus Migration/Parallelbetrieb",
+      "guardrail":"Keine Zentralisierung, wenn lokale/operative Spezialisierung nachweislich günstiger oder qualitativ notwendig ist."
+    },
+    {
+      "id":"SLIM-04",
+      "name":"IT-Konsolidierung und Legacy-Abschaltung",
+      "baseline_needed":["Applikationsportfolio","Nutzer","Lizenzen","Hosting/Cloud/Rechenzentrum","Schnittstellen","Betriebspersonal","externe Dienstleister","Alt-System-Abschaltkosten"],
+      "costing_formula":"wegfallende Lizenz/Hosting/Wartung/FTE/Externe minus Zielsystem und Migration",
+      "audit_anchor":"Rechnungshof Digitalisierungsfonds: IT-Konsolidierung und Personaleffekte müssen tatsächlich gemessen werden.",
+      "guardrail":"Digitalisierung ohne Altprozess-/Altsystemabschaltung zählt mit 0 Euro Einsparung."
+    },
+    {
+      "id":"SLIM-05",
+      "name":"Öffentliche Beschaffung",
+      "baseline_needed":["Beschaffungsvolumen je Kategorie","Preisbenchmark","Nutzung BBG/Rahmenvertrag","Maverick Buying","Lebenszykluskosten","Abwicklungskosten"],
+      "costing_formula":"validierter Preis-/Prozessvorteil auf tatsächlich migriertes Volumen minus BBG/Transaktions-/Umstellungskosten",
+      "reference":"BBG 2024 Volumen 3,38 Mrd. Euro; gemeldeter Spareffekt 557,6 Mio. Euro wird wegen Rechnungshofhinweis nicht ungeprüft übernommen.",
+      "guardrail":"Preisvorteil nur bei gleicher Qualität/Leistung/Total Cost of Ownership."
+    },
+    {
+      "id":"SLIM-06",
+      "name":"Förderabwicklung und Agenturen",
+      "baseline_needed":["Fördervolumen","Fälle","FTE","IT","externe Agenturkosten","Bearbeitungszeit","Prüf-/Fehlerquote"],
+      "costing_formula":"wegfallende Abwicklungsvollkosten nach Bündelung/Digitalisierung minus Zielbetrieb",
+      "audit_anchor":"Rechnungshof fordert konsolidierte Erhebung von eigenem und externem Abwicklungsaufwand; einzelne Fonds kannten ihren Gesamtaufwand nicht.",
+      "guardrail":"Förderhöhe und Abwicklungskosten strikt trennen."
+    },
+    {
+      "id":"SLIM-07",
+      "name":"Föderale Aufgabenentflechtung",
+      "candidate_areas":["Genehmigungen","Bildungsverwaltung","Förderung","Gesundheitsplanung/-finanzierung","Sozial-/Pflegeadministration","Kontroll-/Berichtssysteme"],
+      "baseline_needed":["Prozessschritte Bund/Land/Gemeinde","FTE/Kosten je Schritt","Rechtskompetenz","Finanzierungsströme","Doppelmeldungen"],
+      "costing_formula":"gesamtstaatlich wegfallende Prozess-/Organisationskosten minus Transfer-/Umstellungskosten",
+      "guardrail":"Bloße Aufgabenverschiebung Bund -> Land oder Land -> Gemeinde zählt 0 Euro."
+    },
+    {
+      "id":"SLIM-08",
+      "name":"Immobilien- und Standortkonsolidierung",
+      "baseline_needed":["m²","Belegung","Miete/Abschreibung","Energie","Instandhaltung","Leerstand","Homeoffice/Desk-Sharing","Vertragslaufzeiten","Umzugskosten"],
+      "costing_formula":"dauerhaft vermiedene Flächen-/Betriebskosten minus Umzug/Adaptierung/Vertragsausstieg",
+      "guardrail":"Verkaufserlös ist Einmaleffekt; nur vermiedene laufende Vollkosten zählen strukturell."
+    },
+    {
+      "id":"SLIM-09",
+      "name":"Personalabbau durch Aufgaben-/Prozessentfall und natürliche Fluktuation",
+      "baseline_needed":["FTE nach Aufgabe","Alters-/Pensionsabgänge","Fluktuation","Vakanz","Arbeitsvolumen","Service-KPI","Automatisierungseffekt"],
+      "costing_formula":"nicht nachbesetzte bzw. tatsächlich entfallene Vollkostenstellen minus Übergangs-/Abfertigungs-/Automatisierungskosten",
+      "priority":"natürliche Abgänge und Umschichtung vor Kündigungsprogrammen prüfen",
+      "guardrail":"Keine pauschale x-%-Quote auf 58,8 Mrd. Euro Personalaufwand. Bildung, Gesundheit, Sicherheit und operative Dienste separat nach Bedarf prüfen."
+    },
+    {
+      "id":"SLIM-10",
+      "name":"Regelungs- und Berichtspflichten abbauen",
+      "baseline_needed":["Formulare/Meldungen","Fallzahlen","Bearbeitungszeit Verwaltung","Erfüllungszeit Bürger/Unternehmen","IT-/Kontrollkosten","EU-/Rechtsbindung"],
+      "costing_formula":"vermiedene Verwaltungs-FTE/Sachkosten + separat ausgewiesene private Erfüllungskosten; private Entlastung nicht als Budgetersparnis zählen",
+      "guardrail":"Kontrollabbau nur bei gleichwertiger Rechts-/Betrugs-/Sicherheitswirkung."
+    },
+    {
+      "id":"SLIM-11",
+      "name":"Beteiligungen, Fonds und öffentliche Unternehmen – Backoffice/Governance",
+      "baseline_needed":["Auftrag","Personal","Backoffice","Eigentümerkosten","Zuschüsse","Kapital","IT/Beschaffung","Parallelen"],
+      "costing_formula":"dauerhafte Eigentümer-/Backoffice-/Zuschussverbesserung nach Leistungs-/Kapitalprüfung",
+      "guardrail":"Privatisierungserlös, höhere Dividende oder niedrigere Kapitalzuführung nicht ohne Investitions-/Daseinsvorsorgefolgen als strukturelle Einsparung buchen."
+    },
+    {
+      "id":"SLIM-12",
+      "name":"Management-/Kontrollspanne und Gremien",
+      "baseline_needed":["Hierarchieebenen","Führungskräfte","Teamsize","Gremien","Sitzungs-/Berichtslast","Stellvertretungen","Zulagen"],
+      "costing_formula":"entfallene Führung/Gremien-/Backofficekosten nach Organisationsumbau",
+      "guardrail":"keine pauschale Führungskräftequote; Fach-/Sicherheits-/Schichtorganisation berücksichtigen."
+    }
+  ],
+  "costing_sequence":[
+    "1 Aufgabe/Prozess definieren",
+    "2 echte Ist-Vollkosten erheben",
+    "3 Zielprozess/-organisation zeichnen",
+    "4 Personal/Sach/IT/Fläche/Verträge ableiten",
+    "5 Transformations-/Parallelkosten rechnen",
+    "6 Leistungs-/Qualitäts-KPI prüfen",
+    "7 Cash/ESVG/Teilsektorwirkung berechnen",
+    "8 Doppelzählung mit Digital-/Förder-/Beschaffungsreformen prüfen",
+    "9 konservativen dauerhaften Nettoeffekt extern plausibilisieren",
+    "10 erst dann in BUD-01-Finanzierungsmatrix buchen"
+  ]
+}
