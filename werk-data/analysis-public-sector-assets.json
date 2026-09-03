@@ -1,0 +1,31 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Öffentlicher Sektor, Beteiligungen und Staatsvermögen",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "current_facts":[
+    {"fact":"Zum Stichtag 31.03.2026 zählte Statistik Austria 4.958 staatliche Einheiten (S.13) und 2.749 sonstige öffentliche Einheiten/Unternehmen (S.11/S.12), insgesamt 7.707 kontrollierte Einheiten.","source":"Statistik Austria Öffentlicher Sektor 2025"},
+    {"fact":"Kontrollierende Ebene: Bund 736 Einheiten, Länder 1.045, Gemeinden 5.866, Sozialversicherung 60.","source":"Statistik Austria"},
+    {"fact":"Der Bund hält direkte und mehrheitliche Beteiligungen an 102 Gesellschaften; 2025 zusammen 33,2 Mrd. Euro Umsatz, 129.269 VZÄ und 362,4 Mrd. Euro Bilanzsumme.","source":"BMF Beteiligungsbericht 2027/2028"},
+    {"fact":"Für Bundesbeteiligungen werden 2027 Auszahlungen von rund 14,252 Mrd. Euro und Einzahlungen von rund 1,934 Mrd. Euro ausgewiesen; diese Zahlungsströme sind keine automatische Maastricht-Kosten-/Dividendenkennzahl.","source":"BMF Beteiligungsbericht 2027/2028"},
+    {"fact":"Finanzvermögen des Sektors Staat 2025 lag laut Statistik Austria bei 212,8 Mrd. Euro, Verbindlichkeiten der finanziellen Konten bei 448,8 Mrd. Euro; diese Größen sind methodisch nicht identisch mit Maastricht-Schuld oder frei verwertbarem Vermögen.","source":"Statistik Austria Finanzielle Konten Sektor Staat"}
+  ],
+  "structural_questions":[
+    "Welche öffentlichen Einheiten erfüllen tatsächlich eigenständige gesetzliche Aufgaben und welche duplizieren Verwaltung/Backoffice?",
+    "Welche Einheiten sind operative Unternehmen, welche Behördennähe/Servicegesellschaften und welche reine Finanzierungskonstruktionen?",
+    "Welche Beteiligungen benötigen dauerhaft Bundeskapital wegen Infrastruktur-/Daseinsvorsorgeauftrag und welche könnten mit geringerem Staatskapital auskommen?",
+    "Welche Auszahlungen sind Investitionen/Kapitalzuführungen, welche Zuschüsse, welche Leistungsbestellungen und welche Verlustabdeckungen?",
+    "Welche Liegenschaften, Finanzanlagen und Beteiligungen sind strategisch notwendig und welche nicht betriebsnotwendig?",
+    "Welche Haftungen/Eventualverbindlichkeiten liegen außerhalb der einfachen Schuldenzahl?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "vollständiges öffentliches Einheitenregister mit Aufgabe, Eigentümer, Personal, Budget, Rechtsform und Überschneidungen",
+    "Shared Services dort bündeln, wo mehrere öffentliche Einheiten identische Backoffice-Leistungen betreiben",
+    "für jede Bundesbeteiligung klarer Eigentümerauftrag mit Behalte-/Verkaufs-/Kapitalstrategie",
+    "nicht betriebsnotwendiges Vermögen nur nach Markt-, Nutzungs- und Folgekostenprüfung verwerten",
+    "Kapitalzuführungen und Zuschüsse mit State-ROI-/Leistungskennzahlen verknüpfen",
+    "ausgelagerte Risiken und Garantien in eine konsolidierte Staatsrisikobilanz aufnehmen"
+  ],
+  "do_not_count_yet":["keine Multiplikation der Zahl öffentlicher Einheiten mit pauschalen Verwaltungskosten","keine pauschale Privatisierungserlös-Schätzung","keine Beteiligungsauszahlung automatisch als vermeidbare Ausgabe behandeln","keine Bilanzsumme als verwertbares Staatsvermögen interpretieren"],
+  "next_data_needed":["vollständige S.13/S.11/S.12-Einheitenliste mit Aufgaben","BMF Beteiligungs-CSV auf Einzelgesellschaftsebene","Kapitalzuführungen/Zuschüsse/Leistungsbestellungen getrennt","Bundesimmobilien/sonstiges Staatsvermögen","Haftungs- und Garantieinventar","Personal-/Backoffice-Daten nach Einheit"]
+}
