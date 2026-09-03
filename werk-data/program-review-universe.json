@@ -1,0 +1,121 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – vollständiges Program-Review-Universum",
+  "purpose":"Der Staatsaufgabenreview darf nicht nur Budgetzeilen oder Förderungen erfassen. Das Review-Universum umfasst alle wesentlichen Wege, über die der Staat Ressourcen bindet, Leistungen verspricht, Einnahmen verzichtet oder Risiken übernimmt.",
+  "anchor_data":{
+    "general_government_expenditure_2025_eur_billion":283.0,
+    "social_protection_2025_eur_billion":116.8,
+    "social_protection_share_pct":41.3,
+    "cofog_divisions":10,
+    "cofog_groups":69,
+    "source":"Statistik Austria COFOG 2025 / Einnahmen und Ausgaben des Staates"
+  },
+  "review_layers":[
+    {
+      "id":"L1_COFOG",
+      "name":"Gesamtstaatliche Aufgaben nach COFOG",
+      "scope":"10 Abteilungen / 69 Gruppen, konsolidiert nach ESVG",
+      "purpose":"Sicherstellen, dass jeder funktionale Staatsbereich mindestens einmal systematisch betrachtet wird.",
+      "divisions":["Allgemeine öffentliche Verwaltung","Verteidigung","Öffentliche Ordnung und Sicherheit","Wirtschaftliche Angelegenheiten","Umweltschutz","Wohnungswesen und kommunale Gemeinschaftsdienste","Gesundheitswesen","Freizeitgestaltung/Sport/Kultur/Religion","Bildungswesen","Soziale Sicherung"]
+    },
+    {
+      "id":"L2_BUDGET_PROGRAMS",
+      "name":"Budgetprogramme und gesetzliche Dauerleistungen",
+      "scope":"Bund, Länder, Gemeinden, Sozialversicherung und außerbudgetäre staatliche Einheiten",
+      "purpose":"COFOG-Gruppen in konkrete Programme, Rechtsansprüche, Institutionen und Vollzugsprozesse zerlegen."
+    },
+    {
+      "id":"L3_DIRECT_SUBSIDIES",
+      "name":"Direkte Förderungen",
+      "scope":"Bund/Länder/Gemeinden/EU-kofinanziert/öffentliche Fonds und Agenturen",
+      "purpose":"Ziel, Zusätzlichkeit, Doppelstrukturen, Abwicklungskosten und Outcome prüfen."
+    },
+    {
+      "id":"L4_TAX_EXPENDITURES",
+      "name":"Indirekte Förderungen / Tax Expenditures",
+      "scope":"Steuerbefreiungen, Begünstigungen, Absetzbeträge, Sondertarife und sonstige Einnahmenverzichte",
+      "known_2024_quantified_eur_billion":26.7,
+      "known_2024_items_in_foerderungsbericht":93,
+      "known_items_in_transparency_database":22,
+      "purpose":"Steuerbegünstigungen wie Ausgabenprogramme auf Ziel, Verteilung, Verhalten, Zusätzlichkeit und Alternativen prüfen."
+    },
+    {
+      "id":"L5_TRANSFERS",
+      "name":"Transfers und einkommensabhängige Leistungen",
+      "scope":"Geld-/Sachtransfers an Haushalte, Unternehmen und Gebietskörperschaften",
+      "purpose":"Kumulation, Treffsicherheit, Grenzbelastung und Zuständigkeit prüfen; Sozialschutz nicht mit Unternehmensförderung vermischen."
+    },
+    {
+      "id":"L6_PUBLIC_ENTERPRISES",
+      "name":"Öffentliche Unternehmen und Beteiligungen",
+      "scope":"Kapitalzuführungen, Zuschüsse, Garantien, Leistungsbestellungen, Eigentümerziele und außerbudgetäre Investitionen",
+      "purpose":"Öffentliche Aufgabe, Kapitalbedarf, Daseinsvorsorge, Rendite, Schulden-/Stock-Flow-Effekt und Governance prüfen."
+    },
+    {
+      "id":"L7_OFF_BUDGET",
+      "name":"Außerbudgetäre Einheiten, Fonds und Sonderkonstruktionen",
+      "scope":"ESVG-Staatssektor und staatlich kontrollierte Einheiten außerhalb klassischer Kernhaushalte",
+      "purpose":"Verhindern, dass Kosten/Schulden/Risiken durch institutionelle Auslagerung aus dem Review verschwinden."
+    },
+    {
+      "id":"L8_GUARANTEES",
+      "name":"Garantien, Haftungen und Eventualverbindlichkeiten",
+      "scope":"Bund/Länder/Gemeinden/öffentliche Einheiten",
+      "purpose":"Risikokosten und mögliche künftige Budgetbelastungen sichtbar machen; Garantievolumen nicht mit laufender Ausgabe gleichsetzen."
+    },
+    {
+      "id":"L9_REGULATORY_MANDATES",
+      "name":"Regulatorische Pflichten und private Erfüllungskosten",
+      "scope":"staatlich angeordnete Berichtspflichten, Standards, Quoten, Gebühren-/Preisregeln und sonstige Mandate",
+      "purpose":"Auch Reformen ohne direkte Budgetausgabe auf volkswirtschaftliche Kosten, Bürokratie und Alternativen prüfen."
+    },
+    {
+      "id":"L10_INVESTMENTS",
+      "name":"Großinvestitionen und Infrastruktur",
+      "scope":"direkt, ausgelagert, PPP oder öffentliches Unternehmen",
+      "purpose":"State-ROI, Lebenszykluskosten, Erhaltung, Alternativen, Auslastung und Finanzierung prüfen; Investitionskürzung nicht automatisch als Sparen werten."
+    }
+  ],
+  "review_key":{
+    "primary_key":"Ziel/Problem + Begünstigte + Instrument + Staatsebene",
+    "rule":"Dasselbe politische Ziel kann in mehreren Ressorts, Staatsebenen und Instrumentarten auftauchen. Der Review clustert daher nach Ziel und Wirkung statt nur nach organisatorischer Herkunft."
+  },
+  "minimum_record_per_program":[
+    "Programm-/Rechtsgrundlage-ID",
+    "COFOG-Gruppe",
+    "politisches Ziel/Problem",
+    "Zielgruppe",
+    "zuständige Ebene/Träger",
+    "Instrumenttyp",
+    "jährliches Volumen mindestens 5 Jahre",
+    "administrative/Vollzugskosten",
+    "Outcome-KPI und Baseline",
+    "Evaluationen/Rechnungshof-/Budgetdienstbefunde",
+    "EU-/Verfassungs-/Vertragsbindung",
+    "parallel laufende Programme",
+    "Verteilungswirkung",
+    "Mitnahme-/Fehlanreize",
+    "Änderungs-/Kündigungsfrist",
+    "Transformationskosten",
+    "vorläufige Entscheidungsklasse KEEP/IMPROVE/MERGE/DECENTRALISE/CENTRALISE_STANDARD/SUNSET/STOP/INVEST_ONCE/REVIEW_MORE"
+  ],
+  "triage_order":[
+    "hohes absolutes Volumen",
+    "überdurchschnittliches Wachstum",
+    "fehlende oder schwache Outcome-Evidenz",
+    "mehrere Staatsebenen/Instrumente mit gleichem Ziel",
+    "große Tax Expenditures ohne regelmäßige Evaluation",
+    "hohe administrative/Erfüllungskosten",
+    "außerbudgetäre Schulden-/Garantie-/Stock-Flow-Risiken",
+    "Programme mit auslaufender Rechts-/Vertragsbindung und realistischem Reformfenster"
+  ],
+  "seriousness_rules":[
+    "283 Mrd. Euro Staatsausgaben sind Review-Grundgesamtheit, nicht Einsparpotenzial.",
+    "116,8 Mrd. Euro soziale Sicherung sind ein Funktionsblock, nicht Kürzungsziel.",
+    "39,3 Mrd. Euro quantifiziertes Bundesfördervolumen sind Review-Universum, nicht Sparsumme.",
+    "COFOG-Ausgaben und Förder-/Transferwerte überschneiden sich teilweise und dürfen nicht addiert werden.",
+    "Keine Review-Entscheidung ohne aktuelle Rechts-/Vertrags- und Verteilungsprüfung.",
+    "Jede behauptete Einsparung wird anschließend durch reform-costing-standard.json gerechnet."
+  ],
+  "completion_definition":"Der Program Review gilt erst als vollständig inventarisiert, wenn alle 69 COFOG-Gruppen auf konkrete Programme/Leistungen gemappt sind und für direkte Förderungen, Tax Expenditures, Transfers, öffentliche Unternehmen, außerbudgetäre Einheiten, Garantien und Großinvestitionen ein eigener Abgleich gegen dieses Mapping erfolgt ist."
+}
