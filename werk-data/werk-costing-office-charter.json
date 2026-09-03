@@ -1,0 +1,41 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK-Rechenstelle – unabhängige interne Kosten- und Wirkungsprüfung",
+  "purpose":"Politische Programmentwicklung und fiskalische Bewertung werden organisatorisch getrennt. Die Rechenstelle darf politische Zielsetzungen nicht verändern, aber Zahlen, Annahmen und Finanzierungseffekte zurückweisen, wenn sie nicht belastbar sind.",
+  "independence_rules":[
+    "Programmverantwortliche formulieren Problem, Ziel und politische Option; sie dürfen den anrechenbaren Budgeteffekt nicht alleine festlegen.",
+    "Die Rechenstelle verwendet den aktuellen Referenzpfad, den verbindlichen Rechenstandard und dokumentierte Datenquellen.",
+    "Eine politisch gewünschte Zahl kann mit Status 'nicht belegt' oder 'nicht anrechenbar' zurückgewiesen werden.",
+    "Änderungen von Annahmen nach Kenntnis eines unerwünschten Ergebnisses müssen versioniert und begründet werden.",
+    "Rechenstelle und Red-Team-Prüfung dürfen kritische Resultate ohne politische Freigabe dokumentieren; Veröffentlichungsvorschriften werden in Statuten/Prozessordnung festgelegt.",
+    "Ein Mitglied der Rechenstelle darf die eigene wesentliche Modellrechnung nicht als alleiniger finaler Reviewer abnehmen."
+  ],
+  "outputs_per_major_reform":[
+    "Costing Note mit Baseline und Datenvintage",
+    "Brutto-/Netto-Wasserfall",
+    "Cash-, Ergebnis-, Maastricht- und Schuldeneffekt soweit relevant",
+    "1/2/3/5/10-Jahresprofil",
+    "Base/Conservative/Stress-Sensitivität",
+    "Verteilungs- und Wachstumshinweis",
+    "Doppelzählungs-/Interaktionscheck",
+    "Transformations- und Vollzugskosten",
+    "Confidence-/Evidenzstatus",
+    "Liste der größten ungelösten Annahmen"
+  ],
+  "decision_rights":{
+    "politics":"entscheidet politische Ziele, Verteilungspräferenzen und welche rechtlich zulässige Option verfolgt wird",
+    "costing_office":"entscheidet über methodische Klassifikation und ob ein Effekt als verifizierter dauerhafter Nettoeffekt in BUD-01 gebucht werden darf",
+    "legal_review":"entscheidet nicht politisch, markiert aber Rechtsrisiken und blockierende Rechtsfragen",
+    "external_red_team":"kann keine Politik verhindern, aber offene wesentliche Fehler/Risiken erzwingen den Status 'nicht programmlock-fähig' bis zur dokumentierten Entscheidung"
+  },
+  "minimum_staffing_profile_for_later_real_operation":[
+    "öffentliche Finanzen/ESVG",
+    "Makroökonomie",
+    "Steuer-/Transfer-Mikrosimulation",
+    "Datenanalyse/Statistik",
+    "Projekt-/Transformationskosten",
+    "sektorale Fachökonomie je großer Reform"
+  ],
+  "transparency":"Zu jeder finalen Großreform wird die Costing Note veröffentlicht oder – wenn schutzwürdige Mikrodaten/Verträge entgegenstehen – eine reproduzierbare öffentliche Zusammenfassung mit Inputs, Methode und Sensitivität.",
+  "credibility_rule":"Die Rechenstelle ist kein behaupteter staatlicher oder gesetzlich unabhängiger Fiskalrat. Sie ist ein WERK-internes Governance-Modell mit bewusst getrennten Rollen; externe unabhängige Prüfung bleibt zusätzlich erforderlich."
+}
