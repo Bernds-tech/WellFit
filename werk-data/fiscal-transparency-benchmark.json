@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – Fiskaltransparenz-Benchmark",
+  "purpose":"WERK orientiert seine öffentlichen Finanzunterlagen an internationalen Transparenzprinzipien, ohne zu behaupten, eine formale IMF Fiscal Transparency Evaluation bestanden zu haben.",
+  "benchmark_basis":"IMF Fiscal Transparency Code / internationale Best Practices; internes WERK-Selbstbewertungsraster, keine IMF-Zertifizierung.",
+  "pillars":[
+    {
+      "id":"REPORTING",
+      "name":"Fiskalberichterstattung",
+      "requirements":["Gesamtstaat und relevante außerbudgetäre Einheiten abdecken","Cash/Accrual/ESVG klar trennen","Schulden, Vermögen, Haftungen und sonstige Verpflichtungen zeigen","zeitnahe Monats-/Quartals-/Jahresdaten","Revisionen und Klassifikationsänderungen erklären","Daten zwischen Quellen reconciliieren"]
+    },
+    {
+      "id":"FORECAST_BUDGET",
+      "name":"Prognose und Budget",
+      "requirements":["klare fiskalische Ziele","aktueller mittelfristiger Rahmen","realistische Makroannahmen","Forecast-Fächer/Sensitivität","bestehende vs neue Maßnahmen getrennt","mehrjähriger Effekt jeder Großmaßnahme","Steuerbegünstigungen separat ausweisen","Langfristtragfähigkeit zeigen"]
+    },
+    {
+      "id":"RISK",
+      "name":"Fiskalrisiken",
+      "requirements":["Makrostress","Zins-/Inflationsrisiko","Haftungen/Eventualverbindlichkeiten","öffentliche Unternehmen/außerbudgetäre Einheiten","PPP/langfristige Verträge","Demografie/Pension/Gesundheit/Pflege","Natur-/Klima-/Energie-/Sicherheitsrisiken","Risiken quantifizieren soweit belastbar"]
+    },
+    {
+      "id":"INTEGRITY",
+      "name":"Integrität und unabhängige Prüfung",
+      "requirements":["Quellen-/Methodenoffenlegung","externe Gegenprüfung","Rechnungshof-/Budgetdienst-/Fiskalrat-Befunde berücksichtigen","negative Reviews nicht entfernen","Versionierung/Korrekturregister","Soll-Ist nach Umsetzung","Interessenkonflikte offenlegen"]
+    }
+  ],
+  "self_rating_levels":["offen","teilweise","gut dokumentiert","fortgeschritten dokumentiert"],
+  "forbidden_claim":"WERK darf nicht 'IMF-konform', 'IMF-geprüft' oder ähnlich behaupten, solange keine formale externe Bewertung vorliegt.",
+  "target":"Vor finalem Schattenbudget soll jeder relevante Punkt mindestens 'gut dokumentiert' sein; kritische Reporting-/Forecast-/Risk-Felder benötigen 'fortgeschritten dokumentiert' oder eine offen ausgewiesene Datenlücke.",
+  "public_value":"Ein seriöser Haushalt zeigt nicht nur, was wahrscheinlich passiert, sondern auch, was schiefgehen kann, welche Verpflichtungen außerhalb des Kernbudgets existieren und wie Prognosen später gegen Ist-Daten abgeschnitten haben."
+}
