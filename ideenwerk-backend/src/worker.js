@@ -5,6 +5,7 @@ import { createEventId } from './lib/status-token.js';
 import { assertTransition } from './lib/status-machine.js';
 import { extractSemanticFeatures } from './lib/semantic-provider.js';
 import { decideClusterRelation } from './lib/cluster-decision.js';
+import { lexicalAutoClusterDecision } from './lib/lexical-policy.js';
 
 const { Pool } = pg;
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -134,20 +135,35 @@ async function handleLexicalDuplicateSearch(job) {
     await client.query('BEGIN');
     if (row.current_status === 'structured') await statusChange(client, row.public_id, 'cluster_review', 'system', null, { method: 'pg_trgm', threshold });
     const candidates = await client.query(
-      `SELECT id,public_id,cluster_id,similarity(original_text,$2) AS sim
+      `SELECT id,public_id,cluster_id,region,topic,current_status,similarity(original_text,$2) AS sim
          FROM submissions
         WHERE public_id<>$1 AND similarity(original_text,$2) >= $3
         ORDER BY sim DESC, created_at ASC
-        LIMIT 5`,
+        LIMIT 20`,
       [row.public_id, row.original_text, threshold]
     );
-    if (!candidates.rowCount) {
-      await enqueue(client, 'semantic_feature_extract', row.public_id, { source: 'no_lexical_duplicate' });
+
+    const candidate = candidates.rows.find(c => lexicalAutoClusterDecision({
+      current: row,
+      candidate: c,
+      similarity: Number(c.sim),
+      threshold
+    }).allowed);
+
+    if (!candidate) {
+      await enqueue(client, 'semantic_feature_extract', row.public_id, {
+        source: candidates.rowCount ? 'lexical_candidates_rejected_by_scope_policy' : 'no_lexical_duplicate',
+        lexical_candidates_checked: candidates.rowCount
+      });
       await client.query('COMMIT');
-      return { match: false, threshold, next: 'semantic_feature_extract' };
+      return {
+        match: false,
+        threshold,
+        lexical_candidates_checked: candidates.rowCount,
+        next: 'semantic_feature_extract'
+      };
     }
 
-    const candidate = candidates.rows[0];
     let clusterDbId = candidate.cluster_id;
     let clusterPublicId = null;
     if (!clusterDbId) {
@@ -176,7 +192,13 @@ async function handleLexicalDuplicateSearch(job) {
       [clusterDbId, row.id, candidate.sim]
     );
     await statusChange(client, row.public_id, 'clustered', 'system', 'DUPLICATE_CLUSTERED', {
-      method: 'lexical_pg_trgm', threshold, matched_public_id: candidate.public_id, similarity: Number(candidate.sim), cluster_id: clusterPublicId
+      method: 'lexical_pg_trgm',
+      threshold,
+      matched_public_id: candidate.public_id,
+      similarity: Number(candidate.sim),
+      cluster_id: clusterPublicId,
+      region_scope: row.region || null,
+      topic: row.topic || null
     });
     await client.query('COMMIT');
     return { match: true, cluster_id: clusterPublicId, matched_public_id: candidate.public_id, similarity: Number(candidate.sim), method: 'lexical_pg_trgm' };
@@ -238,11 +260,12 @@ async function handleSemanticClusterReview(job) {
   if (!q.rowCount) throw new Error('semantic features missing');
   const row = q.rows[0];
   const candidates = await pool.query(
-    `SELECT s.id,s.public_id,f.provider,f.model_version,f.problem_signature,f.solution_signature,f.topic,f.suggested_level,f.region_scope,
+    `SELECT s.id,s.public_id,s.current_status,f.provider,f.model_version,f.problem_signature,f.solution_signature,f.topic,f.suggested_level,f.region_scope,
             similarity(f.problem_signature,$2) AS problem_sim,
             similarity(f.solution_signature,$3) AS solution_sim
        FROM proposal_features f JOIN submissions s ON s.id=f.submission_id
       WHERE s.id<>$1
+        AND s.current_status NOT IN ('received','privacy_hold','clarification','quarantine','removed')
         AND ($4::text IS NULL OR f.topic=$4 OR f.topic IS NULL)
       ORDER BY GREATEST(similarity(f.problem_signature,$2), similarity(f.solution_signature,$3)) DESC, s.created_at ASC
       LIMIT 20`,
