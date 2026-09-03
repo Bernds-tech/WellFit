@@ -1,0 +1,80 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – Makro- und Budget-Stresstest-Rahmen",
+  "rule":"Szenarien sind keine Prognosen. Jede relevante WERK-Reform und der spätere Sanierungspfad müssen zeigen, wie sie unter plausiblen negativen Abweichungen reagieren und wie BUD-01 danach wieder erreicht wird.",
+  "baseline_requirements":["aktueller BMF-/Gesamtstaat-Referenzpfad","BIP real/nominal","Inflation","Beschäftigung/Arbeitslosigkeit","Löhne/Beitragsgrundlagen","Zinsen/Fälligkeitsprofil","Energiepreise","Pensions-/Gesundheits-/Pflegemengen","Steuereinnahmen nach Art","automatische Stabilisatoren"],
+  "scenarios":[
+    {
+      "id":"STRESS-REC",
+      "name":"Rezession / schwächere Inlands- und Exportnachfrage",
+      "variables":["reales BIP deutlich unter Baseline","Arbeitslosigkeit höher","Gewinn-/Lohn-/Umsatzsteuern niedriger","Arbeitslosengeld höher","Unternehmensinsolvenzen höher"],
+      "questions":["Welche Reformeffekte brechen konjunkturell weg?","Welche Ausgabenkürzung wäre prozyklisch und daher kontraproduktiv?","Wie funktioniert Krisenklausel, ohne BUD-01 dauerhaft aufzugeben?","Welche Investitionen sollten gerade in der Rezession erhalten bleiben?"]
+    },
+    {
+      "id":"STRESS-RATES",
+      "name":"Zins-/Refinanzierungsschock",
+      "variables":["Marktrenditen höher","Neuaufnahmen teurer","Zinskurve verändert","Bank-/Wohnbaukredite teurer"],
+      "questions":["Zinsaufwand nach realem Fälligkeitsprofil","Vorteil langer Restlaufzeit","keine hektischen Altanleiherückkäufe","Budgetpuffer für Zinsanstieg","Finanzmarkt-/Immobilienfolgen"]
+    },
+    {
+      "id":"STRESS-INFL",
+      "name":"Erneuter Inflationsschock",
+      "variables":["Verbraucherpreise höher","Löhne/Transfervalorisierungen verzögert höher","Sach-/Baukosten höher","Zinsreaktion möglich"],
+      "questions":["Indexierungsmechanismen Pensionen/Sozialleistungen","kalte Progression/Steuereinnahmen","Bau-/Beschaffungskosten","Verteilungswirkung auf niedrige Einkommen","Nominaleffekt nicht als reale Einsparung darstellen"]
+    },
+    {
+      "id":"STRESS-ENERGY",
+      "name":"Energie-/Versorgungsschock",
+      "variables":["Strom/Gas/Öl deutlich teurer","Industrieproduktion belastet","Inflation höher","Unternehmenshilfen politisch wahrscheinlich"],
+      "questions":["Welche Haushalte/Industrien brauchen gezielte statt pauschale Hilfe?","Versorgungssicherheit und Speicher","Budgetkosten temporärer Hilfe","keine Dauersubvention aus Kriseninstrument","Effekt auf Handel/Produktivität"]
+    },
+    {
+      "id":"STRESS-LABOUR",
+      "name":"Arbeitskräfte-/Produktivitätsschock",
+      "variables":["Erwerbspersonen schwächer","Produktivität niedriger","Fachkräftelücken höher","Lohn-/Beitragsbasis schwächer"],
+      "questions":["Pensionen und Sozialbeiträge","Gesundheit/Pflege-Personal","Steuerkeil und Arbeitsangebot","Migration/Fachkräfte separat","Automatisierung/AI als Produktivitätshebel"]
+    },
+    {
+      "id":"STRESS-MIGRATION",
+      "name":"Flucht-/Migration-Kapazitätsschock",
+      "variables":["kurzfristig höhere Schutz-/Unterbringungszahlen","Schulen/Gesundheit/Gemeinden belastet","Verfahrenskapazität nötig"],
+      "questions":["Bund/Land/Gemeinde-Kosten getrennt","EU-/Völkerrechtsverpflichtungen","temporär vs dauerhaft","Integrationspfad/Arbeitsmarkt","Gemeindekapazitäten","keine Vermischung mit regulärer Arbeitsmigration"]
+    },
+    {
+      "id":"STRESS-HEALTH",
+      "name":"Pandemie-/Gesundheitskrise",
+      "variables":["Gesundheitsausgaben höher","Arbeitsausfälle","Steuereinnahmen geringer","Beschaffung/Reservebedarf"],
+      "questions":["strategische Reserven","Spitals-/Primärversorgungskapazität","Beschaffungsflexibilität","Krisenklausel","temporäre Programme mit Sunset"]
+    },
+    {
+      "id":"STRESS-CLIMATE",
+      "name":"Naturkatastrophen / Klima-Anpassungsschock",
+      "variables":["Hochwasser/Hitze/Dürre/Schäden","Katastrophenfonds","Infrastrukturreparatur","Landwirtschaft/Tourismus betroffen"],
+      "questions":["Prävention vs Wiederaufbau State-ROI","Versicherungs-/Katastrophenfonds","Gemeindefinanzen","kritische Infrastruktur","jährlicher Risikopuffer"]
+    },
+    {
+      "id":"STRESS-SECURITY",
+      "name":"Sicherheits-/Verteidigungsschock",
+      "variables":["zusätzliche Verteidigungs-/Cyber-/Zivilschutzausgaben","Lieferketten und Energie beeinträchtigt"],
+      "questions":["Mindestfähigkeiten","Beschaffungsbeschleunigung mit Kontrolle","Budgetprioritäten in Krise","strategische Reserven","temporärer Mehrbedarf vs Dauerstruktur"]
+    },
+    {
+      "id":"STRESS-FINANCIAL",
+      "name":"Banken-/Immobilien-/Finanzmarktstress",
+      "variables":["Kreditausfälle höher","Immobilienpreise/Transaktionen schwächer","Kapitalbedarf Banken möglich","Steuereinnahmen geringer"],
+      "questions":["Eventualverbindlichkeiten Staat","Abwicklungs-/Einlagensicherung","keine automatischen Bail-outs","Gewerbeimmobilien/CESEE","Budget-/Schuldenwirkung unter Extremfall"]
+    }
+  ],
+  "mandatory_outputs":[
+    "Saldoabweichung gegenüber Baseline",
+    "Schulden-/Zinswirkung",
+    "automatische Stabilisatoren",
+    "temporäre diskretionäre Mehrkosten",
+    "welche WERK-Maßnahmen stabil bleiben oder ausfallen",
+    "welche Maßnahmen automatisch pausieren sollen",
+    "Rückkehrpfad zu BUD-01",
+    "Verteilungswirkung des Krisenpakets",
+    "5-/10-Jahres-Nachlauf"
+  ],
+  "crisis_rule":"BUD-01 bleibt Priorität 1. Ein außergewöhnlicher Schock darf vorübergehend ein Defizit rechtfertigen, aber nur mit transparenter Aktivierung, zeitlicher Befristung, separater Krisenrechnung und verbindlichem Rückkehrpfad."
+}
