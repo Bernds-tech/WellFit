@@ -1,36 +1,39 @@
 {
-  "version":"2026-09-03-v4",
+  "version":"2026-09-03-v5",
   "title":"IDEENWERK Qualitäts- & Skalierungstafel",
-  "rule":"Messwerte werden nur veröffentlicht, wenn der jeweilige Test tatsächlich auf einer dokumentierten Version und Umgebung ausgeführt wurde. DB-/Trigger-Lasttests werden nicht als vollständige API-/Worker-Lasttests dargestellt.",
+  "rule":"Messwerte werden nur veröffentlicht, wenn der jeweilige Test tatsächlich ausgeführt wurde. DB-/Trigger-Lasttests bleiben getrennt von vollständigen API-/Worker-Lasttests.",
   "measured_runs":[
-    {"id":"unit-security-20260903","type":"Node Kern-/Security-Tests","executed_at":"2026-09-03","environment":"Node.js 22.16.0, lokale isolierte Kernmodule","result":{"tests":18,"passed":18,"failed":0},"scope":"Status, Triage, Clusterentscheidung, Token/IDs, Fallback-Semantik und Provider-Ausfallverhalten"},
-    {"id":"cluster-fallback-v2","type":"Cluster-Goldset","executed_at":"2026-09-03","environment":"fallback-v2-sentence-split; Goldset 2026-09-02-v1","result":{"pairs":15,"correct":10,"accuracy":0.6667,"false_merge":0,"variant_loss":0,"false_split":5,"different_solution_correct":"6/6"},"interpretation":"Sicher gegen Variantenverlust, aber zu konservativ für produktive Same-Solution-Erkennung."},
-    {"id":"staging-db-guardrails","type":"PostgreSQL Runtime","executed_at":"2026-09-03","environment":"WERK Österreich Staging, Supabase eu-central-1, PostgreSQL 17","result":{"checks":8,"passed":8,"failed":0},"scope":"Review-Queue, Rollenprüfung, menschliche Entscheidungspflicht, Appeal-Trennung, Shared Rate Limit und Cleanup"},
-    {"id":"staging-load-1k","type":"PostgreSQL Review-Queue Load","executed_at":"2026-09-03","environment":"WERK Staging","result":{"cluster_candidates":1000,"review_tasks":1000,"candidate_trigger_ms":145.45,"rate_burst_accepted":50,"rate_burst_blocked":50}},
-    {"id":"staging-load-10k","type":"PostgreSQL Review-Queue Load","executed_at":"2026-09-03","environment":"WERK Staging","result":{"cluster_candidates":10000,"review_tasks":10000,"candidate_trigger_ms":1580.21}},
-    {"id":"staging-load-100k","type":"PostgreSQL Review-Queue Load","executed_at":"2026-09-03","environment":"WERK Staging nach Lookup-Optimierung Migration 015","result":{"synthetic_submissions":200000,"cluster_candidates":100000,"review_tasks":100000,"candidate_trigger_ms":18934.55,"total_insert_ms":30235.97,"cleanup_ms":17781.83,"residual_rows":0},"limitation":"Misst Datenbank-/Triggerpfad. Fastify-API, PII-/Semantik-Worker und End-to-End-Queue-Latenzen sind damit noch nicht als 100k-fähig nachgewiesen."},
-    {"id":"edge-runtime-smoke","type":"Supabase Edge Runtime","executed_at":"2026-09-03","environment":"WERK Staging Edge Function, interner HTTP-Aufruf über abgesperrtes pg_net","result":{"http_status":200,"edge_runtime":true,"db_write_read":true,"review_task_count":1,"distributed_rate_limit":"true,true,false"},"cleanup":"Admin-Smoke-Code anschließend durch Health-only Version 2 ersetzt und erneut mit HTTP 200 geprüft."}
+    {"id":"unit-security","type":"Node Kern-/Security","result":{"passed":18,"failed":0}},
+    {"id":"fallback-goldset","type":"Cluster-Goldset","result":{"correct":"10/15","false_merge":0,"variant_loss":0,"false_split":5,"different_solution_correct":"6/6"}},
+    {"id":"db-guardrails","type":"PostgreSQL Runtime","result":{"passed":8,"failed":0}},
+    {"id":"db-scale","type":"Review-Queue Load","result":{"load_1k_ms":145.45,"load_10k_ms":1580.21,"load_100k_ms":18934.55,"load_100k_tasks":100000,"load_100k_residual_rows":0}},
+    {"id":"edge-nologin","type":"No-Login Edge E2E","result":{"submit_http":201,"status_http":200,"wrong_token_http":403,"idempotent_replay_http":200,"token_reissued":false}},
+    {"id":"worker-e2e","type":"Automatische Verarbeitung","result":{"jobs":"5/5","errors":0,"flow":"received -> structured -> cluster_review -> precheck"}},
+    {"id":"duplicate","type":"Near-Duplicate","result":{"same_cluster":true,"cluster_members":2,"second_status":"clustered"}},
+    {"id":"pii-hold","type":"Privacy Hold","result":{"final_status":"privacy_hold","pii_signal":true,"structured_proposal":false}},
+    {"id":"cron","type":"Dauerworker","result":{"observed_successful_runs":3,"schedule":"jede Minute"}}
   ],
   "prepared_tests":[
-    {"id":"cluster-goldset","name":"Cluster-Goldstandard","status":"Fallback v2 gemessen; produktionsnaher Semantikprovider noch offen","scope":"größerer repräsentativer Satz inkl. regionaler und sensibler Themen"},
-    {"id":"load-100k-end-to-end","name":"100.000 End-to-End-Einreichungen","status":"DB-/Review-Queue 100k real bestanden; komplette API/Worker-Pipeline noch offen","scope":"No-Login API, PII, Strukturierung, Near-Duplicate, Semantik, Queue, Review"},
-    {"id":"smoke-intake","name":"No-Login Fastify-Smoke-Test","status":"Edge-/DB-Runtime gemessen; vollständiger Fastify-API/Worker-Smoke noch offen","scope":"Einreichung -> Status-Token -> Worker -> Status -> Export -> Privacy-Anfrage"}
+    {"id":"semantic-provider","name":"Produktionsnaher Semantikprovider","status":"offen","scope":"größerer Goldset, regionale/sensible Themen, False Merge/Variantenerhalt/Bias"},
+    {"id":"load-100k-end-to-end","name":"100.000 vollständige Einreichungen","status":"DB-/Review-Queue 100k bestanden; vollständige API+Worker-Pipeline noch offen","scope":"Edge API, PII, Strukturierung, Near-Duplicate, Semantik, Queue und Review"},
+    {"id":"privacy-dataset","name":"PII-Erkennungsqualität","status":"ein positiver Runtime-Pfad bestanden; repräsentativer Testdatensatz offen","scope":"Precision/Recall und False Holds"}
   ],
   "metrics":[
-    {"id":"false_merge","label":"False Merge","meaning":"Unterschiedliche Lösungsvarianten werden fälschlich als dieselbe Idee zusammengeführt.","priority":"kritisch","current":"Fallback v2 Goldset: 0 / 15","publication":"Entwicklungswert; produktiver Provider muss erneut geprüft werden"},
-    {"id":"variant_preservation","label":"Variantenerhalt","meaning":"Gleiches Problem mit unterschiedlichen Lösungen bleibt als Varianten sichtbar.","priority":"kritisch","current":"Fallback v2: 6 / 6 Varianten korrekt; Variant Loss 0","publication":"größerer Goldset weiterhin erforderlich"},
-    {"id":"false_split","label":"False Split","meaning":"Nahezu gleiche Ideen werden unnötig getrennt.","priority":"hoch","current":"Fallback v2: 5 / 5 Same-Solution-Paare zu vorsichtig getrennt","publication":"Fallback bleibt deshalb Sicherheits-/Ausfallmodus"},
-    {"id":"review_queue_scale","label":"Review-Queue DB-Skalierung","meaning":"Erzeugung menschlicher Review-Tasks aus Clusterkandidaten.","priority":"hoch","current":"1k: 145,45 ms · 10k: 1.580,21 ms · 100k: 18.934,55 ms; jeweils Kandidaten=Tasks","publication":"real gemessener WERK-Staging-PostgreSQL-Wert"},
-    {"id":"queue_latency","label":"End-to-End Queue-Latenz p50 / p95 / p99","meaning":"Zeit von Bürger-Einreichung bis abgeschlossener automatischer Vorverarbeitung.","priority":"hoch","current":"noch nicht gemessen","publication":"erst nach realem API+Worker-Lasttest"},
-    {"id":"review_backlog","label":"Manueller Prüfrückstand","meaning":"Zahl und Alter wartender menschlicher Prüfungen.","priority":"hoch","current":"Mechanik bis 100.000 Tasks getestet; realer Betreiber-Backlog noch nicht gemessen","publication":"ab Betreiberbetrieb"},
-    {"id":"regional_drift","label":"Regionale Verzerrung","meaning":"Vergleicht Weiterleitung vergleichbarer Ideen zwischen Regionen.","priority":"kritisch","current":"noch nicht gemessen","publication":"repräsentative Stichprobe erforderlich"},
-    {"id":"pii_hold","label":"PII-Hold-Qualität","meaning":"Erkennungsqualität personenbezogener Daten ohne unnötige Holds.","priority":"kritisch","current":"noch nicht gemessen","publication":"nach Datenschutz-Testdatensatz-Abnahme"}
+    {"id":"false_merge","label":"False Merge","meaning":"Unterschiedliche Lösungsvarianten werden fälschlich verschmolzen.","priority":"kritisch","current":"Fallback-Goldset: 0 / 15","publication":"produktiver Provider muss erneut geprüft werden"},
+    {"id":"variant_preservation","label":"Variantenerhalt","meaning":"Unterschiedliche Lösungen zum selben Problem bleiben sichtbar.","priority":"kritisch","current":"Fallback: 6 / 6 korrekt; Variant Loss 0","publication":"größerer Goldset erforderlich"},
+    {"id":"false_split","label":"False Split","meaning":"Nahezu gleiche Ideen werden unnötig getrennt.","priority":"hoch","current":"Fallback: 5 Same-Solution-Paare zu vorsichtig getrennt","publication":"Fallback bleibt Sicherheitsmodus"},
+    {"id":"review_queue_scale","label":"Review-Queue DB-Skalierung","meaning":"Erzeugung menschlicher Review-Tasks.","priority":"hoch","current":"1k 145,45 ms · 10k 1,58 s · 100k 18,93 s; Kandidaten=Tasks","publication":"real gemessen auf WERK Staging"},
+    {"id":"worker_flow","label":"Worker-Hauptpfad","meaning":"Automatische Vorverarbeitung einer echten No-Login-Einreichung.","priority":"hoch","current":"5/5 Jobs, 0 Fehler; Endstatus precheck","publication":"real gemessener Einzel-E2E-Lauf"},
+    {"id":"duplicate_path","label":"Duplikatpfad","meaning":"Nahe identische Ideen im selben Scope werden gebündelt.","priority":"hoch","current":"2 Originalideen -> 1 Cluster mit 2 Mitgliedern","publication":"real gemessener Staging-Lauf"},
+    {"id":"pii_hold","label":"PII-Hold","meaning":"Personenbezogene Kontaktdaten stoppen die automatische Weiterverarbeitung.","priority":"kritisch","current":"Test-E-Mail -> privacy_hold; kein structured_proposal","publication":"positiver Runtime-Nachweis; Testdatensatz noch auszubauen"},
+    {"id":"queue_latency","label":"End-to-End Latenz p50/p95/p99","meaning":"Zeit von Einreichung bis automatischer Vorprüfung unter Last.","priority":"hoch","current":"noch nicht unter Last gemessen","publication":"nach API+Worker-Lasttest"},
+    {"id":"regional_drift","label":"Regionale Verzerrung","meaning":"Vergleicht Weiterleitung vergleichbarer Ideen zwischen Regionen.","priority":"kritisch","current":"noch nicht gemessen","publication":"repräsentative Stichprobe erforderlich"}
   ],
   "release_gates":[
-    "Der deterministische Fallback darf keine produktive semantische Auto-Verschmelzung durchführen.",
-    "Ein produktiver Semantikprovider benötigt erneut False-Merge-/Variantenerhalt-Tests auf größerem Goldset.",
-    "Der bestandene 100k-DB-Test ist kein 100k-End-to-End-Versprechen für API und Worker.",
-    "Qualitätswerte werden mit Software-/Migrationsversion, Testumgebung und Datum veröffentlicht.",
-    "Politisch sensible Themen erhalten zusätzliche menschliche Stichproben."
+    "Fallback darf keine produktive semantische Auto-Verschmelzung ersetzen.",
+    "100k DB-/Review-Queue-Test ist kein 100k API+Worker-Versprechen.",
+    "Produktiver Semantikprovider benötigt größeren Goldset und Bias-Prüfung.",
+    "PII-Hold benötigt vor Produktivfreigabe einen repräsentativen Datenschutz-Testdatensatz.",
+    "Politisch sensible Themen erhalten zusätzliche menschliche Prüfung."
   ]
 }
