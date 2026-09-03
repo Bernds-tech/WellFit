@@ -1,0 +1,32 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Regionale Disparitäten und ländlicher Raum",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Regionale Unterschiede werden nicht mit einer österreichweit identischen Förder- oder Leistungsstruktur beantwortet. WERK trennt Produktivität, Haushaltseinkommen, Arbeitsmarkt, Demografie, Erreichbarkeit und öffentliche Leistungskosten nach Region.",
+  "current_facts":[
+    {"fact":"Bruttoregionalprodukt je Einwohner 2024 reichte auf Bundeslandebene von rund 39.000 Euro im Burgenland bis 65.800 Euro in Salzburg; Österreich insgesamt 53.800 Euro.","source":"Statistik Austria Regionale Gesamtrechnungen, 09.12.2025"},
+    {"fact":"Verfügbares Haushaltseinkommen je Einwohner 2024 war wesentlich weniger gespreizt: etwa 28.200 Euro in Wien bis 31.600 Euro in Niederösterreich; Österreich 30.400 Euro.","source":"Statistik Austria Regionale Gesamtrechnungen"},
+    {"fact":"2025 lag die ILO-Arbeitslosenquote in Wien bei 9,9 % gegenüber 5,7 % österreichweit; höchste Erwerbstätigenquote hatte Tirol mit 78,9 % gegenüber 74,3 % österreichweit.","source":"Statistik Austria Wirtschaftsatlas"},
+    {"fact":"2024 schrumpfte das reale BRP besonders stark in Kärnten (-3,6 %) und Oberösterreich (-2,7 %), während Wien +0,9 % und Steiermark/Tirol leicht positiv waren. Ein einzelnes Jahr ist jedoch kein Strukturtrend.","source":"Statistik Austria Regionale Gesamtrechnungen"}
+  ],
+  "structural_questions":[
+    "Welche Regionen wachsen oder schrumpfen strukturell bei Bevölkerung und Erwerbsbevölkerung?",
+    "Wie unterscheiden sich Produktivität, Löhne, Einkommen und Lebenshaltungskosten innerhalb und zwischen Bundesländern?",
+    "Welche Gemeinden/Regionen haben überdurchschnittlich hohe Pro-Kopf-Kosten für Schule, Pflege, Verkehr, Rettung oder digitale Infrastruktur wegen geringer Dichte?",
+    "Wo fehlen Ärzte, Pflegekräfte, Lehrer, Kinderbetreuung, ÖPNV oder Breitband und wo bestehen Überkapazitäten?",
+    "Wie stark hängen Regionen von einzelnen Branchen wie Industrie, Tourismus, Landwirtschaft oder öffentlichem Sektor ab?",
+    "Welche Förderungen gleichen echte Standortnachteile aus und welche konservieren Strukturen ohne Zukunftsperspektive?",
+    "Welche Pendler-/Grenzregionen profitieren oder leiden durch Steuer-, Verkehrs- und Arbeitsmarktregeln?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "regionale Mindestversorgung mit unterschiedlichen Umsetzungswegen statt einheitlicher Detailregel",
+    "Förderungen nach nachweisbarem regionalem Problem und Outcome statt nach historischer Verteilung",
+    "interkommunale Kooperation in dünn besiedelten Regionen mit Qualitäts-/Erreichbarkeits-Gates",
+    "regionale Arbeitsmarkt-, Bildungs-, Verkehrs- und Wohnstrategien enger verbinden",
+    "NUTS-3-/Bezirksdaten für WERK-Regionen-Dashboard nutzen",
+    "5-Jahres-Review: regionale Sonderregel nur behalten, wenn Wirkung und Bedarf fortbestehen"
+  ],
+  "do_not_count_yet":["BRP-Unterschiede nicht als direkte Budgetlücke interpretieren","keine ländliche Infrastruktur pauschal wegen niedriger Auslastung streichen","keine Regionalförderung ohne Zusätzlichkeitsprüfung kürzen","Wien nicht gleichzeitig als Land und Gemeinde doppelt zählen"],
+  "next_data_needed":["NUTS-3-BRP und Bevölkerungstrends","regionale Erwerbs-/Arbeitslosen-/Einkommensdaten","öffentliche Ausgaben je Einwohner nach Region","Erreichbarkeitsdaten Gesundheit/Bildung/ÖPNV","Breitband/Netzabdeckung","Branchenabhängigkeit","regionale Förderflüsse"]
+}
