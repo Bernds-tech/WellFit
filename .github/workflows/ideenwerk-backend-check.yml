@@ -36,6 +36,9 @@ jobs:
       PORT: 8787
       ALLOWED_ORIGINS: http://127.0.0.1:8080
       TRUST_PROXY: "false"
+      DISTRIBUTED_RATE_LIMIT: "true"
+      REQUIRE_DISTRIBUTED_RATE_LIMIT: "true"
+      ABUSE_HASH_SECRET: "werk-ci-only-0123456789abcdef0123456789abcdef"
       RETENTION_DRY_RUN: "true"
       RETENTION_POLICY_VERSION: 2026-09-03-v1
     defaults:
@@ -66,12 +69,14 @@ jobs:
           node --check src/lib/cluster-decision.js
           node --check src/lib/semantic-provider.js
           node --check src/lib/lexical-policy.js
+          node --check src/lib/abuse-subject.js
           node --check scripts/migrate.mjs
           node --check scripts/retention-maintenance.mjs
           node --check scripts/backup.mjs
           node --check scripts/restore-verify.mjs
           node --check scripts/smoke.mjs
           node --check scripts/operator-guardrails-smoke.mjs
+          node --check scripts/distributed-rate-limit-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
           node --check scripts/cleanup-synthetic.mjs
@@ -88,6 +93,9 @@ jobs:
 
       - name: Operator/cluster DB guardrails
         run: npm run guardrails:operator
+
+      - name: Distributed rate-limit DB guardrail
+        run: npm run guardrails:rate
 
       - name: Start API and worker
         run: |
