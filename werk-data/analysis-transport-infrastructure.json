@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Verkehr, Mobilität und Infrastruktur",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Infrastruktur wird über Lebenszykluskosten, Nutzung, Kapazitätswirkung und Standortnutzen bewertet. Investitionsaufschub kann kurzfristig den Haushalt schönen und langfristig teurer werden; deshalb wird er nicht automatisch als Einsparung gewertet.",
+  "current_facts":[
+    {"fact":"BVA 2026 UG 41 Mobilität: rund 6,592 Mrd. Euro Auszahlungen; Ergebnisaufwendungen rund 9,579 Mrd. Euro.","source":"BMF BVA/Budgetvollzug 2026"},
+    {"fact":"Die UG 41 umfasst u.a. Schieneninfrastruktur, öffentlichen Verkehr, Verkehrssicherheit und Mobilitäts-/Standortaufgaben; Ressortsumme ist daher kein direktes Sparpotenzial.","source":"BMF UG41 Teilheft 2026"},
+    {"fact":"Der Rechnungshof weist im Bundesrechnungsabschluss 2025 auf eine Abweichung von 4,113 Mrd. Euro bei Aufwendungen für Zuschüsse an die ÖBB-Infrastruktur AG hin, weil im Voranschlag ein anderer Zuschussvertrag zugrunde lag als tatsächlich angewendet wurde.","source":"Rechnungshof Bundesrechnungsabschluss 2025"},
+    {"fact":"Beim Follow-up zu ÖBB-Zuschussverträgen sah der Rechnungshof 2025 bei 60 % der ausgewählten Empfehlungen weiterhin Handlungsbedarf.","source":"Rechnungshof ÖBB-Zuschussverträge Follow-up 09.05.2025"}
+  ],
+  "structural_questions":[
+    "Welche Infrastrukturprojekte haben höchsten Nutzen je Euro bei Kapazität, Reisezeit, Sicherheit, Klima und Standort?",
+    "Wie hoch sind Erhaltungsrückstände und welche Folgekosten entstehen bei Verschiebung?",
+    "Wie transparent sind Zuschussverträge, Mehrjahresverpflichtungen und Abgrenzungen im Bundeshaushalt?",
+    "Welche Bahn-/ÖPNV-Leistungen werden gering genutzt, sind aber regional unverzichtbare Grundversorgung?",
+    "Welche Straßen-/Schienenprojekte konkurrieren um dasselbe Mobilitätsproblem und welche Alternative ist günstiger?",
+    "Wie entwickeln sich Baukosten, Nachträge, Projektverzögerungen und Finanzierungskosten bei Großprojekten?",
+    "Welche Infrastruktur ist Bund, Land, Gemeinde oder öffentliches Unternehmen zuständig und wie werden Kosten verteilt?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "alle großen Infrastrukturvorhaben mit einheitlichem State-ROI/Lebenszykluskostenmodell priorisieren",
+    "Zuschussverträge und Mehrjahresverpflichtungen vollständig transparent und mit Soll-Ist-Brücke führen",
+    "Erhaltung vor politisch attraktiven Neubauten priorisieren, wenn Lebenszyklusrechnung dies zeigt",
+    "regionalen ÖPNV nach Nachfrage, Grundversorgung und Anschlussqualität statt einheitlicher Schablone steuern",
+    "Projektänderungen/Nachträge als Stop/Go-Schwelle im Business Case verankern",
+    "Straße, Schiene, Bus und digitale/organisatorische Alternativen problembezogen gemeinsam vergleichen",
+    "Investitionsplanung mit Gemeinden/Ländern so abstimmen, dass keine bloße Kostenverschiebung entsteht"
+  ],
+  "do_not_count_yet":["keinen Investitionsaufschub als dauerhafte Einsparung","keine ÖBB-Zuschussabweichung automatisch als Sparpotenzial","keine Strecken-/Angebotskürzung ohne regionale Grundversorgungsprüfung","keinen Projektstopp ohne Rückbau-/Vertrags-/Folgekosten"],
+  "next_data_needed":["ÖBB-Rahmenplan/Zuschussverträge aktuell","ASFINAG Investitions-/Erhaltungsplan","Projekt-Nachträge und Kostenentwicklung","Auslastung/Nachfrage nach Relation","regionaler ÖPNV-Finanzierungsfluss","Instandhaltungsrückstände","State-ROI-Pilot auf mehreren Großprojekten"]
+}
