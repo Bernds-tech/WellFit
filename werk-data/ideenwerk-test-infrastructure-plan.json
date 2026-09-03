@@ -1,0 +1,56 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK IDEENWERK – isolierte Testinfrastruktur",
+  "status":"bereit zur Provisionierung – keine kostenpflichtige Ressource angelegt",
+  "recommended":{
+    "project_name":"WERK Österreich Staging",
+    "database":"PostgreSQL 17",
+    "region":"eu-central-1",
+    "reason":"EU-Region mit geografischer Nähe zu Österreich; finale Auswahl vor Provisionierung bestätigen",
+    "environment":"staging-only",
+    "real_citizen_data_allowed":false
+  },
+  "isolation_rules":[
+    "kein FanMind-, Börns-Trading- oder KI-Person-Studio-Projekt für WERK-Tests wiederverwenden",
+    "eigene Datenbank, eigene Secrets, eigene API-Origin und eigene Backups",
+    "nur synthetische Testdaten bis Datenschutz-/Security-Freigabe",
+    "keine produktiven Operator-Identitäten im ersten Runtime-Test",
+    "Testprojekt darf nicht automatisch mit der späteren Produktivdatenbank verschmolzen werden"
+  ],
+  "required_secrets":[
+    {"name":"DATABASE_URL","scope":"API/Worker/Migration","rule":"nur Secret Store; niemals Frontend/GitHub-Code"},
+    {"name":"ABUSE_HASH_SECRET","scope":"Multi-Instance Rate Limit","rule":"mindestens 32 zufällige Zeichen; getrennt von Status-Token-Hashing"},
+    {"name":"ALLOWED_ORIGINS","scope":"API","rule":"nur explizite Staging-Origin(s)"},
+    {"name":"SEMANTIC_API_KEY","scope":"optional Semantikprovider","rule":"erst nach Provider-Auswahl; nie im Browser"}
+  ],
+  "deployment_sequence":[
+    "isoliertes WERK-Staging-Projekt provisionieren",
+    "Migrationen 001 bis 011 mit Checksum-Runner ausführen",
+    "Migrationen ein zweites Mal zur Idempotenzprüfung ausführen",
+    "Readiness muss DB-Verbindung und Migration 011 bestätigen",
+    "API und Worker mit Fallback-Semantik starten",
+    "No-Login/Privacy-Smoke-Test ausführen",
+    "Operator-/Cluster-DB-Guardrail-Test ausführen",
+    "verteilten DB-Rate-Limiter aktivieren und testen",
+    "Retention zunächst ausschließlich Dry-Run",
+    "Backup erzeugen und in getrennte Restore-Testdatenbank zurückspielen",
+    "1.000 synthetische Einreichungen",
+    "10.000 synthetische Einreichungen",
+    "100.000 synthetische Einreichungen erst nach erfolgreicher 10k-Stufe"
+  ],
+  "load_test_gates":[
+    {"stage":"1k","purpose":"Funktions-/Queue-Integration","pass":"keine Dead Jobs; Cleanup vollständig; keine verwaisten Review-Tasks"},
+    {"stage":"10k","purpose":"Index-/Worker-/Queue-Tuning","pass":"keine Datenintegritätsfehler; p95-Latenz dokumentiert; DB-Auslastung bewertbar"},
+    {"stage":"100k","purpose":"Skalierungsnachweis","pass":"reproduzierbarer Lauf; Durchsatz/p50/p95/p99; Review-Backlog; Cleanup/Restore dokumentiert"}
+  ],
+  "release_blockers_after_staging":[
+    "produktiver Semantikprovider auf größerem Goldset",
+    "OIDC/MFA/RBAC für Operatoren",
+    "DSGVO-/Lösch-/Retention-Freigabe",
+    "WAF/progressive Bot-Challenge",
+    "Penetrationstest",
+    "Produktiv-Backup-RPO/RTO und Restore-Drill",
+    "reale Betreiber-/Impressums-/Datenschutzangaben"
+  ],
+  "cost_gate":"Vor Anlegen eines Supabase-Projekts oder kostenpflichtigen Branches müssen Organisation und konkrete Kosten separat bestätigt werden."
+}
