@@ -1,36 +1,64 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-03-v3",
   "title":"Fortschritt – Österreich analysieren und verbessern Runde 2",
   "priority_1":"BUD-01 strukturell ausgeglichener Staatshaushalt – locked bis Zielerreichung",
   "mode":"Tiefenphase 2 vor Endrechnung",
   "master":"werk-data/austria-analysis-master.json",
   "legacy_register":"werk-data/legacy-idea-register.json",
   "government_baseline":"werk-data/current-government-measures-register.json",
+  "thematic_master_domains_total":41,
+  "thematic_master_domains_initially_covered":41,
+  "nothing_forgotten_checkpoint":"41/41 Masterbereiche sind mindestens erfasst. 'Erfasst' bedeutet nicht fertig analysiert; offene Tiefenprüfungen bleiben sichtbar.",
   "completed_initial_blocks":[
-    {"id":"A","file":"werk-data/austria-analysis-round2-block-a.json","domains":["Staatshaushalt/Ausgabenstruktur","Pensionen/Demografie","Gesundheit/Pflege","Arbeitsvolumen/Abgabenkeil","Produktivität/Unternehmen","Gemeindefinanzen","Wohnen","Bildung"]},
-    {"id":"B","file":"werk-data/austria-analysis-round2-block-b.json","domains":["Steuersystem/Vollzug","Staatsaufgaben-/Programmreview","Sozialsystem","Migration/Asyl/Integration","Justiz/innere Sicherheit","Bundesheer/Resilienz","Energie/Industrie"]},
-    {"id":"C","file":"werk-data/austria-analysis-round2-block-c.json","domains":["öffentliche Beschaffung/BBG","Digitalstaat/Once Only/Public AI","Korruption/Parteienfinanzierung/Transparenz","Bundesbeteiligungen/Staatsvermögen","Landwirtschaft","Tourismus","EU-Mittel/EU-Regeln","Transformationskosten/Reformfonds"]},
-    {"id":"D","file":"werk-data/austria-analysis-round2-block-d.json","domains":["Klima/Naturgefahren","Verkehr/ÖBB/Infrastruktur","Forschung/Innovation/Start-ups","regionale Disparitäten","Demografie/Generationenbilanz","Vermögensbilanz/Haftungen/Eventualverbindlichkeiten","State ROI/Investitions-TÜV"]},
-    {"id":"E","file":"werk-data/austria-analysis-round2-block-e.json","domains":["Kinder/Familie/Elementarpädagogik","Haushaltskosten/Leistbarkeit","Banken/Finanzmarkt","Außenhandel/Lieferketten","Kultur/Medien","Behinderung/Reha – Marker","Wasser/Kreislauf – Marker","Telekom – Marker"]},
-    {"id":"F","file":"werk-data/austria-analysis-round2-block-f.json","domains":["Behinderung/Erwerbsteilhabe/Rehabilitation","Trinkwasser/Abwasser","Abfall/Kreislaufwirtschaft","Telekommunikation/Breitband"]}
+    {"id":"A","file":"werk-data/austria-analysis-round2-block-a.json"},
+    {"id":"B","file":"werk-data/austria-analysis-round2-block-b.json"},
+    {"id":"C","file":"werk-data/austria-analysis-round2-block-c.json"},
+    {"id":"D","file":"werk-data/austria-analysis-round2-block-d.json"},
+    {"id":"E","file":"werk-data/austria-analysis-round2-block-e.json"},
+    {"id":"F","file":"werk-data/austria-analysis-round2-block-f.json"}
   ],
-  "thematic_initial_pass":"weitgehend vollständig – alle wesentlichen Masterbereiche mindestens erfasst; einzelne Unterbereiche werden in Tiefenphase weiter getrennt",
   "completed_crosscut":[
-    "Altideen-/Entscheidungsregister",
+    "Altideen-/Entscheidungsregister: frühere Ideen können nicht still verschwinden",
     "laufende Regierungsmaßnahmen als Baseline gegen Doppelzählung",
+    "BUD-01 als unverrückbare Priorität 1",
     "State-ROI-Grundschema",
-    "BUD-01 als unverrückbare Priorität 1"
+    "internationale Benchmark-Matrix v1 mit Firewall gegen fremde Potenzialwerte",
+    "BUD-01 Budgetinventar: Gesamtstaat/COFOG strikt von Bundesbudget getrennt",
+    "vollständige Bundes-UG-Auszahlungen 2027 inventarisiert",
+    "Top-10 Bundes-UGs = 80,46 % der Bundesauszahlungen als Prüfreihenfolge identifiziert",
+    "verbindliche Programmreview-Methode angelegt",
+    "Tiefenreview der fünf größten prioritären Bundesblöcke gestartet"
   ],
   "depth_phase_2":[
-    {"id":"BENCH","name":"Internationale Benchmark-Matrix","status":"jetzt starten"},
-    {"id":"COFOG","name":"Vollständige COFOG-/Gesamtstaatsausgabenzerlegung","status":"jetzt starten"},
-    {"id":"UG","name":"Bundesbudget-Untergliederungen und Programme","status":"jetzt starten"},
-    {"id":"PROGRAM","name":"Staatsaufgaben-/Programmreview","status":"nach COFOG/UG-Inventar systematisch durchführen"},
-    {"id":"GOV-OVERLAP","name":"Inventar bereits beschlossener Regierungsreformen","status":"erste Baseline angelegt, laufend erweitern"},
-    {"id":"STRESS","name":"Makro-/Budget-Stresstests","status":"nach Baseline- und Ausgabenzerlegung"},
-    {"id":"DISTRIBUTION","name":"Haushalts-/Verteilungsmodell","status":"nach Baseline- und Steuer-/Transferinventar"}
+    {"id":"BENCH","name":"Internationale Benchmark-Matrix","status":"v1 angelegt; Peer-/Outcome-Details weiter ausbauen","file":"werk-data/austria-international-benchmark-v1.json"},
+    {"id":"COFOG","name":"Gesamtstaatsausgabenzerlegung","status":"10 COFOG-Abteilungen und Dynamik erfasst; 69 Gruppen noch maschinenlesbar zu übernehmen","file":"werk-data/bud01-budget-inventory-v1.json"},
+    {"id":"UG","name":"Bundesbudget-Untergliederungen","status":"alle 2027-UG-Auszahlungen erfasst; Top-5 bereits vertieft","file":"werk-data/bud01-budget-inventory-v1.json"},
+    {"id":"PROGRAM","name":"Staatsaufgaben-/Programmreview","status":"Methode verbindlich; erste Top-5-Reviews gestartet","file":"werk-data/program-review-method.json"},
+    {"id":"TOP5","name":"UG22/23/30/20/25 Tiefenreview","status":"Budgetstruktur und erste Prüffragen erfasst; Empfänger-/Outcome-/Langfristdaten weiter vertiefen","file":"werk-data/bud01-top5-review-kickoff.json"},
+    {"id":"GOV-OVERLAP","name":"Inventar bereits beschlossener Regierungsreformen","status":"Baseline angelegt und laufend zu erweitern","file":"werk-data/current-government-measures-register.json"},
+    {"id":"STRESS","name":"Makro-/Budget-Stresstests","status":"noch zu bauen – nach Baseline-/Programminventar"},
+    {"id":"DISTRIBUTION","name":"Haushalts-/Verteilungsmodell","status":"Datenfelder vorbereitet; Mikromodell noch zu bauen"},
+    {"id":"SHADOW","name":"WERK-Schattenbudget","status":"bewusst noch gesperrt bis Analyse-/Stress-/Verteilungsphase ausreichend geschlossen"}
+  ],
+  "current_findings_for_priority_1":[
+    "Gesamtstaatsausgaben 2025 rund 283,0 Mrd. Euro bzw. 55,2 % des BIP.",
+    "Demografieabhängige Bereiche Soziale Sicherung, Gesundheit und Bildung stiegen von 33,5 % des BIP 2019 auf 37,8 % 2025.",
+    "Bundesauszahlungen 2027 128,2074 Mrd. Euro; Top-10-UGs umfassen 80,46 %, Top-5 53,67 %.",
+    "Hohe Budgetblöcke sind überwiegend Transfers, gesetzliche Ansprüche, Kernleistungen, Investitionen oder Zinsen; Bruttogröße ist nicht Kürzungspotenzial.",
+    "Pauschaler Personalabbau ist kein tragfähiger Hauptansatz; OECD-Vergleich zeigt öffentliche Beschäftigung nicht über OECD-Schnitt, während eine große Pensionierungswelle Prozessumbau ermöglicht.",
+    "Arbeitsbesteuerung ist international sehr hoch; Entlastung kann Wachstum helfen, muss aber wegen BUD-01 dauerhaft gegenfinanziert werden.",
+    "Pensionen und Gesundheitsausgaben sind wegen Größe/Demografie zentrale Systemreviews.",
+    "Österreich hat auch klare Stärken, etwa hohe F&E-Quote, Teile des Wohnmodells, Mobilfunk/5G und Innovationsbeschaffung; diese werden nicht kaputtgespart."
   ],
   "do_not_start_yet":["endgültiges WERK-Schattenbudget","verifizierte Gesamteinsparung","finale Steuer-/Abgabensätze","finale 10-Mrd.-Tilgungsrechnung"],
-  "next_rule":"Erst Benchmarks, Ausgaben-/Programminventar, Regierungsbaseline, Stresstest und Verteilungsmodell ausreichend schließen. Dann Maßnahmen einzeln netto rechnen und zum BUD-01-Sanierungsbudget zusammenführen.",
-  "completion_definition":"Nichts Wesentliches darf unklassifiziert bleiben; Altideen, neue Analysen und bestehende staatliche Maßnahmen müssen jeweils dokumentierten Status haben."
+  "next_work_queue":[
+    "Top-5-Reviews um Empfänger-/Outcome-/Langfristpfade und aktuelle Reformbaseline erweitern",
+    "weitere Top-10: UG58 Zinsen, UG31 Wissenschaft/Forschung, UG41 Mobilität, UG21 Soziales, UG14 Verteidigung vertiefen",
+    "69 COFOG-Gruppen übernehmen, sobald Detailtabelle technisch lesbar verfügbar ist",
+    "aktuelles Regierungsmaßnahmen-Register auf alle BUD-01-relevanten Konsolidierungsmaßnahmen erweitern",
+    "Makro-Stresstest-Rahmen bauen",
+    "Haushalts-/Verteilungsmodell strukturieren",
+    "danach erst Reformoptionen netto rechnen"
+  ],
+  "completion_definition":"Kein Übergang zur Endrechnung, solange wesentliche Analysefelder, Altideen, laufende Regierungsmaßnahmen oder große Budgetprogramme ohne dokumentierten Status bleiben."
 }
