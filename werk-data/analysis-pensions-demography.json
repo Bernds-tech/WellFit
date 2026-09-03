@@ -1,0 +1,38 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Pensionen und Demografie",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Pensionsreformen werden nicht als kurzfristige Sparschraube behandelt. Maßgeblich sind langfristige Tragfähigkeit, Erwerbsbeteiligung, Generationengerechtigkeit, Altersarmut und Übergangskosten.",
+  "current_facts":[
+    {"fact":"Bundesbudget 2026: UG 22 Pensionsversicherung rund 20,29 Mrd. Euro Auszahlungen/Aufwendungen; UG 23 Beamtenpensionen rund 13,88 Mrd. Euro.","source":"BMF Budgetvollzug/BVA 2026"},
+    {"fact":"PV 2025: 3.691.683 Pflichtversicherte im Jahresdurchschnitt; Beiträge für Erwerbstätige 40,7 Mrd. Euro.","source":"Pensionsversicherung Jahresbericht 2025, 30.06.2026"},
+    {"fact":"Durchschnittliches Pensionsantrittsalter 2025 bei allen Eigenpensionen: Frauen 60,7 Jahre, Männer 62,4 Jahre; bei Alterspensionen Frauen 61,6, Männer 63,4 Jahre.","source":"Pensionsversicherung Jahresbericht 2025"},
+    {"fact":"Bevölkerungsanteil 65+ steigt im Statistik-Austria-Hauptszenario von rund 20 % 2024 auf 26,2 % im Jahr 2040.","source":"Statistik Austria Bevölkerungsprognose 2025/2026"},
+    {"fact":"Bevölkerung im Erwerbsalter 20–64 sinkt im Trendszenario bis 2040 auf 5,32 Mio., rund 256.000 weniger als 2024; Zahl der Erwerbspersonen bleibt mit 4,74 Mio. annähernd stabil, setzt aber steigende Erwerbsquoten voraus.","source":"Statistik Austria Erwerbspersonenprognose"},
+    {"fact":"OECD 2026 bewertet die öffentlichen Pensionsausgaben Österreichs im internationalen Vergleich als sehr hoch und erwartet weiteren Anstieg bis 2035; empfohlen werden u.a. engere Frühpensionszugänge und eine stärkere Kopplung des Pensionsalters an Lebenserwartungsgewinne.","source":"OECD Economic Survey Austria 2026"}
+  ],
+  "existing_changes_to_baseline":[
+    "Das gesetzliche Frauenpensionsalter steigt bereits schrittweise seit 2024; Effekte daraus gehören in den Referenzpfad.",
+    "Erhöhung des Krankenversicherungsbeitrags für Pensionistinnen und Pensionisten seit 1.6.2025 ist bereits beschlossen und darf nicht als WERK-Effekt gezählt werden.",
+    "Pensions- und Gehaltsanpassungen 2026 bzw. weitere Konsolidierungsschritte sind im offiziellen Budgetpfad zu berücksichtigen."
+  ],
+  "structural_questions":[
+    "Wie groß ist der Bundeszuschuss zu den einzelnen Pensionssystemen nach Versicherungszweig und wie entwickelt er sich im Referenzpfad bis 2040?",
+    "Welche Frühpensionsarten verursachen welchen Anteil der Abweichung zwischen gesetzlichem und tatsächlichem Antrittsalter?",
+    "Wie verändern ein zusätzliches effektives Arbeitsjahr, höhere Erwerbsquoten 55–64 und weniger unfreiwillige Teilzeit Beiträge, Einkommensteuer und Pensionsausgaben gleichzeitig?",
+    "Welche Übergangskosten entstehen bei Änderungen an Korridor-, Schwerarbeits-, Invaliditäts-/Berufsunfähigkeits- und Altersteilzeitregeln?",
+    "Wie unterscheiden sich ASVG-, Selbständigen-, Bauern- und Beamtenpfade hinsichtlich Steuerzuschuss, Leistungsniveau und Generationenwirkung?",
+    "Welche Gruppen würden bei Reformen armutsgefährdet und welche zielgenauen Ausgleichsmechanismen wären nötig?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "effektives Pensionsantrittsalter näher an das gesetzliche Alter bringen, ohne pauschale Härten",
+    "Frühpensionszugänge stärker auf gesundheitliche/berufliche Notwendigkeit fokussieren",
+    "freiwillig längeres Arbeiten mit klaren versicherungsmathematischen Anreizen attraktiver machen",
+    "Altersteilzeit zielgenauer einsetzen statt allgemeinen Früh-Ausstieg zu subventionieren",
+    "langfristigen demografischen Automatismus prüfen, z.B. Lebenserwartungs-/Nachhaltigkeitskomponente – politische Entscheidung erst nach Verteilungs- und Rechtsprüfung",
+    "Pensionssysteme transparenter vergleichbar machen und Sonderlogiken dort harmonisieren, wo keine sachliche Begründung besteht"
+  ],
+  "do_not_count_yet":["keine angenommene Milliardenersparnis","keine lineare Hochrechnung eines höheren Antrittsalters","keine Doppelzählung mit höherer Beschäftigung oder Lohnnebenkostenreform"],
+  "next_data_needed":["Pensionsgutachten/Alterssicherungskommission aktuell","Bundeszuschuss nach System 2024–2029","Neuzugänge nach Pensionsart","Ausgaben nach Pensionsart","Verteilungsdaten nach Einkommen/Geschlecht","langfristige Ageing-Report-/BMF-Szenarien"]
+}
