@@ -1,0 +1,51 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Staatsvermögen, Reserven, Haftungen und Eventualverbindlichkeiten",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"BUD-01 darf nicht nur die laufende Ergebnis-/Finanzierungsrechnung betrachten. Staatliche Vermögenswerte, Garantien, ausgelagerte Schulden, PPPs und künftige Verpflichtungen werden separat als Risikobilanz geführt. Ein Vermögensverkauf saniert keinen strukturellen Haushalt.",
+  "current_facts":[
+    {"fact":"Finanzvermögen des Sektors Staat 2025: rund 212,8 Mrd. Euro; finanzielle Verbindlichkeiten rund 448,8 Mrd. Euro nach Finanzkontenmethodik.","source":"Statistik Austria Finanzielle Konten Sektor Staat"},
+    {"fact":"Maastricht-Schuldenstand Ende 2025: 418,1 Mrd. Euro; die methodische Abweichung zu Finanzkonten-Verbindlichkeiten zeigt, dass unterschiedliche Bilanz-/Schuldenbegriffe nicht vermischt werden dürfen.","source":"Statistik Austria"},
+    {"fact":"Der Bund veröffentlicht Haftungen nach § 82 BHG; aktueller veröffentlichter Stand 31.03.2026 muss in die WERK-Risikobilanz aufgenommen werden.","source":"BMF Bundeshaftungen, Update 15.06.2026"},
+    {"fact":"Bundesbeteiligungen weisen hohe Bilanzsummen und Kapitalströme auf; diese sind weder frei verfügbares Vermögen noch automatisch Schuldenrisiko, sondern je Gesellschaft zu analysieren.","source":"BMF Beteiligungsbericht 2027/2028"}
+  ],
+  "risk_categories":[
+    "Bundeshaftungen und Garantien",
+    "Länder-/Gemeindehaftungen",
+    "Haftungen öffentlicher Unternehmen",
+    "PPP-/Leasing-/langfristige Abnahmeverpflichtungen",
+    "Kapitalnachschussrisiken öffentlicher Unternehmen",
+    "Pensions-/Abfertigungs-/Personalverpflichtungen soweit nicht bereits laufend abgebildet",
+    "Katastrophen-/Krisenrisiken",
+    "Banken-/Finanzmarktgarantien",
+    "EU-/internationale Verpflichtungen",
+    "Rechtsstreitigkeiten/Schadenersatz/Großverfahren"
+  ],
+  "asset_categories":[
+    "Finanzforderungen/liquide Mittel",
+    "Beteiligungen",
+    "Liegenschaften/Gebäude/Grundstücke",
+    "Infrastruktur",
+    "strategische Reserven/Lager",
+    "Forderungen/Kredite",
+    "sonstige verwertbare und nicht verwertbare Vermögenswerte"
+  ],
+  "structural_questions":[
+    "Welche Garantien haben realistische Eintrittswahrscheinlichkeit und welchen erwarteten Verlust?",
+    "Welche Vermögenswerte sind strategisch/betriebsnotwendig und welche nicht?",
+    "Welche Verkaufserlöse würden gleichzeitig Mieten, Dividenden oder Leistungsfähigkeit verschlechtern?",
+    "Welche ausgelagerten Einheiten erzeugen implizite Staatsgarantie trotz formaler Eigenständigkeit?",
+    "Welche künftigen Großverpflichtungen sind im jährlichen Budget kaum sichtbar?",
+    "Wie groß ist die Liquiditätsreserve und wie unterscheidet sie sich von frei verfügbarem Überschuss?"
+  ],
+  "rules_for_end_calculation":[
+    "Einmalige Vermögensverkäufe dürfen strukturelle Ausgaben nicht dauerhaft finanzieren.",
+    "Haftungsrahmen ist nicht gleich erwarteter Verlust; beides getrennt darstellen.",
+    "Vermögenswerte werden nicht gegen Maastricht-Schuld saldiert, wenn die offizielle Schuldenkennzahl unverändert bleibt.",
+    "Liquiditätsaufbau kann Schuldenstand erhöhen, ohne dass derselbe Betrag konsumiert wurde – Cash und Nettofinanzierung separat analysieren.",
+    "Strategische Reserven nur nach Risiko-/Kostenprüfung abbauen.",
+    "Jede Privatisierung/Verwertung mit langfristigen Einnahme-/Leistungseffekten rechnen."
+  ],
+  "next_data_needed":["Bundeshaftungen Detailstand 31.03.2026","Länder-/Gemeindehaftungen","PPP-/Leasingverträge","Immobilien-/Grundstücksinventar","Kapitalnachschüsse/Guarantees Bundesbeteiligungen","langfristige Personal-/Pensionsverpflichtungen","Katastrophen-/Krisenreserve-Mechanismen"]
+}
