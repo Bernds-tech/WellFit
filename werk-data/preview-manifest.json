@@ -1,6 +1,6 @@
 {
-  "version":"2026-09-03-v9",
-  "current_preview":"werk-v66.html",
+  "version":"2026-09-03-v10",
+  "current_preview":"werk-v67.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
@@ -52,6 +52,7 @@
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/test/status-machine.test.js"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/test/triage.test.js"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/test/cluster-decision.test.js"},
+    {"group":"Ideenwerk Test","path":"./ideenwerk-backend/test/semantic-provider.test.js"},
     {"group":"Ideenwerk CI","path":"./.github/workflows/ideenwerk-backend-check.yml"},
     {"group":"Ideenwerk Operator","path":"./werk-operator-v1.html"},
     {"group":"Regionen","path":"./werk-data/legal-roadmap.json"},
@@ -86,5 +87,5 @@
     {"group":"Assets","path":"./werk-assets/site-ideenwerk-ops.css"},
     {"group":"Assets","path":"./werk-assets/site-integrity.js"}
   ],
-  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. Er ersetzt keine Runtime-, Datenbank-, Migrations-, Backup/Restore-, juristische, finanzielle, moderative, datenschutzrechtliche, sicherheitstechnische, Lasttest- oder redaktionelle Freigabe."
+  "rule":"Ein grüner Integritätscheck beweist nur technische Erreichbarkeit der Dateien. V67 dokumentiert zusätzlich lokal tatsächlich ausgeführte Node-Kern-/Fallback-Goldset-Messungen; diese ersetzen keine Runtime-, Datenbank-, Migrations-, Backup/Restore-, juristische, finanzielle, moderative, datenschutzrechtliche, sicherheitstechnische, Lasttest- oder redaktionelle Freigabe."
 }
