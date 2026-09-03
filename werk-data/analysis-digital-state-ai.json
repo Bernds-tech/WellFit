@@ -1,0 +1,33 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Digitalstaat, Daten und KI",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Digitalisierung ist kein Selbstzweck und keine automatische Einsparung. WERK bewertet digitale Vorhaben nach Servicequalität, tatsächlich vermiedener Arbeit, Alt-System-Abschaltung, Interoperabilität, Sicherheit und Lebenszykluskosten.",
+  "current_facts":[
+    {"fact":"Der Rechnungshof stellte 2026 beim früheren Digitalisierungsfonds für die Bundesverwaltung fest, dass unklar blieb, ob die angestrebten Ziele erreicht wurden. Von 160 Mio. Euro Ausstattung wurden bis zur Auflösung Ende 2024 rund 105 Mio. Euro bzw. 66 % ausbezahlt.","source":"Rechnungshof Digitalisierungsfonds für die Bundesverwaltung, 03.07.2026"},
+    {"fact":"Der Fonds sollte unter anderem ressortübergreifende IT-Konsolidierung und Effizienzsteigerung finanzieren; der Rechnungshof kritisierte insbesondere Ziel-/Evaluierungsprobleme und zu knappe Einreichfristen.","source":"Rechnungshof 2026"},
+    {"fact":"Once-Only, dadeX, ID Austria und weitere Digitalstaat-Initiativen bestehen bereits; WERK darf bestehende Umsetzung nicht als neue eigene Einsparung verbuchen.","source":"Bundeskanzleramt/BMF und bestehendes WERK-Overlap-Register"}
+  ],
+  "structural_questions":[
+    "Welche Register enthalten dieselben Stammdaten und wie häufig werden Bürger/Unternehmen noch zur erneuten Eingabe bereits staatlich vorhandener Informationen gezwungen?",
+    "Welche Bundes-/Landes-/Gemeinde-IT-Systeme erfüllen ähnliche Funktionen mit separatem Betrieb?",
+    "Welche Systeme sind technisch veraltet, aber wegen fehlender Migrations-/Abschaltpläne weiterhin parallel aktiv?",
+    "Wie viel Personalzeit wird durch Digitalisierung tatsächlich vermieden oder in höherwertige Aufgaben verschoben?",
+    "Welche Cloud-/Software-/Beraterverträge erzeugen Vendor Lock-in oder hohe langfristige Betriebskosten?",
+    "Wo kann KI Verwaltung unterstützen, ohne rechtsstaatliche Entscheidung, Datenschutz, Nachvollziehbarkeit oder Gleichbehandlung zu gefährden?",
+    "Welche Daten dürfen für Betrugs-/Risikoprüfung verbunden werden und welche rechtlichen Schranken gelten?",
+    "Wie resilient sind zentrale Identitäts-, Register- und Kommunikationsdienste gegen Cyberangriffe und Ausfälle?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "einheitlicher Business-Case-Standard für jedes größere Digitalprojekt mit Baseline, Outcome-KPI, TCO und Alt-System-Abschaltplan",
+    "gemeinsame technische Basisdienste/Shared Services ausbauen, ohne Fachkompetenzen verdeckt zu zentralisieren",
+    "Once-Only verbindlich dort durchsetzen, wo Rechtsgrundlage und Datenqualität vorhanden sind",
+    "offene Standards und Portabilität gegen unnötigen Vendor Lock-in stärken",
+    "KI-Einsatz nach Risikoklassen: Assistenz/Recherche/Entwurf leichter; rechtswirksame Entscheidungen nur mit klarer Rechtsgrundlage, menschlicher Verantwortung und Auditierbarkeit",
+    "digitale Projekte nach Einführung verpflichtend gegen versprochene Zeit-, Kosten- und Qualitätswirkung evaluieren",
+    "Cybersecurity und Business Continuity als Bestandteil der Lebenszykluskosten behandeln"
+  ],
+  "do_not_count_yet":["keine pauschale Digitalisierungsersparnis","keine theoretisch eingesparte Bearbeitungsminute als Budgeteffekt ohne reale Personal-/Kapazitätswirkung","keine KI-Personalreduktion ohne Aufgaben-/Qualitäts-/Rechtsprüfung","keine Alt-System-Abschaltung annehmen, bevor sie technisch und organisatorisch erfolgt"],
+  "next_data_needed":["IT-Ausgaben Bund/Länder/Gemeinden nach System/Funktion","Anwendungsportfolio und Doppelstrukturen","externe Beratungs-/Cloudkosten","Systemalter und Abschaltpläne","Verfahrenszeiten vor/nach Digitalisierung","Cybervorfälle und Resilienztests","KI-Pilotprojekte mit Outcome-Daten"]
+}
