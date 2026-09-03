@@ -1,6 +1,6 @@
 {
   "name": "werk-ideenwerk-backend",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "type": "module",
   "engines": {"node": ">=22"},
@@ -12,6 +12,7 @@
     "migrate": "node scripts/migrate.mjs",
     "test": "node --test",
     "smoke": "node scripts/smoke.mjs",
+    "guardrails:operator": "node scripts/operator-guardrails-smoke.mjs",
     "eval:cluster": "node scripts/evaluate-clustering.mjs",
     "load:seed": "node scripts/seed-synthetic.mjs",
     "load:benchmark": "node scripts/benchmark-queue.mjs",
