@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-03-v3",
   "title":"IDEENWERK – ausgeführte Testläufe",
   "rule":"Ein Testlauf wird nur eingetragen, wenn er tatsächlich ausgeführt wurde. Frühere Läufe werden nicht durch bessere spätere Ergebnisse ersetzt, sondern bleiben als Verlauf erhalten.",
   "runs":[
@@ -63,6 +63,16 @@
         "nur definierte IDEENWERK-Status-/Privacy-/Schreibendpunkte erhalten die verteilte Rate-Policy"
       ],
       "limitations":"Die PostgreSQL-Funktion und API-Integration aus Migration 011 wurden in diesem Lauf mangels PostgreSQL nicht runtime-getestet."
+    },
+    {
+      "id":"RUN-20260903-AGGREGATE-POLICY-01",
+      "executed_at":"2026-09-03",
+      "environment":"frische lokale Spiegelung der aktuellen datenbankunabhängigen Kernmodule, Node 22.16.0; ohne PostgreSQL/Docker",
+      "scope":"gemeinsamer Lauf über Statusübergänge, Triage, Clusterrelation, Status-Token/IDs, Fallback-Satztrennung, Lexikal-Scope und Abuse-HMAC/Route-Policy",
+      "result":"pass",
+      "passed":8,
+      "failed":0,
+      "limitations":"Acht zusammengefasste Testsuiten mit mehreren Assertions. Dieser Lauf bestätigt die gemeinsame Policy-Konsistenz, nicht die PostgreSQL-/API-/Worker-Integration."
     }
   ]
 }
