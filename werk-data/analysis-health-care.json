@@ -1,0 +1,42 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Gesundheit und Pflege",
+  "status":"vertieft – Endrechnung offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Gesundheit und Pflege werden nicht primär über Leistungskürzungen saniert, sondern über bessere Versorgungssteuerung, klare Finanzierungsverantwortung und die Verlagerung vermeidbar teurer Versorgung in wirksamere Strukturen.",
+  "current_facts":[
+    {"fact":"Laufende Gesundheitsausgaben 2025: 61,338 Mrd. Euro bzw. 11,9 % des BIP; öffentlicher Anteil 75,6 %.","source":"Statistik Austria Gesundheitsausgaben, erstellt 11.06.2026"},
+    {"fact":"2024 lagen die laufenden Gesundheitsausgaben bei 57,8 Mrd. Euro und stiegen nominell um 8,3 % gegenüber 2023.","source":"Statistik Austria, 29.01.2026"},
+    {"fact":"Der Rechnungshof stellte 2025 fest, dass die nachhaltige Finanzierung der ÖGK nicht gegeben sei und die ambulante Versorgungssteuerung sowie Zahlungsströme zwischen spitalsambulantem und niedergelassenem Bereich verbessert werden müssen.","source":"Rechnungshof, Ärztliche Versorgung im niedergelassenen Bereich, 12.12.2025"},
+    {"fact":"OECD 2026 sieht strukturelle und finanzielle Fragmentierung sowie eine zu hohe Abhängigkeit von teurer stationärer Versorgung; empfohlen werden stärkere Primärversorgung und bessere Arzneimittelsteuerung.","source":"OECD Economic Survey Austria 2026"},
+    {"fact":"Betreuungs- und Pflegedienste der Länder/Gemeinden verursachten 2024 rund 5,74 Mrd. Euro Ausgaben; mobile Dienste erreichten 140.149 Bezieherinnen und Bezieher, stationäre/sonstige Plätze 85.950.","source":"Statistik Austria Pflegedienstleistungsstatistik"},
+    {"fact":"Bundesbudget UG 24 Gesundheit liegt 2026 bei rund 3,22 Mrd. Euro; dies bildet nur einen Teil der gesamten öffentlichen Gesundheitsfinanzierung ab.","source":"BMF BVA/Budgetvollzug 2026"}
+  ],
+  "existing_changes_to_baseline":[
+    "Krankenversicherungsbeitrag für Pensionistinnen und Pensionisten seit 1.6.2025 erhöht.",
+    "Höhere e-card-Gebühr ab 2026 bereits beschlossen.",
+    "ÖGK-eigene Sparmaßnahmen wie Selbstbehalte bei Krankentransporten seit 2025 sind Baseline.",
+    "Bereits laufender Ausbau der Primärversorgung und bestehende Gesundheitsreformen dürfen nicht als neuer WERK-Effekt verbucht werden."
+  ],
+  "structural_questions":[
+    "Wie verteilen sich die gesamten öffentlichen Gesundheitsausgaben auf Bund, Länder, Gemeinden, Sozialversicherung und private Haushalte?",
+    "Welche Leistungen werden heute gleichzeitig über Spitäler, Ambulanzen, niedergelassene Ärzte und andere Einrichtungen finanziert und wo bestehen Fehlanreize?",
+    "Welche stationären Fälle sind medizinisch vermeidbar oder ambulant/primärversorgbar?",
+    "Welche Wartezeiten, Wegzeiten und Versorgungslücken bestehen regional nach Fachgebiet?",
+    "Wie hoch sind Medikamentenausgaben nach Wirkstoffgruppe und wie groß ist der Abstand bei Generika/Biosimilars zu Vergleichsländern?",
+    "Wie stark wachsen Pflegeausgaben durch Demografie, Löhne und Leistungsumfang bis 2035/2040?",
+    "Welche Entlastungswirkung haben mobile Pflege, Case Management und Angehörigenunterstützung auf teurere stationäre Pflege?"
+  ],
+  "reform_hypotheses_for_later_testing":[
+    "Finanzierung stärker nach Prinzip Geld folgt Leistung statt historischer Zuständigkeit organisieren",
+    "Primärversorgung und multiprofessionelle Zentren gezielt dort ausbauen, wo dadurch Spitalsambulanzen tatsächlich entlastet werden",
+    "Wartezeiten- und Kapazitätsmonitoring bundesweit transparent machen",
+    "Medikamenten-/Generikasteuerung und Beschaffung auf Kosten je Gesundheitswirkung optimieren",
+    "Spitalsplanung stärker an tatsächlicher Auslastung, Qualität und regionaler Erreichbarkeit ausrichten",
+    "Pflegekoordination zwischen Land, Gemeinden, Kassen und Gesundheitswesen vereinheitlichen",
+    "mobile/teilstationäre Pflege ausbauen, wenn Lebenszykluskosten und Qualität stationäre Alternativen schlagen",
+    "digitale Prozesse nur mit messbarer Personal-/Zeit-/Qualitätswirkung ausrollen"
+  ],
+  "do_not_count_yet":["keine pauschale Spitalsersparnis","keine angenommene ÖGK-Einsparung ohne Leistungsdaten","keine Einsparung durch Digitalisierung ohne Altprozess-Abschaltung","keine Verlagerung von Kosten zwischen Bund/Land/Kasse als gesamtstaatliche Einsparung"],
+  "next_data_needed":["SHA-Ausgaben nach Funktion und Träger","Spitalskosten/Fälle nach Bundesland und Leistungsgruppe","ambulante Leistungsdaten","Primärversorgungs-Evaluierungen","Arzneimittel-/Generikadaten","Pflegekosten nach Leistungsart und Land","Pflegebedarfsprognose bis 2040"]
+}
