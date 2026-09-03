@@ -131,6 +131,7 @@ jobs:
 
       - name: Small queue integration load
         env:
+          SYNTHETIC_RUN_ID: CI1K-${{ github.run_id }}
           SYNTHETIC_COUNT: 1000
           SYNTHETIC_BATCH: 250
           BENCHMARK_MAX_SECONDS: 120
