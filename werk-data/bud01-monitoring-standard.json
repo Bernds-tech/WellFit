@@ -1,0 +1,53 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"BUD-01 – gesamtstaatliches Soll-Ist- und Frühwarnmonitoring",
+  "purpose":"Priorität 1 wird nicht einmal jährlich bewertet. Verfügbare Vollzugs-, Maastricht- und Prognosedaten werden laufend zusammengeführt, ohne Cash- und ESVG-Daten unzulässig zu vermischen.",
+  "data_layers":[
+    {"frequency":"monatlich","scope":"Bund","data":"Finanzierungs-/Ergebnisvollzug, Abgaben, große Ausgabenblöcke","source":"BMF monatlicher Vollzug"},
+    {"frequency":"monatlich bzw. verfügbare Publikationsfrequenz","scope":"Länder + Wien","data":"Cash-Haushaltsdaten gemäß ÖStP 2025","source":"BMF/Statistik Austria Informationssystem"},
+    {"frequency":"monatlich/erweitert sobald verfügbar","scope":"Sozialversicherung","data":"Cash-/Ein-/Auszahlungen mit höherem Detaillierungsgrad","source":"ÖStP/Budgetdienst fordert frühere detailliertere Daten"},
+    {"frequency":"noch zu etablieren","scope":"Gemeinden ohne Wien","data":"bundeslandweise aggregierte monatliche Cash-Haushaltsdaten","source":"Datenlücke; Budgetdienst nennt spätere Einführung als zweckmäßig"},
+    {"frequency":"quartalsweise","scope":"Gesamtstaat/Teilsektoren","data":"Maastricht-Saldo, Schuldenstand, ESVG-Transaktionen","source":"Statistik Austria"},
+    {"frequency":"halbjährlich/Prognoserunden","scope":"Makro/Fiskal","data":"BMF-Plan plus Fiskalrat/OeNB/WIFO/IHS/EU/IMF/OECD soweit aktuell","source":"forecast-consensus"},
+    {"frequency":"jährlich","scope":"Funktion/Programme","data":"COFOG, Förderbericht, Wirkungsberichte, Rechnungsabschluss, Program Review","source":"Statistik Austria/BMF/RH/Budgetdienst"}
+  ],
+  "dashboard_sections":[
+    "Maastricht-Saldo Ist/Forecast/BUD-01-Pfad",
+    "Primärsaldo",
+    "Schuldenquote und Stock-Flow-Anpassungen",
+    "Zinsausgaben",
+    "Teilsektoren Bund/Länder/Gemeinden/SV",
+    "Nettoausgabenpfad EU/ÖStP",
+    "Maßnahmenvollzug und noch nicht umgesetzte Konsolidierung",
+    "große automatische Ausgabentreiber Pension/Gesundheit/Pflege/Personal",
+    "Abgabenerfolg und Baselineabweichung",
+    "außerbudgetäre Einheiten/Haftungen",
+    "größte fünf Prognose-/Risikodifferenzen"
+  ],
+  "variance_waterfall":[
+    "Makro: Wachstum/Inflation/Arbeitsmarkt",
+    "Steuerbasis/Abgaben",
+    "Zinsen",
+    "Demografie/indexierte Leistungen",
+    "Maßnahmenvollzug",
+    "Transformationskosten",
+    "Teilsektorabweichung",
+    "Einmal-/Stock-Flow-Effekte",
+    "statistische Revision"
+  ],
+  "traffic_light":{
+    "green":"Pfad wird im konservativen Forecast eingehalten; keine wesentliche ungeklärte dauerhafte Abweichung.",
+    "yellow":"materielle Abweichung oder Prognoserisiko; Ursachenanalyse und Gegenmaßnahmen erforderlich.",
+    "red":"BUD-01-Pfad im konservativen Szenario klar verfehlt oder Maßnahmen wirken nachweislich nicht; Re-Costing und Prioritätsentscheidung zwingend."
+  },
+  "data_integrity_rules":[
+    "Cash-Vollzug darf nicht direkt als Maastricht-Saldo bezeichnet werden.",
+    "Monatsdaten sind saisonal und durch Zahlungszeitpunkte verzerrt; Vorjahres-/Budget-/Saisonprofil verwenden.",
+    "Wien wird in Teilsektoranalysen konsistent behandelt und nicht doppelt gezählt.",
+    "Revidierte Statistik-Austria-Jahresdaten ersetzen alte Ist-Werte; Revision wird protokolliert.",
+    "Neue gesetzliche Maßnahmen führen zu einem Baseline-Neuschnitt; danach gilt nur zusätzlicher WERK-Delta.",
+    "Fehlende Gemeinde-/SV-Daten werden als Datenlücke sichtbar gemacht, nicht durch Schätzungen ohne Kennzeichnung kaschiert."
+  ],
+  "institutional_basis":["ÖStP 2025 Teilsektorziele und Informationssystem","BMF monatlicher Vollzug","Statistik Austria Maastricht/ESVG","Budgetdienst Hinweis auf Ausbau von Gemeinde-/SV-Vollzugsdaten"],
+  "publication_rule":"Das öffentliche Cockpit zeigt Datenstand, Quelle, Datenart (Cash/ESVG/Plan/Forecast), Revision und Ampelgrund."
+}
