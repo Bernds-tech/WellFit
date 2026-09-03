@@ -1,0 +1,28 @@
+{
+  "version":"2026-09-03-v1",
+  "title":"WERK Österreich – institutionelle Quellenlandkarte",
+  "rule":"Für jede Kernaussage wird festgelegt, welche Quelle führend ist, welche Quellen plausibilisieren und wann erneut geprüft werden muss.",
+  "institutions":[
+    {"institution":"Statistik Austria","primary_for":["Maastricht-Saldo und Schulden","ESVG Staatseinnahmen/-ausgaben","COFOG","Bevölkerung/Demografie","Arbeitsmarktstatistik","Gesundheits-/Pflegestatistik"],"role":"amtliche Ist-Daten","cadence":"bei jeder neuen Jahres-/Quartalsveröffentlichung"},
+    {"institution":"BMF","primary_for":["Bundesbudget/BFRG","gesetzte Budgetmaßnahmen","Haushaltsplanung/EU-Nettoausgabenpfad","Beteiligungs-/Förderberichte soweit amtlich"],"role":"amtliche Planung/Referenzpfad","cadence":"Budget, Vollzug, neue Gesetze; Planwerte immer als Plan kennzeichnen"},
+    {"institution":"OeBFA","primary_for":["Bundesfinanzschuld","Fälligkeiten","Zins-/Laufzeitkennzahlen"],"role":"amtliche Schuldenmanagementdaten","cadence":"mindestens monatlich vor öffentlichen Schuldenzahlen"},
+    {"institution":"Budgetdienst des Parlaments","primary_for":["unabhängige Budgetanalyse","Gesetzeskosten/WFA","Wirkungsorientierung","Budgetrisiken"],"role":"regierungsunabhängige Plausibilisierung","cadence":"bei jeder relevanten neuen Analyse"},
+    {"institution":"Fiskalrat","primary_for":["unabhängige gesamtstaatliche Fiskalprognose","EU-/nationale Fiskalregeln","Nachhaltigkeit","fiskalische Empfehlungen"],"role":"unabhängiger Fiskal-Watchdog","cadence":"Frühjahrs-/Herbstprognose und neue Nachhaltigkeitsberichte"},
+    {"institution":"Rechnungshof","primary_for":["Gebarung","Wirtschaftlichkeit","Transparenz","Umsetzungsdefizite","Good Governance"],"role":"unabhängige Ex-post-Kontrolle","cadence":"laufend neue Prüfberichte auf WERK-Domänen matchen"},
+    {"institution":"OeNB","primary_for":["Makro-/Inflationsprognose","Fiskalprognose als unabhängiger Vergleich","Finanzstabilität"],"role":"unabhängige makroökonomische Plausibilisierung","cadence":"jede Prognoserunde/FSAP-relevante Aktualisierung"},
+    {"institution":"WIFO/IHS","primary_for":["Konjunkturprognosen","Arbeitsmarkt","Struktur-/Wirkungsforschung"],"role":"Forschungs-/Prognosevergleich","cadence":"Prognoserunden und thematische Studien"},
+    {"institution":"EU-Kommission/Eurostat/Rat","primary_for":["EU-Fiskalregeln","EDP","Country Report/CSR","EU-Recht","EU-Förder-/RRF-Status"],"role":"verbindlicher EU-Rahmen und externer Vergleich","cadence":"Frühjahrs-/Herbstpaket, EDP-Entscheidungen, Rechtsänderungen"},
+    {"institution":"OECD","primary_for":["internationaler Strukturvergleich","Produktivität","Steuern","Pension/Gesundheit/Wohnen"],"role":"internationaler Benchmark","cadence":"neue Economic Survey bzw. relevante Datensätze"},
+    {"institution":"IMF","primary_for":["jährliche externe Makro-/Fiskalprüfung","Finanzstabilität/FSAP","Schulden-/Wachstumsrisiken"],"role":"internationale Gegenprüfung","cadence":"Article IV/FSAP"},
+    {"institution":"Transparenzportal/Transparenzdatenbank","primary_for":["Förderlandschaft und Förderstellen soweit verfügbar"],"role":"Förderinventar/Abgleich","cadence":"bei Ausbau/Regeländerung und vor Förder-Gesamtrechnung"}
+  ],
+  "forecast_refresh_trigger":[
+    "neue OeNB/WIFO/IHS-Prognose",
+    "neue EU-Kommissionsprognose",
+    "neue Fiskalratsprognose",
+    "neues BMF-Budget/Novelle",
+    "größerer externer Schock, der eine aktuelle Prognose materiell überholt"
+  ],
+  "publication_refresh_rule":"Eine öffentliche WERK-Kernzahl zeigt neben Datenstand auch 'zuletzt geprüft'. Bei einem neuen führenden Datenstand wird die Zahl aktualisiert oder sichtbar als veraltet markiert.",
+  "seriousness_rule":"WERK unterscheidet ausdrücklich zwischen Datenproduzent, politischem Planer und unabhängiger Prüfinstitution. Ein BMF-Plan wird daher nicht mit einer unabhängigen Fiskalrats-/OeNB-Prognose gleichgesetzt."
+}
