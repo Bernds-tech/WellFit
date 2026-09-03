@@ -1,0 +1,53 @@
+{
+  "version":"2026-09-03-v1",
+  "domain":"Staatlicher Investitions-TÜV / State ROI und Transformationskosten",
+  "status":"Methodik definiert – Pilotprojekte offen",
+  "budget_priority_link":"BUD-01",
+  "principle":"Eine Reform kann langfristig sparen und kurzfristig Geld kosten. WERK trennt deshalb Investition, Transformationskosten, laufende Kosten und dauerhaften Nettoeffekt strikt. Große staatliche Investitionen werden zusätzlich über Lebenszykluskosten und Wirkung geprüft.",
+  "state_roi_required_for":[
+    "große IT-/Digitalprojekte",
+    "Infrastruktur und Verkehr",
+    "Energie-/Netzprojekte",
+    "Gesundheits-/Spitalsinvestitionen",
+    "Schul-/Hochschulbau",
+    "Verteidigungs-Großbeschaffung",
+    "größere Immobilien-/Standortentscheidungen",
+    "Kapitalzuführungen an öffentliche Unternehmen",
+    "Reformen mit hohen einmaligen Personal-/IT-Umstellungskosten"
+  ],
+  "mandatory_fields":[
+    "Problem und Ziel",
+    "Nullvariante: Kosten wenn nichts geändert wird",
+    "mindestens zwei realistische Alternativen",
+    "Investitionskosten",
+    "Transformations-/Migrationskosten",
+    "laufende Betriebs- und Instandhaltungskosten",
+    "Personalbedarf und Personalfolgekosten",
+    "Finanzierungskosten/Kapitalbindung",
+    "Nutzungsdauer",
+    "Restwert/Rückbau/Entsorgung",
+    "quantifizierbare Nutzen",
+    "nicht monetäre Nutzen und Risiken",
+    "Verteilungs-/Regionalwirkung",
+    "Rechts-/Genehmigungsrisiko",
+    "Sensitivitäts- und Stressanalyse",
+    "Break-even und Ex-post-KPI"
+  ],
+  "decision_rules":[
+    "Kein Projekt allein wegen niedriger Anschaffungskosten auswählen; Total Cost of Ownership zählt.",
+    "Kein Projekt allein wegen positiver volkswirtschaftlicher Bruttonutzen als budgetäre Einsparung buchen.",
+    "Alternativen müssen mit derselben Nutzungsdauer und demselben Leistungsniveau verglichen werden.",
+    "Kosten, die ohnehin im Referenzpfad anfallen, separat ausweisen.",
+    "Nachträge/Scope Changes verändern den Business Case und können ein neues Stop/Go-Gate auslösen.",
+    "Große Projekte erhalten nach Inbetriebnahme verpflichtenden Ex-post-Vergleich gegen Baseline."
+  ],
+  "transformation_fund_concept":{
+    "status":"Prüfmodell – noch keine politische Festlegung",
+    "purpose":"befristete Finanzierung klar identifizierter Einmalkosten von Reformen, damit notwendige Umstellungen nicht aus laufenden Ressortbudgets chaotisch finanziert werden",
+    "allowed":"IT-Migration, Datenbereinigung, Schulung, Abfertigungs-/Personalumbau, Parallelbetrieb in enger Übergangsphase, externe Umsetzungskapazität, einmalige Infrastruktur für nachweisbare Strukturreform",
+    "not_allowed":"dauerhafte neue Leistungen, dauerhafte Personalkosten, politische Reserve ohne konkretes Reformprojekt, laufende Förderprogramme",
+    "rules":["Sunset-Datum","Projektbindung","keine Kreditfinanzierung als Standardannahme","Break-even je Reform","Rückfluss nicht verbrauchter Mittel","öffentliche Soll-Ist-Abrechnung"]
+  },
+  "do_not_count_yet":["keine pauschale Digitalisierungsrendite","keine angenommene Personalersparnis ohne Abbau/Neuzuordnung realer Stellen oder vermiedener Neueinstellungen","keine Projektverschiebung als Einsparung","keinen Verkaufserlös als wiederkehrenden ROI"],
+  "pilot_candidates":["digitales Genehmigungsportal","staatliche Shared Services","größere Bahn-/Straßeninvestition","Primärversorgungszentrum vs Spitalsambulanz-Kapazität","Schulstandort-/Sanierungsprojekt","Verteidigungsbeschaffung"]
+}
