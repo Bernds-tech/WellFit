@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-03-v12",
+  "version":"2026-09-03-v13",
   "current_preview":"werk-v70.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -30,6 +30,7 @@
     {"group":"Ideenwerk Migration","path":"./ideenwerk-backend/sql/015_review_lookup_indexes.sql"},
     {"group":"Ideenwerk Migration","path":"./ideenwerk-backend/sql/016_internal_pg_net.sql"},
     {"group":"Ideenwerk Migration","path":"./ideenwerk-backend/sql/017_edge_intake_status.sql"},
+    {"group":"Ideenwerk Migration","path":"./ideenwerk-backend/sql/018_staging_db_worker.sql"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/evaluation/cluster-goldset.json"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/smoke.mjs"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/seed-synthetic.mjs"},
@@ -48,11 +49,16 @@
   ],
   "runtime_evidence":[
     "Supabase WERK Österreich Staging ACTIVE_HEALTHY in eu-central-1",
-    "Migrationen 001–017 eingespielt",
+    "Migrationen 001–018 eingespielt",
     "DB-Guardrails 8/8 runtime bestanden",
     "Security Advisor nach Lockdown: 0 ERROR / 0 WARN; INFO Default-Deny bewusst",
     "100.000 Clusterkandidaten -> 100.000 Review-Tasks; 0 Restdaten nach Cleanup",
-    "No-Login Edge E2E: POST 201, Status 200, falscher Token 403, idempotenter Replay 200"
+    "No-Login Edge E2E: POST 201, Status 200, falscher Token 403, idempotenter Replay 200",
+    "DB-Worker E2E: 5/5 Jobs, 0 Fehler, received -> structured -> cluster_review -> precheck",
+    "Duplikatpfad: zwei Originalideen im selben Cluster; zweiter Status clustered",
+    "PII-Pfad: privacy_hold, PII-Signal, kein structured_proposal",
+    "pg_cron Minutenworker automatisch mehrfach succeeded",
+    "CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. Dauerworker, Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe und vollständige API+Worker-Lasttests bleiben getrennte offene Gates."
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test und vollständige API+Worker-Lasttests bleiben getrennte offene Gates."
 }
