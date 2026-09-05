@@ -1,271 +1,84 @@
 {
-  "version": "2026-09-05-v1",
-  "title": "WERK Österreich – kanonische Regierungsbaseline 2025–2031",
-  "status": "baseline-register-in-progress",
-  "purpose": "Kanonische Abgrenzung bereits beschlossener, budgetierter, laufender oder im offiziellen Referenzpfad angenommener Regierungsmaßnahmen. Diese Effekte dürfen in BUD-01 nicht nochmals als WERK-Effekt gezählt werden.",
-  "checked_at": "2026-09-05",
-  "canonical_for": ["BUD-01", "GAP-BASE-01", "Doppelzählungsschutz"],
-  "sources": [
-    {
-      "id": "BD-BUDGET-2027-2028",
-      "authority": "Parlamentarischer Budgetdienst",
-      "title": "Budgetanalyse 2027 und 2028",
-      "source_date": "2026-06-15",
-      "tables": [10, 11, 12, 13],
-      "url": "https://www.parlament.gv.at/dokument/budgetdienst/budget/BD-Budgetanalyse-2027-und-2028.pdf"
-    },
-    {
-      "id": "BD-BBG-2027-2028",
-      "authority": "Parlamentarischer Budgetdienst",
-      "title": "Budgetrelevante Maßnahmen des Budgetbegleitgesetzes 2027-2028",
-      "source_date": "2026-06-18",
-      "url": "https://www.parlament.gv.at/fachinfos/budgetdienst/Budgetrelevante-Massnahmen-des-Budgetbegleitgesetzes-2027-2028"
-    },
-    {
-      "id": "BMF-BUDGET-2027-2028",
-      "authority": "Bundesministerium für Finanzen",
-      "title": "Budget 2027/2028 und Bundesfinanzrahmen bis 2031",
-      "legal_state": "im Juli 2026 beschlossen",
-      "url": "https://www.bmf.gv.at/themen/budget/budget-2027-2028.html"
-    }
+  "version":"2026-09-05-v2",
+  "title":"WERK Österreich – kanonische Regierungsbaseline 2025–2031",
+  "status":"canonical-baseline-aggregates-ready-lineitems-2026-2031-normalised",
+  "purpose":"Kanonische Abgrenzung bereits beschlossener, budgetierter, laufender oder im offiziellen Referenzpfad angenommener Regierungsmaßnahmen. Diese Effekte dürfen in BUD-01 nicht nochmals als WERK-Effekt gezählt werden.",
+  "checked_at":"2026-09-05",
+  "canonical_for":["BUD-01","GAP-BASE-01","Doppelzählungsschutz"],
+  "detail_artifacts":{
+    "new_measures_2026_2031":"government-new-measures-2026-2031.json",
+    "legacy_context_register":"current-government-measures-register.json",
+    "scope_reference":"government-reference-measures.json"
+  },
+  "sources":[
+    {"id":"BD-BUDGET-2027-2028","authority":"Parlamentarischer Budgetdienst","title":"Budgetanalyse 2027 und 2028","source_date":"2026-06-15","tables":[10,11,12,13],"url":"https://www.parlament.gv.at/dokument/budgetdienst/budget/BD-Budgetanalyse-2027-und-2028.pdf"},
+    {"id":"BD-BBG-2027-2028","authority":"Parlamentarischer Budgetdienst","title":"Budgetrelevante Maßnahmen des Budgetbegleitgesetzes 2027-2028","source_date":"2026-06-18","url":"https://www.parlament.gv.at/fachinfos/budgetdienst/Budgetrelevante-Massnahmen-des-Budgetbegleitgesetzes-2027-2028"},
+    {"id":"BMF-BUDGET-2027-2028","authority":"Bundesministerium für Finanzen","title":"Budget 2027/2028 und Bundesfinanzrahmen bis 2031","legal_state":"im Juli 2026 beschlossen","url":"https://www.bmf.gv.at/themen/budget/budget-2027-2028.html"}
   ],
-  "scope_rules": [
+  "scope_rules":[
     "Konsolidierungspaket 2025, neue Maßnahmen seit Juni 2025, Budgetbegleitgesetz 2027/2028 und BMF-Doppelbudget sind unterschiedliche Abgrenzungen und dürfen nicht addiert werden, wenn sie sich überschneiden.",
     "Positive Werte bei Konsolidierungsmaßnahmen bedeuten Saldoverbesserung; Offensivmaßnahmen werden als Gegenbelastung separat geführt.",
     "Noch nicht konkretisierte Maßnahmen bleiben Teil des offiziellen Planpfads, gelten für WERK aber nicht als verifizierter realisierter Effekt.",
     "Temporäre Effekte werden nicht als dauerhafte Gegenfinanzierung anerkannt.",
-    "Indirekte Steuer-, Beitrags-, Ertragsanteils- und Leistungseffekte werden nur einmal gebucht."
+    "Indirekte Steuer-, Beitrags-, Ertragsanteils- und Leistungseffekte werden nur einmal gebucht.",
+    "Einzelmaßnahmen 2026–2031 werden ausschließlich im Detailartefakt government-new-measures-2026-2031.json gepflegt; keine parallelen Kopien in dieser Datei."
   ],
-  "annual_consolidation_since_2025_mio": {
-    "years": [2025, 2026, 2027, 2028, 2029, 2030, 2031],
-    "original_2025_package": [6251, 8657, 11135, 13027, 14602, 14602, 14602],
-    "update_and_concretisation": [-409, 388, -926, -1520, -2093, -2131, -2206],
-    "updated_2025_package": [5843, 9045, 10209, 11507, 12510, 12472, 12397],
-    "new_measures_since_june_2025": [0, -958, 1259, 2480, 2318, 2316, 2578],
-    "total_consolidation_since_2025": [5843, 8088, 11469, 13987, 14828, 14788, 14975],
-    "expenditure_side_share_pct": [71, 76, 68, 68, 68, 69, 71],
-    "revenue_side_share_pct": [29, 24, 32, 32, 32, 31, 29],
-    "warning": "Der Budgetdienst bezeichnet insbesondere die Ressorteinsparungen des Konsolidierungspakets 2025 weiterhin als mögliche Obergrenze, weil Teile nur teilweise realisiert sein dürften."
+  "annual_consolidation_since_2025_mio":{
+    "years":[2025,2026,2027,2028,2029,2030,2031],
+    "original_2025_package":[6251,8657,11135,13027,14602,14602,14602],
+    "update_and_concretisation":[-409,388,-926,-1520,-2093,-2131,-2206],
+    "updated_2025_package":[5843,9045,10209,11507,12510,12472,12397],
+    "new_measures_since_june_2025":[0,-958,1259,2480,2318,2316,2578],
+    "total_consolidation_since_2025":[5843,8088,11469,13987,14828,14788,14975],
+    "expenditure_side_share_pct":[71,76,68,68,68,69,71],
+    "revenue_side_share_pct":[29,24,32,32,32,31,29],
+    "warning":"Der Budgetdienst bezeichnet insbesondere die Ressorteinsparungen des Konsolidierungspakets 2025 weiterhin als mögliche Obergrenze, weil Teile nur teilweise realisiert sein dürften."
   },
-  "new_measures_2026_2031_mio": {
-    "years": [2026, 2027, 2028, 2029, 2030, 2031],
-    "consolidation_gross": [108, 2443, 5738, 5592, 5619, 5628],
-    "offensive_gross": [1066, 1184, 3258, 3274, 3303, 3050],
-    "net_consolidation": [-958, 1259, 2480, 2318, 2316, 2578],
-    "expenditure_consolidation_gross": [0, 761, 1790, 1903, 2092, 2322],
-    "expenditure_offensive_gross": [75, 619, 818, 834, 863, 610],
-    "expenditure_net": [-75, 142, 972, 1069, 1229, 1712],
-    "revenue_consolidation_gross": [108, 1682, 3948, 3689, 3527, 3306],
-    "revenue_offensive_gross": [991, 565, 2440, 2440, 2440, 2440],
-    "revenue_net": [-883, 1117, 1508, 1249, 1087, 866],
-    "open_expenditure_consolidation": [0, 200, 511, 681, 876, 1109],
-    "open_revenue_consolidation": [0, 70, 460, 355, 365, 385],
-    "open_expenditure_offensive": [0, 75, 75, 250, 250, 250]
+  "new_measures_2026_2031_mio":{
+    "years":[2026,2027,2028,2029,2030,2031],
+    "consolidation_gross":[108,2443,5738,5592,5619,5628],
+    "offensive_gross":[1066,1184,3258,3274,3303,3050],
+    "net_consolidation":[-958,1259,2480,2318,2316,2578],
+    "expenditure_consolidation_gross":[0,761,1790,1903,2092,2322],
+    "expenditure_offensive_gross":[75,619,818,834,863,610],
+    "expenditure_net":[-75,142,972,1069,1229,1712],
+    "revenue_consolidation_gross":[108,1682,3948,3689,3527,3306],
+    "revenue_offensive_gross":[991,565,2440,2440,2440,2440],
+    "revenue_net":[-883,1117,1508,1249,1087,866],
+    "open_expenditure_consolidation":[0,200,511,681,876,1109],
+    "open_revenue_consolidation":[0,70,460,355,365,385],
+    "open_expenditure_offensive":[75,75,250,250,250,0]
   },
-  "new_measures_sector_net_mio": {
-    "years": [2026, 2027, 2028, 2029, 2030, 2031],
-    "federal": [-646, 1173, 1957, 1779, 1770, 2102],
-    "states_and_municipalities": [-312, 36, 434, 456, 459, 386],
-    "social_security": [0, 50, 88, 84, 87, 90],
-    "note": "Länder-/Gemeindeeffekte entstehen überwiegend über Ertragsanteile; Sozialversicherung vor allem über höhere Beitragseinnahmen."
+  "new_measures_sector_net_mio":{
+    "years":[2026,2027,2028,2029,2030,2031],
+    "federal":[-646,1173,1957,1779,1770,2102],
+    "states_and_municipalities":[-312,36,434,456,459,386],
+    "social_security":[0,50,88,84,87,90],
+    "note":"Länder-/Gemeindeeffekte entstehen überwiegend über Ertragsanteile; Sozialversicherung vor allem über höhere Beitragseinnahmen."
   },
-  "measure_inventory": [
-    {
-      "id": "BASE-PENS-ADJ-2027",
-      "name": "Pensionsanpassung 2027",
-      "side": "expenditure",
-      "type": "consolidation",
-      "status": "implemented_or_legislated_in_budget_package",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Sozialversicherung"],
-      "temporary_or_permanent": "effect_declines_over_time_relative_to_full_indexation",
-      "effect_mio": {"2027":273,"2028":273,"2029":273,"2030":273,"2031":273},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-FAMILY-VAL-2028",
-      "name": "Aussetzung der Valorisierung von Familien- und Sozialleistungen 2028",
-      "side": "expenditure",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund"],
-      "temporary_or_permanent": "temporary_indexation_pause_with_persistent_level_effect",
-      "effect_mio": {"2028":163,"2029":152,"2030":148,"2031":148},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-ORF-COMP",
-      "name": "Entfall der ORF-Kompensation wegen Verlust des Vorsteuerabzugs",
-      "side": "expenditure",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund"],
-      "temporary_or_permanent": "ongoing_in_budget_path",
-      "effect_mio": {"2027":93,"2028":93,"2029":93,"2030":93,"2031":93},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-OEBB-INFRA",
-      "name": "Zusätzlicher Konsolidierungsbeitrag ÖBB-Infrastruktur AG",
-      "side": "expenditure",
-      "type": "consolidation",
-      "status": "budgeted",
-      "level": ["Bund", "ausgegliederte Einheit"],
-      "temporary_or_permanent": "budget_path_assumption",
-      "effect_mio": {"2027":55,"2028":285,"2029":285,"2030":285,"2031":285},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-KOEST-PROGRESSIVE",
-      "name": "Progressive Körperschaftsteuer",
-      "side": "revenue",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Länder", "Gemeinden"],
-      "temporary_or_permanent": "ongoing_from_2028_under_current_law",
-      "effect_mio": {"2028":200,"2029":350,"2030":350,"2031":300},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-BANK-STABILITY",
-      "name": "Änderungen der Stabilitätsabgabe für Banken",
-      "side": "revenue",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund"],
-      "temporary_or_permanent": "mixed_temporary_and_structural",
-      "effect_mio": {"2027":300,"2028":300,"2029":90,"2030":-65,"2031":-65},
-      "werk_accounting": "baseline_only",
-      "note": "Temporäre Sonderbeiträge laufen aus; die spätere Tarifänderung wirkt gegenläufig."
-    },
-    {
-      "id": "BASE-PACKAGE-TAX",
-      "name": "Paketsteuer",
-      "side": "revenue",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Länder", "Gemeinden"],
-      "temporary_or_permanent": "ongoing_in_current_path",
-      "effect_mio": {"2027":280,"2028":280,"2029":280,"2030":280,"2031":280},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-FAMILY-BONUS",
-      "name": "Anpassungen beim Familienbonus",
-      "side": "revenue",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Länder", "Gemeinden"],
-      "temporary_or_permanent": "ongoing_in_current_path",
-      "effect_mio": {"2027":50,"2028":130,"2029":130,"2030":130,"2031":130},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-HBG",
-      "name": "Außertourliche Erhöhung der Höchstbeitragsgrundlage",
-      "side": "revenue_and_followup_expenditure",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Sozialversicherung", "Bund"],
-      "temporary_or_permanent": "structural_with_rising_future_benefit_costs",
-      "direct_revenue_effect_mio": {"2027":279,"2028":373,"2029":384,"2030":396,"2031":408},
-      "werk_accounting": "baseline_only_net_of_followup_costs",
-      "note": "Höhere Beitragsbasis erhöht später auch Pensionen und andere Leistungen; Brutto-Mehreinnahme ist nicht dauerhafter Nettoeffekt."
-    },
-    {
-      "id": "BASE-ALV-DN",
-      "name": "Abschaffung reduzierter Dienstnehmerbeiträge zur Arbeitslosenversicherung",
-      "side": "revenue",
-      "type": "consolidation",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Arbeitslosenversicherung"],
-      "temporary_or_permanent": "ongoing_in_current_path",
-      "effect_mio": {"2027":234,"2028":349,"2029":442,"2030":508,"2031":580},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-FLAF-CUT",
-      "name": "Senkung des Dienstgeberbeitrags zum FLAF ab 2028",
-      "side": "revenue_and_expenditure",
-      "type": "offensive",
-      "status": "legislated",
-      "legal_basis_group": "BBG 2027-2028",
-      "level": ["Bund", "Länder", "Gemeinden", "FLAF"],
-      "temporary_or_permanent": "ongoing",
-      "direct_revenue_cost_mio": {"2028":2000,"2029":2000,"2030":2000,"2031":2000},
-      "offsets_mio": {
-        "older_worker_contribution_duty": {"2028":500,"2029":500,"2030":500,"2031":500},
-        "incidence_other_tax_revenue": {"2028":300,"2029":300,"2030":300,"2031":300},
-        "public_sector_employer_expenditure_saving": {"2028":300,"2029":300,"2030":300,"2031":300}
-      },
-      "approx_total_net_cost_mio": {"2028":900,"2029":900,"2030":900,"2031":900},
-      "werk_accounting": "baseline_only_net_effect"
-    },
-    {
-      "id": "BASE-VAT-FOOD",
-      "name": "Mehrwertsteuersenkung auf Grundnahrungsmittel ab 1. Juli 2026",
-      "side": "revenue",
-      "type": "offensive",
-      "status": "implemented_or_budgeted",
-      "level": ["Bund", "Länder", "Gemeinden"],
-      "temporary_or_permanent": "ongoing_in_current_path",
-      "revenue_cost_mio": {"2026":200,"2027":400,"2028":400,"2029":400,"2030":400,"2031":400},
-      "werk_accounting": "baseline_only"
-    },
-    {
-      "id": "BASE-OPEN-CLIMATE-SUBSIDIES",
-      "name": "Maßnahmen bei klimakontraproduktiven Subventionen und sonstigen Förderungen",
-      "side": "expenditure_and_revenue",
-      "type": "consolidation",
-      "status": "planned_not_fully_implemented",
-      "level": ["Bund"],
-      "temporary_or_permanent": "unknown_until_concretised",
-      "effect_status": "official_path_assumption_not_verified_measure_effect",
-      "werk_accounting": "baseline_risk_not_werk_delta"
-    },
-    {
-      "id": "BASE-OPEN-RESSORT-SAVINGS",
-      "name": "Weitere Einsparungen in den Ressorts",
-      "side": "expenditure",
-      "type": "consolidation",
-      "status": "planned_not_fully_concretised",
-      "level": ["Bund"],
-      "temporary_or_permanent": "unknown_until_concretised",
-      "effect_mio": {"2029":125,"2030":125,"2031":125},
-      "werk_accounting": "baseline_risk_not_verified_saving"
-    }
-  ],
-  "coverage": {
-    "yearly_total_2025_2031": "complete_for_budgetdienst_table_13",
-    "new_measures_aggregate_2026_2031": "complete_for_budgetdienst_table_10",
-    "new_measures_sector_split_2026_2031": "complete_for_budgetdienst_table_10",
-    "selected_material_line_items": "structured",
-    "all_line_items_tables_11_12": "not_yet_fully_normalised",
-    "original_2025_package_line_items": "not_yet_fully_normalised",
-    "gap_base_01_status": "partially_closed"
+  "coverage":{
+    "yearly_total_2025_2031":"complete_for_budgetdienst_table_13",
+    "new_measures_aggregate_2026_2031":"complete_for_budgetdienst_table_10",
+    "new_measures_sector_split_2026_2031":"complete_for_budgetdienst_table_10",
+    "all_line_items_tables_11_12":"complete_in_government-new-measures-2026-2031.json",
+    "original_2025_package_line_items":"not_yet_fully_normalised",
+    "legal_status_all_2026_2031_line_items":"partially_classified_more_effective_dates_open",
+    "gap_base_01_status":"partially_closed"
   },
-  "double_counting_guard": {
-    "formula": "WERK additional effect = verified net effect after reform - effect already embedded in applicable government baseline",
-    "prohibited": [
+  "double_counting_guard":{
+    "formula":"WERK additional effect = verified net effect after reform - effect already embedded in applicable government baseline",
+    "prohibited":[
       "adding Budgetdienst BBG totals to broader Budgetdienst new-measures totals",
       "adding original 2025 package to updated package",
       "counting planned open government measures as WERK savings",
       "counting gross contribution or tax effects without follow-up expenditure and distribution effects",
-      "counting temporary effects as permanent financing"
+      "counting temporary effects as permanent financing",
+      "copying line-item values into multiple canonical files"
     ]
   },
-  "next_closure_steps": [
-    "Normalise every remaining line item in Budgetdienst tables 11 and 12 with explicit year alignment and temporary/permanent classification.",
+  "next_closure_steps":[
     "Reconstruct the material line-item composition of the updated 2025 consolidation package from the 2025/2026 Budgetdienst analysis and current BMF update.",
-    "Attach legal-status identifiers and effective dates for every enacted measure.",
-    "Separate measures that are only budget assumptions from legally implemented measures."
+    "Attach legal-status identifiers and effective dates for every enacted 2026–2031 line item.",
+    "Separate measures that are only budget assumptions from legally implemented measures with final verification."
   ]
 }
