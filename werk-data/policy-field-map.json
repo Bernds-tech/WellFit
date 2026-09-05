@@ -1,0 +1,121 @@
+{
+  "version": "2026-09-05-v1",
+  "source_master": "austria-analysis-master.json",
+  "purpose": "Die 12 WERK-Programm-Leitfelder bündeln die vollständige 41-Sachbereiche-Analyse. Jeder Sachbereich wird genau einem Leitfeld zugeordnet, damit keine Materie stillschweigend aus dem Gesamtprogramm fällt.",
+  "coverage_rule": "41 von 41 Master-Sachbereichen müssen genau einmal zugeordnet sein. Die Zuordnung strukturiert das Programm; sie ersetzt weder Fachanalysen noch ressortübergreifende Wirkungsprüfungen.",
+  "fields": [
+    {
+      "id": 1,
+      "name": "Finanzen, Budget & Schulden",
+      "domains": [
+        "Staatshaushalt und Fiskalregeln",
+        "Schulden/Zinsen/Refinanzierung",
+        "WERK-Schattenbudget",
+        "Makro- und Budget-Stresstests",
+        "Transformationskosten/Reformfonds"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Steuern, Abgaben & Verteilung",
+      "domains": [
+        "Verteilungswirkung und Haushaltsbelastung",
+        "Steuern und Abgaben",
+        "Förderungen und Transfers",
+        "Glücksspiel"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Wirtschaft, Arbeit & Standort",
+      "domains": [
+        "Arbeitsmarkt und Fachkräfte",
+        "Wirtschaft/Produktivität/Standort"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Staat, Verwaltung & öffentliche Vermögen",
+      "domains": [
+        "vollständiger Staatsaufgaben- und Programmreview",
+        "Verwaltung/Bürokratie/Genehmigungen",
+        "staatlicher Investitions-TÜV/State ROI",
+        "Bundesbeteiligungen",
+        "öffentliche Beschaffung",
+        "staatliche Reserven/Vermögensbilanz/Eventualverbindlichkeiten"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Bildung, Forschung & Innovation",
+      "domains": [
+        "Bildung",
+        "Innovation/Forschung/Start-ups"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Gesundheit, Pflege & soziale Sicherheit",
+      "domains": [
+        "Pensionen",
+        "Gesundheit",
+        "Pflege",
+        "Sozialsystem und Armut"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Familie, Generationen, Migration & Integration",
+      "domains": [
+        "Migration/Asyl/Integration",
+        "Demografie/Generationenbilanz"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Wohnen, Regionen, Gemeinden & Landwirtschaft",
+      "domains": [
+        "Föderalismus/Kompetenzen/Finanzausgleich",
+        "Gemeindefinanzen",
+        "Wohnen/Boden/Raumordnung",
+        "regionale Disparitäten/ländlicher Raum",
+        "Landwirtschaft/Ernährung"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Sicherheit, Justiz, Rechtsstaat & Resilienz",
+      "domains": [
+        "Innere Sicherheit/Justiz/Rechtsstaat",
+        "Bundesheer/Zivilschutz/Resilienz"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Energie, Klima, Verkehr & Infrastruktur",
+      "domains": [
+        "Energie/Netze/Versorgungssicherheit",
+        "Klima/Umwelt/Naturgefahren",
+        "Verkehr/Infrastruktur"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Demokratie, Transparenz & Digitalstaat",
+      "domains": [
+        "Digitalstaat/Daten/KI",
+        "Korruption/Parteienfinanzierung/Transparenz",
+        "Demokratie/WERK VOTE/Bürgerbeteiligung"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Europa, Tourismus, Kultur & Medien",
+      "domains": [
+        "Tourismus",
+        "Kultur/Medien",
+        "EU-Mittel und EU-Regeln"
+      ]
+    }
+  ]
+}
