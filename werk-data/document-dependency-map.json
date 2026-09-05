@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-05-v2",
+  "version": "2026-09-05-v3",
   "title": "WERK Österreich – Dokument-Abhängigkeitskarte",
   "purpose": "Parteiprogramm und Statuten werden als Teil des WERK-Gesamtsystems gepflegt. Änderungen an Daten, Reformen, Rechtslage oder Organisationsmodell lösen eine Prüfung aller betroffenen Dokumentabschnitte aus.",
   "update_cadence": "weekly_review_plus_event_driven",
@@ -14,7 +14,7 @@
   "documents": [
     {
       "id": "PARTY-PROGRAM",
-      "source_file": "werk-docs/werk-parteiprogramm-arbeitsfassung-2026-09-05.md",
+      "source_file": "werk-docs/werk-parteiprogramm-arbeitsfassung-2026-09-05-v2.md",
       "dependencies": [
         "werk-data/core.json",
         "werk-data/priorities.json",
@@ -33,7 +33,8 @@
         "werk-data/subsidy-baseline-architecture.json",
         "werk-data/partners.json",
         "werk-data/vote-constitutional-options.json",
-        "werk-data/legal-roadmap.json"
+        "werk-data/legal-roadmap.json",
+        "werk-docs/werk-grundsatz-weltanschauliche-neutralitaet-2026-09-05.md"
       ],
       "section_impact": {
         "budget_or_debt_change": ["Finanzen, Budget & Schulden", "Steuern, Abgaben & Verteilung", "Umsetzungsreihenfolge"],
@@ -47,13 +48,14 @@
     },
     {
       "id": "PARTY-STATUTES",
-      "source_file": "werk-docs/werk-statuten-arbeitsfassung-2026-09-05.md",
+      "source_file": "werk-docs/werk-statuten-arbeitsfassung-2026-09-05-v2.md",
       "dependencies": [
         "werk-data/core.json",
         "werk-data/partners.json",
         "werk-data/legal.json",
         "werk-data/legal-roadmap.json",
-        "werk-data/vote-constitutional-options.json"
+        "werk-data/vote-constitutional-options.json",
+        "werk-docs/werk-grundsatz-weltanschauliche-neutralitaet-2026-09-05.md"
       ],
       "legal_anchor": "Parteiengesetz 2012 § 1 Abs. 4, jeweils geltende Fassung",
       "section_impact": {
