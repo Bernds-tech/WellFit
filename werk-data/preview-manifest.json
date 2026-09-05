@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-05-v27",
+  "version":"2026-09-05-v28",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -10,7 +10,12 @@
     {"group":"Regierungsbaseline","path":"./werk-data/government-baseline-2025-2031.json"},
     {"group":"Regierungsbaseline Ursprung","path":"./werk-data/government-package-2025-2029.json"},
     {"group":"Regierungsbaseline Detail","path":"./werk-data/government-new-measures-2026-2031.json"},
+    {"group":"Regierungsbaseline Recht","path":"./werk-data/government-legal-basis-map.json"},
+    {"group":"Regierungsbaseline Recht","path":"./werk-data/government-baseline-scope-map.json"},
+    {"group":"Regierungsbaseline Recht","path":"./werk-data/government-measure-legal-status.json"},
     {"group":"Förderbaseline","path":"./werk-data/subsidy-baseline-architecture.json"},
+    {"group":"Förderbaseline","path":"./werk-data/subsidy-esvg-benchmark-2024.json"},
+    {"group":"Förderbaseline","path":"./werk-data/subsidy-federal-ug-2024.json"},
     {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
@@ -48,6 +53,8 @@
     {"group":"Ideenwerk CI","path":"./.github/workflows/ideenwerk-backend-check.yml"},
     {"group":"Frontend CI","path":"./.github/workflows/werk-frontend-check.yml"},
     {"group":"Fiscal Data CI","path":"./.github/workflows/werk-fiscal-data-check.yml"},
+    {"group":"Baseline Legal CI","path":"./.github/workflows/werk-baseline-legal-check.yml"},
+    {"group":"Subsidy Data CI","path":"./.github/workflows/werk-subsidy-data-check.yml"},
     {"group":"V71","path":"./werk-v71.html"},
     {"group":"V71","path":"./werk-assets/site-v71.css"},
     {"group":"V71","path":"./werk-assets/site-v71.js"},
@@ -84,8 +91,11 @@
     "Ursprüngliches Konsolidierungspaket muss für den veröffentlichten Detailhorizont 2025–2029 vollständig normalisiert sein; 2030/2031 bleiben ohne künstliche Einzelzeilenextrapolation aggregiert",
     "Budgetdienst-Tabellen 11/12 müssen als eindeutige 2026–2031-Einzelmaßnahmenmatrix mit sechs Jahreswerten je Zeile vorliegen",
     "Fiscal Data Contract CI prüft BUD-01-, Regierungs- und Maßnahmenmatrizen unabhängig vom Frontend",
-    "SUB-01 muss BHG-, ESVG-, EU-/RRF- und TDB-Sicht getrennt halten; gestaltbares Volumen darf nicht als Sparpotenzial behandelt werden",
+    "Baseline Legal Contract CI klassifiziert alle Regierungsbaseline-Scopes und prüft Measure-Level-Rechtsstatus, Ableitung und zeitliche Anwendbarkeit gegen den Prüftag",
+    "SUB-01 hält BHG-, ESVG-, EU-/RRF- und TDB-Sicht getrennt; gestaltbares Volumen darf nicht als Sparpotenzial behandelt werden",
+    "Subsidy Data Contract CI reconciliiert BHG-Gesamtsumme, 24 Bundes-UGs, gesonderte Abwicklungskosten sowie ESVG D.3/D.9/D.7 und Staatsebenen",
+    "Aktueller Förder-CSV auf Programmebene und ESVG 2025–2031 bleiben bis zur tatsächlichen Rohdaten-Normalisierung offen",
     "V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 enthält 12 Leitfelder mit 41/41-Abdeckung, einen maschinengeprüften BUD-01-Referenzpfad, eine kanonische Regierungsbaseline 2025–2031, den vollständig veröffentlichten Detailhorizont des ursprünglichen 2025-Pakets, eine vollständige neue Einzelmaßnahmenmatrix 2026–2031 und eine SUB-01-Normalisierungsarchitektur. Vollständige Rechts-/Wirksamkeitsklassifikation, Förder-CSV/TDB-Extraktion, Teilsektortrennung Länder/Gemeinden, Reform-Nettoeffekte sowie produktive Legal-/Security-/Accessibility-Gates bleiben offen."
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 enthält 12 Leitfelder mit 41/41-Abdeckung, einen maschinengeprüften BUD-01-Referenzpfad, eine kanonische Regierungsbaseline 2025–2031, den veröffentlichten Detailhorizont des ursprünglichen 2025-Pakets, eine vollständige neue Einzelmaßnahmenmatrix 2026–2031, eine vertraglich geprüfte Rechtsqualitäts-/Zeitstatusschicht sowie eine SUB-01-Förderarchitektur mit amtlichem BHG/TDB/ESVG-2024-Benchmark und vollständiger UG-Zwischenschicht. Vollständige Measure-Level-Rechts-/Ist-Wirkung, aktueller Förder-Programm-CSV, ESVG 2025–2031, Teilsektortrennung Länder/Gemeinden, Reform-Nettoeffekte sowie produktive Legal-/Security-/Accessibility-Gates bleiben offen."
 }
