@@ -1,0 +1,121 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Extramurale Gesundheitsbaseline 2023–2026",
+  "status":"official-finance-and-activity-baseline-partial",
+  "checked_at":"2026-09-05",
+  "purpose":"Teilabschluss von HEALTH2-I. Finanzierungs-, Leistungs- und Inanspruchnahmedaten des niedergelassenen Bereichs werden getrennt nach gesamter Krankenversicherung, ÖGK und historischen Konsultationsdaten geführt. Noch fehlende fachrichtungsspezifische Einheitskosten und aktuelle standardisierte Kontaktzahlen bleiben offen.",
+  "sources":[
+    {
+      "id":"SV-HANDBOOK-2025",
+      "authority":"Dachverband der Sozialversicherungsträger",
+      "title":"Statistisches Handbuch der österreichischen Sozialversicherung 2025 – endgültige Gebarung Krankenversicherung 2024",
+      "publication":"2025-08",
+      "url":"https://www.sozialversicherung.at/cdscontent/?contentid=10007.888557&portal=svportal"
+    },
+    {
+      "id":"OEGK-ANNUAL-2024",
+      "authority":"Österreichische Gesundheitskasse",
+      "title":"Jahresbericht 2024",
+      "url":"https://www.gesundheitskasse.at/cdscontent/load?contentid=10008.796775&version=1755499683"
+    },
+    {
+      "id":"OEGK-FORECAST-2026-02",
+      "authority":"Österreichische Gesundheitskasse",
+      "title":"Konsolidierungsmaßnahmen zeigen erste Wirkung – Gebarungsvorschau Februar 2026",
+      "publication":"2026-03",
+      "url":"https://www.gesundheitskasse.at/cdscontent/?contentid=10007.909124&portal=oegkportal"
+    },
+    {
+      "id":"RH-OUTPATIENT-2018-2023",
+      "authority":"Rechnungshof Österreich",
+      "title":"Ärztliche Versorgung im niedergelassenen Bereich 2018 bis 2023",
+      "publication":"2025-12-12",
+      "url":"https://www.rechnungshof.gv.at/rh/home/news/Meldungen_2025/Aerztliche-Versorgung-im-niedergelassenen-Bereich.html"
+    }
+  ],
+  "all_social_health_insurance_2024_mio":{
+    "scope":"Endgültige Gebarung aller österreichischen Krankenversicherungsträger. Nicht ident mit ÖGK allein und nicht ident mit SHA-Gesundheitsausgaben.",
+    "income_total":26790,
+    "expenses_total":27487,
+    "insurance_benefits":26315,
+    "medical_aid":7240,
+    "pharmaceuticals":5174,
+    "medical_aids_devices":395,
+    "dental_treatment_and_prosthetics":1427,
+    "institutional_care":7522,
+    "medical_home_nursing":26,
+    "sickness_benefit":1224,
+    "rehabilitation_benefit":467,
+    "maternity_benefits":925,
+    "medical_rehabilitation":857,
+    "health_strengthening_disease_prevention":161,
+    "early_detection_and_health_promotion":389,
+    "travel_and_transport":405,
+    "other_benefits":103,
+    "administrative_expense":725,
+    "depreciation":86,
+    "other_expense":361,
+    "balance":-697,
+    "accounting_note":"Gebarungsdaten der Krankenversicherung enthalten Zahlungs-/Versicherungsleistungslogik und dürfen nicht zu SHA- oder Spitalskosten addiert werden. Transfers zwischen Krankenversicherung und Krankenanstalten sind auf gesamtstaatlicher Ebene zu konsolidieren."
+  },
+  "oegk_2024_mio":{
+    "medical_aid_and_equivalent_services":5465.2,
+    "increase_vs_2023_mio":514.2,
+    "increase_vs_2023_pct":10.4,
+    "scope":"ÖGK-Jahresbericht, nicht sämtliche Krankenversicherungsträger. Der Wert umfasst ärztliche Hilfe und gleichgestellte Leistungen und ist daher nicht als reiner Vertragsarztaufwand zu interpretieren.",
+    "structural_note":"Die ÖGK führt den starken Anstieg sowohl auf höhere Inanspruchnahme als auch auf mehr/teurere Leistungen zurück und nennt die Ambulantisierung als einen Treiber der Versicherungsleistungen."
+  },
+  "oegk_forecast_2025_2026_mrd":{
+    "insurance_benefits":{"2019":14.7,"2025":21.4,"2026":22.56},
+    "2026_selected_components":{
+      "outpatient_niedergelassen":6.25,
+      "stationary_hospital":6.0,
+      "medicines":4.63
+    },
+    "forecast_balance_mio":{"2025":-454,"2026":-431},
+    "2026_total_expenses_mrd":23.19,
+    "quality":"ÖGK Gebarungsvorschau Februar 2026; Prognose, kein endgültiger Rechnungsabschluss.",
+    "rule":"Die ausgewählten Komponenten sind keine vollständige Zerlegung der Versicherungsleistungen. Sie dürfen nicht zu einer Restkategorie oder zu SHA-Gesamtausgaben hochgerechnet werden."
+  },
+  "oegk_consultations_2023_mio":{
+    "scope":"Rechnungshof-Auswertung für ÖGK. Allgemeinmedizin und 'allgemeine Fachgebiete' sind zwei ausgewiesene Kategorien, kein vollständiger österreichweiter Gesamtwert aller medizinischen Kontakte.",
+    "general_practice":{"total":62.67,"e_card":52.16,"o_card":10.51,"o_card_share_pct":17},
+    "general_specialties":{"total":21.55,"e_card":19.25,"o_card":2.30,"o_card_share_pct":11},
+    "history_general_practice_total":{"2019":55.79,"2020":53.19,"2021":61.19,"2022":61.70,"2023":62.67},
+    "history_general_specialties_total":{"2019":20.19,"2020":18.56,"2021":20.14,"2022":20.57,"2023":21.55},
+    "measurement_guard":"e-card-Konsultationen und o-card-Steckungen sind Abrechnungs-/Kontaktindikatoren. Sie sind keine eindeutig personenbezogenen Arztbesuche und nicht direkt mit Spitalsambulanz-Besuchen oder ambulanten Frequenzen der LGF-Krankenanstalten vergleichbar."
+  },
+  "wahlärzte_2023_mio":{
+    "submitted_invoices":551.45,
+    "oegk_reimbursements":208.85,
+    "submitted_invoice_share_of_niedergelassen_expense_pct":16,
+    "scope":"ÖGK-Wahlarztbereich. Eingereichte Honorarnoten sind private Rechnungsbeträge; Erstattungen sind ÖGK-Ausgaben. Beide Größen dürfen nicht addiert werden.",
+    "distribution_guard":"Private Selbstzahlungen sind Verteilungs-/Zugangsindikator und dürfen nicht als öffentliche Einsparung behandelt werden."
+  },
+  "control_findings":{
+    "waiting_time_monitoring":"Rechnungshof: österreichweites Wartezeiten-Monitoring im niedergelassenen Bereich war weiterhin ausständig; Terminmanagement und Öffnungszeitenerfassung mit Zeithorizont Ende 2026 vereinbart.",
+    "regional_variation":"Rechnungshof stellte erhebliche regionale Unterschiede im Leistungsgeschehen fest, die nicht durchgehend medizinisch erklärbar waren.",
+    "data_limitation":"Fehlende Diagnosedaten und Probleme bei der Einzelleistungserfassung erschweren die kausale Erklärung von Mengensteigerungen.",
+    "contract_issue":"Ein bundeseinheitlicher Gesamtvertrag zwischen ÖGK und Ärztekammer war weiterhin nicht umgesetzt."
+  },
+  "accounting_rules":[
+    "Gesamte Krankenversicherung und ÖGK sind unterschiedliche institutionelle Universen.",
+    "Ärztliche Hilfe und gleichgestellte Leistungen sind keine reine Vertragsarztkostenposition.",
+    "Spitalszahlungen der Krankenversicherung sind bei gesamtstaatlichen Gesundheitskosten Transfers/Finanzierungsflüsse und werden nicht zusätzlich zu Spitals-Endkosten gezählt.",
+    "E-card-/O-card-Konsultationen sind andere denominators als LGF ambulante Patient:innen, Frequenzen oder Spitalsambulanz-Besuche.",
+    "Wahlarzt-Honorarnoten und ÖGK-Erstattungen sind nicht additiv.",
+    "ÖGK-Prognosewerte 2025/2026 bleiben als Prognose markiert und ersetzen keinen Rechnungsabschluss.",
+    "Aus dem Wachstum der ärztlichen Hilfe darf ohne Leistungs-/Diagnose-/Qualitätsmodell kein Effizienzpotenzial abgeleitet werden."
+  ],
+  "coverage":{
+    "EXTRA_A_all_health_insurance_finance_2024":"closed",
+    "EXTRA_B_oegk_medical_aid_2024":"closed",
+    "EXTRA_C_oegk_forecast_selected_components_2025_2026":"closed_as_forecast",
+    "EXTRA_D_oegk_consultation_history_to_2023":"closed_historical",
+    "EXTRA_E_wahlarzt_private_and_reimbursement_2023":"closed_historical",
+    "EXTRA_F_current_2026_contacts_by_specialty_and_state":"open",
+    "EXTRA_G_unit_costs_by_specialty_service_and_state":"open",
+    "EXTRA_H_standardised_waiting_times_current":"open",
+    "health2_i_status":"partially_closed"
+  }
+}
