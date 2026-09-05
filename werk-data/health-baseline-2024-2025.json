@@ -1,9 +1,9 @@
 {
-  "version":"2026-09-05-v1",
-  "title":"WERK Österreich – Gesundheitsbaseline 2024–2025",
+  "version":"2026-09-05-v2",
+  "title":"WERK Österreich – Gesundheitsbaseline 2024–2031",
   "status":"multi-universe-official-baseline-normalised",
   "checked_at":"2026-09-05",
-  "purpose":"Kanonische Datenbasis für GAP-HEALTH-01. SHA, COFOG, Fondskrankenanstalten-Finanzierung, Bundesbudget und Pflegedienstleistungsstatistik werden als unterschiedliche Datenuniversen geführt. Eine Kostenverlagerung zwischen Bund, Ländern, Gemeinden, Sozialversicherung oder privaten Haushalten gilt nicht als gesamtstaatliche Einsparung.",
+  "purpose":"Kanonische Datenbasis für GAP-HEALTH-01. SHA, COFOG, Fondskrankenanstalten-Finanzierung, Bundesbudget UG24 und Pflegedienstleistungsstatistik werden als unterschiedliche Datenuniversen geführt. Eine Kostenverlagerung zwischen Bund, Ländern, Gemeinden, Sozialversicherung oder privaten Haushalten gilt nicht als gesamtstaatliche Einsparung.",
   "sources":[
     {
       "id":"STAT-SHA-2025",
@@ -26,6 +26,13 @@
       "title":"Öffentliche Finanzen – Gesundheitsausgaben nach COFOG",
       "source_date":"2026-03-31",
       "url":"https://www.statistik.at/fileadmin/pages/230/2026-31-03_PK_OEffentliche_Finanzen.pdf"
+    },
+    {
+      "id":"BD-UG24-2027-2028",
+      "authority":"Parlamentarischer Budgetdienst",
+      "title":"UG 24-Gesundheit Budgets 2027 und 2028",
+      "source_date":"2026-06-29",
+      "url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-24-Gesundheit-Budgets-2027-und-2028.pdf"
     },
     {
       "id":"STAT-CARE-2024",
@@ -110,6 +117,25 @@
     "outpatient":[9.0,9.8],
     "scope":"COFOG-Ausgaben des Sektors Staat nach funktionaler Klassifikation. Nicht additiv zur SHA-Ausgabe; Definitionen und Konsolidierung unterscheiden sich."
   },
+  "federal_budget_ug24_mio":{
+    "years":[2025,2026,2027,2028,2029,2030,2031],
+    "outflows":[2793,3217,3358,3427,3463,3516,2964],
+    "source_status":["provisional_outturn","BVA","BVA/BFG-2027-path","BVA/BFG-2028-path","BFRG","BFRG","BFRG"],
+    "known_detail_years":[2025,2026,2027,2028],
+    "known_major_lines_mio":{
+      "years":[2025,2026,2027,2028],
+      "hospital_federal_purpose_grant":[934,965,1009,1050],
+      "fiscal_equalisation_health":[934,974,999,1027],
+      "health_reform_fund":[0,498,517,538],
+      "contribution_replacements_self_employed_social_insurance":[207,208,220,224],
+      "health_reform_measures_financing_act":[83,62,49,46],
+      "covid_19_measures":[97,28,10,0],
+      "other_outflows":[539,483,554,543]
+    },
+    "medium_term_note":"Nach 2028 ist die gleiche Detailaufschlüsselung laut Budgetdienst nicht verfügbar; Ausnahme Gesundheitsreformfonds. Die Gesamtobergrenze steigt bis 2030 auf 3.516 Mio. EUR und fällt 2031 mit Auslaufen des Gesundheitsreformfonds auf 2.964 Mio. EUR.",
+    "scope":"Bundes-Finanzierungshaushalt UG24. Nicht ident mit Bundesanteil der SHA, nicht gesamtstaatliche Gesundheitsausgabe und nicht mit ÖGK/SV-Ausgaben zu addieren.",
+    "interpretation_rule":"Der Rückgang 2031 ist kein automatisch realisierter Effizienzgewinn. Insbesondere das Auslaufen des Gesundheitsreformfonds verändert den Bundesbudgetpfad und kann Finanzierungswirkungen bei anderen Trägern auslösen."
+  },
   "long_term_care_overlap_guard_2024_mio":{
     "sha_current_long_term_care_total":8299,
     "sha_public_long_term_care":6298,
@@ -133,12 +159,13 @@
     "rule":"Keine Bund/Land/Gemeinde/SV-Leistungsmatrix aus Aggregaten rekonstruieren. Erst Rohmatrix parsen oder STATcube strukturiert exportieren."
   },
   "accounting_rules":[
-    "SHA current expenditure, SHA investment and COFOG government expenditure are separate accounting views.",
+    "SHA current expenditure, SHA investment, COFOG government expenditure and federal UG24 are separate accounting views.",
     "Hospital-payer financing is a subset of public current SHA expenditure and must not be added to the public-current total.",
     "Social-security expenditure and transfers from public authorities must be consolidated before claiming general-government savings.",
     "A saving at one payer that creates equal extra cost at another payer is a financing shift, not a WERK net saving.",
     "Private household cost shifts are reported separately and fail the distribution gate unless explicitly justified.",
     "Care-service statistics and SHA long-term-care expenditure remain separate scopes.",
+    "UG24 measures federal budget flows only; it must not be substituted for the federal SHA payer layer.",
     "2025 SHA is preliminary and must carry a data-quality flag until final publication."
   ],
   "coverage":{
@@ -151,6 +178,7 @@
     "HEALTH_G_federal_state_municipal_social_security_full_service_flow":"open",
     "HEALTH_H_fund_hospital_2025":"future_release_2026-09-30",
     "HEALTH_I_service_cases_costs_waiting_times":"open",
+    "HEALTH_J_federal_budget_ug24_2025_2031":"closed_total_path_detail_to_2028",
     "gap_health_01_status":"partially_closed"
   },
   "prohibited_shortcuts":[
@@ -160,6 +188,7 @@
     "ÖGK-Ausgaben mit SHA-SV-Finanzierung ohne Konsolidierung addieren",
     "Pflegedienstleistungsstatistik als vollständige SHA-Langzeitpflege behandeln",
     "Kostenverschiebung Bund↔Land↔Gemeinde↔SV als Einsparung buchen",
-    "2025 Länder-/Spitalsfinanzierung vor Veröffentlichung extrapolieren"
+    "2025 Länder-/Spitalsfinanzierung vor Veröffentlichung extrapolieren",
+    "UG24-Rückgang 2031 als Effizienzgewinn buchen ohne Gegenfinanzierungs-/Trägerprüfung"
   ]
 }
