@@ -1,0 +1,103 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Pensions-Langfristpfad 2023–2070",
+  "status":"official-national-and-ageing-report-scenarios-normalised",
+  "checked_at":"2026-09-05",
+  "purpose":"PENS-H Langfristbaseline. Nationale und 2024-Ageing-Report-Szenarien werden getrennt geführt. Gesetzliche Pensionsversicherung und Beamtenpensionen bleiben institutionell getrennte Datenuniversen. Keine lineare Fortschreibung der mittelfristigen 2030-Werte.",
+  "sources":[
+    {"id":"ASK-LT-STATUTORY-2024","authority":"Alterssicherungskommission / Sozialministerium","title":"Langfristgutachten gesetzliche Pensionsversicherung 2023–2070","approved":"2024-11-29","url":"https://www.sozialministerium.gv.at/dam/jcr:343261d3-8fd1-4066-bdcb-d2a88d530018/Langfristgutachten%20gesetzliche%20Pensionsversicherung%202023-2070.pdf"},
+    {"id":"ASK-LT-BEAMTEN-2024","authority":"Alterssicherungskommission / BMF","title":"Langfristgutachten Beamtenpensionen 2023–2070","approved":"2024-11-29","url":"https://www.sozialministerium.gv.at/dam/jcr:fc47d4b3-4338-4379-b916-4c914c221fdf/Langfristgutachten%20Beamtenpensionen%202023-2070.pdf"}
+  ],
+  "key_years":[2023,2030,2040,2050,2060,2070],
+  "statutory_national_baseline":{
+    "scenario":"Nationales Basisszenario 2024",
+    "macro_basis":"Statistik-Austria-Demografie 2023 und nationale Langfrist-Makroannahmen",
+    "pension_expenditure_mio":[49932,65055,79457,94509,109986,124693],
+    "pension_expenditure_pct_gdp":[10.4,12.6,13.6,14.4,15.2,15.1],
+    "total_expenditure_mio":[56039,71350,86284,101840,117823,133036],
+    "total_expenditure_pct_gdp":[11.7,13.8,14.8,15.5,16.2,16.1],
+    "federal_contribution_mio":[11083,18953,26234,34404,43768,47776],
+    "federal_contribution_pct_gdp":[2.3,3.7,4.5,5.3,6.0,5.8],
+    "federal_financed_contributions_mio":[1914,2221,2498,2820,3139,3586],
+    "federal_funds_total_mio":[12998,21175,28733,37224,46907,51362],
+    "federal_funds_total_pct_gdp":[2.7,4.1,4.9,5.7,6.5,6.2],
+    "pensions_count":[2546767,2783090,3131740,3340581,3411292,3414497],
+    "fully_insured_count":[4357357,4595003,4672833,4658508,4552889,4637150],
+    "insured_including_partial_count":[5106064,5345209,5423840,5421148,5315437,5404914],
+    "pension_burden_per_1000_fully_insured":[584,606,670,717,749,736],
+    "pension_burden_per_1000_including_partial":[499,521,577,616,642,632]
+  },
+  "statutory_ageing_report_baseline":{
+    "scenario":"Basisszenario 2024 Ageing Report",
+    "macro_basis":"Eurostat-/EPC-AWG-Demografie und -Makroannahmen",
+    "pension_expenditure_mio":[48908,56992,68279,79593,91379,102512],
+    "pension_expenditure_pct_gdp":[10.9,11.6,12.1,12.3,12.6,12.6],
+    "total_expenditure_mio":[55242,64441,76813,89427,102416,114922],
+    "total_expenditure_pct_gdp":[12.3,13.1,13.6,13.8,14.1,14.2],
+    "federal_contribution_mio":[13717,20661,26635,31598,37579,42047],
+    "federal_contribution_pct_gdp":[3.1,4.2,4.7,4.9,5.2,5.2],
+    "federal_financed_contributions_mio":[1920,2193,2467,2796,3119,3504],
+    "federal_funds_total_mio":[15637,22854,29102,34394,40698,45551],
+    "federal_funds_total_pct_gdp":[3.5,4.6,5.2,5.3,5.6,5.6],
+    "note":"Ageing-Report-Basisszenario ist kein Ersatz für das nationale Szenario. Die unterschiedlichen BIP-, Demografie- und Erwerbsannahmen erklären wesentliche Ergebnisunterschiede."
+  },
+  "statutory_scenario_divergence":{
+    "years":[2030,2040,2050,2060,2070],
+    "national_minus_ageing_total_expenditure_pct_points":[0.7,1.2,1.7,2.1,1.9],
+    "national_minus_ageing_federal_funds_pct_points":[-0.5,-0.3,0.4,0.9,0.6],
+    "interpretation":"Die Richtung und Größe der Langfristbelastung hängt materiell von Makro-/Demografieannahmen ab. WERK darf deshalb keinen einzelnen 2070-Punkt als sichere Prognose behandeln; mindestens beide Basisszenarien und Sensitivitäten müssen im Reform-Stresstest geführt werden."
+  },
+  "beamten_national_baseline":{
+    "scenario":"Nationales Basisszenario Beamtenpensionen 2024",
+    "years":[2023,2030,2040,2050,2060,2070],
+    "pension_expenditure_bn_real":[14.3,15.1,11.6,7.2,4.8,5.4],
+    "pension_expenditure_pct_real_gdp":[3.0,2.9,2.0,1.1,0.7,0.6],
+    "resting_benefits_bn_real":[12.2,13.0,9.9,6.0,4.1,5.0],
+    "survivor_benefits_bn_real":[2.2,2.1,1.7,1.2,0.7,0.4],
+    "employer_health_contribution_bn_real":[0.5,0.5,0.4,0.2,0.2,0.2],
+    "average_monthly_pension_real_eur":[3318,3485,3302,3114,3242,3797],
+    "note":"Reale Werte in Preisbasis des Gutachtens. Die institutionelle Abgrenzung umfasst Bund, Post, ÖBB, Landeslehrpersonen sowie Länder-/Gemeindebeamte und ist nicht ident mit UG23."
+  },
+  "beamten_ageing_report_baseline":{
+    "scenario":"Internationales Basisszenario / 2024 Ageing Report",
+    "years":[2023,2030,2040,2050,2060,2070],
+    "pension_expenditure_pct_real_gdp":[3.0,2.8,1.8,1.0,0.6,0.7],
+    "note":"Internationale Beamtenprojektion wird nur als Szenariovergleich geführt; absolute nationale Realwerte werden nicht mit internationalen Prozentpfaden zu synthetischen Eurobeträgen kombiniert."
+  },
+  "structural_findings":[
+    "Gesetzliche PV: nationaler Pensionsaufwand steigt von 10,4 % BIP 2023 auf 15,1 % 2070; Gesamtaufwand von 11,7 % auf 16,1 %.",
+    "Gesetzliche PV: nationale Bundesmittel steigen von 2,7 % BIP 2023 auf ein Maximum um 2060 von etwa 6,5 % und liegen 2070 bei 6,2 %.",
+    "Ageing-Report-Szenario: gesetzlicher Gesamtaufwand 2070 14,2 % BIP und Bundesmittel 5,6 %; deutlich unter nationalem Basisszenario, aber weiterhin oberhalb 2023.",
+    "Beamtenpensionen: nationaler Pensionsaufwand sinkt von 3,0 % des realen BIP 2023 auf 0,6 % 2070; absolute reale Ausgaben erreichen 2027 ihr Maximum und sinken bis Anfang der 2060er stark.",
+    "Der fallende Beamtenpfad kompensiert den steigenden gesetzlichen-PV-Pfad nicht automatisch in einer einzelnen Bundesbudgetposition, weil institutionelle Abgrenzung und innerstaatliche Finanzierungsströme unterschiedlich sind."
+  ],
+  "stress_anchors":{
+    "statutory_ageing_report_2070_federal_funds_pct_gdp":5.6,
+    "statutory_national_2070_federal_funds_pct_gdp":6.2,
+    "statutory_ageing_report_high_life_expectancy_qualitative":"höher als Basisszenario; Sensitivität gesondert im Gutachten",
+    "statutory_ageing_report_link_2070_federal_funds_pct_gdp":3.7,
+    "statutory_ageing_report_higher_migration_2070_effect_pct_points_approx":-0.3,
+    "statutory_ageing_report_lower_migration_2070_effect_pct_points_approx":0.4,
+    "rule":"Sensitivitäten sind keine WERK-Prognosen. Sie dienen zur Größenordnung der Risiken und Reformhebel; keine Szenarioabweichung darf als sicherer Einsparungseffekt verbucht werden."
+  },
+  "validation":{
+    "key_year_count":6,
+    "rounding_tolerance_mio":2.0,
+    "rounding_tolerance_pct_points":0.11,
+    "rules":[
+      "National statutory federal contribution + federal-financed contributions must equal total federal funds for every key year within rounding tolerance.",
+      "Ageing statutory federal contribution + federal-financed contributions must equal total federal funds for every key year within rounding tolerance.",
+      "Pension expenditure plus other expenditure must equal total expenditure only where other expenditure is explicitly available; do not synthesize missing components.",
+      "Beamten national pension expenditure must equal resting + survivor benefits within rounding tolerance.",
+      "National and Ageing Report scenarios must remain distinct and must never be averaged into a synthetic baseline."
+    ]
+  },
+  "coverage":{
+    "PENS_H1_statutory_national_2023_2070":"closed",
+    "PENS_H2_statutory_ageing_report_2023_2070":"closed",
+    "PENS_H3_beamten_national_2023_2070":"closed",
+    "PENS_H4_beamten_ageing_report_key_path":"closed",
+    "PENS_H5_sensitivity_full_matrix":"partial",
+    "PENS_H_status":"closed_for_baseline_open_for_full_sensitivity_matrix"
+  }
+}
