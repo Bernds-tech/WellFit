@@ -1,0 +1,97 @@
+{
+  "version": "2026-09-05-v1",
+  "title": "WERK Österreich – BUD-01 Referenzpfad 2026–2031",
+  "status": "official-adopted-policy-baseline",
+  "purpose": "Maschinenlesbarer gesamtstaatlicher Referenzpfad für BUD-01. Diese Werte sind die BMF-Prognose ab 2026 auf Basis des beschlossenen Doppelbudgets 2027/2028 und des Bundesfinanzrahmens bis 2031. Sie sind keine WERK-Zielwerte und keine WERK-Reformwirkung.",
+  "data_checked_at": "2026-09-05",
+  "baseline_date": "2026-07-10",
+  "accounting_standard": "ESVG 2010 / Maastricht",
+  "units": {
+    "money": "Mrd. EUR",
+    "ratio": "% des BIP",
+    "growth": "% gegenüber Vorjahr bzw. Basisjahr"
+  },
+  "sources": [
+    {
+      "id": "BMF-BUDGET-2728-REPORT",
+      "authority": "Bundesministerium für Finanzen",
+      "title": "Strategiebericht 2027 bis 2030, 2028 bis 2031 und Budgetbericht 2027 und 2028 – Beschluss",
+      "source_date": "2026-07-10",
+      "relevant_tables": ["Tabelle 22: Gesamtstaatliche Eckwerte", "Wirtschaftliche Rahmenbedingungen / Gesamtstaatliche Eckwerte"],
+      "url": "https://www.bmf.gv.at/dam/jcr:a5d69691-da87-4741-8e82-f4db29cc889b/Strategiebericht_2027-2030_2028-2031_Budgetbericht_2027_2028_Beschluss.pdf"
+    },
+    {
+      "id": "EU-NETEXP-PLAN-2025",
+      "authority": "Europäische Kommission / Rat der Europäischen Union",
+      "title": "Österreichischer mittelfristiger finanzpolitisch-struktureller Plan – Nettoausgabenpfad",
+      "source_date": "2025-07-08",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:52025DC0341"
+    },
+    {
+      "id": "EU-DEFENCE-ESCAPE-2026",
+      "authority": "Rat der Europäischen Union",
+      "title": "Nationale Ausweichklausel für höhere Verteidigungsausgaben Österreichs",
+      "source_date": "2026-02-17",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32026H01158"
+    }
+  ],
+  "years": [2026, 2027, 2028, 2029, 2030, 2031],
+  "series": {
+    "nominal_gdp_bn": [528.5, 547.2, 564.9, 582.6, 600.1, 617.5],
+    "government_expenditure_bn": [291.8, 299.2, 306.8, 314.8, 323.4, 332.4],
+    "government_expenditure_pct_gdp": [55.2, 54.7, 54.3, 54.0, 53.9, 53.8],
+    "interest_expenditure_bn": [9.4, 10.6, 11.7, 12.9, 14.3, 15.4],
+    "interest_expenditure_pct_gdp": [1.8, 1.9, 2.1, 2.2, 2.4, 2.5],
+    "government_revenue_bn": [269.7, 280.1, 289.9, 298.4, 306.3, 314.4],
+    "government_revenue_pct_gdp": [51.0, 51.2, 51.3, 51.2, 51.0, 50.9],
+    "taxes_and_contributions_bn": [232.5, 242.3, 250.9, 258.4, 265.2, 272.1],
+    "taxes_and_contributions_pct_gdp": [44.0, 44.3, 44.4, 44.4, 44.2, 44.1],
+    "maastricht_balance_bn": [-22.2, -19.1, -16.9, -16.5, -17.1, -18.0],
+    "maastricht_balance_pct_gdp": [-4.2, -3.5, -3.0, -2.8, -2.9, -2.9],
+    "federal_sector_balance_bn": [-15.7, -14.6, -12.9, -12.4, -13.2, -14.1],
+    "federal_sector_balance_pct_gdp": [-3.0, -2.7, -2.3, -2.1, -2.2, -2.3],
+    "state_and_municipal_sector_balance_bn": [-6.0, -4.4, -3.9, -3.9, -3.7, -3.7],
+    "state_and_municipal_sector_balance_pct_gdp": [-1.1, -0.8, -0.7, -0.7, -0.6, -0.6],
+    "social_security_sector_balance_bn": [-0.5, -0.2, -0.2, -0.2, -0.2, -0.2],
+    "social_security_sector_balance_pct_gdp": [-0.1, 0.0, 0.0, 0.0, 0.0, 0.0],
+    "primary_balance_bn": [-12.8, -8.5, -5.2, -3.6, -2.9, -2.6],
+    "primary_balance_pct_gdp": [-2.4, -1.6, -0.9, -0.6, -0.5, -0.4],
+    "maastricht_debt_bn": [438.2, 457.3, 473.4, 490.3, 507.8, 525.2],
+    "maastricht_debt_pct_gdp": [82.9, 83.6, 83.8, 84.2, 84.6, 85.0]
+  },
+  "net_expenditure_path": {
+    "plan_period": "2025–2029",
+    "adjustment_period": "2025–2031",
+    "annual_growth_pct": {
+      "2026": 2.2,
+      "2027": 2.2,
+      "2028": 2.0,
+      "2029": 2.3,
+      "2030": 2.4,
+      "2031": 2.4
+    },
+    "cumulative_growth_from_2024_pct": {
+      "2026": 4.8,
+      "2027": 7.2,
+      "2028": 9.4,
+      "2029": 11.9,
+      "2030": 14.5,
+      "2031": 17.3
+    },
+    "legal_note": "Die vom Rat gebilligten Obergrenzen gelten für den Planpfad; Österreich darf 2025–2028 darüber hinausgehende Nettoausgaben nur im Umfang des Anstiegs der Verteidigungsausgaben gegenüber 2021 und höchstens bis zu 1,5 % des BIP geltend machen. Nach 2028 bleibt begrenzte Flexibilität für vor Ende 2028 vertraglich vereinbarte militärische Ausrüstung unter derselben Gesamtobergrenze möglich."
+  },
+  "methodology": {
+    "baseline_rule": "Für BUD-01 wird dieser BMF-Pfad als aktuelle beschlusskonforme Ausgangslage verwendet. Ältere Prognosen werden nur als Vergleichs- oder Risikopfad geführt und nicht mit diesem Baseline-Pfad vermischt.",
+    "effect_rule": "WERK-Maßnahmen dürfen nur als zusätzliche Wirkung gegen diesen Referenzpfad gebucht werden. Bereits im Doppelbudget 2025/2026 oder 2027/2028 enthaltene Regierungsmaßnahmen zählen nicht nochmals als WERK-Effekt.",
+    "rounding_rule": "BMF-Tabellen sind gerundet. Identitätsprüfungen dürfen deshalb kleine Rundungsdifferenzen aufweisen.",
+    "debt_rule": "Die BMF-Baseline zeigt trotz sinkendem Defizit eine steigende Schuldenquote von 82,9 % 2026 auf 85,0 % 2031. WERK-Schuldentilgungsziele sind davon getrennte politische Szenarien."
+  },
+  "validation": {
+    "expected_year_count": 6,
+    "balance_identity": "Maastricht-Saldo ≈ Primärsaldo - Zinsausgaben",
+    "sector_identity": "Maastricht-Saldo ≈ Bundessektor + Landes-/Gemeindesektor + Sozialversicherung",
+    "debt_ratio_identity": "Schuldenquote ≈ Maastricht-Schuldenstand / nominales BIP × 100",
+    "tolerance_bn": 0.2,
+    "tolerance_pct_points": 0.15
+  }
+}
