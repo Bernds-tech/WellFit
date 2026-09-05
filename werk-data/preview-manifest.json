@@ -1,10 +1,11 @@
 {
-  "version":"2026-09-05-v31",
+  "version":"2026-09-06-v32",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Programmarchitektur","path":"./werk-data/policy-field-map.json"},
     {"group":"Programmarchitektur","path":"./werk-data/austria-analysis-master.json"},
+    {"group":"Programmarchitektur","path":"./werk-data/policy-field-workstate.json"},
     {"group":"Dokumente","path":"./werk-data/document-dependency-map.json"},
     {"group":"Dokumente","path":"./werk-docs/werk-parteiprogramm-arbeitsfassung-2026-09-05-v2.md"},
     {"group":"Dokumente","path":"./werk-docs/werk-statuten-arbeitsfassung-2026-09-05-v2.md"},
@@ -31,6 +32,10 @@
     {"group":"Steuerbaseline","path":"./werk-data/tax-baseline-2022-2025.json"},
     {"group":"Steuerbaseline","path":"./werk-data/tax-social-contribution-branch-2024-2025.json"},
     {"group":"Steuerbaseline","path":"./werk-data/tax-expenditure-priority-2024.json"},
+    {"group":"Verteilungsbaseline","path":"./werk-data/distribution-baseline-2025-2026.json"},
+    {"group":"Arbeitsmarktbaseline","path":"./werk-data/labour-productivity-baseline-2025-2026.json"},
+    {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-matching-baseline-2025-2026.json"},
+    {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-matching-matrix-priority-groups.json"},
     {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
@@ -75,8 +80,12 @@
     {"group":"Health Activity CI","path":"./.github/workflows/werk-health-activity-check.yml"},
     {"group":"Care Data CI","path":"./.github/workflows/werk-care-data-check.yml"},
     {"group":"Tax Data CI","path":"./.github/workflows/werk-tax-data-check.yml"},
-    {"group":"Tax Data Contract Runner","path":"./scripts/werk-tax-data-contract.mjs"},
     {"group":"Distribution Data CI","path":"./.github/workflows/werk-distribution-data-check.yml"},
+    {"group":"Labour Data CI","path":"./.github/workflows/werk-labour-productivity-check.yml"},
+    {"group":"Policy Workstate CI","path":"./.github/workflows/werk-policy-field-workstate-check.yml"},
+    {"group":"Labour Data Contract","path":"./scripts/werk-labour-productivity-contract.mjs"},
+    {"group":"Policy Workstate Contract","path":"./scripts/werk-policy-field-workstate-contract.mjs"},
+    {"group":"Tax Data Contract Runner","path":"./scripts/werk-tax-data-contract.mjs"},
     {"group":"Data Contract Registry CI","path":"./.github/workflows/werk-data-contract-registry-check.yml"},
     {"group":"V71","path":"./werk-v71.html"},
     {"group":"V71","path":"./werk-assets/site-v71.css"},
@@ -93,6 +102,6 @@
     {"group":"QA","path":"./werk-data/site-status.json"}
   ],
   "runtime_evidence":["Supabase WERK Österreich Staging ACTIVE_HEALTHY in eu-central-1","Migrationen 001–018 eingespielt","DB-Guardrails 8/8 runtime bestanden","Security Advisor nach Lockdown: 0 ERROR / 0 WARN; INFO Default-Deny bewusst","100.000 Clusterkandidaten -> 100.000 Review-Tasks; 0 Restdaten nach Cleanup","No-Login Edge E2E: POST 201, Status 200, falscher Token 403, idempotenter Replay 200","DB-Worker E2E: 5/5 Jobs, 0 Fehler, received -> structured -> cluster_review -> precheck","Duplikatpfad: zwei Originalideen im selben Cluster; zweiter Status clustered","PII-Pfad: privacy_hold, PII-Signal, kein structured_proposal","pg_cron Minutenworker automatisch mehrfach succeeded","CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"],
-  "static_contracts":["8 verbindliche WERK-Säulen bleiben vom Programm getrennt; weltanschauliche Neutralität ist verbindlicher Querschnittsgrundsatz und keine neunte Säule","12 von 12 Programm-Leitfeldern müssen vorhanden sein","41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein","Parteiprogramm v2, Statuten v2, Neutralitätsgrundsatz und Dokument-Abhängigkeitskarte sind Pflichtpfade der Prüffassung","BUD-01 Referenzpfad 2026–2031 und Regierungsbaseline werden durch Fiscal Data CI geprüft","Baseline Legal CI trennt Rechtsstatus, Anwendungszeitpunkt, derived effects und Realisierungsstatus","Subsidy Data CI hält BHG, ESVG, TDB, EU/RRF, UG-Volumen und Abwicklungskosten getrennt","Pension Data CI hält UG22/UG23, ASK gesetzliche PV, Beamtenpensionen und Langfristszenarien getrennt","Health Data CI hält SHA, COFOG, Spitalsfinanzierung, UG24 und Langfristszenarien getrennt","Health Activity CI hält stationäre Aufenthalte, ambulante Patient:innen/Frequenzen/Besuche, Krankenversicherungs- und ÖGK-Universen sowie tagesklinisches Prüf-Universum getrennt","Care Data CI hält Brutto/Netto-Sachleistungen, Pflegegeld, Pflegefonds, 24h-Betreuung, SHA-LTC und Personal-/Kostenpfade getrennt","Tax Data CI hält S.13, S.13+EU, UG16, UVA, Beitragszweige und Tax Expenditures getrennt; ausgewählte 18,603 Mrd. EUR Tax Expenditures sind kein automatisch eintreibbares Aufkommen","Distribution Data CI hält Verteilungsbaseline und Payroll-Unterkern getrennt von noch offenen Transfer-/Mikrosimulationsgates","Data Contract Registry CI prüft zentrale Artefakt-, Workflow- und Abschlussregister-Verknüpfungen","Offene Fachkosten-, Wartezeit-, Transformations-, Verteilungs-, Stress- und Teilsektor-Gates bleiben explizit offen","V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. WERK wird als zusammenhängendes System gepflegt: Änderungen an Kern, Daten, Recht, Reformen, Partnerregeln und Dokumenten müssen an allen betroffenen Stellen nachgezogen werden. Maschinenprüfungen sind Sicherheitsnetz, nicht Selbstzweck. Die BUD-01-Endrechnung bleibt blockiert, bis insbesondere Teilsektortrennung, vollständige Measure-Ist-Wirkung, fachgebietsspezifische Gesundheitskosten, aktuelle Wartezeiten, vollständige Steuer-/Sozialbeitragsbasen, dynamische Steueraufkommensmodelle, Reform-Nettoeffekte, Transformationskosten, Verteilungs- und Stressprüfung ausreichend geschlossen sind."
+  "static_contracts":["8 verbindliche WERK-Säulen bleiben vom Programm getrennt; weltanschauliche Neutralität ist verbindlicher Querschnittsgrundsatz und keine neunte Säule","12 von 12 Programm-Leitfeldern müssen vorhanden sein","41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein","Policy Field Workstate verknüpft alle 12 Leitfelder mit realen Analyse-, Daten-, Reform- und GAP-Pfaden; aktuell 6 Leitfelder mit Reformakten und 8 mit wesentlichen Reformlücken","Parteiprogramm v2, Statuten v2, Neutralitätsgrundsatz und Dokument-Abhängigkeitskarte sind Pflichtpfade der Prüffassung","BUD-01 Referenzpfad 2026–2031 und Regierungsbaseline werden durch Fiscal Data CI geprüft","Baseline Legal CI trennt Rechtsstatus, Anwendungszeitpunkt, derived effects und Realisierungsstatus","Subsidy Data CI hält BHG, ESVG, TDB, EU/RRF, UG-Volumen und Abwicklungskosten getrennt","Pension Data CI hält UG22/UG23, ASK gesetzliche PV, Beamtenpensionen und Langfristszenarien getrennt","Health Data CI hält SHA, COFOG, Spitalsfinanzierung, UG24 und Langfristszenarien getrennt","Health Activity CI hält stationäre Aufenthalte, ambulante Patient:innen/Frequenzen/Besuche, Krankenversicherungs- und ÖGK-Universen sowie tagesklinisches Prüf-Universum getrennt","Care Data CI hält Brutto/Netto-Sachleistungen, Pflegegeld, Pflegefonds, 24h-Betreuung, SHA-LTC und Personal-/Kostenpfade getrennt","Tax Data CI hält S.13, S.13+EU, UG16, UVA, Beitragszweige und Tax Expenditures getrennt; ausgewählte 18,603 Mrd. EUR Tax Expenditures sind kein automatisch eintreibbares Aufkommen","Distribution Data CI hält Verteilungsbaseline und Payroll-Unterkern getrennt von noch offenen Transfer-/Mikrosimulationsgates","Labour Data CI trennt ILO/AMS, Ist/Prognose, Statistik-Austria-/AMS-Stellenuniversen und prüft Regional- sowie Bildungs-Matchinglayer; Bestandsquotienten sind ausdrücklich kein Matching- oder Einsparpotenzial","Data Contract Registry CI prüft zentrale Artefakt-, Workflow- und Abschlussregister-Verknüpfungen","Offene Fachkosten-, Wartezeit-, Transformations-, Verteilungs-, Stress-, Teilsektor- und Arbeitsmarkt-Matchinggates bleiben explizit offen","V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"],
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. WERK wird als zusammenhängendes System gepflegt: Änderungen an Kern, Daten, Recht, Reformen, Partnerregeln und Dokumenten müssen an allen betroffenen Stellen nachgezogen werden. Maschinenprüfungen sind Sicherheitsnetz, nicht Selbstzweck. Die BUD-01-Endrechnung bleibt blockiert, bis insbesondere Teilsektortrennung, vollständige Measure-Ist-Wirkung, fachgebietsspezifische Gesundheitskosten, aktuelle Wartezeiten, vollständige Steuer-/Sozialbeitragsbasen, dynamische Steueraufkommensmodelle, Reform-Nettoeffekte, Transformationskosten, Verteilungs-, Stress- und belastbare Arbeitsmarkt-Matchingprüfung ausreichend geschlossen sind."
 }
