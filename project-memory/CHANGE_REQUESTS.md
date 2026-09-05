@@ -98,3 +98,17 @@
 - Dependencies: the editable ChatGPT Sites source for `wellfit-bewegt` must be loaded; flat PNG whole-image transforms are insufficient for the requested head movement, so the selected characters need layered/rigged presentation (at minimum head + body; eyes where practical).
 - Decision: do not treat the WellFit-now whole-PNG transform as completion. Reconcile against the actual Sites source, implement visible articulated 2D/rigged attention there, preview on that exact Site, and publish only after direct visual verification.
 - Related task: WFG-AVATAR-ATTN-001 / WF-LOOP-005
+
+## WFG-CR-008
+- Date: 2026-09-05
+- Status: ACCEPTED
+- Source: owner live direction
+- Idea: Rudi Rastlos must behave like a physical resident of the public Landingpage. He may climb letters, words, cards, images, lines and other real page surfaces, stand on top of them and move with the exact surface while scrolling. He must not hover, fly, remain clamped to the viewport or teleport visibly. If his current surface scrolls completely away, he may return only through a visibly grounded climb/walk route.
+- Classification: graphical interaction architecture + physical UI bridge
+- Affected areas: public landing hero, DOM surface metadata, Rudi 3D presentation, scroll behavior, route planning, visual acceptance and Site synchronization.
+- Existing task/decision checked: WFG-AVATAR-PUPPET-001, WFG-VIS-001, WF-MIG-001, WF-CONTRACT-BUDDY-001 and current WellFit-now PR #401.
+- Dependencies: WellFit remains graphical authority; the current landing implementation still physically lives in WellFit-now; the separately hosted `wellfit-bewegt` ChatGPT Site is not changed by GitHub commits and requires its own exact-source synchronization/preview/publication.
+- Decision: continue the bounded physical implementation in WellFit-now under explicit WellFit coordination until the visual source migrates. Treat the DOM element as the physical world authority: Rudi follows the element's `getBoundingClientRect()` position without viewport clamping; the `F` in `WellFit` is the initial climb/podium; scroll catch-up starts only after the old surface is fully offscreen; visible catch-up receives a route guide so no air-climbing is shown.
+- Current evidence: WellFit-now PR #401 exact head `0240d7542d5451ab052743b605275a5cae895f7a` passed Build #1260, Container #245, Database #237, Beta Emulator #216 and Project Memory Guard/Quality/Status.
+- Acceptance boundary: repository CI proves implementation integrity only. The exact public Site remains `IMPLEMENTED_NOT_VERIFIED` until the Site source is synchronized and the owner/device browser visibly confirms physical footing, scrolling, climbing and layering.
+- Related task: WFG-RUDI-WORLD-001 / WFN-RUDI-3D-001 / WF-LOOP-006
