@@ -1,0 +1,96 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Förderbaseline 2024: BHG, TDB und ESVG",
+  "status":"official-2024-benchmark-normalised",
+  "checked_at":"2026-09-05",
+  "purpose":"Gesamtstaatlicher Förder-Referenzanker für SUB-01. Direkte Bundesförderungen gemäß BHG 2013 werden nicht mit ESVG-Transaktionen D.3/D.7/D.9 oder Transparenzdatenbankwerten addiert. Die Sichten werden separat geführt und über definierte Überleitungspositionen abgeglichen.",
+  "sources":[
+    {
+      "id":"BMF-FOERDERBERICHT-2024",
+      "authority":"Bundesministerium für Finanzen",
+      "title":"Förderungsbericht 2024",
+      "data_date":"2024",
+      "published":"2025",
+      "url":"https://www.bmf.gv.at/dam/jcr:856ad74b-966c-42c9-9f07-486f5a7fee88/F%C3%B6rderungsbericht_2024.pdf"
+    },
+    {
+      "id":"BMF-FOERDERDATEN-2026",
+      "authority":"Bundesministerium für Finanzen",
+      "title":"Förderdaten / Überleitung BHG zu ESVG",
+      "updated":"2026-08-07",
+      "url":"https://www.bmf.gv.at/services/startseite-budget/Bundesbudget_und_oeffentliche_Finanzen/foerderungen.html"
+    }
+  ],
+  "bhg_direct_federal_mio":{
+    "direct_federal_section_30_5a":10358.0,
+    "on_behalf_external_entities_section_30_5b":2226.2,
+    "total_federal_funding_outflows":12584.2,
+    "total_federal_outflows":120687.3,
+    "share_of_total_federal_outflows_pct":10.4,
+    "previous_year_2023_total":11290.2,
+    "change_2023_2024_mio":1294.0,
+    "change_2023_2024_pct":11.5,
+    "bva_2025":10756.4,
+    "rule":"BHG-Sicht: Zahlungsfluss des Bundes. Nicht mit ESVG oder TDB summieren."
+  },
+  "largest_federal_budget_groups_2024_mio":[
+    {"ug":43,"name":"Umwelt, Klima und Kreislaufwirtschaft","amount":2650.9,"examples":[{"name":"thermisch-energetische Sanierungen","amount":1085.5},{"name":"Verbindlichkeiten Erneuerbaren-Ausbau-Gesetz","amount":908.7},{"name":"Umweltförderung im Inland","amount":108.0},{"name":"Klima- und Energiefonds","amount":177.3}]},
+    {"ug":42,"name":"Land- und Forstwirtschaft, Regionen und Wasserwirtschaft","amount":2261.6,"examples":[{"name":"Gemeinsame Agrarpolitik / EFRE","amount":null}]},
+    {"ug":40,"name":"Wirtschaft","amount":1575.7,"examples":[{"name":"Energiekostenförderungen","amount":987.7},{"name":"Investitionsprämie","amount":420.0}]},
+    {"ug":20,"name":"Arbeit","amount":1414.8,"examples":[{"name":"aktive Arbeitsmarktpolitik","amount":1134.7}]},
+    {"ug":31,"name":"Wissenschaft und Forschung","amount":917.0,"examples":[{"name":"zentrale Forschungs-/Förderinstitutionen und Fachhochschulen","amount":null}]}
+  ],
+  "transparency_database_2024":{
+    "valid_funding_offers_total":2572,
+    "valid_funding_offers_federal":646,
+    "valid_funding_offers_states":1926,
+    "federal_payments_mio":12637.6,
+    "rule":"TDB verwendet einen breiteren Förderbegriff und Empfangszeitpunkt; nicht 1:1 mit BHG-Zahlungsfluss vergleichen oder addieren."
+  },
+  "esvg_2024_mio":{
+    "columns":["D3_subsidies","D9_capital_transfers","D7_other_current_transfers","total_D3_D9_D7"],
+    "sectors":{
+      "federal":[7207.7,3584.9,8862.9,19655.5],
+      "states_excluding_vienna":[1235.7,1801.2,5587.1,8624.0],
+      "municipalities_including_vienna":[584.5,864.3,2844.6,4293.4],
+      "social_security":[240.8,20.4,146.8,408.0],
+      "general_government":[9268.7,6270.6,17441.5,32980.8]
+    },
+    "general_government_pct_gdp":6.7,
+    "D3_D9_total_mio":15539.3,
+    "D3_D9_pct_gdp":3.1,
+    "D7_total_mio":17441.5,
+    "D7_pct_gdp":3.5,
+    "rule":"ESVG-Sicht ist perioden- und sektorengerecht. Innerstaatliche Transfers zwischen Einheiten des Sektors Staat werden konsolidiert und sind nicht automatisch Förderungen."
+  },
+  "bhg_esvg_reconciliation_components_2024_mio":[
+    {"id":"RECON-EU-CONTRIBUTION","name":"EU-Beitrag – ESVG D.7, keine BHG-Förderung","amount":3062.5,"direction":"ESVG_only"},
+    {"id":"RECON-PREMIUMS-REFUNDS","name":"Prämien und Erstattungen, insbesondere Forschungsprämie","amount":1200.0,"amount_quality":"reported_as_rounded_1.2bn","direction":"ESVG_only"},
+    {"id":"RECON-GSBG","name":"Umsatzsteuerrückerstattungen Gesundheitseinrichtungen nach GSBG","amount":1000.0,"amount_quality":"reported_as_rounded_1.0bn","direction":"ESVG_only"},
+    {"id":"RECON-CLIMATE-BONUS","name":"Regionaler Klimabonus","amount":1900.0,"amount_quality":"reported_as_rounded_1.9bn","direction":"ESVG_only"},
+    {"id":"RECON-OTHER-FEDERAL-ENTITIES","name":"Förderungen sonstiger Bundeseinheiten","amount":3200.0,"amount_quality":"reported_as_rounded_3.2bn","direction":"ESVG_additional_scope","breakdown":[{"name":"ausgegliederte Einheiten","amount":900.0},{"name":"Bundesfonds","amount":2300.0},{"name":"Bundeskammern","amount":100.0}]},
+    {"id":"RECON-EU-PASS-THROUGH","name":"Direkte EU-Förderungen im Bundesbudget als Durchlaufposten","amount":1500.0,"amount_quality":"reported_as_rounded_1.5bn","direction":"BHG_only_remove_for_ESVG"}
+  ],
+  "accounting_rules":[
+    "BHG total federal funding outflows, TDB federal payments and ESVG total are three separate universes and must never be added.",
+    "EU contribution, Forschungsprämie/Erstattungen, GSBG and Klimabonus can appear in ESVG although they are not direct BHG subsidies.",
+    "Direct EU funding in the federal budget is a pass-through and must be removed in the BHG-to-ESVG bridge.",
+    "Transfers from the federal budget to federal funds/agencies can create double counting versus the agencies' payments to final beneficiaries and require elimination.",
+    "COVID and energy measures can differ by year between federal cash outflow and ESVG economic-period attribution.",
+    "RRF-covered payments require separate elimination of RRF receipts and RRF-funded subsidy payments in the bridge.",
+    "Only program-level savings net of baseline government savings, EU/RRF pass-through, administration cost, replacement programs and behavioural effects can enter WERK BUD-01."
+  ],
+  "validation":{
+    "rounding_tolerance_mio":0.2,
+    "sector_total_rule":"Sum of federal + states + municipalities + social security must equal general-government total within rounding tolerance.",
+    "transaction_total_rule":"D.3 + D.9 + D.7 must equal total per sector within rounding tolerance.",
+    "bhg_total_rule":"§30(5a) + §30(5b) must equal total federal funding outflows."
+  },
+  "coverage":{
+    "SUB_A_source_definitions":"closed",
+    "SUB_B_2024_bhg_esvg_tdb_bridge":"materially_advanced",
+    "SUB_D_program_level_current_csv":"open",
+    "SUB_E_esvg_2024_benchmark":"closed",
+    "SUB_E_esvg_2025_2031_series":"open"
+  }
+}
