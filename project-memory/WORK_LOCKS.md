@@ -11,6 +11,18 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Active/stale locks
 
+## LOCK-WFG-RUDI-WORLD-001
+- Task: WFG-RUDI-WORLD-001
+- Status: ACTIVE
+- Risk: R2
+- Holder: ChatGPT session 2026-09-05/06
+- Branch/PR: `codex/rudi-living-world-coordination-20260905` / WellFit PR #29; physical implementation merged through WellFit-now PR #401
+- Acquired: 2026-09-05 Europe/Vienna
+- Updated: 2026-09-06 Europe/Vienna
+- Scope: graphical Site synchronization and visual acceptance for DOM-bound Rudi Landingpage behavior: physical footing, letter/surface traversal, scroll-with-surface, visible climb routes, front/back layering and exact public-Site acceptance. No backend/auth/reward/economy/location/camera/native runtime authority.
+- Runtime source: WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b`, squash-merged from PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` after Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status all passed.
+- Resume from: load the exact editable `wellfit-bewegt` ChatGPT Site source, synchronize the merged DOM-world implementation, preview in real WebGL and accept only if F-climb, footing, scrolling/offscreen behavior, grounded catch-up, surface journeys, layering, CTA interaction and reduced-motion fallback are visually correct. Do not restart the deleted viewport-bound controller.
+
 ## LOCK-WFG-VIS-001
 - Task: WFG-VIS-001
 - Status: STALE

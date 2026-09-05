@@ -37,8 +37,17 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Related: WFG-AVATAR-PUPPET-001 / WFG-CR-007 / CTR-WFG-006
 - Status: OPEN
 - Updated: 2026-08-29
-- Gap: the reusable articulated head/body Puppet renderer is now merged and fully green in WellFit-now (`d374e4db4777406d93a8aad72adc10ab47db216f`), but the actual public `wellfit-bewegt` ChatGPT Site is a separate Sites source and still does not contain the behavior. The user therefore correctly still sees no head movement on the public Landingpage.
-- Close when: the owner opens `wellfit-bewegt` through ChatGPT Sites/Edit (or the original Site chat) so the Site is referenced in the composer; the verified Puppet renderer and Luma/Rudi/avatar pivots are ported to that Site source; pointer/CTA tracking is visually tested on the exact preview without seams/ghosting/layout regressions; and the verified version is deliberately published to the existing public Site URL.
-- Next check: no more GitHub-only substitute work. The next execution context must be the actual ChatGPT Site reference in the composer.
+- Gap: the reusable articulated head/body Puppet renderer is merged and fully green in WellFit-now (`d374e4db4777406d93a8aad72adc10ab47db216f`), but the actual public `wellfit-bewegt` ChatGPT Site is a separate Sites source and still lacks verified synchronization/acceptance.
+- Close when: the exact Site source is loaded, the relevant current avatar-attention behavior is synchronized as appropriate, pointer/CTA tracking is visually tested on the exact preview without seams/ghosting/layout regressions, and the verified version is deliberately published.
+- Next check: no GitHub-only substitute work. The next execution context must be the actual editable `wellfit-bewegt` Site.
+
+## WF-LOOP-006
+- Related: WFG-RUDI-WORLD-001 / WFG-CR-008 / WellFit-now PR #401
+- Status: OPEN
+- Updated: 2026-09-06
+- Gap: the DOM-surface-bound Rudi implementation is now merged in WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`, but the exact public `wellfit-bewegt` Site has not been proven synchronized and visually accepted on that version. Repository CI cannot prove perceived foot contact, climbing, foreground/background occlusion or public-Site delivery.
+- Current evidence: PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`. The active runtime has one DOM-bound controller, starts on the `F`, follows real DOM geometry without viewport clamping, supports narrow letters/thin ledges and uses visible grounded catch-up and surface-to-surface routes.
+- Close when: the exact merged implementation is synchronized into the actual editable Site source; a current real-WebGL preview visibly proves grounded F-climb, surface-relative scrolling, complete offscreen departure, non-flying catch-up, plausible surface-to-surface traversal, correct front/back layering, unobscured/interactable controls and reduced-motion fallback; and the accepted version is deliberately published.
+- Next check: execute the Site-specific synchronization/preview. Do not resume the deleted viewport/chapter controller and do not claim Site publication from the GitHub merge.
 
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.

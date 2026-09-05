@@ -81,4 +81,21 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Cross-repo lock: `XLOCK-WF-AVATAR-ATTN-20260826` remains ACTIVE until final-head CI/countercheck; later Sites-v71 sync/visual acceptance remains an open graphical loop even after implementation lock release.
 - Falsification question: a transform-composition visual regression, a qualifying avatar not being detected, or a canonical/Sites surface using different source would require immediate adjustment/reconciliation.
 
+## RECEIPT-WFG-RUDI-WORLD-20260905
+- Task: WFG-RUDI-WORLD-001 / WFG-CR-008 / WFN-RUDI-3D-001
+- Started: 2026-09-05 Europe/Vienna
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Branches/PRs: WellFit `codex/rudi-living-world-coordination-20260905`; WellFit-now `codex/rudi-3d-living-avatar-20260905` / PR #401.
+- Risk: R2
+- Preflight checked: mandatory WellFit graphical/program Project Memory including Protocol, coordination/master state, local finishline/current/next action, Started Work, locks, loops, ledger, dependencies, decisions, failed attempts, assumptions, contradictions, change requests, evidence TTL/drift; current WellFit main/open PRs; current WellFit-now PR #401 head and exact-head CI; current physical source files.
+- Prior attempts found: whole-image pointer attention was superseded; the later 3D Rudi branch initially used viewport-wide positioning and scroll catch-up that owner live review rejected because it still felt detached from page geometry. The active DOM-bound controller supersedes that behavior target.
+- Dependency result: WellFit remains graphical authority while current landing code physically lives in WellFit-now under WF-MIG-001 ownership drift. The public ChatGPT Site is a separate source/deployment surface and is not modified by GitHub.
+- Changes made: recorded WFG-CR-008, WFG-RUDI-WORLD-001, WF-LOOP-006, local/cross-repo locks and WF-EV-007; bound the current exact implementation evidence and public-Site acceptance boundary.
+- Exact implementation evidence: WellFit-now PR #401 head `0240d7542d5451ab052743b605275a5cae895f7a`; Build #1260, Container #245, Database #237, Beta Emulator #216 and Project Memory Guard/Quality/Status all succeeded.
+- Negative/countercheck path: no backend/auth/data/mission/reward/economy/location/camera/native runtime authority changed; no GitHub-only public-Site completion claim; CI does not substitute for visual acceptance.
+- Recovery: coordination branch is memory-only; physical Rudi branch is reversible and changes no persistent product/server state. Previous public Site version remains independently recoverable.
+- Open follow-up: harden deterministic route/geometry invariants, update stale WellFit-now memory and PR wording, then synchronize the exact verified implementation into the actual Site source and obtain visual acceptance.
+- Work locks: `LOCK-WFG-RUDI-WORLD-001` and `XLOCK-WF-RUDI-WORLD-20260905` remain ACTIVE.
+- Falsification question: a current exact Site preview showing hovering, detached feet, viewport-sticking after the surface leaves, unexplained teleportation, air-climbing or broken occlusion invalidates visual acceptance even if CI stays green.
+
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.
