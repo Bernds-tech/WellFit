@@ -1,6 +1,6 @@
 {
-  "version":"2026-09-03-v13",
-  "current_preview":"werk-v70.html",
+  "version":"2026-09-05-v21",
+  "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
@@ -37,13 +37,16 @@
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/benchmark-queue.mjs"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/cleanup-synthetic.mjs"},
     {"group":"Ideenwerk CI","path":"./.github/workflows/ideenwerk-backend-check.yml"},
-    {"group":"V70","path":"./werk-v70.html"},
-    {"group":"V70","path":"./werk-assets/site-v70-loader.js"},
-    {"group":"V70","path":"./werk-assets/site-ideenwerk-v2.js"},
-    {"group":"V70","path":"./werk-assets/site-ideenwerk.css"},
-    {"group":"V70","path":"./werk-assets/site-ideenwerk-quality.js"},
-    {"group":"V70","path":"./werk-assets/site-ideenwerk-ops.js"},
-    {"group":"V70","path":"./werk-assets/site-ideenwerk-test-runs.js"},
+    {"group":"V71","path":"./werk-v71.html"},
+    {"group":"V71","path":"./werk-assets/site-v71.css"},
+    {"group":"V71","path":"./werk-assets/site-v71.js"},
+    {"group":"V71","path":"./werk-assets/site-v70-loader.js"},
+    {"group":"V71","path":"./werk-assets/site-v56.js"},
+    {"group":"V71","path":"./werk-assets/site-ideenwerk-v2.js"},
+    {"group":"V71","path":"./werk-assets/site-ideenwerk.css"},
+    {"group":"V71","path":"./werk-assets/site-ideenwerk-quality.js"},
+    {"group":"V71","path":"./werk-assets/site-ideenwerk-ops.js"},
+    {"group":"V71","path":"./werk-assets/site-ideenwerk-test-runs.js"},
     {"group":"QA","path":"./werk-data/project-status.json"},
     {"group":"QA","path":"./werk-data/site-status.json"}
   ],
@@ -60,5 +63,5 @@
     "pg_cron Minutenworker automatisch mehrfach succeeded",
     "CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test und vollständige API+Worker-Lasttests bleiben getrennte offene Gates."
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 ergänzt die vollständige 12-Leitfelder-Ansicht und responsive Härtung; Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test, vollständige API+Worker-Lasttests und manuelle Geräte-/Screenreader-Abnahme bleiben getrennte offene Gates."
 }
