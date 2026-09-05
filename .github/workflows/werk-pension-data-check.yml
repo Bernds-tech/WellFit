@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/pension-baseline-2024-2031.json'
+      - 'werk-data/pension-longterm-2023-2070.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-pension-data-check.yml'
   workflow_dispatch:
@@ -36,12 +37,17 @@ jobs:
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const finiteArray=(a,n,msg)=>{if(!Array.isArray(a)||a.length!==n||a.some(v=>!Number.isFinite(v)))fail(msg)};
           const p=read('werk-data/pension-baseline-2024-2031.json');
+          const lt=read('werk-data/pension-longterm-2023-2070.json');
           const years8=[2024,2025,2026,2027,2028,2029,2030,2031];
           const years7=[2024,2025,2026,2027,2028,2029,2030];
           const years6=[2025,2026,2027,2028,2029,2030];
+          const keyYears=[2023,2030,2040,2050,2060,2070];
           const tolBudget=Number(p.validation?.tolerance_mio_budget_components??2)+1e-9;
           const tolAsk=Number(p.validation?.tolerance_mio_ask_identity??0.01)+1e-9;
+          const tolLtMio=Number(lt.validation?.rounding_tolerance_mio??2)+1e-9;
+          const tolLtPct=Number(lt.validation?.rounding_tolerance_pct_points??0.11)+1e-9;
 
+          if(p.longterm_reference!=='pension-longterm-2023-2070.json')fail('Pension baseline longterm reference mismatch');
           if(JSON.stringify(p.federal_budget_ug22.years)!==JSON.stringify(years8))fail('UG22 year universe mismatch');
           if(JSON.stringify(p.federal_budget_ug23.years)!==JSON.stringify(years8))fail('UG23 year universe mismatch');
           if(JSON.stringify(p.ask_statutory_pension_insurance.years)!==JSON.stringify(years7))fail('ASK statutory year universe mismatch');
@@ -67,8 +73,7 @@ jobs:
           const ask=p.ask_statutory_pension_insurance;
           for(const key of ['pension_expenditure_mio','mandatory_contributions_excluding_partner_mio','federal_contribution_total_mio','equalisation_supplement_expense_mio','federal_funds_total_mio'])finiteArray(ask[key],7,`Invalid ASK statutory series ${key}`);
           years7.forEach((year,i)=>eq(ask.federal_contribution_total_mio[i]+ask.equalisation_supplement_expense_mio[i],ask.federal_funds_total_mio[i],tolAsk,`${year} ASK federal funds identity`));
-          const growth=(ask.pension_expenditure_mio[6]/ask.pension_expenditure_mio[0]-1)*100;
-          eq(growth,ask.pension_expenditure_growth_2024_2030_pct,0.1,'ASK statutory pension expenditure growth 2024-2030');
+          eq((ask.pension_expenditure_mio[6]/ask.pension_expenditure_mio[0]-1)*100,ask.pension_expenditure_growth_2024_2030_pct,0.1,'ASK statutory pension expenditure growth 2024-2030');
 
           const beam=p.ask_beamtenpensions;
           finiteArray(beam.pension_expenditure_mio,6,'Invalid ASK beamten expenditure');
@@ -88,9 +93,32 @@ jobs:
           if(!(cumDev>threshold))fail(`Current budget-path deviation should exceed 0.5% comparison threshold as planning signal: ${cumDev} <= ${threshold}`);
           if(!String(sm.rule).includes('Budgetplanung')||!String(sm.trigger).includes('Kumulierte'))fail('Sustainability mechanism must distinguish current budget-plan warning from legal trigger logic');
 
+          // Long-term scenarios: no synthetic mixing, internal identities only.
+          if(JSON.stringify(lt.key_years)!==JSON.stringify(keyYears))fail('Long-term statutory key years mismatch');
+          const nat=lt.statutory_national_baseline, eu=lt.statutory_ageing_report_baseline;
+          for(const obj of [nat,eu]){
+            for(const key of ['pension_expenditure_mio','pension_expenditure_pct_gdp','total_expenditure_mio','total_expenditure_pct_gdp','federal_contribution_mio','federal_contribution_pct_gdp','federal_financed_contributions_mio','federal_funds_total_mio','federal_funds_total_pct_gdp'])finiteArray(obj[key],6,`Invalid long-term statutory series ${key}`);
+            keyYears.forEach((year,i)=>eq(obj.federal_contribution_mio[i]+obj.federal_financed_contributions_mio[i],obj.federal_funds_total_mio[i],tolLtMio,`${obj.scenario} ${year} federal funds identity`));
+          }
+          const div=lt.statutory_scenario_divergence;
+          if(JSON.stringify(div.years)!==JSON.stringify([2030,2040,2050,2060,2070]))fail('Scenario divergence years mismatch');
+          for(let i=1;i<6;i++){
+            eq(nat.total_expenditure_pct_gdp[i]-eu.total_expenditure_pct_gdp[i],div.national_minus_ageing_total_expenditure_pct_points[i-1],tolLtPct,`${keyYears[i]} total expenditure scenario divergence`);
+            eq(nat.federal_funds_total_pct_gdp[i]-eu.federal_funds_total_pct_gdp[i],div.national_minus_ageing_federal_funds_pct_points[i-1],tolLtPct,`${keyYears[i]} federal funds scenario divergence`);
+          }
+
+          const bnat=lt.beamten_national_baseline, beu=lt.beamten_ageing_report_baseline;
+          if(JSON.stringify(bnat.years)!==JSON.stringify(keyYears)||JSON.stringify(beu.years)!==JSON.stringify(keyYears))fail('Beamten long-term key years mismatch');
+          for(const key of ['pension_expenditure_bn_real','pension_expenditure_pct_real_gdp','resting_benefits_bn_real','survivor_benefits_bn_real','employer_health_contribution_bn_real','average_monthly_pension_real_eur'])finiteArray(bnat[key],6,`Invalid beamten national series ${key}`);
+          finiteArray(beu.pension_expenditure_pct_real_gdp,6,'Invalid beamten ageing-report GDP-ratio series');
+          keyYears.forEach((year,i)=>eq(bnat.resting_benefits_bn_real[i]+bnat.survivor_benefits_bn_real[i],bnat.pension_expenditure_bn_real[i],0.11,`${year} beamten benefit identity`));
+          if(!(nat.total_expenditure_pct_gdp[5]>nat.total_expenditure_pct_gdp[0]))fail('National statutory long-term burden should rise from 2023 to 2070 in current baseline');
+          if(!(bnat.pension_expenditure_pct_real_gdp[5]<bnat.pension_expenditure_pct_real_gdp[0]))fail('National beamten burden should fall from 2023 to 2070 in current baseline');
+          if(lt.coverage?.PENS_H_status!=='closed_for_baseline_open_for_full_sensitivity_matrix')fail('PENS-H baseline must be closed while full sensitivity matrix remains open');
+
           if(p.coverage?.PENS_G_ug22_ug23_component_detail_2029_2031!=='open')fail('2029-2031 component detail must remain open');
-          if(p.coverage?.PENS_H_long_term_2031_2070!=='open')fail('Long-term 2031-2070 must remain open');
+          if(p.coverage?.PENS_H_long_term_2031_2070!=='closed_in_separate_longterm_artifact')fail('PENS-H long-term link must be closed in separate artifact');
           if(p.coverage?.PENS_I_reform_transition_costs_and_distribution!=='open')fail('Transition/distribution work must remain open');
 
-          console.log(`Pension contract OK: UG22/UG23 2024-2031 reconcile at federal-budget level; ASK statutory 2024-2030 and ASK beamten 2025-2030 remain separate; planned UG22 cumulative deviation ${cumDev.toFixed(1)}m exceeds comparison threshold ${threshold.toFixed(1)}m without claiming legal trigger activation.`);
+          console.log(`Pension contract OK: medium-term budget/ASK universes reconcile; long-term national and Ageing Report scenarios remain separate; statutory national federal funds reach ${nat.federal_funds_total_pct_gdp[5].toFixed(1)}% GDP in 2070 vs ${eu.federal_funds_total_pct_gdp[5].toFixed(1)}% in Ageing baseline; national beamten burden falls to ${bnat.pension_expenditure_pct_real_gdp[5].toFixed(1)}%.`);
           NODE
