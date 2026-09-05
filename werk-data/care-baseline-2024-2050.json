@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-05-v1",
+  "version":"2026-09-05-v2",
   "title":"WERK Österreich – Pflege- und Betreuungsbaseline 2024–2050",
   "status":"official-multi-universe-care-baseline-normalised",
   "checked_at":"2026-09-05",
@@ -19,20 +19,39 @@
   "service_2024":{
     "national":{
       "gross_expenditure_eur":5744499676,
+      "net_service_expenditure_eur":3589892886,
       "mobile_recipients_annual":140149,
+      "stationary_recipients_annual":96389,
+      "day_care_recipients_annual":10527,
+      "short_term_care_recipients_annual":8721,
+      "alternative_housing_recipients_annual":2975,
+      "case_and_care_management_recipients_annual":150767,
+      "multi_hour_relief_recipients_annual":9967,
       "residential_and_care_places_year_end":85950,
       "fte_total_year_end":53404.9,
       "fte_mobile":13159.4,
       "fte_day_care":688.6,
       "fte_stationary":39324.0,
-      "fte_alternative_housing":232.9
+      "fte_alternative_housing":232.9,
+      "coverage_rate_pct":70.0,
+      "statutory_target_coverage_rate_pct":62.5,
+      "coverage_definition_note":"Versorgungsgrad nach PFG 2024 umfasst definierte Pflege-/Betreuungsangebote, Hospiz-/Palliativangebote und geförderte 24-Stunden-Betreuung im Verhältnis zu Pflegegeldbeziehenden im Jahresdurchschnitt. Er ist nicht aus den einzelnen Jahressummen der Dienstleistungsstatistik rekonstruierbar, weil Doppelzählungen und unterschiedliche Stichtage/Bezugszeiträume bestehen."
     },
-    "expenditure_by_service_eur":{
+    "gross_expenditure_by_service_eur":{
       "mobile":883366521,
       "day_care":57958427,
       "stationary_including_short_term":4744784951,
       "alternative_housing":20654449,
       "case_and_care_management":37735328
+    },
+    "net_expenditure_by_service_eur":{
+      "mobile":615155731,
+      "stationary":2818822233,
+      "day_care":45766648,
+      "short_term_care":35800292,
+      "alternative_housing":14115476,
+      "case_and_care_management":37222607,
+      "multi_hour_relief":23009899
     },
     "states":[
       {"name":"Burgenland","mobile_recipients":5828,"fte_total":1566.0,"fte_mobile":396.1,"fte_day_care":21.6,"fte_stationary":1138.8,"fte_alternative_housing":9.5,"gross_expenditure_eur":166568898},
@@ -45,46 +64,38 @@
       {"name":"Vorarlberg","mobile_recipients":9233,"fte_total":2092.1,"fte_mobile":634.3,"fte_day_care":57.4,"fte_stationary":1346.6,"fte_alternative_housing":53.8,"gross_expenditure_eur":237763825},
       {"name":"Wien","mobile_recipients":28290,"fte_total":12975.0,"fte_mobile":3666.8,"fte_day_care":156.8,"fte_stationary":9148.4,"fte_alternative_housing":3.0,"gross_expenditure_eur":1756768489}
     ],
-    "quality_notes":[
-      "Steiermark mobile recipients include duplicate/multiple counts.",
-      "Vorarlberg mobile recipients represent home nursing and exclude other mobile services.",
-      "Tirol expenditure excludes VAT and depreciation for production/maintenance costs.",
-      "Salzburg reports no publicly financed alternative-housing offer.",
-      "2024 excludes hospice and palliative services from this statistic."
-    ]
+    "quality_notes":["Steiermark mobile recipients include duplicate/multiple counts.","Vorarlberg mobile recipients represent home nursing and exclude other mobile services.","Tirol expenditure excludes VAT and depreciation for production/maintenance costs.","Salzburg reports no publicly financed alternative-housing offer.","2024 excludes hospice and palliative services from this statistic."]
+  },
+  "federal_care_benefits_2024":{
+    "pflegegeld":{"beneficiaries":495769,"expenditure_eur_billion":3.4},
+    "pflege_stipend":{"beneficiaries":11870,"expenditure_mio":124.22},
+    "pflegekarenzgeld":{"beneficiaries":5367,"cash_expenditure_mio":22.2,"insurance_contribution_expenditure_mio":12.6},
+    "self_and_continued_insurance_for_caregivers":{"beneficiaries":16872,"expenditure_mio":124.0},
+    "replacement_care_including_courses":{"beneficiaries":10663,"expenditure_mio":9.5},
+    "caregiver_bonus":{"beneficiaries":15453,"expenditure_mio":21.7},
+    "caregiver_counselling":{"conversations":19160,"caregivers":3061,"expenditure_mio":1.6},
+    "quality_assurance_home_visits":{"visits_total":66620,"visits_successful":48000,"expenditure_mio":5.04},
+    "rule":"Bundesleistungen sind teilweise Geldleistungen an Haushalte und teilweise Sach-/Unterstützungsleistungen. Sie dürfen nicht mit Länder-Sachleistungen zu einer undifferenzierten 'Pflegeausgabe' addiert werden."
   },
   "pflegegeld_2024":{
     "beneficiaries_total_2024_12_31":495769,
-    "by_state_including_abroad":[
-      {"name":"Burgenland","beneficiaries":20756},
-      {"name":"Kärnten","beneficiaries":39619},
-      {"name":"Niederösterreich","beneficiaries":98444},
-      {"name":"Oberösterreich","beneficiaries":72764},
-      {"name":"Salzburg","beneficiaries":27556},
-      {"name":"Steiermark","beneficiaries":84039},
-      {"name":"Tirol","beneficiaries":37687},
-      {"name":"Vorarlberg","beneficiaries":19712},
-      {"name":"Wien","beneficiaries":93679},
-      {"name":"Ausland","beneficiaries":1513}
-    ],
+    "by_state_including_abroad":[{"name":"Burgenland","beneficiaries":20756},{"name":"Kärnten","beneficiaries":39619},{"name":"Niederösterreich","beneficiaries":98444},{"name":"Oberösterreich","beneficiaries":72764},{"name":"Salzburg","beneficiaries":27556},{"name":"Steiermark","beneficiaries":84039},{"name":"Tirol","beneficiaries":37687},{"name":"Vorarlberg","beneficiaries":19712},{"name":"Wien","beneficiaries":93679},{"name":"Ausland","beneficiaries":1513}],
     "decision_body_shares_pct":{"pension_insurance":79,"self_employed_social_insurance":12,"public_service_railway_mining_insurance":9},
     "scope":"Bundespflegegeld ist eine Geldleistung zur teilweisen Deckung pflegebedingter Mehraufwendungen. Nicht mit Sachleistungs-/Dienstleistungsausgaben addieren, ohne Empfänger-/Transferlogik zu berücksichtigen."
   },
   "pflegefonds_2024":{
     "total_eur":1099911393.24,
-    "states":[
-      {"name":"Burgenland","eur":35801214.45},
-      {"name":"Kärnten","eur":69871080.69},
-      {"name":"Niederösterreich","eur":204081035.22},
-      {"name":"Oberösterreich","eur":186861024.54},
-      {"name":"Salzburg","eur":69058206.19},
-      {"name":"Steiermark","eur":156928864.48},
-      {"name":"Tirol","eur":94828654.26},
-      {"name":"Vorarlberg","eur":48195931.47},
-      {"name":"Wien","eur":234285381.94}
-    ],
+    "financing_share_pct":{"federal":66.6667,"states":33.3333},
+    "states":[{"name":"Burgenland","eur":35801214.45},{"name":"Kärnten","eur":69871080.69},{"name":"Niederösterreich","eur":204081035.22},{"name":"Oberösterreich","eur":186861024.54},{"name":"Salzburg","eur":69058206.19},{"name":"Steiermark","eur":156928864.48},{"name":"Tirol","eur":94828654.26},{"name":"Vorarlberg","eur":48195931.47},{"name":"Wien","eur":234285381.94}],
     "period_2024_2028_total_federal_funding_eur_billion":6.034,
-    "rule":"Pflegefondsmittel sind Bundes-Zweckzuschüsse an Länder/Gemeinden und daher innerstaatliche Transfers. Sie dürfen nicht zusätzlich zu konsolidierten öffentlichen Pflegeausgaben gezählt werden."
+    "rule":"Pflegefondsmittel sind Zweckzuschüsse an Länder/Gemeinden und innerstaatliche Transfers. Der Pflegevorsorgebericht warnt ausdrücklich davor, diese Mittel mit den damit mitfinanzierten Pflegedienstleistungen zu summieren."
+  },
+  "shared_financing_2024":{
+    "pflegefonds_mio":1100.0,
+    "pflege_recourse_compensation_federal_mio":300.0,
+    "twenty_four_hour_care_mio":221.9,
+    "hospice_palliative_fund_mio":153.0,
+    "warning":"Diese Werte sind keine addierbare Pflege-Gesamtsumme. Pflegefonds und andere Zweckzuschüsse finanzieren teilweise bereits anderweitig ausgewiesene Leistungen."
   },
   "twenty_four_hour_care_2024":{
     "average_supported_people":22234,
@@ -98,52 +109,17 @@
   },
   "personnel_projection":{
     "model_base":"GÖG 2023; demographic demand plus retirement replacement, no current unmeasured shortage, no non-retirement attrition and no structural-change demand included.",
-    "all_acute_and_long_term_care":{
-      "care_persons_required_stock":{"base":120800,"2030":143200,"2040":163500,"2050":190700},
-      "cumulative_replacement_and_additional_people_needed":{"2030":51100,"2040":119900,"2050":196400},
-      "retirement_replacement_cumulative":{"2030":20600,"2040":57300,"2050":92100},
-      "other_long_term_care_staff_stock":{"base":18200,"2050":36500},
-      "annual_additional_need_range_care_persons":"5000-6600 per year plus about 1200 other care/support persons"
-    },
+    "all_acute_and_long_term_care":{"care_persons_required_stock":{"base":120800,"2030":143200,"2040":163500,"2050":190700},"cumulative_replacement_and_additional_people_needed":{"2030":51100,"2040":119900,"2050":196400},"retirement_replacement_cumulative":{"2030":20600,"2040":57300,"2050":92100},"other_long_term_care_staff_stock":{"base":18200,"2050":36500},"annual_additional_need_range_care_persons":"5000-6600 per year plus about 1200 other care/support persons"},
     "long_term_care_only_additional_care_persons":{"2030":14000,"2050":54000},
     "lower_bound_rule":"These figures are explicit lower bounds because unmeasured current shortages, exits before retirement and structural changes are not included."
   },
   "public_service_cost_projection_constant_2021_prices_mrd":{
     "scope":"Net expenditure of states and municipalities for care services under constant service mix/incidence assumptions; not the same as 2024 gross service expenditure.",
-    "years":[2021,2030,2050],
-    "net_cost":[2.71,4.22,10.70],
-    "average_annual_growth_pct":4.8,
+    "years":[2021,2030,2050],"net_cost":[2.71,4.22,10.70],"average_annual_growth_pct":4.8,
     "model_rule":"2021 care-service utilisation incidence and service mix are held constant; possible under-supply is carried forward rather than corrected.",
     "interpretation":"A mobile-care shift can moderate the cost path, but the source study still finds expansion of stationary capacity necessary."
   },
-  "health_overlap_guard":{
-    "sha_long_term_care_2024_mio":{"total":8299,"public":6298,"private":2001},
-    "service_statistics_gross_2024_mio":5744.5,
-    "rule":"SHA long-term care and Pflegedienstleistungsstatistik use different boundaries. Neither total is the residual of the other; do not add or subtract mechanically."
-  },
-  "accounting_rules":[
-    "Pflegegeld is a cash benefit and is not a service-provider expenditure line.",
-    "Pflegefonds is an intergovernmental transfer and must be consolidated when computing general-government cost.",
-    "24-hour-care funding is outside the Pflegedienstleistungsstatistik and must be tracked separately.",
-    "2024 service-statistics gross expenditure must not be compared one-to-one with the 2021-2050 net-cost projection.",
-    "SHA long-term care is a separate health-accounting scope.",
-    "Staffing projections are needs under model assumptions, not verified vacancies or guaranteed hires.",
-    "A move from stationary to mobile care is not a saving unless equal service quality, capacity, informal-care burden and total public/private cost are jointly tested.",
-    "Cost shifting to relatives or private households is a distribution effect, not a WERK efficiency gain."
-  ],
-  "coverage":{
-    "CARE_A_service_expenditure_2024_national_and_9_states":"closed",
-    "CARE_B_service_fte_2024_national_and_9_states":"closed",
-    "CARE_C_mobile_recipients_2024_national_and_9_states":"closed",
-    "CARE_D_places_2024_national":"closed_state_detail_open",
-    "CARE_E_pflegegeld_2024_state_distribution":"closed",
-    "CARE_F_pflegefonds_2024_state_distribution":"closed",
-    "CARE_G_24h_care_2024_and_2050_projection":"closed",
-    "CARE_H_personnel_need_to_2050":"closed",
-    "CARE_I_public_service_net_cost_projection_to_2050":"closed",
-    "CARE_J_service_recipients_places_hours_by_service_and_state":"open_raw_ods_not_parsed",
-    "CARE_K_2025_service_statistics":"future_release_2026-12-15",
-    "CARE_L_werk_reform_transition_distribution_model":"open",
-    "gap_care_01_status":"partially_closed"
-  }
+  "health_overlap_guard":{"sha_long_term_care_2024_mio":{"total":8299,"public":6298,"private":2001},"service_statistics_gross_2024_mio":5744.5,"rule":"SHA long-term care and Pflegedienstleistungsstatistik use different boundaries. Neither total is the residual of the other; do not add or subtract mechanically."},
+  "accounting_rules":["Pflegegeld is a cash benefit and is not a service-provider expenditure line.","Pflegefonds is an intergovernmental transfer and must be consolidated when computing general-government cost.","24-hour-care funding is outside the Pflegedienstleistungsstatistik and must be tracked separately.","2024 service-statistics gross expenditure must not be compared one-to-one with the 2021-2050 net-cost projection.","SHA long-term care is a separate health-accounting scope.","Staffing projections are needs under model assumptions, not verified vacancies or guaranteed hires.","A move from stationary to mobile care is not a saving unless equal service quality, capacity, informal-care burden and total public/private cost are jointly tested.","Cost shifting to relatives or private households is a distribution effect, not a WERK efficiency gain."],
+  "coverage":{"CARE_A_service_expenditure_2024_national_and_9_states":"closed","CARE_B_service_fte_2024_national_and_9_states":"closed","CARE_C_mobile_recipients_2024_national_and_9_states":"closed","CARE_D_places_2024_national":"closed_state_detail_open","CARE_E_pflegegeld_2024_state_distribution":"closed","CARE_F_pflegefonds_2024_state_distribution":"closed","CARE_G_24h_care_2024_and_2050_projection":"closed","CARE_H_personnel_need_to_2050":"closed","CARE_I_public_service_net_cost_projection_to_2050":"closed","CARE_J_service_recipients_places_hours_by_service_and_state":"open_raw_ods_not_parsed","CARE_K_2025_service_statistics":"future_release_2026-12-15","CARE_L_werk_reform_transition_distribution_model":"open","CARE_M_national_2024_service_recipients_and_net_costs":"closed","CARE_N_national_coverage_rate_2024":"closed","CARE_O_federal_care_benefits_2024":"closed","gap_care_01_status":"partially_closed"}
 }
