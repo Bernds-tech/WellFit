@@ -1,7 +1,7 @@
 {
-  "version":"2026-09-05-v23",
-  "current_preview":"V71 – 12 Leitfelder mit 41/41-Analyseabdeckung, responsive Härtung und aktualisiertem BUD-01-Referenzpfad auf der bestehenden IDEENWERK-Staging-Runtime",
-  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb, Programmstruktur und Fiskalbaseline weiter vervollständigt und noch nicht öffentlich produktiv freigegeben",
+  "version":"2026-09-05-v24",
+  "current_preview":"V71 – 12 Leitfelder mit 41/41-Abdeckung, amtlicher BUD-01-Baseline, kanonischer Regierungsbaseline und getrennten Frontend-/Fiscal-Data-Contracts",
+  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb, Programm- und Fiskalarchitektur deutlich fortgeschritten, noch nicht öffentlich produktiv freigegeben",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced-8-binding-pillars-separated-from-12-policy-fields","estimate_pct":97},
     {"id":"architecture","name":"Website-Architektur","status":"v71-program-overview-with-v70-rollback","estimate_pct":99},
@@ -15,13 +15,15 @@
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
     {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":67},
-    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"gap-fisc-01-closed-official-2026-2031-baseline-ci-validated","estimate_pct":89},
-    {"id":"data-closure","name":"BUD-01 Datenlückenabschluss","status":"gap-fisc-01-closed-gap-fisc-02-partial","estimate_pct":54},
+    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"official-2026-2031-baseline-government-baseline-and-data-contracts","estimate_pct":92},
+    {"id":"government-baseline","name":"Regierungsmaßnahmen-/Doppelzählungsbaseline","status":"aggregates-2025-2031-old-detail-2025-2029-new-detail-2026-2031","estimate_pct":88},
+    {"id":"subsidy-baseline","name":"Förderbaseline / SUB-01 Normalisierung","status":"bhg-esvg-tdb-architecture-ready-program-extraction-open","estimate_pct":58},
+    {"id":"data-closure","name":"BUD-01 Datenlückenabschluss","status":"fisc-01-closed-base-and-sub-partial","estimate_pct":64},
     {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":97},
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"v71-responsive-hardening-manual-acceptance-open","estimate_pct":92},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v71-manifest-policy-and-budget-contracts","estimate_pct":99},
+    {"id":"integrity","name":"Technische Daten-/Preview-Integrität","status":"frontend-and-fiscal-data-contracts-plus-current-manifest","estimate_pct":99},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
     {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":89}
   ],
@@ -32,10 +34,18 @@
     "policy_analysis_domain_coverage_count":41,
     "binding_pillar_count":8,
     "closed_priority_data_gaps":["GAP-FISC-01"],
-    "partially_closed_priority_data_gaps":["GAP-FISC-02"],
-    "core_modules":["12 Leitfelder / 41 Analysebereiche","BUD-01 Referenzpfad","WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":["werk-v71.html","werk-assets/site-v71.css","werk-assets/site-v71.js","werk-assets/site-v71-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
-    "fiscal_model":["werk-data/budget-baseline-2026-2031.json","werk-data/medium-term-fiscal-path.json","werk-data/analysis-data-closure-register.json","werk-assets/site-fiscal-model.js"],
+    "partially_closed_priority_data_gaps":["GAP-FISC-02","GAP-BASE-01","GAP-SUB-01"],
+    "baseline_artifacts":[
+      "werk-data/budget-baseline-2026-2031.json",
+      "werk-data/medium-term-fiscal-path.json",
+      "werk-data/government-baseline-2025-2031.json",
+      "werk-data/government-package-2025-2029.json",
+      "werk-data/government-new-measures-2026-2031.json",
+      "werk-data/subsidy-baseline-architecture.json",
+      "werk-data/analysis-data-closure-register.json"
+    ],
+    "ci_contracts":[".github/workflows/werk-frontend-check.yml",".github/workflows/werk-fiscal-data-check.yml"],
+    "core_modules":["12 Leitfelder / 41 Analysebereiche","BUD-01 Referenzpfad","Regierungsbaseline","SUB-01 Förderbaseline","WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
     "measured_quality":[
       "No-Login Edge: Submit 201; privater Status 200; falscher Token 403; idempotenter Replay 200 ohne Token-Neuausgabe",
       "Worker E2E: 5/5 Jobs, 0 Fehler; received -> structured -> cluster_review -> precheck",
@@ -45,7 +55,11 @@
       "CORS: raw.githack.com HTTP 200 + Allow-Origin; fremder Origin HTTP 403",
       "100k DB-Test: 100.000 Kandidaten -> 100.000 Review-Tasks; 0 Restdaten",
       "Programmarchitektur: 12/12 Leitfelder und 41/41 Master-Sachbereiche ohne Doppelzuordnung",
-      "BUD-01 Baseline: 2026–2031 vollständig; Saldo-, Sektoren- und Schuldenquoten-Identitäten per Frontend-CI geprüft"
+      "BUD-01: amtlicher 2026–2031-Referenzpfad mit Saldo-/Sektoren-/Schuldenquoten-Identitäten",
+      "Regierungsbaseline: Gesamtpaket 2025–2031 und Teilsektoren reconciliert",
+      "Ursprüngliches 2025-Paket: veröffentlichter Detailhorizont 2025–2029 vollständig normalisiert",
+      "Neue Maßnahmen: Budgetdienst Tabellen 11/12 vollständig auf 2026–2031 normalisiert",
+      "SUB-01: BHG/ESVG/TDB-Begriffe und Doppelzählungsregeln strukturell getrennt"
     ]
   },
   "blocking_items_for_public_release":[
@@ -55,26 +69,23 @@
     "progressive Bot-Challenge/WAF sowie Status-Token-Threat-Model/Penetrationstest abschließen",
     "OIDC/MFA/RBAC für Operatoren produktiv anbinden",
     "Privacy-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen und Fristen finalisieren",
-    "GAP-FISC-02 mit getrennten Länder-/Gemeinde-Pfaden soweit amtlich verfügbar weiter schließen",
+    "GAP-FISC-02 soweit amtlich möglich weiter schließen",
+    "GAP-BASE-01: Rechts-/Wirksamkeitsstatus und effective dates vervollständigen",
+    "GAP-SUB-01: Bundesförderungs-/ESVG-/TDB-Rohdaten programmweise normalisieren",
     "prioritäre Reform-Nettoeffekte verifizieren und Finanzierungslücke schließen",
     "zweite Länder-Auditstufe, WERK-VOTE-Verfassungsvarianten, Statuten/Partnervertrag und Betreiberangaben abschließen",
     "V71 manuell auf Mobilgerät, Tastatur und Screenreader abnehmen"
   ],
   "method_rules":[
-    "Die 8 verbindlichen WERK-Säulen bilden den Grundkodex; die 12 Leitfelder strukturieren das vollständige politische Programm und dürfen nicht miteinander verwechselt werden",
-    "Alle 12 Leitfelder werden im Programmüberblick sichtbar gehalten; alle 41 Master-Analysebereiche müssen genau einmal strukturell zugeordnet sein",
-    "Der BMF-Referenzpfad 2026–2031 ist die aktuelle beschlusskonforme BUD-01-Ausgangslage und keine WERK-Prognose",
-    "Bereits im amtlichen Referenzpfad enthaltene Regierungsmaßnahmen dürfen nicht nochmals als WERK-Effekt gebucht werden",
-    "Die erste BUD-01-Gesamtrechnung bleibt gesperrt, solange zentrale Teilsektor-/Dauereffekt-/Transformationskosten- und Doppelzählungsgates offen sind",
-    "Ideen dürfen ohne Login eingebracht werden; Status-ID und geheimer Wiederaufruf-Code bleiben getrennt",
-    "Status-Token wird serverseitig nur gehasht und nie in URLs eingebettet",
-    "PII stoppt vor Strukturierung und Clustering",
-    "Near-Duplicate-Autobündelung bleibt auf gleichen Region-/Thema-Scope beschränkt",
-    "Originalideen bleiben bei Clustering erhalten",
-    "semantische Kandidaten benötigen menschliche Review-Tasks",
-    "100k-DB-Test ist kein vollständiger 100k-API-/Worker-Test",
-    "politisch unbequem oder WERK-kritisch ist kein Moderationsgrund",
-    "technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe"
+    "8 verbindliche WERK-Säulen sind Grundkodex; 12 Leitfelder strukturieren das vollständige Programm.",
+    "Alle 41 Master-Analysebereiche müssen genau einmal strukturell zugeordnet sein.",
+    "Amtlicher BUD-01-Referenzpfad ist Baseline, keine WERK-Prognose.",
+    "Bereits beschlossene oder im Referenzpfad angenommene Regierungsmaßnahmen werden nie nochmals als WERK-Effekt gebucht.",
+    "Ursprüngliches 2025-Paket, seine spätere Aktualisierung und neue Maßnahmen seit Juni 2025 sind unterschiedliche Scopes; nur die kanonische Baseline darf für Endrechnungen verwendet werden.",
+    "Unveröffentlichte 2030/2031-Einzelzeilen des alten Pakets werden nicht aus 2029-Anteilen extrapoliert.",
+    "Fördervolumen ist kein Einsparpotenzial; BHG, ESVG, EU/RRF und Transparenzdatenbank werden zuerst reconciliert.",
+    "Die erste BUD-01-Gesamtrechnung bleibt gesperrt, solange zentrale Teilsektor-, Baseline-, Dauereffekt-, Transformationskosten-, Verteilungs- und Stressgates offen sind.",
+    "Technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe."
   ],
-  "note":"V71 trennt den 8-Säulen-Grundkodex sauber von 12 politischen Leitfeldern und deckt über diese 12 Felder alle 41 Master-Analysebereiche eindeutig ab. GAP-FISC-01 wurde am 05.09.2026 mit dem beschlusskonformen BMF-Referenzpfad 2026–2031 geschlossen; die bestehende Saldo-Brücke ist synchronisiert und der Referenzpfad wird rechnerisch im Frontend-CI geprüft. GAP-FISC-02 bleibt wegen fehlender separater Länder-/Gemeinde-Prognoseserie bis 2031 teilweise offen."
+  "note":"Am 05.09.2026 wurde aus dem bisherigen Fiskalmodell eine belastbarere Baseline-Architektur: BUD-01-Referenzpfad 2026–2031, kanonische Regierungsbaseline 2025–2031, vollständiger veröffentlichter Detailhorizont des ursprünglichen Pakets 2025–2029, vollständige neue Maßnahmenmatrix 2026–2031 sowie SUB-01-Normalisierungsarchitektur. Frontend- und Fiskaldaten werden in getrennten CI-Verträgen geprüft. Die Endrechnung bleibt bewusst gesperrt, bis die offenen Wirkungs- und Rechtsgates geschlossen sind."
 }
