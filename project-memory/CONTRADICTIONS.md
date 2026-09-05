@@ -90,4 +90,19 @@ Statuses: `OPEN`, `RECONCILIATION_REQUIRED`, `RESOLVED`, `SUPERSEDED`.
 - Evidence: owner validation 2026-08-28; PR #388 closed unmerged as superseded; WF-LOOP-005.
 - Falsification question: only a preview of the exact `wellfit-bewegt` Site showing clearly visible head/body pointer tracking and control targeting without regression can resolve this contradiction.
 
+## CTR-WFG-007
+- Date: 2026-09-06
+- Updated: 2026-09-06
+- Related task/change: WFG-RUDI-WORLD-001 / Project Memory reconciliation
+- Risk: R2
+- Source A: `CURRENT_STATE.md` after the Rudi coordination/site-sync merges
+- Claim A: WellFit `main` was still `649a3b647dd6162f402663f2d84b8ca201f45400`.
+- Source B: live GitHub branch metadata and merged PRs #29-#31.
+- Claim B: current WellFit `main` is `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; PR #29 merged the Rudi graphical coordination, PR #30 merged `RUDI_SITE_SYNC_MANIFEST.json`, and PR #31 finalized the Site-specific handoff.
+- Stronger/current evidence: live GitHub `main` branch API plus immutable merge commits.
+- Status: RESOLVED
+- Resolution/action: `CURRENT_STATE.md` is reconciled to the real main SHA and now records PRs #29-#31 plus the exact Site-transfer manifest. No runtime or public Site change is implied by this memory correction.
+- Evidence: WellFit main `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b`; `project-memory/RUDI_SITE_SYNC_MANIFEST.json`.
+- Falsification question: a newer WellFit main or a newer accepted Site-sync source would supersede these exact revision references and require a new reconciliation.
+
 Never resolve a contradiction by deleting the older record. Preserve the stale claim and record why it was superseded.
