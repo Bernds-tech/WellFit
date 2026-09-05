@@ -1,8 +1,9 @@
 import fs from 'node:fs';
 
 const d=JSON.parse(fs.readFileSync('werk-data/labour-productivity-baseline-2025-2026.json','utf8'));
-const fail=m=>{throw new Error(m)};
-const near=(a,b,t,m)=>{if(Math.abs(a-b)>t)fail(`${m}: ${a} != ${b}`)};
+const m=JSON.parse(fs.readFileSync('werk-data/labour-matching-baseline-2025-2026.json','utf8'));
+const fail=x=>{throw new Error(x)};
+const near=(a,b,t,msg)=>{if(Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
 
 if(d.status!=='official_actuals_plus_separately_labeled_forecast') fail('Unexpected labour baseline status');
 if(!Array.isArray(d.concept_guardrails)||d.concept_guardrails.length<6) fail('Concept guardrails incomplete');
@@ -42,4 +43,39 @@ for(const s of src){if(!s.id||ids.has(s.id))fail(`Duplicate/missing source id ${
 for(const id of ['STAT-LAB-ILO-Q2-2026','AMS-LAB-AUG-2026','STAT-VAC-Q2-2026','STAT-LAB-COST','STAT-GDP-Q2-2026','PROD-REPORT-2025','OENB-FORECAST-JUN-2026']) if(!ids.has(id))fail(`Required source missing ${id}`);
 if(!Array.isArray(d.open_gates)||d.open_gates.length<5)fail('Open labour gates must remain visible');
 
-console.log('WERK labour/productivity baseline OK: ILO/AMS scopes separated; vacancy and part-time identities reconcile; forecast remains non-actual; open matching/productivity gates visible.');
+if(m.status!=='partial_matching_baseline_no_reform_effect_yet')fail('Unexpected matching baseline status');
+const matchGuard=(m.rules||[]).join(' ').toLowerCase();
+for(const term of ['kein matching-score','ams-gemeldete offene stellen','arbeitszeit','gesundheitliche']) if(!matchGuard.includes(term))fail(`Matching guard missing ${term}`);
+const nat=m.national_demand_profile_2025;
+if(!nat)fail('National demand profile 2025 missing');
+near(nat.vacancies_annual_average,(nat.sector_counts?.trade_and_services||0)+(nat.sector_counts?.production||0)+(nat.sector_counts?.public_and_social||0),0.1,'2025 vacancy sector identity');
+if(!String(nat.minimum_education_share_pct?.note||'').includes('nicht als additive 100-%-Zerlegung'))fail('Education-share non-additivity guard missing');
+const current=m.current_demand_direction_q2_2026;
+near(current.vacancies,d.actuals.vacancies_q2_2026.vacancies_persons,0.1,'Q2 vacancies mismatch between labour and matching baselines');
+near(current.vacancy_rate_pct,d.actuals.vacancies_q2_2026.vacancy_rate_pct,0.001,'Q2 vacancy-rate mismatch');
+
+const regions=m.regional_ams_snapshots_august_2026||[];
+if(regions.length!==9)fail(`Expected 9 regional snapshots, got ${regions.length}`);
+const regionNames=new Set(regions.map(r=>r.region));
+if(regionNames.size!==9)fail('Regional snapshot names not unique');
+let comparable=0;const ratios=[];
+for(const r of regions){
+  if(r.registered_unemployed!=null&&r.registered_vacancies!=null){
+    comparable++;
+    const calc=r.registered_unemployed/r.registered_vacancies;
+    near(r.derived_unemployed_per_registered_vacancy,calc,0.01,`${r.region} unemployment/vacancy ratio`);
+    ratios.push({region:r.region,value:r.derived_unemployed_per_registered_vacancy});
+  } else if(r.derived_unemployed_per_registered_vacancy!=null) fail(`${r.region}: ratio must be null when stock input is missing`);
+}
+if(comparable!==m.derived_regional_diagnostics?.regions_with_comparable_unemployment_and_vacancy_stock)fail('Comparable-region count mismatch');
+ratios.sort((x,y)=>x.value-y.value);
+if(ratios[0].region!==m.derived_regional_diagnostics.lowest_unemployed_per_registered_vacancy.region)fail('Lowest regional ratio mismatch');
+if(ratios.at(-1).region!==m.derived_regional_diagnostics.highest_unemployed_per_registered_vacancy.region)fail('Highest regional ratio mismatch');
+if(!String(m.derived_regional_diagnostics?.warning||'').toLowerCase().includes('sagen nichts darüber aus'))fail('Regional-ratio warning missing');
+
+const dims=new Set((m.matching_dimensions||[]).map(x=>x.id));
+for(const id of ['MATCH-OCC','MATCH-EDU','MATCH-REG','MATCH-TIME','MATCH-HEALTH','MATCH-WAGE','MATCH-SKILL'])if(!dims.has(id))fail(`Matching dimension missing ${id}`);
+if(m.werk_reform_gate?.status!=='blocked')fail('Labour reform gate must remain blocked until priority matching matrix exists');
+if(!m.werk_reform_gate?.next_artifact)fail('Next matching artifact not declared');
+
+console.log(`WERK labour/productivity contract OK: ILO/AMS scopes separated; vacancy/part-time identities reconcile; 9 regional matching snapshots, ${comparable} comparable AMS stock ratios; reform gate remains blocked pending priority-group matching.`);
