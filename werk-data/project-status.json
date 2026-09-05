@@ -1,10 +1,11 @@
 {
-  "version":"2026-09-03-v21",
-  "current_preview":"V70 – IDEENWERK Staging live mit No-Login Edge API, automatischem Minutenworker und realen DB-/Security-/100k-Messungen",
-  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb und noch nicht öffentlich produktiv freigegeben",
+  "version":"2026-09-05-v22",
+  "current_preview":"V71 – vollständige 12-Leitfelder-Programmansicht und responsive Layout-Härtung auf der bestehenden V70 IDEENWERK-Staging-Runtime",
+  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb, Programmstruktur weiter vervollständigt und noch nicht öffentlich produktiv freigegeben",
   "components":[
-    {"id":"brand","name":"Marke & Leitbild","status":"advanced","estimate_pct":97},
-    {"id":"architecture","name":"Website-Architektur","status":"v70-staging-live-with-v69-rollback","estimate_pct":99},
+    {"id":"brand","name":"Marke & Leitbild","status":"advanced-8-binding-pillars-separated-from-12-policy-fields","estimate_pct":97},
+    {"id":"architecture","name":"Website-Architektur","status":"v71-program-overview-with-v70-rollback","estimate_pct":99},
+    {"id":"program-overview","name":"Politische Gesamtprogramm-Übersicht","status":"12-of-12-policy-fields-visible","estimate_pct":98},
     {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login Intake/Status, Edge API, DB-Worker, Cluster-/Review-Architektur","status":"staging-active-end-to-end-pass","estimate_pct":98},
     {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"db-100k-worker-e2e-and-goldset-measured","estimate_pct":94},
     {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"token-hash-and-pii-hold-runtime-pass-legal-open","estimate_pct":90},
@@ -18,15 +19,17 @@
     {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":97},
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
-    {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"prototype-reviewed","estimate_pct":90},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v70-critical-files-and-runtime-evidence","estimate_pct":99},
+    {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"v71-responsive-hardening-manual-acceptance-open","estimate_pct":92},
+    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v71-current-manifest-required-paths","estimate_pct":99},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
-    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":88}
+    {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":89}
   ],
   "register":{
     "reform_count":14,
-    "core_modules":["WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":["werk-v70.html","werk-assets/site-v70-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
+    "policy_field_count":12,
+    "binding_pillar_count":8,
+    "core_modules":["12 Leitfelder","WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
+    "ideas_model":["werk-v71.html","werk-assets/site-v71.css","werk-assets/site-v71.js","werk-assets/site-v70-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
     "measured_quality":[
       "No-Login Edge: Submit 201; privater Status 200; falscher Token 403; idempotenter Replay 200 ohne Token-Neuausgabe",
       "Worker E2E: 5/5 Jobs, 0 Fehler; received -> structured -> cluster_review -> precheck",
@@ -46,9 +49,11 @@
     "Privacy-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen und Fristen finalisieren",
     "prioritäre Reform-Nettoeffekte verifizieren und Finanzierungslücke schließen",
     "zweite Länder-Auditstufe, WERK-VOTE-Verfassungsvarianten, Statuten/Partnervertrag und Betreiberangaben abschließen",
-    "manuelle mobile, Tastatur- und Screenreader-Abnahme durchführen"
+    "V71 manuell auf Mobilgerät, Tastatur und Screenreader abnehmen"
   ],
   "method_rules":[
+    "Die 8 verbindlichen WERK-Säulen bilden den Grundkodex; die 12 Leitfelder strukturieren das vollständige politische Programm und dürfen nicht miteinander verwechselt werden",
+    "Alle 12 Leitfelder werden im Programmüberblick sichtbar gehalten; kein Leitfeld wird aus Platzgründen ausgeblendet",
     "Ideen dürfen ohne Login eingebracht werden; Status-ID und geheimer Wiederaufruf-Code bleiben getrennt",
     "Status-Token wird serverseitig nur gehasht und nie in URLs eingebettet",
     "PII stoppt vor Strukturierung und Clustering",
@@ -59,5 +64,5 @@
     "politisch unbequem oder WERK-kritisch ist kein Moderationsgrund",
     "technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe"
   ],
-  "note":"V70 hat jetzt eine real laufende No-Login Edge API plus automatischen pg_cron-Worker. Submit/Status/Idempotenz, Worker-Hauptpfad, Duplikatcluster, PII-Hold, CORS und Cron wurden auf WERK Staging tatsächlich geprüft."
+  "note":"V71 behebt die konzeptionelle Vermischung von Kern und Programm: 8 verbindliche Säulen bleiben der gemeinsame Grundkodex; 12 politische Leitfelder sind nun vollständig als eigene Programmübersicht sichtbar. Zusätzlich wurden responsive Layoutregeln gehärtet und der technische Selbsttest vom veralteten V69-Manifest auf das aktuelle Preview-Manifest umgestellt."
 }
