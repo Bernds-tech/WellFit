@@ -1,0 +1,73 @@
+name: WERK Subsidy Data Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/subsidy-baseline-architecture.json'
+      - 'werk-data/subsidy-esvg-benchmark-2024.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-subsidy-data-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  subsidy-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate subsidy universes and 2024 benchmark
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail=m=>{throw new Error(m)};
+          const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
+          const arch=read('werk-data/subsidy-baseline-architecture.json');
+          const b=read('werk-data/subsidy-esvg-benchmark-2024.json');
+          const gaps=read('werk-data/analysis-data-closure-register.json');
+
+          const tol=Number(b.validation?.rounding_tolerance_mio??0.25)+1e-9;
+          eq(b.bhg_direct_federal_mio.direct_federal_section_30_5a+b.bhg_direct_federal_mio.on_behalf_external_entities_section_30_5b,b.bhg_direct_federal_mio.total_federal_funding_outflows,tol,'BHG 30(5a)+30(5b) total');
+
+          const s=b.esvg_2024_mio.sectors;
+          for(const [name,row] of Object.entries(s)){
+            if(!Array.isArray(row)||row.length!==4||row.some(x=>!Number.isFinite(x)))fail(`Invalid ESVG row ${name}`);
+            eq(row[0]+row[1]+row[2],row[3],tol,`${name} D3+D9+D7 total`);
+          }
+          const sectorSum=['federal','states_excluding_vienna','municipalities_including_vienna','social_security'].reduce((sum,k)=>sum+s[k][3],0);
+          eq(sectorSum,s.general_government[3],tol,'General-government sector total');
+          eq(s.general_government[0]+s.general_government[1],b.esvg_2024_mio.D3_D9_total_mio,tol,'General-government D3+D9');
+          eq(s.general_government[2],b.esvg_2024_mio.D7_total_mio,tol,'General-government D7');
+
+          if(b.bhg_direct_federal_mio.total_federal_funding_outflows===s.general_government[3])fail('BHG and ESVG universes must not be represented as identical');
+          if(!Array.isArray(b.accounting_rules)||b.accounting_rules.length<6)fail('Subsidy accounting rules incomplete');
+          for(const required of ['RECON-EU-CONTRIBUTION','RECON-PREMIUMS-REFUNDS','RECON-GSBG','RECON-CLIMATE-BONUS','RECON-OTHER-FEDERAL-ENTITIES','RECON-EU-PASS-THROUGH']){
+            if(!(b.bhg_esvg_reconciliation_components_2024_mio||[]).some(x=>x.id===required))fail(`Missing reconciliation component ${required}`);
+          }
+
+          const prohibited=(arch.prohibited_shortcuts||[]).join(' ');
+          for(const token of ['7,7','ESVG','EU-Durchlauf','doppelt','Regierungseinsparungen']){
+            if(!prohibited.includes(token))fail(`SUB-01 prohibited-shortcut guard missing token ${token}`);
+          }
+          if(arch.extraction_status?.gap_sub_01_status!=='partially_closed')fail('SUB-01 must remain partially closed');
+          if(b.coverage?.SUB_E_esvg_2024_benchmark!=='closed')fail('2024 ESVG benchmark should be closed');
+          if(b.coverage?.SUB_D_program_level_current_csv!=='open')fail('Current program-level CSV must remain open until raw rows are parsed');
+          if(b.coverage?.SUB_E_esvg_2025_2031_series!=='open')fail('2025/2031 ESVG series must remain open until raw rows are parsed');
+
+          const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-SUB-01');
+          if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-SUB-01 must remain partial');
+          console.log(`Subsidy contract OK: BHG ${b.bhg_direct_federal_mio.total_federal_funding_outflows.toFixed(1)}m and ESVG ${s.general_government[3].toFixed(1)}m remain separate; four sectors and D3/D9/D7 reconcile within rounding tolerance.`);
+          NODE
