@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-05-v2",
+  "version": "2026-09-05-v3",
   "brand": "WERK Österreich",
   "tagline": "Erst rechnen. Dann entscheiden.",
   "goal": "Ein schuldenfreies, sicheres, faires und gleichberechtigtes Österreich mit starken Regionen und verbindlicher Verantwortung.",
@@ -17,77 +17,83 @@
   "policy_fields": [
     {
       "id": 1,
-      "name": "Finanzen & Schulden",
-      "summary": "Budget strukturell ausgleichen, dauerhafte Nettoeffekte rechnen und danach Schulden verlässlich abbauen.",
+      "name": "Finanzen, Budget & Schulden",
+      "summary": "Haushalt strukturell ausgleichen, Risiken offenlegen, dauerhafte Nettoeffekte rechnen und danach Schulden verlässlich abbauen.",
       "track": "BUD / DEBT"
     },
     {
       "id": 2,
-      "name": "Wirtschaft & Arbeit",
-      "summary": "Produktivität, Beschäftigung, Unternehmertum und wettbewerbsfähige Rahmenbedingungen gemeinsam betrachten.",
-      "track": "Wirtschaft / Arbeit"
+      "name": "Steuern, Abgaben & Verteilung",
+      "summary": "Aufkommen, Förderungen, Haushaltsbelastung und Verteilungswirkung vor jeder dauerhaften Änderung gemeinsam prüfen.",
+      "track": "TAX / Transfers"
     },
     {
       "id": 3,
-      "name": "Steuern & Abgaben",
-      "summary": "Aufkommen, Verteilung, Standortwirkung und Vollzug vor jeder dauerhaften Änderung transparent rechnen.",
-      "track": "TAX"
+      "name": "Wirtschaft, Arbeit & Standort",
+      "summary": "Produktivität, Beschäftigung, Fachkräfte, Unternehmertum und wettbewerbsfähige Rahmenbedingungen als Gesamtsystem entwickeln.",
+      "track": "Wirtschaft / Arbeit"
     },
     {
       "id": 4,
-      "name": "Staat & Verwaltung",
-      "summary": "Zuständigkeiten vereinfachen, Verfahren digitalisieren und Personalpfade ohne pauschale Kahlschläge planen.",
-      "track": "ADM / Staat"
+      "name": "Staat, Verwaltung & öffentliche Vermögen",
+      "summary": "Aufgaben, Verfahren, Beschaffung, Beteiligungen und staatliche Vermögen nach Wirkung, Verantwortung und Kosten steuern.",
+      "track": "ADM / State ROI"
     },
     {
       "id": 5,
-      "name": "Bildung & Forschung",
-      "summary": "Kompetenzen, Chancen, Forschung und Innovation auf messbare Wirkung und langfristige Leistungsfähigkeit ausrichten.",
+      "name": "Bildung, Forschung & Innovation",
+      "summary": "Kompetenzen, Chancen, Forschung, Start-ups und Innovation auf langfristige Leistungsfähigkeit und messbare Wirkung ausrichten.",
       "track": "Bildung / Innovation"
     },
     {
       "id": 6,
-      "name": "Gesundheit & Pflege",
-      "summary": "Versorgung, Personal, Finanzierung und Prävention über Bund, Länder und Sozialversicherung zusammenführen.",
-      "track": "Gesundheit / Pflege"
+      "name": "Gesundheit, Pflege & soziale Sicherheit",
+      "summary": "Versorgung, Pflege, Pensionen und soziale Absicherung finanzierbar, zugänglich und generationengerecht weiterentwickeln.",
+      "track": "Gesundheit / Soziales"
     },
     {
       "id": 7,
-      "name": "Soziales, Familie, Pensionen & Integration",
-      "summary": "Soziale Sicherheit, Generationengerechtigkeit, Familienpolitik und Integration finanzierbar und fair gestalten.",
-      "track": "Soziales / Pensionen"
+      "name": "Familie, Generationen, Migration & Integration",
+      "summary": "Demografie, Familienrealität, Migration, Asyl und Integration mit Rechten, Pflichten, Finanzierung und gesellschaftlicher Wirkung verbinden.",
+      "track": "Demografie / Integration"
     },
     {
       "id": 8,
-      "name": "Wohnen & Bauen",
-      "summary": "Leistbares Wohnen, Baurecht, Flächen, Genehmigungen und Sanierung als zusammenhängendes System behandeln.",
-      "track": "Wohnen / Bauen"
+      "name": "Wohnen, Regionen, Gemeinden & Landwirtschaft",
+      "summary": "Wohnen, Raumordnung, Finanzausgleich, ländliche Räume, Gemeinden und Landwirtschaft möglichst nahe an den Menschen gestalten.",
+      "track": "REG / Wohnen"
     },
     {
       "id": 9,
-      "name": "Sicherheit, Justiz & Rechtsstaat",
-      "summary": "Grundrechte, handlungsfähige Sicherheitsbehörden, unabhängige Justiz und verlässliche Verfahren gemeinsam sichern.",
-      "track": "Sicherheit / Justiz"
+      "name": "Sicherheit, Justiz, Rechtsstaat & Resilienz",
+      "summary": "Grundrechte, unabhängige Justiz, innere Sicherheit, Landesverteidigung, Zivilschutz und Krisenfestigkeit gemeinsam sichern.",
+      "track": "Sicherheit / Resilienz"
     },
     {
       "id": 10,
-      "name": "Energie, Klima & Infrastruktur",
-      "summary": "Versorgungssicherheit, Netze, Verkehr, Klima- und Umweltwirkung mit Kosten und Systemrisiken gemeinsam rechnen.",
+      "name": "Energie, Klima, Verkehr & Infrastruktur",
+      "summary": "Versorgungssicherheit, Netze, Mobilität, Infrastruktur, Klima- und Umweltwirkung mit Kosten und Systemrisiken gemeinsam rechnen.",
       "track": "Energie / Infrastruktur"
     },
     {
       "id": 11,
-      "name": "Regionen, Gemeinden & Landwirtschaft",
-      "summary": "Entscheidungen möglichst nahe an den Menschen treffen und Finanzierung, Daseinsvorsorge sowie ländliche Räume mitdenken.",
-      "track": "REG / Gemeinden"
+      "name": "Demokratie, Transparenz & Digitalstaat",
+      "summary": "Bürgerbeteiligung, offene Entscheidungsakten, Antikorruption, Daten, KI und digitale Verwaltung rechtsstaatlich und nachvollziehbar verbinden.",
+      "track": "DIR / Digitalstaat"
     },
     {
       "id": 12,
-      "name": "Demokratie, Transparenz & Bürgerbeteiligung",
-      "summary": "Entscheidungsakten, offene Quellen, nachvollziehbare Verantwortung und rechtssichere Bürgerbeteiligung verbinden.",
-      "track": "DIR / Transparenz"
+      "name": "Europa, Tourismus, Kultur & Medien",
+      "summary": "EU-Regeln und -Mittel, Tourismus, Kultur und Medien mit österreichischen Interessen, regionaler Wertschöpfung und Transparenz verknüpfen.",
+      "track": "EU / Kultur / Tourismus"
     }
   ],
+  "policy_field_coverage": {
+    "source": "policy-field-map.json",
+    "master_source": "austria-analysis-master.json",
+    "target_domains": 41,
+    "rule": "Jeder Master-Sachbereich muss genau einem der 12 Programm-Leitfelder zugeordnet sein."
+  },
   "decision_model": ["Problem offenlegen", "Optionen rechnen", "Recht und Zuständigkeit prüfen", "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig", "Umsetzen", "KPI messen", "Review"],
   "regional_rule": "Gemeinsam, was gemeinsam sein muss. Regional, was regional besser entschieden wird.",
   "finance_rule": "Wer entscheidet, soll möglichst auch die Finanzierung verantworten.",
