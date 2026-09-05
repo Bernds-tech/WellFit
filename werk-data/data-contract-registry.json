@@ -1,18 +1,95 @@
 {
-  "version": "2026-09-05-v4",
+  "version": "2026-09-05-v5",
   "title": "WERK Österreich – Data Contract Registry",
   "purpose": "Zentrale maschinenlesbare Registry aller kanonischen Datenbaselines und ihrer unabhängigen CI-Verträge. Ein Datenblock gilt nur dann als belastbar, wenn Artefakt, Workflow, Scope-Abgrenzung und offene Gates explizit registriert sind.",
   "checked_at": "2026-09-05",
-  "rules": ["Jeder Contract besitzt eine eindeutige ID, mindestens ein kanonisches Datenartefakt und genau einen primären Workflow.","Geschlossene Gates dürfen nur in der Registry stehen, wenn sie vom jeweiligen Datenartefakt als geschlossen ausgewiesen und vom Workflow geprüft werden.","Offene Gates bleiben explizit sichtbar und dürfen nicht durch Aggregation oder Schätzung verschwinden.","Datenuniversen mit unterschiedlichen Rechnungslegungs-, institutionellen oder zeitlichen Abgrenzungen werden nicht stillschweigend addiert.","Frontend-Integrität ist kein Ersatz für fachliche Datenverträge.","Die BUD-01-Endrechnung bleibt gesperrt, solange die im Abschlussregister definierten End-Gates offen sind."],
-  "contracts": [
-    {"id":"FISCAL-DATA","domain":"Budget / BUD-01","canonical_artifacts":["werk-data/budget-baseline-2026-2031.json","werk-data/medium-term-fiscal-path.json","werk-data/government-baseline-2025-2031.json","werk-data/government-package-2025-2029.json","werk-data/government-new-measures-2026-2031.json"],"workflow":".github/workflows/werk-fiscal-data-check.yml","closure_register_ids":["GAP-FISC-01","GAP-FISC-02","GAP-BASE-01"],"verified_scope":["BMF-Referenzpfad 2026–2031","Saldo-/Sektoren-/Schuldenquoten-Identitäten","Regierungsbaseline 2025–2031","ursprüngliches Konsolidierungspaket 2025–2029","neue Maßnahmen 2026–2031"],"open_scope":["getrennte Länder-/Gemeinde-Prognoseserie bis 2031","2030/2031 Einzelzeilen des ursprünglichen 2025-Pakets","vollständige Measure-Level-Ist-Wirkung"]},
-    {"id":"BASELINE-LEGAL","domain":"Regierungsbaseline / Recht","canonical_artifacts":["werk-data/government-legal-basis-map.json","werk-data/government-baseline-scope-map.json","werk-data/government-measure-legal-status.json"],"workflow":".github/workflows/werk-baseline-legal-check.yml","closure_register_ids":["GAP-BASE-01"],"verified_scope":["Paket-/Scope-Rechtsqualität","13 prioritäre Measure-IDs mit Artikel/Paragraph/Anwendungsregel","zeitliche Anwendbarkeit gegen Prüftag","derived-effect-Doppelzählungsschutz"],"open_scope":["vollständige Einzelmaßnahmen-Rechtszuordnung","empirischer Realisierungsstatus je Maßnahme"]},
-    {"id":"SUBSIDY-DATA","domain":"Förderungen / SUB-01","canonical_artifacts":["werk-data/subsidy-baseline-architecture.json","werk-data/subsidy-esvg-benchmark-2024.json","werk-data/subsidy-federal-ug-2024.json"],"workflow":".github/workflows/werk-subsidy-data-check.yml","closure_register_ids":["GAP-SUB-01"],"verified_scope":["BHG/ESVG/TDB/EU-RRF-Abgrenzung","ESVG D.3/D.7/D.9 Benchmark 2024","24 Bundes-Untergliederungen 2024","Abwicklungskosten separat"],"open_scope":["aktueller Bundesförderungs-CSV programmweise","ESVG-Zeitreihe 2025–2031","TDB-Überschneidungscluster","Outcome-/Abwicklungskosten je prioritärem Programm"]},
-    {"id":"PENSION-DATA","domain":"Pensionen","canonical_artifacts":["werk-data/pension-baseline-2024-2031.json","werk-data/pension-longterm-2023-2070.json"],"workflow":".github/workflows/werk-pension-data-check.yml","closure_register_ids":["GAP-PENS-01","GAP-PENS-02"],"verified_scope":["UG22 Gesamtpfad 2024–2031","UG23 Gesamtpfad 2024–2031","UG22/UG23 Komponenten bis 2028","ASK gesetzliche PV 2024–2030","ASK Beamtenpensionen 2025–2030","nationale und Ageing-Report-Langfristszenarien bis 2070"],"open_scope":["UG22/UG23 Komponentendetails 2029–2031","Neuzugänge/Antrittsalter/Versicherungszeiten vollständig","Reform-Übergangskosten und Verteilungswirkung"]},
-    {"id":"HEALTH-DATA","domain":"Gesundheitsfinanzierung / HEALTH-01","canonical_artifacts":["werk-data/health-baseline-2024-2031.json","werk-data/health-longterm-2022-2070.json"],"workflow":".github/workflows/werk-health-data-check.yml","closure_register_ids":["GAP-HEALTH-01"],"verified_scope":["SHA 2024 final / 2025 vorläufig","SHA Leistungsarten 2024","öffentliche Zahler-Grobstruktur 2024","Fondskrankenanstalten 2024 nach vier Zahlern und neun Ländern","COFOG 2024/2025","UG24 2025–2031","FISK- und Ageing-Report-Langfristszenarien bis 2070"],"open_scope":["vollständige HC×HF-/HP×HF-Rohmatrix","vollständiger Bund/Land/Gemeinde/SV-Leistungsfluss","Fondskrankenanstalten 2025 bis amtliche Veröffentlichung","HEALTH-Reform- und Übergangskostenmodell"]},
-    {"id":"HEALTH-ACTIVITY","domain":"Gesundheitsleistungen / HEALTH-02","canonical_artifacts":["werk-data/health-service-activity-2024.json","werk-data/health-extramural-baseline-2023-2026.json"],"workflow":".github/workflows/werk-health-activity-check.yml","closure_register_ids":["GAP-HEALTH-02"],"verified_scope":["LGF stationäre Aktivität 2024","LGF stationär/ambulant/sonstige Endkosten","ambulante Patient:innen/Frequenzen/Kosten und neun Länder","tagesklinisch erbringbares Leistungsuniversum","Primärversorgungs-Kapazitätsanker bis letzter verifizierter Stand","historischer MRI-Wartezeitanker","gesamte Krankenversicherung 2024 nach Leistungsarten","ÖGK ärztliche Hilfe 2024 und ausgewählte Gebarungsvorschau 2025/2026","ÖGK Konsultationshistorie und Wahlarztanker 2023"],"open_scope":["fachgebietsspezifische Fall-/Vollkostenmatrix","aktuelle 2026 Kontakte nach Fachgebiet und Land","extramurale Einheitskosten nach Fachgebiet/Leistung/Land","standardisierte aktuelle Wartezeitserie","WERK-Ambulantisierungsszenario inkl. Übergangskosten"]},
-    {"id":"CARE-DATA","domain":"Pflege / CARE-01","canonical_artifacts":["werk-data/care-baseline-2024-2050.json","werk-data/health-baseline-2024-2031.json"],"workflow":".github/workflows/werk-care-data-check.yml","closure_register_ids":["GAP-CARE-01"],"verified_scope":["Pflegedienstleistungen 2024 nach neun Ländern","Brutto- und Netto-Sachleistungsaufwand","VZÄ und mobile Bezieher","Pflegegeld und Pflegefonds","24-Stunden-Betreuung","Versorgungsgrad","Personal- und Kostenprojektionen bis 2050","SHA-Langzeitpflege-Abgrenzung"],"open_scope":["Plätze je Land vollständig","Leistungsstunden und Empfänger je Versorgungsart/Land","Pflegedienstleistungsstatistik 2025","WERK-Reform-, Übergangs- und Verteilungsmodell"]},
-    {"id":"TAX-DATA","domain":"Steuern und Abgaben / TAX-01","canonical_artifacts":["werk-data/tax-baseline-2022-2025.json","werk-data/tax-social-contribution-branch-2024-2025.json","werk-data/tax-expenditure-priority-2024.json"],"workflow":".github/workflows/werk-tax-data-check.yml","closure_register_ids":["GAP-TAX-01"],"verified_scope":["S.13 Steuern/Sozialbeiträge 2022–2025","S.13+S.212 Scope und Abgabenquote 2025","ausgewählte große S.13-Steuerarten 2023–2025","ausgewählte UG16-Bundesabgaben 2025","Umsatzsteuervoranmeldungsbasis 2025 national","quantifizierte Tax Expenditures 2022–2024","PV/KV/UV/ALV Beitrags-Branch-Bridge 2024–2025","zehn verifizierte volumenstarke Tax-Expenditures 2024 mit 69,6 % Aggregatabdeckung"],"open_scope":["vollständige ESVG-Einzelsteuerliste nach einhebendem Teilsektor","Arbeitgeber-/Arbeitnehmer-/imputierte Sozialbeiträge nach Sektor","Beitragsbasen nach Versicherungszweig und Bevölkerungsgruppe","vollständiges 93-Maßnahmen-Tax-Expenditure-Inventar und Ranking","dynamische Nettoaufkommensmodelle je Tax Expenditure","UVA Bundesland-/Branchenmatrix kanonisch","Revision der Steuerdaten am 30.09.2026"]}
+  "rules": [
+    "Jeder Contract besitzt eine eindeutige ID, mindestens ein kanonisches Datenartefakt und genau einen primären Workflow.",
+    "Zusätzliche fachliche Unterverträge werden als validation_scripts im primären Domain-Contract registriert und im selben Workflow ausgeführt.",
+    "Geschlossene Gates dürfen nur in der Registry stehen, wenn sie vom jeweiligen Datenartefakt als geschlossen ausgewiesen und vom Workflow geprüft werden.",
+    "Offene Gates bleiben explizit sichtbar und dürfen nicht durch Aggregation oder Schätzung verschwinden.",
+    "Datenuniversen mit unterschiedlichen Rechnungslegungs-, institutionellen oder zeitlichen Abgrenzungen werden nicht stillschweigend addiert.",
+    "Frontend-Integrität ist kein Ersatz für fachliche Datenverträge.",
+    "Die BUD-01-Endrechnung bleibt gesperrt, solange die im Abschlussregister definierten End-Gates offen sind."
   ],
-  "calculation_gate":{"bud01_final_calculation":"blocked","reason":"Mehrere offene Nettoeffekt-, Transformationskosten-, Verteilungs-, Stress- und Teilsektor-Gates bleiben bestehen.","source_of_truth":"werk-data/analysis-data-closure-register.json"}
+  "contracts": [
+    {
+      "id":"FISCAL-DATA",
+      "domain":"Budget / BUD-01",
+      "canonical_artifacts":["werk-data/budget-baseline-2026-2031.json","werk-data/medium-term-fiscal-path.json","werk-data/government-baseline-2025-2031.json","werk-data/government-package-2025-2029.json","werk-data/government-new-measures-2026-2031.json"],
+      "workflow":".github/workflows/werk-fiscal-data-check.yml",
+      "closure_register_ids":["GAP-FISC-01","GAP-FISC-02","GAP-BASE-01"],
+      "verified_scope":["BMF-Referenzpfad 2026–2031","Saldo-/Sektoren-/Schuldenquoten-Identitäten","Regierungsbaseline 2025–2031","ursprüngliches Konsolidierungspaket 2025–2029","neue Maßnahmen 2026–2031"],
+      "open_scope":["getrennte Länder-/Gemeinde-Prognoseserie bis 2031","2030/2031 Einzelzeilen des ursprünglichen 2025-Pakets","vollständige Measure-Level-Ist-Wirkung"]
+    },
+    {
+      "id":"BASELINE-LEGAL",
+      "domain":"Regierungsbaseline / Recht",
+      "canonical_artifacts":["werk-data/government-legal-basis-map.json","werk-data/government-baseline-scope-map.json","werk-data/government-measure-legal-status.json"],
+      "workflow":".github/workflows/werk-baseline-legal-check.yml",
+      "closure_register_ids":["GAP-BASE-01"],
+      "verified_scope":["Paket-/Scope-Rechtsqualität","13 prioritäre Measure-IDs mit Artikel/Paragraph/Anwendungsregel","zeitliche Anwendbarkeit gegen Prüftag","derived-effect-Doppelzählungsschutz"],
+      "open_scope":["vollständige Einzelmaßnahmen-Rechtszuordnung","empirischer Realisierungsstatus je Maßnahme"]
+    },
+    {
+      "id":"SUBSIDY-DATA",
+      "domain":"Förderungen / SUB-01",
+      "canonical_artifacts":["werk-data/subsidy-baseline-architecture.json","werk-data/subsidy-esvg-benchmark-2024.json","werk-data/subsidy-federal-ug-2024.json"],
+      "workflow":".github/workflows/werk-subsidy-data-check.yml",
+      "closure_register_ids":["GAP-SUB-01"],
+      "verified_scope":["BHG/ESVG/TDB/EU-RRF-Abgrenzung","ESVG D.3/D.7/D.9 Benchmark 2024","24 Bundes-Untergliederungen 2024","Abwicklungskosten separat"],
+      "open_scope":["aktueller Bundesförderungs-CSV programmweise","ESVG-Zeitreihe 2025–2031","TDB-Überschneidungscluster","Outcome-/Abwicklungskosten je prioritärem Programm"]
+    },
+    {
+      "id":"PENSION-DATA",
+      "domain":"Pensionen",
+      "canonical_artifacts":["werk-data/pension-baseline-2024-2031.json","werk-data/pension-longterm-2023-2070.json"],
+      "workflow":".github/workflows/werk-pension-data-check.yml",
+      "closure_register_ids":["GAP-PENS-01","GAP-PENS-02"],
+      "verified_scope":["UG22 Gesamtpfad 2024–2031","UG23 Gesamtpfad 2024–2031","UG22/UG23 Komponenten bis 2028","ASK gesetzliche PV 2024–2030","ASK Beamtenpensionen 2025–2030","nationale und Ageing-Report-Langfristszenarien bis 2070"],
+      "open_scope":["UG22/UG23 Komponentendetails 2029–2031","Neuzugänge/Antrittsalter/Versicherungszeiten vollständig","Reform-Übergangskosten und Verteilungswirkung"]
+    },
+    {
+      "id":"HEALTH-DATA",
+      "domain":"Gesundheitsfinanzierung / HEALTH-01",
+      "canonical_artifacts":["werk-data/health-baseline-2024-2031.json","werk-data/health-longterm-2022-2070.json"],
+      "workflow":".github/workflows/werk-health-data-check.yml",
+      "closure_register_ids":["GAP-HEALTH-01"],
+      "verified_scope":["SHA 2024 final / 2025 vorläufig","SHA Leistungsarten 2024","öffentliche Zahler-Grobstruktur 2024","Fondskrankenanstalten 2024 nach vier Zahlern und neun Ländern","COFOG 2024/2025","UG24 2025–2031","FISK- und Ageing-Report-Langfristszenarien bis 2070"],
+      "open_scope":["vollständige HC×HF-/HP×HF-Rohmatrix","vollständiger Bund/Land/Gemeinde/SV-Leistungsfluss","Fondskrankenanstalten 2025 bis amtliche Veröffentlichung","HEALTH-Reform- und Übergangskostenmodell"]
+    },
+    {
+      "id":"HEALTH-ACTIVITY",
+      "domain":"Gesundheitsleistungen / HEALTH-02",
+      "canonical_artifacts":["werk-data/health-service-activity-2024.json","werk-data/health-extramural-baseline-2023-2026.json"],
+      "workflow":".github/workflows/werk-health-activity-check.yml",
+      "closure_register_ids":["GAP-HEALTH-02"],
+      "verified_scope":["LGF stationäre Aktivität 2024","LGF stationär/ambulant/sonstige Endkosten","ambulante Patient:innen/Frequenzen/Kosten und neun Länder","tagesklinisch erbringbares Leistungsuniversum","Primärversorgungs-Kapazitätsanker bis letzter verifizierter Stand","historischer MRI-Wartezeitanker","gesamte Krankenversicherung 2024 nach Leistungsarten","ÖGK ärztliche Hilfe 2024 und ausgewählte Gebarungsvorschau 2025/2026","ÖGK Konsultationshistorie und Wahlarztanker 2023"],
+      "open_scope":["fachgebietsspezifische Fall-/Vollkostenmatrix","aktuelle 2026 Kontakte nach Fachgebiet und Land","extramurale Einheitskosten nach Fachgebiet/Leistung/Land","standardisierte aktuelle Wartezeitserie","WERK-Ambulantisierungsszenario inkl. Übergangskosten"]
+    },
+    {
+      "id":"CARE-DATA",
+      "domain":"Pflege / CARE-01",
+      "canonical_artifacts":["werk-data/care-baseline-2024-2050.json","werk-data/health-baseline-2024-2031.json"],
+      "workflow":".github/workflows/werk-care-data-check.yml",
+      "closure_register_ids":["GAP-CARE-01"],
+      "verified_scope":["Pflegedienstleistungen 2024 nach neun Ländern","Brutto- und Netto-Sachleistungsaufwand","VZÄ und mobile Bezieher","Pflegegeld und Pflegefonds","24-Stunden-Betreuung","Versorgungsgrad","Personal- und Kostenprojektionen bis 2050","SHA-Langzeitpflege-Abgrenzung"],
+      "open_scope":["Plätze je Land vollständig","Leistungsstunden und Empfänger je Versorgungsart/Land","Pflegedienstleistungsstatistik 2025","WERK-Reform-, Übergangs- und Verteilungsmodell"]
+    },
+    {
+      "id":"TAX-DATA",
+      "domain":"Steuern und Abgaben / TAX-01",
+      "canonical_artifacts":["werk-data/tax-baseline-2022-2025.json","werk-data/tax-social-contribution-branch-2024-2025.json","werk-data/tax-expenditure-priority-2024.json","werk-data/tax-expenditure-law-groups-2022-2024.json"],
+      "workflow":".github/workflows/werk-tax-data-check.yml",
+      "validation_scripts":["scripts/werk-tax-data-contract.mjs","scripts/werk-tax-law-group-contract.mjs"],
+      "closure_register_ids":["GAP-TAX-01"],
+      "verified_scope":["S.13 Steuern/Sozialbeiträge 2022–2025","S.13+S.212 Scope und Abgabenquote 2025","ausgewählte große S.13-Steuerarten 2023–2025","ausgewählte UG16-Bundesabgaben 2025","Umsatzsteuervoranmeldungsbasis 2025 national","quantifizierte Tax Expenditures 2022–2024","PV/KV/UV/ALV Beitrags-Branch-Bridge 2024–2025","zehn verifizierte volumenstarke Tax-Expenditures 2024 mit 69,6 % Aggregatabdeckung","12 quantifizierte Gesetzesgruppen 2022–2024 inklusive Bundesanteil und transparenter 1-Mio.-Summendifferenz 2023"],
+      "open_scope":["vollständige ESVG-Einzelsteuerliste nach einhebendem Teilsektor","Arbeitgeber-/Arbeitnehmer-/imputierte Sozialbeiträge nach Sektor","Beitragsbasen nach Versicherungszweig und Bevölkerungsgruppe","vollständiges 93-Maßnahmen-Tax-Expenditure-Inventar und Ranking","dynamische Nettoaufkommensmodelle je Tax Expenditure","UVA Bundesland-/Branchenmatrix kanonisch","Revision der Steuerdaten am 30.09.2026"]
+    }
+  ],
+  "calculation_gate":{
+    "bud01_final_calculation":"blocked",
+    "reason":"Mehrere offene Nettoeffekt-, Transformationskosten-, Verteilungs-, Stress- und Teilsektor-Gates bleiben bestehen.",
+    "source_of_truth":"werk-data/analysis-data-closure-register.json"
+  }
 }
