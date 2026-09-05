@@ -101,3 +101,17 @@ Keep history append-only; supersede rather than delete.
 - Rollback/recovery: revert WellFit-now merge if the renderer proves visually defective; original PNG assets and public Site remain unchanged.
 - Falsification question: a preview of the actual `wellfit-bewegt` Site that still shows no movement, seams/ghosting, wrong head crop or layout stacking regression requires further Site-specific tuning before publication.
 - Next step: open the actual Site via ChatGPT Sites/Edit so it is referenced in the composer, port the verified renderer/pivots, review the exact preview, then deliberately publish the updated version.
+
+## WFG-RUDI-WORLD-001
+- Date: 2026-09-05
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Goal: make Rudi a physically grounded resident of the Landingpage rather than a viewport-following overlay: climb and stand on real page surfaces, scroll with the exact surface, leave the viewport with it and return only through a plausible visible route.
+- Starting state: WellFit-now PR #401 already contained a real rigged 3D Rudi, animation clips and autonomous behavior, but owner live review rejected the viewport-clamped/catch-up model because Rudi appeared detached from the page and could effectively float relative to content.
+- Action: accepted WFG-CR-008 and replaced the active landing controller with DOM-surface authority. Individual `WellFit` letters expose anchors; `hero-wellfit-4` (the `F`) is the initial climb/podium; headings/cards/buttons/signs/lines expose surfaces; Rudi reads real DOM geometry each frame; no viewport clamp is applied; scroll catch-up is delayed until the current surface is fully offscreen and scroll has settled; catch-up uses a visible route guide; CTA gaze does not relocate him.
+- Result: physical implementation exists in WellFit-now PR #401 exact head `0240d7542d5451ab052743b605275a5cae895f7a`. Build #1260, Container #245, Database #237, Beta Emulator #216 and Project Memory Guard/Quality/Status all succeeded.
+- Evidence: WF-EV-007, WFG-CR-008, `XLOCK-WF-RUDI-WORLD-20260905`.
+- Negative/fail-closed path: no backend/auth/data/mission/reward/economy/location/camera/native runtime changes; no claim that GitHub modifies the separate public ChatGPT Site; no acceptance from CI alone.
+- Rollback/recovery: revert the WellFit-now Rudi branch or keep the previous public Site version; no persistent user or server state is changed.
+- Falsification question: any exact public-Site preview showing visible hovering, footing detached from the DOM element, Rudi remaining onscreen after his bound surface has left, unexplained teleportation, air-climbing, or foreground occlusion errors invalidates acceptance and requires route/geometry tuning.
+- Next step: harden deterministic route geometry and stale memory/PR wording, then synchronize the exact verified source to the real Site and perform visual acceptance.
