@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-01-v2",
+  "version": "2026-09-05-v3",
   "registry_status": "Vorbereitung",
   "public_notice": "In der Vorschau werden noch keine Bürgerlisten als bestätigte WERK-Partner veröffentlicht. Einträge erscheinen erst nach Prüfung und formeller Anerkennung des WERK-Grundkodex.",
   "profile_disclosure": "Ein öffentliches Partnerprofil muss klar zwischen gemeinsamem WERK-Kern und eigenständigem regionalem Programm unterscheiden. WERK darf keine regionale Position als eigene Bundesposition darstellen, wenn sie nur für die jeweilige Partnerliste gilt.",
@@ -10,6 +10,7 @@
     {"field":"partner_model","label":"WERK-Gliederung oder WERK-Partnerliste","required":true},
     {"field":"verified_at","label":"WERK-Prüfung abgeschlossen am","required":true},
     {"field":"werk_core_acknowledged","label":"WERK-Grundkodex formell anerkannt","required":true},
+    {"field":"constitutional_neutrality_acknowledged","label":"Verfassungsprimat und weltanschaulich neutralen Staat anerkannt","required":true},
     {"field":"regional_program","label":"Eigenständige regionale Programmpunkte","required":true},
     {"field":"regional_votes","label":"Regionale Bürgerfragen / Abstimmungen","required":false},
     {"field":"finance_disclosure","label":"Finanz- und Compliance-Status","required":true},
@@ -32,6 +33,9 @@
     "Fairness und nachvollziehbare Regeln",
     "Gleichberechtigung, gleiche Würde und gleiche Grundrechte",
     "Rechtsstaat, Demokratie und unabhängige Gerichte",
+    "Vorrang der österreichischen Verfassungs- und Rechtsordnung vor religiösen oder sonstigen weltanschaulichen Normen mit politischem Herrschaftsanspruch",
+    "Weltanschaulich neutrale staatliche Herrschaft und gleiche Glaubens-, Gewissens- und Weltanschauungsfreiheit für Gläubige und Nichtgläubige",
+    "Keine theokratische Staatsordnung, keine staatlich konkurrierende religiöse Parallelrechtsordnung und keine Einschränkung gleicher Grundrechte aufgrund religiöser Gebote",
     "Innere und äußere Sicherheit als gemeinsamer Kern",
     "Subsidiarität und regionale Freiheit",
     "Direkte Bürgerbeteiligung bei qualifizierten Großfragen im rechtlich zulässigen Rahmen",
@@ -39,9 +43,27 @@
     "Transparente Finanzierung und Compliance",
     "Regionale Programme dürfen den WERK-Kern ergänzen, aber nicht widersprechen"
   ],
+  "constitutional_neutrality_gate": {
+    "principle": "WERK beurteilt politische Ziele, Programm und tatsächliches Verhalten, nicht die Religionszugehörigkeit von Personen oder Organisationen.",
+    "compatible": [
+      "Religiöse oder nichtreligiöse Mitglieder und Funktionsträger, die die demokratische Verfassungs- und Rechtsordnung anerkennen",
+      "Private Religionsausübung im Rahmen der allgemeinen Gesetze und Grundrechte",
+      "Politische Argumente aus persönlichen Überzeugungen, sofern staatliche Entscheidungen demokratisch, rechtlich und allgemein begründbar bleiben"
+    ],
+    "not_compatible": [
+      "Theokratische Herrschaftsziele",
+      "Vorrang religiöser Normen vor österreichischer Verfassung und staatlichem Recht",
+      "Religiöses Parallelrecht mit staatlichem oder zwingendem Herrschaftsanspruch",
+      "Einschränkung der Gleichberechtigung oder anderer Grundrechte aufgrund religiöser Gebote",
+      "Zwang zur Religionsausübung oder Benachteiligung wegen Religion, Religionswechsel oder Religionslosigkeit"
+    ],
+    "non_discrimination_rule": "Eine bestimmte Religion, Herkunft oder Religionslosigkeit allein ist kein Ablehnungsgrund. Maßgeblich ist die Vereinbarkeit der politischen Ziele und Praxis mit dem WERK-Grundkodex."
+  },
   "admission_process": [
     "Identität und Rechtsform der Liste prüfen",
     "WERK-Grundkodex formell anerkennen",
+    "Verfassungsprimat, Grundrechte und weltanschaulich neutrale staatliche Herrschaft formell anerkennen",
+    "Programm und tatsächliche Praxis auf theokratische, parallelrechtliche oder grundrechtswidrige Ziele prüfen",
     "Finanz- und Compliance-Prüfung durchführen",
     "Regionale Programmpunkte auf Widersprüche zum WERK-Kern prüfen",
     "Parteienrechtliche Einordnung als Gliederung/Partnerorganisation prüfen",
