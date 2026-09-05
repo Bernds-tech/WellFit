@@ -5,7 +5,7 @@ function watch(){const ob=new MutationObserver(()=>enhanceA11y());ob.observe(doc
 function loadScript(src,key){if(document.querySelector(`script[data-module="${key}"]`))return;const js=document.createElement('script');js.src=src;js.dataset.module=key;document.body.appendChild(js)}
 function loadStyle(href,key){if(document.querySelector(`link[data-module="${key}"]`))return;const css=document.createElement('link');css.rel='stylesheet';css.href=href;css.dataset.module=key;document.head.appendChild(css)}
 function loadRegisterModule(){loadScript('./werk-assets/site-register-v2.js?v=20260905-v71','register-v2')}
-function loadProgramModule(){loadScript('./werk-assets/site-program-v2.js?v=20260905-v71','program-v2')}
+function loadProgramModule(){loadScript('./werk-assets/site-program-v2.js?v=20260905-program-v3','program-v2')}
 function loadDebtModule(){loadStyle('./werk-assets/site-debt-model.css?v=20260905-v71','debt-model-css');loadScript('./werk-assets/site-debt-model.js?v=20260905-debt-v3','debt-model-js')}
 function loadFiscalModule(){loadStyle('./werk-assets/site-fiscal-model.css?v=20260905-v71','fiscal-model-css');loadScript('./werk-assets/site-fiscal-model.js?v=20260905-v71','fiscal-model-js')}
 function loadFundingModule(){loadStyle('./werk-assets/site-funding-matrix.css?v=20260905-v71','funding-matrix-css');loadScript('./werk-assets/site-funding-matrix.js?v=20260905-v71','funding-matrix-js')}
