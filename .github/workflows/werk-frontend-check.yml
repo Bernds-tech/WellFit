@@ -104,6 +104,49 @@ jobs:
           console.log('V71 contract OK: 8 binding pillars, 12 policy fields, 41/41 master domains mapped exactly once, stable redirect and manifest paths valid');
           NODE
 
+      - name: BUD-01 official baseline contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const b = JSON.parse(fs.readFileSync('werk-data/budget-baseline-2026-2031.json', 'utf8'));
+          const p = JSON.parse(fs.readFileSync('werk-data/medium-term-fiscal-path.json', 'utf8'));
+          const expectedYears = [2026,2027,2028,2029,2030,2031];
+          if (JSON.stringify(b.years) !== JSON.stringify(expectedYears)) fail(`Baseline years mismatch: ${JSON.stringify(b.years)}`);
+          if (b.status !== 'official-adopted-policy-baseline') fail(`Unexpected baseline status: ${b.status}`);
+          const required = [
+            'nominal_gdp_bn','government_expenditure_bn','interest_expenditure_bn','government_revenue_bn',
+            'maastricht_balance_bn','federal_sector_balance_bn','state_and_municipal_sector_balance_bn',
+            'social_security_sector_balance_bn','primary_balance_bn','maastricht_debt_bn','maastricht_debt_pct_gdp'
+          ];
+          for (const key of required) {
+            const a = b.series?.[key];
+            if (!Array.isArray(a) || a.length !== expectedYears.length || a.some(v => !Number.isFinite(v))) fail(`Invalid baseline series ${key}`);
+          }
+          const tolBn = Number(b.validation?.tolerance_bn ?? 0.2) + 1e-9;
+          const tolPct = Number(b.validation?.tolerance_pct_points ?? 0.15) + 1e-9;
+          for (let i=0;i<expectedYears.length;i++) {
+            const year = expectedYears[i];
+            const total = b.series.maastricht_balance_bn[i];
+            const primary = b.series.primary_balance_bn[i];
+            const interest = b.series.interest_expenditure_bn[i];
+            if (Math.abs(total - (primary - interest)) > tolBn) fail(`${year}: balance identity failed`);
+            const sectors = b.series.federal_sector_balance_bn[i] + b.series.state_and_municipal_sector_balance_bn[i] + b.series.social_security_sector_balance_bn[i];
+            if (Math.abs(total - sectors) > tolBn) fail(`${year}: sector identity failed`);
+            const debtRatio = b.series.maastricht_debt_bn[i] / b.series.nominal_gdp_bn[i] * 100;
+            if (Math.abs(debtRatio - b.series.maastricht_debt_pct_gdp[i]) > tolPct) fail(`${year}: debt ratio identity failed (${debtRatio})`);
+            const row = p.rows.find(r => r.year === year);
+            if (!row) fail(`${year}: missing in medium-term fiscal path`);
+            if (Math.abs(row.nominal_gdp_eur_billion - b.series.nominal_gdp_bn[i]) > 0.001) fail(`${year}: GDP mismatch between baseline and fiscal path`);
+            if (Math.abs(row.maastricht_balance_eur_billion - total) > 0.001) fail(`${year}: balance mismatch between baseline and fiscal path`);
+            if (!Number.isFinite(row.bridge_to_target_surplus_eur_billion)) fail(`${year}: bridge to +10 missing`);
+          }
+          if (b.series.maastricht_debt_pct_gdp[5] !== 85.0) fail('2031 BMF debt ratio must remain 85.0 in current baseline');
+          console.log('BUD-01 baseline OK: 2026-2031 complete, accounting identities within rounding tolerance, fiscal calculator path synchronized');
+          NODE
+
       - name: Version regression guard
         shell: bash
         run: |
