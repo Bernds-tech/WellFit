@@ -14,6 +14,7 @@ on:
       - 'werk-data/pension-*.json'
       - 'werk-data/health-*.json'
       - 'werk-data/care-*.json'
+      - 'werk-data/tax-*.json'
       - '.github/workflows/werk-*-check.yml'
   workflow_dispatch:
 
@@ -41,7 +42,7 @@ jobs:
           const r=read('werk-data/data-contract-registry.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
           const gapIds=new Set((gaps.priority_1_data_gaps||[]).map(x=>x.id));
-          if(!Array.isArray(r.contracts)||r.contracts.length<7)fail(`Expected at least 7 domain contracts, got ${r.contracts?.length}`);
+          if(!Array.isArray(r.contracts)||r.contracts.length<8)fail(`Expected at least 8 domain contracts, got ${r.contracts?.length}`);
           const ids=new Set();
           const workflows=new Set();
           for(const c of r.contracts){
@@ -56,7 +57,7 @@ jobs:
             if(!Array.isArray(c.open_scope)||!c.open_scope.length)fail(`${c.id}: open scope must remain explicit`);
             if(c.verified_scope.some(x=>c.open_scope.includes(x)))fail(`${c.id}: same scope marked verified and open`);
           }
-          const required=['FISCAL-DATA','BASELINE-LEGAL','SUBSIDY-DATA','PENSION-DATA','HEALTH-DATA','HEALTH-ACTIVITY','CARE-DATA'];
+          const required=['FISCAL-DATA','BASELINE-LEGAL','SUBSIDY-DATA','PENSION-DATA','HEALTH-DATA','HEALTH-ACTIVITY','CARE-DATA','TAX-DATA'];
           for(const id of required)if(!ids.has(id))fail(`Missing required registry contract ${id}`);
           if(r.calculation_gate?.bud01_final_calculation!=='blocked')fail('BUD-01 final calculation must remain blocked');
           if(r.calculation_gate?.source_of_truth!=='werk-data/analysis-data-closure-register.json')fail('Closure register must remain calculation-gate source of truth');
