@@ -67,3 +67,13 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Result: full-screen persistent camera/AR root, minimal logo/menu chrome, overlay feature navigation, PC-first deep configuration and split repository authority are specified.
 - Limitations: this accepts the target specification only; no visual runtime, Unity compile, Android build or real-device behavior is implemented or accepted.
 - Acceptance: COUNTERCHECKED
+
+## WF-EV-007
+- Related: WFG-RUDI-WORLD-001 / WFG-CR-008 / WFN-RUDI-3D-001
+- Date: 2026-09-05
+- Target: current physical public-landing implementation in `Bernds-tech/WellFit-now`
+- Type: immutable implementation + exact-head CI countercheck
+- Reference: WellFit-now PR #401 exact head `0240d7542d5451ab052743b605275a5cae895f7a`
+- Result: the active landing controller binds Rudi to real DOM surfaces through `getBoundingClientRect()`, starts on the `F` letter anchor, deliberately omits viewport clamping so he leaves the screen with his surface, delays catch-up until scroll-settle and complete offscreen departure, exposes visible catch-up route guidance, and includes machine checks through `npm run rudi:validate`. Exact head passed Build #1260, Container Build #245, Database Package Tests #237, Beta 1 Emulator #216 and Project Memory Guard/Quality/Status.
+- Limitations: repository CI does not prove perceptual foot contact, climb realism, occlusion quality, exact public ChatGPT Site synchronization or owner/device visual acceptance. The public Site is a separate source and was not changed by PR #401.
+- Acceptance: IMPLEMENTED_NOT_VERIFIED
