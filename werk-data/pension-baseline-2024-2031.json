@@ -1,53 +1,18 @@
 {
-  "version":"2026-09-05-v1",
+  "version":"2026-09-05-v2",
   "title":"WERK Österreich – Pensionsbaseline 2024–2031",
   "status":"multi-universe-official-baseline-normalised",
   "checked_at":"2026-09-05",
   "purpose":"Kanonische Ausgangsbasis für GAP-PENS-01. Bundesbudget UG 22, Bundesbudget UG 23 und die versicherungsmathematischen/gesamtstaatlichen Projektionen der Alterssicherungskommission werden getrennt geführt. Die Datenuniversen dürfen wegen unterschiedlicher Abgrenzung, Periodisierung und Finanzierungsperspektive nicht blind addiert werden.",
   "sources":[
-    {
-      "id":"BD-UG22-2027-2028",
-      "authority":"Parlamentarischer Budgetdienst",
-      "title":"UG 22-Pensionsversicherung Budgets 2027 und 2028",
-      "source_date":"2026-06-29",
-      "url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-22-Pensionsversicherung-Budgets-2027-und-2028.pdf"
-    },
-    {
-      "id":"BD-UG22-BHG-2026",
-      "authority":"Parlamentarischer Budgetdienst",
-      "title":"BHG-Berichte zur UG 22-Pensionsversicherung, Stand 2026",
-      "source_date":"2026-04-10",
-      "url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen-bhg-berichte/BD-BHG-Berichte-zur-UG-22-Pensionsversicherung-Stand-2026.pdf"
-    },
-    {
-      "id":"BD-UG23-2027-2028",
-      "authority":"Parlamentarischer Budgetdienst",
-      "title":"UG 23-Pensionen – Beamtinnen und Beamte Budgets 2027 und 2028",
-      "source_date":"2026-07-01",
-      "url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-23-Pensionen-Beamtinnen-und-Beamte-Budgets-2027-und-2028.pdf"
-    },
-    {
-      "id":"BD-UG23-2025-2026",
-      "authority":"Parlamentarischer Budgetdienst",
-      "title":"UG 23-Pensionen – Beamtinnen und Beamte Budgets 2025 und 2026",
-      "source_date":"2025-06-05",
-      "url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-23-Pensionen-Beamtinnen-und-Beamte-Budgets-2025-und-2026_BF.pdf"
-    },
-    {
-      "id":"ASK-GPV-2025-2030",
-      "authority":"Alterssicherungskommission / Sozialministerium",
-      "title":"Mittelfristgutachten gesetzliche Pensionsversicherung 2025–2030",
-      "approved":"2025-11-28",
-      "url":"https://www.sozialministerium.gv.at/dam/jcr:2c343593-52d1-4144-87bb-03f0b5f8e9e8/Mittelfristgutachten%20gesetzliche%20Pensionsversicherung%202025-2030.pdf"
-    },
-    {
-      "id":"ASK-BEAMTE-2025-2030",
-      "authority":"Alterssicherungskommission / Bundesministerium für Finanzen",
-      "title":"Mittelfristgutachten Beamtenpensionen 2025–2030",
-      "approved":"2025-11-28",
-      "url":"https://www.sozialministerium.gv.at/dam/jcr:b0144b79-bd84-44b4-9178-d17ae5bda1a0/Mittelfristgutachten_Beamtenpensionen_2025_2030.pdf"
-    }
+    {"id":"BD-UG22-2027-2028","authority":"Parlamentarischer Budgetdienst","title":"UG 22-Pensionsversicherung Budgets 2027 und 2028","source_date":"2026-06-29","url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-22-Pensionsversicherung-Budgets-2027-und-2028.pdf"},
+    {"id":"BD-UG22-BHG-2026","authority":"Parlamentarischer Budgetdienst","title":"BHG-Berichte zur UG 22-Pensionsversicherung, Stand 2026","source_date":"2026-04-10","url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen-bhg-berichte/BD-BHG-Berichte-zur-UG-22-Pensionsversicherung-Stand-2026.pdf"},
+    {"id":"BD-UG23-2027-2028","authority":"Parlamentarischer Budgetdienst","title":"UG 23-Pensionen – Beamtinnen und Beamte Budgets 2027 und 2028","source_date":"2026-07-01","url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-23-Pensionen-Beamtinnen-und-Beamte-Budgets-2027-und-2028.pdf"},
+    {"id":"BD-UG23-2025-2026","authority":"Parlamentarischer Budgetdienst","title":"UG 23-Pensionen – Beamtinnen und Beamte Budgets 2025 und 2026","source_date":"2025-06-05","url":"https://www.parlament.gv.at/dokument/budgetdienst/untergliederungsanalysen/BD-UG-23-Pensionen-Beamtinnen-und-Beamte-Budgets-2025-und-2026_BF.pdf"},
+    {"id":"ASK-GPV-2025-2030","authority":"Alterssicherungskommission / Sozialministerium","title":"Mittelfristgutachten gesetzliche Pensionsversicherung 2025–2030","approved":"2025-11-28","url":"https://www.sozialministerium.gv.at/dam/jcr:2c343593-52d1-4144-87bb-03f0b5f8e9e8/Mittelfristgutachten%20gesetzliche%20Pensionsversicherung%202025-2030.pdf"},
+    {"id":"ASK-BEAMTE-2025-2030","authority":"Alterssicherungskommission / Bundesministerium für Finanzen","title":"Mittelfristgutachten Beamtenpensionen 2025–2030","approved":"2025-11-28","url":"https://www.sozialministerium.gv.at/dam/jcr:b0144b79-bd84-44b4-9178-d17ae5bda1a0/Mittelfristgutachten_Beamtenpensionen_2025_2030.pdf"}
   ],
+  "longterm_reference":"pension-longterm-2023-2070.json",
   "federal_budget_ug22":{
     "scope":"Finanzierungshaushalt des Bundes, UG 22 Pensionsversicherung. Enthält Bundesbeitrag/Ausfallhaftung und aus UG22 finanzierte Teilversicherungsbeiträge, Partnerleistung, Ersatz der Ausgleichszulagen und Nachtschwerarbeit/Sonderruhegeld.",
     "years":[2024,2025,2026,2027,2028,2029,2030,2031],
@@ -58,7 +23,7 @@
     "partnerleistung_svs_mio":[776,849,882,917,953],
     "equalisation_supplements_mio":[1248,1304,1327,1345,1361],
     "night_heavy_labour_special_retirement_mio":[112,108,123,108,104],
-    "component_definition_note":"Der Budgetdienst weist 'Bundesbeitrag' und Partnerleistung getrennt aus. Andere BMF-Darstellungen können beide Positionen unter einem breiteren Themenbegriff Bundesbeitrag zusammenfassen. Diese Begriffe dürfen nicht doppelt gezählt werden.",
+    "component_definition_note":"Der Budgetdienst weist Bundesbeitrag und Partnerleistung getrennt aus. Andere BMF-Darstellungen können beide Positionen unter einem breiteren Themenbegriff Bundesbeitrag zusammenfassen. Diese Begriffe dürfen nicht doppelt gezählt werden.",
     "detail_after_2028":"not_published_in_same_component_breakdown",
     "reference_path_growth_2025_2031_pct":39.4
   },
@@ -120,7 +85,8 @@
     "ASK Bundesmittel = ASK Bundesbeitrag gesamt + Ausgleichszulagenaufwand. Diese Identität ist maschinenprüfbar.",
     "UG23 und ASK-Beamtenpensionsaufwand haben unterschiedliche institutionelle Abgrenzungen; insbesondere sind Länder-/Gemeindebeamtinnen und -beamte in ASK enthalten, in UG23 aber nicht vollständig.",
     "Pflegegeld der UG23 ist kein Beamten-Pensionsaufwand im ASK-Sinn und muss separat bleiben.",
-    "WERK-Reformeffekte müssen gegen die jeweils passende Baseline gebucht werden: Bundesbudgeteffekt gegen UG22/23, Systemeffekt gegen ASK-Gebarung, gesamtstaatliche Wirkung nach Eliminierung innerstaatlicher Transfers."
+    "WERK-Reformeffekte müssen gegen die jeweils passende Baseline gebucht werden: Bundesbudgeteffekt gegen UG22/23, Systemeffekt gegen ASK-Gebarung, gesamtstaatliche Wirkung nach Eliminierung innerstaatlicher Transfers.",
+    "Langfristige Reformwirkung wird ausschließlich gegen pension-longterm-2023-2070.json geprüft; keine lineare Fortschreibung aus 2030."
   ],
   "validation":{
     "tolerance_mio_budget_components":2.0,
@@ -141,7 +107,7 @@
     "PENS_E_ask_statutory_2024_2030":"closed",
     "PENS_F_ask_beamten_2025_2030":"closed",
     "PENS_G_ug22_ug23_component_detail_2029_2031":"open",
-    "PENS_H_long_term_2031_2070":"open",
+    "PENS_H_long_term_2031_2070":"closed_in_separate_longterm_artifact",
     "PENS_I_reform_transition_costs_and_distribution":"open"
   }
 }
