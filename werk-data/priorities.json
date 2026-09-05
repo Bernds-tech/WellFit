@@ -1,6 +1,15 @@
 {
-  "version":"2026-09-03-v2",
+  "version":"2026-09-05-v3",
   "principle":"Erst analysieren. Dann Reihenfolge rechnen. Dann umsetzen.",
+  "current_baseline_context":{
+    "source":"budget-baseline-2026-2031.json / bud01-balance-gap-2026-2031.json",
+    "checked_at":"2026-09-05",
+    "official_2031_maastricht_balance_eur_billion":-18.0,
+    "official_2031_debt_eur_billion":525.2,
+    "official_2031_debt_ratio_pct_gdp":85.0,
+    "cumulative_baseline_deficits_2026_2031_eur_billion":109.8,
+    "interpretation":"Diese Werte sind BMF-Ausgangslage, keine WERK-Zielwerte. 109,8 Mrd. EUR ist die Summe von sechs Jahresdefiziten und kein einmaliger Sparbetrag."
+  },
   "priority_1":{
     "reform_id":"BUD-01",
     "title":"Strukturell ausgeglichener Staatshaushalt",
@@ -8,6 +17,7 @@
     "locked":true,
     "may_be_replaced_before_completion":false,
     "rule":"BUD-01 bleibt ununterbrochen Priorität 1, bis Österreich einen nachhaltig ausgeglichenen gesamtstaatlichen Haushalt erreicht hat und das dafür notwendige WERK-Maßnahmenpaket vollständig analysiert, gerechnet, finanziert, rechtlich geprüft, beschlossen und im Vollzug nachweisbar wirksam ist.",
+    "current_gap_rule":"Die jeweilige aktuelle Netto-Lücke zur Budgetbalance ist die maßgebliche Sanierungsgröße. Sie wird bei neuen amtlichen Baselines aktualisiert; daraus betroffene Reformrechnungen und Programmstellen werden gemeinsam nachgezogen.",
     "crisis_rule":"Krisenklauseln dürfen das Ziel nur transparent, eng befristet und mit dokumentiertem Rückkehrpfad zum Budgetausgleich unterbrechen; die Prioritätsreihenfolge bleibt unverändert.",
     "completion_gates":[
       "vollständige gesamtstaatliche Ausgangsanalyse und aktueller Referenzpfad",
@@ -24,7 +34,9 @@
   "priority_2_after_balance":{
     "reform_id":"BUD-02",
     "title":"Mindestens 10 Mrd. Euro jährliche Schuldentilgung als zweite Sanierungsstufe",
-    "rule":"Die zweite Sanierungsstufe folgt auf einen nachhaltig ausgeglichenen Haushalt. Neue Schulden zur Erfüllung des Tilgungsziels sind ausgeschlossen."
+    "rule":"Die zweite Sanierungsstufe folgt auf einen nachhaltig ausgeglichenen Haushalt. Neue Schulden zur Erfüllung des Tilgungsziels sind ausgeschlossen.",
+    "no_double_count_rule":"BUD-01-Defizitabbau und BUD-02-Nettotilgung werden nicht gleichzeitig als zwei additive Einsparziele gerechnet.",
+    "horizon_rule":"WERK verspricht vor Erreichen der Budgetbalance keine fixe Jahreszahl bis zur Schuldenfreiheit. Der Tilgungshorizont wird am tatsächlichen BUD-02-Start mit dem dann aktuellen Schuldenstand, Fälligkeitsprofil, Zinsen und nachhaltig tragfähigen Überschuss neu berechnet."
   },
   "analysis_before_final_calculation":{
     "binding":true,
@@ -71,8 +83,9 @@
   ],
   "dependency_rules":[
     "BUD-01 bleibt Priorität 1 bis zur nachgewiesenen Zielerreichung.",
+    "Neue amtliche Budget- oder Schuldenzahlen lösen eine Prüfung abhängiger WERK-Rechnungen, Prioritäten, Programmtexte und Schuldenmodelle aus.",
     "Keine endgültige Sanierungsrechnung vor Abschluss der erweiterten Österreich-Gesamtanalyse.",
-    "Keine dauerhafte Tilgungsquote ohne vorherige Budgetbalance- und Fälligkeitsrechnung.",
+    "Keine dauerhafte Tilgungsquote oder fixe Schuldenfrei-Jahreszahl ohne vorherige Budgetbalance- und Fälligkeitsrechnung.",
     "Keine Steuererhöhung oder -senkung ohne Aufkommens-, Verteilungs- und Standortmodell.",
     "Keine Kompetenzverschiebung ohne gleichzeitige Finanzierungs- und Personalzuordnung.",
     "Keine amtliche digitale Abstimmung ohne Rechtsgrundlage, Sicherheitsnachweis, Geheimhaltung und analogen Zugang.",
