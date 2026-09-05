@@ -1,23 +1,25 @@
 {
-  "version":"2026-09-03-v15",
-  "current_preview":"V70",
-  "current_file":"werk-v70.html",
-  "cache_key":"20260903-v20",
-  "brand":{"status_pct":97,"note":"WERK Österreich / Erst rechnen. Dann entscheiden. verbindlich gesetzt"},
-  "website_architecture":{"status_pct":99,"note":"V70 mit eigenem Loader, echter Staging-API und V69-Rollback"},
+  "version":"2026-09-05-v16",
+  "current_preview":"V71",
+  "current_file":"werk-v71.html",
+  "cache_key":"20260905-v71",
+  "brand":{"status_pct":97,"note":"WERK Österreich / Erst rechnen. Dann entscheiden. verbindlich gesetzt; 8 verbindliche Säulen klar von 12 politischen Leitfeldern getrennt"},
+  "website_architecture":{"status_pct":99,"note":"V71 auf bestehender V70-Runtime: vollständige 12-Leitfelder-Programmansicht, responsive Layout-Härtung und aktualisierter Integritätscheck; V70 bleibt als Rollback erhalten"},
   "ideenwerk":{"status_pct":98,"note":"Eigenes Supabase-Staging aktiv; No-Login Edge Intake, privater Status und interner Minutenworker laufen real. E2E received→structured→cluster_review→precheck bestanden; Duplikat- und PII-Hold-Pfade ebenfalls bestanden."},
   "ideenwerk_quality":{"status_pct":94,"note":"Lokale Goldset-/Policy-Tests, 1k/10k/100k DB-Review-Queue-Tests sowie echter Worker-E2E dokumentiert. Vollständiger API+Worker-100k-Test mit Latenzperzentilen bleibt offen."},
   "ideenwerk_privacy":{"status_pct":90,"note":"Status-Token nur gehasht; falscher Token HTTP 403; PII-Test endet in privacy_hold und erzeugt keinen strukturierten Vorschlag. Juristische DSGVO-/Fristenfreigabe offen."},
   "ideenwerk_security":{"status_pct":95,"note":"Security Advisor ohne ERROR/WARN, 23 interne Tabellen RLS/Default-Deny, Multi-Instance-Rate-Limiter und CORS-Allowlist real getestet. Penetration/WAF offen."},
   "ideenwerk_operator":{"status_pct":90,"note":"Review-Queue, Rollenprüfung, Human-Decision-Pflicht und Self-Appeal-Sperre 8/8 runtime-getestet. OIDC/MFA/RBAC-Zugang offen."},
   "reform_register":{"status_pct":97,"note":"14 Entscheidungsakten, Quellenstatus, Prioritätenlogik sowie Finanz- und Szenariomodule integriert"},
+  "reform_program_overview":{"status_pct":98,"note":"12 politische Leitfelder vollständig auf der Startseite sichtbar; sie strukturieren das Gesamtprogramm und ersetzen nicht die 8 verbindlichen WERK-Säulen"},
   "regional_model":{"status_pct":97,"note":"Bund/Land/Gemeinde, Kompetenzinventar, neun Länder, Verfahrensaudit, Mindeststandard und Länder-Fit integriert"},
   "werk_vote":{"status_pct":92,"note":"Frageakten, Formatvergleich und rechtliche Ausbaustufen vorhanden; amtliche Rechts-/Sicherheitsfreigabe offen"},
   "citizen_list_model":{"status_pct":90,"note":"Grundkodex, Aufnahmeprozess und Registerschema vorhanden; keine verifizierten Partner veröffentlicht"},
   "legal_sources":{"status_pct":97,"note":"Bundes-, Kompetenz- und Länderquellen strukturiert; konkrete Verfassungs-/EU-/Völkerrechtsprüfungen offen"},
   "financial_calculations":{"status_pct":84,"note":"Schuld-, Referenzpfad-, Saldo-, Finanzierungsmatrix- und Sensitivitätsmodelle vorhanden; verifizierte Dauereffekte offen"},
-  "publication_readiness":{"status_pct":88,"note":"Staging, No-Login-API und Minutenworker laufen real. Produktivfreigabe bleibt wegen Datenschutz/Legal, Betreiberangaben, Semantikprovider, Backup/Restore und Reform-Nettoeffekten offen."},
-  "technical_integrity":{"status_pct":99,"note":"V70-Dateien plus Migrationen 001–018, Edge API, pg_cron-Worker und reale Runtime-Nachweise vorhanden."},
+  "mobile_accessibility":{"status_pct":92,"note":"V71 härtet Grid-Minbreiten, Langtextumbrüche, Stagebars, Tabellen, Navigation und mobile Typografie; manuelle Geräte-, Tastatur- und Screenreader-Abnahme bleibt offen"},
+  "publication_readiness":{"status_pct":89,"note":"V71-Programmübersicht und Integritätsbasis verbessert. Produktivfreigabe bleibt wegen Datenschutz/Legal, Betreiberangaben, Semantikprovider, Backup/Restore, Lasttest und Reform-Nettoeffekten offen."},
+  "technical_integrity":{"status_pct":99,"note":"Integritätscheck liest jetzt das aktuelle preview-manifest.json statt des veralteten V69-Manifests; V71-Dateien und bestehende Runtime-Komponenten sind als Pflichtpfade erfasst."},
   "gates_before_public_candidate":[
     "Backup/Restore-Drill auf separater Testdatenbank tatsächlich ausführen",
     "produktiven Semantikprovider auf größerem repräsentativem Goldset prüfen",
@@ -27,6 +29,7 @@
     "DSGVO-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen",
     "dauerhafte Nettoeffekte der prioritären Reformen einzeln verifizieren",
     "zweite Länder-Auditstufe und WERK-VOTE-Verfassungsvarianten schließen",
-    "Statuten/Partnervertrag, Betreiberangaben und manuelle Accessibility-/Geräteabnahme abschließen"
+    "Statuten/Partnervertrag und Betreiberangaben abschließen",
+    "V71 manuell auf Mobilgerät, Tastatur und Screenreader abnehmen"
   ]
 }
