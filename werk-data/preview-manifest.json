@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-05-v29",
+  "version":"2026-09-05-v30",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -24,6 +24,9 @@
     {"group":"Gesundheitsaktivität","path":"./werk-data/health-service-activity-2024.json"},
     {"group":"Gesundheitsaktivität","path":"./werk-data/health-extramural-baseline-2023-2026.json"},
     {"group":"Pflegebaseline","path":"./werk-data/care-baseline-2024-2050.json"},
+    {"group":"Steuerbaseline","path":"./werk-data/tax-baseline-2022-2025.json"},
+    {"group":"Steuerbaseline","path":"./werk-data/tax-social-contribution-branch-2024-2025.json"},
+    {"group":"Steuerbaseline","path":"./werk-data/tax-expenditure-priority-2024.json"},
     {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
@@ -67,6 +70,8 @@
     {"group":"Health Data CI","path":"./.github/workflows/werk-health-data-check.yml"},
     {"group":"Health Activity CI","path":"./.github/workflows/werk-health-activity-check.yml"},
     {"group":"Care Data CI","path":"./.github/workflows/werk-care-data-check.yml"},
+    {"group":"Tax Data CI","path":"./.github/workflows/werk-tax-data-check.yml"},
+    {"group":"Tax Data Contract Runner","path":"./scripts/werk-tax-data-contract.mjs"},
     {"group":"Data Contract Registry CI","path":"./.github/workflows/werk-data-contract-registry-check.yml"},
     {"group":"V71","path":"./werk-v71.html"},
     {"group":"V71","path":"./werk-assets/site-v71.css"},
@@ -81,33 +86,7 @@
     {"group":"QA","path":"./werk-data/project-status.json"},
     {"group":"QA","path":"./werk-data/site-status.json"}
   ],
-  "runtime_evidence":[
-    "Supabase WERK Österreich Staging ACTIVE_HEALTHY in eu-central-1",
-    "Migrationen 001–018 eingespielt",
-    "DB-Guardrails 8/8 runtime bestanden",
-    "Security Advisor nach Lockdown: 0 ERROR / 0 WARN; INFO Default-Deny bewusst",
-    "100.000 Clusterkandidaten -> 100.000 Review-Tasks; 0 Restdaten nach Cleanup",
-    "No-Login Edge E2E: POST 201, Status 200, falscher Token 403, idempotenter Replay 200",
-    "DB-Worker E2E: 5/5 Jobs, 0 Fehler, received -> structured -> cluster_review -> precheck",
-    "Duplikatpfad: zwei Originalideen im selben Cluster; zweiter Status clustered",
-    "PII-Pfad: privacy_hold, PII-Signal, kein structured_proposal",
-    "pg_cron Minutenworker automatisch mehrfach succeeded",
-    "CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"
-  ],
-  "static_contracts":[
-    "8 verbindliche WERK-Säulen bleiben vom Programm getrennt",
-    "12 von 12 Programm-Leitfeldern müssen vorhanden sein",
-    "41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein",
-    "BUD-01 Referenzpfad 2026–2031 und Regierungsbaseline werden durch Fiscal Data CI geprüft",
-    "Baseline Legal CI trennt Rechtsstatus, Anwendungszeitpunkt, derived effects und Realisierungsstatus",
-    "Subsidy Data CI hält BHG, ESVG, TDB, EU/RRF, UG-Volumen und Abwicklungskosten getrennt",
-    "Pension Data CI hält UG22/UG23, ASK gesetzliche PV, Beamtenpensionen und Langfristszenarien getrennt",
-    "Health Data CI hält SHA, COFOG, Spitalsfinanzierung, UG24 und Langfristszenarien getrennt",
-    "Health Activity CI hält stationäre Aufenthalte, ambulante Patient:innen/Frequenzen/Besuche, Krankenversicherungs- und ÖGK-Universen sowie tagesklinisches Prüf-Universum getrennt",
-    "Care Data CI hält Brutto/Netto-Sachleistungen, Pflegegeld, Pflegefonds, 24h-Betreuung, SHA-LTC und Personal-/Kostenpfade getrennt",
-    "Data Contract Registry CI prüft zentrale Artefakt-, Workflow- und Abschlussregister-Verknüpfungen",
-    "Offene Fachkosten-, Wartezeit-, Transformations-, Verteilungs-, Stress- und Teilsektor-Gates bleiben explizit offen",
-    "V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"
-  ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. Die WERK-Datenarchitektur umfasst inzwischen unabhängige, maschinengeprüfte Contracts für Fiscal, Regierungsrecht, Förderungen, Pensionen, Gesundheitsfinanzierung, Gesundheitsaktivität und Pflege sowie eine zentrale Contract-Registry. Die BUD-01-Endrechnung bleibt blockiert, bis insbesondere Teilsektortrennung, vollständige Measure-Ist-Wirkung, fachgebietsspezifische Gesundheitskosten, aktuelle Wartezeiten, Reform-Nettoeffekte, Transformationskosten, Verteilungs- und Stressprüfung ausreichend geschlossen sind."
+  "runtime_evidence":["Supabase WERK Österreich Staging ACTIVE_HEALTHY in eu-central-1","Migrationen 001–018 eingespielt","DB-Guardrails 8/8 runtime bestanden","Security Advisor nach Lockdown: 0 ERROR / 0 WARN; INFO Default-Deny bewusst","100.000 Clusterkandidaten -> 100.000 Review-Tasks; 0 Restdaten nach Cleanup","No-Login Edge E2E: POST 201, Status 200, falscher Token 403, idempotenter Replay 200","DB-Worker E2E: 5/5 Jobs, 0 Fehler, received -> structured -> cluster_review -> precheck","Duplikatpfad: zwei Originalideen im selben Cluster; zweiter Status clustered","PII-Pfad: privacy_hold, PII-Signal, kein structured_proposal","pg_cron Minutenworker automatisch mehrfach succeeded","CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"],
+  "static_contracts":["8 verbindliche WERK-Säulen bleiben vom Programm getrennt","12 von 12 Programm-Leitfeldern müssen vorhanden sein","41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein","BUD-01 Referenzpfad 2026–2031 und Regierungsbaseline werden durch Fiscal Data CI geprüft","Baseline Legal CI trennt Rechtsstatus, Anwendungszeitpunkt, derived effects und Realisierungsstatus","Subsidy Data CI hält BHG, ESVG, TDB, EU/RRF, UG-Volumen und Abwicklungskosten getrennt","Pension Data CI hält UG22/UG23, ASK gesetzliche PV, Beamtenpensionen und Langfristszenarien getrennt","Health Data CI hält SHA, COFOG, Spitalsfinanzierung, UG24 und Langfristszenarien getrennt","Health Activity CI hält stationäre Aufenthalte, ambulante Patient:innen/Frequenzen/Besuche, Krankenversicherungs- und ÖGK-Universen sowie tagesklinisches Prüf-Universum getrennt","Care Data CI hält Brutto/Netto-Sachleistungen, Pflegegeld, Pflegefonds, 24h-Betreuung, SHA-LTC und Personal-/Kostenpfade getrennt","Tax Data CI hält S.13, S.13+EU, UG16, UVA, Beitragszweige und Tax Expenditures getrennt; ausgewählte 18,603 Mrd. EUR Tax Expenditures sind kein automatisch eintreibbares Aufkommen","Data Contract Registry CI prüft zentrale Artefakt-, Workflow- und Abschlussregister-Verknüpfungen","Offene Fachkosten-, Wartezeit-, Transformations-, Verteilungs-, Stress- und Teilsektor-Gates bleiben explizit offen","V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"],
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. Die WERK-Datenarchitektur umfasst unabhängige, maschinengeprüfte Contracts für Fiscal, Regierungsrecht, Förderungen, Pensionen, Gesundheitsfinanzierung, Gesundheitsaktivität, Pflege und Steuern sowie eine zentrale Contract-Registry. Die BUD-01-Endrechnung bleibt blockiert, bis insbesondere Teilsektortrennung, vollständige Measure-Ist-Wirkung, fachgebietsspezifische Gesundheitskosten, aktuelle Wartezeiten, vollständige Steuer-/Sozialbeitragsbasen, dynamische Steueraufkommensmodelle, Reform-Nettoeffekte, Transformationskosten, Verteilungs- und Stressprüfung ausreichend geschlossen sind."
 }
