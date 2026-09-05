@@ -1,0 +1,96 @@
+name: WERK Pension Data Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/pension-baseline-2024-2031.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-pension-data-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pension-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate pension baseline universes and identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail=m=>{throw new Error(m)};
+          const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
+          const finiteArray=(a,n,msg)=>{if(!Array.isArray(a)||a.length!==n||a.some(v=>!Number.isFinite(v)))fail(msg)};
+          const p=read('werk-data/pension-baseline-2024-2031.json');
+          const years8=[2024,2025,2026,2027,2028,2029,2030,2031];
+          const years7=[2024,2025,2026,2027,2028,2029,2030];
+          const years6=[2025,2026,2027,2028,2029,2030];
+          const tolBudget=Number(p.validation?.tolerance_mio_budget_components??2)+1e-9;
+          const tolAsk=Number(p.validation?.tolerance_mio_ask_identity??0.01)+1e-9;
+
+          if(JSON.stringify(p.federal_budget_ug22.years)!==JSON.stringify(years8))fail('UG22 year universe mismatch');
+          if(JSON.stringify(p.federal_budget_ug23.years)!==JSON.stringify(years8))fail('UG23 year universe mismatch');
+          if(JSON.stringify(p.ask_statutory_pension_insurance.years)!==JSON.stringify(years7))fail('ASK statutory year universe mismatch');
+          if(JSON.stringify(p.ask_beamtenpensions.years)!==JSON.stringify(years6))fail('ASK beamten year universe mismatch');
+
+          finiteArray(p.federal_budget_ug22.outflows_mio,8,'Invalid UG22 outflows');
+          finiteArray(p.federal_budget_ug23.outflows_mio,8,'Invalid UG23 outflows');
+          finiteArray(p.combined_federal_budget_view.ug22_plus_ug23_outflows_mio,8,'Invalid combined federal outflows');
+          years8.forEach((year,i)=>eq(p.federal_budget_ug22.outflows_mio[i]+p.federal_budget_ug23.outflows_mio[i],p.combined_federal_budget_view.ug22_plus_ug23_outflows_mio[i],0.001,`${year} UG22+UG23 combined`));
+
+          const u22=p.federal_budget_ug22;
+          for(let i=0;i<5;i++){
+            const components=u22.federal_contribution_excluding_partner_mio[i]+u22.partnerleistung_svs_mio[i]+u22.equalisation_supplements_mio[i]+u22.night_heavy_labour_special_retirement_mio[i];
+            eq(components,u22.outflows_mio[i],tolBudget,`${u22.component_detail_years[i]} UG22 component reconciliation`);
+          }
+          const u23=p.federal_budget_ug23;
+          for(let i=0;i<5;i++){
+            eq(u23.beamten_pension_outflows_mio[i]+u23.beamten_care_allowance_mio[i],u23.outflows_mio[i],tolBudget,`${u23.component_detail_years[i]} UG23 pension+care reconciliation`);
+            eq(u22.outflows_mio[i]+u23.beamten_pension_outflows_mio[i],p.combined_federal_budget_view.pension_related_excluding_ug23_care_known_mio[i],tolBudget,`${u23.component_detail_years[i]} known pension-related federal view`);
+          }
+          if(p.combined_federal_budget_view.pension_related_excluding_ug23_care_known_mio.slice(5).some(v=>v!==null))fail('Federal pension-only detail 2029-2031 must remain null, not extrapolated');
+
+          const ask=p.ask_statutory_pension_insurance;
+          for(const key of ['pension_expenditure_mio','mandatory_contributions_excluding_partner_mio','federal_contribution_total_mio','equalisation_supplement_expense_mio','federal_funds_total_mio'])finiteArray(ask[key],7,`Invalid ASK statutory series ${key}`);
+          years7.forEach((year,i)=>eq(ask.federal_contribution_total_mio[i]+ask.equalisation_supplement_expense_mio[i],ask.federal_funds_total_mio[i],tolAsk,`${year} ASK federal funds identity`));
+          const growth=(ask.pension_expenditure_mio[6]/ask.pension_expenditure_mio[0]-1)*100;
+          eq(growth,ask.pension_expenditure_growth_2024_2030_pct,0.1,'ASK statutory pension expenditure growth 2024-2030');
+
+          const beam=p.ask_beamtenpensions;
+          finiteArray(beam.pension_expenditure_mio,6,'Invalid ASK beamten expenditure');
+          finiteArray(beam.pension_expenditure_pct_nominal_gdp,6,'Invalid ASK beamten GDP ratio');
+          finiteArray(beam.pensioned_persons,6,'Invalid ASK beamten pensioned persons');
+          finiteArray(beam.active_beamte,6,'Invalid ASK active beamte');
+          eq((beam.pension_expenditure_mio[5]/beam.pension_expenditure_mio[0]-1)*100,beam.growth_2025_2030_pct,0.1,'ASK beamten growth 2025-2030');
+
+          const sm=p.ug22_sustainability_mechanism;
+          if(sm.legal_target_years.length!==5||sm.current_budget_path_mio.length!==5||sm.deviation_mio.length!==5)fail('Sustainability mechanism series length mismatch');
+          let cumDev=0,cumTarget=0;
+          sm.legal_target_years.forEach((year,i)=>{
+            eq(sm.current_budget_path_mio[i]-sm.target_path_mio[i],sm.deviation_mio[i],0.01,`${year} sustainability planned deviation`);
+            cumDev+=sm.deviation_mio[i];cumTarget+=sm.target_path_mio[i];
+          });
+          const threshold=0.005*cumTarget;
+          if(!(cumDev>threshold))fail(`Current budget-path deviation should exceed 0.5% comparison threshold as planning signal: ${cumDev} <= ${threshold}`);
+          if(!String(sm.rule).includes('Budgetplanung')||!String(sm.trigger).includes('Kumulierte'))fail('Sustainability mechanism must distinguish current budget-plan warning from legal trigger logic');
+
+          if(p.coverage?.PENS_G_ug22_ug23_component_detail_2029_2031!=='open')fail('2029-2031 component detail must remain open');
+          if(p.coverage?.PENS_H_long_term_2031_2070!=='open')fail('Long-term 2031-2070 must remain open');
+          if(p.coverage?.PENS_I_reform_transition_costs_and_distribution!=='open')fail('Transition/distribution work must remain open');
+
+          console.log(`Pension contract OK: UG22/UG23 2024-2031 reconcile at federal-budget level; ASK statutory 2024-2030 and ASK beamten 2025-2030 remain separate; planned UG22 cumulative deviation ${cumDev.toFixed(1)}m exceeds comparison threshold ${threshold.toFixed(1)}m without claiming legal trigger activation.`);
+          NODE
