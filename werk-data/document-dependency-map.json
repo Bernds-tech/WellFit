@@ -1,13 +1,14 @@
 {
-  "version": "2026-09-05-v1",
+  "version": "2026-09-05-v2",
   "title": "WERK Österreich – Dokument-Abhängigkeitskarte",
   "purpose": "Parteiprogramm und Statuten werden als Teil des WERK-Gesamtsystems gepflegt. Änderungen an Daten, Reformen, Rechtslage oder Organisationsmodell lösen eine Prüfung aller betroffenen Dokumentabschnitte aus.",
   "update_cadence": "weekly_review_plus_event_driven",
   "rules": [
     "Neue amtliche Zahlen ersetzen nicht nur einen Einzelwert; alle davon abhängigen Berechnungen und Texte werden mitgeprüft.",
     "Änderungen politischer Positionen werden gegen WERK-Kern, Reformregister, Rechtslage, Finanzierung und Verteilungswirkung geprüft.",
+    "Änderungen an Grundrechten, Verfassungsprimat oder weltanschaulicher Neutralität werden gleichzeitig in Parteiprogramm, Statuten, Partnerkriterien, Mitgliedschaftsregeln und Integrations-/Rechtsstaatskapiteln geprüft.",
     "Offene oder noch nicht belastbar gerechnete Beträge werden im Parteiprogramm nicht als endgültige Einsparung oder Mehreinnahme behauptet.",
-    "Statuten ändern keine fachpolitischen Zahlen, können aber durch Änderungen am Partner-, Governance-, Compliance- oder Bürgerbeteiligungsmodell betroffen sein.",
+    "Statuten ändern keine fachpolitischen Zahlen, können aber durch Änderungen am Partner-, Governance-, Compliance-, Bürgerbeteiligungs- oder Grundkodexmodell betroffen sein.",
     "Maschinenprüfungen sind Sicherheitsnetz; fachliche Konsistenzprüfung bleibt verpflichtend."
   ],
   "documents": [
@@ -40,6 +41,7 @@
         "pension_health_care_change": ["Gesundheit, Pflege & soziale Sicherheit", "Finanzen, Budget & Schulden", "Verteilung"],
         "federalism_or_partner_change": ["Wohnen, Regionen, Gemeinden & Landwirtschaft", "Demokratie, Transparenz & Digitalstaat", "Organisationshinweise"],
         "vote_or_constitution_change": ["Demokratie, Transparenz & Digitalstaat", "Sicherheit, Justiz, Rechtsstaat & Resilienz"],
+        "religion_or_state_neutrality_change": ["WERK-Grundverständnis", "Familie, Generationen, Migration & Integration", "Sicherheit, Justiz, Rechtsstaat & Resilienz", "Demokratie, Transparenz & Digitalstaat", "WERK und regionale Bürgerlisten"],
         "eu_or_legal_change": ["Europa, Tourismus, Kultur & Medien", "betroffene Fachkapitel"]
       }
     },
@@ -58,7 +60,8 @@
         "partner_model_change": ["Gliederung", "Partnerlisten", "Konflikt- und Ausschlussverfahren"],
         "governance_change": ["Parteiorgane", "Vertretungsbefugnis", "Wahlen und Amtsdauer"],
         "compliance_change": ["Finanzen", "Kontrolle", "Transparenz"],
-        "membership_change": ["Mitgliedschaft", "Rechte und Pflichten", "Schiedsverfahren"]
+        "membership_change": ["Mitgliedschaft", "Rechte und Pflichten", "Schiedsverfahren"],
+        "religion_or_state_neutrality_change": ["§ 1 Name, Charakter und Zweck", "§ 2 Grundkodex", "§ 3 Mitgliedschaft", "§ 5 Pflichten", "§ 7 WERK-Partnerlisten", "§ 14 Parteiordnungsmaßnahmen und Ausschluss"]
       }
     }
   ]
