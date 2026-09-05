@@ -1,17 +1,20 @@
 {
-  "version":"2026-09-05-v1",
+  "version":"2026-09-05-v2",
   "title":"WERK Österreich – Arbeitnehmer-Payroll-Regelkern 2026",
-  "status":"verified-core-rules-special-payment-kernel-net-engine-partial",
+  "status":"verified-running-and-special-withholding-kernel-final-assessment-open",
   "checked_at":"2026-09-05",
-  "purpose":"Maschinenlesbarer Regelkern für DIST-I/TAX-02. Er trennt laufende Bezüge und Sonderzahlungen sozialversicherungs- und lohnsteuerrechtlich. Der Kern ist noch keine vollständige österreichische Nettolohnabrechnung: Pendlerpauschale, Gewerkschaftsbeiträge, Sachbezüge, steuerfreie Zuschläge, Kollektivvertrags-/Branchenzuschläge, unterjährige Dienstgeberwechsel, Sonderfälle und vollständige monatliche Lohnsteuer-Aufrollung bleiben eigene Module.",
+  "purpose":"Maschinenlesbarer Regelkern für DIST-I/TAX-02. Er trennt laufende Bezüge und Sonderzahlungen sozialversicherungs- und lohnsteuerrechtlich. Der Kern kann im verifizierten Standardscope Arbeitgeber-Einbehaltung für 12 laufende und zwei gleich hohe Sonderzahlungen rechnen. Er ist ausdrücklich noch keine vollständige österreichische Arbeitnehmerveranlagung oder Haushalts-Mikrosimulation.",
   "scope":{
-    "included":"Standard-ASVG-Dienstnehmer/in, vollversichert, laufende Geldbezüge und wiederkehrende Sonderzahlungen; Standard-Arbeiterkammerzugehörigkeit; Österreich bzw. Wien als WF-Variante.",
-    "excluded":["Lehrlinge","freie Dienstnehmer","geringfügige Beschäftigung als alleiniger Versicherungsfall","Landarbeiterkammer-Sonderfälle","Schlechtwetter/Nachtschwerarbeit","mehrfache Beschäftigung","Altersteilzeit","Sachbezüge","steuerfreie Zulagen/Zuschläge","Pendlerpauschale/Pendlereuro","Freibetragsbescheid","Gewerkschaftsbeiträge","Abfertigungen","Prämien außerhalb des Standard-Jahressechstels","Dienstgeberwechsel und Kontrollsechstel-Aufrollung"],
+    "included":"Standard-ASVG-Dienstnehmer/in, vollversichert, laufende Geldbezüge und wiederkehrende Sonderzahlungen; Standard-Arbeiterkammerzugehörigkeit; Österreich bzw. Wien als WF-Variante; keine zusätzlichen Freibeträge oder Familien-/Pendler-Sonderfälle.",
+    "excluded":["Lehrlinge","freie Dienstnehmer","geringfügige Beschäftigung als alleiniger Versicherungsfall","Landarbeiterkammer-Sonderfälle","Schlechtwetter/Nachtschwerarbeit","mehrfache Beschäftigung","Altersteilzeit","Sachbezüge","steuerfreie Zulagen/Zuschläge","Pendlerpauschale/Pendlereuro","Freibetragsbescheid","Gewerkschaftsbeiträge","Abfertigungen","Prämien außerhalb des Standard-Jahressechstels","Dienstgeberwechsel und Kontrollsechstel-Aufrollung","Familienbonus-/AVAB-/AEAB-Sonderfälle in der verifizierten Standard-Nettofunktion"],
     "rule":"Ein Ergebnis außerhalb dieses Scopes darf nicht als verifizierte Nettolohnabrechnung ausgegeben werden."
   },
   "sources":[
     {"id":"RIS-ESTG-67-2026","authority":"RIS / Bundesrecht","title":"EStG 1988 § 67 – Sonstige Bezüge, Fassung 2026","url":"https://ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=67"},
     {"id":"BMF-STEUERBUCH-2026","authority":"Bundesministerium für Finanzen","title":"Das Steuerbuch 2026 – Urlaubsgeld und Weihnachtsgeld","url":"https://www.bmf.gv.at/dam/jcr:436f8c01-38e0-41bf-b904-c0e62a862bf1/251117_Steuerbuch2026_DE_BF.pdf"},
+    {"id":"BMF-LSTR-2026","authority":"Bundesministerium für Finanzen / Findok","title":"Lohnsteuerrichtlinien – LSt-Tabelle 2026 für unselbständig Beschäftigte","publication":"2025-12-18","url":"https://findok.bmf.gv.at/volltext?dokumentId=36d45f2b-2e3b-4e1c-a632-c067dd76817c"},
+    {"id":"BMF-TRAFFIC-CREDIT-2026","authority":"Bundesministerium für Finanzen","title":"Verkehrsabsetzbetrag und Zuschlag 2026","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/uebersicht-steuerabsetzbetraege.html"},
+    {"id":"BMF-WERBUNGSKOSTEN-2026","authority":"Bundesministerium für Finanzen","title":"Werbungskostenpauschale 2026","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/was-kann-ich-geltend-machen/werbungskosten/werbungskosten-ueberblick.html"},
     {"id":"SV-SONDERZAHLUNGEN-2026","authority":"Dachverband / ÖGK","title":"Sonderzahlungen – Stand 01.01.2026","url":"https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.905448"},
     {"id":"SV-AV-2026","authority":"Dachverband / ÖGK","title":"Verringerung des AV-Beitrages bei geringem Einkommen – 2026","url":"https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.908591"},
     {"id":"SV-HBG-2026","authority":"Dachverband / ÖGK","title":"Höchstbeitragsgrundlagen 2026","url":"https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.904906"},
@@ -29,11 +32,41 @@
       {"gross_lower_exclusive_eur":2630,"gross_upper_eur":null,"rate_pct":2.95}
     ],
     "running_pay_rule":"Beitragsbasis = min(laufender Monatsbrutto, 6.930 EUR). Für die AV-Satzstufe ist das tatsächlich gebührende Bruttoentgelt des Beitragszeitraums maßgeblich; die Höchstbeitragsgrundlage wird für diese Stufenprüfung nicht vorweg angewendet.",
-    "special_payment_rule":"Sonderzahlungen werden von laufenden Bezügen getrennt beurteilt. Beitragspflicht besteht kalenderjährlich höchstens für 13.860 EUR Sonderzahlungsbasis. Auf Sonderzahlungen fallen grundsätzlich KV, PV und AV sowie einschlägige übrige Beiträge an, aber keine Arbeiterkammerumlage und kein Wohnbauförderungsbeitrag. Der reduzierte DN-AV-Satz wird für die Sonderzahlung nach deren eigener Bruttohöhe bestimmt, getrennt vom laufenden Bezug.",
+    "special_payment_rule":"Sonderzahlungen werden von laufenden Bezügen getrennt beurteilt. Beitragspflicht besteht kalenderjährlich höchstens für 13.860 EUR Sonderzahlungsbasis. Auf Sonderzahlungen fallen grundsätzlich KV, PV und AV an, aber keine Arbeiterkammerumlage und kein Wohnbauförderungsbeitrag. Der reduzierte DN-AV-Satz wird für die Sonderzahlung nach deren eigener Bruttohöhe bestimmt, getrennt vom laufenden Bezug.",
     "standard_employee_running_rate_full_av_pct":{"outside_vienna":18.07,"vienna":18.32},
     "standard_employee_special_rate_full_av_pct":17.07,
     "special_excluded_employee_levies":["Arbeiterkammerumlage","Wohnbauförderungsbeitrag"],
     "occupation_specific_extra_rates":"not_in_core"
+  },
+  "ordinary_monthly_wage_tax":{
+    "definition":"Monatslohn = Bruttobezug abzüglich Arbeitnehmer-SV und sonstiger berücksichtigter Freibeträge, jedoch vor Abzug des Werbungskostenpauschales von 132 EUR p.a.; dieses ist bereits in der amtlichen Lohnsteuertabelle eingerechnet.",
+    "table":[
+      {"upper_inclusive_eur":1139.25,"marginal_rate_pct":0,"deduction_eur":0},
+      {"upper_inclusive_eur":1843.67,"marginal_rate_pct":20,"deduction_eur":227.85},
+      {"upper_inclusive_eur":3049.17,"marginal_rate_pct":30,"deduction_eur":412.22},
+      {"upper_inclusive_eur":5874.75,"marginal_rate_pct":40,"deduction_eur":717.13},
+      {"upper_inclusive_eur":8749.25,"marginal_rate_pct":48,"deduction_eur":1187.11},
+      {"upper_inclusive_eur":83344.33,"marginal_rate_pct":50,"deduction_eur":1362.10},
+      {"upper_inclusive_eur":null,"marginal_rate_pct":55,"deduction_eur":5529.32}
+    ],
+    "standard_monthly_traffic_tax_credit_eur":41.33,
+    "standard_annual_traffic_tax_credit_eur":496,
+    "traffic_credit_rounding_note":"12 × 41,33 EUR = 495,96 EUR; der amtliche Jahresbetrag ist 496 EUR. Der Monatswert wird in der laufenden Lohnverrechnung verwendet.",
+    "traffic_credit_supplement_2026_eur_year":804,
+    "traffic_credit_supplement_rule":"Der Zuschlag von bis zu 804 EUR wird 2026 nur im Rahmen der Veranlagung berücksichtigt; er gehört nicht in die Standard-Arbeitgeber-Einbehaltung dieses Kernels.",
+    "family_bonus_rule":"Der Familienbonus Plus ist in der Lohnsteuertabelle als eigener Absetzbetrag vorgesehen und zuerst bis maximal Null abzuziehen. Die verifizierte Standard-Nettofunktion v2 verwendet familyBonusMonthly=0; Haushaltsvarianten folgen in der Mikrosimulationsschicht.",
+    "formula_standard_scope":"max(0, Monatslohn × Grenzsteuersatz − Abzug − 41,33 EUR Verkehrsabsetzbetrag).",
+    "test_vectors":[
+      {"monthly_lohn_eur":1000,"expected_wage_tax_eur":0,"band_rate_pct":0},
+      {"monthly_lohn_eur":1697.60,"expected_wage_tax_eur":70.34,"band_rate_pct":20},
+      {"monthly_lohn_eur":1983.84,"expected_wage_tax_eur":141.60,"band_rate_pct":30,"note":"Amtlicher Rechenanker: 1.983,84 × 30 % − 412,22 − 41,33 ≈ 141,60."},
+      {"monthly_lohn_eur":2457.90,"expected_wage_tax_eur":283.82,"band_rate_pct":30},
+      {"monthly_lohn_eur":4096.50,"expected_wage_tax_eur":880.14,"band_rate_pct":40},
+      {"monthly_lohn_eur":6747.749,"expected_wage_tax_eur":2010.48,"band_rate_pct":48},
+      {"monthly_lohn_eur":10000,"expected_wage_tax_eur":3596.57,"band_rate_pct":50},
+      {"monthly_lohn_eur":90000,"expected_wage_tax_eur":43929.35,"band_rate_pct":55}
+    ],
+    "scope_warning":"Laufende Arbeitgeber-Lohnsteuer ist nicht ident mit endgültiger Jahressteuer nach Arbeitnehmerveranlagung. Veranlagungszuschläge, SV-Rückerstattung, zusätzliche Werbungskosten und weitere Jahreskorrekturen bleiben außerhalb dieses Payroll-Withholding-Kerns."
   },
   "special_payment_tax":{
     "legal_basis":"EStG 1988 § 67 Abs. 1 und 2",
@@ -49,27 +82,29 @@
     "freigrenze_rule":"Beträgt das Jahressechstel höchstens 2.615 EUR, unterbleibt die Besteuerung der sonstigen Bezüge mit den festen Sätzen des § 67 Abs. 1.",
     "deduction_order_rule":"Auf die sonstigen Bezüge entfallende abzugsfähige Sozialversicherungsbeiträge werden vor Anwendung der festen Steuersätze abgezogen.",
     "overhang_rule":"Sonderbezüge oberhalb des verfügbaren Jahressechstels sind nicht begünstigt mit den festen Sätzen zu besteuern; sie werden dem laufenden Bezug des Auszahlungsmonats nach der gesetzlichen Tariflogik zugerechnet.",
-    "high_income_rule":"Ab laufenden Jahreseinkünften von 500.000 EUR werden sonstige Bezüge nach der im BMF-Steuerbuch beschriebenen Regel mit dem tarifmäßigen Grenzsteuersatz besteuert; dieser Sonderfall ist im v1-Rechenkern nicht implementiert.",
-    "control_sixth_rule":"Unterjährige Sechstelüberschreitungen können eine Kontrollsechstel-/Aufrollungslogik auslösen. v1 klassifiziert diesen Fall als outside_verified_scope."
+    "high_income_rule":"Ab laufenden Jahreseinkünften von 500.000 EUR werden sonstige Bezüge nach der im BMF-Steuerbuch beschriebenen Regel mit dem tarifmäßigen Grenzsteuersatz besteuert; dieser Sonderfall ist im v2-Rechenkern nicht implementiert.",
+    "control_sixth_rule":"Unterjährige Sechstelüberschreitungen können eine Kontrollsechstel-/Aufrollungslogik auslösen. v2 klassifiziert diesen Fall als outside_verified_scope."
   },
   "kernel_functions":[
     {"id":"employee_av_rate","inputs":["gross_amount_eur"],"output":"employee_av_rate_pct","status":"verified"},
     {"id":"running_employee_sv","inputs":["monthly_gross_eur","employment_region"],"output":"employee_sv_eur","status":"verified_standard_scope"},
     {"id":"special_employee_sv","inputs":["special_gross_eur","special_base_used_ytd_eur"],"output":["employee_sv_eur","contribution_base_eur","remaining_special_hbg_eur"],"status":"verified_standard_scope"},
+    {"id":"ordinary_monthly_wage_tax","inputs":["monthly_lohn_eur","optional_standard_monthly_credits"],"output":"employer_withheld_wage_tax_eur","status":"verified_standard_scope"},
     {"id":"jahressechstel","inputs":["running_gross_received_ytd_eur","elapsed_calendar_months"],"output":"jahressechstel_eur","status":"verified"},
     {"id":"special_fixed_rate_tax","inputs":["special_gross_within_sixth_eur","deductible_special_sv_eur","jahressechstel_eur","prior_taxable_special_after_sv_eur"],"output":"special_wage_tax_eur","status":"verified_standard_scope","note":"Does not implement §67 high-income exception or control-sixth rollup."},
-    {"id":"ordinary_running_wage_tax","status":"open"},
-    {"id":"full_14_payment_net_income","status":"open"},
+    {"id":"constant_salary_employer_withholding_14_payments","inputs":["monthly_gross_eur","employment_region"],"output":["annual_gross","running_sv","running_wage_tax","special_sv","special_fixed_tax","payroll_net_before_assessment"],"status":"verified_standard_scope"},
+    {"id":"final_annual_tax_after_employee_assessment","status":"open"},
     {"id":"effective_marginal_burden","status":"open"}
   ],
   "deterministic_test_vectors":{
-    "assumptions":"Standard employee, no occupation-specific extras, no special cases, full-year constant salary, two special payments equal to one monthly gross each. Values before cent-rounding by payroll software.",
+    "assumptions":"Standard employee, no occupation-specific extras, no family/pendler/other credits, full-year constant salary, twelve equal running payments plus two special payments equal to one monthly gross each. Values before payroll-software cent-rounding and before Arbeitnehmerveranlagung.",
     "cases":[
-      {"id":"LOW-FREIGRENZE","monthly_gross_eur":1200,"region":"outside_vienna","expected_jahressechstel_eur":2400,"expected_regular_av_rate_pct":0,"expected_special_av_rate_pct":0,"expected_special_fixed_rate_tax_year_eur":0,"reason":"Jahressechstel <= 2.615 EUR."},
-      {"id":"MID-2000","monthly_gross_eur":2000,"region":"outside_vienna","expected_jahressechstel_eur":4000,"expected_regular_av_rate_pct":0,"expected_special_av_rate_pct":0,"expected_running_employee_sv_month_eur":302.40,"expected_special_employee_sv_each_eur":282.40,"expected_special_fixed_rate_tax_year_eur":168.91},
-      {"id":"MID-3000","monthly_gross_eur":3000,"region":"outside_vienna","expected_jahressechstel_eur":6000,"expected_regular_av_rate_pct":2.95,"expected_special_av_rate_pct":2.95,"expected_running_employee_sv_month_eur":542.10,"expected_special_employee_sv_each_eur":512.10,"expected_special_fixed_rate_tax_year_eur":261.35},
-      {"id":"VIENNA-3000","monthly_gross_eur":3000,"region":"vienna","expected_jahressechstel_eur":6000,"expected_running_employee_sv_month_eur":549.60,"expected_special_employee_sv_each_eur":512.10,"reason":"Vienna WF affects running pay only; special payments carry no WF."},
-      {"id":"HBG-8000","monthly_gross_eur":8000,"region":"outside_vienna","expected_jahressechstel_eur":16000,"expected_running_contribution_base_eur":6930,"expected_special_contribution_base_year_eur":13860,"expected_running_employee_sv_month_eur":1252.25,"expected_special_employee_sv_year_eur":2365.90,"expected_special_fixed_rate_tax_year_eur":780.85}
+      {"id":"LOW-FREIGRENZE","monthly_gross_eur":1200,"region":"outside_vienna","expected_jahressechstel_eur":2400,"expected_regular_av_rate_pct":0,"expected_special_av_rate_pct":0,"expected_running_employee_sv_month_eur":181.44,"expected_running_wage_tax_month_eur":0,"expected_special_fixed_rate_tax_year_eur":0,"expected_payroll_net_before_assessment_eur":14283.84,"reason":"Jahressechstel <= 2.615 EUR."},
+      {"id":"MID-2000","monthly_gross_eur":2000,"region":"outside_vienna","expected_jahressechstel_eur":4000,"expected_regular_av_rate_pct":0,"expected_special_av_rate_pct":0,"expected_running_employee_sv_month_eur":302.40,"expected_running_wage_tax_month_eur":70.34,"expected_special_employee_sv_each_eur":282.40,"expected_special_fixed_rate_tax_year_eur":168.91,"expected_payroll_net_before_assessment_eur":22793.41},
+      {"id":"MID-3000","monthly_gross_eur":3000,"region":"outside_vienna","expected_jahressechstel_eur":6000,"expected_regular_av_rate_pct":2.95,"expected_special_av_rate_pct":2.95,"expected_running_employee_sv_month_eur":542.10,"expected_running_wage_tax_month_eur":283.82,"expected_special_employee_sv_each_eur":512.10,"expected_special_fixed_rate_tax_year_eur":261.35,"expected_payroll_net_before_assessment_eur":30803.41},
+      {"id":"MID-5000","monthly_gross_eur":5000,"region":"outside_vienna","expected_jahressechstel_eur":10000,"expected_regular_av_rate_pct":2.95,"expected_running_employee_sv_month_eur":903.50,"expected_running_wage_tax_month_eur":880.14,"expected_special_employee_sv_each_eur":853.50,"expected_special_fixed_rate_tax_year_eur":460.38,"expected_payroll_net_before_assessment_eur":46428.94},
+      {"id":"VIENNA-3000","monthly_gross_eur":3000,"region":"vienna","expected_jahressechstel_eur":6000,"expected_running_employee_sv_month_eur":549.60,"expected_running_wage_tax_month_eur":281.57,"expected_special_employee_sv_each_eur":512.10,"expected_special_fixed_rate_tax_year_eur":261.35,"expected_payroll_net_before_assessment_eur":30740.41,"reason":"Vienna WF affects running pay only; special payments carry no WF."},
+      {"id":"HBG-8000","monthly_gross_eur":8000,"region":"outside_vienna","expected_jahressechstel_eur":16000,"expected_running_contribution_base_eur":6930,"expected_special_contribution_base_year_eur":13860,"expected_running_employee_sv_month_eur":1252.25,"expected_running_wage_tax_month_eur":2010.48,"expected_special_employee_sv_year_eur":2365.90,"expected_special_fixed_rate_tax_year_eur":780.85,"expected_payroll_net_before_assessment_eur":69700.49}
     ]
   },
   "coverage":{
@@ -78,9 +113,10 @@
     "PAY_C_2026_jahressechstel_and_fixed_rates":"closed",
     "PAY_D_2026_special_payment_freigrenze":"closed",
     "PAY_E_vienna_wf_variant":"closed",
-    "PAY_F_ordinary_running_wage_tax_engine":"open",
+    "PAY_F_ordinary_running_wage_tax_employer_withholding":"closed_standard_scope",
     "PAY_G_control_sixth_and_under_year_rollup":"open",
-    "PAY_H_full_14_payment_net_income_engine":"open",
-    "PAY_I_effective_marginal_burden_engine":"open"
+    "PAY_H_constant_salary_14_payment_employer_withholding":"closed_standard_scope_before_assessment",
+    "PAY_I_final_annual_tax_after_employee_assessment":"open",
+    "PAY_J_effective_marginal_burden_engine":"open"
   }
 }
