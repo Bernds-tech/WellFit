@@ -1,0 +1,146 @@
+{
+  "version": "2026-09-06-v1",
+  "title": "WERK Österreich – Arbeitsmarkt- und Produktivitätsbaseline 2025/2026",
+  "status": "official_actuals_plus_separately_labeled_forecast",
+  "checked_at": "2026-09-06",
+  "purpose": "Kanonische Ausgangsbasis für Leitfeld 3 Wirtschaft, Arbeit & Standort. Tatsächliche Arbeitsmarktstände, Arbeitskräftenachfrage, Arbeitskosten und mittelfristige Produktivitätsentwicklung werden getrennt geführt; Prognosen bleiben ein eigenes Szenariouniversum.",
+  "concept_guardrails": [
+    "ILO-Arbeitslosigkeit aus der Mikrozensus-Arbeitskräfteerhebung und AMS-Vormerkung sind unterschiedliche Konzepte und werden nicht addiert oder ohne Kennzeichnung gleichgesetzt.",
+    "Quartalsdurchschnitte, Monatsstichtage und Jahresdurchschnitte werden nicht als identischer Zeitpunkt behandelt.",
+    "Offene Stellen aus der Statistik-Austria-Erhebung und beim AMS registrierte offene Stellen sind unterschiedliche Universen.",
+    "Teilzeitquote nach Selbstzuordnung ist kein direktes Maß für ungenutztes Arbeitsangebot; Betreuung, Pflege, Ausbildung, Gesundheit und Arbeitszeitwünsche müssen separat berücksichtigt werden.",
+    "Arbeitskosten, indirekte Arbeitskosten und nationale Lohnnebenkostenquote verwenden unterschiedliche Definitionen; Prozentwerte werden nicht addiert.",
+    "OeNB-Prognosen sind Szenario-/Prognosewerte und werden nicht als realisierte Ist-Werte in WERK-Reformeffekte übernommen.",
+    "Produktivitätsentwicklung wird nicht aus Beschäftigtenzahl allein abgeleitet; Output- und Arbeitsvolumenbezug bleiben erforderlich."
+  ],
+  "actuals": {
+    "ilo_q2_2026": {
+      "period": "2026-Q2",
+      "employed_persons": 4499500,
+      "unemployed_persons": 272100,
+      "derived_labour_force_persons": 4771600,
+      "derived_unemployment_rate_pct": 5.70,
+      "definition": "ILO international concept; quarterly average",
+      "source_id": "STAT-LAB-ILO-Q2-2026"
+    },
+    "ams_august_2026": {
+      "period": "2026-08",
+      "registered_unemployed_persons": 311448,
+      "registered_unemployment_rate_pct": 7.2,
+      "estimated_employees_persons": 4003000,
+      "registered_unemployed_yoy_pct": 3.3,
+      "definition": "AMS national registration concept; month-end / provisional employment estimate",
+      "source_id": "AMS-LAB-AUG-2026"
+    },
+    "vacancies_q2_2026": {
+      "period": "2026-Q2",
+      "vacancies_persons": 123400,
+      "vacancy_rate_pct": 2.9,
+      "qoq_change_pct": -7.3,
+      "yoy_change_pct": -16.6,
+      "full_time_share_pct": 78.4,
+      "sector_vacancies_persons": {
+        "production": 30800,
+        "trade_and_services": 69700,
+        "public_and_social": 22900
+      },
+      "definition": "Statistik Austria vacancy survey; quarterly average",
+      "source_id": "STAT-VAC-Q2-2026"
+    },
+    "annual_2025": {
+      "period": "2025",
+      "employed_persons": 4500200,
+      "employment_rate_15_64_pct": 74.3,
+      "employment_rate_55_64_pct": 60.9,
+      "part_time_persons": 1396600,
+      "part_time_rate_total_pct": 31.0,
+      "part_time_rate_women_pct": 49.8,
+      "part_time_rate_men_pct": 14.0,
+      "part_time_women_persons": 1065600,
+      "part_time_men_persons": 331000,
+      "definition": "ILO employment; part-time by self-classification; annual average",
+      "source_ids": ["STAT-LAB-ANNUAL-2025", "STAT-LAB-PARTTIME-2025"]
+    },
+    "labour_costs": {
+      "period": "2025/2024",
+      "labour_cost_per_hour_eur_2025": 45.76,
+      "labour_cost_per_hour_yoy_pct_2025": 4.5,
+      "indirect_labour_cost_share_international_definition_pct_2024": 26.0,
+      "ancillary_labour_cost_share_national_definition_pct_2024": 49.6,
+      "scope_note": "Die beiden Prozentanteile folgen unterschiedlichen Definitionen und sind nicht additiv.",
+      "source_id": "STAT-LAB-COST"
+    },
+    "macro_context": {
+      "period": "2026-Q2 / 2025",
+      "gdp_q2_2026_real_qoq_pct": -0.1,
+      "gdp_2025_nominal_eur_billion": 514.3,
+      "source_id": "STAT-GDP-Q2-2026"
+    }
+  },
+  "productivity_context": {
+    "source_period": "2012-2024",
+    "austria_average_annual_productivity_growth_pct": 0.7,
+    "eu27_average_annual_productivity_growth_pct": 0.8,
+    "austria_average_annual_productivity_growth_2023_2024_pct": -1.1,
+    "interpretation": "Der Produktivitätsrat führt die Schwäche 2023–2024 insbesondere auf Rückgänge der Arbeitsproduktivität in der Herstellung von Waren zurück. Der Wert ist ein historischer Strukturanker und keine 2026-Ist-Schätzung.",
+    "source_id": "PROD-REPORT-2025"
+  },
+  "forecast_layer": {
+    "name": "OeNB June 2026 forecast",
+    "not_actual": true,
+    "years": [2025, 2026, 2027, 2028],
+    "total_employment_growth_pct": [0.0, 0.1, 0.7, 0.6],
+    "total_hours_worked_growth_pct": [0.6, -0.2, 0.6, 0.5],
+    "eurostat_unemployment_rate_pct": [5.7, 5.6, 5.4, 5.2],
+    "ams_unemployment_rate_pct": [7.4, 7.4, 7.2, 7.0],
+    "real_gross_employee_compensation_per_person_growth_pct": [1.1, -1.0, 0.3, 0.4],
+    "source_id": "OENB-FORECAST-JUN-2026"
+  },
+  "werk_diagnostics": [
+    {
+      "id": "LAB-DIAG-01",
+      "finding": "Arbeitskräfteangebot und offene Stellen bestehen gleichzeitig, aber die Zahl offener Stellen ist 2026 deutlich rückläufig.",
+      "implication": "WERK darf Arbeitslosigkeit nicht pauschal als reines Arbeitsangebotsproblem behandeln; Qualifikation, Region, Beruf, Arbeitszeit und Nachfrage müssen zusammengeführt werden."
+    },
+    {
+      "id": "LAB-DIAG-02",
+      "finding": "Teilzeit betrifft 2025 31,0 % der Erwerbstätigen und Frauen wesentlich häufiger als Männer.",
+      "implication": "Ein pauschales Vollzeitpotenzial ist keine belastbare Budgetannahme. Zusätzliche Erwerbsstunden müssen nach Motiv, Betreuung/Pflege, Einkommen, Grenzbelastung und Beruf modelliert werden."
+    },
+    {
+      "id": "LAB-DIAG-03",
+      "finding": "Die längerfristige Produktivitätsdynamik lag leicht unter dem EU27-Schnitt; 2023–2024 war sie negativ.",
+      "implication": "Standortreformen müssen Produktivität, Investition, Innovation, Energie, Qualifikation und Strukturwandel gemeinsam adressieren, statt nur Beschäftigtenzahlen zu maximieren."
+    },
+    {
+      "id": "LAB-DIAG-04",
+      "finding": "Arbeitskosten je Stunde sind 2025 gestiegen; unterschiedliche Lohnnebenkostenbegriffe liefern stark unterschiedliche Prozentwerte.",
+      "implication": "Abgabensenkungen auf Arbeit müssen aus dem Payroll-/Steuer-/Verteilungsmodell finanziert und mit exakter Beitragsdefinition gerechnet werden."
+    }
+  ],
+  "open_gates": [
+    "Arbeitszeitwünsche und Gründe für Teilzeit nach Geschlecht, Haushalt und Branche kanonisch normalisieren",
+    "Betreuungs- und Pflegeeinschränkungen mit Haushalts-/Transfermodell verbinden",
+    "offene Stellen, Arbeitslose und Qualifikationen nach Beruf, Branche und Bundesland in gemeinsame Matching-Matrix überführen",
+    "Produktivität je Arbeitsstunde nach Branche mit Investitionen, Energie und Kapitalintensität verbinden",
+    "AMS-Maßnahmen nach nachhaltiger Beschäftigungs- und Einkommenswirkung evaluieren",
+    "Arbeitskosten und effektive Grenzbelastung aus Arbeitgeber- und Arbeitnehmerperspektive zusammenführen"
+  ],
+  "update_policy": {
+    "monthly": ["AMS national unemployment, employment estimate and registered vacancies"],
+    "quarterly": ["ILO employment/unemployment", "vacancies", "working time", "GDP"],
+    "annual": ["part-time structure", "labour costs", "Productivity Board monitoring"],
+    "event_driven": "Bei Revisionen oder methodischen Änderungen werden abhängige Reform- und Verteilungsmodelle gemeinsam geprüft."
+  },
+  "sources": [
+    {"id":"STAT-LAB-ILO-Q2-2026","authority":"Statistik Austria","title":"Erwerbsstatus – 2. Quartal 2026","url":"https://www.statistik.at/statistiken/arbeitsmarkt/erwerbsstatus","checked_at":"2026-09-06"},
+    {"id":"AMS-LAB-AUG-2026","authority":"Arbeitsmarktservice Österreich","title":"Arbeitsmarkt August 2026 – bundesweite Referenzwerte in AMS-Landesmeldungen","url":"https://www.ams.at/arbeitsmarktdaten-und-medien/arbeitsmarkt-daten-und-arbeitsmarkt-forschung/arbeitsmarktdaten.html","checked_at":"2026-09-06"},
+    {"id":"STAT-VAC-Q2-2026","authority":"Statistik Austria","title":"Offene Stellen 2. Quartal 2026","url":"https://www.statistik.at/statistiken/arbeitsmarkt/arbeitskraeftenachfrage/offene-stellen","checked_at":"2026-09-06"},
+    {"id":"STAT-LAB-ANNUAL-2025","authority":"Statistik Austria","title":"Erwerbstätige – Merkmale 2025","url":"https://www.statistik.at/statistiken/arbeitsmarkt/erwerbstaetigkeit/erwerbstaetige-merkmale","checked_at":"2026-09-06"},
+    {"id":"STAT-LAB-PARTTIME-2025","authority":"Statistik Austria","title":"Arbeitsmarkt 2005 bis 2025 / Teilzeit","url":"https://www.statistik.at/statistiken/arbeitsmarkt","checked_at":"2026-09-06"},
+    {"id":"STAT-LAB-COST","authority":"Statistik Austria","title":"Arbeitskosten","url":"https://www.statistik.at/statistiken/arbeitsmarkt/arbeitskosten-und-tariflohnindex/arbeitskosten/arbeitskosten","checked_at":"2026-09-06"},
+    {"id":"STAT-GDP-Q2-2026","authority":"Statistik Austria","title":"Bruttoinlandsprodukt und Hauptaggregate","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/volkswirtschaftliche-gesamtrechnungen/bruttoinlandsprodukt-und-hauptaggregate","checked_at":"2026-09-06"},
+    {"id":"PROD-REPORT-2025","authority":"Österreichischer Produktivitätsrat","title":"Produktivitätsbericht 2025","url":"https://www.produktivitaetsrat.at/publikationen/prod-jahresberichte/2025001.html","checked_at":"2026-09-06"},
+    {"id":"OENB-FORECAST-JUN-2026","authority":"Oesterreichische Nationalbank","title":"OeNB-Prognose Juni 2026","url":"https://www.oenb.at/Publikationen/Volkswirtschaft/reports/2026/report-2026-17-prognose/html-version.html","checked_at":"2026-09-06"}
+  ]
+}
