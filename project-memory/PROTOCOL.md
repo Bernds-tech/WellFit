@@ -6,7 +6,7 @@ Operational memory for the WellFit visual/landing/UI repository and the authorit
 1. Read `AGENTS.md`, `CURRENT_STATE.md`, `PROJECT_FINISHLINE.md`, `FINISHLINE_STATE.json`, `NEXT_BEST_ACTION.md`, `AUTO_HANDOFF.md`, `OWNER_ACTION_INBOX.md`, `SESSION_HANDOFF.md`, `STARTED_WORK.md`, `WORK_LOCKS.md`, `OPEN_LOOPS.md`, `TASK_LEDGER.md`, `DEPENDENCIES.md` and `DECISIONS.md`.
 2. For cross-repository work also read `PROJECT_COORDINATION.json`, `WELLFIT_MASTER_STATE.json`, `CROSS_REPO_DEPENDENCIES.json`, `CONTRACT_REGISTRY.json`, `INTEGRATION_GATES.json`, `CROSS_REPO_LOCKS.md`, `CONVERGENCE_PLAN.json`, `CONVERGENCE_LEDGER.json` and `WELLFIT_MASTER_NEXT_ACTION.md`.
 3. Search `FAILED_ATTEMPTS.md`, `DO_NOT_ASSUME.md`, `ASSUMPTIONS.md`, `CONTRADICTIONS.md` and `CHANGE_REQUESTS.md` before repeating or extending prior work.
-4. Reconcile current GitHub/main/PR/CI and current WellFit-now/WellFit-Buddy capability evidence when the UI makes technical claims.
+4. Reconcile live GitHub branch tips, main/PR/CI state and current WellFit-now/WellFit-Buddy capability evidence when the UI makes technical claims. Mutable refs such as `main` are live evidence and must be queried during preflight; do not persist a branch tip in tracked memory as a static claim that it is "current". Persist immutable merge/exact-head/evidence SHAs only as historical facts.
 5. Validate evidence freshness via `EVIDENCE_TTL.json` and tracked truth drift via `DRIFT_BASELINE.json`.
 6. If an owner-only action is deferred, keep it visible in `OWNER_ACTION_INBOX.md` and continue only with safe unrelated work.
 
@@ -36,6 +36,7 @@ Operational memory for the WellFit visual/landing/UI repository and the authorit
 - Contract changes require consumer impact review.
 - Convergence may be big-bang or incremental; no target repository, date or strategy is assumed.
 - Every concrete migration uses `WF-MIG-*` with source, destination, scope, dependencies, evidence and rollback.
+- Mutable Git refs are never durable state identifiers. Store immutable revision evidence; query mutable refs live.
 
 ## Status and acceptance
 Use `TODO`, `IN_PROGRESS`, `BLOCKED`, `PARTIAL`, `IMPLEMENTED`, `IMPLEMENTED_NOT_VERIFIED`, `VERIFIED`, `COUNTERCHECKED`, `ACCEPTED`, `PRODUCTION_CONFIRMED`, `NEEDS_REVALIDATION`, `RECONCILIATION_REQUIRED`, `REJECTED`, `SUPERSEDED`, `DEFERRED`, `DUPLICATE`.

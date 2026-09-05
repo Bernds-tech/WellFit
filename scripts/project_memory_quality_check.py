@@ -23,6 +23,15 @@ if "RECONCILIATION_REQUIRED" not in contr: errors.append("contradiction-register
 quality=(PM/"QUALITY_CONTROL.md").read_text(encoding="utf-8") if (PM/"QUALITY_CONTROL.md").exists() else ""
 for token in ["R1","R2","R3","R4","COUNTERCHECKED","PRODUCTION_CONFIRMED","What observation would prove our conclusion wrong?"]:
     if token not in quality: errors.append(f"quality-contract-missing:{token}")
+current_state=(PM/"CURRENT_STATE.md").read_text(encoding="utf-8") if (PM/"CURRENT_STATE.md").exists() else ""
+self_staling_patterns=[
+    r"(?i)`main`\s+(?:is|steht|ist)\s+(?:currently|aktuell|derzeit)?\s*`?[0-9a-f]{40}`?",
+    r"(?i)current\s+(?:WellFit\s+)?`?main`?\s+(?:is|=|:)\s*`?[0-9a-f]{40}`?",
+]
+for pattern in self_staling_patterns:
+    if re.search(pattern,current_state):
+        errors.append("current-state-persists-mutable-main-tip-as-current-truth")
+        break
 if errors:
     print("PROJECT_MEMORY_QUALITY_RESULT=failed")
     for e in errors: print(f"PROJECT_MEMORY_QUALITY_ERROR={e}")
