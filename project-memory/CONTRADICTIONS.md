@@ -98,11 +98,26 @@ Statuses: `OPEN`, `RECONCILIATION_REQUIRED`, `RESOLVED`, `SUPERSEDED`.
 - Source A: `CURRENT_STATE.md` after the Rudi coordination/site-sync merges
 - Claim A: WellFit `main` was still `649a3b647dd6162f402663f2d84b8ca201f45400`.
 - Source B: live GitHub branch metadata and merged PRs #29-#31.
-- Claim B: current WellFit `main` is `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; PR #29 merged the Rudi graphical coordination, PR #30 merged `RUDI_SITE_SYNC_MANIFEST.json`, and PR #31 finalized the Site-specific handoff.
-- Stronger/current evidence: live GitHub `main` branch API plus immutable merge commits.
+- Claim B: at that reconciliation point, live WellFit `main` was `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; PR #29 merged the Rudi graphical coordination, PR #30 merged `RUDI_SITE_SYNC_MANIFEST.json`, and PR #31 finalized the Site-specific handoff.
+- Stronger/current evidence: live GitHub branch API plus immutable merge commits.
 - Status: RESOLVED
-- Resolution/action: `CURRENT_STATE.md` is reconciled to the real main SHA and now records PRs #29-#31 plus the exact Site-transfer manifest. No runtime or public Site change is implied by this memory correction.
-- Evidence: WellFit main `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b`; `project-memory/RUDI_SITE_SYNC_MANIFEST.json`.
-- Falsification question: a newer WellFit main or a newer accepted Site-sync source would supersede these exact revision references and require a new reconciliation.
+- Resolution/action: `CURRENT_STATE.md` was reconciled to the then-live branch state and recorded PRs #29-#31 plus the exact Site-transfer manifest. No runtime or public Site change was implied by this memory correction.
+- Evidence: historical WellFit branch observation `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; WellFit-now immutable merge `9ae4f278a90d17d612f0399c40babd32c344e02b`; `project-memory/RUDI_SITE_SYNC_MANIFEST.json`.
+- Falsification question: a newer live WellFit main is expected over time and does not invalidate the immutable evidence; only a newer accepted Site-sync source supersedes the Rudi transfer contract.
+
+## CTR-WFG-008
+- Date: 2026-09-06
+- Updated: 2026-09-06
+- Related task/change: Project Memory live-ref semantics
+- Risk: R2
+- Source A: prior `CURRENT_STATE.md` convention
+- Claim A: a tracked file can safely state that mutable `main` "is currently" a specific SHA.
+- Source B: Git semantics plus PR #32 merge behavior.
+- Claim B: updating that tracked statement necessarily creates a later commit/merge SHA, so the statement becomes stale immediately after the very reconciliation that writes it.
+- Stronger/current evidence: live GitHub branch API showed `main` advancing after each Project Memory merge while immutable merge/evidence SHAs remained valid historical facts.
+- Status: RESOLVED
+- Resolution/action: mutable branch tips are no longer persisted as static current truth. Mandatory preflight queries live refs; Project Memory stores immutable merge/exact-head/evidence revisions only. `project_memory_quality_check.py` now rejects self-staling `CURRENT_STATE.md` wording that binds current `main` to a 40-character SHA.
+- Evidence: `PROTOCOL.md`, `DO_NOT_ASSUME.md`, `CURRENT_STATE.md`, `scripts/project_memory_quality_check.py` on the reconciliation branch.
+- Falsification question: if a tracked current-branch SHA could remain identical after the commit that changes that same tracked file, this rule would be unnecessary; ordinary Git commit semantics make that impossible for this workflow.
 
 Never resolve a contradiction by deleting the older record. Preserve the stale claim and record why it was superseded.
