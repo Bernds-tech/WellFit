@@ -6,9 +6,11 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/distribution-baseline-2025-2026.json'
+      - 'werk-data/payroll-employee-kernel-2026.json'
       - 'werk-data/bud01-distribution-model-framework.json'
       - 'werk-data/analysis-data-closure-register.json'
       - 'scripts/werk-distribution-data-contract.mjs'
+      - 'scripts/werk-payroll-kernel-contract.mjs'
       - '.github/workflows/werk-distribution-data-check.yml'
   workflow_dispatch:
 
@@ -27,3 +29,5 @@ jobs:
           node-version: '22'
       - name: Validate distribution input contract
         run: node scripts/werk-distribution-data-contract.mjs
+      - name: Validate 2026 employee payroll rule kernel
+        run: node scripts/werk-payroll-kernel-contract.mjs
