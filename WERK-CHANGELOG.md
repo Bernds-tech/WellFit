@@ -1,5 +1,15 @@
 # WERK Österreich – Website Changelog
 
+## V71 – 12 Leitfelder vollständig & Layout-Härtung
+- Acht verbindliche WERK-Säulen und zwölf politische Leitfelder konzeptionell sauber getrennt.
+- Alle zwölf Leitfelder als eigene vollständige Programmübersicht auf der Startseite sichtbar; kein Leitfeld wird aus Platzgründen ausgeblendet.
+- `core.json` um die strukturierte `policy_fields`-Ebene erweitert, ohne den verbindlichen Acht-Säulen-Kern zu verändern.
+- Neue V71-Frontend-Schicht für robuste Grids, Langtextumbrüche, Stagebars, Tabellen und mobile Typografie.
+- Eigener `site-v71-loader.js` mit konsistenten V71-Cache-Keys, damit keine alten V70-Modulstände aus dem Browsercache übernommen werden.
+- Stable Preview `index.html` auf `werk-v71.html` umgeschaltet; V70 bleibt als Rollback erhalten.
+- Technischen Integritätscheck vom veralteten V69-Manifest auf das aktuelle `preview-manifest.json` umgestellt und V71-Pflichtdateien ergänzt.
+- Projekt- und Website-Status auf V71 fortgeschrieben; manuelle Mobil-, Tastatur- und Screenreader-Abnahme bleibt ausdrücklich offen.
+
 ## V54 – Entscheidungsakten & zentrale Rechtsquellen
 - HTML, CSS, JavaScript und politische Daten modular getrennt.
 - Reformseite auf Entscheidungsakten umgestellt: Problem, Rechnung, Recht, Ebene, Bürgerentscheid, KPI und Review.
