@@ -82,6 +82,8 @@ jobs:
           const freshRowIds=new Set(newScopes);
           const coveredIds=new Set();
           const allowedQuality=new Set(detail.implementation_quality_values||[]);
+          const auditDate=new Date(`${detail.checked_at}T00:00:00Z`);
+          if(Number.isNaN(auditDate.getTime())) fail('Invalid detail.checked_at');
           for(const m of detail.measures||[]){
             if(!Array.isArray(m.measure_ids)||!m.measure_ids.length) fail(`Measure detail without measure_ids: ${m.name||'unnamed'}`);
             if(!m.legal_package_id||!packageIds.has(m.legal_package_id)) fail(`Unknown/missing legal package for ${m.name}`);
@@ -92,11 +94,21 @@ jobs:
               if(coveredIds.has(id)) fail(`BASE-E2 duplicate measure coverage ${id}`);
               coveredIds.add(id);
             }
-            if(m.implementation_quality==='derived_effect'&&(!Array.isArray(m.derived_from)||!m.derived_from.length)) fail(`Derived effect missing derived_from: ${m.name}`);
+            if(m.implementation_quality==='derived_effect'){
+              if(!Array.isArray(m.derived_from)||!m.derived_from.length) fail(`Derived effect missing derived_from: ${m.name}`);
+              if(m.material_application_from!==null) fail(`Derived effect must not carry own material_application_from: ${m.name}`);
+            }
+            if(m.material_application_from){
+              const materialDate=new Date(`${m.material_application_from}T00:00:00Z`);
+              if(Number.isNaN(materialDate.getTime())) fail(`Invalid material_application_from for ${m.name}`);
+              if(materialDate>auditDate&&m.implementation_quality==='in_force') fail(`Future measure incorrectly marked in_force: ${m.name}`);
+              if(materialDate<=auditDate&&m.implementation_quality==='enacted_future_effect') fail(`Already-applicable measure still marked future: ${m.name}`);
+            }
           }
           if(coveredIds.size!==(detail.coverage?.individual_measure_ids_covered||0)) fail(`BASE-E2 coverage count mismatch ${coveredIds.size} != ${detail.coverage?.individual_measure_ids_covered}`);
           if(detail.coverage?.article_paragraph_effective_date_for_covered_measures!=='verified') fail('BASE-E2 covered measures must be article/paragraph/effective-date verified');
           if(detail.coverage?.remaining_measure_ids==='all_covered') fail('BASE-E2 must not overclaim full coverage yet');
+          if(detail.coverage?.time_status_checked_against!==detail.checked_at) fail('Time-status audit date must equal checked_at');
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-BASE-01');
           if(!gap) fail('GAP-BASE-01 missing from closure register');
@@ -107,5 +119,5 @@ jobs:
           if(!e3||e3.status!=='teilweise vorhanden') fail('BASE-E3 must remain partial until realisation/effectiveness status is complete');
           if(law.coverage?.every_measure_article_mapping!=='partial'||law.coverage?.every_measure_effective_date!=='partial') fail('Legal basis map must not overclaim measure-level closure');
 
-          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; ${coveredIds.size} high-impact measure IDs have verified article/effective-date detail; BASE-E2/E3 remain correctly partial.`);
+          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; ${coveredIds.size} high-impact measure IDs have verified legal timing; future/in-force status is date-consistent; BASE-E2/E3 remain correctly partial.`);
           NODE
