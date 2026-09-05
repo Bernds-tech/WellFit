@@ -77,9 +77,13 @@ jobs:
           if(new Set(allScopes).size!==allScopes.length) fail('Duplicate scope IDs across government matrices');
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-BASE-01');
-          const baseE=(gap?.subgates||[]).find(x=>x.id==='BASE-E');
-          if(!baseE||baseE.status!=='teilweise vorhanden') fail('BASE-E must remain partial until article/paragraph and effective-date mapping is complete');
+          if(!gap) fail('GAP-BASE-01 missing from closure register');
+          const gate=id=>(gap.subgates||[]).find(x=>x.id===id);
+          const e1=gate('BASE-E1'),e2=gate('BASE-E2'),e3=gate('BASE-E3');
+          if(!e1||e1.status!=='geschlossen') fail('BASE-E1 must be closed: package/scope legal and budget quality classification is complete');
+          if(!e2||e2.status!=='teilweise vorhanden') fail('BASE-E2 must remain partial until article/paragraph and effective-date mapping is complete');
+          if(!e3||e3.status!=='teilweise vorhanden') fail('BASE-E3 must remain partial until realisation/effectiveness status is complete');
           if(law.coverage?.every_measure_article_mapping!=='partial'||law.coverage?.every_measure_effective_date!=='partial') fail('Legal basis map must not overclaim measure-level closure');
 
-          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; measure-level effective dates correctly remain partial.`);
+          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; BASE-E1 closed; BASE-E2/E3 correctly remain partial.`);
           NODE
