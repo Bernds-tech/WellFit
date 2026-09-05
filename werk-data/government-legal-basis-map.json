@@ -1,0 +1,133 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Rechtsbasis-Matrix Regierungsbaseline",
+  "status":"package-level-legal-basis-verified-measure-level-effective-dates-partial",
+  "checked_at":"2026-09-05",
+  "purpose":"Rechtsqualität der Regierungsbaseline von bloßer Budgetannahme trennen. Paketebene wird gegen RIS verifiziert; konkrete Inkrafttretensdaten werden nur dann einer Einzelmaßnahme zugeordnet, wenn die jeweilige Artikel-/Normzuordnung eindeutig geprüft ist.",
+  "status_taxonomy":{
+    "law_enacted":"Materielle gesetzliche Grundlage kundgemacht; konkrete Maßnahme muss zusätzlich ihrem Artikel/Paragraphen zugeordnet werden.",
+    "budget_act":"Bundesfinanzgesetz bewilligt den Bundesvoranschlag für das jeweilige Jahr; beweist nicht automatisch die materielle Umsetzung jeder im Budgetpfad angenommenen Reform.",
+    "budget_framework":"Bundesfinanzrahmen setzt Auszahlungsobergrenzen/Planungsrahmen; keine eigenständige Wirkungsbestätigung einer Einzelmaßnahme.",
+    "budget_assumption":"Im Budget-/Strategiebericht berücksichtigt, aber materielle Rechts-/Vollzugsgrundlage nicht durch diese Klassifikation bewiesen.",
+    "planned_open":"Politisch/budgetär geplant, aber noch nicht hinreichend konkret oder materiell umgesetzt.",
+    "derived_effect":"Vom Budgetdienst abgeleiteter Folge-/Inzidenzeffekt; keine eigene Rechtsnorm."
+  },
+  "packages":[
+    {
+      "id":"LAW-BSMG-2025-I",
+      "label":"Budgetsanierungsmaßnahmengesetz 2025",
+      "baseline_aliases":["Budgetsanierungsmaßnahmengesetz 2025 Teil I","BSMG 2025 I","BSMG 2025"],
+      "quality":"law_enacted",
+      "bgbl":"BGBl. I Nr. 7/2025",
+      "promulgated":"2025-03-18",
+      "national_council_resolution":"2025-03-07",
+      "federal_council_resolution":"2025-03-13",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2025/7",
+      "note":"Ändert u. a. Steuer-, Energiekrisenbeitrags-, Stabilitätsabgaben- und arbeitsrechtliche Materien. Inkrafttreten ist artikel-/normspezifisch."
+    },
+    {
+      "id":"LAW-BSMG-2025-II",
+      "label":"Budgetsanierungsmaßnahmengesetz 2025 Teil II",
+      "baseline_aliases":["Budgetsanierungsmaßnahmengesetz 2025 Teil II","BSMG 2025 II"],
+      "quality":"law_enacted",
+      "bgbl":"BGBl. I Nr. 20/2025",
+      "promulgated":"2025-05-30",
+      "national_council_resolution":"2025-05-22",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2025/20",
+      "note":"Ändert u. a. EStG, KStG, GrEStG, Gebührenrecht und Sozialversicherung. Inkrafttreten ist artikel-/normspezifisch."
+    },
+    {
+      "id":"LAW-BBG-2025",
+      "label":"Budgetbegleitgesetz 2025",
+      "baseline_aliases":["Budgetbegleitgesetz 2025","BBG 2025"],
+      "quality":"law_enacted",
+      "bgbl":"BGBl. I Nr. 25/2025",
+      "promulgated":"2025-06-30",
+      "national_council_resolution":"2025-06-16",
+      "federal_council_resolution":"2025-06-26",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2025/25",
+      "note":"Großes Sammelgesetz mit zahlreichen unterschiedlichen Inkrafttretensbestimmungen, darunter 1.7.2025, 1.9.2025 und 1.1.2026. Einzelmaßnahmen erhalten daher erst nach Artikelprüfung ein konkretes effective_date."
+    },
+    {
+      "id":"LAW-BFG-2025",
+      "label":"Bundesfinanzgesetz 2025",
+      "baseline_aliases":["BFG 2025","Bundesbudget 2025"],
+      "quality":"budget_act",
+      "bgbl":"BGBl. I Nr. 22/2025",
+      "promulgated":"2025-06-30",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2025/22",
+      "note":"Budgetermächtigung 2025. Eine darin berücksichtigte Einsparung bleibt bei fehlender materieller Rechts-/Vollzugsgrundlage als budget_assumption zu behandeln."
+    },
+    {
+      "id":"LAW-BFG-2026",
+      "label":"Bundesfinanzgesetz 2026",
+      "baseline_aliases":["BFG 2026","Bundesbudget 2026"],
+      "quality":"budget_act",
+      "bgbl":"BGBl. I Nr. 23/2025",
+      "promulgated":"2025-06-30",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2025/23",
+      "note":"Budgetermächtigung 2026; materielle Reformumsetzung separat prüfen."
+    },
+    {
+      "id":"LAW-BFG-2027",
+      "label":"Bundesfinanzgesetz 2027",
+      "baseline_aliases":["BFG 2027","Bundesbudget 2027"],
+      "quality":"budget_act",
+      "bgbl":"BGBl. I Nr. 54/2026",
+      "promulgated":"2026-07-20",
+      "effective_from":"2027-01-01",
+      "effective_to":"2027-12-31",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2026/54",
+      "note":"Gilt grundsätzlich für das Finanzjahr 2027; einzelne Übergangsbestimmungen reichen darüber hinaus."
+    },
+    {
+      "id":"LAW-BFG-2028",
+      "label":"Bundesfinanzgesetz 2028",
+      "baseline_aliases":["BFG 2028","Bundesbudget 2028"],
+      "quality":"budget_act",
+      "bgbl":"BGBl. I Nr. 55/2026",
+      "promulgated":"2026-07-20",
+      "effective_from":"2028-01-01",
+      "effective_to":"2028-12-31",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2026/55",
+      "note":"Gilt grundsätzlich für das Finanzjahr 2028."
+    },
+    {
+      "id":"LAW-BFRG-2027-2030",
+      "label":"Bundesfinanzrahmengesetz 2027 bis 2030",
+      "baseline_aliases":["BFRG 2027-2030"],
+      "quality":"budget_framework",
+      "bgbl":"BGBl. I Nr. 56/2026",
+      "effective_from":"2027-01-01",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2026/56",
+      "note":"Planungs-/Auszahlungsrahmen; keine eigenständige Bestätigung eines Maßnahmenvollzugs."
+    },
+    {
+      "id":"LAW-BBG-2027-2028",
+      "label":"Budgetbegleitgesetz 2027-2028",
+      "baseline_aliases":["Budgetbegleitgesetz 2027-2028","BBG 2027-2028"],
+      "quality":"law_enacted",
+      "bgbl":"BGBl. I Nr. 62/2026",
+      "promulgated":"2026-07-29",
+      "national_council_resolution":"2026-07-08",
+      "federal_council_resolution":"2026-07-16",
+      "ris_eli":"https://www.ris.bka.gv.at/eli/bgbl/I/2026/62",
+      "note":"Umfangreiches Sammelgesetz. Je nach Materie treten Bestimmungen am Tag nach Kundmachung, zum 1.1.2027, 1.1.2028 oder zu anderen ausdrücklich festgelegten Zeitpunkten in Kraft. Einzelmaßnahme muss auf Artikel/Paragraph gemappt werden."
+    }
+  ],
+  "measure_mapping_policy":{
+    "required_fields_for_closed_legal_status":["measure_id","legal_package_id","law_reference","effective_date_or_rule","implementation_quality","checked_at"],
+    "implementation_quality_values":["in_force","enacted_future_effect","budgeted_only","planned_open","derived_effect","superseded"],
+    "rule":"Ein Paket-Match allein schließt BASE-E nicht. Für 'in_force' oder 'enacted_future_effect' muss die konkrete Einzelmaßnahme auf die einschlägige Norm und deren Inkrafttretensregel zurückgeführt sein.",
+    "budget_rule":"BFG/BFRG-Zuordnung bedeutet budgetiert/gerahmt, nicht automatisch materiell umgesetzt.",
+    "derived_rule":"Indirekte Steuer-, Beitrags- oder Ausgabeneffekte werden als derived_effect gekennzeichnet und nicht mit einem eigenen Inkrafttretensdatum fingiert."
+  },
+  "coverage":{
+    "major_2025_2026_legal_packages":"verified",
+    "major_2027_2028_legal_packages":"verified",
+    "budget_acts_2025_2028":"verified_at_package_level",
+    "every_measure_article_mapping":"partial",
+    "every_measure_effective_date":"partial",
+    "base_e_status":"partial"
+  }
+}
