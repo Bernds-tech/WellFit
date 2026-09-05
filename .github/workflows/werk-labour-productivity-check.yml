@@ -7,6 +7,7 @@ on:
     paths:
       - 'werk-data/labour-productivity-baseline-2025-2026.json'
       - 'werk-data/labour-matching-baseline-2025-2026.json'
+      - 'werk-data/labour-matching-matrix-priority-groups.json'
       - 'scripts/werk-labour-productivity-contract.mjs'
       - '.github/workflows/werk-labour-productivity-check.yml'
   workflow_dispatch:
