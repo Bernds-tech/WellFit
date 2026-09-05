@@ -46,7 +46,6 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Limitations: branch protection/ruleset activation remains an owner/governance action.
 - Acceptance: VERIFIED
 
-
 ## WF-EV-005
 - Related: WFG-MASTER-MIG-002-RECON / WF-MIG-002
 - Date: 2026-08-26
@@ -56,7 +55,6 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Result: the exact source is valuable scaffold/reference material, not a complete or compile-ready Unity project; WellFit-Buddy contains the reviewed baseline and Git LFS preparation but no Unity runtime, successful build or device acceptance.
 - Limitations: static repository and CI evidence only; no Unity editor, Android build or real-device execution occurred.
 - Acceptance: COUNTERCHECKED
-
 
 ## WF-EV-006
 - Related: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
@@ -71,9 +69,10 @@ Every evidence record should contain a unique evidence ID, related task/change I
 ## WF-EV-007
 - Related: WFG-RUDI-WORLD-001 / WFG-CR-008 / WFN-RUDI-3D-001
 - Date: 2026-09-05
-- Target: current physical public-landing implementation in `Bernds-tech/WellFit-now`
-- Type: immutable implementation + exact-head CI countercheck
-- Reference: WellFit-now PR #401 exact head `0240d7542d5451ab052743b605275a5cae895f7a`
-- Result: the active landing controller binds Rudi to real DOM surfaces through `getBoundingClientRect()`, starts on the `F` letter anchor, deliberately omits viewport clamping so he leaves the screen with his surface, delays catch-up until scroll-settle and complete offscreen departure, exposes visible catch-up route guidance, and includes machine checks through `npm run rudi:validate`. Exact head passed Build #1260, Container Build #245, Database Package Tests #237, Beta 1 Emulator #216 and Project Memory Guard/Quality/Status.
-- Limitations: repository CI does not prove perceptual foot contact, climb realism, occlusion quality, exact public ChatGPT Site synchronization or owner/device visual acceptance. The public Site is a separate source and was not changed by PR #401.
+- Target: DOM-bound living Rudi public-landing implementation in `Bernds-tech/WellFit-now`
+- Type: merged implementation + exact-head CI/review countercheck
+- Reference: WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb`; squash merge `9ae4f278a90d17d612f0399c40babd32c344e02b`
+- Result: one active `LivingRudiWorld` controller binds Rudi to real DOM surfaces, starts on the `F` letter anchor, deliberately omits viewport clamping so he leaves the screen with his surface, delays catch-up until scroll-settle plus full offscreen departure, uses visible grounded walk/climb routes for catch-up and autonomous surface transitions, flattens imported root translation so DOM geometry owns locomotion, clears stale CTA attention on scroll, and contains WebGL/GLTF failures behind a static DOM-bound fallback. The old parallel viewport/chapter controller was deleted. Reduced-motion visitors use the static fallback and sub-desktop visitors do not mount the 3D world. Manual asset workflows were also hardened against default-branch materialization, stale fixed artifact IDs, unvalidated bot heads and loss of partial paid Meshy outputs.
+- Exact-head checks: Build #1285 success; Container Build #270 success; Database Package Tests #262 success; Beta 1 Emulator Tests #241 success; Project Memory Guard #114 success; Project Memory Quality #121 success; Project Memory Status #129 success. Current review findings covering active-controller Strict Effects, timer races, reduced-motion behavior, model-ready entrance timing, workflow safety and Buddy-care alt text were corrected/resolved; remaining old `LivingRudi3D` threads are superseded by deletion of that controller.
+- Limitations: repository CI and code review do not prove perceptual foot contact, climb realism, occlusion quality, exact public ChatGPT Site synchronization or owner/device visual acceptance. The separately hosted `wellfit-bewegt` Site is not proven to contain merge `9ae4f278...`; Site version 105 belongs to the earlier renderer generation.
 - Acceptance: IMPLEMENTED_NOT_VERIFIED
