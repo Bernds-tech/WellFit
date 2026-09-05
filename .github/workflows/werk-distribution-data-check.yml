@@ -1,0 +1,29 @@
+name: WERK Distribution Data Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/distribution-baseline-2025-2026.json'
+      - 'werk-data/bud01-distribution-model-framework.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - 'scripts/werk-distribution-data-contract.mjs'
+      - '.github/workflows/werk-distribution-data-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  distribution-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate distribution input contract
+        run: node scripts/werk-distribution-data-contract.mjs
