@@ -1,0 +1,48 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – BUD-01 jährliche Balance-Lücke 2026–2031",
+  "status":"derived-from-official-baseline-not-a-final-werk-package",
+  "checked_at":"2026-09-05",
+  "source_artifact":"werk-data/budget-baseline-2026-2031.json",
+  "purpose":"Rechnerische Trennung von Defizitabbau (BUD-01) und späterer Schuldentilgung (BUD-02). Die jährliche Balance-Lücke ist die zusätzliche dauerhafte Nettoverbesserung gegenüber der jeweils aktuellen beschlusskonformen Baseline, die nötig wäre, um den Maastricht-Saldo auf null zu bringen. Sie ist keine Behauptung, dass ein gleich hoher Brutto-Sparbetrag ohne Transformations-, Verteilungs- oder Wachstumseffekte realisierbar ist.",
+  "years":[2026,2027,2028,2029,2030,2031],
+  "official_baseline_maastricht_balance_bn":[-22.2,-19.1,-16.9,-16.5,-17.1,-18.0],
+  "balance_gap_to_zero_bn":[22.2,19.1,16.9,16.5,17.1,18.0],
+  "official_baseline_primary_balance_bn":[-12.8,-8.5,-5.2,-3.6,-2.9,-2.6],
+  "primary_gap_to_zero_bn":[12.8,8.5,5.2,3.6,2.9,2.6],
+  "official_baseline_interest_expenditure_bn":[9.4,10.6,11.7,12.9,14.3,15.4],
+  "official_baseline_debt_bn":[438.2,457.3,473.4,490.3,507.8,525.2],
+  "official_baseline_debt_pct_gdp":[82.9,83.6,83.8,84.2,84.6,85.0],
+  "derived":{
+    "cumulative_baseline_deficits_2026_2031_bn":109.8,
+    "cumulative_primary_deficits_2026_2031_bn":35.6,
+    "cumulative_interest_expenditure_2026_2031_bn":74.3,
+    "debt_increase_2026_to_2031_bn":87.0,
+    "2031_balance_gap_bn":18.0,
+    "2031_debt_bn":525.2,
+    "simple_years_to_zero_at_10bn_from_2031_debt":52.52
+  },
+  "policy_interpretation":{
+    "BUD_01":"Zuerst strukturell ausgeglichenen gesamtstaatlichen Haushalt erreichen. Die relevante Zielgröße ist die Nettoverbesserung gegenüber der aktuellen Baseline, nicht die Summe beliebiger Brutto-Potenziale.",
+    "BUD_02":"Erst nach nachgewiesener Budgetbalance folgt als zweite Sanierungsstufe mindestens 10 Mrd. EUR jährliche Nettotilgung aus echten gesamtstaatlichen Überschüssen.",
+    "debt_horizon":"Bei 525,2 Mrd. EUR Schuldenstand 2031 wären 10 Mrd. EUR reine lineare Nettotilgung rechnerisch 52,52 Jahre. Das ist keine Prognose: künftige Überschüsse, Wachstum, Inflation, Fälligkeiten, Zinsen und ein höheres Tilgungsniveau verändern den Pfad.",
+    "no_42_year_promise":"Eine fixe 42-Jahre-Schuldenfreiheitszusage wird aus dem aktuellen Datenstand nicht abgeleitet. Der Zielhorizont wird erst nach Budgetbalance und aktueller Schulden-/Fälligkeitsrechnung festgelegt."
+  },
+  "accounting_rules":[
+    "Balance-Lücke und Schuldentilgung dürfen nicht addiert werden, solange der Haushalt noch defizitär ist.",
+    "Ein 10-Mrd.-Tilgungsziel ist keine 10-Mrd.-Defizitreduktion; Tilgung setzt echten gesamtstaatlichen Überschuss voraus.",
+    "Bereits in der BMF-Baseline enthaltene Regierungsmaßnahmen dürfen nicht nochmals als WERK-Nettoeffekt gebucht werden.",
+    "Brutto-Sparpotenziale werden erst nach Transformationskosten, Gegenfinanzierung, Verteilung, Verhalten und Wachstum als Nettoeffekt anerkannt.",
+    "Die 109,8 Mrd. EUR sind die Summe der jährlichen Baseline-Defizite 2026–2031 und kein einmalig zusätzlich aufzubringender Betrag.",
+    "Die 74,3 Mrd. EUR Zinsausgaben sind Bestandteil der jeweiligen Maastricht-Salden und dürfen nicht zusätzlich zur Balance-Lücke als separates Einsparziel addiert werden."
+  ],
+  "coverage":{
+    "BUD_GAP_A_annual_balance_gap_2026_2031":"closed",
+    "BUD_GAP_B_cumulative_deficit_arithmetic":"closed",
+    "BUD_GAP_C_interest_and_primary_reconciliation":"closed",
+    "BUD_GAP_D_debt_increase_2026_2031":"closed",
+    "BUD_GAP_E_bud01_bud02_non_double_count_rule":"closed",
+    "BUD_GAP_F_final_werk_measure_package":"open",
+    "BUD_GAP_G_final_debt_free_horizon":"open"
+  }
+}
