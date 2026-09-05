@@ -15,6 +15,7 @@ on:
       - 'werk-data/health-*.json'
       - 'werk-data/care-*.json'
       - 'werk-data/tax-*.json'
+      - 'scripts/werk-*-contract.mjs'
       - '.github/workflows/werk-*-check.yml'
   workflow_dispatch:
 
@@ -45,12 +46,23 @@ jobs:
           if(!Array.isArray(r.contracts)||r.contracts.length<8)fail(`Expected at least 8 domain contracts, got ${r.contracts?.length}`);
           const ids=new Set();
           const workflows=new Set();
+          const validationScripts=new Set();
           for(const c of r.contracts){
             if(!c.id||ids.has(c.id))fail(`Duplicate/missing contract id ${c.id}`);ids.add(c.id);
             if(!c.workflow||!fs.existsSync(c.workflow))fail(`${c.id}: missing workflow ${c.workflow}`);
             if(workflows.has(c.workflow))fail(`${c.id}: workflow reused by multiple primary contracts ${c.workflow}`);workflows.add(c.workflow);
+            const workflowText=fs.readFileSync(c.workflow,'utf8');
             if(!Array.isArray(c.canonical_artifacts)||!c.canonical_artifacts.length)fail(`${c.id}: canonical_artifacts empty`);
             for(const p of c.canonical_artifacts)if(!fs.existsSync(p))fail(`${c.id}: missing canonical artifact ${p}`);
+            if(c.validation_scripts!==undefined){
+              if(!Array.isArray(c.validation_scripts)||!c.validation_scripts.length)fail(`${c.id}: validation_scripts must be a non-empty array when present`);
+              for(const script of c.validation_scripts){
+                if(validationScripts.has(script))fail(`${c.id}: validation script reused across contracts ${script}`);
+                validationScripts.add(script);
+                if(!fs.existsSync(script))fail(`${c.id}: missing validation script ${script}`);
+                if(!workflowText.includes(script))fail(`${c.id}: workflow does not execute registered validation script ${script}`);
+              }
+            }
             if(!Array.isArray(c.closure_register_ids)||!c.closure_register_ids.length)fail(`${c.id}: closure linkage missing`);
             for(const id of c.closure_register_ids)if(!gapIds.has(id))fail(`${c.id}: unknown closure-register id ${id}`);
             if(!Array.isArray(c.verified_scope)||!c.verified_scope.length)fail(`${c.id}: verified scope empty`);
@@ -61,5 +73,5 @@ jobs:
           for(const id of required)if(!ids.has(id))fail(`Missing required registry contract ${id}`);
           if(r.calculation_gate?.bud01_final_calculation!=='blocked')fail('BUD-01 final calculation must remain blocked');
           if(r.calculation_gate?.source_of_truth!=='werk-data/analysis-data-closure-register.json')fail('Closure register must remain calculation-gate source of truth');
-          console.log(`Data Contract Registry OK: ${r.contracts.length} independent contracts, ${[...new Set(r.contracts.flatMap(c=>c.canonical_artifacts))].length} unique canonical artifacts, all workflows/files/closure links resolved; BUD-01 final gate remains blocked.`);
+          console.log(`Data Contract Registry OK: ${r.contracts.length} independent contracts, ${[...new Set(r.contracts.flatMap(c=>c.canonical_artifacts))].length} unique canonical artifacts, ${validationScripts.size} registered validation scripts, all workflows/files/closure links resolved; BUD-01 final gate remains blocked.`);
           NODE
