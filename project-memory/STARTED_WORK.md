@@ -11,6 +11,21 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
+## WFG-RUDI-WORLD-001
+- Started: 2026-09-05
+- Updated: 2026-09-05
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Scope: graphical authority and cross-repository coordination for Rudi Rastlos as a physically grounded resident of the public Landingpage: DOM-bound footing, letter/surface climbing, surface-relative scrolling, front/back layering and visible catch-up routes. No backend, auth, mission/reward, economy, location/camera or native Buddy authority changes.
+- Branch/PR: WellFit coordination `codex/rudi-living-world-coordination-20260905`; physical implementation `Bernds-tech/WellFit-now` PR #401 on `codex/rudi-3d-living-avatar-20260905`.
+- Work lock: `LOCK-WFG-RUDI-WORLD-001`.
+- Cross-repo lock: `XLOCK-WF-RUDI-WORLD-20260905`.
+- Dependencies: current physical UI ownership drift under `WF-MIG-001`, graphical/Buddy presentation boundary `WF-CONTRACT-BUDDY-001`, and exact public ChatGPT Site synchronization for visual acceptance.
+- Completed so far: owner live direction superseded viewport-clamped behavior; the active WellFit-now controller binds Rudi to real DOM surfaces through `getBoundingClientRect()`, uses the `F` in `WellFit` as initial climb/podium, allows Rudi to leave the viewport with the bound element, chooses a new visible surface only after the old surface is completely offscreen and scroll has settled, renders a visible route guide for catch-up climbing, keeps CTA gaze separate from locomotion, and exposes a machine-identifiable `data-rudi-world="dom-surface-bound"` mode. Exact WellFit-now head `0240d7542d5451ab052743b605275a5cae895f7a` passed Build #1260, Container #245, Database #237, Beta Emulator #216 and all Project Memory gates.
+- Still open: no direct visual acceptance on the exact public `wellfit-bewegt` Site for the DOM-bound version; the public Site source is a separate editable/publishable surface and is not changed by the GitHub PR. Additional route/geometry invariants can still be hardened before synchronization.
+- Exact next step: make the physical route rules more deterministic and machine-testable, update stale WellFit-now memory/PR wording, then synchronize the exact verified source to the public Site when that editable Site context is available and perform owner/device visual acceptance.
+- Owner action needed: none for repository hardening. Direct Site visual acceptance remains required after exact Site synchronization.
+
 ## WFG-AVATAR-PUPPET-001
 - Started: 2026-08-28
 - Updated: 2026-08-29
