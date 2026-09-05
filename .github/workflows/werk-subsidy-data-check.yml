@@ -7,6 +7,7 @@ on:
     paths:
       - 'werk-data/subsidy-baseline-architecture.json'
       - 'werk-data/subsidy-esvg-benchmark-2024.json'
+      - 'werk-data/subsidy-federal-ug-2024.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-subsidy-data-check.yml'
   workflow_dispatch:
@@ -37,6 +38,7 @@ jobs:
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const arch=read('werk-data/subsidy-baseline-architecture.json');
           const b=read('werk-data/subsidy-esvg-benchmark-2024.json');
+          const ug=read('werk-data/subsidy-federal-ug-2024.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
 
           const tol=Number(b.validation?.rounding_tolerance_mio??0.25)+1e-9;
@@ -58,6 +60,22 @@ jobs:
             if(!(b.bhg_esvg_reconciliation_components_2024_mio||[]).some(x=>x.id===required))fail(`Missing reconciliation component ${required}`);
           }
 
+          // Federal UG intermediate layer must reconcile to BHG total without administration costs.
+          if(!Array.isArray(ug.rows)||ug.rows.length!==ug.validation?.row_count)fail(`Unexpected UG row count ${ug.rows?.length}`);
+          const ugIds=new Set();
+          let ugTotal=0;
+          for(const row of ug.rows){
+            if(!Number.isInteger(row.ug)||!Number.isFinite(row.amount_mio)||row.amount_mio<0)fail(`Invalid UG row ${JSON.stringify(row)}`);
+            if(ugIds.has(row.ug))fail(`Duplicate UG ${row.ug}`);
+            ugIds.add(row.ug);ugTotal+=row.amount_mio;
+          }
+          const ugTol=Number(ug.validation?.rounding_tolerance_mio??0.2)+1e-9;
+          eq(ugTotal,ug.published_total_mio,ugTol,'24-UG total vs published direct federal funding');
+          eq(ug.published_total_mio,b.bhg_direct_federal_mio.total_federal_funding_outflows,ugTol,'UG layer vs BHG benchmark total');
+          if(!(ug.administration_costs_2024_mio>0))fail('2024 administration cost baseline missing');
+          if(ug.coverage?.SUB_D1_federal_ug_level_2024!=='closed')fail('SUB-D1 UG-level 2024 should be closed');
+          if(ug.coverage?.SUB_D2_current_program_csv!=='open')fail('SUB-D2 current program CSV must stay open');
+
           const prohibited=(arch.prohibited_shortcuts||[]).join(' ');
           for(const token of ['7,7','ESVG','EU-Durchlauf','doppelt','Regierungseinsparungen']){
             if(!prohibited.includes(token))fail(`SUB-01 prohibited-shortcut guard missing token ${token}`);
@@ -69,5 +87,5 @@ jobs:
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-SUB-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-SUB-01 must remain partial');
-          console.log(`Subsidy contract OK: BHG ${b.bhg_direct_federal_mio.total_federal_funding_outflows.toFixed(1)}m and ESVG ${s.general_government[3].toFixed(1)}m remain separate; four sectors and D3/D9/D7 reconcile within rounding tolerance.`);
+          console.log(`Subsidy contract OK: BHG ${b.bhg_direct_federal_mio.total_federal_funding_outflows.toFixed(1)}m; 24 UGs reconcile to ${ugTotal.toFixed(1)}m; ESVG ${s.general_government[3].toFixed(1)}m stays a separate universe; administration costs ${ug.administration_costs_2024_mio.toFixed(1)}m remain separate.`);
           NODE
