@@ -1,0 +1,114 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Steuer- und Abgabenbaseline 2022–2025",
+  "status":"official-multi-universe-tax-baseline-normalised",
+  "checked_at":"2026-09-05",
+  "purpose":"Kanonische Ausgangsbasis für GAP-TAX-01. ESVG-Gesamtstaat S.13, Statistik-Austria-Steuerseite S.13+EU, Bundes-Abgabenerfolg UG16, Umsatzsteuervoranmeldungen und indirekte Förderungen/Tax Expenditures werden als getrennte Datenuniversen geführt. Keine Steuerreform wird aus einem Satz multipliziert, bevor Bemessungsgrundlage, Empfängerebene, Baseline, Verhalten und Verteilung geklärt sind.",
+  "sources":[
+    {"id":"STAT-TAX-2025","authority":"STATISTIK AUSTRIA","title":"Steuereinnahmen – Stand 31.03.2026","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/steuereinnahmen","next_release":"2026-09-30"},
+    {"id":"STAT-PUBLIC-FINANCE-2025","authority":"STATISTIK AUSTRIA","title":"Öffentliche Finanzen 2025 – Presseunterlage 31.03.2026","url":"https://www.statistik.at/fileadmin/pages/230/2026-31-03_PK_OEffentliche_Finanzen.pdf"},
+    {"id":"BMF-UG16-2025-E","authority":"Bundesministerium für Finanzen","title":"Abgabenerfolg des Bundes UG16 – Dezember 2025, Ergebnisansicht E","url":"https://service.bmf.gv.at/budget/akthh/2025/202512_HTML_UG16_E.htm"},
+    {"id":"STAT-UVA-2025","authority":"STATISTIK AUSTRIA","title":"Umsatzsteuervoranmeldungsstatistik 2025 – endgültig","created":"2026-04-02","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/steuerstatistiken/umsatzsteuervoranmeldungsstatistik"},
+    {"id":"BMF-SUBSIDY-2024","authority":"Bundesministerium für Finanzen","title":"Förderungsbericht 2024","url":"https://www.bmf.gv.at/themen/budget/publikationen/foerderungsbericht.html"},
+    {"id":"BD-SUBSIDY-2024","authority":"Parlamentarischer Budgetdienst","title":"Analyse Förderungsbericht 2024","publication":"2026-02-16","url":"https://www.parlament.gv.at/fachinfos/budgetdienst/Foerderungsbericht-2024"}
+  ],
+  "general_government_s13_mrd":{
+    "scope":"Konsolidierter Sektor Staat S.13 gemäß ESVG 2010. EU-Sektor S.212 ist nicht enthalten.",
+    "years":[2022,2023,2024,2025],
+    "tax_revenue":[125.7,131.6,136.8,143.4],
+    "social_contributions":[68.3,73.3,79.0,83.0],
+    "taxes_plus_social_contributions":[194.0,204.9,215.8,226.4],
+    "total_government_revenue":[222.7,237.7,250.2,261.5],
+    "rule":"Steuern + Sozialbeiträge werden innerhalb S.13 summiert. Gesamtstaatliche Einnahmen enthalten zusätzlich Produktionserlöse und sonstige Einnahmen."
+  },
+  "statistics_austria_tax_page_2025":{
+    "scope":"Steuern und Sozialbeiträge des Staates S.13 plus EU-Sektor S.212, soweit in den veröffentlichten Tabellen enthalten (u.a. Zölle, Rotterdamzuschlag, Beiträge zum Single Resolution Fund).",
+    "taxes_and_social_contributions_mrd":227.0,
+    "tax_ratio_pct_gdp":44.3,
+    "increase_vs_2024_pct":5.0,
+    "difference_vs_s13_mrd":0.6,
+    "reconciliation_rule":"227,0 Mrd. EUR S.13+S.212 und 226,4 Mrd. EUR S.13 werden nicht erzwungen gleichgesetzt. Differenz ist als Scope-/Rundungs-/Revisionsdifferenz zu führen.",
+    "freshness":{"current_data_stand":"2026-03-31","next_publication":"2026-09-30","status":"future_release_not_yet_available_as_of_2026-09-05"}
+  },
+  "major_s13_tax_items_2023_2025_mrd":{
+    "scope":"Ausgewählte ESVG-/Staatsrechnungspositionen aus Statistik Austria; nicht ident mit Bundes-Cash-/UG16-Abgabenerfolg.",
+    "years":[2023,2024,2025],
+    "social_insurance_contributions":[73.3,79.0,83.0],
+    "value_added_tax":[38.0,39.3,40.5],
+    "wage_tax":[34.7,37.6,39.2],
+    "corporate_income_tax":[14.4,13.7,12.9],
+    "employer_contributions_affb_flaf":[6.5,7.0,7.2],
+    "assessed_income_tax":[5.8,6.0,6.1],
+    "municipal_tax":[4.2,4.5,4.7],
+    "mineral_oil_tax":[4.0,3.8,3.8],
+    "co2_levy":[1.0,1.3,1.6],
+    "energy_levy":[0.0,0.0,0.9],
+    "warning":"Diese Auswahl ist keine vollständige Zerlegung der gesamten 143,4 Mrd. EUR Steuereinnahmen 2025. Nicht ausgewiesene Steuerarten bleiben als Restuniversum offen."
+  },
+  "federal_ug16_2025_mio":{
+    "scope":"Bundes-Abgabenerfolg UG16, BMF Ergebnisansicht E Dezember 2025. Cash-/Bundesbudgetperspektive; nicht ident mit ESVG-S.13-Einnahmen derselben Steuerarten.",
+    "wage_tax":37848.6,
+    "capital_yield_tax_total":6769.3,
+    "capital_yield_tax_dividends":3801.2,
+    "capital_yield_tax_interest_and_other":2968.1,
+    "corporate_income_tax":11873.3,
+    "energy_crisis_contribution":366.9,
+    "foundation_entry_tax":54.6,
+    "identity_rule":"Kapitalertragsteuer gesamt = Dividenden + Zinsen/sonstige Erträge innerhalb derselben BMF-Ansicht.",
+    "cross_universe_rule":"UG16-Lohnsteuer/KÖSt/KESt werden nicht mit ESVG-Werten gleichgesetzt; Periodisierung, Abgrenzung und einhebender Sektor können abweichen."
+  },
+  "vat_advance_returns_2025_mio":{
+    "scope":"Endgültige Umsatzsteuervoranmeldungsstatistik 2025. Unternehmens-/Voranmeldungsbasis; kein ESVG-Aufkommensmaß und nicht ident mit Mehrwertsteuereinnahmen des Staates.",
+    "assessment_cases":614879,
+    "taxable_turnover":977087.7,
+    "tax_exempt_turnover":289610.3,
+    "taxable_turnover_20pct":476206.6,
+    "taxable_turnover_10pct":151504.1,
+    "vat_liability_or_credit_balance":33608.8,
+    "unallocated_other_rates_and_adjustments_mio":596?0,
+    "note":"Steuerbarer Umsatz umfasst neben den ausgewiesenen 20%- und 10%-Umsätzen weitere Steuersätze/Sonderfälle und ist nicht durch die sichtbaren Hauptspalten vollständig zerlegt. Zahllast/Gutschrift ist eine Voranmeldungsgröße, keine ESVG-Mehrwertsteuereinnahme.",
+    "state_detail_status":"available_in_official_table_not_yet_normalised_into_canonical_baseline"
+  },
+  "tax_expenditures_mio":{
+    "scope":"Quantifizierte indirekte Förderungen/Steuererleichterungen des Bundes laut Förderungsbericht. Einnahmenverzichtsschätzungen; kein automatisch realisierbares Zusatzaufkommen.",
+    "years":[2022,2023,2024],
+    "quantified_indirect_subsidies":[23474,25395,26734],
+    "2024_pct_gdp":5.4,
+    "2024_energy_crisis_temporary":897,
+    "2024_crisis_adjusted_approx":25837,
+    "indirect_measures_in_federal_report":93,
+    "tax_savings_measures_in_transparency_database":22,
+    "coverage_warning":"Ein hoher Anteil indirekter Förderungen ist nicht quantifiziert; selbst quantifizierte Volumina sind statische/administrative Schätzungen und nicht 1:1 als Einnahmen bei Abschaffung buchbar.",
+    "rule":"Jede Tax Expenditure wird später wie ein Politikprogramm nach Ziel, Begünstigten, Volumen, Verteilung, Verhalten, Rechtslage, Vollzug und Alternative bewertet."
+  },
+  "esvg_taxonomy":{
+    "D2":"Produktions- und Importabgaben; u.a. Mehrwertsteuer, Mineralöl-/Tabak-/Energieabgaben, Kommunalsteuer und bestimmte Dienstgeberbeiträge.",
+    "D5":"Einkommen- und Vermögensteuern; u.a. Lohnsteuer, Einkommensteuer, Körperschaftsteuer.",
+    "D61":"Nettosozialbeiträge; Beiträge zu Pension, Gesundheit, Arbeitslosigkeit, Unfallversicherung usw.",
+    "D91":"Vermögenswirksame Steuern/Kapitalsteuern.",
+    "rule":"Einzelsteuerliste und einhebende Teilsektoren müssen vor einer Reformrechnung auf diese ESVG-Kategorien und Empfängerebenen gemappt werden."
+  },
+  "accounting_rules":[
+    "S.13 general government and S.13+S.212 tax-page totals are different scopes.",
+    "Bundes-UG16 cash/result data and ESVG government tax revenue are different accounting universes.",
+    "VAT advance-return turnover and liability are tax-base/compliance indicators, not government VAT revenue.",
+    "Tax expenditures are estimated revenue forgone, not automatically collectable revenue.",
+    "A tax-rate change is never multiplied mechanically by the current base without behavioural, timing, distribution and legal adjustments.",
+    "Social contributions are separated from taxes even though both enter the aggregate tax ratio.",
+    "Current 2025 tax aggregates carry a freshness gate for the scheduled 2026-09-30 revision."
+  ],
+  "coverage":{
+    "TAX_A_s13_taxes_social_contributions_2022_2025":"closed",
+    "TAX_B_s13_plus_eu_scope_and_2025_tax_ratio":"closed",
+    "TAX_C_major_s13_tax_items_2023_2025":"closed_selected_items_only",
+    "TAX_D_federal_ug16_key_tax_items_2025":"closed_selected_items_only",
+    "TAX_E_vat_advance_return_national_base_2025":"closed_national",
+    "TAX_F_tax_expenditure_aggregate_2022_2024":"closed",
+    "TAX_G_esvg_detailed_tax_categories_by_collecting_sector":"open_raw_ods_not_parsed",
+    "TAX_H_social_contributions_by_branch_and_sector":"open",
+    "TAX_I_tax_expenditure_93_item_level_normalisation":"open",
+    "TAX_J_vat_state_and_industry_detail":"open_available_not_canonicalised",
+    "TAX_K_2025_tax_revision_2026_09_30":"future_release",
+    "gap_tax_01_status":"partially_closed"
+  }
+}
