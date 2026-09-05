@@ -1,6 +1,7 @@
 # WellFit Current State
 
 Last reconciled: 2026-09-05
+- Selected local action: `WF-VISUAL-CANONICAL-INVENTORY`
 
 ## Project role
 This repository owns the **graphical WellFit domain**: landing page, visual system, UI/UX, screens, design assets and product presentation.
