@@ -13,25 +13,29 @@
   },
   "source_authority": {
     "repository": "Bernds-tech/WellFit-now",
-    "main_commit": "9ae4f278a90d17d612f0399c40babd32c344e02b",
-    "source_pr": 401,
-    "verified_pr_head": "54186ec16a617549acbaa0437b0b81ab36ee2abb",
+    "main_commit": "b07d39938aeab4e32eddac7d19b8e15e22afacb7",
+    "dom_world_source_pr": 401,
+    "dom_world_verified_head": "54186ec16a617549acbaa0437b0b81ab36ee2abb",
+    "fallback_hardening_pr": 402,
+    "fallback_hardening_verified_head": "23318cdf395bd25e46f1b2a31499f14cc8afd51d",
+    "fallback_hardening_merge": "b07d39938aeab4e32eddac7d19b8e15e22afacb7",
     "exact_head_ci": {
-      "build": 1285,
-      "container": 270,
-      "database": 262,
-      "beta_emulator": 241,
-      "project_memory_guard": 114,
-      "project_memory_quality": 121,
-      "project_memory_status": 129,
+      "build": 1288,
+      "container": 273,
+      "database": 265,
+      "project_memory_guard": 116,
+      "project_memory_quality": 123,
+      "project_memory_status": 131,
+      "beta_emulator": "not_triggered_path_filtered",
+      "beta_emulator_note": "The Beta-1 emulator workflow is path-filtered to Firebase, mission, package and related server files. PR #402 changed only landing Rudi runtime/validator plus Project Memory, so the workflow correctly did not trigger.",
       "result": "success"
     }
   },
   "required_source_files": [
     {
       "path": "app/components/landing/LivingRudiWorld.tsx",
-      "blob_sha": "19e12fdf36d31f7fac08fc69d8e3898c5478879b",
-      "role": "single active DOM-bound Rudi runtime controller"
+      "blob_sha": "84f92cf42ff8c279e9655c84ff74a2471a758ffb",
+      "role": "single active DOM-bound Rudi runtime controller with fail-closed static/WebGL lifecycle"
     },
     {
       "path": "app/components/landing/rudiWorldGeometry.mjs",
@@ -60,8 +64,8 @@
     },
     {
       "path": "scripts/landing/validate-rudi-world.mjs",
-      "blob_sha": "3ffdf02126a0db6eec92737841abcd730fd02d7a",
-      "role": "source invariant validation"
+      "blob_sha": "1c40439b5350ce51e6e72dc3a4dbe7086cc5eff3",
+      "role": "source invariant validation including static fallback lifecycle and active-clip loading"
     },
     {
       "path": "scripts/landing/validate-rudi-world-geometry.mjs",
@@ -76,7 +80,7 @@
   ],
   "asset_root": {
     "path": "public/landing/rudi",
-    "source_commit": "9ae4f278a90d17d612f0399c40babd32c344e02b",
+    "source_commit": "b07d39938aeab4e32eddac7d19b8e15e22afacb7",
     "required_assets": [
       "rudi-rigged.glb",
       "rudi-front.png",
@@ -91,12 +95,27 @@
       "rudi-sit.animation.glb",
       "rudi-climb.animation.glb"
     ],
+    "initial_runtime_loaded_animations": [
+      "rudi-walk.animation.glb",
+      "rudi-idle.animation.glb",
+      "rudi-inspect.animation.glb",
+      "rudi-celebrate.animation.glb",
+      "rudi-climb.animation.glb"
+    ],
+    "deferred_optional_scene_animations": [
+      "rudi-run.animation.glb",
+      "rudi-alert.animation.glb",
+      "rudi-point.animation.glb",
+      "rudi-jump.animation.glb",
+      "rudi-sit.animation.glb"
+    ],
     "known_immutable_blobs": {
       "rudi-rigged.glb": "80953efe3c445b973c15bdefba70f88a281b2a0c",
       "rudi-front.png": "385ec419c1a79e3b37122b5bbfbcb546eb8149d3",
       "rudi-climb.animation.glb": "abeefbed5150d722a4a8a28aed261766ac24fe02",
       "rudi-idle.animation.glb": "fa1bd6a297673f312ee4bbae895f95c00be9a2a0"
-    }
+    },
+    "loading_rule": "All materialized assets may remain available for later explicitly scoped living scenes, but the initial active DOM-world runtime must not fetch clips it cannot select."
   },
   "runtime_dependencies": {
     "react": "19.2.4",
@@ -119,6 +138,10 @@
       "CTA attention changes gaze or body response without relocating Rudi through empty space.",
       "Back-layer behavior paints below normal landing content; front-layer behavior remains below the sticky header.",
       "Reduced-motion preference uses the static DOM-bound fallback.",
+      "Switching out of WebGL cancels any pending autonomous motion completion and unfinished surface journey before static presentation continues.",
+      "WebGL or GLTF failure switches the whole controller into static mode rather than running animated timers behind a fallback image.",
+      "Route guides are present only while the animated WebGL world is active.",
+      "The static fallback remains hidden until a real DOM anchor exists.",
       "Sub-desktop viewports do not mount the 3D world.",
       "Canvas and Rudi layers do not intercept landing controls."
     ],
@@ -129,7 +152,9 @@
       "visible teleportation",
       "air climbing without a visible physical route",
       "old LivingRudi3D viewport/chapter controller",
-      "eager GLTF preloading on hidden or reduced-motion presentation"
+      "eager GLTF preloading on hidden or reduced-motion presentation",
+      "active WebGL journey timers behind a static/reduced-motion/error fallback",
+      "initial loading of animation clips the active DOM-world controller cannot select"
     ]
   },
   "site_acceptance": {
@@ -144,11 +169,11 @@
       {"id": "RUDI-SITE-006", "check": "Front/back occlusion is believable and header remains unobscured", "required": true},
       {"id": "RUDI-SITE-007", "check": "Login/register and navigation remain clickable", "required": true},
       {"id": "RUDI-SITE-008", "check": "CTA gaze does not move Rudi off his surface", "required": true},
-      {"id": "RUDI-SITE-009", "check": "Reduced-motion renders static DOM-bound fallback", "required": true},
+      {"id": "RUDI-SITE-009", "check": "Reduced-motion renders a stable static DOM-bound fallback with no delayed journey relocation", "required": true},
       {"id": "RUDI-SITE-010", "check": "No floating, free-flight, viewport pinning or air-climbing is visible", "required": true}
     ],
     "publication_rule": "Do not publish or mark WFG-RUDI-WORLD-001 ACCEPTED unless every required check passes on the exact editable wellfit-bewegt Site preview."
   },
-  "next_action": "Load the exact editable wellfit-bewegt Site source, apply this immutable source contract, run the site_acceptance checks, correct any perceptual defects, and publish deliberately only after all required checks pass.",
+  "next_action": "Load the exact editable wellfit-bewegt Site source, apply this immutable source contract from WellFit-now merge b07d39938aeab4e32eddac7d19b8e15e22afacb7, run the site_acceptance checks, correct any perceptual defects, and publish deliberately only after all required checks pass.",
   "no_duplicate_rule": "Do not create another Rudi controller or another landing implementation. Synchronize from the pinned WellFit-now merge and preserve one active DOM-bound world model."
 }
