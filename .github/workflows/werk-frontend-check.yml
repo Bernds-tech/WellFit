@@ -147,6 +147,40 @@ jobs:
           console.log('BUD-01 baseline OK: 2026-2031 complete, accounting identities within rounding tolerance, fiscal calculator path synchronized');
           NODE
 
+      - name: Government baseline double-counting contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const g = JSON.parse(fs.readFileSync('werk-data/government-baseline-2025-2031.json', 'utf8'));
+          const a = g.annual_consolidation_since_2025_mio;
+          const n = g.new_measures_2026_2031_mio;
+          const s = g.new_measures_sector_net_mio;
+          const years7 = [2025,2026,2027,2028,2029,2030,2031];
+          const years6 = [2026,2027,2028,2029,2030,2031];
+          if (JSON.stringify(a.years) !== JSON.stringify(years7)) fail('Government baseline annual years mismatch');
+          if (JSON.stringify(n.years) !== JSON.stringify(years6)) fail('New measures years mismatch');
+          if (JSON.stringify(s.years) !== JSON.stringify(years6)) fail('Sector split years mismatch');
+          const arrays7 = ['original_2025_package','update_and_concretisation','updated_2025_package','new_measures_since_june_2025','total_consolidation_since_2025','expenditure_side_share_pct','revenue_side_share_pct'];
+          for (const key of arrays7) if (!Array.isArray(a[key]) || a[key].length !== 7) fail(`Invalid government annual series ${key}`);
+          for (let i=0;i<7;i++) {
+            if (Math.abs((a.updated_2025_package[i] + a.new_measures_since_june_2025[i]) - a.total_consolidation_since_2025[i]) > 1) fail(`${years7[i]}: updated package + new measures != total consolidation`);
+            if (Math.abs((a.expenditure_side_share_pct[i] + a.revenue_side_share_pct[i]) - 100) > 0.1) fail(`${years7[i]}: expenditure/revenue shares != 100`);
+          }
+          for (let i=0;i<6;i++) {
+            const year = years6[i];
+            if (Math.abs((n.consolidation_gross[i] - n.offensive_gross[i]) - n.net_consolidation[i]) > 1) fail(`${year}: gross consolidation - offensive != net`);
+            if (Math.abs((n.expenditure_consolidation_gross[i] - n.expenditure_offensive_gross[i]) - n.expenditure_net[i]) > 1) fail(`${year}: expenditure net identity failed`);
+            if (Math.abs((n.revenue_consolidation_gross[i] - n.revenue_offensive_gross[i]) - n.revenue_net[i]) > 1) fail(`${year}: revenue net identity failed`);
+            if (Math.abs((n.expenditure_net[i] + n.revenue_net[i]) - n.net_consolidation[i]) > 1) fail(`${year}: expenditure net + revenue net != total net`);
+            if (Math.abs((s.federal[i] + s.states_and_municipalities[i] + s.social_security[i]) - n.net_consolidation[i]) > 1) fail(`${year}: sector split != total net`);
+          }
+          if (g.coverage?.gap_base_01_status !== 'partially_closed') fail('GAP-BASE-01 must remain partially closed until all line items are normalised');
+          console.log('Government baseline OK: 2025-2031 totals, new-measure nets and sector splits reconcile; GAP-BASE-01 correctly remains partial');
+          NODE
+
       - name: Version regression guard
         shell: bash
         run: |
