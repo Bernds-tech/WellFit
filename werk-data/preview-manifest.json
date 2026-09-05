@@ -1,8 +1,10 @@
 {
-  "version":"2026-09-05-v22",
+  "version":"2026-09-05-v23",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
+    {"group":"Programmarchitektur","path":"./werk-data/policy-field-map.json"},
+    {"group":"Programmarchitektur","path":"./werk-data/austria-analysis-master.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
     {"group":"WERK VOTE","path":"./werk-data/votes.json"},
@@ -37,6 +39,7 @@
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/benchmark-queue.mjs"},
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/cleanup-synthetic.mjs"},
     {"group":"Ideenwerk CI","path":"./.github/workflows/ideenwerk-backend-check.yml"},
+    {"group":"Frontend CI","path":"./.github/workflows/werk-frontend-check.yml"},
     {"group":"V71","path":"./werk-v71.html"},
     {"group":"V71","path":"./werk-assets/site-v71.css"},
     {"group":"V71","path":"./werk-assets/site-v71.js"},
@@ -63,5 +66,11 @@
     "pg_cron Minutenworker automatisch mehrfach succeeded",
     "CORS: raw.githack.com erlaubt, fremder Origin HTTP 403"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 ergänzt die vollständige 12-Leitfelder-Ansicht, einen eigenen Cache-getrennten Loader und responsive Härtung; Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test, vollständige API+Worker-Lasttests und manuelle Geräte-/Screenreader-Abnahme bleiben getrennte offene Gates."
+  "static_contracts":[
+    "8 verbindliche WERK-Säulen bleiben vom Programm getrennt",
+    "12 von 12 Programm-Leitfeldern müssen vorhanden sein",
+    "41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein",
+    "V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"
+  ],
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 ergänzt die vollständige 12-Leitfelder-Ansicht mit prüfbarer 41/41-Abdeckung, einen eigenen Cache-getrennten Loader und responsive Härtung; Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test, vollständige API+Worker-Lasttests und manuelle Geräte-/Screenreader-Abnahme bleiben getrennte offene Gates."
 }
