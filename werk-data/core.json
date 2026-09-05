@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-01-v1",
+  "version": "2026-09-05-v2",
   "brand": "WERK Österreich",
   "tagline": "Erst rechnen. Dann entscheiden.",
   "goal": "Ein schuldenfreies, sicheres, faires und gleichberechtigtes Österreich mit starken Regionen und verbindlicher Verantwortung.",
@@ -13,6 +13,80 @@
     {"id": 6, "name": "Regionale Freiheit / Subsidiarität", "binding": true},
     {"id": 7, "name": "Direkte Bürgerbeteiligung bei qualifizierten Großfragen", "binding": true},
     {"id": 8, "name": "Wirkung vor Ideologie", "binding": true}
+  ],
+  "policy_fields": [
+    {
+      "id": 1,
+      "name": "Finanzen & Schulden",
+      "summary": "Budget strukturell ausgleichen, dauerhafte Nettoeffekte rechnen und danach Schulden verlässlich abbauen.",
+      "track": "BUD / DEBT"
+    },
+    {
+      "id": 2,
+      "name": "Wirtschaft & Arbeit",
+      "summary": "Produktivität, Beschäftigung, Unternehmertum und wettbewerbsfähige Rahmenbedingungen gemeinsam betrachten.",
+      "track": "Wirtschaft / Arbeit"
+    },
+    {
+      "id": 3,
+      "name": "Steuern & Abgaben",
+      "summary": "Aufkommen, Verteilung, Standortwirkung und Vollzug vor jeder dauerhaften Änderung transparent rechnen.",
+      "track": "TAX"
+    },
+    {
+      "id": 4,
+      "name": "Staat & Verwaltung",
+      "summary": "Zuständigkeiten vereinfachen, Verfahren digitalisieren und Personalpfade ohne pauschale Kahlschläge planen.",
+      "track": "ADM / Staat"
+    },
+    {
+      "id": 5,
+      "name": "Bildung & Forschung",
+      "summary": "Kompetenzen, Chancen, Forschung und Innovation auf messbare Wirkung und langfristige Leistungsfähigkeit ausrichten.",
+      "track": "Bildung / Innovation"
+    },
+    {
+      "id": 6,
+      "name": "Gesundheit & Pflege",
+      "summary": "Versorgung, Personal, Finanzierung und Prävention über Bund, Länder und Sozialversicherung zusammenführen.",
+      "track": "Gesundheit / Pflege"
+    },
+    {
+      "id": 7,
+      "name": "Soziales, Familie, Pensionen & Integration",
+      "summary": "Soziale Sicherheit, Generationengerechtigkeit, Familienpolitik und Integration finanzierbar und fair gestalten.",
+      "track": "Soziales / Pensionen"
+    },
+    {
+      "id": 8,
+      "name": "Wohnen & Bauen",
+      "summary": "Leistbares Wohnen, Baurecht, Flächen, Genehmigungen und Sanierung als zusammenhängendes System behandeln.",
+      "track": "Wohnen / Bauen"
+    },
+    {
+      "id": 9,
+      "name": "Sicherheit, Justiz & Rechtsstaat",
+      "summary": "Grundrechte, handlungsfähige Sicherheitsbehörden, unabhängige Justiz und verlässliche Verfahren gemeinsam sichern.",
+      "track": "Sicherheit / Justiz"
+    },
+    {
+      "id": 10,
+      "name": "Energie, Klima & Infrastruktur",
+      "summary": "Versorgungssicherheit, Netze, Verkehr, Klima- und Umweltwirkung mit Kosten und Systemrisiken gemeinsam rechnen.",
+      "track": "Energie / Infrastruktur"
+    },
+    {
+      "id": 11,
+      "name": "Regionen, Gemeinden & Landwirtschaft",
+      "summary": "Entscheidungen möglichst nahe an den Menschen treffen und Finanzierung, Daseinsvorsorge sowie ländliche Räume mitdenken.",
+      "track": "REG / Gemeinden"
+    },
+    {
+      "id": 12,
+      "name": "Demokratie, Transparenz & Bürgerbeteiligung",
+      "summary": "Entscheidungsakten, offene Quellen, nachvollziehbare Verantwortung und rechtssichere Bürgerbeteiligung verbinden.",
+      "track": "DIR / Transparenz"
+    }
   ],
   "decision_model": ["Problem offenlegen", "Optionen rechnen", "Recht und Zuständigkeit prüfen", "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig", "Umsetzen", "KPI messen", "Review"],
   "regional_rule": "Gemeinsam, was gemeinsam sein muss. Regional, was regional besser entschieden wird.",
