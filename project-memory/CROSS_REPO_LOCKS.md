@@ -27,7 +27,7 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
-No active Rudi implementation cross-repo lock. The WellFit-now implementation is merged; remaining public ChatGPT Site synchronization and visual acceptance are graphical WellFit/Sites work tracked by `WFG-RUDI-WORLD-001` / `WF-LOOP-006`.
+No active Rudi implementation hardening cross-repo lock. The hardened WellFit-now source is merged and pinned by `RUDI_SITE_SYNC_MANIFEST.json`; remaining work is the actual public ChatGPT Site synchronization and visual acceptance under `WFG-RUDI-WORLD-001` / `WF-LOOP-006`.
 
 No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
 
@@ -48,6 +48,20 @@ No active avatar-attention implementation cross-repo lock. The remaining public 
 
 ## Released locks
 
+## XLOCK-WF-RUDI-FALLBACK-20260906
+- Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-3D-001` fallback-hardening sub-scope
+- Status: RELEASED
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: bounded pre-Site-sync hardening of the accepted DOM-bound Rudi architecture only: stop autonomous/journey timers and route guides when presentation falls back to static/reduced-motion, propagate WebGL/GLTF failure into static mode, and avoid loading animation clips unused by the active runtime. No visual redesign, new controller, backend/auth/data, mission/reward/economy, location/camera, native Buddy runtime or public Site publication.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`; physical graphical ownership drift remains under `WF-MIG-001`.
+- Branches/PRs: WellFit `codex/rudi-fallback-hardening-coordination-20260906`; WellFit-now PR #402 on `codex/rudi-static-fallback-hardening-20260906`.
+- Acquired: 2026-09-06 Europe/Vienna
+- Released: 2026-09-06 after WellFit-now PR #402 exact head `23318cdf395bd25e46f1b2a31499f14cc8afd51d` passed Build #1288, Container #273, Database #265 and Project Memory Guard #116 / Quality #123 / Status #131, then squash-merged as `b07d39938aeab4e32eddac7d19b8e15e22afacb7`. Beta Emulator was not triggered because its workflow is path-filtered away from the landing-only change set.
+- Result: static/reduced-motion/error fallback now terminates pending animated journey state; route guides are WebGL-only; the fallback waits for a real anchor; initial active WebGL loading is limited to the five clips the controller can select. `RUDI_SITE_SYNC_MANIFEST.json` is advanced to merge `b07d39938aeab4e32eddac7d19b8e15e22afacb7` with updated source blob SHAs and fail-closed invariants.
+- Resume from: exact editable `wellfit-bewegt` Site source and the current manifest. Do not restart a repository-only substitute unless a new independently evidenced pre-sync defect is found.
+
 ## XLOCK-WF-RUDI-WORLD-20260905
 - Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-3D-001`
 - Status: RELEASED
@@ -59,8 +73,8 @@ No active avatar-attention implementation cross-repo lock. The remaining public 
 - Branches/PRs: WellFit `codex/rudi-living-world-coordination-20260905` / PR #29; WellFit-now merged PR #401.
 - Acquired: 2026-09-05 Europe/Vienna
 - Released: 2026-09-05 after WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`.
-- Result: the technical/web bridge for the DOM-bound living Rudi is merged. Remaining work is exact public ChatGPT Site source synchronization plus real-WebGL visual acceptance under WellFit graphical authority; no further cross-repo runtime mutation is required for that step.
-- Resume from: WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b` and `WF-LOOP-006`; do not restart the deleted viewport-bound controller.
+- Result: the technical/web bridge for the DOM-bound living Rudi is merged. Remaining work is exact public ChatGPT Site source synchronization plus real-WebGL visual acceptance under WellFit graphical authority; later bounded pre-sync fallback hardening is separately recorded by `XLOCK-WF-RUDI-FALLBACK-20260906`.
+- Resume from: current `RUDI_SITE_SYNC_MANIFEST.json` and `WF-LOOP-006`; do not restart the deleted viewport-bound controller.
 
 ## XLOCK-WF-AVATAR-PUPPET-20260828
 - Cross-ID: `WFG-AVATAR-PUPPET-001` / `WFN-AVATAR-PUPPET-001`
