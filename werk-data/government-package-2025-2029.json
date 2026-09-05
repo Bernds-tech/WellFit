@@ -1,0 +1,145 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – ursprüngliches Konsolidierungs- und Offensivpaket 2025–2029",
+  "status":"budgetdienst-tables-7-8-normalised",
+  "source":"Parlamentarischer Budgetdienst – Budgetanalyse 2025 und 2026, Tabellen 7 und 8",
+  "checked_at":"2026-09-05",
+  "years":[2025,2026,2027,2028,2029],
+  "unit":"Mio. EUR",
+  "scope_note":"Diese Datei bildet den ursprünglichen Stand der Budgetanalyse 2025/2026 ab. Für die aktuelle BUD-01-Baseline sind die späteren Aktualisierungen aus government-baseline-2025-2031.json maßgeblich. Diese Datei dient zur Rekonstruktion der Herkunft des 2025-Pakets und zum Doppelzählungsschutz.",
+  "implementation_warning":"Der Budgetdienst weist darauf hin, dass die einnahmenseitigen Maßnahmen weitgehend umgesetzt bzw. konkret waren, während ein erheblicher Teil der ausgabenseitigen mittelfristigen Konsolidierungsbeiträge noch Zielwerte oder wenig konkretisierte Maßnahmen darstellte.",
+  "expenditure":{
+    "consolidation_total":[4995,6704,9276,10669,11783],
+    "groups":[
+      {"id":"P25-EXP-BSMG-I","name":"Budgetsanierungsmaßnahmengesetz 2025 Teil I","status":"implemented","total":[240,650,650,650,650],"items":[
+        {"id":"P25-EXP-BILDUNGSKARENZ","name":"Abschaffung Bildungskarenz","status":"implemented","values":[240,650,650,650,650]}
+      ]},
+      {"id":"P25-EXP-BBG25","name":"Budgetbegleitgesetz 2025","status":"largely_legislated","total":[2033,2564,2988,3168,3428],"items":[
+        {"id":"P25-EXP-KLIMABONUS","name":"Abschaffung Klimabonus","status":"implemented","values":[1965,1974,1984,1984,1984]},
+        {"id":"P25-EXP-VALORISIERUNG","name":"Aussetzung Valorisierung Sozialleistungen und Parteienförderung","status":"legislated","values":[0,204,374,362,359]},
+        {"id":"P25-EXP-ZUVERDIENST-ALG","name":"Änderungen geringfügiger Zuverdienst zum Arbeitslosengeld","status":"legislated","values":[0,110,110,110,110]},
+        {"id":"P25-EXP-KORRIDOR","name":"Verschärfungen Korridorpension – Minderausgaben","status":"legislated","values":[0,103,301,613,881]},
+        {"id":"P25-EXP-PENS-ERST","name":"Neuregelung erstmalige Pensionsanpassung","status":"legislated","values":[0,33,28,23,18]},
+        {"id":"P25-EXP-UNI","name":"Reduktion Zuschuss Universitäten","status":"budgeted","values":[3,23,103,0,0]},
+        {"id":"P25-EXP-SCHULLEITUNG","name":"Anpassung Modell Unterstützung Schulleitung bei Verwaltungsaufgaben","status":"legislated_or_budgeted","values":[15,41,25,15,15]},
+        {"id":"P25-EXP-SOZIALHILFE","name":"Änderung Schulungszuschlag Sozialhilfe","status":"legislated_or_budgeted","values":[20,40,40,40,40]},
+        {"id":"P25-EXP-BBG-OTHER","name":"Weitere Maßnahmen Budgetbegleitgesetz 2025","status":"mixed","values":[31,38,23,23,22]}
+      ],"rounding_note":"Summe der veröffentlichten Einzelzeilen kann wegen Rundung geringfügig vom Gruppenwert abweichen."},
+      {"id":"P25-EXP-BUDGETREPORT","name":"Weitere Maßnahmen laut Budgetbericht 2025 und 2026","status":"mixed_many_targets_not_fully_implemented","total":[2722,3490,5638,6851,7706],"items":[
+        {"id":"P25-EXP-PENSION-EXTRA","name":"Zusätzliche Maßnahmen Pensionsbereich, z. B. Teilpension/Älteren-Beschäftigungspaket","status":"planned_or_partly_concretised","values":[0,453,674,753,847]},
+        {"id":"P25-EXP-UMWELT","name":"Umweltförderungen","status":"budget_assumption","values":[557,820,1159,982,996]},
+        {"id":"P25-EXP-KLIMATICKET18","name":"Klimaticket für 18-Jährige","status":"budget_assumption","values":[120,120,120,120,120]},
+        {"id":"P25-EXP-BREITBAND","name":"Breitband","status":"lower_utilisation_assumption","values":[150,0,0,0,0]},
+        {"id":"P25-EXP-INVESTPREMIE","name":"Investitionsprämie","status":"lower_utilisation_assumption","values":[130,0,0,0,0]},
+        {"id":"P25-EXP-FOERDER-UG45","name":"Förderabschläge UG 45 Bundesvermögen","status":"budget_assumption","values":[167,0,0,0,0]},
+        {"id":"P25-EXP-OEBB","name":"ÖBB-Infrastruktur AG – Rahmenplaninvestitionen Gesamteffekt","status":"budget_assumption","values":[333,585,567,440,418]},
+        {"id":"P25-EXP-FOERDER-TF","name":"Förder-Taskforce","status":"target_not_fully_concretised","values":[0,150,400,600,800]},
+        {"id":"P25-EXP-BETEILIGUNG-TF","name":"Beteiligungs-Taskforce","status":"target_not_fully_concretised","values":[0,0,100,200,300]},
+        {"id":"P25-EXP-PERSONAL","name":"Kostendämpfende Maßnahmen Personalbereich","status":"target_not_fully_concretised","values":[0,0,420,840,840]},
+        {"id":"P25-EXP-ASYL","name":"Asylreform","status":"planned_requires_implementation","values":[0,50,100,200,300]},
+        {"id":"P25-EXP-BUND-OTHER","name":"Weitere Maßnahmen Bundessektor – Verwaltung/Förderungen","status":"mixed_budget_targets","values":[975,972,1148,1566,1735]},
+        {"id":"P25-EXP-LAENDER-GEM","name":"Konsolidierungsbeitrag Länder und Gemeinden","status":"bmf_estimate_high_uncertainty","values":[100,150,760,960,1160]},
+        {"id":"P25-EXP-SV","name":"Konsolidierungsbeitrag SV-Sektor","status":"bmf_estimate_high_uncertainty","values":[190,190,190,190,190]}
+      ]}
+    ],
+    "offensive_total":[456,917,897,896,896],
+    "offensive_groups":[
+      {"id":"P25-EXP-OFF-BSMG-II","name":"Budgetsanierungsmaßnahmengesetz 2025 Teil II","status":"implemented","total":[6,8,2,0,0],"items":[
+        {"id":"P25-EXP-OFF-COVID","name":"Verlängerung kostenfreie COVID-19-Impfungen niedergelassener Bereich","status":"implemented","values":[6,8,2,0,0]}
+      ]},
+      {"id":"P25-EXP-OFF-BBG","name":"Budgetbegleitgesetz 2025","status":"legislated","total":[27,53,53,53,53],"items":[
+        {"id":"P25-EXP-OFF-DIENSTRECHT","name":"Dienstrechtsnovelle","status":"legislated","values":[33,0,0,0,0]},
+        {"id":"P25-EXP-OFF-VIC","name":"Bauliche Maßnahmen Vienna International Centre","status":"budgeted","values":[1,9,9,9,9]},
+        {"id":"P25-EXP-OFF-BASIS","name":"Erhöhung Basiszuwendungen ausgegliederte Einheiten","status":"legislated_or_budgeted","values":[2,41,41,41,41]},
+        {"id":"P25-EXP-OFF-BBG-OTHER","name":"Weitere Maßnahmen Budgetbegleitgesetz 2025","status":"mixed","values":[-9,3,3,3,3]}
+      ]},
+      {"id":"P25-EXP-OFF-BUDGETREPORT","name":"Weitere Offensivmaßnahmen laut Budgetbericht 2025 und 2026","status":"budgeted_or_planned","total":[423,856,842,842,843],"items":[
+        {"id":"P25-EXP-OFF-LABOUR","name":"Aktive Arbeitsmarktpolitik, z. B. Nachfolge Bildungskarenz/Aktion 55+","status":"budgeted","values":[237,307,307,307,307]},
+        {"id":"P25-EXP-OFF-HEAVY","name":"Schwerarbeiterregelung Ausweitung Pflegeberufe","status":"planned_or_legislated","values":[0,40,40,40,40]},
+        {"id":"P25-EXP-OFF-SUSTAIN","name":"Nachhaltigkeitsoffensive und Offensive sauberes Österreich","status":"budgeted","values":[10,30,30,30,30]},
+        {"id":"P25-EXP-OFF-EDU","name":"Maßnahmen Bildung und Integration","status":"budgeted","values":[120,350,335,335,335]},
+        {"id":"P25-EXP-OFF-AMBULANT","name":"Innovationsfonds Stärkung ambulante Versorgung","status":"budgeted","values":[0,50,50,50,50]},
+        {"id":"P25-EXP-OFF-UNTERHALT","name":"Unterhaltsgarantie-Fonds","status":"planned_or_budgeted","values":[0,35,35,35,35]},
+        {"id":"P25-EXP-OFF-OTHER","name":"Weitere Maßnahmen laut Budgetbericht 2025 und 2026","status":"mixed","values":[56,45,45,46,46]}
+      ],"rounding_note":"Summe der veröffentlichten Einzelzeilen kann wegen Rundung um 1 Mio. EUR vom Gruppenwert abweichen."}
+    ],
+    "net":[4539,5787,8379,9774,10888]
+  },
+  "revenue":{
+    "consolidation_total":[1922,3600,3710,4223,4698],
+    "groups":[
+      {"id":"P25-REV-BSMG-I","name":"Budgetsanierungsmaßnahmengesetz 2025 Teil I","status":"implemented","total":[890,1000,630,630,630],"items":[
+        {"id":"P25-REV-ENERGY","name":"Verlängerung Energiekrisenbeitrag","status":"implemented","values":[200,200,200,200,200]},
+        {"id":"P25-REV-BANK","name":"Erhöhung Stabilitätsabgabe","status":"implemented","values":[350,350,50,50,50]},
+        {"id":"P25-REV-EV-TAX","name":"Ausweitung motorbezogene Versicherungssteuer auf E-Autos","status":"implemented","values":[65,130,130,130,130]},
+        {"id":"P25-REV-TOBACCO","name":"Erhöhung Tabaksteuer","status":"implemented","values":[50,100,100,100,100]},
+        {"id":"P25-REV-PV","name":"Vorzeitige Abschaffung USt-Nullsteuersatz PV-Anlagen","status":"implemented","values":[175,70,0,0,0]},
+        {"id":"P25-REV-BETTING","name":"Anhebung Wettgebühr auf 5 %","status":"implemented","values":[50,100,100,100,100]},
+        {"id":"P25-REV-TOPRATE","name":"Verlängerung Spitzensteuersatz um vier Jahre","status":"implemented_or_legislated","values":[0,50,50,50,50]}
+      ]},
+      {"id":"P25-REV-BSMG-II","name":"Budgetsanierungsmaßnahmengesetz 2025 Teil II","status":"implemented","total":[462,912,937,964,989],"items":[
+        {"id":"P25-REV-FEES-FED","name":"Nachholung Valorisierung Bundesgebühren","status":"implemented","values":[65,150,150,150,150]},
+        {"id":"P25-REV-FEES-COURT","name":"Nachholung Valorisierung Gerichts- und Konsulargebühren","status":"implemented","values":[31,42,42,42,42]},
+        {"id":"P25-REV-STIFT-ZWISCHEN","name":"Anhebung Zwischensteuer für Stiftungen","status":"implemented","values":[0,20,20,20,20]},
+        {"id":"P25-REV-STIFT-EQ","name":"Anhebung Stiftungseingangssteueräquivalent","status":"implemented","values":[0,3,3,3,3]},
+        {"id":"P25-REV-KV-PENSION","name":"Anhebung KV-Beitrag Pensionist:innen 5,1 % auf 6,0 %","status":"implemented","values":[366,697,722,749,775]}
+      ]},
+      {"id":"P25-REV-BBG25","name":"Budgetbegleitgesetz 2025","status":"largely_legislated","total":[113,780,1259,1615,1994],"items":[
+        {"id":"P25-REV-PROGRESSION","name":"Aussetzen Anpassung letztes Drittel Progressionsausgleich","status":"legislated","values":[0,440,800,1100,1475]},
+        {"id":"P25-REV-SHARE-DEALS","name":"Lückenschluss steuerliche Erfassung Immobilientransaktionen – Share Deals","status":"legislated","values":[35,100,100,100,100]},
+        {"id":"P25-REV-UMWIDMUNG","name":"Umwidmungszuschlag Grundstücksveräußerungen","status":"legislated","values":[10,30,50,50,50]},
+        {"id":"P25-REV-STIFT-ENTRY","name":"Anhebung Stiftungseingangssteuer","status":"legislated","values":[0,10,10,10,10]},
+        {"id":"P25-REV-GAMBLING","name":"Steuererhöhungen Glücksspiel","status":"legislated","values":[31,71,73,75,78]},
+        {"id":"P25-REV-ECARD","name":"Außertourliche Erhöhung E-Card Service-Entgelt für 2026","status":"legislated","values":[37,39,39,40,41]},
+        {"id":"P25-REV-ECARD-PENS","name":"E-Card Service-Entgelt für Pensionist:innen","status":"legislated","values":[0,40,42,44,45]},
+        {"id":"P25-REV-KORRIDOR","name":"Mehreinnahmen Verschärfungen Korridorpension","status":"legislated","values":[0,44,138,189,188]},
+        {"id":"P25-REV-FREIFAHRT","name":"Erhöhung Selbstbehalt Schüler- und Lehrlingsfreifahrten","status":"legislated_or_budgeted","values":[0,7,7,7,7]}
+      ],"rounding_note":"Summe der veröffentlichten Einzelzeilen kann wegen Rundung geringfügig vom Gruppenwert abweichen."},
+      {"id":"P25-REV-BUDGETREPORT","name":"Weitere Maßnahmen laut Budgetbericht 2025 und 2026","status":"mixed_some_open","total":[457,908,885,1015,1085],"items":[
+        {"id":"P25-REV-FRAUD","name":"Betrugsbekämpfungspaket inkl. Reform Wegzugsbesteuerung","status":"not_fully_implemented_at_source_date","values":[0,270,330,390,450]},
+        {"id":"P25-REV-ALT-TOBACCO","name":"Tabaksteuer alternative Erzeugnisse","status":"planned_or_legislated","values":[0,85,100,100,100]},
+        {"id":"P25-REV-GAMBLING-MONOPOLY","name":"Modernisierung Glücksspielmonopol","status":"planned","values":[10,20,20,90,100]},
+        {"id":"P25-REV-KLIMATICKET","name":"Valorisierung Klimaticket","status":"budgeted","values":[0,30,30,30,30]},
+        {"id":"P25-REV-DIVIDENDS","name":"Mehreinnahmen Dividenden","status":"budget_assumption","values":[350,310,310,310,310]},
+        {"id":"P25-REV-MAUT","name":"Erhöhung Mauttarife externe Kosten","status":"budgeted_or_legislated","values":[0,20,20,20,20]},
+        {"id":"P25-REV-ADMIN","name":"Weitere einnahmenseitige Maßnahmen Verwaltung","status":"mixed","values":[97,173,75,75,75]}
+      ]}
+    ],
+    "offensive_total":[210,729,954,969,984],
+    "offensive_groups":[
+      {"id":"P25-REV-OFF-BSMG-II","name":"Budgetsanierungsmaßnahmengesetz 2025 Teil II","status":"implemented","total":[0,83,94,109,124],"items":[
+        {"id":"P25-REV-OFF-RECIPE-FREEZE","name":"Einfrieren Rezeptgebühr","status":"implemented","values":[0,36,36,40,40]},
+        {"id":"P25-REV-OFF-RECIPE-CAP","name":"Senkung Rezeptgebührenobergrenze","status":"implemented","values":[0,42,52,65,78]},
+        {"id":"P25-REV-OFF-SV-REFUND","name":"Anhebung Sozialversicherungs-Rückerstattung Pensionist:innen","status":"implemented","values":[0,5,5,5,5]}
+      ]},
+      {"id":"P25-REV-OFF-BBG","name":"Budgetbegleitgesetz 2025","status":"legislated","total":[190,297,340,340,340],"items":[
+        {"id":"P25-REV-OFF-BASISPAUSCH","name":"Erhöhung Basispauschalierung inkl. Vorsteuerpauschale","status":"legislated","values":[5,50,105,105,105]},
+        {"id":"P25-REV-OFF-PENDLER","name":"Erhöhung Pendlereuro","status":"legislated","values":[0,110,200,200,200]},
+        {"id":"P25-REV-OFF-MITARBEITER","name":"Steuerfreie Mitarbeiterprämie","status":"temporary_legislated","values":[165,85,0,0,0]},
+        {"id":"P25-REV-OFF-HYGIENE","name":"Umsatzsteuerbefreiung Frauenhygieneartikel und Verhütungsmittel","status":"legislated","values":[0,28,35,35,35]},
+        {"id":"P25-REV-OFF-NACHTSCHWER","name":"Sistierung Nachtschwerarbeits-Beitragssatz 2025 und 2026","status":"temporary_legislated","values":[20,24,0,0,0]}
+      ]},
+      {"id":"P25-REV-OFF-BUDGETREPORT","name":"Weitere Offensivmaßnahmen laut Budgetbericht 2025 und 2026","status":"budgeted_or_planned","total":[20,350,520,520,520],"items":[
+        {"id":"P25-REV-OFF-LCV","name":"Abgabenbegünstigung leichte Nutzfahrzeuge","status":"budgeted_or_legislated","values":[20,50,50,50,50]},
+        {"id":"P25-REV-OFF-OLDER-WORK","name":"Steuerliche Attraktivierung Arbeiten im Alter","status":"planned_or_legislated","values":[0,300,470,470,470]}
+      ]}
+    ],
+    "net":[1712,2870,2757,3254,3715]
+  },
+  "combined":{
+    "net_consolidation":[6251,8657,11135,13027,14602],
+    "expenditure_share_pct":[73,67,75,75,75],
+    "revenue_share_pct":[27,33,25,25,25]
+  },
+  "validation":{
+    "aggregate_tolerance_mio":3,
+    "rules":[
+      "expenditure.consolidation_total - expenditure.offensive_total = expenditure.net",
+      "revenue.consolidation_total - revenue.offensive_total = revenue.net",
+      "expenditure.net + revenue.net = combined.net_consolidation",
+      "all line-item values arrays align exactly to 2025-2029",
+      "group totals may differ slightly from leaf sums due source rounding"
+    ]
+  },
+  "horizon_note":"Der spätere Budgetdienst-Stand 2027/2028 führt das ursprüngliche 2025-Paket auf Aggregatebene auch für 2030 und 2031 mit jeweils 14.602 Mio. EUR fort. Eine vollständige veröffentlichte Einzelzeilenfortschreibung der Tabellen 7/8 bis 2031 liegt in dieser Quelle nicht vor; WERK extrapoliert diese Einzelzeilen daher nicht."
+}
