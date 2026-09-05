@@ -9,6 +9,7 @@ on:
       - 'werk-data/government-new-measures-2026-2031.json'
       - 'werk-data/government-legal-basis-map.json'
       - 'werk-data/government-baseline-scope-map.json'
+      - 'werk-data/government-measure-legal-status.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-baseline-legal-check.yml'
   workflow_dispatch:
@@ -40,6 +41,7 @@ jobs:
           const fresh=read('werk-data/government-new-measures-2026-2031.json');
           const law=read('werk-data/government-legal-basis-map.json');
           const map=read('werk-data/government-baseline-scope-map.json');
+          const detail=read('werk-data/government-measure-legal-status.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
 
           const packageIds=new Set((law.packages||[]).map(x=>x.id));
@@ -76,6 +78,26 @@ jobs:
           if(stale.length) fail(`Stale scope mappings without source row: ${stale.join(' | ')}`);
           if(new Set(allScopes).size!==allScopes.length) fail('Duplicate scope IDs across government matrices');
 
+          // Measure-level legal detail must point to real source rows and verified packages.
+          const freshRowIds=new Set(newScopes);
+          const coveredIds=new Set();
+          const allowedQuality=new Set(detail.implementation_quality_values||[]);
+          for(const m of detail.measures||[]){
+            if(!Array.isArray(m.measure_ids)||!m.measure_ids.length) fail(`Measure detail without measure_ids: ${m.name||'unnamed'}`);
+            if(!m.legal_package_id||!packageIds.has(m.legal_package_id)) fail(`Unknown/missing legal package for ${m.name}`);
+            if(!m.article||!m.law_reference||!m.effective_date_or_rule||!m.implementation_quality||!m.checked_at) fail(`Incomplete BASE-E2 fields for ${m.name}`);
+            if(!allowedQuality.has(m.implementation_quality)) fail(`Invalid implementation quality ${m.implementation_quality} for ${m.name}`);
+            for(const id of m.measure_ids){
+              if(!freshRowIds.has(id)) fail(`BASE-E2 maps unknown new-measure row ${id}`);
+              if(coveredIds.has(id)) fail(`BASE-E2 duplicate measure coverage ${id}`);
+              coveredIds.add(id);
+            }
+            if(m.implementation_quality==='derived_effect'&&(!Array.isArray(m.derived_from)||!m.derived_from.length)) fail(`Derived effect missing derived_from: ${m.name}`);
+          }
+          if(coveredIds.size!==(detail.coverage?.individual_measure_ids_covered||0)) fail(`BASE-E2 coverage count mismatch ${coveredIds.size} != ${detail.coverage?.individual_measure_ids_covered}`);
+          if(detail.coverage?.article_paragraph_effective_date_for_covered_measures!=='verified') fail('BASE-E2 covered measures must be article/paragraph/effective-date verified');
+          if(detail.coverage?.remaining_measure_ids==='all_covered') fail('BASE-E2 must not overclaim full coverage yet');
+
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-BASE-01');
           if(!gap) fail('GAP-BASE-01 missing from closure register');
           const gate=id=>(gap.subgates||[]).find(x=>x.id===id);
@@ -85,5 +107,5 @@ jobs:
           if(!e3||e3.status!=='teilweise vorhanden') fail('BASE-E3 must remain partial until realisation/effectiveness status is complete');
           if(law.coverage?.every_measure_article_mapping!=='partial'||law.coverage?.every_measure_effective_date!=='partial') fail('Legal basis map must not overclaim measure-level closure');
 
-          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; BASE-E1 closed; BASE-E2/E3 correctly remain partial.`);
+          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; ${coveredIds.size} high-impact measure IDs have verified article/effective-date detail; BASE-E2/E3 remain correctly partial.`);
           NODE
