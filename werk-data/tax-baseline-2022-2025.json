@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-05-v1",
+  "version":"2026-09-05-v2",
   "title":"WERK Österreich – Steuer- und Abgabenbaseline 2022–2025",
   "status":"official-multi-universe-tax-baseline-normalised",
   "checked_at":"2026-09-05",
@@ -65,8 +65,9 @@
     "taxable_turnover_20pct":476206.6,
     "taxable_turnover_10pct":151504.1,
     "vat_liability_or_credit_balance":33608.8,
-    "unallocated_other_rates_and_adjustments_mio":596?0,
-    "note":"Steuerbarer Umsatz umfasst neben den ausgewiesenen 20%- und 10%-Umsätzen weitere Steuersätze/Sonderfälle und ist nicht durch die sichtbaren Hauptspalten vollständig zerlegt. Zahllast/Gutschrift ist eine Voranmeldungsgröße, keine ESVG-Mehrwertsteuereinnahme.",
+    "published_columns_residual_mio":59766.7,
+    "residual_definition":"Rechnerischer Rest = steuerbarer Umsatz minus steuerfreier Umsatz minus ausgewiesene 20%- und 10%-Umsätze. Er ist keine eigenständige Steuerkategorie und kann weitere Steuersätze, Sondertatbestände und Abgrenzungen enthalten.",
+    "note":"Steuerbarer Umsatz ist durch die sichtbaren Hauptspalten nicht vollständig zerlegt. Zahllast/Gutschrift ist eine Voranmeldungsgröße, keine ESVG-Mehrwertsteuereinnahme.",
     "state_detail_status":"available_in_official_table_not_yet_normalised_into_canonical_baseline"
   },
   "tax_expenditures_mio":{
