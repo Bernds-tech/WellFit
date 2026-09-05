@@ -12,17 +12,17 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 
 ## Current physical-code reality
 - Most current product UI/landing implementation still physically lives in `WellFit-now`; this ownership drift remains governed by `WF-MIG-001`.
-- WellFit `main` is currently `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9` and remains remotely unprotected; branch+PR discipline therefore remains mandatory by policy.
+- Live WellFit `main` is a mutable Git ref and is deliberately **not** persisted here as a static "current SHA". Every mandatory preflight must query GitHub for the live branch tip and PR/CI state. Immutable merge/evidence SHAs may be stored below as historical milestones.
+- WellFit `main` remains remotely unprotected; branch+PR discipline therefore remains mandatory by policy. The owner protection action is deferred and must not be repeatedly requested.
 - PR #2 (`agent/import-wellfit-landingpage`) remains a historical graphical candidate, not the canonical accepted baseline. Its old exact-head evidence is stale and it must not be treated as authoritative over newer live/public work.
 - PR #28 (`codex/public-info-audit-20260905`) remains a documentation-only audit of the visible public information pages; it does not implement the Rudi runtime.
-- Owner-directed graphical task `WFG-RUDI-WORLD-001` remains active for public-Site synchronization/visual acceptance. Its physical web implementation is merged in WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b` through PR #401.
-- WellFit PR #29 merged the graphical coordination baseline as `bedfcdcbc0c5864ba4d9fc2deeb5b67dcb7cf033`.
-- WellFit PR #30 merged `project-memory/RUDI_SITE_SYNC_MANIFEST.json` as `c7f5e70a49faed5dab1ab88ecd6e75385736aaeb`; PR #31 then finalized the Site-specific handoff on current main `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`.
+- Owner-directed graphical task `WFG-RUDI-WORLD-001` remains active for public-Site synchronization/visual acceptance. Its physical web implementation is merged in WellFit-now main as immutable merge `9ae4f278a90d17d612f0399c40babd32c344e02b` through PR #401.
+- Immutable WellFit coordination milestones: PR #29 merged as `bedfcdcbc0c5864ba4d9fc2deeb5b67dcb7cf033`; PR #30 merged `project-memory/RUDI_SITE_SYNC_MANIFEST.json` as `c7f5e70a49faed5dab1ab88ecd6e75385736aaeb`; PR #31 finalized the Site handoff as `d0d5d6ae42f2e5dccb9387c31ecc36f798329eb9`; PR #32 reconciled the stale memory reference as `ef85f231100bedb2bf11a35116606605033913e5`.
 
 ## Active Rudi graphical direction
 - Owner direction 2026-09-05: Rudi Rastlos is a physical resident of the Landingpage, not a viewport-following mascot. He may climb and stand on letters, words, cards, images, lines and other actual page surfaces; when the page scrolls, he moves with the exact bound element and may completely leave the viewport. He must not hover, fly, visibly teleport or air-climb.
 - Graphical authority remains `WFG-RUDI-WORLD-001` / `WFG-CR-008`. The cross-repo implementation lock `XLOCK-WF-RUDI-WORLD-20260905` is released because the WellFit-now bridge is merged; remaining work is graphical Site synchronization/visual acceptance only.
-- Merged implementation: WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b`, produced from PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb`.
+- Merged implementation: WellFit-now immutable merge `9ae4f278a90d17d612f0399c40babd32c344e02b`, produced from PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb`.
 - The immutable Site-transfer contract is `project-memory/RUDI_SITE_SYNC_MANIFEST.json`; it pins the exact WellFit-now source files/blob SHAs, Rudi assets, dependencies, forbidden behaviors and ten fail-closed visual checks for the existing `wellfit-bewegt` Site.
 - The `F` in `WellFit` (`hero-wellfit-4`) is the first climb/podium. Narrow explicit letters and thin lines/ledges remain valid physical surfaces; random tiny generic DOM fragments are excluded.
 - Runtime footing, climb edges, full-offscreen detection, catch-up origins, visible route geometry, reachability and autonomous surface-to-surface journeys share one geometry authority: `app/components/landing/rudiWorldGeometry.mjs`.
@@ -50,6 +50,7 @@ This repository owns the **graphical WellFit domain**: landing page, visual syst
 - Do not equate GitHub green CI with public ChatGPT Site publication or owner visual acceptance.
 - Do not restart the superseded whole-image pointer-attention path.
 - Do not introduce a parallel visual system without classifying existing visual branches/assets first.
+- Do not persist a mutable branch tip as a static "current SHA"; query live refs during preflight and store only immutable evidence/merge revisions as historical facts.
 - Do not merge PR #1.
 
 Before changing product visuals, inspect current `main`, active visual branches/PRs, `WELLFIT_MASTER_STATE.json`, the relevant WellFit-now capability state and the relevant WellFit-Buddy capability state.
