@@ -8,8 +8,10 @@ on:
       - 'werk-data/tax-baseline-2022-2025.json'
       - 'werk-data/tax-social-contribution-branch-2024-2025.json'
       - 'werk-data/tax-expenditure-priority-2024.json'
+      - 'werk-data/tax-expenditure-law-groups-2022-2024.json'
       - 'werk-data/analysis-data-closure-register.json'
       - 'scripts/werk-tax-data-contract.mjs'
+      - 'scripts/werk-tax-law-group-contract.mjs'
       - '.github/workflows/werk-tax-data-check.yml'
   workflow_dispatch:
 
@@ -26,5 +28,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate TAX data contract
+      - name: Validate TAX core data contract
         run: node scripts/werk-tax-data-contract.mjs
+      - name: Validate TAX-I law-group sub-contract
+        run: node scripts/werk-tax-law-group-contract.mjs
