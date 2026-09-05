@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/health-baseline-2024-2031.json'
+      - 'werk-data/health-longterm-2022-2070.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-health-data-check.yml'
   workflow_dispatch:
@@ -25,7 +26,7 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Validate health accounting universes and payer identities
+      - name: Validate health accounting universes, payer identities and long-term scenarios
         shell: bash
         run: |
           set -euo pipefail
@@ -35,6 +36,7 @@ jobs:
           const fail=m=>{throw new Error(m)};
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const h=read('werk-data/health-baseline-2024-2031.json');
+          const lt=read('werk-data/health-longterm-2022-2070.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
           const tol=1.1;
 
@@ -51,7 +53,6 @@ jobs:
           const pub=h.sha_public_current_by_function_2024_mio;
           const pubParts=['inpatient_care','outpatient_care','home_based_long_term_care','patient_transport_and_rescue','pharmaceuticals_and_medical_goods','preventive_care','health_system_administration_including_social_security'].reduce((s,k)=>s+pub[k],0);
           eq(pubParts,pub.total,0.1,'2024 SHA public function total');
-
           const priv=h.sha_private_current_by_function_2024_mio;
           const privParts=['inpatient_care','outpatient_care','home_based_long_term_care','patient_transport_and_rescue','pharmaceuticals_and_medical_goods','preventive_care','private_health_insurance_administration','non_profit_institutions_serving_households','occupational_health_services'].reduce((s,k)=>s+priv[k],0);
           eq(privParts,priv.total,1.1,'2024 SHA private function total');
@@ -82,21 +83,17 @@ jobs:
           if(Math.abs(c.total[0]*1000-sha.public_current[0])<100)fail('SHA public current and COFOG government health must remain explicitly non-identical accounting universes');
 
           const ug=h.federal_budget_ug24_mio;
-          const ugYears=[2025,2026,2027,2028,2029,2030,2031];
-          if(JSON.stringify(ug.years)!==JSON.stringify(ugYears))fail('UG24 year universe mismatch');
+          if(JSON.stringify(ug.years)!==JSON.stringify([2025,2026,2027,2028,2029,2030,2031]))fail('UG24 year universe mismatch');
           if(!Array.isArray(ug.outflows)||ug.outflows.length!==7||ug.outflows.some(v=>!Number.isFinite(v)))fail('UG24 outflow path invalid');
           if(JSON.stringify(ug.known_detail_years)!==JSON.stringify([2025,2026,2027,2028]))fail('UG24 detail horizon mismatch');
           const d=ug.known_major_lines_mio;
-          for(const k of ['hospital_federal_purpose_grant','fiscal_equalisation_health','health_reform_fund','contribution_replacements_self_employed_social_insurance','health_reform_measures_financing_act','covid_19_measures','other_outflows']){
-            if(!Array.isArray(d[k])||d[k].length!==4)fail(`UG24 detail series invalid ${k}`);
-          }
+          for(const k of ['hospital_federal_purpose_grant','fiscal_equalisation_health','health_reform_fund','contribution_replacements_self_employed_social_insurance','health_reform_measures_financing_act','covid_19_measures','other_outflows'])if(!Array.isArray(d[k])||d[k].length!==4)fail(`UG24 detail series invalid ${k}`);
           for(let i=0;i<4;i++){
             const parts=d.hospital_federal_purpose_grant[i]+d.fiscal_equalisation_health[i]+d.health_reform_fund[i]+d.contribution_replacements_self_employed_social_insurance[i]+d.health_reform_measures_financing_act[i]+d.covid_19_measures[i]+d.other_outflows[i];
             eq(parts,ug.outflows[i],2.1,`${ug.known_detail_years[i]} UG24 major-line reconciliation`);
           }
           if(!(ug.outflows[6]<ug.outflows[5]))fail('UG24 2031 should reflect lower ceiling after health-reform-fund expiry');
-          if(!(ug.outflows[0] < sha.public_current[1]))fail('UG24 must remain much smaller than total public SHA and must not substitute it');
-          if(h.coverage?.HEALTH_J_federal_budget_ug24_2025_2031!=='closed_total_path_detail_to_2028')fail('UG24 closure status mismatch');
+          if(!(ug.outflows[0]<sha.public_current[1]))fail('UG24 must remain smaller than total public SHA and must not substitute it');
 
           const ltc=h.long_term_care_overlap_guard_2024_mio;
           eq(ltc.sha_public_long_term_care+ltc.sha_private_long_term_care,ltc.sha_current_long_term_care_total,0.1,'SHA LTC public+private');
@@ -104,16 +101,30 @@ jobs:
           const care=h.care_service_statistics_2024_mio;
           eq(care.mobile_services+care.day_care+care.stationary_services+care.alternative_housing+care.case_and_care_management,care.total,0.2,'Care service component total');
 
+          const fisk=lt.fisk_no_policy_change;
+          if(JSON.stringify(fisk.years)!==JSON.stringify([2023,2040,2070]))fail('FISK health long-term years mismatch');
+          eq(fisk.health_expenditure_pct_gdp[2]-fisk.health_expenditure_pct_gdp[0],fisk.change_2023_2070_pp,0.01,'FISK 2023-2070 health change');
+          const eu=lt.eu_ageing_2024_baseline;
+          if(JSON.stringify(eu.years)!==JSON.stringify([2022,2030,2040,2050,2060,2070]))fail('EU health long-term years mismatch');
+          eq(eu.baseline_pct_gdp[5]-eu.baseline_pct_gdp[0],eu.change_2022_2070_pp,0.01,'EU 2022-2070 health change');
+          const euRisk2070=eu.baseline_pct_gdp[5]+eu.risk_scenario_difference_from_baseline_pp[5];
+          eq(euRisk2070,lt.scenario_comparison.eu_risk_2070_pct_gdp,0.01,'EU 2070 risk level');
+          eq(fisk.health_expenditure_pct_gdp[2]-eu.baseline_pct_gdp[5],lt.scenario_comparison.difference_fisk_vs_eu_baseline_2070_pp,0.01,'FISK vs EU baseline 2070 spread');
+          if(!(fisk.health_expenditure_pct_gdp[2]>euRisk2070&&euRisk2070>eu.baseline_pct_gdp[5]))fail('Expected ordered 2070 health scenarios FISK > EU risk > EU baseline');
+          if(!String(lt.werk_scenario_rules||[]).includes('nicht gemittelt'))fail('Health long-term contract must prohibit averaging FISK and Ageing scenarios');
+          if(lt.coverage?.HEALTH_K_fisk_longterm_2023_2070!=='closed'||lt.coverage?.HEALTH_L_eu_ageing_baseline_and_sensitivities_2022_2070!=='closed')fail('Health long-term external baselines must be closed');
+          if(lt.coverage?.HEALTH_M_werk_reform_scenario_model!=='open'||lt.coverage?.HEALTH_N_transition_and_distribution_costs!=='open')fail('WERK health reform and transition models must remain open');
+
           if(h.raw_matrix_sources?.status!=='official_files_identified_but_raw_ods_not_parsed_in_current_runtime')fail('Raw SHA matrix status must not overclaim parsing');
           if(h.coverage?.HEALTH_F_full_HC_HF_and_HP_HF_matrix_2024!=='open_raw_ods_not_parsed')fail('Full SHA payer/service matrix must remain open');
           if(h.coverage?.HEALTH_H_fund_hospital_2025!=='future_release_2026-09-30')fail('2025 hospital financing must remain future-release gated');
+          if(h.coverage?.HEALTH_J_federal_budget_ug24_2025_2031!=='closed_total_path_detail_to_2028')fail('UG24 closure status mismatch');
           if(h.coverage?.gap_health_01_status!=='partially_closed')fail('GAP-HEALTH-01 must remain partial');
 
           const prohibited=(h.prohibited_shortcuts||[]).join(' ');
           for(const token of ['COFOG','Fondskrankenanstalten','UG24','ÖGK','Kostenverschiebung'])if(!prohibited.includes(token))fail(`Health guard missing prohibited shortcut ${token}`);
-
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-HEALTH-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-HEALTH-01 closure register must remain partial');
 
-          console.log(`Health contract OK: SHA 2024/2025, functions, payer split, 9-Länder hospitals, COFOG, UG24 2025-2031 and LTC scope guards reconcile without cross-universe double counting.`);
+          console.log(`Health contract OK: SHA/COFOG/payer/hospital/UG24 identities plus separated FISK and EU long-term scenarios through 2070; raw payer×service and WERK reform models remain gated.`);
           NODE
