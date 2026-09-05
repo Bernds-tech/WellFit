@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-06",
+  "task_id": "WFG-RUDI-WORLD-001",
+  "change_request": "WFG-CR-008",
+  "status": "READY_FOR_SITE_SYNC",
+  "target": {
+    "kind": "chatgpt_site",
+    "name": "wellfit-bewegt",
+    "public_url": "https://wellfit-bewegt.bernd-guggenberger.chatgpt.site",
+    "historical_public_version": 105,
+    "historical_version_note": "Version 105 belongs to the previous renderer generation and must not be treated as DOM-bound acceptance evidence."
+  },
+  "source_authority": {
+    "repository": "Bernds-tech/WellFit-now",
+    "main_commit": "9ae4f278a90d17d612f0399c40babd32c344e02b",
+    "source_pr": 401,
+    "verified_pr_head": "54186ec16a617549acbaa0437b0b81ab36ee2abb",
+    "exact_head_ci": {
+      "build": 1285,
+      "container": 270,
+      "database": 262,
+      "beta_emulator": 241,
+      "project_memory_guard": 114,
+      "project_memory_quality": 121,
+      "project_memory_status": 129,
+      "result": "success"
+    }
+  },
+  "required_source_files": [
+    {
+      "path": "app/components/landing/LivingRudiWorld.tsx",
+      "blob_sha": "19e12fdf36d31f7fac08fc69d8e3898c5478879b",
+      "role": "single active DOM-bound Rudi runtime controller"
+    },
+    {
+      "path": "app/components/landing/rudiWorldGeometry.mjs",
+      "blob_sha": "3590f6755c2a7d3aacbaf92d73a2f47152fc5f02",
+      "role": "shared geometry and route authority"
+    },
+    {
+      "path": "app/components/landing/LandingHeroV5.tsx",
+      "blob_sha": "2d6474667198b9412f241bd49351e5478d6a2c1b",
+      "role": "WellFit letter anchors including initial F podium"
+    },
+    {
+      "path": "app/components/landing/LandingPrimitivesV5.tsx",
+      "blob_sha": "bd7f83a2a6e6169544fe4b2526827097dd77c331",
+      "role": "reusable Rudi surface metadata on section headings"
+    },
+    {
+      "path": "app/components/landing/PublicLandingV5.tsx",
+      "blob_sha": "f98b3df81af17d80d29f25dbf8142640bd56125a",
+      "role": "mount point for LivingRudiWorld"
+    },
+    {
+      "path": "app/components/landing/LandingSectionsV5.tsx",
+      "blob_sha": "0abe8861e5e2b46dffe0cd7fd29af321feaaa94e",
+      "role": "current landing section structure and corrected Buddy-care alt text"
+    },
+    {
+      "path": "scripts/landing/validate-rudi-world.mjs",
+      "blob_sha": "3ffdf02126a0db6eec92737841abcd730fd02d7a",
+      "role": "source invariant validation"
+    },
+    {
+      "path": "scripts/landing/validate-rudi-world-geometry.mjs",
+      "blob_sha": "466462a5c65a7a7e8d943f02d070751af13a2f15",
+      "role": "deterministic geometry validation"
+    },
+    {
+      "path": "package.json",
+      "blob_sha": "759bda9f4aa55068bd5d7e93b572513f6ac6f211",
+      "role": "dependency and rudi:validate contract"
+    }
+  ],
+  "asset_root": {
+    "path": "public/landing/rudi",
+    "source_commit": "9ae4f278a90d17d612f0399c40babd32c344e02b",
+    "required_assets": [
+      "rudi-rigged.glb",
+      "rudi-front.png",
+      "rudi-walk.animation.glb",
+      "rudi-run.animation.glb",
+      "rudi-idle.animation.glb",
+      "rudi-alert.animation.glb",
+      "rudi-point.animation.glb",
+      "rudi-inspect.animation.glb",
+      "rudi-celebrate.animation.glb",
+      "rudi-jump.animation.glb",
+      "rudi-sit.animation.glb",
+      "rudi-climb.animation.glb"
+    ],
+    "known_immutable_blobs": {
+      "rudi-rigged.glb": "80953efe3c445b973c15bdefba70f88a281b2a0c",
+      "rudi-front.png": "385ec419c1a79e3b37122b5bbfbcb546eb8149d3",
+      "rudi-climb.animation.glb": "abeefbed5150d722a4a8a28aed261766ac24fe02",
+      "rudi-idle.animation.glb": "fa1bd6a297673f312ee4bbae895f95c00be9a2a0"
+    }
+  },
+  "runtime_dependencies": {
+    "react": "19.2.4",
+    "react_dom": "19.2.4",
+    "three": "^0.180.0",
+    "react_three_fiber": "^9.3.0",
+    "react_three_drei": "^10.5.1"
+  },
+  "physical_contract": {
+    "initial_anchor": "hero-wellfit-4",
+    "initial_anchor_semantics": "F in WellFit",
+    "world_authority": "DOM geometry",
+    "must": [
+      "Rudi starts by climbing onto the F and may stand on it as a podium.",
+      "Rudi footing follows the exact bound DOM surface while the page scrolls.",
+      "Rudi may leave the viewport completely with his bound surface.",
+      "Catch-up begins only after the old surface is fully offscreen and scrolling has settled.",
+      "Catch-up and autonomous relocation use visibly grounded horizontal-walk, vertical-climb and landing segments.",
+      "Narrow explicit letters and thin lines or ledges remain usable surfaces.",
+      "CTA attention changes gaze or body response without relocating Rudi through empty space.",
+      "Back-layer behavior paints below normal landing content; front-layer behavior remains below the sticky header.",
+      "Reduced-motion preference uses the static DOM-bound fallback.",
+      "Sub-desktop viewports do not mount the 3D world.",
+      "Canvas and Rudi layers do not intercept landing controls."
+    ],
+    "must_not": [
+      "viewport clamp",
+      "free flight",
+      "hovering",
+      "visible teleportation",
+      "air climbing without a visible physical route",
+      "old LivingRudi3D viewport/chapter controller",
+      "eager GLTF preloading on hidden or reduced-motion presentation"
+    ]
+  },
+  "site_acceptance": {
+    "state": "NOT_RUN",
+    "requires_real_webgl": true,
+    "checks": [
+      {"id": "RUDI-SITE-001", "check": "Initial F climb is visibly grounded", "required": true},
+      {"id": "RUDI-SITE-002", "check": "Feet remain aligned with the bound surface during scrolling", "required": true},
+      {"id": "RUDI-SITE-003", "check": "Rudi leaves the viewport with an offscreen bound surface", "required": true},
+      {"id": "RUDI-SITE-004", "check": "Catch-up uses a visible grounded route and no teleport", "required": true},
+      {"id": "RUDI-SITE-005", "check": "Surface-to-surface journeys visibly walk, climb, then land", "required": true},
+      {"id": "RUDI-SITE-006", "check": "Front/back occlusion is believable and header remains unobscured", "required": true},
+      {"id": "RUDI-SITE-007", "check": "Login/register and navigation remain clickable", "required": true},
+      {"id": "RUDI-SITE-008", "check": "CTA gaze does not move Rudi off his surface", "required": true},
+      {"id": "RUDI-SITE-009", "check": "Reduced-motion renders static DOM-bound fallback", "required": true},
+      {"id": "RUDI-SITE-010", "check": "No floating, free-flight, viewport pinning or air-climbing is visible", "required": true}
+    ],
+    "publication_rule": "Do not publish or mark WFG-RUDI-WORLD-001 ACCEPTED unless every required check passes on the exact editable wellfit-bewegt Site preview."
+  },
+  "next_action": "Load the exact editable wellfit-bewegt Site source, apply this immutable source contract, run the site_acceptance checks, correct any perceptual defects, and publish deliberately only after all required checks pass.",
+  "no_duplicate_rule": "Do not create another Rudi controller or another landing implementation. Synchronize from the pinned WellFit-now merge and preserve one active DOM-bound world model."
+}
