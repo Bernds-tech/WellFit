@@ -1,0 +1,104 @@
+name: WERK Care Data Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/care-baseline-2024-2050.json'
+      - 'werk-data/health-baseline-2024-2031.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-care-data-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  care-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate care scopes, state totals and long-term projection guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail=m=>{throw new Error(m)};
+          const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
+          const c=read('werk-data/care-baseline-2024-2050.json');
+          const h=read('werk-data/health-baseline-2024-2031.json');
+          const gaps=read('werk-data/analysis-data-closure-register.json');
+
+          const s=c.service_2024;
+          if(!Array.isArray(s.states)||s.states.length!==9)fail('CARE expected 9 Länder service rows');
+          const names=new Set();
+          let exp=0,vte=0,mobile=0;
+          for(const r of s.states){
+            if(names.has(r.name))fail(`Duplicate CARE Land ${r.name}`);names.add(r.name);
+            for(const k of ['mobile_recipients','fte_total','gross_expenditure_eur'])if(!Number.isFinite(r[k]))fail(`Invalid ${k} for ${r.name}`);
+            exp+=r.gross_expenditure_eur;vte+=r.fte_total;mobile+=r.mobile_recipients;
+            eq(r.fte_mobile+r.fte_day_care+r.fte_stationary+r.fte_alternative_housing,r.fte_total,0.2,`${r.name} FTE components`);
+          }
+          eq(exp,s.national.gross_expenditure_eur,0.1,'CARE Länder gross expenditure total');
+          eq(vte,s.national.fte_total_year_end,0.2,'CARE Länder FTE total');
+          eq(mobile,s.national.mobile_recipients_annual,0.1,'CARE Länder mobile recipients total');
+
+          const ex=s.expenditure_by_service_eur;
+          eq(ex.mobile+ex.day_care+ex.stationary_including_short_term+ex.alternative_housing+ex.case_and_care_management,s.national.gross_expenditure_eur,1,'CARE service expenditure total');
+          eq(s.national.fte_mobile+s.national.fte_day_care+s.national.fte_stationary+s.national.fte_alternative_housing,s.national.fte_total_year_end,0.2,'CARE national FTE service total');
+
+          const pg=c.pflegegeld_2024;
+          if(!Array.isArray(pg.by_state_including_abroad)||pg.by_state_including_abroad.length!==10)fail('Pflegegeld expected 9 Länder + Ausland');
+          const pgSum=pg.by_state_including_abroad.reduce((x,r)=>x+r.beneficiaries,0);
+          eq(pgSum,pg.beneficiaries_total_2024_12_31,0,'Pflegegeld beneficiaries total');
+          eq(pg.decision_body_shares_pct.pension_insurance+pg.decision_body_shares_pct.self_employed_social_insurance+pg.decision_body_shares_pct.public_service_railway_mining_insurance,100,0.1,'Pflegegeld decision-body shares');
+
+          const pf=c.pflegefonds_2024;
+          if(!Array.isArray(pf.states)||pf.states.length!==9)fail('Pflegefonds expected 9 Länder rows');
+          eq(pf.states.reduce((x,r)=>x+r.eur,0),pf.total_eur,0.02,'Pflegefonds Länder total');
+          if(!String(pf.rule).includes('innerstaatliche Transfers'))fail('Pflegefonds consolidation guard missing');
+
+          const h24=c.twenty_four_hour_care_2024;
+          eq(h24.federal_share_mio+h24.state_share_mio,h24.funding_expenditure_mio,0.01,'24h care federal+state funding');
+          eq(h24.financing_share_pct.federal+h24.financing_share_pct.states,100,0.1,'24h care financing shares');
+          if(!(h24.projection_constant_2021_prices_mio['2050']>h24.projection_constant_2021_prices_mio['2030']&&h24.projection_constant_2021_prices_mio['2030']>h24.projection_constant_2021_prices_mio['2021']))fail('24h care projection must increase 2021→2030→2050');
+
+          const p=c.personnel_projection;
+          const stock=p.all_acute_and_long_term_care.care_persons_required_stock;
+          if(!(stock['2050']>stock['2040']&&stock['2040']>stock['2030']&&stock['2030']>stock.base))fail('Personnel stock projection ordering failed');
+          const need=p.all_acute_and_long_term_care.cumulative_replacement_and_additional_people_needed;
+          if(!(need['2050']>need['2040']&&need['2040']>need['2030']))fail('Cumulative personnel need ordering failed');
+          if(!String(p.lower_bound_rule).includes('lower bounds'))fail('Personnel projection lower-bound guard missing');
+
+          const cp=c.public_service_cost_projection_constant_2021_prices_mrd;
+          if(JSON.stringify(cp.years)!==JSON.stringify([2021,2030,2050]))fail('CARE cost projection years mismatch');
+          if(!(cp.net_cost[2]>cp.net_cost[1]&&cp.net_cost[1]>cp.net_cost[0]))fail('CARE net-cost projection ordering failed');
+          if(!String(cp.scope).includes('Net expenditure'))fail('CARE gross/net projection distinction missing');
+
+          const overlap=c.health_overlap_guard;
+          eq(overlap.sha_long_term_care_2024_mio.public+overlap.sha_long_term_care_2024_mio.private,overlap.sha_long_term_care_2024_mio.total,0.1,'SHA LTC public+private');
+          eq(overlap.sha_long_term_care_2024_mio.total,h.long_term_care_overlap_guard_2024_mio.sha_current_long_term_care_total,0.1,'CARE/HEALTH shared SHA LTC anchor');
+          eq(overlap.service_statistics_gross_2024_mio,h.long_term_care_overlap_guard_2024_mio.care_service_statistics_states_municipalities,0.1,'CARE/HEALTH shared service-stat anchor');
+          if(Math.abs(overlap.sha_long_term_care_2024_mio.total-overlap.service_statistics_gross_2024_mio)<100)fail('SHA LTC and care-service gross expenditure must remain separate universes');
+
+          if(c.coverage?.CARE_D_places_2024_national!=='closed_state_detail_open')fail('CARE places state detail must remain open');
+          if(c.coverage?.CARE_J_service_recipients_places_hours_by_service_and_state!=='open_raw_ods_not_parsed')fail('CARE raw service detail must remain open');
+          if(c.coverage?.CARE_K_2025_service_statistics!=='future_release_2026-12-15')fail('CARE 2025 release gate mismatch');
+          if(c.coverage?.CARE_L_werk_reform_transition_distribution_model!=='open')fail('CARE reform model must remain open');
+          if(c.coverage?.gap_care_01_status!=='partially_closed')fail('GAP-CARE-01 must remain partial');
+
+          const rules=(c.accounting_rules||[]).join(' ');
+          for(const token of ['Pflegegeld','Pflegefonds','24-hour-care','SHA','Cost shifting'])if(!rules.includes(token))fail(`CARE accounting guard missing ${token}`);
+
+          const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-CARE-01');
+          if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-CARE-01 closure register must remain partial');
+          console.log(`Care contract OK: 9 Länder reconcile to EUR ${(s.national.gross_expenditure_eur/1e9).toFixed(3)}bn, ${s.national.fte_total_year_end.toFixed(1)} FTE and ${s.national.mobile_recipients_annual} mobile recipients; Pflegegeld/Pflegefonds/24h and 2050 personnel/cost projections remain separate scopes.`);
+          NODE
