@@ -93,7 +93,7 @@ jobs:
           if(d.coverage?.gap_health_02_status!=='partially_closed')fail('GAP-HEALTH-02 data file must remain partial');
 
           const rules=(d.ambulantisation_accounting_rules||[]).join(' ');
-          for(const token of ['fixed costs','different denominators','not automatically','private households']){
+          for(const token of ['fixed costs','separate denominators','not automatically','private households']){
             if(!rules.toLowerCase().includes(token.toLowerCase()))fail(`Ambulantisation guard missing ${token}`);
           }
 
