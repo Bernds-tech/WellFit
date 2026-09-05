@@ -1,0 +1,93 @@
+name: WERK Frontend Check
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'index.html'
+      - 'werk-v*.html'
+      - 'werk-assets/**'
+      - 'werk-data/**'
+      - '.github/workflows/werk-frontend-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            echo "node --check $file"
+            node --check "$file"
+          done < <(find werk-assets -maxdepth 1 -type f -name '*.js' -print0 | sort -z)
+
+      - name: JSON syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const path = require('path');
+          for (const name of fs.readdirSync('werk-data').filter(x => x.endsWith('.json')).sort()) {
+            const p = path.join('werk-data', name);
+            JSON.parse(fs.readFileSync(p, 'utf8'));
+            console.log('JSON OK', p);
+          }
+          NODE
+
+      - name: V71 structural contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const html = fs.readFileSync('werk-v71.html', 'utf8');
+          const index = fs.readFileSync('index.html', 'utf8');
+          const core = JSON.parse(fs.readFileSync('werk-data/core.json', 'utf8'));
+          const manifest = JSON.parse(fs.readFileSync('werk-data/preview-manifest.json', 'utf8'));
+
+          if (!html.includes('site-v71.css?v=20260905-v71')) fail('V71 CSS reference missing');
+          if (!html.includes('site-v71-loader.js?v=20260905-v71')) fail('V71 loader reference missing');
+          if (!html.includes('site-v71.js?v=20260905-v71')) fail('V71 renderer reference missing');
+          if (!html.includes('id="policyFieldGrid"')) fail('policyFieldGrid missing');
+          if (!index.includes('werk-v71.html?v=20260905-v71')) fail('Stable preview does not redirect to V71');
+          if (!Array.isArray(core.pillars) || core.pillars.length !== 8) fail(`Expected 8 binding pillars, got ${core.pillars?.length}`);
+          if (!Array.isArray(core.policy_fields) || core.policy_fields.length !== 12) fail(`Expected 12 policy fields, got ${core.policy_fields?.length}`);
+          if (new Set(core.policy_fields.map(x => x.id)).size !== 12) fail('Policy field IDs are not unique');
+          if (manifest.current_preview !== 'werk-v71.html') fail(`Manifest preview mismatch: ${manifest.current_preview}`);
+          for (const item of manifest.required || []) {
+            const p = String(item.path || '').replace(/^\.\//, '');
+            if (!p || !fs.existsSync(p)) fail(`Manifest path missing: ${item.path}`);
+          }
+          console.log('V71 contract OK: 8 binding pillars, 12 policy fields, stable redirect and manifest paths valid');
+          NODE
+
+      - name: Version regression guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -n 'V70' werk-v71.html; then
+            echo 'Unexpected V70 marker found in V71 shell'
+            exit 1
+          fi
+          if grep -n "ribbon.textContent='WERK Österreich · V70" werk-assets/site-v59.js; then
+            echo 'Release dashboard still forces V70 ribbon'
+            exit 1
+          fi
+          echo 'No V70 shell regression detected'
