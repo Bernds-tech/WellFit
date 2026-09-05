@@ -1,0 +1,27 @@
+name: WERK Labour Productivity Data Check
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/labour-productivity-baseline-2025-2026.json'
+      - 'scripts/werk-labour-productivity-contract.mjs'
+      - '.github/workflows/werk-labour-productivity-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  labour-productivity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate labour and productivity baseline
+        run: node scripts/werk-labour-productivity-contract.mjs
