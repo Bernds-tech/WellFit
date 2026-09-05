@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/labour-productivity-baseline-2025-2026.json'
+      - 'werk-data/labour-matching-baseline-2025-2026.json'
       - 'scripts/werk-labour-productivity-contract.mjs'
       - '.github/workflows/werk-labour-productivity-check.yml'
   workflow_dispatch:
@@ -23,5 +24,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate labour and productivity baseline
+      - name: Validate labour, productivity and matching baselines
         run: node scripts/werk-labour-productivity-contract.mjs
