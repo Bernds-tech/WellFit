@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/tax-baseline-2022-2025.json'
+      - 'werk-data/tax-social-contribution-branch-2024-2025.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-tax-data-check.yml'
   workflow_dispatch:
@@ -23,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate tax accounting universes, bases and freshness gates
+      - name: Validate tax accounting universes, bases, contribution branches and freshness gates
         shell: bash
         run: |
           set -euo pipefail
@@ -33,6 +34,7 @@ jobs:
           const fail=m=>{throw new Error(m)};
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const t=read('werk-data/tax-baseline-2022-2025.json');
+          const b=read('werk-data/tax-social-contribution-branch-2024-2025.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
 
           const s=t.general_government_s13_mrd;
@@ -80,16 +82,35 @@ jobs:
           if(!(x.indirect_measures_in_federal_report>x.tax_savings_measures_in_transparency_database))fail('Federal indirect-measure count must exceed TDB tax-savings count');
           if(!String(x.coverage_warning).includes('nicht 1:1'))fail('Tax-expenditure non-collectability guard missing');
 
+          if(JSON.stringify(b.years)!==JSON.stringify([2024,2025]))fail('Contribution-branch year universe mismatch');
+          const branchKeys=['pension_insurance_contributions_for_insured','health_insurance_contributions_for_insured','accident_insurance_contributions_for_insured','unemployment_insurance_contributions_federal_result'];
+          for(const key of branchKeys)if(!Array.isArray(b.branches_mio[key])||b.branches_mio[key].length!==2||b.branches_mio[key].some(v=>!Number.isFinite(v)))fail(`Invalid contribution branch ${key}`);
+          for(let i=0;i<2;i++){
+            const sum=branchKeys.reduce((z,k)=>z+b.branches_mio[k][i],0);
+            eq(sum,b.branch_reference_sum_mio[i],0.01,`${b.years[i]} branch-reference contribution sum`);
+            eq(sum-b.esvg_s13_net_social_contributions_mio[i],b.difference_branch_reference_minus_esvg_mio[i],0.01,`${b.years[i]} branch-vs-ESVG difference`);
+            if(Math.abs(sum-b.esvg_s13_net_social_contributions_mio[i])<100)fail(`${b.years[i]} branch sum must not be presented as ESVG identity`);
+          }
+          eq(b.esvg_s13_net_social_contributions_mio[0]/1000,s.social_contributions[2],0.01,'2024 branch bridge vs canonical S.13 social contributions');
+          eq(b.esvg_s13_net_social_contributions_mio[1]/1000,s.social_contributions[3],0.01,'2025 branch bridge vs canonical S.13 social contributions');
+          if(b.source_quality_by_year['2025'].pension!=='provisional'||b.source_quality_by_year['2025'].health!=='provisional'||b.source_quality_by_year['2025'].accident!=='provisional')fail('2025 PV/KV/UV must remain provisional');
+          if(b.coverage?.TAX_H3_branch_vs_esvg_scope_bridge!=='closed_as_non_identity_bridge')fail('Branch-vs-ESVG bridge status mismatch');
+          if(b.coverage?.TAX_H4_social_contributions_by_employer_employee_imputed_household_sector!=='open')fail('Employer/employee/imputed contribution split must remain open');
+          if(b.coverage?.TAX_H5_contribution_bases_by_branch_and_population_group!=='open')fail('Contribution-base detail must remain open');
+          if(!String(b.interpretation).includes('kein fehlender oder versteckter Beitragsposten'))fail('Branch-difference interpretation guard missing');
+
           const rules=(t.accounting_rules||[]).join(' ');
           for(const token of ['different scopes','different accounting universes','not government VAT revenue','not automatically collectable revenue','never multiplied mechanically','freshness gate'])if(!rules.toLowerCase().includes(token.toLowerCase()))fail(`Tax accounting guard missing ${token}`);
+          const bRules=(b.accounting_rules||[]).join(' ');
+          for(const token of ['not an ESVG identity','different institutional accounting views','general-government consolidation','cannot be multiplied','provisional'])if(!bRules.toLowerCase().includes(token.toLowerCase()))fail(`Contribution-branch guard missing ${token}`);
 
           if(t.coverage?.TAX_G_esvg_detailed_tax_categories_by_collecting_sector!=='open_raw_ods_not_parsed')fail('Detailed ESVG tax/sector matrix must remain open');
-          if(t.coverage?.TAX_H_social_contributions_by_branch_and_sector!=='open')fail('Social-contribution branch detail must remain open');
+          if(t.coverage?.TAX_H_social_contributions_by_branch_and_sector!=='open')fail('Canonical TAX-H umbrella must remain open/partial until employer/employee/sector detail is complete');
           if(t.coverage?.TAX_I_tax_expenditure_93_item_level_normalisation!=='open')fail('93-item tax-expenditure normalization must remain open');
           if(t.coverage?.TAX_K_2025_tax_revision_2026_09_30!=='future_release')fail('30 Sep tax revision must remain future-release gated');
-          if(t.coverage?.gap_tax_01_status!=='partially_closed')fail('GAP-TAX-01 data file must remain partial');
+          if(t.coverage?.gap_tax_01_status!=='partially_closed'||b.coverage?.tax_h_status!=='partially_closed')fail('TAX data/branch status must remain partial');
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-TAX-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-TAX-01 closure register must remain partial');
-          console.log(`Tax contract OK: S.13 2025 taxes+social EUR ${s.taxes_plus_social_contributions[3].toFixed(1)}bn kept separate from S.13+EU EUR ${p.taxes_and_social_contributions_mrd.toFixed(1)}bn; UG16, UVA and EUR ${(x.quantified_indirect_subsidies[2]/1000).toFixed(3)}bn tax expenditures remain distinct universes.`);
+          console.log(`Tax contract OK: S.13 2025 taxes+social EUR ${s.taxes_plus_social_contributions[3].toFixed(1)}bn; branch reference EUR ${(b.branch_reference_sum_mio[1]/1000).toFixed(3)}bn remains explicitly non-identical to ESVG social contributions EUR ${(b.esvg_s13_net_social_contributions_mio[1]/1000).toFixed(1)}bn.`);
           NODE
