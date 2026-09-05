@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-05-v3",
+  "version": "2026-09-05-v4",
   "brand": "WERK Österreich",
   "tagline": "Erst rechnen. Dann entscheiden.",
   "goal": "Ein schuldenfreies, sicheres, faires und gleichberechtigtes Österreich mit starken Regionen und verbindlicher Verantwortung.",
@@ -14,6 +14,16 @@
     {"id": 7, "name": "Direkte Bürgerbeteiligung bei qualifizierten Großfragen", "binding": true},
     {"id": 8, "name": "Wirkung vor Ideologie", "binding": true}
   ],
+  "state_neutrality": {
+    "binding": true,
+    "name": "Weltanschaulich neutraler Staat",
+    "principle": "Der Staat schützt Glaubens-, Gewissens- und Weltanschauungsfreiheit, ist selbst aber keiner Religion oder Weltanschauung untergeordnet.",
+    "constitutional_primacy": "Die österreichische Verfassungsordnung, demokratisch beschlossenes staatliches Recht und unabhängige Gerichte stehen über religiösen oder sonstigen weltanschaulichen Normen mit politischem Herrschaftsanspruch.",
+    "equal_application": "Der Grundsatz gilt für Christentum, Islam, Judentum, andere Religionen, atheistische und sonstige Weltanschauungen gleichermaßen.",
+    "individual_freedom": "Jeder Mensch darf eine Religion haben, wechseln, ausüben oder keine Religion haben, soweit die allgemeinen Gesetze und die Grundrechte anderer gewahrt bleiben.",
+    "political_boundary": "Mit WERK unvereinbar sind theokratische Herrschaftsziele, ein staatlich konkurrierender religiöser Rechtsanspruch oder die Einschränkung gleicher Grundrechte aufgrund religiöser Gebote.",
+    "membership_rule": "Religionszugehörigkeit oder Religionslosigkeit allein ist weder Aufnahme- noch Ausschlusskriterium; maßgeblich sind politische Ziele, Verhalten und Anerkennung der demokratischen Verfassungs- und Rechtsordnung."
+  },
   "policy_fields": [
     {
       "id": 1,
@@ -66,7 +76,7 @@
     {
       "id": 9,
       "name": "Sicherheit, Justiz, Rechtsstaat & Resilienz",
-      "summary": "Grundrechte, unabhängige Justiz, innere Sicherheit, Landesverteidigung, Zivilschutz und Krisenfestigkeit gemeinsam sichern.",
+      "summary": "Grundrechte, unabhängige Justiz, innere Sicherheit, Landesverteidigung, Zivilschutz, weltanschaulich neutrale staatliche Herrschaft und Krisenfestigkeit gemeinsam sichern.",
       "track": "Sicherheit / Resilienz"
     },
     {
@@ -97,5 +107,5 @@
   "decision_model": ["Problem offenlegen", "Optionen rechnen", "Recht und Zuständigkeit prüfen", "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig", "Umsetzen", "KPI messen", "Review"],
   "regional_rule": "Gemeinsam, was gemeinsam sein muss. Regional, was regional besser entschieden wird.",
   "finance_rule": "Wer entscheidet, soll möglichst auch die Finanzierung verantworten.",
-  "partner_rule": "Regionale Programme dürfen den WERK-Kern ergänzen, aber nicht widersprechen."
+  "partner_rule": "Regionale Programme dürfen den WERK-Kern einschließlich demokratischer Verfassungsordnung, Grundrechten und weltanschaulich neutraler staatlicher Herrschaft ergänzen, aber nicht widersprechen."
 }
