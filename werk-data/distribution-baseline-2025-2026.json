@@ -1,0 +1,166 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Verteilungs-, Haushalts- und Grenzbelastungsbaseline 2025/2026",
+  "status":"official-input-layer-normalised-microsimulation-open",
+  "checked_at":"2026-09-05",
+  "purpose":"Kanonische Input-Schicht für GAP-TAX-02 und GAP-DIST-01. Beobachtete Nettohaushaltseinkommen, Konsumausgaben, Wohnkosten sowie gesetzliche Steuer-/SV-/Familienparameter werden getrennt geführt. Diese Baseline ist ausdrücklich noch keine vollständige Mikrosimulation und darf nicht zur mechanischen Rückrechnung von Brutto- oder steuerpflichtigem Einkommen aus EU-SILC-Nettoeinkommen verwendet werden.",
+  "sources":[
+    {"id":"STAT-SILC-INCOME-2025","authority":"STATISTIK AUSTRIA","title":"Haushaltseinkommen – EU-SILC 2025, Rev. 1","compiled":"2026-04-29","revision":"2026-05-12","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/einkommen-und-soziale-lage/haushaltseinkommen"},
+    {"id":"STAT-SILC-POVERTY-2025","authority":"STATISTIK AUSTRIA","title":"Armut und soziale Eingliederung – EU-SILC 2025, revidierter Stand","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/einkommen-und-soziale-lage/armut"},
+    {"id":"STAT-CONSUMPTION-2024-25","authority":"STATISTIK AUSTRIA","title":"Konsumerhebung 2024/25 – Hauptergebnisse","created":"2026-02-24","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/ausgaben-und-ausstattung-privater-haushalte/ausgaben"},
+    {"id":"STAT-HOUSING-2025","authority":"STATISTIK AUSTRIA","title":"Wohnkosten – EU-SILC 2025","created":"2026-06-05","url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/wohnen/wohnkosten"},
+    {"id":"BMF-TARIFF-2026","authority":"Bundesministerium für Finanzen","title":"Steuertarif 2026","updated":"2026-01-01","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/steuertarif-steuerabsetzbetraege.html"},
+    {"id":"BMF-CREDITS-2026","authority":"Bundesministerium für Finanzen","title":"Steuerabsetzbeträge 2026","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/uebersicht-steuerabsetzbetraege.html"},
+    {"id":"SV-VALUES-2026","authority":"Dachverband der Sozialversicherungsträger","title":"Sozialversicherungswerte / ausgewählte Beiträge und Umlagen 2026","stand":"2026-01-01","url":"https://www.sozialversicherung.gv.at/cdscontent/?contentid=10007.907722"},
+    {"id":"BKA-FAMILY-2026","authority":"Bundeskanzleramt / oesterreich.gv.at","title":"Familienbeihilfe und Kinderabsetzbetrag 2026/2027","updated":"2026-01-12","url":"https://www.oesterreich.gv.at/de/themen/familie_und_partnerschaft/familienbeihilfe/Seite.080714"},
+    {"id":"BMF-FAMILY-BONUS","authority":"oesterreich.gv.at / Bundesministerium für Finanzen","title":"Familienbonus Plus und Kindermehrbetrag","url":"https://www.oesterreich.gv.at/de/themen/steuern_und_finanzen/unterstuetzungen_beihilfen_und_foerderungen/sonstige_beihilfen_und_foerderungen/2/Seite.450114"}
+  ],
+  "silc_income_2025":{
+    "reference_note":"EU-SILC 2025 kombiniert Erhebungsmerkmale 2025 mit Einkommensinformationen, die überwiegend das vorangegangene Kalenderjahr betreffen. Die ausgewiesenen verfügbaren Nettohaushaltseinkommen dürfen nicht mit steuerpflichtigem Einkommen 2026 gleichgesetzt werden.",
+    "households_thousand":4181,
+    "persons_thousand":9041,
+    "overall_household_net_income_eur_year":{"q25":31943,"median":51152,"q75":78851},
+    "overall_equivalised_net_income_eur_year":{"q25":26807,"median":36546,"q75":47794},
+    "household_types":[
+      {"id":"pension_households","households_thousand":1123,"q25":28982,"median":42913,"q75":59881},
+      {"id":"single_male_pension","households_thousand":176,"q25":26204,"median":32063,"q75":42242},
+      {"id":"single_female_pension","households_thousand":371,"q25":21118,"median":28578,"q75":38061},
+      {"id":"multi_pension","households_thousand":576,"q25":44776,"median":57167,"q75":73335},
+      {"id":"non_pension_households","households_thousand":3057,"q25":33280,"median":57386,"q75":85566},
+      {"id":"single_male_non_pension","households_thousand":594,"q25":21776,"median":33442,"q75":45216},
+      {"id":"single_female_non_pension","households_thousand":491,"q25":21803,"median":30430,"q75":40461},
+      {"id":"multi_no_children_non_pension","households_thousand":888,"q25":53399,"median":74231,"q75":98995},
+      {"id":"households_with_children","households_thousand":1084,"q25":54297,"median":75393,"q75":98932},
+      {"id":"single_parent","households_thousand":108,"q25":28351,"median":36067,"q75":53299},
+      {"id":"multi_one_child","households_thousand":459,"q25":59569,"median":77890,"q75":101663},
+      {"id":"multi_two_children","households_thousand":356,"q25":61412,"median":79273,"q75":106262},
+      {"id":"multi_three_plus_children","households_thousand":161,"q25":54072,"median":78402,"q75":95692,"sampling_warning":"q25/q75 based on fewer than 200 sampled households"}
+    ],
+    "equivalised_household_type_medians_eur_year":[
+      {"id":"single_parent","q25":18033,"median":23710,"q75":31915},
+      {"id":"multi_one_child","q25":30413,"median":39747,"q75":50043},
+      {"id":"multi_two_children","q25":27315,"median":35816,"q75":43457},
+      {"id":"multi_three_plus_children","q25":19476,"median":28091,"q75":35822},
+      {"id":"single_female_pension","q25":21118,"median":28578,"q75":38061},
+      {"id":"single_male_pension","q25":26204,"median":32063,"q75":42242},
+      {"id":"multi_no_children_non_pension","q25":34015,"median":46123,"q75":58150}
+    ],
+    "eu_equivalence_scale":{"first_adult":1.0,"additional_person_14_plus":0.5,"child_under_14":0.3}
+  },
+  "poverty_social_inclusion_2025":{
+    "current_revised":{"arope_pct":18.6,"arope_persons":1686000,"at_risk_of_poverty_pct":15.9,"at_risk_of_poverty_persons":1441000,"severe_material_social_deprivation_pct":2.9,"severe_material_social_deprivation_persons":261000,"very_low_work_intensity_pct_age_0_64":6.9,"very_low_work_intensity_persons_age_0_64":444000,"poverty_threshold_single_eur_year":21928,"poverty_threshold_single_eur_month_rounded":1827,"poverty_gap_pct":24.8},
+    "initial_release_2026_04_29":{"arope_pct":18.8,"arope_persons":1699000,"at_risk_of_poverty_pct":16.0,"at_risk_of_poverty_persons":1448000,"poverty_threshold_single_eur_year":21668,"poverty_threshold_single_eur_month_rounded":1806},
+    "revision_rule":"Current revised values are canonical. Initial-release values remain stored only as revision history and must not be mixed into current calculations.",
+    "threshold_scaling":"Armutsgefährdungsschwelle = 60 % des Median-Äquivalenzeinkommens; household threshold scales with EU equivalence weights."
+  },
+  "consumption_2024_25":{
+    "average_monthly_household_expenditure_eur":4170,
+    "average_monthly_equivalised_expenditure_eur":2760,
+    "average_household_shares_pct":{"food_non_alcoholic":11.6,"alcohol_tobacco":2.2,"clothing_footwear":4.2,"housing_energy":26.4,"household_equipment":6.2,"health":4.8,"transport":13.6,"information_communication":2.8,"leisure_sport_culture":11.4,"education":1.1,"restaurants_accommodation":6.6,"insurance_financial_services":4.7,"other_goods_services":4.5},
+    "monthly_household_expenditure_decile_boundaries_eur":[1542,2026,2462,2933,3446,4106,4893,5872,7642],
+    "monthly_equivalised_expenditure_decile_boundaries_eur":[1234,1526,1814,2091,2383,2734,3146,3714,4678],
+    "selected_equivalised_expenditure_structure_pct":{
+      "decile_1":{"food_non_alcoholic":19.5,"housing_energy":46.7,"transport":4.4,"leisure_sport_culture":3.2,"all_other":26.3},
+      "decile_10":{"food_non_alcoholic":6.9,"housing_energy":22.5,"transport":19.2,"leisure_sport_culture":14.3,"all_other":37.1}
+    },
+    "interpretation":"Ausgabendezile sind keine Einkommensdezile. Sie dürfen nur nach expliziter Verknüpfung/Mikrodatenmodellierung als Verteilungsproxy einer Steuermaßnahme verwendet werden."
+  },
+  "housing_costs_2025":{
+    "households_thousand":4181,
+    "average_monthly_housing_cost_eur":686,
+    "average_housing_cost_share_income_pct":20,
+    "average_monthly_energy_cost_eur":149,
+    "average_energy_cost_share_income_pct":5,
+    "tenure_overburden_pct":{"house_ownership":2,"apartment_ownership":4,"municipal_rental":11,"cooperative_rental":13,"other_main_rental":21,"other":2},
+    "tenure_share_above_25pct_income":{"house_ownership":7,"apartment_ownership":12,"municipal_rental":37,"cooperative_rental":42,"other_main_rental":53,"other":10},
+    "household_type_median_housing_share_pct":{"single_parent":29,"multi_with_children":15,"multi_without_children":14,"single_female":28,"single_male":26},
+    "household_type_overburden_above_40pct":{"single_parent":17,"multi_with_children":4,"multi_without_children":4,"single_female":16,"single_male":14},
+    "rule":"Housing cost ratios are observed disposable-income burdens, not tax-base deductions. Tenure and household type must remain explicit in distribution scenarios."
+  },
+  "tax_parameters_2026":{
+    "income_tax_tariff":[
+      {"lower_exclusive":0,"upper_inclusive":13539,"marginal_rate_pct":0},
+      {"lower_exclusive":13539,"upper_inclusive":21992,"marginal_rate_pct":20},
+      {"lower_exclusive":21992,"upper_inclusive":36458,"marginal_rate_pct":30},
+      {"lower_exclusive":36458,"upper_inclusive":70365,"marginal_rate_pct":40},
+      {"lower_exclusive":70365,"upper_inclusive":104859,"marginal_rate_pct":48},
+      {"lower_exclusive":104859,"upper_inclusive":1000000,"marginal_rate_pct":50},
+      {"lower_exclusive":1000000,"upper_inclusive":null,"marginal_rate_pct":55,"temporary_through":2029}
+    ],
+    "employee_minimum_tax_free_income_before_special_payments_eur":19962.03,
+    "traffic_tax_credit_eur_year":496,
+    "traffic_tax_credit_supplement_eur_year":804,
+    "traffic_supplement_full_to_income_eur":19761,
+    "traffic_supplement_taper_to_income_eur":30259,
+    "rule":"Tariff thresholds apply to taxable income under EStG, not gross salary and not EU-SILC disposable household income. Employee tax-free minimum reflects tax credits and is not the zero-rate tariff threshold."
+  },
+  "social_insurance_parameters_2026":{
+    "monthly_max_contribution_base_eur":6930,
+    "annual_special_payment_max_base_eur":13860,
+    "monthly_marginal_employment_limit_eur":551.10,
+    "regular_employee_rates_pct":{"health":3.87,"pension":10.25,"chamber_levy":0.50,"housing_promotion":0.50},
+    "regular_employer_rates_pct":{"health":3.78,"pension":12.55,"unemployment":2.95,"accident":1.10,"insolvency":0.10,"housing_promotion":0.50,"occupational_pension_bv":1.53},
+    "employee_unemployment_rate_schedule":[
+      {"monthly_gross_upper_eur":2225,"rate_pct":0},
+      {"monthly_gross_lower_exclusive_eur":2225,"monthly_gross_upper_eur":2427,"rate_pct":1},
+      {"monthly_gross_lower_exclusive_eur":2427,"monthly_gross_upper_eur":2630,"rate_pct":2},
+      {"monthly_gross_lower_exclusive_eur":2630,"monthly_gross_upper_eur":null,"rate_pct":2.95}
+    ],
+    "contribution_income_anchor_2024_eur_month_including_special_payments":{"workers_and_employees_median":3501,"men":3998,"women":2897},
+    "rule":"Beitragssätze haben Höchstbeitragsgrundlagen, Sonderzahlungsregeln, reduzierte ALV-DN-Sätze und teils regionale/berufsbezogene Nebenbeiträge. Ein pauschaler Gesamtprozentsatz darf nicht über alle Einkommen extrapoliert werden."
+  },
+  "family_parameters_2026":{
+    "family_allowance_eur_month_by_child_age":[{"from_age":0,"amount":138.40},{"from_age":3,"amount":148.00},{"from_age":10,"amount":171.80},{"from_age":19,"amount":200.40}],
+    "sibling_supplement_eur_month_per_child":{"two_children":8.60,"three_children":21.10,"four_children":32.10,"five_children":38.90,"six_children":43.40,"seven_plus_children":63.10},
+    "disabled_child_supplement_eur_month":189.20,
+    "child_tax_credit_cash_eur_month":70.90,
+    "family_bonus_plus_eur_year":{"under_18":2000,"after_month_of_18th_birthday":700},
+    "single_earner_parent_income_limit_eur_year":7411,
+    "single_earner_or_single_parent_tax_credit_eur_year":{"one_child":612,"two_children":828,"three_children":1101,"each_additional":273},
+    "rule":"Familienbeihilfe/Kinderabsetzbetrag sind Cash-Transfers; Familienbonus Plus ist ein Steuerabsetzbetrag und kann ohne ausreichende Steuerlast nicht mechanisch als gleich hohe Auszahlung behandelt werden."
+  },
+  "model_boundaries":{
+    "observed_net_income":"EU-SILC disposable household income after taxes/social contributions and including cash social transfers; not a taxable-income variable.",
+    "taxable_income":"EStG income after statutory deductions; tax tariff input.",
+    "gross_payroll":"employment remuneration subject to payroll and social-insurance rules including separate special-payment treatment.",
+    "consumption":"Konsumerhebung expenditure distribution; expenditure deciles are not income deciles.",
+    "housing":"observed cost burden; not automatically deductible from taxable income.",
+    "cash_transfer":"direct household receipt; must be separated from tax credits and in-kind services.",
+    "in_kind":"publicly financed service value; requires separate valuation and cannot be treated as cash income."
+  },
+  "coverage":{
+    "DIST_A_silc_household_income_quartiles_2025":"closed",
+    "DIST_B_current_poverty_and_revision_history_2025":"closed",
+    "DIST_C_consumption_average_and_decile_boundaries_2024_25":"closed",
+    "DIST_D_housing_cost_burdens_2025":"closed",
+    "DIST_E_income_tax_parameters_2026":"closed_core_tariff_and_employee_credit_anchors",
+    "DIST_F_social_insurance_parameters_2026":"closed_core_employee_employer_rates_and_thresholds",
+    "DIST_G_family_core_cash_and_tax_credit_parameters_2026":"closed",
+    "DIST_H_full_federal_state_municipal_transfer_rules":"open",
+    "DIST_I_employee_net_income_engine_14_payments":"open",
+    "DIST_J_effective_marginal_burden_engine":"open",
+    "DIST_K_household_archetype_microsimulation":"open",
+    "DIST_L_decile_reweighting_and_budget_reconciliation":"open",
+    "DIST_M_in_kind_service_valuation":"open",
+    "gap_tax_02_status":"partially_closed_input_layer",
+    "gap_dist_01_status":"partially_closed_input_layer"
+  },
+  "prohibited_shortcuts":[
+    "EU-SILC-Nettoeinkommen als steuerpflichtiges Einkommen behandeln",
+    "Ausgabendezile als Einkommensdezile behandeln",
+    "Armuts-Erstmeldung und revidierte Werte mischen",
+    "Steuertarif direkt auf Bruttogehalt anwenden",
+    "13./14. Bezug wie regulären Monatsbezug besteuern",
+    "Sozialversicherung mit einem konstanten Satz über alle Einkommen rechnen",
+    "Familienbonus Plus als universelle Barauszahlung behandeln",
+    "Wohnkosten oder Sachleistungen ohne Modellregel in verfügbares Einkommen hinein-/herausrechnen",
+    "Landes-/Gemeindetransfers ohne regionale Rechts- und Einkommensschwellen pauschalisieren"
+  ],
+  "next_model_steps":[
+    "2026 employee payroll kernel inklusive laufender Bezüge, Sonderzahlungen, SV-Höchstgrenzen und Absetzbeträgen bauen.",
+    "Bundesweite Cash-Transfer-Regeln mit Einkommensschwellen kanonisieren.",
+    "Landes-/Gemeinde-Transfermatrix für Wohnbeihilfe, Sozialhilfe und Kinderbetreuung aufbauen.",
+    "Archetypen auf beobachtete SILC-/Konsum-/Wohnkostenanker kalibrieren.",
+    "Erst danach effektive Grenzbelastung für +1 EUR, +5/+10 Wochenstunden und Teilzeit→Vollzeit rechnen."
+  ]
+}
