@@ -1,18 +1,19 @@
 {
-  "version":"2026-09-03-v3",
+  "version":"2026-09-05-v4",
   "title":"Offizieller Referenzpfad 2025–2031 vs. WERK BUD-01",
   "status":"Referenzrechnung – keine WERK-Prognose",
+  "canonical_baseline":"budget-baseline-2026-2031.json",
   "priority_rule":"Stufe 1 ist ein nachhaltig strukturell ausgeglichener gesamtstaatlicher Haushalt. Erst danach gilt BUD-02 mit mindestens 10 Mrd. Euro jährlicher Schuldentilgung als zweite Sanierungsstufe.",
   "stage_1_target_balance_eur_billion":0.0,
   "stage_2_target_annual_debt_repayment_eur_billion":10.0,
   "rows":[
-    {"year":2025,"type":"Ist","nominal_gdp_eur_billion":512.8,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-21.5,"bridge_to_balance_eur_billion":21.5,"primary_balance_pct":-2.6,"interest_expenditure_pct":1.6,"debt_ratio_pct":81.5},
-    {"year":2026,"type":"BMF-Plan/Prognose","nominal_gdp_eur_billion":528.5,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-22.2,"bridge_to_balance_eur_billion":22.2,"primary_balance_pct":-2.4,"interest_expenditure_pct":1.8,"debt_ratio_pct":82.9},
-    {"year":2027,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":547.2,"maastricht_balance_pct":-3.5,"maastricht_balance_eur_billion":-19.1,"bridge_to_balance_eur_billion":19.1,"primary_balance_pct":-1.6,"interest_expenditure_pct":1.9,"debt_ratio_pct":83.6},
-    {"year":2028,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":564.9,"maastricht_balance_pct":-3.0,"maastricht_balance_eur_billion":-16.9,"bridge_to_balance_eur_billion":16.9,"primary_balance_pct":-0.9,"interest_expenditure_pct":2.1,"debt_ratio_pct":83.8,"note":"Politisches BMF-Ziel ist unter 3 %; Budgetpräsentation rundet den Pfad auf -3,0 %."},
-    {"year":2029,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":582.6,"maastricht_balance_pct":-2.8,"maastricht_balance_eur_billion":-16.5,"bridge_to_balance_eur_billion":16.5,"primary_balance_pct":-0.6,"interest_expenditure_pct":2.2,"debt_ratio_pct":84.2},
-    {"year":2030,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":600.1,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-17.1,"bridge_to_balance_eur_billion":17.1,"primary_balance_pct":-0.5,"interest_expenditure_pct":2.4,"debt_ratio_pct":84.6},
-    {"year":2031,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":617.5,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-18.0,"bridge_to_balance_eur_billion":18.0,"primary_balance_pct":-0.4,"interest_expenditure_pct":2.5,"debt_ratio_pct":85.0}
+    {"year":2025,"type":"Ist","nominal_gdp_eur_billion":512.8,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-21.5,"bridge_to_balance_eur_billion":21.5,"bridge_to_target_surplus_eur_billion":31.5,"primary_balance_pct":-2.6,"interest_expenditure_pct":1.6,"debt_ratio_pct":81.5},
+    {"year":2026,"type":"BMF-Plan/Prognose","nominal_gdp_eur_billion":528.5,"maastricht_balance_pct":-4.2,"maastricht_balance_eur_billion":-22.2,"bridge_to_balance_eur_billion":22.2,"bridge_to_target_surplus_eur_billion":32.2,"primary_balance_pct":-2.4,"interest_expenditure_pct":1.8,"debt_ratio_pct":82.9},
+    {"year":2027,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":547.2,"maastricht_balance_pct":-3.5,"maastricht_balance_eur_billion":-19.1,"bridge_to_balance_eur_billion":19.1,"bridge_to_target_surplus_eur_billion":29.1,"primary_balance_pct":-1.6,"interest_expenditure_pct":1.9,"debt_ratio_pct":83.6},
+    {"year":2028,"type":"BMF-Budgetpfad beschlossen","nominal_gdp_eur_billion":564.9,"maastricht_balance_pct":-3.0,"maastricht_balance_eur_billion":-16.9,"bridge_to_balance_eur_billion":16.9,"bridge_to_target_surplus_eur_billion":26.9,"primary_balance_pct":-0.9,"interest_expenditure_pct":2.1,"debt_ratio_pct":83.8,"note":"Politisches BMF-Ziel ist unter 3 %; Budgetpräsentation rundet den Pfad auf -3,0 %."},
+    {"year":2029,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":582.6,"maastricht_balance_pct":-2.8,"maastricht_balance_eur_billion":-16.5,"bridge_to_balance_eur_billion":16.5,"bridge_to_target_surplus_eur_billion":26.5,"primary_balance_pct":-0.6,"interest_expenditure_pct":2.2,"debt_ratio_pct":84.2},
+    {"year":2030,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":600.1,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-17.1,"bridge_to_balance_eur_billion":17.1,"bridge_to_target_surplus_eur_billion":27.1,"primary_balance_pct":-0.5,"interest_expenditure_pct":2.4,"debt_ratio_pct":84.6},
+    {"year":2031,"type":"BMF-Mittelfristpfad","nominal_gdp_eur_billion":617.5,"maastricht_balance_pct":-2.9,"maastricht_balance_eur_billion":-18.0,"bridge_to_balance_eur_billion":18.0,"bridge_to_target_surplus_eur_billion":28.0,"primary_balance_pct":-0.4,"interest_expenditure_pct":2.5,"debt_ratio_pct":85.0}
   ],
   "sector_baseline_2025_eur_billion":{
     "federal_sector":-15.19,
@@ -22,15 +23,21 @@
     "general_government":-21.5,
     "source":"Statistik Austria Maastricht-Notifikation März 2026; Rundungsdifferenzen möglich"
   },
-  "sector_reference_path_pct_gdp":[
-    {"year":2025,"federal_sector":-3.0,"states_municipalities_social_security":-1.2},
-    {"year":2026,"federal_sector":-3.0,"states_municipalities_social_security":-1.2},
-    {"year":2027,"federal_sector":-2.7,"states_municipalities_social_security":-0.8},
-    {"year":2028,"federal_sector":-2.3,"states_municipalities_social_security":-0.7},
-    {"year":2029,"federal_sector":-2.1,"states_municipalities_social_security":-0.7},
-    {"year":2030,"federal_sector":-2.2,"states_municipalities_social_security":-0.6},
-    {"year":2031,"federal_sector":-2.3,"states_municipalities_social_security":-0.6}
+  "sector_reference_path":[
+    {"year":2026,"federal_sector_bn":-15.7,"state_and_municipal_sector_bn":-6.0,"social_security_sector_bn":-0.5,"federal_sector_pct_gdp":-3.0,"state_and_municipal_sector_pct_gdp":-1.1,"social_security_sector_pct_gdp":-0.1},
+    {"year":2027,"federal_sector_bn":-14.6,"state_and_municipal_sector_bn":-4.4,"social_security_sector_bn":-0.2,"federal_sector_pct_gdp":-2.7,"state_and_municipal_sector_pct_gdp":-0.8,"social_security_sector_pct_gdp":0.0},
+    {"year":2028,"federal_sector_bn":-12.9,"state_and_municipal_sector_bn":-3.9,"social_security_sector_bn":-0.2,"federal_sector_pct_gdp":-2.3,"state_and_municipal_sector_pct_gdp":-0.7,"social_security_sector_pct_gdp":0.0},
+    {"year":2029,"federal_sector_bn":-12.4,"state_and_municipal_sector_bn":-3.9,"social_security_sector_bn":-0.2,"federal_sector_pct_gdp":-2.1,"state_and_municipal_sector_pct_gdp":-0.7,"social_security_sector_pct_gdp":0.0},
+    {"year":2030,"federal_sector_bn":-13.2,"state_and_municipal_sector_bn":-3.7,"social_security_sector_bn":-0.2,"federal_sector_pct_gdp":-2.2,"state_and_municipal_sector_pct_gdp":-0.6,"social_security_sector_pct_gdp":0.0},
+    {"year":2031,"federal_sector_bn":-14.1,"state_and_municipal_sector_bn":-3.7,"social_security_sector_bn":-0.2,"federal_sector_pct_gdp":-2.3,"state_and_municipal_sector_pct_gdp":-0.6,"social_security_sector_pct_gdp":0.0}
   ],
+  "stability_pact_targets_pct_gdp":[
+    {"year":2026,"general_government_min":-4.20,"federal_including_social_security_min":-3.07,"state_sector_including_vienna_min":-1.13},
+    {"year":2027,"general_government_min":-3.50,"federal_including_social_security_min":-2.70,"state_sector_including_vienna_min":-0.80},
+    {"year":2028,"general_government_min":-3.00,"federal_including_social_security_min":-2.31,"state_sector_including_vienna_min":-0.69},
+    {"year":2029,"general_government_min":-2.80,"federal_including_social_security_min":-2.13,"state_sector_including_vienna_min":-0.67}
+  ],
+  "municipal_pact_rule":"Die Länder räumen den Gemeinden landesweise 20 % des auf das jeweilige Land entfallenden Maastricht-Defizitanteils ein.",
   "interpretation":[
     "Der offizielle Pfad verbessert das Defizit von 22,2 Mrd. Euro 2026 auf 16,9 Mrd. Euro 2028, erreicht aber bis 2031 keinen ausgeglichenen Haushalt.",
     "Die rechnerische Brücke zum einfachen Maastricht-Nulldefizit liegt im offiziellen Pfad 2031 weiterhin bei rund 18,0 Mrd. Euro; die strukturelle BUD-01-Lücke kann davon abweichen und wird erst nach Konjunktur-/Einmalbereinigung final bestimmt.",
@@ -40,15 +47,15 @@
     "Die 10-Mrd.-Tilgungsstufe wird nicht in die aktuelle Budgetbalance-Lücke hineingerechnet; sie folgt erst nach Erreichen von Stufe 1."
   ],
   "sources":[
-    "BMF Budget 2027/2028 und Strategiebericht 2027-2030/2028-2031",
-    "BMF Budget 2027 im Überblick / gesamtstaatliche Eckwerte",
-    "Parlamentarischer Budgetdienst Budgetanalyse 2027/2028",
+    "BMF Strategiebericht/Budgetbericht 2027/2028 – Beschluss, Tabelle 22",
+    "BMF Budget 2027/2028 im Überblick",
+    "Österreichischer Stabilitätspakt 2025, Art. 4",
     "Statistik Austria Maastricht-Ergebnis 2025"
   ],
   "warnings":[
     "Planwerte 2026–2031 sind keine gesicherten Ergebnisse und können mit Konjunktur, Vollzug und Revisionen variieren.",
     "Die ausgewiesenen Defizit-Eurobeträge sind die aktuellen offiziellen Tabellenwerte bzw. gerundeten Budgetwerte und nicht mechanisch aus dem gerundeten Prozentwert rückgerechnet.",
-    "Länder, Gemeinden und Sozialversicherung sind im aktuellen BMF-Mittelfristpfad zusammengefasst; ihre getrennten Planpfade bleiben eine Datenlücke.",
+    "Die BMF-Prognose trennt den Sozialversicherungssektor vom Landes-/Gemeindesektor; Länder und Gemeinden bleiben 2026–2031 jedoch gemeinsam ausgewiesen. Der Stabilitätspakt liefert für 2026–2029 eine Defizitaufteilungsregel, aber keine vollständige getrennte Länder-/Gemeinde-Prognoseserie bis 2031.",
     "Bereits beschlossene Konsolidierungsmaßnahmen sind im Referenzpfad enthalten und dürfen nicht nochmals als WERK-Finanzierungsbeitrag gezählt werden.",
     "Der langfristige No-Policy-Change-Pfad des BMF zeigt zusätzliche demografische und zinsbedingte Risiken; er ist eine Langfristbaseline, nicht der mittelfristige beschlossene Budgetpfad."
   ]
