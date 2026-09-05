@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-05-v1",
+  "version": "2026-09-05-v2",
   "title": "WERK Österreich – Data Contract Registry",
   "purpose": "Zentrale maschinenlesbare Registry aller kanonischen Datenbaselines und ihrer unabhängigen CI-Verträge. Ein Datenblock gilt nur dann als belastbar, wenn Artefakt, Workflow, Scope-Abgrenzung und offene Gates explizit registriert sind.",
   "checked_at": "2026-09-05",
@@ -133,7 +133,8 @@
       "id": "HEALTH-ACTIVITY",
       "domain": "Gesundheitsleistungen / HEALTH-02",
       "canonical_artifacts": [
-        "werk-data/health-service-activity-2024.json"
+        "werk-data/health-service-activity-2024.json",
+        "werk-data/health-extramural-baseline-2023-2026.json"
       ],
       "workflow": ".github/workflows/werk-health-activity-check.yml",
       "closure_register_ids": ["GAP-HEALTH-02"],
@@ -143,11 +144,15 @@
         "ambulante Patient:innen/Frequenzen/Kosten und neun Länder",
         "tagesklinisch erbringbares Leistungsuniversum",
         "Primärversorgungs-Kapazitätsanker bis letzter verifizierter Stand",
-        "historischer MRI-Wartezeitanker"
+        "historischer MRI-Wartezeitanker",
+        "gesamte Krankenversicherung 2024 nach Leistungsarten",
+        "ÖGK ärztliche Hilfe 2024 und ausgewählte Gebarungsvorschau 2025/2026",
+        "ÖGK Konsultationshistorie und Wahlarztanker 2023"
       ],
       "open_scope": [
         "fachgebietsspezifische Fall-/Vollkostenmatrix",
-        "extramurale Aktivität und Einheitskosten",
+        "aktuelle 2026 Kontakte nach Fachgebiet und Land",
+        "extramurale Einheitskosten nach Fachgebiet/Leistung/Land",
         "standardisierte aktuelle Wartezeitserie",
         "WERK-Ambulantisierungsszenario inkl. Übergangskosten"
       ]
