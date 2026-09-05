@@ -1,10 +1,13 @@
 {
-  "version":"2026-09-05-v23",
+  "version":"2026-09-05-v24",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Programmarchitektur","path":"./werk-data/policy-field-map.json"},
     {"group":"Programmarchitektur","path":"./werk-data/austria-analysis-master.json"},
+    {"group":"BUD-01 Baseline","path":"./werk-data/budget-baseline-2026-2031.json"},
+    {"group":"BUD-01 Baseline","path":"./werk-data/medium-term-fiscal-path.json"},
+    {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},
     {"group":"WERK VOTE","path":"./werk-data/votes.json"},
@@ -70,7 +73,10 @@
     "8 verbindliche WERK-Säulen bleiben vom Programm getrennt",
     "12 von 12 Programm-Leitfeldern müssen vorhanden sein",
     "41 von 41 Master-Sachbereichen müssen genau einmal einem Leitfeld zugeordnet sein",
+    "BUD-01 Referenzpfad 2026–2031 muss sechs vollständige Jahreswerte enthalten",
+    "BUD-01 Saldo-, Sektoren- und Schuldenquoten-Identitäten müssen innerhalb der BMF-Rundungstoleranz aufgehen",
+    "BUD-01 Referenzpfad und bestehende Saldo-Brücke müssen für 2026–2031 synchron sein",
     "V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 ergänzt die vollständige 12-Leitfelder-Ansicht mit prüfbarer 41/41-Abdeckung, einen eigenen Cache-getrennten Loader und responsive Härtung; Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test, vollständige API+Worker-Lasttests und manuelle Geräte-/Screenreader-Abnahme bleiben getrennte offene Gates."
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 ergänzt die vollständige 12-Leitfelder-Ansicht mit prüfbarer 41/41-Abdeckung und einen maschinengeprüften BMF-BUD-01-Referenzpfad 2026–2031; Backup/Restore, produktiver Semantikprovider, Datenschutz-/Rechtsfreigabe, WAF/Pen-Test, vollständige API+Worker-Lasttests, vollständige Teilsektortrennung Länder/Gemeinden sowie manuelle Geräte-/Screenreader-Abnahme bleiben getrennte offene Gates."
 }
