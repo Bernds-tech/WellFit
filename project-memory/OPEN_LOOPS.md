@@ -41,4 +41,13 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Close when: the owner opens `wellfit-bewegt` through ChatGPT Sites/Edit (or the original Site chat) so the Site is referenced in the composer; the verified Puppet renderer and Luma/Rudi/avatar pivots are ported to that Site source; pointer/CTA tracking is visually tested on the exact preview without seams/ghosting/layout regressions; and the verified version is deliberately published to the existing public Site URL.
 - Next check: no more GitHub-only substitute work. The next execution context must be the actual ChatGPT Site reference in the composer.
 
+## WF-LOOP-006
+- Related: WFG-RUDI-WORLD-001 / WFG-CR-008 / WellFit-now PR #401
+- Status: OPEN
+- Updated: 2026-09-05
+- Gap: the repository implementation has moved from viewport-clamped animation to a DOM-surface-bound physical world, but the exact public `wellfit-bewegt` Site has not yet been synchronized and visually accepted on this version. Repository CI cannot prove feet/contact alignment, perceived climbing, foreground/background occlusion or public-Site delivery.
+- Current evidence: WellFit-now PR #401 head `0240d7542d5451ab052743b605275a5cae895f7a` passed Build #1260, Container #245, Database #237, Beta Emulator #216 and all Project Memory gates. The controller starts on the `F`, follows real DOM geometry without viewport clamping and uses a visible catch-up route when changing surfaces after scroll-settle.
+- Close when: route/geometry invariants are machine-hardened, the exact verified implementation is synchronized into the actual editable Site source, a current preview visibly proves grounded F-climb, surface-relative scrolling, complete offscreen departure, non-flying catch-up and acceptable front/back layering, and the accepted version is deliberately published.
+- Next check: continue repository hardening without claiming public deployment; then perform the Site-specific synchronization once that editable Site context is available.
+
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.

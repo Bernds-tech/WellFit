@@ -46,7 +46,6 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Limitations: branch protection/ruleset activation remains an owner/governance action.
 - Acceptance: VERIFIED
 
-
 ## WF-EV-005
 - Related: WFG-MASTER-MIG-002-RECON / WF-MIG-002
 - Date: 2026-08-26
@@ -57,7 +56,6 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Limitations: static repository and CI evidence only; no Unity editor, Android build or real-device execution occurred.
 - Acceptance: COUNTERCHECKED
 
-
 ## WF-EV-006
 - Related: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
 - Date: 2026-08-26
@@ -67,3 +65,14 @@ Every evidence record should contain a unique evidence ID, related task/change I
 - Result: full-screen persistent camera/AR root, minimal logo/menu chrome, overlay feature navigation, PC-first deep configuration and split repository authority are specified.
 - Limitations: this accepts the target specification only; no visual runtime, Unity compile, Android build or real-device behavior is implemented or accepted.
 - Acceptance: COUNTERCHECKED
+
+## WF-EV-007
+- Related: WFG-RUDI-WORLD-001 / WFG-CR-008 / WFN-RUDI-3D-001
+- Date: 2026-09-05
+- Target: DOM-bound living Rudi public-landing implementation in `Bernds-tech/WellFit-now`
+- Type: merged implementation + exact-head CI/review countercheck
+- Reference: WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb`; squash merge `9ae4f278a90d17d612f0399c40babd32c344e02b`
+- Result: one active `LivingRudiWorld` controller binds Rudi to real DOM surfaces, starts on the `F` letter anchor, deliberately omits viewport clamping so he leaves the screen with his surface, delays catch-up until scroll-settle plus full offscreen departure, uses visible grounded walk/climb routes for catch-up and autonomous surface transitions, flattens imported root translation so DOM geometry owns locomotion, clears stale CTA attention on scroll, and contains WebGL/GLTF failures behind a static DOM-bound fallback. The old parallel viewport/chapter controller was deleted. Reduced-motion visitors use the static fallback and sub-desktop visitors do not mount the 3D world. Manual asset workflows were also hardened against default-branch materialization, stale fixed artifact IDs, unvalidated bot heads and loss of partial paid Meshy outputs.
+- Exact-head checks: Build #1285 success; Container Build #270 success; Database Package Tests #262 success; Beta 1 Emulator Tests #241 success; Project Memory Guard #114 success; Project Memory Quality #121 success; Project Memory Status #129 success. Current review findings covering active-controller Strict Effects, timer races, reduced-motion behavior, model-ready entrance timing, workflow safety and Buddy-care alt text were corrected/resolved; remaining old `LivingRudi3D` threads are superseded by deletion of that controller.
+- Limitations: repository CI and code review do not prove perceptual foot contact, climb realism, occlusion quality, exact public ChatGPT Site synchronization or owner/device visual acceptance. The separately hosted `wellfit-bewegt` Site is not proven to contain merge `9ae4f278...`; Site version 105 belongs to the earlier renderer generation.
+- Acceptance: IMPLEMENTED_NOT_VERIFIED

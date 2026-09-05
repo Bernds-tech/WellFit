@@ -27,6 +27,8 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
+No active Rudi implementation cross-repo lock. The WellFit-now implementation is merged; remaining public ChatGPT Site synchronization and visual acceptance are graphical WellFit/Sites work tracked by `WFG-RUDI-WORLD-001` / `WF-LOOP-006`.
+
 No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
 
 ## Superseded locks
@@ -45,6 +47,20 @@ No active avatar-attention implementation cross-repo lock. The remaining public 
 - Resume from: do not resume; articulated correction superseded it.
 
 ## Released locks
+
+## XLOCK-WF-RUDI-WORLD-20260905
+- Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-3D-001`
+- Status: RELEASED
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: graphical coordination plus current physical web implementation for Rudi as a DOM-surface-bound Landingpage resident. Includes letter/surface footing, scroll-with-surface, route-guided catch-up, layering, CTA attention and machine verification. Excludes backend/auth/data, mission/reward/economy, location/camera, native Buddy runtime and production deployment authority.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`; physical graphical ownership drift remains under `WF-MIG-001`.
+- Branches/PRs: WellFit `codex/rudi-living-world-coordination-20260905` / PR #29; WellFit-now merged PR #401.
+- Acquired: 2026-09-05 Europe/Vienna
+- Released: 2026-09-05 after WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`.
+- Result: the technical/web bridge for the DOM-bound living Rudi is merged. Remaining work is exact public ChatGPT Site source synchronization plus real-WebGL visual acceptance under WellFit graphical authority; no further cross-repo runtime mutation is required for that step.
+- Resume from: WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b` and `WF-LOOP-006`; do not restart the deleted viewport-bound controller.
 
 ## XLOCK-WF-AVATAR-PUPPET-20260828
 - Cross-ID: `WFG-AVATAR-PUPPET-001` / `WFN-AVATAR-PUPPET-001`

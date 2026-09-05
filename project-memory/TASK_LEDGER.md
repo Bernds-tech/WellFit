@@ -73,7 +73,7 @@ Keep history append-only; supersede rather than delete.
 - Negative/fail-closed path: no client reward/mission authority, no fabricated Unity compile/build/device claim, no permanent dashboard/bottom navigation and no AR reset on ordinary menu navigation.
 - Rollback/recovery: revert this specification branch; existing runtime repositories remain unchanged.
 - Countercheck: Project Memory Guard and Quality passed on PR #22; the diff contains specification/governance only and preserves the Unity editor/server-authority gates.
-- Falsification question: an existing accepted exact-version one-screen mobile implementation, or evidence that ordinary overlay navigation must recreate the AR scene, would require this contract to be reconciled.
+- Falsification question: an existing accepted exact-version one-screen implementation, or evidence that ordinary overlay navigation must recreate the AR scene, would require this contract to be reconciled.
 - Next step: merge after fresh Status/review, then hand off separate implementation slices to WellFit-now and WellFit-Buddy after their prerequisites.
 
 ## WFG-AVATAR-ATTN-001
@@ -101,3 +101,17 @@ Keep history append-only; supersede rather than delete.
 - Rollback/recovery: revert WellFit-now merge if the renderer proves visually defective; original PNG assets and public Site remain unchanged.
 - Falsification question: a preview of the actual `wellfit-bewegt` Site that still shows no movement, seams/ghosting, wrong head crop or layout stacking regression requires further Site-specific tuning before publication.
 - Next step: open the actual Site via ChatGPT Sites/Edit so it is referenced in the composer, port the verified renderer/pivots, review the exact preview, then deliberately publish the updated version.
+
+## WFG-RUDI-WORLD-001
+- Date: 2026-09-05
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Goal: make Rudi a physically grounded resident of the Landingpage rather than a viewport-following overlay: climb and stand on real page surfaces, scroll with the exact surface, leave the viewport with it and return only through a plausible visible route.
+- Starting state: WellFit-now PR #401 contained a real rigged 3D Rudi but owner live review rejected the viewport-clamped/catch-up model because Rudi appeared detached from the page and could effectively float relative to content.
+- Action: accepted WFG-CR-008 and consolidated the active runtime around DOM-surface authority. Individual `WellFit` letters expose anchors; `hero-wellfit-4` (the `F`) is the initial climb/podium; headings/cards/buttons/signs/lines expose surfaces; Rudi reads real DOM geometry each frame; no viewport clamp is applied; scroll catch-up waits until the current surface is fully offscreen and scroll has settled; catch-up and autonomous transitions use visible walk/climb routes. The parallel viewport/chapter controller was removed. Active runtime was hardened for Strict Effects, shared timer cancellation, model-ready entrance timing, reduced motion, mobile non-mount, Canvas pointer pass-through and GLTF fallback. Meshy materialization/generation workflows were also hardened.
+- Result: WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`.
+- Evidence: WF-EV-007, WFG-CR-008. `XLOCK-WF-RUDI-WORLD-20260905` is released after the runtime merge.
+- Negative/fail-closed path: no backend/auth/data/mission/reward/economy/location/camera/native runtime changes; no claim that GitHub modifies the separate public ChatGPT Site; no acceptance from CI alone. Site version 105 is historical older-renderer evidence only.
+- Rollback/recovery: revert WellFit-now merge `9ae4f278...` if the runtime proves defective; the public Site remains separately deployable and was not modified by this merge.
+- Falsification question: any exact public-Site preview showing visible hovering, footing detached from the DOM element, Rudi remaining onscreen after his bound surface has left, unexplained teleportation, air-climbing, foreground/header occlusion, broken CTA interaction or failed reduced-motion fallback invalidates acceptance and requires Site/runtime tuning.
+- Next step: synchronize merged WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b` into the exact editable `wellfit-bewegt` Site source, preview the real WebGL behavior and obtain owner/device visual acceptance before deliberate publication.
