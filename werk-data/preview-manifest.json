@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-05-v26",
+  "version":"2026-09-05-v27",
   "current_preview":"werk-v71.html",
   "required":[
     {"group":"Kern","path":"./werk-data/core.json"},
@@ -8,6 +8,7 @@
     {"group":"BUD-01 Baseline","path":"./werk-data/budget-baseline-2026-2031.json"},
     {"group":"BUD-01 Baseline","path":"./werk-data/medium-term-fiscal-path.json"},
     {"group":"Regierungsbaseline","path":"./werk-data/government-baseline-2025-2031.json"},
+    {"group":"Regierungsbaseline Ursprung","path":"./werk-data/government-package-2025-2029.json"},
     {"group":"Regierungsbaseline Detail","path":"./werk-data/government-new-measures-2026-2031.json"},
     {"group":"Förderbaseline","path":"./werk-data/subsidy-baseline-architecture.json"},
     {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
@@ -46,6 +47,7 @@
     {"group":"Ideenwerk Test","path":"./ideenwerk-backend/scripts/cleanup-synthetic.mjs"},
     {"group":"Ideenwerk CI","path":"./.github/workflows/ideenwerk-backend-check.yml"},
     {"group":"Frontend CI","path":"./.github/workflows/werk-frontend-check.yml"},
+    {"group":"Fiscal Data CI","path":"./.github/workflows/werk-fiscal-data-check.yml"},
     {"group":"V71","path":"./werk-v71.html"},
     {"group":"V71","path":"./werk-assets/site-v71.css"},
     {"group":"V71","path":"./werk-assets/site-v71.js"},
@@ -79,9 +81,11 @@
     "BUD-01 Referenzpfad 2026–2031 muss sechs vollständige Jahreswerte enthalten",
     "BUD-01 Saldo-, Sektoren- und Schuldenquoten-Identitäten müssen innerhalb der BMF-Rundungstoleranz aufgehen",
     "Regierungsbaseline 2025–2031 muss Gesamtpaket, neue Maßnahmen, Nettoeffekte und Teilsektoren ohne Doppelzählungsbruch reconciliieren",
+    "Ursprüngliches Konsolidierungspaket muss für den veröffentlichten Detailhorizont 2025–2029 vollständig normalisiert sein; 2030/2031 bleiben ohne künstliche Einzelzeilenextrapolation aggregiert",
     "Budgetdienst-Tabellen 11/12 müssen als eindeutige 2026–2031-Einzelmaßnahmenmatrix mit sechs Jahreswerten je Zeile vorliegen",
+    "Fiscal Data Contract CI prüft BUD-01-, Regierungs- und Maßnahmenmatrizen unabhängig vom Frontend",
     "SUB-01 muss BHG-, ESVG-, EU-/RRF- und TDB-Sicht getrennt halten; gestaltbares Volumen darf nicht als Sparpotenzial behandelt werden",
     "V71-Stable-Redirect, V71-Assets und sämtliche Manifest-Pfade werden im Frontend-CI geprüft"
   ],
-  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 enthält nun 12 Leitfelder mit 41/41-Abdeckung, einen maschinengeprüften BUD-01-Referenzpfad, eine kanonische Regierungsbaseline 2025–2031, eine vollständige normalisierte Einzelmaßnahmenmatrix 2026–2031 und eine SUB-01-Normalisierungsarchitektur. Das ursprüngliche Konsolidierungspaket 2025 auf Einzelmaßnahmenebene, vollständige Förder-CSV/TDB-Extraktion, Teilsektortrennung Länder/Gemeinden, Reform-Nettoeffekte sowie produktive Legal-/Security-/Accessibility-Gates bleiben offen."
+  "rule":"Ein grüner Datei-Integritätscheck plus vorhandene Staging-Messwerte beweisen nur die dokumentierten technischen Teilpfade. V71 enthält 12 Leitfelder mit 41/41-Abdeckung, einen maschinengeprüften BUD-01-Referenzpfad, eine kanonische Regierungsbaseline 2025–2031, den vollständig veröffentlichten Detailhorizont des ursprünglichen 2025-Pakets, eine vollständige neue Einzelmaßnahmenmatrix 2026–2031 und eine SUB-01-Normalisierungsarchitektur. Vollständige Rechts-/Wirksamkeitsklassifikation, Förder-CSV/TDB-Extraktion, Teilsektortrennung Länder/Gemeinden, Reform-Nettoeffekte sowie produktive Legal-/Security-/Accessibility-Gates bleiben offen."
 }
