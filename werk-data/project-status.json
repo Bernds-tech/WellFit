@@ -1,11 +1,11 @@
 {
-  "version":"2026-09-05-v22",
-  "current_preview":"V71 – vollständige 12-Leitfelder-Programmansicht und responsive Layout-Härtung auf der bestehenden V70 IDEENWERK-Staging-Runtime",
-  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb, Programmstruktur weiter vervollständigt und noch nicht öffentlich produktiv freigegeben",
+  "version":"2026-09-05-v23",
+  "current_preview":"V71 – 12 Leitfelder mit 41/41-Analyseabdeckung, responsive Härtung und aktualisiertem BUD-01-Referenzpfad auf der bestehenden IDEENWERK-Staging-Runtime",
+  "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Bürgerbeteiligungs-Runtime real in Betrieb, Programmstruktur und Fiskalbaseline weiter vervollständigt und noch nicht öffentlich produktiv freigegeben",
   "components":[
     {"id":"brand","name":"Marke & Leitbild","status":"advanced-8-binding-pillars-separated-from-12-policy-fields","estimate_pct":97},
     {"id":"architecture","name":"Website-Architektur","status":"v71-program-overview-with-v70-rollback","estimate_pct":99},
-    {"id":"program-overview","name":"Politische Gesamtprogramm-Übersicht","status":"12-of-12-policy-fields-visible","estimate_pct":98},
+    {"id":"program-overview","name":"Politische Gesamtprogramm-Übersicht","status":"12-of-12-fields-41-of-41-analysis-domains","estimate_pct":99},
     {"id":"ideenwerk","name":"WERK IDEENWERK – No-Login Intake/Status, Edge API, DB-Worker, Cluster-/Review-Architektur","status":"staging-active-end-to-end-pass","estimate_pct":98},
     {"id":"ideenwerk-quality","name":"IDEENWERK Qualitäts-/Skalierungsmessung","status":"db-100k-worker-e2e-and-goldset-measured","estimate_pct":94},
     {"id":"ideenwerk-privacy","name":"IDEENWERK Datenschutz ohne Login","status":"token-hash-and-pii-hold-runtime-pass-legal-open","estimate_pct":90},
@@ -15,21 +15,27 @@
     {"id":"partners","name":"Bürgerlisten-System","status":"advanced-concept","estimate_pct":90},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
     {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"in-progress-expanded","estimate_pct":67},
-    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"scenario-models-ready-net-effects-open","estimate_pct":84},
+    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"gap-fisc-01-closed-official-2026-2031-baseline-ci-validated","estimate_pct":89},
+    {"id":"data-closure","name":"BUD-01 Datenlückenabschluss","status":"gap-fisc-01-closed-gap-fisc-02-partial","estimate_pct":54},
     {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":97},
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
     {"id":"legal","name":"Juristische Detailprüfung","status":"federal-roadmap-state-procedure-competence-inventory-minimum-standard","estimate_pct":81},
     {"id":"a11y","name":"Mobil & Barrierefreiheit","status":"v71-responsive-hardening-manual-acceptance-open","estimate_pct":92},
-    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v71-current-manifest-required-paths","estimate_pct":99},
+    {"id":"integrity","name":"Technischer Preview-Integritätscheck","status":"v71-manifest-policy-and-budget-contracts","estimate_pct":99},
     {"id":"legal-pages","name":"Impressum/Datenschutz/Betreiber","status":"templates-ready-operator-open","estimate_pct":40},
     {"id":"public-release","name":"Publikationsreife","status":"review","estimate_pct":89}
   ],
   "register":{
     "reform_count":14,
     "policy_field_count":12,
+    "policy_analysis_domain_count":41,
+    "policy_analysis_domain_coverage_count":41,
     "binding_pillar_count":8,
-    "core_modules":["12 Leitfelder","WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
-    "ideas_model":["werk-v71.html","werk-assets/site-v71.css","werk-assets/site-v71.js","werk-assets/site-v70-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
+    "closed_priority_data_gaps":["GAP-FISC-01"],
+    "partially_closed_priority_data_gaps":["GAP-FISC-02"],
+    "core_modules":["12 Leitfelder / 41 Analysebereiche","BUD-01 Referenzpfad","WERK IDEENWERK","Reformregister","Regionen","WERK VOTE","Bürgerlisten","Transparenz"],
+    "ideas_model":["werk-v71.html","werk-assets/site-v71.css","werk-assets/site-v71.js","werk-assets/site-v71-loader.js","werk-assets/site-ideenwerk-v2.js","ideenwerk-backend/sql/017_edge_intake_status.sql","ideenwerk-backend/sql/018_staging_db_worker.sql","werk-data/ideenwerk-test-runs.json"],
+    "fiscal_model":["werk-data/budget-baseline-2026-2031.json","werk-data/medium-term-fiscal-path.json","werk-data/analysis-data-closure-register.json","werk-assets/site-fiscal-model.js"],
     "measured_quality":[
       "No-Login Edge: Submit 201; privater Status 200; falscher Token 403; idempotenter Replay 200 ohne Token-Neuausgabe",
       "Worker E2E: 5/5 Jobs, 0 Fehler; received -> structured -> cluster_review -> precheck",
@@ -37,7 +43,9 @@
       "PII: privacy_hold=true; kein structured_proposal",
       "pg_cron: mindestens 3 automatische Minutenläufe succeeded",
       "CORS: raw.githack.com HTTP 200 + Allow-Origin; fremder Origin HTTP 403",
-      "100k DB-Test: 100.000 Kandidaten -> 100.000 Review-Tasks; 0 Restdaten"
+      "100k DB-Test: 100.000 Kandidaten -> 100.000 Review-Tasks; 0 Restdaten",
+      "Programmarchitektur: 12/12 Leitfelder und 41/41 Master-Sachbereiche ohne Doppelzuordnung",
+      "BUD-01 Baseline: 2026–2031 vollständig; Saldo-, Sektoren- und Schuldenquoten-Identitäten per Frontend-CI geprüft"
     ]
   },
   "blocking_items_for_public_release":[
@@ -47,13 +55,17 @@
     "progressive Bot-Challenge/WAF sowie Status-Token-Threat-Model/Penetrationstest abschließen",
     "OIDC/MFA/RBAC für Operatoren produktiv anbinden",
     "Privacy-/Retention-/Lösch-/Auskunftsprozess juristisch abnehmen und Fristen finalisieren",
+    "GAP-FISC-02 mit getrennten Länder-/Gemeinde-Pfaden soweit amtlich verfügbar weiter schließen",
     "prioritäre Reform-Nettoeffekte verifizieren und Finanzierungslücke schließen",
     "zweite Länder-Auditstufe, WERK-VOTE-Verfassungsvarianten, Statuten/Partnervertrag und Betreiberangaben abschließen",
     "V71 manuell auf Mobilgerät, Tastatur und Screenreader abnehmen"
   ],
   "method_rules":[
     "Die 8 verbindlichen WERK-Säulen bilden den Grundkodex; die 12 Leitfelder strukturieren das vollständige politische Programm und dürfen nicht miteinander verwechselt werden",
-    "Alle 12 Leitfelder werden im Programmüberblick sichtbar gehalten; kein Leitfeld wird aus Platzgründen ausgeblendet",
+    "Alle 12 Leitfelder werden im Programmüberblick sichtbar gehalten; alle 41 Master-Analysebereiche müssen genau einmal strukturell zugeordnet sein",
+    "Der BMF-Referenzpfad 2026–2031 ist die aktuelle beschlusskonforme BUD-01-Ausgangslage und keine WERK-Prognose",
+    "Bereits im amtlichen Referenzpfad enthaltene Regierungsmaßnahmen dürfen nicht nochmals als WERK-Effekt gebucht werden",
+    "Die erste BUD-01-Gesamtrechnung bleibt gesperrt, solange zentrale Teilsektor-/Dauereffekt-/Transformationskosten- und Doppelzählungsgates offen sind",
     "Ideen dürfen ohne Login eingebracht werden; Status-ID und geheimer Wiederaufruf-Code bleiben getrennt",
     "Status-Token wird serverseitig nur gehasht und nie in URLs eingebettet",
     "PII stoppt vor Strukturierung und Clustering",
@@ -64,5 +76,5 @@
     "politisch unbequem oder WERK-kritisch ist kein Moderationsgrund",
     "technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe"
   ],
-  "note":"V71 behebt die konzeptionelle Vermischung von Kern und Programm: 8 verbindliche Säulen bleiben der gemeinsame Grundkodex; 12 politische Leitfelder sind nun vollständig als eigene Programmübersicht sichtbar. Zusätzlich wurden responsive Layoutregeln gehärtet und der technische Selbsttest vom veralteten V69-Manifest auf das aktuelle Preview-Manifest umgestellt."
+  "note":"V71 trennt den 8-Säulen-Grundkodex sauber von 12 politischen Leitfeldern und deckt über diese 12 Felder alle 41 Master-Analysebereiche eindeutig ab. GAP-FISC-01 wurde am 05.09.2026 mit dem beschlusskonformen BMF-Referenzpfad 2026–2031 geschlossen; die bestehende Saldo-Brücke ist synchronisiert und der Referenzpfad wird rechnerisch im Frontend-CI geprüft. GAP-FISC-02 bleibt wegen fehlender separater Länder-/Gemeinde-Prognoseserie bis 2031 teilweise offen."
 }
