@@ -1,0 +1,56 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Sozialbeitrags-Branch-Bridge 2024–2025",
+  "status":"official-branch-reference-not-esvg-reconciliation",
+  "checked_at":"2026-09-05",
+  "purpose":"TAX-H teilabschließen. Beitragsaufkommen der großen Versicherungszweige wird als Gebarungs-/Bundeshaushalts-Referenz neben den ESVG-Nettosozialbeiträgen geführt. Die Branch-Summe ist ausdrücklich keine alternative ESVG-Summe, weil institutionelle Abgrenzung, Periodisierung, innerstaatliche Beitragszahlungen und Definitionen abweichen.",
+  "sources":[
+    {"id":"SV-ZAHLEN-55","authority":"Dachverband der Sozialversicherungsträger","title":"Die österreichische Sozialversicherung in Zahlen – 55. Ausgabe August 2025","quality":"endgültige Gebarung 2024","url":"https://www.sozialversicherung.at/cdscontent/load?contentid=10008.798026&version=1757326203"},
+    {"id":"SV-ZAHLEN-56","authority":"Dachverband der Sozialversicherungsträger","title":"Die österreichische Sozialversicherung in Zahlen – 56. Ausgabe März 2026","quality":"vorläufige Gebarung 2025","url":"https://www.sozialversicherung.at/cdscontent/load?contentid=10008.805508&version=1776162955"},
+    {"id":"BMF-VOLLZUG-2025-ALV","authority":"Bundesministerium für Finanzen","title":"Ergebnisrechnung nach ökonomischen Kriterien Dezember 2025 – Beiträge zur Arbeitslosenversicherung","quality":"Bundes-Ergebnisrechnung 2025","url":"https://service.bmf.gv.at/budget/akthh/2025/202512_HTML_OEKO_E.htm"},
+    {"id":"STAT-S13-2025","authority":"STATISTIK AUSTRIA","title":"Öffentliche Finanzen 2025 – S.13 Sozialbeiträge","quality":"ESVG 2010; 2025 vorläufig","url":"https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/oeffentliche-finanzen/einnahmen-und-ausgaben-des-staates"}
+  ],
+  "years":[2024,2025],
+  "branches_mio":{
+    "pension_insurance_contributions_for_insured":[48280,50768],
+    "health_insurance_contributions_for_insured":[21858,23623],
+    "accident_insurance_contributions_for_insured":[1929,2007],
+    "unemployment_insurance_contributions_federal_result":[9361.2,9813.5]
+  },
+  "source_quality_by_year":{
+    "2024":{"pension":"final","health":"final","accident":"final","unemployment":"federal_result"},
+    "2025":{"pension":"provisional","health":"provisional","accident":"provisional","unemployment":"federal_result"}
+  },
+  "branch_reference_sum_mio":[81428.2,86211.5],
+  "esvg_s13_net_social_contributions_mio":[79000,83000],
+  "difference_branch_reference_minus_esvg_mio":[2428.2,3211.5],
+  "interpretation":"Die positive Differenz ist kein fehlender oder versteckter Beitragsposten, sondern ein Warnsignal gegen mechanische Addition. Die Zweigwerte stammen aus Träger-Gebarungen bzw. für ALV aus dem Bundeshaushalt, während D.61 ESVG-periodisiert und sektor-/transaktionsspezifisch abgegrenzt wird.",
+  "branch_notes":{
+    "pension":"Beiträge für Versicherte in der Gebarung der gesetzlichen Pensionsversicherung. Bundes-Ausfallhaftung und Ausgleichszulagenersätze sind nicht enthalten.",
+    "health":"Beiträge für Versicherte in der Gebarung der Krankenversicherung. Rezeptgebühren, Leistungsersätze und sonstige Einnahmen sind nicht enthalten.",
+    "accident":"Beiträge für Versicherte in der Gebarung der Unfallversicherung.",
+    "unemployment":"Beiträge zur Arbeitslosenversicherung in der Bundes-Ergebnisrechnung. Institutionell kein Sozialversicherungsträger-Gebarungswert wie PV/KV/UV."
+  },
+  "growth_2024_2025_pct":{
+    "pension":5.2,
+    "health":8.1,
+    "accident":4.0,
+    "unemployment":4.8,
+    "esvg_s13_net_social_contributions":5.1
+  },
+  "accounting_rules":[
+    "Branch reference sum is not an ESVG identity and must never be forced to equal D.61.",
+    "PV/KV/UV carrier accounts and ALV federal budget accounts are different institutional accounting views.",
+    "Federal payments of social contributions for transfer recipients can be an expense of one public unit and contribution revenue of another; general-government consolidation is required.",
+    "Contribution rates cannot be multiplied by gross payroll totals without contribution ceilings, reduced rates, exempt groups, self-employed bases, pensioner contributions and behavioural effects.",
+    "2025 PV/KV/UV figures remain provisional even though 2024 carrier accounts are final."
+  ],
+  "coverage":{
+    "TAX_H1_pension_health_accident_branch_contributions_2024_2025":"closed",
+    "TAX_H2_unemployment_contribution_federal_result_2024_2025":"closed",
+    "TAX_H3_branch_vs_esvg_scope_bridge":"closed_as_non_identity_bridge",
+    "TAX_H4_social_contributions_by_employer_employee_imputed_household_sector":"open",
+    "TAX_H5_contribution_bases_by_branch_and_population_group":"open",
+    "tax_h_status":"partially_closed"
+  }
+}
