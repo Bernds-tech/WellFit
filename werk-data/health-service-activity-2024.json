@@ -1,0 +1,180 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Gesundheitsleistungs-/Spitalsaktivitätsbaseline 2024",
+  "status":"official-lgf-hospital-activity-and-cost-baseline-normalised",
+  "checked_at":"2026-09-05",
+  "purpose":"Erster belastbarer Aktivitäts- und Kostenkern für GAP-HEALTH-02. Stationäre Aufenthalte, 0-Tagesaufenthalte, spitalsambulante Besuche, ambulante Patient:innen, Frequenzen und Kosten werden als unterschiedliche Zähler geführt. Tagesklinisch bzw. ambulant erbringbare Leistungen bilden nur ein Prüf-/Verlagerungsuniversum, kein automatisches Einsparpotenzial.",
+  "sources":[
+    {
+      "id":"BMASGPK-UREG-2024",
+      "authority":"Bundesministerium für Arbeit, Soziales, Gesundheit, Pflege und Konsumentenschutz",
+      "title":"Überregionale Auswertung der Dokumentation in landesgesundheitsfondsfinanzierten Krankenanstalten 2024",
+      "data_updated":"2025-08-06",
+      "url":"https://www.sozialministerium.gv.at/dam/jcr:2a01fba5-d2a8-404b-8fc4-d3037774b051/%C3%9CREG_%C3%96sterreich_2024.pdf"
+    },
+    {
+      "id":"STAT-HOSPITAL-2024",
+      "authority":"STATISTIK AUSTRIA",
+      "title":"Stationäre Aufenthalte in Akutkrankenanstalten 2024",
+      "url":"https://www.statistik.at/statistiken/bevoelkerung-und-soziales/gesundheit/gesundheitsversorgung-und-ausgaben/krankenanstalten"
+    },
+    {
+      "id":"PARL-WAIT-2024",
+      "authority":"BMSGPK / Parlament Österreich",
+      "title":"Anfragebeantwortung 18419/AB – Lange Wartezeiten auf Facharzttermine und Operationen",
+      "answer_date":"2024-08-08",
+      "url":"https://www.parlament.gv.at/dokument/XXVII/AB/18419/imfname_1653225.pdf"
+    },
+    {
+      "id":"PARL-HEALTH-UTIL-2025",
+      "authority":"BMASGPK / Parlament Österreich",
+      "title":"Anfragebeantwortung 4268/AB – Kosten und Nutzung öffentlicher Gesundheitsleistungen 2025 pro Bundesland",
+      "answer_date":"2026-03-27",
+      "url":"https://www.parlament.gv.at/dokument/XXVIII/AB/4268/imfname_1748765.pdf"
+    }
+  ],
+  "scope_guard":{
+    "lgf_hospitals_2024":"105 landesgesundheitsfondsfinanzierte Krankenhäuser plus Akutgeriatrie/Remobilisation Graz; Kosten- und Kapazitätsdaten dieses Universums.",
+    "all_acute_hospitals_2024":"Statistik-Austria-Gesamtuniversum der Akutkrankenanstalten; für Gesamtaufenthaltsvergleich, nicht 1:1 mit LGF-Kostenuniversum gleichsetzen.",
+    "rule":"Kostenkennzahlen werden nur innerhalb des LGF-Universums verwendet. Gesamt-Akutaufenthalte werden nicht mit LGF-Kosten multipliziert."
+  },
+  "all_acute_hospitals_2024":{
+    "stationary_stays":2166338,
+    "zero_day_stays":383743,
+    "average_length_of_stay_days":6.1,
+    "scope":"Alle Akutkrankenanstalten laut Statistik Austria. Durchschnittliche Verweildauer bezieht sich auf Aufenthalte ab mindestens einer Übernachtung."
+  },
+  "lgf_stationary_2024":{
+    "systemised_beds":44356,
+    "actual_beds":39888,
+    "bed_days":10375771,
+    "zero_day_stays_cost_statistics":340939,
+    "stationary_stays_cost_statistics":1975451,
+    "admissions":1974671,
+    "carried_over_from_previous_year":23220,
+    "discharges":1933707,
+    "deaths":41846,
+    "full_period_stays":206,
+    "average_occupancy_pct":71.07,
+    "average_occupancy_including_zero_day_pct":73.41,
+    "average_length_of_stay_days":5.25,
+    "average_length_including_zero_day_days":5.42,
+    "meddok_stationary_stays":1975553,
+    "meddok_zero_day_stays":340942,
+    "zero_day_share_meddok_pct":17.26,
+    "counting_note":"Kostenstellen-/Statistikdaten und MedDok-Entlassungsdaten unterscheiden sich geringfügig (1.975.451 vs 1.975.553 Aufenthalte; 340.939 vs 340.942 0-Tagesaufenthalte). Diese Datenuniversen werden nicht erzwungen gleichgesetzt."
+  },
+  "lgf_costs_2024_eur":{
+    "end_cost_total":20906086044,
+    "ambulatory_cost_centres":4781637835,
+    "stationary_cost_centres":14598428096,
+    "ancillary_cost_centres":1526020113,
+    "shares_pct":{"ambulatory":22.87,"stationary":69.83,"ancillary":7.30},
+    "stationary_cost_per_actual_bed":365985,
+    "stationary_cost_per_bed_day":1407,
+    "stationary_cost_per_stay":7390,
+    "note":"Endkosten inklusive kalkulatorischer Anlagekapitalkosten. Kostenteilung ist keine Aussage über vermeidbare Kosten; Fixkosten/Overheads und Umstellungskosten sind separat zu modellieren."
+  },
+  "lgf_ambulatory_2024":{
+    "ambulatory_end_cost_eur":4781637835,
+    "ambulatory_patients":9812360,
+    "frequencies_ambulatory_patients":20024795,
+    "frequencies_stationary_patients":12311683,
+    "frequencies_patients_other_hospitals":218907,
+    "cost_per_ambulatory_patient_eur":487,
+    "cost_per_frequency_eur":350,
+    "frequencies_per_ambulatory_patient":2.04,
+    "staff_fte":45153.92,
+    "meddok_ambulatory_hospital_visits":15551543,
+    "counting_note":"Ambulante Patient:innen, Frequenzen und täglich dokumentierte spitalsambulante KH-Besuche sind unterschiedliche Kennzahlen. Sie dürfen nicht als Synonyme verwendet oder addiert werden."
+  },
+  "ambulatory_by_state_2024":[
+    {"name":"Burgenland","end_cost_eur":114766103,"patients":326341,"ambulatory_frequencies":542284,"stationary_patient_frequencies":290573,"other_hospital_patient_frequencies":1371,"cost_per_patient_eur":352,"cost_per_frequency_eur":292,"frequencies_per_patient":1.66,"fte":1116.82},
+    {"name":"Kärnten","end_cost_eur":289995477,"patients":662615,"ambulatory_frequencies":1322289,"stationary_patient_frequencies":1013608,"other_hospital_patient_frequencies":30072,"cost_per_patient_eur":438,"cost_per_frequency_eur":281,"frequencies_per_patient":2.00,"fte":2957.50},
+    {"name":"Niederösterreich","end_cost_eur":611029577,"patients":1475037,"ambulatory_frequencies":3301149,"stationary_patient_frequencies":2077779,"other_hospital_patient_frequencies":9852,"cost_per_patient_eur":414,"cost_per_frequency_eur":308,"frequencies_per_patient":2.24,"fte":6493.49},
+    {"name":"Oberösterreich","end_cost_eur":797963867,"patients":1681509,"ambulatory_frequencies":3612375,"stationary_patient_frequencies":2328903,"other_hospital_patient_frequencies":9168,"cost_per_patient_eur":475,"cost_per_frequency_eur":326,"frequencies_per_patient":2.15,"fte":7696.06},
+    {"name":"Salzburg","end_cost_eur":344058538,"patients":696032,"ambulatory_frequencies":1379573,"stationary_patient_frequencies":761791,"other_hospital_patient_frequencies":26492,"cost_per_patient_eur":494,"cost_per_frequency_eur":375,"frequencies_per_patient":1.98,"fte":2962.00},
+    {"name":"Steiermark","end_cost_eur":661114130,"patients":1285222,"ambulatory_frequencies":2440495,"stationary_patient_frequencies":1606408,"other_hospital_patient_frequencies":120060,"cost_per_patient_eur":514,"cost_per_frequency_eur":377,"frequencies_per_patient":1.90,"fte":6075.26},
+    {"name":"Tirol","end_cost_eur":382404346,"patients":1122432,"ambulatory_frequencies":2179599,"stationary_patient_frequencies":1112307,"other_hospital_patient_frequencies":5858,"cost_per_patient_eur":341,"cost_per_frequency_eur":284,"frequencies_per_patient":1.94,"fte":4197.89},
+    {"name":"Vorarlberg","end_cost_eur":161564053,"patients":392029,"ambulatory_frequencies":823264,"stationary_patient_frequencies":422943,"other_hospital_patient_frequencies":5475,"cost_per_patient_eur":412,"cost_per_frequency_eur":308,"frequencies_per_patient":2.10,"fte":1431.09},
+    {"name":"Wien","end_cost_eur":1418741744,"patients":2171143,"ambulatory_frequencies":4423767,"stationary_patient_frequencies":2697371,"other_hospital_patient_frequencies":10559,"cost_per_patient_eur":653,"cost_per_frequency_eur":446,"frequencies_per_patient":2.04,"fte":12223.81}
+  ],
+  "day_clinic_potential_universe_2024":{
+    "stationary_only":{
+      "eligible_service_instances_total":819753,
+      "zero_day":258920,
+      "zero_day_share_pct":31.6,
+      "one_to_three_days":382508,
+      "four_to_six_days":94936,
+      "seven_to_thirteen_days":46063,
+      "fourteen_to_twenty_days":14215,
+      "twenty_one_to_twenty_eight_days":8226,
+      "twenty_nine_plus_days":14885
+    },
+    "stationary_and_ambulatory":{
+      "eligible_service_instances_total":864437,
+      "spitalsambulant":44684,
+      "spitalsambulant_share_pct":5.2,
+      "stationary_zero_day":258920,
+      "stationary_zero_day_share_pct":30.0,
+      "stationary_one_day":148919,
+      "stationary_two_days":148483,
+      "stationary_three_days":85106,
+      "stationary_four_to_six_days":94936,
+      "stationary_more_than_six_days":83389
+    },
+    "national_zero_day_share_of_eligible_stationary_services_pct":31.6,
+    "state_zero_day_share_pct":{"Burgenland":30.6,"Kärnten":34.9,"Niederösterreich":34.6,"Oberösterreich":33.0,"Salzburg":31.0,"Steiermark":32.5,"Tirol":27.3,"Vorarlberg":40.8,"Wien":26.9},
+    "rule":"'Tagesklinisch erbringbar' ist eine LKF-/Leistungsklassifikation, kein Beweis, dass alle mehrtägigen Fälle klinisch ambulantisierbar sind. Kein Euroeffekt ohne Leistungscode-, Risiko-, Komorbiditäts-, Fixkosten-, Kapazitäts- und Outcomeprüfung."
+  },
+  "primary_care_capacity_anchor":{
+    "pve_count_2024_04":64,
+    "pve_count_2024_year_end":77,
+    "pve_count_2025_07_01":100,
+    "pve_children_2025_07_01":13,
+    "rsg_2025_target_from_2024_2028_target_contract":133,
+    "eu_rrf_primary_care_funding_eur":100000000,
+    "freshness_note":"100 PVE ist der letzte in den hier verifizierten Bundesquellen eindeutig datierte Gesamtstand (1.7./September 2025). Kein 2026-Gesamtstand wird ohne aktuelle Primärquelle fingiert.",
+    "rule":"PVE-Anzahl ist Kapazitätsindikator, kein Einsparungsnachweis. Verlagerungseffekt muss mit tatsächlichen Kontakten, Öffnungszeiten, Personal und vermiedenen Spitalsleistungen gemessen werden."
+  },
+  "waiting_time_baseline":{
+    "mri_contract_max_working_days":20,
+    "ct_contract_max_working_days":10,
+    "urgent_mri_ct_target_working_days":5,
+    "mri_average_days_2024_05_09":22.7,
+    "mri_state_breakdown_2024":"not_available_in_ministry_answer",
+    "mri_insurance_type_breakdown_2024":"not_available",
+    "current_monitoring_url":"https://www.sozialversicherung.at/wartezeiten/",
+    "elective_surgery_rule":"§ 5a KAKuG requires transparent pseudonymised waiting-list regimes for specified elective surgery/invasive diagnostics where waiting time exceeds four weeks; implementation and current waits are decentralised at Länder/hospital-provider level.",
+    "national_elective_surgery_average":"not_available_as_single_verified_national_series",
+    "rule":"2024 MRI average is a historical benchmark, not a current 2026 value. No national elective-surgery waiting-time average is invented."
+  },
+  "2025_specialty_cost_data_gap":{
+    "ministry_answer_date":"2026-03-27",
+    "finding":"For the requested specialty-level 2025 costs by Land and MEL category, the ministry stated that corresponding cost data were not available; 2025 service-distribution data were also not yet available at the answer date.",
+    "rule":"HEALTH-02 specialty/full-cost model remains open; MEL counts are not cost cases and must not be multiplied by arbitrary average costs."
+  },
+  "ambulantisation_accounting_rules":[
+    "A transfer from inpatient to outpatient care is not a saving unless total system cost falls after adding outpatient capacity, diagnostics, follow-up, transport and transition costs.",
+    "Hospital fixed costs are not assumed to fall proportionally with reduced stays.",
+    "Ambulatory hospital visits, ambulatory patients and ambulatory frequencies are separate denominators.",
+    "All-acute hospital stay counts are not multiplied by LGF cost-per-stay values.",
+    "Zero-day stays are not automatically classified as avoidable inpatient stays.",
+    "Day-clinic-eligible service codes are a clinical review universe, not a savings universe.",
+    "Waiting-time improvements are treated as an outcome/capacity KPI; they are not monetised without a causal cost model.",
+    "Shifting cost from hospitals to social insurance, Länder, municipalities or private households is not a net saving."
+  ],
+  "coverage":{
+    "HEALTH2_A_lgf_stationary_activity_2024":"closed",
+    "HEALTH2_B_lgf_stationary_ambulatory_cost_split_2024":"closed",
+    "HEALTH2_C_spitalsambulatory_patients_frequencies_costs_2024":"closed",
+    "HEALTH2_D_ambulatory_state_matrix_2024":"closed",
+    "HEALTH2_E_day_clinic_eligible_service_universe_2024":"closed",
+    "HEALTH2_F_primary_care_capacity_anchor":"partial_latest_verified_2025",
+    "HEALTH2_G_waiting_time_national_standardised_series":"partial_mri_benchmark_only",
+    "HEALTH2_H_specialty_case_full_cost_matrix":"open",
+    "HEALTH2_I_outpatient_extramural_activity_and_unit_costs":"open",
+    "HEALTH2_J_werk_ambulantisation_scenario_and_transition_costs":"open",
+    "gap_health_02_status":"partially_closed"
+  }
+}
