@@ -2,6 +2,7 @@ import fs from 'node:fs';
 
 const d=JSON.parse(fs.readFileSync('werk-data/labour-productivity-baseline-2025-2026.json','utf8'));
 const m=JSON.parse(fs.readFileSync('werk-data/labour-matching-baseline-2025-2026.json','utf8'));
+const p=JSON.parse(fs.readFileSync('werk-data/labour-matching-matrix-priority-groups.json','utf8'));
 const fail=x=>{throw new Error(x)};
 const near=(a,b,t,msg)=>{if(Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
 
@@ -73,9 +74,34 @@ if(ratios[0].region!==m.derived_regional_diagnostics.lowest_unemployed_per_regis
 if(ratios.at(-1).region!==m.derived_regional_diagnostics.highest_unemployed_per_registered_vacancy.region)fail('Highest regional ratio mismatch');
 if(!String(m.derived_regional_diagnostics?.warning||'').toLowerCase().includes('sagen nichts darüber aus'))fail('Regional-ratio warning missing');
 
-const dims=new Set((m.matching_dimensions||[]).map(x=>x.id));
+const dims=new Map((m.matching_dimensions||[]).map(x=>[x.id,x]));
 for(const id of ['MATCH-OCC','MATCH-EDU','MATCH-REG','MATCH-TIME','MATCH-HEALTH','MATCH-WAGE','MATCH-SKILL'])if(!dims.has(id))fail(`Matching dimension missing ${id}`);
-if(m.werk_reform_gate?.status!=='blocked')fail('Labour reform gate must remain blocked until priority matching matrix exists');
-if(!m.werk_reform_gate?.next_artifact)fail('Next matching artifact not declared');
+if(dims.get('MATCH-EDU')?.artifact!=='labour-matching-matrix-priority-groups.json')fail('MATCH-EDU must point to priority-group artifact');
+if(m.werk_reform_gate?.status!=='blocked')fail('Labour reform gate must remain blocked');
+if(m.werk_reform_gate?.next_artifact!=='labour-occupation-region-matching-matrix.json')fail('Matching gate must advance to occupation-region matrix');
 
-console.log(`WERK labour/productivity contract OK: ILO/AMS scopes separated; vacancy/part-time identities reconcile; 9 regional matching snapshots, ${comparable} comparable AMS stock ratios; reform gate remains blocked pending priority-group matching.`);
+if(p.status!=='education_layer_verified_occupation_region_time_pending')fail('Unexpected priority-group status');
+if(p.reference_period!=='2026-07')fail('Priority-group reference period mismatch');
+const rows=p.detailed_rows||[];
+if(rows.length!==12)fail(`Expected 12 education detail rows, got ${rows.length}`);
+const rowIds=new Set();
+let sumU=0,sumV=0;
+for(const r of rows){
+  if(!r.id||rowIds.has(r.id))fail(`Duplicate education row ${r.id}`);rowIds.add(r.id);
+  sumU+=r.registered_unemployed;sumV+=r.registered_vacancies;
+  near(r.derived_unemployed_per_vacancy,r.registered_unemployed/r.registered_vacancies,0.01,`${r.id} education ratio`);
+}
+near(sumU,p.reconciliation.detailed_unemployed_sum,0.1,'Education unemployed detail sum');
+near(sumV,p.reconciliation.detailed_vacancy_sum,0.1,'Education vacancy detail sum');
+near(p.reconciliation.published_unemployed_total-sumU,p.reconciliation.unallocated_difference,0.1,'Unallocated education unemployment difference');
+near(sumV,p.published_totals.registered_vacancies,0.1,'Education vacancy published total');
+if(p.reconciliation.unallocated_difference<=0)fail('Expected explicit positive unallocated unemployment difference');
+if(!String(p.reconciliation.rule||'').includes('nicht erfunden'))fail('Education reconciliation must prohibit invented allocation');
+const groups=new Map((p.aggregated_priority_groups||[]).map(x=>[x.id,x]));
+for(const id of ['PRIO-LOW-EDU','PRIO-APPRENTICESHIP','PRIO-BMS','PRIO-AHS','PRIO-BHS','PRIO-TERTIARY'])if(!groups.has(id))fail(`Priority group missing ${id}`);
+const bms=groups.get('PRIO-BMS');near(bms.registered_unemployed,1759+6247+7801,0.1,'BMS unemployment aggregate');near(bms.registered_vacancies,153+114+2439,0.1,'BMS vacancy aggregate');
+const bhs=groups.get('PRIO-BHS');near(bhs.registered_unemployed,7108+6720+9215,0.1,'BHS unemployment aggregate');near(bhs.registered_vacancies,2933+710+3396,0.1,'BHS vacancy aggregate');
+const ter=groups.get('PRIO-TERTIARY');near(ter.registered_unemployed,980+5347+30972,0.1,'Tertiary unemployment aggregate');near(ter.registered_vacancies,290+1640+2595,0.1,'Tertiary vacancy aggregate');
+if(!Array.isArray(p.next_required_layers)||p.next_required_layers.length<5)fail('Priority matching next layers incomplete');
+
+console.log(`WERK labour/productivity contract OK: ILO/AMS scopes separated; 9 regional snapshots (${comparable} comparable stock ratios); 12 education detail rows + 6 priority groups reconcile; 869-person education residual remains explicit; reform gate advanced to occupation×region matching.`);
