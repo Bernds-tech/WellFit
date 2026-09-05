@@ -1,0 +1,192 @@
+{
+  "version": "2026-09-05-v1",
+  "title": "WERK Österreich – SUB-01 Förderbaseline und Normalisierungsarchitektur",
+  "status": "source-architecture-ready-program-extraction-open",
+  "purpose": "Förderungen über Bundeshaushalt, ESVG, sonstige Staatseinheiten, EU-Mittel und Transparenzdatenbank vergleichbar machen, ohne unterschiedliche Förderbegriffe oder Durchlaufposten zu addieren. Grundlage für SUB-01 Programmreview und spätere verifizierte Nettoeffekte.",
+  "checked_at": "2026-09-05",
+  "canonical_gap": "GAP-SUB-01",
+  "source_layers": [
+    {
+      "id": "SUB-BHG-DIRECT",
+      "name": "Direkte Förderungen Bundeshaushalt gemäß BHG",
+      "authority": "Bundesministerium für Finanzen",
+      "coverage": "Erfolg 2014-2025; BVA 2026, 2027, 2028",
+      "dataset_update": "2026-08-18",
+      "accounting_view": "Bundeshaushalt / Zahlungs- bzw. Budgetpositionen",
+      "use": "Programm- und Voranschlagsstellenreview auf Bundesebene",
+      "not_equal_to": ["gesamtstaatliche Förderung", "ESVG-Fördertransaktionen", "Transparenzdatenbank-Auszahlungen"]
+    },
+    {
+      "id": "SUB-ESVG-HISTORY",
+      "name": "Transaktionen mit Förderungscharakter gemäß ESVG",
+      "authority": "BMF / Statistik Austria VGR",
+      "coverage": "bis einschließlich 2025",
+      "dataset_update": "2026-01-14",
+      "classes": ["D.3 Subventionen", "D.7 sonstige laufende Transfers", "D.9 Vermögenstransfers"],
+      "accounting_view": "periodengerechte Volkswirtschaftliche Gesamtrechnung",
+      "use": "gesamtstaatliche und internationale Vergleichbarkeit",
+      "not_equal_to": ["direkte BHG-Förderung", "reine Budgetauszahlung"]
+    },
+    {
+      "id": "SUB-ESVG-FORECAST",
+      "name": "Öffentliche Finanzen / ESVG-Prognose",
+      "authority": "Bundesministerium für Finanzen",
+      "coverage": "2026-2031 inklusive D.3, D.7, D.9",
+      "dataset_update": "2026-08-10",
+      "accounting_view": "gesamtstaatlicher ESVG-Referenzpfad",
+      "use": "SUB-01 Baseline gegen bereits budgetierte Förder-/Transferentwicklung",
+      "not_equal_to": ["Programm-Inventar", "verifizierbares Einsparpotenzial"]
+    },
+    {
+      "id": "SUB-TDB",
+      "name": "Transparenzdatenbank / Transparenzportal",
+      "authority": "BMF / Gebietskörperschaften",
+      "coverage": "Leistungs-/Förderangebote Bund und Länder; Empfängertransparenz nach TDBG",
+      "accounting_view": "Leistung/Förderung nach Transparenzdatenbankgesetz und Empfangszeitpunkt",
+      "use": "Programminventar, Überschneidungen, Mehrfachförderungsprüfung, Gebietskörperschaften",
+      "not_equal_to": ["BHG-Förderungsbericht", "ESVG-Transaktionssumme"],
+      "structural_note": "Seit 2026 sind Länder samt ausgelagerten Förderabwicklern zur Einmeldung und Nutzung der TDB verpflichtet; damit verbessert sich die Basis für einen gebietskörperschaftenübergreifenden Programmreview."
+    }
+  ],
+  "official_baseline": {
+    "direct_federal_subsidies_2024_eur_billion": 12.6,
+    "direct_federal_subsidies_bva_2026_eur_billion": 10.1,
+    "federal_taskforce_designable_volume_2026_eur_billion": 7.7,
+    "taskforce_savings_targets_pct_of_designable_volume": {
+      "2027": 3.2,
+      "2028": 5.8,
+      "2029": 8.4
+    },
+    "taskforce_planned_total_savings_2026_2029_eur_billion": 1.95,
+    "status": "government_baseline_planned",
+    "werk_rule": "Das 7,7-Mrd.-Volumen ist ein Prüf-/Gestaltungsuniversum, kein Einsparpotenzial. Die Regierungsziele sind bereits Baseline; WERK darf nur zusätzliche verifizierte Nettoeffekte jenseits dieses Pfads anrechnen."
+  },
+  "bhg_esvg_reconciliation_examples_2024_eur_billion": [
+    {
+      "item": "EU-Beitrag",
+      "value": 3.1,
+      "bhg_direct_subsidy": false,
+      "esvg_funding_character": true,
+      "rule": "Nicht als nationale Fördermaßnahme missverstehen."
+    },
+    {
+      "item": "Prämien und Erstattungen, insbesondere Forschungsprämie",
+      "value": 1.2,
+      "bhg_direct_subsidy": false,
+      "esvg_funding_character": true,
+      "rule": "Steuer-/Erstattungsmechanismus getrennt von direkter BHG-Förderung führen."
+    },
+    {
+      "item": "GSBG-Umsatzsteuerrückerstattungen an Gesundheitseinrichtungen",
+      "value": 1.0,
+      "bhg_direct_subsidy": false,
+      "esvg_funding_character": true,
+      "rule": "Gesundheitssystem-Transfer nicht mit Förderprogrammreview vermischen."
+    },
+    {
+      "item": "Regionaler Klimabonus",
+      "value": 1.9,
+      "bhg_direct_subsidy": false,
+      "esvg_funding_character": true,
+      "rule": "Transfer-/Rückvergütungscharakter separat klassifizieren."
+    },
+    {
+      "item": "Förderungen sonstiger Bundeseinheiten",
+      "value": 3.2,
+      "bhg_direct_subsidy": "partly_overlap_via_transfers_to_entities",
+      "esvg_funding_character": true,
+      "rule": "Überweisungen des Bundes an Abwicklungsstellen gegen tatsächliche Auszahlungen der Einheiten deduplizieren."
+    },
+    {
+      "item": "Direkte EU-Förderungen als Durchlaufposten",
+      "value": 1.5,
+      "bhg_direct_subsidy": "included_in_budget_outflows",
+      "esvg_funding_character": false,
+      "rule": "Nicht als österreichischer Finanzierungseffekt oder nationales Sparpotenzial zählen."
+    }
+  ],
+  "normalisation_dimensions": [
+    "program_id",
+    "program_name",
+    "government_level",
+    "responsible_body",
+    "processing_body",
+    "legal_basis",
+    "beneficiary_group",
+    "policy_field_id",
+    "funding_type_bhg",
+    "esvg_class",
+    "cash_year",
+    "economic_reference_year",
+    "budget_or_outturn",
+    "federal_financing_eur",
+    "state_financing_eur",
+    "municipal_financing_eur",
+    "eu_financing_eur",
+    "rrf_financing_eur",
+    "other_public_financing_eur",
+    "administration_cost_eur",
+    "start_date",
+    "end_date",
+    "sunset_clause",
+    "evaluation_status",
+    "outcome_kpi",
+    "additionality_evidence",
+    "overlap_cluster",
+    "duplicate_risk",
+    "government_baseline_saving_already_booked_eur",
+    "werk_additional_net_effect_eur",
+    "evidence_status"
+  ],
+  "program_review_gates": [
+    "Ziel und Rechtsgrundlage vorhanden",
+    "Empfängergruppe und Fördergegenstand eindeutig",
+    "Bund/Land/Gemeinde/EU-Finanzierungsanteile getrennt",
+    "BHG- und ESVG-Sicht reconciliert",
+    "Durchlaufposten und Zahlungen an Abwicklungsstellen dedupliziert",
+    "Verwaltungs-/Abwicklungskosten ausgewiesen",
+    "Überschneidungen mit anderen Programmen geprüft",
+    "Additionalität bzw. Mitnahmeeffekte geprüft",
+    "Outcome-KPI statt nur Auszahlungsquote vorhanden",
+    "Befristung/Sunset oder begründete Dauerhaftigkeit dokumentiert",
+    "bereits beschlossene Regierungs-Einsparung abgezogen",
+    "Transformations- und Übergangskosten berücksichtigt"
+  ],
+  "classification": {
+    "retain": "Wirkung nachgewiesen, öffentliche Aufgabe plausibel, keine bessere Alternative mit höherem Netto-Nutzen.",
+    "redesign": "Ziel sinnvoll, aber Zielgruppe, Förderhöhe, Abwicklung oder Zuständigkeit ineffizient.",
+    "merge": "Inhaltliche Überschneidung mit anderen Programmen; gemeinsamer Vollzug reduziert Doppelstrukturen.",
+    "transfer_level": "Sachlich falsche Gebietskörperschaft; Finanzierung und Personal müssen mitwandern.",
+    "sunset": "Wirkung/Additionalität nicht ausreichend oder Zweck entfallen; Übergangsfolgen vorher prüfen.",
+    "evaluation_open": "Noch keine belastbare Entscheidung mangels Outcome-/Kosten-/Rechtsdaten."
+  },
+  "prohibited_shortcuts": [
+    "7,7 Mrd. Euro gestaltbares Volumen als Sparpotenzial behandeln",
+    "direkte Bundesförderungen und ESVG-Transaktionen addieren",
+    "EU-Durchlaufmittel als österreichische Einsparung buchen",
+    "Überweisung an Förderstelle und Auszahlung der Förderstelle doppelt zählen",
+    "BVA-Zahlungsjahr und ESVG-Referenzjahr ohne Periodenabgrenzung vermischen",
+    "Regierungseinsparungen 2026-2029 nochmals als WERK-Effekt buchen",
+    "Fördervolumen ohne Outcomeprüfung proportional kürzen",
+    "Bruttoeinsparung ohne Transformations-, Steuer-, Beschäftigungs- oder Ko-Finanzierungseffekte als Nettoeffekt ausweisen"
+  ],
+  "extraction_status": {
+    "official_source_catalog": "complete",
+    "accounting_reconciliation_rules": "complete",
+    "government_savings_baseline": "captured",
+    "federal_program_level_csv_2014_2028": "source_available_not_normalised",
+    "esvg_history_to_2025": "source_available_not_normalised",
+    "esvg_forecast_2026_2031": "source_available_not_normalised",
+    "cross_level_transparency_program_inventory": "source_available_extraction_open",
+    "tax_expenditure_inventory": "separate_gap_remains",
+    "gap_sub_01_status": "partially_closed"
+  },
+  "next_steps": [
+    "Bundesförderungs-CSV auf ein eindeutiges Programm-/Voranschlagsstellen-Schema normalisieren.",
+    "ESVG D.3/D.7/D.9 historisch und 2026-2031 als eigene Zeitreihen extrahieren.",
+    "BHG-zu-ESVG-Bridge maschinell rechnen und Restdifferenz erklären.",
+    "TDB-Programme nach Thema und Gebietskörperschaft clustern, um echte Überschneidungen zu identifizieren.",
+    "Regierungs-Einsparungspfad 2026-2029 je Programm soweit veröffentlicht zuordnen.",
+    "Erst danach WERK-SUB-01-Einsparungsszenarien rechnen."
+  ]
+}
