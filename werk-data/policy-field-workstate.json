@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v1",
+  "version": "2026-09-06-v2",
   "title": "WERK Österreich – Arbeitsstand der zwölf politischen Leitfelder",
   "purpose": "Verknüpft die zwölf Programm-Leitfelder mit vorhandenen Fachanalysen, kanonischen Datenbaselines, Reformakten und offenen Arbeitsblöcken. Fehlende Reformakten werden sichtbar ausgewiesen statt durch allgemeine Programmtexte verdeckt.",
   "rules": [
@@ -7,7 +7,7 @@
     "Ein Leitfeld darf mehrere fachliche Datenuniversen enthalten; diese werden nicht automatisch addiert.",
     "Reform-IDs dürfen nur referenziert werden, wenn sie in reforms.json existieren.",
     "Datenlücken-IDs referenzieren das Abschlussregister und bleiben offen, solange ihr dortiger Status nicht geschlossen ist.",
-    "Fehlt eine eigene Reformakte, bleibt reform_gap ausdrücklich true.",
+    "Fehlt eine eigene Reformakte oder fehlen wesentliche Teilbereiche eines Leitfelds im Reformregister, bleibt reform_gap ausdrücklich true.",
     "Querschnittswirkungen zwischen Leitfeldern werden bei späteren Wirkungsrechnungen zusätzlich geprüft."
   ],
   "fields": [
@@ -39,7 +39,7 @@
       "analysis_artifacts": ["analysis-labour-productivity.json"],
       "canonical_data": [],
       "reform_ids": [],
-      "gap_ids": [],
+      "gap_ids": ["GAP-LAB-01"],
       "reform_gap": true,
       "work_status": "Fachanalyse vorhanden; eigene WERK-Reformakten fehlen",
       "next_work": ["Arbeitsmarkt-/Fachkräfte-Baseline in kanonischen Datensatz überführen", "Produktivitäts- und Standortreformen als einzelne Wirkungsakten definieren"]
@@ -50,7 +50,7 @@
       "analysis_artifacts": ["analysis-program-review.json", "analysis-public-procurement.json", "analysis-public-sector-assets.json", "analysis-state-roi-transformation.json"],
       "canonical_data": ["admin-model.json", "state-slimming-baseline.json", "state-slimming-costing-inputs.json", "state-slimming-workstreams.json", "state-slimming-attrition-policy.json"],
       "reform_ids": ["PART-01", "ADM-01", "ADM-02"],
-      "gap_ids": [],
+      "gap_ids": ["GAP-PROGRAM-01", "GAP-ASSET-01", "GAP-ROI-01"],
       "reform_gap": false,
       "work_status": "mehrere Reformpfade vorhanden; vollständige Euro-Nettoeffekte noch nicht geschlossen",
       "next_work": ["Verwaltungsreformen gegen natürliche Fluktuation und Transformationskosten durchrechnen", "Beschaffung und Staatsvermögen stärker in Reformregister überführen"]
@@ -94,7 +94,7 @@
       "analysis_artifacts": ["analysis-housing-building.json", "analysis-municipal-finance.json", "analysis-regional-disparities.json", "analysis-agriculture-food.json"],
       "canonical_data": ["competence-inventory.json", "regions.json"],
       "reform_ids": ["REG-01"],
-      "gap_ids": ["GAP-FISC-02"],
+      "gap_ids": ["GAP-FISC-02", "GAP-MUN-01"],
       "reform_gap": true,
       "work_status": "Regionalitätsreform vorhanden; Wohnen, Gemeinden und Landwirtschaft brauchen eigene Reformakten",
       "next_work": ["Gemeindefinanzen und Finanzausgleich mit Kompetenzmodell verbinden", "Wohnkosten-/Boden-/Raumordnungsreform als eigene Akte aufbauen", "Landwirtschafts- und Regionalförderungen wirkungsbezogen strukturieren"]
@@ -147,7 +147,7 @@
   "summary": {
     "fields_total": 12,
     "fields_with_at_least_one_reform": 6,
-    "fields_with_explicit_reform_gap": 7,
-    "interpretation": "Ein reform_gap bedeutet nicht, dass WERK zu diesem Thema keine Position oder Analyse hat. Es bedeutet, dass noch keine ausreichend abgegrenzte, gerechnete Reformakte im zentralen Reformregister existiert. Leitfeld 8 hat trotz REG-01 zusätzliche wesentliche Teilbereiche ohne eigene Reformakte."
+    "fields_with_explicit_reform_gap": 8,
+    "interpretation": "Ein reform_gap bedeutet nicht, dass WERK zu diesem Thema keine Position oder Analyse hat. Es bedeutet, dass noch keine ausreichend abgegrenzte, gerechnete Reformakte für alle wesentlichen Teilbereiche im zentralen Reformregister existiert. Leitfelder 8 und 12 haben bereits einzelne Reformakten, aber weiterhin wesentliche Teilbereiche ohne eigene Reformakte."
   }
 }
