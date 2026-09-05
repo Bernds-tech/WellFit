@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate care scopes, state totals and long-term projection guards
+      - name: Validate care scopes, state totals, transfer guards and long-term projections
         shell: bash
         run: |
           set -euo pipefail
@@ -51,20 +51,37 @@ jobs:
           eq(vte,s.national.fte_total_year_end,0.2,'CARE Länder FTE total');
           eq(mobile,s.national.mobile_recipients_annual,0.1,'CARE Länder mobile recipients total');
 
-          const ex=s.expenditure_by_service_eur;
-          eq(ex.mobile+ex.day_care+ex.stationary_including_short_term+ex.alternative_housing+ex.case_and_care_management,s.national.gross_expenditure_eur,1,'CARE service expenditure total');
+          const gross=s.gross_expenditure_by_service_eur;
+          eq(gross.mobile+gross.day_care+gross.stationary_including_short_term+gross.alternative_housing+gross.case_and_care_management,s.national.gross_expenditure_eur,1,'CARE gross service expenditure total');
+          const net=s.net_expenditure_by_service_eur;
+          eq(net.mobile+net.stationary+net.day_care+net.short_term_care+net.alternative_housing+net.case_and_care_management+net.multi_hour_relief,s.national.net_service_expenditure_eur,1,'CARE net service expenditure total');
+          if(!(s.national.net_service_expenditure_eur<s.national.gross_expenditure_eur))fail('CARE net service expenditure must be below gross expenditure');
           eq(s.national.fte_mobile+s.national.fte_day_care+s.national.fte_stationary+s.national.fte_alternative_housing,s.national.fte_total_year_end,0.2,'CARE national FTE service total');
+
+          const recipientKeys=['mobile_recipients_annual','stationary_recipients_annual','day_care_recipients_annual','short_term_care_recipients_annual','alternative_housing_recipients_annual','case_and_care_management_recipients_annual','multi_hour_relief_recipients_annual'];
+          for(const k of recipientKeys)if(!Number.isFinite(s.national[k])||s.national[k]<0)fail(`Invalid CARE national recipient series ${k}`);
+          if(!(s.national.coverage_rate_pct>=s.national.statutory_target_coverage_rate_pct))fail('National care coverage rate should meet/exceed 2024 statutory target');
+          if(!String(s.national.coverage_definition_note).includes('nicht')&&!String(s.national.coverage_definition_note).includes('not'))fail('CARE coverage-rate non-reconstruction guard missing');
+
+          const f=c.federal_care_benefits_2024;
+          eq(f.pflegegeld.beneficiaries,c.pflegegeld_2024.beneficiaries_total_2024_12_31,0,'Federal Pflegegeld beneficiary anchor');
+          if(!(f.pflegegeld.expenditure_eur_billion>3))fail('Federal Pflegegeld expenditure anchor implausible/missing');
+          if(!String(f.rule).includes('nicht'))fail('Federal care benefits aggregation guard missing');
 
           const pg=c.pflegegeld_2024;
           if(!Array.isArray(pg.by_state_including_abroad)||pg.by_state_including_abroad.length!==10)fail('Pflegegeld expected 9 Länder + Ausland');
-          const pgSum=pg.by_state_including_abroad.reduce((x,r)=>x+r.beneficiaries,0);
-          eq(pgSum,pg.beneficiaries_total_2024_12_31,0,'Pflegegeld beneficiaries total');
+          eq(pg.by_state_including_abroad.reduce((x,r)=>x+r.beneficiaries,0),pg.beneficiaries_total_2024_12_31,0,'Pflegegeld beneficiaries total');
           eq(pg.decision_body_shares_pct.pension_insurance+pg.decision_body_shares_pct.self_employed_social_insurance+pg.decision_body_shares_pct.public_service_railway_mining_insurance,100,0.1,'Pflegegeld decision-body shares');
 
           const pf=c.pflegefonds_2024;
           if(!Array.isArray(pf.states)||pf.states.length!==9)fail('Pflegefonds expected 9 Länder rows');
           eq(pf.states.reduce((x,r)=>x+r.eur,0),pf.total_eur,0.02,'Pflegefonds Länder total');
+          eq(pf.financing_share_pct.federal+pf.financing_share_pct.states,100,0.01,'Pflegefonds financing shares');
           if(!String(pf.rule).includes('innerstaatliche Transfers'))fail('Pflegefonds consolidation guard missing');
+
+          const shared=c.shared_financing_2024;
+          if(!String(shared.warning).includes('keine addierbare'))fail('Shared-care financing double-count guard missing');
+          eq(shared.twenty_four_hour_care_mio,c.twenty_four_hour_care_2024.funding_expenditure_mio,0.01,'Shared-financing 24h anchor');
 
           const h24=c.twenty_four_hour_care_2024;
           eq(h24.federal_share_mio+h24.state_share_mio,h24.funding_expenditure_mio,0.01,'24h care federal+state funding');
@@ -93,6 +110,7 @@ jobs:
           if(c.coverage?.CARE_J_service_recipients_places_hours_by_service_and_state!=='open_raw_ods_not_parsed')fail('CARE raw service detail must remain open');
           if(c.coverage?.CARE_K_2025_service_statistics!=='future_release_2026-12-15')fail('CARE 2025 release gate mismatch');
           if(c.coverage?.CARE_L_werk_reform_transition_distribution_model!=='open')fail('CARE reform model must remain open');
+          for(const k of ['CARE_M_national_2024_service_recipients_and_net_costs','CARE_N_national_coverage_rate_2024','CARE_O_federal_care_benefits_2024'])if(c.coverage?.[k]!=='closed')fail(`${k} should be closed`);
           if(c.coverage?.gap_care_01_status!=='partially_closed')fail('GAP-CARE-01 must remain partial');
 
           const rules=(c.accounting_rules||[]).join(' ');
@@ -100,5 +118,5 @@ jobs:
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-CARE-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-CARE-01 closure register must remain partial');
-          console.log(`Care contract OK: 9 Länder reconcile to EUR ${(s.national.gross_expenditure_eur/1e9).toFixed(3)}bn, ${s.national.fte_total_year_end.toFixed(1)} FTE and ${s.national.mobile_recipients_annual} mobile recipients; Pflegegeld/Pflegefonds/24h and 2050 personnel/cost projections remain separate scopes.`);
+          console.log(`Care contract OK: 9 Länder, gross/net service cost, 70% national coverage vs 62.5% target, federal cash/support benefits, Pflegefonds and 24h transfers, plus 2050 personnel/cost paths remain correctly separated.`);
           NODE
