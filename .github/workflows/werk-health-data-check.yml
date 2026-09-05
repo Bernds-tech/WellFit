@@ -5,7 +5,7 @@ on:
     branches:
       - werk-v49-preview-host
     paths:
-      - 'werk-data/health-baseline-2024-2025.json'
+      - 'werk-data/health-baseline-2024-2031.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-health-data-check.yml'
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
           const fail=m=>{throw new Error(m)};
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
-          const h=read('werk-data/health-baseline-2024-2025.json');
+          const h=read('werk-data/health-baseline-2024-2031.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
           const tol=1.1;
 
@@ -69,13 +69,7 @@ jobs:
             if(names.has(r.name))fail(`Duplicate hospital Land ${r.name}`);names.add(r.name);
             eq(r.federal+r.state+r.municipalities+r.social_security,r.total,1.1,`${r.name} hospital payer total`);
           }
-          const sums=hosp.states.reduce((a,r)=>({
-            federal:a.federal+r.federal,
-            states:a.states+r.state,
-            municipalities:a.municipalities+r.municipalities,
-            social_security:a.social_security+r.social_security,
-            total:a.total+r.total
-          }),{federal:0,states:0,municipalities:0,social_security:0,total:0});
+          const sums=hosp.states.reduce((a,r)=>({federal:a.federal+r.federal,states:a.states+r.state,municipalities:a.municipalities+r.municipalities,social_security:a.social_security+r.social_security,total:a.total+r.total}),{federal:0,states:0,municipalities:0,social_security:0,total:0});
           for(const k of ['federal','states','municipalities','social_security','total'])eq(sums[k],nat[k],1.1,`Länder sum vs national ${k}`);
           if(!(nat.total < payer.public_current_total))fail('Hospital financing must remain a subset of public current health expenditure');
 
@@ -86,6 +80,23 @@ jobs:
             eq(parts,c.total[i],0.11,`${c.years[i]} COFOG function total`);
           }
           if(Math.abs(c.total[0]*1000-sha.public_current[0])<100)fail('SHA public current and COFOG government health must remain explicitly non-identical accounting universes');
+
+          const ug=h.federal_budget_ug24_mio;
+          const ugYears=[2025,2026,2027,2028,2029,2030,2031];
+          if(JSON.stringify(ug.years)!==JSON.stringify(ugYears))fail('UG24 year universe mismatch');
+          if(!Array.isArray(ug.outflows)||ug.outflows.length!==7||ug.outflows.some(v=>!Number.isFinite(v)))fail('UG24 outflow path invalid');
+          if(JSON.stringify(ug.known_detail_years)!==JSON.stringify([2025,2026,2027,2028]))fail('UG24 detail horizon mismatch');
+          const d=ug.known_major_lines_mio;
+          for(const k of ['hospital_federal_purpose_grant','fiscal_equalisation_health','health_reform_fund','contribution_replacements_self_employed_social_insurance','health_reform_measures_financing_act','covid_19_measures','other_outflows']){
+            if(!Array.isArray(d[k])||d[k].length!==4)fail(`UG24 detail series invalid ${k}`);
+          }
+          for(let i=0;i<4;i++){
+            const parts=d.hospital_federal_purpose_grant[i]+d.fiscal_equalisation_health[i]+d.health_reform_fund[i]+d.contribution_replacements_self_employed_social_insurance[i]+d.health_reform_measures_financing_act[i]+d.covid_19_measures[i]+d.other_outflows[i];
+            eq(parts,ug.outflows[i],2.1,`${ug.known_detail_years[i]} UG24 major-line reconciliation`);
+          }
+          if(!(ug.outflows[6]<ug.outflows[5]))fail('UG24 2031 should reflect lower ceiling after health-reform-fund expiry');
+          if(!(ug.outflows[0] < sha.public_current[1]))fail('UG24 must remain much smaller than total public SHA and must not substitute it');
+          if(h.coverage?.HEALTH_J_federal_budget_ug24_2025_2031!=='closed_total_path_detail_to_2028')fail('UG24 closure status mismatch');
 
           const ltc=h.long_term_care_overlap_guard_2024_mio;
           eq(ltc.sha_public_long_term_care+ltc.sha_private_long_term_care,ltc.sha_current_long_term_care_total,0.1,'SHA LTC public+private');
@@ -104,5 +115,5 @@ jobs:
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-HEALTH-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-HEALTH-01 closure register must remain partial');
 
-          console.log(`Health contract OK: SHA 2024/2025 identities, 2024 functions, public payer split, 9-Länder hospital financing, COFOG and LTC scope guards reconcile without cross-universe double counting.`);
+          console.log(`Health contract OK: SHA 2024/2025, functions, payer split, 9-Länder hospitals, COFOG, UG24 2025-2031 and LTC scope guards reconcile without cross-universe double counting.`);
           NODE
