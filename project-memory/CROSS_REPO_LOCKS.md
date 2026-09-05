@@ -27,7 +27,18 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
-No active Rudi implementation cross-repo lock. The WellFit-now implementation is merged; remaining public ChatGPT Site synchronization and visual acceptance are graphical WellFit/Sites work tracked by `WFG-RUDI-WORLD-001` / `WF-LOOP-006`.
+## XLOCK-WF-RUDI-FALLBACK-20260906
+- Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-FALLBACK-001`
+- Status: ACTIVE
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: bounded pre-Site-sync hardening of the already accepted DOM-bound Rudi architecture only: stop autonomous/journey timers and route guides when presentation falls back to static/reduced-motion, propagate WebGL/GLTF failure into static mode, and avoid loading animation clips unused by the active runtime. No visual redesign, new controller, backend/auth/data, mission/reward/economy, location/camera, native Buddy runtime or public Site publication.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`; physical graphical ownership drift remains under `WF-MIG-001`.
+- Branches/PRs: WellFit `codex/rudi-fallback-hardening-coordination-20260906`; WellFit-now `codex/rudi-static-fallback-hardening-20260906`.
+- Acquired: 2026-09-06 Europe/Vienna
+- Updated: 2026-09-06 after static audit of merged WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b` found that a runtime error-boundary fallback still left the WebGL state machine active and that reduced-motion/static transitions could leave an already scheduled surface journey completion alive. The active controller also loads five clips that it never selects.
+- Resume from: harden the existing single `LivingRudiWorld` controller and its machine validator; run exact-head Rudi/lint/type/build/required CI. Release this lock only after the new WellFit-now merge is recorded in the Site sync manifest. Do not change the physical DOM-world contract or restart the deleted viewport controller.
 
 No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
 
@@ -59,7 +70,7 @@ No active avatar-attention implementation cross-repo lock. The remaining public 
 - Branches/PRs: WellFit `codex/rudi-living-world-coordination-20260905` / PR #29; WellFit-now merged PR #401.
 - Acquired: 2026-09-05 Europe/Vienna
 - Released: 2026-09-05 after WellFit-now PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and Project Memory Guard/Quality/Status, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`.
-- Result: the technical/web bridge for the DOM-bound living Rudi is merged. Remaining work is exact public ChatGPT Site source synchronization plus real-WebGL visual acceptance under WellFit graphical authority; no further cross-repo runtime mutation is required for that step.
+- Result: the technical/web bridge for the DOM-bound living Rudi is merged. Remaining work is exact public ChatGPT Site source synchronization plus real-WebGL visual acceptance under WellFit graphical authority; no further cross-repo runtime mutation is required for that step unless a bounded pre-sync defect is independently evidenced under a new lock.
 - Resume from: WellFit-now main `9ae4f278a90d17d612f0399c40babd32c344e02b` and `WF-LOOP-006`; do not restart the deleted viewport-bound controller.
 
 ## XLOCK-WF-AVATAR-PUPPET-20260828
