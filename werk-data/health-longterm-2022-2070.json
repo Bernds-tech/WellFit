@@ -1,0 +1,71 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Gesundheits-Langfristszenarien 2022/2023–2070",
+  "status":"official_external_scenarios_separated",
+  "checked_at":"2026-09-05",
+  "purpose":"Langfristige Gesundheitsausgabenrisiken als getrennte Szenarien führen. FISK-No-Policy-Change und EU-2024-Ageing-Report basieren auf unterschiedlichen Modellannahmen und dürfen weder gemittelt noch zu einer synthetischen WERK-Baseline verschmolzen werden.",
+  "sources":[
+    {
+      "id":"FISK-NHB-2025",
+      "authority":"Büro des Fiskalrates",
+      "title":"Bericht über die fiskalische Nachhaltigkeit 2025 / langfristige demografieabhängige Ausgaben",
+      "publication_year":2025,
+      "url":"https://www.fiskalrat.at/dam/jcr:e380838b-4854-4647-a02e-11ea0d92c8aa/FISK_NHB_2025_Web.pdf"
+    },
+    {
+      "id":"FISK-HEALTH-REFORM-2026",
+      "authority":"Büro des Fiskalrates / Gesundheit Österreich GmbH",
+      "title":"Reformoptionen zur Sicherung der nachhaltigen Finanzierbarkeit des österreichischen Gesundheitssystems",
+      "source_date":"2026-06-01",
+      "url":"https://www.fiskalrat.at/dam/jcr:e09ac39c-5a89-48c5-91b2-65370933a68c/20260601-FISK-B%C3%BCro-Reformoptionen%20f%C3%BCr%20das%20%C3%B6sterreichische%20Gesundeheitssystem.pdf"
+    },
+    {
+      "id":"EC-AGEING-2024",
+      "authority":"European Commission / Economic Policy Committee",
+      "title":"2024 Ageing Report – Austria health care projections",
+      "publication_date":"2024-04-18",
+      "url":"https://economy-finance.ec.europa.eu/document/download/971dd209-41c2-425d-94f8-e3c3c3459af9_en?filename=ip279_lt.pdf"
+    }
+  ],
+  "fisk_no_policy_change":{
+    "scope":"Öffentliche Gesundheitsausgaben im FISK-OLG/Nachhaltigkeitsmodell; No-Policy-Change mit langfristiger Fortschreibung demografischer und nichtdemografischer Kostentreiber.",
+    "years":[2023,2040,2070],
+    "health_expenditure_pct_gdp":[7.7,8.9,10.3],
+    "change_2023_2070_pp":2.6,
+    "drivers":["demografische Alterung","höhere Stückkosten im Alter","medizinisch-technischer Fortschritt","Lohn- und Preisentwicklung","historisch über Produktivität/Inflation hinausgehende Stückkostendynamik"],
+    "interpretation":"No-Policy-Change-Risikopfad. Er ist keine Prognose eines unvermeidbaren Ergebnisses und kein WERK-Zielpfad."
+  },
+  "eu_ageing_2024_baseline":{
+    "scope":"Harmonisierte EU-Ageing-Report-Methodik für öffentliche Gesundheitsausgaben; Baseline und Sensitivitätsszenarien.",
+    "years":[2022,2030,2040,2050,2060,2070],
+    "baseline_pct_gdp":[7.8,8.0,8.4,8.8,8.8,8.9],
+    "change_2022_2070_pp":1.1,
+    "risk_scenario_difference_from_baseline_pp":[0.0,0.2,0.5,0.8,0.9,1.0],
+    "demographic_scenario_difference_from_baseline_pp":[0.0,-0.1,-0.1,-0.2,-0.2,-0.2],
+    "healthy_ageing_difference_from_baseline_pp":[0.0,-0.1,-0.2,-0.3,-0.4,-0.5],
+    "no_healthy_ageing_difference_from_baseline_pp":[0.0,0.1,0.2,0.3,0.4,0.5],
+    "labour_intensity_difference_from_baseline_pp":[0.0,-0.2,-0.1,0.0,0.2,0.3],
+    "sector_specific_indexation_difference_from_baseline_pp":[0.0,0.0,0.1,0.1,0.1,0.1]
+  },
+  "scenario_comparison":{
+    "fisk_2070_pct_gdp":10.3,
+    "eu_baseline_2070_pct_gdp":8.9,
+    "eu_risk_2070_pct_gdp":9.9,
+    "difference_fisk_vs_eu_baseline_2070_pp":1.4,
+    "rule":"Die Differenz ist modell-/annahmenbedingt und wird als Szenariospanne behandelt. Sie darf nicht als Datenfehler oder als automatisch realisierbares Einsparpotenzial interpretiert werden."
+  },
+  "werk_scenario_rules":[
+    "FISK- und Ageing-Report-Werte werden nicht gemittelt.",
+    "Keine Langfristreform wird gegen einen selektiv günstigen Basispfad gerechnet; mindestens Baseline und Risikopfad werden gezeigt.",
+    "Ein kurzfristiger UG24-Auszahlungsrückgang darf die langfristige Gesundheitsquote nicht mechanisch senken.",
+    "Gesundheits- und Pflegeprojektionen bleiben getrennt; Pflege wird in GAP-CARE-01 separat modelliert.",
+    "Reformwirkungen benötigen einen eigenen Mechanismus: Fallzahlen, Stückkosten, Leistungsverschiebung, Personal, Investition und Übergangskosten.",
+    "Eine Verringerung der öffentlichen Quote durch private Zuzahlungen ist keine Effizienzsteigerung und wird im Verteilungsgate separat ausgewiesen."
+  ],
+  "coverage":{
+    "HEALTH_K_fisk_longterm_2023_2070":"closed",
+    "HEALTH_L_eu_ageing_baseline_and_sensitivities_2022_2070":"closed",
+    "HEALTH_M_werk_reform_scenario_model":"open",
+    "HEALTH_N_transition_and_distribution_costs":"open"
+  }
+}
