@@ -1,0 +1,103 @@
+name: WERK Health Activity Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/health-service-activity-2024.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-health-activity-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health-activity-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate hospital activity, cost and ambulantisation guards
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail=m=>{throw new Error(m)};
+          const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
+          const d=read('werk-data/health-service-activity-2024.json');
+          const gaps=read('werk-data/analysis-data-closure-register.json');
+
+          const costs=d.lgf_costs_2024_eur;
+          eq(costs.ambulatory_cost_centres+costs.stationary_cost_centres+costs.ancillary_cost_centres,costs.end_cost_total,1,'LGF end-cost split');
+          eq(costs.shares_pct.ambulatory+costs.shares_pct.stationary+costs.shares_pct.ancillary,100,0.01,'LGF end-cost shares');
+
+          const st=d.lgf_stationary_2024;
+          if(!(st.actual_beds<st.systemised_beds))fail('Actual beds should remain below systemised beds in 2024 baseline');
+          eq(st.meddok_zero_day_stays/st.meddok_stationary_stays*100,st.zero_day_share_meddok_pct,0.01,'MedDok zero-day share');
+          if(st.stationary_stays_cost_statistics===st.meddok_stationary_stays)fail('Cost-statistics and MedDok stay universes must remain distinct');
+          if(!(d.all_acute_hospitals_2024.stationary_stays>st.meddok_stationary_stays))fail('All-acute stay universe should exceed LGF MedDok universe');
+
+          const a=d.lgf_ambulatory_2024;
+          if(!Array.isArray(d.ambulatory_by_state_2024)||d.ambulatory_by_state_2024.length!==9)fail('Expected 9 Länder ambulatory rows');
+          const names=new Set();
+          const sums={end_cost_eur:0,patients:0,ambulatory_frequencies:0,stationary_patient_frequencies:0,other_hospital_patient_frequencies:0,fte:0};
+          for(const r of d.ambulatory_by_state_2024){
+            if(names.has(r.name))fail(`Duplicate ambulatory Land ${r.name}`);names.add(r.name);
+            sums.end_cost_eur+=r.end_cost_eur;
+            sums.patients+=r.patients;
+            sums.ambulatory_frequencies+=r.ambulatory_frequencies;
+            sums.stationary_patient_frequencies+=r.stationary_patient_frequencies;
+            sums.other_hospital_patient_frequencies+=r.other_hospital_patient_frequencies;
+            sums.fte+=r.fte;
+            eq(r.ambulatory_frequencies/r.patients,r.frequencies_per_patient,0.01,`${r.name} ambulatory frequencies/patient`);
+          }
+          eq(sums.end_cost_eur,a.ambulatory_end_cost_eur,1,'Länder ambulatory end costs');
+          eq(sums.patients,a.ambulatory_patients,0,'Länder ambulatory patients');
+          eq(sums.ambulatory_frequencies,a.frequencies_ambulatory_patients,0,'Länder ambulatory frequencies');
+          eq(sums.stationary_patient_frequencies,a.frequencies_stationary_patients,0,'Länder stationary-patient frequencies');
+          eq(sums.other_hospital_patient_frequencies,a.frequencies_patients_other_hospitals,0,'Länder other-hospital frequencies');
+          eq(sums.fte,a.staff_fte,0.02,'Länder ambulatory FTE');
+          eq(a.ambulatory_end_cost_eur,a.ambulatory_patients*a.cost_per_ambulatory_patient_eur,6000000,'Published rounded ambulatory cost/patient');
+          if(a.meddok_ambulatory_hospital_visits===a.ambulatory_patients||a.meddok_ambulatory_hospital_visits===a.frequencies_ambulatory_patients)fail('Ambulatory visits/patients/frequencies must remain distinct counters');
+
+          const dc=d.day_clinic_potential_universe_2024;
+          const so=dc.stationary_only;
+          eq(so.zero_day+so.one_to_three_days+so.four_to_six_days+so.seven_to_thirteen_days+so.fourteen_to_twenty_days+so.twenty_one_to_twenty_eight_days+so.twenty_nine_plus_days,so.eligible_service_instances_total,0,'Day-clinic stationary-only breakdown');
+          eq(so.zero_day/so.eligible_service_instances_total*100,so.zero_day_share_pct,0.05,'Day-clinic zero-day share');
+          const sa=dc.stationary_and_ambulatory;
+          eq(sa.spitalsambulant+sa.stationary_zero_day+sa.stationary_one_day+sa.stationary_two_days+sa.stationary_three_days+sa.stationary_four_to_six_days+sa.stationary_more_than_six_days,sa.eligible_service_instances_total,0,'Day-clinic combined breakdown');
+          eq(sa.spitalsambulant/sa.eligible_service_instances_total*100,sa.spitalsambulant_share_pct,0.05,'Day-clinic ambulatory share');
+          if(!String(dc.rule).includes('kein Beweis'))fail('Day-clinic no-automatic-savings guard missing');
+
+          const p=d.primary_care_capacity_anchor;
+          if(!(p.pve_count_2025_07_01>p.pve_count_2024_year_end&&p.pve_count_2024_year_end>p.pve_count_2024_04))fail('PVE historical count progression invalid');
+          if(!String(p.freshness_note).includes('Kein 2026'))fail('PVE freshness/no-fabrication guard missing');
+
+          const w=d.waiting_time_baseline;
+          if(!(w.mri_average_days_2024_05_09>w.mri_contract_max_working_days))fail('Historical MRI benchmark should exceed contractual target in source snapshot');
+          if(w.national_elective_surgery_average!=='not_available_as_single_verified_national_series')fail('National elective surgery wait average must remain unavailable');
+          if(!String(w.rule).includes('historical benchmark'))fail('Waiting-time freshness guard missing');
+
+          if(d['2025_specialty_cost_data_gap']?.finding?.length<40)fail('2025 specialty cost gap evidence missing');
+          if(d.coverage?.HEALTH2_H_specialty_case_full_cost_matrix!=='open')fail('Specialty full-cost matrix must remain open');
+          if(d.coverage?.HEALTH2_I_outpatient_extramural_activity_and_unit_costs!=='open')fail('Extramural activity/unit-cost gate must remain open');
+          if(d.coverage?.HEALTH2_J_werk_ambulantisation_scenario_and_transition_costs!=='open')fail('WERK ambulantisation model must remain open');
+          if(d.coverage?.gap_health_02_status!=='partially_closed')fail('GAP-HEALTH-02 data file must remain partial');
+
+          const rules=(d.ambulantisation_accounting_rules||[]).join(' ');
+          for(const token of ['fixed costs','different denominators','not automatically','private households']){
+            if(!rules.toLowerCase().includes(token.toLowerCase()))fail(`Ambulantisation guard missing ${token}`);
+          }
+
+          const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-HEALTH-02');
+          if(!gap||!['offen','teilweise vorhanden'].includes(gap.status))fail('GAP-HEALTH-02 closure-register status invalid');
+          console.log(`Health activity contract OK: EUR ${(costs.end_cost_total/1e9).toFixed(3)}bn LGF end costs, ${st.meddok_stationary_stays} MedDok stays, ${a.ambulatory_patients} ambulatory patients and ${dc.stationary_and_ambulatory.eligible_service_instances_total} day-clinic-eligible service instances remain separately accounted.`);
+          NODE
