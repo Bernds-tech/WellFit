@@ -1,0 +1,50 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – Indirekte Förderungen nach gesetzlicher Grundlage 2022–2024",
+  "status":"budgetdienst-table9-normalised-with-published-sum-discrepancy",
+  "checked_at":"2026-09-05",
+  "source":{"authority":"Parlamentarischer Budgetdienst","title":"Förderungsbericht 2024 – Tabelle 9: Finanzielle Auswirkungen nach gesetzlicher Grundlage","publication":"2026-02-16","url":"https://www.parlament.gv.at/dokument/budgetdienst/budgetberichte/BD-Foerderungsbericht-2024.pdf"},
+  "unit":"Mio. EUR",
+  "years":[2022,2023,2024],
+  "groups":[
+    {"id":"EStG","name":"Einkommensteuergesetz 1988","total":[11788,12088,12292],"federal":[7868,8108,8233]},
+    {"id":"UStG","name":"Umsatzsteuergesetz 1994","total":[6600,7600,8200],"federal":[4400,5070,5520]},
+    {"id":"GSBG","name":"Gesundheits- und Sozialbereich-Beihilfengesetz","total":[2842,3068,3370],"federal":[1900,2050,2250]},
+    {"id":"MinStG","name":"Mineralölsteuergesetz 2022","total":[594,752,852],"federal":[399,504,572]},
+    {"id":"ElAbgG","name":"Elektrizitätsabgabegesetz","total":[630,870,880],"federal":[422,582,592]},
+    {"id":"EnAVG","name":"Energieabgabenvergütungsgesetz","total":[230,40,40],"federal":[155,25,25]},
+    {"id":"NEHG","name":"Nationales Emissionszertifikatehandelsgesetz 2022","total":[35,182,284],"federal":[35,182,284]},
+    {"id":"KStG","name":"Körperschaftsteuergesetz 1988","total":[208,208,208],"federal":[140,140,140]},
+    {"id":"GrEStG","name":"Grunderwerbsteuergesetz 1987","total":[202,192,203],"federal":[11,11,11]},
+    {"id":"ErdgasAbgG","name":"Erdgasabgabegesetz","total":[170,215,215],"federal":[112,143,143]},
+    {"id":"KfzVersNoVA","name":"Kraftfahrzeugsteuergesetz 1992, Versicherungssteuergesetz 1953 und Normverbrauchsabgabegesetz 1991","total":[170,175,185],"federal":[114,117,124]},
+    {"id":"GebG","name":"Gebührengesetz 1957","total":[5,5,5],"federal":[5,5,5]}
+  ],
+  "unquantified_groups":[
+    {"id":"WerbeAbgG","name":"Werbeabgabegesetz 2000","status":"k.A."},
+    {"id":"NeuFöG","name":"Neugründungs-Förderungsgesetz","status":"k.A."}
+  ],
+  "calculated_group_sum_total":[23474,25395,26734],
+  "calculated_group_sum_federal":[15561,16937,17899],
+  "published_sum_row_total":[23474,25394,26734],
+  "published_sum_row_federal":[15561,16937,17899],
+  "published_vs_calculated_discrepancy_total":[0,-1,0],
+  "published_vs_calculated_discrepancy_federal":[0,0,0],
+  "discrepancy_note":"Für 2023 ergeben die publizierten einzelnen Gesetzesgruppen rechnerisch 25.395 Mio. EUR, während die Summenzeile der Tabelle 25.394 Mio. EUR ausweist. WERK führt beide Werte und die 1-Mio.-Differenz transparent; der kanonische Förderungsaggregateintrag 2023 bleibt 25.395 Mio. EUR, weil auch Tabelle 7 diesen Wert ausweist.",
+  "federal_share_2024_pct":67.0,
+  "states_municipalities_residual_2024_mio":8835,
+  "residual_rule":"Bundesanteil 17.899 Mio. EUR und Gesamtvolumen 26.734 Mio. EUR implizieren 8.835 Mio. EUR für Länder/Gemeinden nach Finanzausgleichslogik. Das ist keine eigenständige zusätzliche Förderung, sondern die Verteilung desselben Einnahmenverzichts.",
+  "accounting_rules":[
+    "Gesetzesgruppen und enthaltene Einzelmaßnahmen sind hierarchische Ebenen und dürfen nicht addiert werden.",
+    "k.A.-Gruppen bleiben unquantifiziert; sie dürfen weder mit null gleichgesetzt noch proportional hochgerechnet werden.",
+    "Bundesanteil plus Länder-/Gemeinderesidual entspricht demselben Gesamtvolumen; keine Doppelzählung.",
+    "Publizierte Summenzeile und rechnerische Gruppensumme werden bei Abweichung parallel gespeichert.",
+    "2024-Gesetzesgruppen sind eine Zwischenebene zum vollständigen 93-Maßnahmen-Inventar, kein Ersatz dafür."
+  ],
+  "coverage":{
+    "TAX_I7_law_groups_2022_2024_quantified":"closed",
+    "TAX_I8_unquantified_law_groups_flagged":"closed",
+    "TAX_I9_published_sum_reconciliation":"closed_with_2023_one_mio_discrepancy",
+    "full_93_measure_inventory":"open"
+  }
+}
