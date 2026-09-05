@@ -1,0 +1,85 @@
+name: WERK Baseline Legal Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/government-package-2025-2029.json'
+      - 'werk-data/government-new-measures-2026-2031.json'
+      - 'werk-data/government-legal-basis-map.json'
+      - 'werk-data/government-baseline-scope-map.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-baseline-legal-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  legal-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate baseline scope and legal basis references
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs=require('fs');
+          const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+          const fail=m=>{throw new Error(m)};
+          const old=read('werk-data/government-package-2025-2029.json');
+          const fresh=read('werk-data/government-new-measures-2026-2031.json');
+          const law=read('werk-data/government-legal-basis-map.json');
+          const map=read('werk-data/government-baseline-scope-map.json');
+          const gaps=read('werk-data/analysis-data-closure-register.json');
+
+          const packageIds=new Set((law.packages||[]).map(x=>x.id));
+          if(packageIds.size!==(law.packages||[]).length) fail('Duplicate legal package IDs');
+          for(const required of ['LAW-BSMG-2025-I','LAW-BSMG-2025-II','LAW-BBG-2025','LAW-BFG-2025','LAW-BFG-2026','LAW-BFG-2027','LAW-BFG-2028','LAW-BFRG-2027-2030','LAW-BBG-2027-2028']){
+            if(!packageIds.has(required)) fail(`Missing legal package ${required}`);
+          }
+
+          const oldScopes=[
+            ...old.expenditure.groups.map(x=>x.id),
+            ...old.expenditure.offensive_groups.map(x=>x.id),
+            ...old.revenue.groups.map(x=>x.id),
+            ...old.revenue.offensive_groups.map(x=>x.id)
+          ];
+          const newScopes=[
+            ...fresh.expenditure.consolidation_groups.map(x=>x.id),
+            ...fresh.expenditure.offensive_groups.map(x=>x.id),
+            ...fresh.revenue.consolidation_groups.map(x=>x.id),
+            ...fresh.revenue.offensive_groups.map(x=>x.id)
+          ];
+          const allScopes=[...oldScopes,...newScopes];
+          const mappingById=new Map();
+          for(const m of map.mappings||[]){
+            if(mappingById.has(m.scope_id)) fail(`Duplicate scope mapping ${m.scope_id}`);
+            mappingById.set(m.scope_id,m);
+            const refs=[...(m.legal_package_ids||[]),...(m.legal_package_id?[m.legal_package_id]:[])];
+            for(const ref of refs) if(!packageIds.has(ref)) fail(`Unknown legal package ${ref} from ${m.scope_id}`);
+            if(!m.quality) fail(`Missing quality for ${m.scope_id}`);
+            if(m.quality==='derived_effect'&&!m.derived_from) fail(`Derived effect lacks source for ${m.scope_id}`);
+          }
+          const missing=allScopes.filter(id=>!mappingById.has(id));
+          const stale=[...mappingById.keys()].filter(id=>!allScopes.includes(id));
+          if(missing.length) fail(`Unclassified baseline scopes: ${missing.join(' | ')}`);
+          if(stale.length) fail(`Stale scope mappings without source row: ${stale.join(' | ')}`);
+          if(new Set(allScopes).size!==allScopes.length) fail('Duplicate scope IDs across government matrices');
+
+          const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-BASE-01');
+          const baseE=(gap?.subgates||[]).find(x=>x.id==='BASE-E');
+          if(!baseE||baseE.status!=='teilweise vorhanden') fail('BASE-E must remain partial until article/paragraph and effective-date mapping is complete');
+          if(law.coverage?.every_measure_article_mapping!=='partial'||law.coverage?.every_measure_effective_date!=='partial') fail('Legal basis map must not overclaim measure-level closure');
+
+          console.log(`Baseline legal contract OK: ${allScopes.length} source scopes classified; ${packageIds.size} legal packages resolved; measure-level effective dates correctly remain partial.`);
+          NODE
