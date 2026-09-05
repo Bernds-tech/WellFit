@@ -1,0 +1,129 @@
+name: WERK Fiscal Data Contract
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/budget-baseline-2026-2031.json'
+      - 'werk-data/medium-term-fiscal-path.json'
+      - 'werk-data/government-baseline-2025-2031.json'
+      - 'werk-data/government-package-2025-2029.json'
+      - 'werk-data/government-new-measures-2026-2031.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - '.github/workflows/werk-fiscal-data-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fiscal-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate fiscal and government baselines
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const read = p => JSON.parse(fs.readFileSync(p, 'utf8'));
+          const eq = (a,b,tol,msg) => { if (Math.abs(a-b) > tol) fail(`${msg}: ${a} != ${b}`); };
+          const arr = (x,n,msg) => { if (!Array.isArray(x) || x.length !== n || x.some(v=>!Number.isFinite(v))) fail(msg); };
+
+          const budget = read('werk-data/budget-baseline-2026-2031.json');
+          const fiscal = read('werk-data/medium-term-fiscal-path.json');
+          const gov = read('werk-data/government-baseline-2025-2031.json');
+          const old = read('werk-data/government-package-2025-2029.json');
+          const fresh = read('werk-data/government-new-measures-2026-2031.json');
+          const gaps = read('werk-data/analysis-data-closure-register.json');
+
+          const years6=[2026,2027,2028,2029,2030,2031];
+          const years5=[2025,2026,2027,2028,2029];
+          const years7=[2025,2026,2027,2028,2029,2030,2031];
+
+          // Official BUD-01 baseline.
+          if (JSON.stringify(budget.years)!==JSON.stringify(years6)) fail('BUD-01 years mismatch');
+          const fiscalRequired=['nominal_gdp_bn','interest_expenditure_bn','maastricht_balance_bn','primary_balance_bn','federal_sector_balance_bn','state_and_municipal_sector_balance_bn','social_security_sector_balance_bn','maastricht_debt_bn','maastricht_debt_pct_gdp'];
+          fiscalRequired.forEach(k=>arr(budget.series?.[k],6,`Invalid BUD-01 series ${k}`));
+          const tolBn=(budget.validation?.tolerance_bn??0.2)+1e-9;
+          const tolPct=(budget.validation?.tolerance_pct_points??0.15)+1e-9;
+          years6.forEach((year,i)=>{
+            const total=budget.series.maastricht_balance_bn[i];
+            eq(total,budget.series.primary_balance_bn[i]-budget.series.interest_expenditure_bn[i],tolBn,`${year} balance identity`);
+            eq(total,budget.series.federal_sector_balance_bn[i]+budget.series.state_and_municipal_sector_balance_bn[i]+budget.series.social_security_sector_balance_bn[i],tolBn,`${year} sector identity`);
+            eq(budget.series.maastricht_debt_pct_gdp[i],budget.series.maastricht_debt_bn[i]/budget.series.nominal_gdp_bn[i]*100,tolPct,`${year} debt ratio identity`);
+            const row=fiscal.rows.find(r=>r.year===year);
+            if(!row) fail(`${year} missing from medium-term fiscal path`);
+            eq(row.maastricht_balance_eur_billion,total,0.001,`${year} fiscal path balance mismatch`);
+          });
+
+          // Canonical government aggregates.
+          const a=gov.annual_consolidation_since_2025_mio;
+          const n=gov.new_measures_2026_2031_mio;
+          const sec=gov.new_measures_sector_net_mio;
+          if(JSON.stringify(a.years)!==JSON.stringify(years7)) fail('Government annual years mismatch');
+          if(JSON.stringify(n.years)!==JSON.stringify(years6)) fail('New-measures years mismatch');
+          years7.forEach((year,i)=>{
+            eq(a.updated_2025_package[i]+a.new_measures_since_june_2025[i],a.total_consolidation_since_2025[i],1.1,`${year} total consolidation bridge`);
+            eq(a.expenditure_side_share_pct[i]+a.revenue_side_share_pct[i],100,0.1,`${year} side shares`);
+          });
+          years6.forEach((year,i)=>{
+            eq(n.consolidation_gross[i]-n.offensive_gross[i],n.net_consolidation[i],1.1,`${year} new measures gross-net`);
+            eq(n.expenditure_net[i]+n.revenue_net[i],n.net_consolidation[i],1.1,`${year} expenditure+revenue net`);
+            eq(sec.federal[i]+sec.states_and_municipalities[i]+sec.social_security[i],n.net_consolidation[i],1.1,`${year} sector net`);
+          });
+
+          // Original 2025 package, published detail horizon 2025-2029.
+          if(JSON.stringify(old.years)!==JSON.stringify(years5)) fail('Original package years mismatch');
+          const oldRows=[
+            ...old.expenditure.groups.flatMap(g=>g.items||[]),
+            ...old.expenditure.offensive_groups.flatMap(g=>g.items||[]),
+            ...old.revenue.groups.flatMap(g=>g.items||[]),
+            ...old.revenue.offensive_groups.flatMap(g=>g.items||[])
+          ];
+          const oldIds=new Set();
+          oldRows.forEach(r=>{
+            if(oldIds.has(r.id)) fail(`Duplicate old-package row id ${r.id}`);
+            oldIds.add(r.id);
+            arr(r.values,5,`Invalid 2025-2029 values ${r.id}`);
+          });
+          years5.forEach((year,i)=>{
+            eq(old.expenditure.consolidation_total[i]-old.expenditure.offensive_total[i],old.expenditure.net[i],3.1,`${year} original expenditure net`);
+            eq(old.revenue.consolidation_total[i]-old.revenue.offensive_total[i],old.revenue.net[i],3.1,`${year} original revenue net`);
+            eq(old.expenditure.net[i]+old.revenue.net[i],old.combined.net_consolidation[i],3.1,`${year} original combined net`);
+            eq(old.combined.net_consolidation[i],a.original_2025_package[i],0.1,`${year} original package vs canonical baseline`);
+          });
+          if(gov.coverage?.original_2025_package_line_items_2030_2031!=='not_published_aggregate_only') fail('2030-2031 old-package detail must remain explicitly unpublished/aggregate-only');
+
+          // New 2026-2031 line-item matrix.
+          if(JSON.stringify(fresh.years)!==JSON.stringify(years6)) fail('New line-item years mismatch');
+          const freshRows=[...fresh.expenditure.consolidation_groups,...fresh.expenditure.offensive_groups,...fresh.revenue.consolidation_groups,...fresh.revenue.offensive_groups];
+          const freshIds=new Set();
+          freshRows.forEach(r=>{
+            if(freshIds.has(r.id)) fail(`Duplicate new-measure row id ${r.id}`);
+            freshIds.add(r.id);
+            arr(r.values,6,`Invalid 2026-2031 values ${r.id}`);
+          });
+          const tol=fresh.validation?.aggregate_tolerance_mio??2;
+          years6.forEach((year,i)=>{
+            eq(fresh.expenditure.consolidation_total[i]-fresh.expenditure.offensive_total[i],fresh.expenditure.net[i],tol,`${year} detailed expenditure net`);
+            eq(fresh.revenue.consolidation_total[i]-fresh.revenue.offensive_total[i],fresh.revenue.net[i],tol,`${year} detailed revenue net`);
+            eq(fresh.expenditure.net[i]+fresh.revenue.net[i],n.net_consolidation[i],tol,`${year} detailed net vs canonical`);
+          });
+
+          // Closure status must not overclaim.
+          const gap=Array.isArray(gaps.priority_1_data_gaps)?gaps.priority_1_data_gaps.find(x=>x.id==='GAP-BASE-01'):null;
+          if(!gap || gap.status!=='teilweise vorhanden') fail('GAP-BASE-01 must remain partial until legal/effective-state mapping and unpublished 2030/31 detail issue are resolved');
+
+          console.log(`Fiscal data contract OK: BUD-01 6y baseline; ${oldRows.length} original-package rows; ${freshRows.length} new-measure rows; aggregates reconcile without unpublished extrapolation.`);
+          NODE
