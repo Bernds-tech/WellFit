@@ -177,8 +177,53 @@ jobs:
             if (Math.abs((n.expenditure_net[i] + n.revenue_net[i]) - n.net_consolidation[i]) > 1) fail(`${year}: expenditure net + revenue net != total net`);
             if (Math.abs((s.federal[i] + s.states_and_municipalities[i] + s.social_security[i]) - n.net_consolidation[i]) > 1) fail(`${year}: sector split != total net`);
           }
-          if (g.coverage?.gap_base_01_status !== 'partially_closed') fail('GAP-BASE-01 must remain partially closed until all line items are normalised');
-          console.log('Government baseline OK: 2025-2031 totals, new-measure nets and sector splits reconcile; GAP-BASE-01 correctly remains partial');
+          console.log('Government baseline OK: 2025-2031 totals, new-measure nets and sector splits reconcile');
+          NODE
+
+      - name: Government line-item 2026-2031 contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const d = JSON.parse(fs.readFileSync('werk-data/government-new-measures-2026-2031.json', 'utf8'));
+          const g = JSON.parse(fs.readFileSync('werk-data/government-baseline-2025-2031.json', 'utf8'));
+          const years = [2026,2027,2028,2029,2030,2031];
+          if (JSON.stringify(d.years) !== JSON.stringify(years)) fail('Line-item years mismatch');
+          const allRows = [...d.expenditure.consolidation_groups,...d.expenditure.offensive_groups,...d.revenue.consolidation_groups,...d.revenue.offensive_groups];
+          const ids = new Set();
+          for (const row of allRows) {
+            if (ids.has(row.id)) fail(`Duplicate line-item id ${row.id}`);
+            ids.add(row.id);
+            if (!Array.isArray(row.values) || row.values.length !== 6 || row.values.some(v => !Number.isFinite(v))) fail(`Invalid six-year values for ${row.id}`);
+          }
+          const tol = Number(d.validation?.aggregate_tolerance_mio ?? 2);
+          for (let i=0;i<6;i++) {
+            const y=years[i];
+            if (Math.abs((d.expenditure.consolidation_total[i]-d.expenditure.offensive_total[i])-d.expenditure.net[i])>tol) fail(`${y}: line-item expenditure net identity failed`);
+            if (Math.abs((d.revenue.consolidation_total[i]-d.revenue.offensive_total[i])-d.revenue.net[i])>tol) fail(`${y}: line-item revenue net identity failed`);
+            if (Math.abs((d.expenditure.net[i]+d.revenue.net[i])-g.new_measures_2026_2031_mio.net_consolidation[i])>tol) fail(`${y}: line-item net does not match canonical government baseline`);
+          }
+          console.log(`Government line-item matrix OK: ${allRows.length} normalised rows, six-year alignment intact, aggregate net reconciles`);
+          NODE
+
+      - name: SUB-01 architecture contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require('fs');
+          const fail = msg => { throw new Error(msg); };
+          const s = JSON.parse(fs.readFileSync('werk-data/subsidy-baseline-architecture.json', 'utf8'));
+          if (s.canonical_gap !== 'GAP-SUB-01') fail('SUB-01 canonical gap mismatch');
+          if (!Array.isArray(s.source_layers) || s.source_layers.length < 4) fail('SUB-01 source layers incomplete');
+          const ids = new Set(s.source_layers.map(x=>x.id));
+          for (const id of ['SUB-BHG-DIRECT','SUB-ESVG-HISTORY','SUB-ESVG-FORECAST','SUB-TDB']) if (!ids.has(id)) fail(`SUB-01 missing source layer ${id}`);
+          if (s.official_baseline?.federal_taskforce_designable_volume_2026_eur_billion !== 7.7) fail('SUB-01 7.7bn designable baseline missing');
+          if (!String(s.official_baseline?.werk_rule||'').includes('kein Einsparpotenzial')) fail('SUB-01 must explicitly prohibit treating designable volume as savings potential');
+          if (s.extraction_status?.gap_sub_01_status !== 'partially_closed') fail('SUB-01 must remain partially closed until programme extraction is complete');
+          console.log('SUB-01 architecture OK: BHG, ESVG history/forecast and TDB kept separate; savings shortcut prohibited');
           NODE
 
       - name: Version regression guard
