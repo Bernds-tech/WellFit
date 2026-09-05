@@ -1,6 +1,31 @@
 (()=>{
 const e=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 async function j(path){const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw new Error(path+' HTTP '+r.status);return r.json()}
-async function load(){try{const [p,c]=await Promise.all([j('./werk-data/priorities.json?v=20260905-v71'),j('./werk-data/corrections.json?v=20260905-v71')]);const start=document.querySelector('.page[data-page="start"]');if(start&&!document.getElementById('priorityProgram')){const sec=document.createElement('section');sec.className='sec';sec.id='priorityProgram';sec.innerHTML=`<div class="head"><div><div class="ey">Vom Register zum Regierungsprogramm</div><h2>Reihenfolge statt Wunschliste.</h2></div><p>${e(p.note)}</p></div><div class="grid g2">${p.tracks.map(t=>`<article class="card"><div class="num">${e(t.name)}</div><h3>${e(t.purpose)}</h3><p><b>Reformakten:</b> ${t.reforms.map(x=>e(x)).join(' · ')}</p><ul class="check">${t.deliverables.map(x=>`<li>${e(x)}</li>`).join('')}</ul></article>`).join('')}</div><div style="height:18px"></div><div class="notice"><b>Zeitkritischer Sonderfall:</b> ${p.time_critical.map(x=>`${e(x.id)} – ${e(x.reason)} ${e(x.action)}`).join(' ')}</div><div style="height:18px"></div><div class="card"><div class="ey">Abhängigkeitsregeln</div><ul class="check">${p.dependency_rules.map(x=>`<li>${e(x)}</li>`).join('')}</ul></div>`;start.appendChild(sec)}const trans=document.querySelector('.page[data-page="transparenz"] .sec');if(trans&&!document.getElementById('correctionLog')){const sec=document.createElement('section');sec.id='correctionLog';sec.innerHTML=`<div style="height:28px"></div><div class="head"><div><div class="ey">Korrekturprotokoll</div><h2>Wenn Daten sich ändern, ändert WERK seine Aussage.</h2></div><p>${e(c.purpose)}</p></div><div class="grid g2">${c.corrections.map(x=>`<article class="card"><div class="num">${e(x.id)}</div><h3>Korrigierte Annahme</h3><p><b>Früher:</b> ${e(x.previous)}</p><p style="margin-top:10px"><b>Korrigiert:</b> ${e(x.corrected)}</p><p style="margin-top:10px"><b>Folge:</b> ${e(x.effect)}</p></article>`).join('')}</div>`;trans.appendChild(sec)}}catch(err){console.error('WERK program module',err)}}
+function docLabel(id){return id==='PARTY-PROGRAM'?'Parteiprogramm – Arbeitsfassung v2':id==='PARTY-STATUTES'?'Statuten – Arbeitsfassung v2':id}
+async function load(){try{
+  const [p,c,d]=await Promise.all([
+    j('./werk-data/priorities.json?v=20260905-v71'),
+    j('./werk-data/corrections.json?v=20260905-v71'),
+    j('./werk-data/document-dependency-map.json?v=20260905-v71-neutrality')
+  ]);
+  const start=document.querySelector('.page[data-page="start"]');
+  if(start&&!document.getElementById('priorityProgram')){
+    const sec=document.createElement('section');sec.className='sec';sec.id='priorityProgram';
+    sec.innerHTML=`<div class="head"><div><div class="ey">Vom Register zum Regierungsprogramm</div><h2>Reihenfolge statt Wunschliste.</h2></div><p>${e(p.note)}</p></div><div class="grid g2">${p.tracks.map(t=>`<article class="card"><div class="num">${e(t.name)}</div><h3>${e(t.purpose)}</h3><p><b>Reformakten:</b> ${t.reforms.map(x=>e(x)).join(' · ')}</p><ul class="check">${t.deliverables.map(x=>`<li>${e(x)}</li>`).join('')}</ul></article>`).join('')}</div><div style="height:18px"></div><div class="notice"><b>Zeitkritischer Sonderfall:</b> ${p.time_critical.map(x=>`${e(x.id)} – ${e(x.reason)} ${e(x.action)}`).join(' ')}</div><div style="height:18px"></div><div class="card"><div class="ey">Abhängigkeitsregeln</div><ul class="check">${p.dependency_rules.map(x=>`<li>${e(x)}</li>`).join('')}</ul></div>`;
+    start.appendChild(sec)
+  }
+  if(start&&!document.getElementById('werkDocuments')){
+    const docs=Array.isArray(d.documents)?d.documents:[];
+    const sec=document.createElement('section');sec.className='sec';sec.id='werkDocuments';
+    sec.innerHTML=`<div class="head"><div><div class="ey">WERK-Dokumente</div><h2>Programm und Statuten aus derselben Projektquelle.</h2></div><p>${e(d.purpose)}</p></div><div class="grid g2">${docs.map(x=>`<article class="card"><div class="num">${e(x.id)}</div><h3>${e(docLabel(x.id))}</h3><p>Versionierte Quellfassung im WERK-Projekt. Änderungen an den abhängigen Daten- und Rechtsblöcken lösen eine gemeinsame Konsistenzprüfung aus.</p><p style="margin-top:14px"><a class="docDownload" href="./${e(x.source_file)}" download>Quellfassung herunterladen</a></p></article>`).join('')}</div><div style="height:14px"></div><div class="notice"><b>Aktualisierung:</b> ${e(d.update_cadence==='weekly_review_plus_event_driven'?'wöchentliche Prüfung plus außerplanmäßige Aktualisierung bei wesentlichen Änderungen':d.update_cadence)}</div>`;
+    start.appendChild(sec)
+  }
+  const trans=document.querySelector('.page[data-page="transparenz"] .sec');
+  if(trans&&!document.getElementById('correctionLog')){
+    const sec=document.createElement('section');sec.id='correctionLog';
+    sec.innerHTML=`<div style="height:28px"></div><div class="head"><div><div class="ey">Korrekturprotokoll</div><h2>Wenn Daten sich ändern, ändert WERK seine Aussage.</h2></div><p>${e(c.purpose)}</p></div><div class="grid g2">${c.corrections.map(x=>`<article class="card"><div class="num">${e(x.id)}</div><h3>Korrigierte Annahme</h3><p><b>Früher:</b> ${e(x.previous)}</p><p style="margin-top:10px"><b>Korrigiert:</b> ${e(x.corrected)}</p><p style="margin-top:10px"><b>Folge:</b> ${e(x.effect)}</p></article>`).join('')}</div>`;
+    trans.appendChild(sec)
+  }
+}catch(err){console.error('WERK program module',err)}}
 if(document.readyState==='loading')window.addEventListener('DOMContentLoaded',load);else load();
 })();
