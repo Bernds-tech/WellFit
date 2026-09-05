@@ -1,0 +1,65 @@
+{
+  "version":"2026-09-05-v1",
+  "title":"WERK Österreich – direkte Bundesförderungen 2024 nach Untergliederung",
+  "status":"official-ug-level-baseline-normalised",
+  "checked_at":"2026-09-05",
+  "source":"BMF Förderungsbericht 2024, Entwicklung nach Untergliederungen",
+  "source_url":"https://www.bmf.gv.at/dam/jcr:856ad74b-966c-42c9-9f07-486f5a7fee88/F%C3%B6rderungsbericht_2024.pdf",
+  "accounting_scope":"Auszahlungen des Bundes für Fördermittel gemäß § 30 Abs. 5a und 5b BHG 2013; Förderungsabwicklungskosten Spezifikation 17 sind nicht Teil dieser UG-Fördersumme.",
+  "published_total_mio":12584.2,
+  "rows":[
+    {"ug":2,"name":"Bundesgesetzgebung","amount_mio":35.3,"examples":["parlamentarische Klubs","Instandsetzung jüdischer Friedhöfe"]},
+    {"ug":10,"name":"Bundeskanzleramt","amount_mio":244.1,"examples":["Parteienförderung im EU-Wahljahr","KommAustria-Fonds","Qualitätsjournalismusförderung"]},
+    {"ug":11,"name":"Inneres","amount_mio":11.2,"examples":["Rettungsorganisationen","Zivilschutzorganisationen"]},
+    {"ug":12,"name":"Äußeres","amount_mio":238.8,"examples":["Auslandskatastrophenfonds","ADA","internationale Organisationen"]},
+    {"ug":13,"name":"Justiz","amount_mio":85.6,"examples":["Erwachsenenschutzvereine","Opferhilfe","Gewaltambulanzen"]},
+    {"ug":14,"name":"Militärische Angelegenheiten","amount_mio":51.2,"examples":["Europäische Friedensfazilität","Militärstiftungen"]},
+    {"ug":15,"name":"Finanzverwaltung","amount_mio":132.2,"examples":["Breitbandausbau","KIRAS/FORTE/Kybernet-Pass","TECTRANS","IHS/JVI"]},
+    {"ug":17,"name":"Wohnen, Medien, Telekommunikation und Sport","amount_mio":222.2,"examples":["Allgemeine Sportförderung","Besondere Sportförderung"]},
+    {"ug":18,"name":"Fremdenwesen","amount_mio":21.6,"examples":["AMIF","Externe Dimension der Migration"]},
+    {"ug":20,"name":"Arbeit","amount_mio":1414.8,"examples":["Aktive Arbeitsmarktpolitik","betriebliche Lehrstellenförderung"]},
+    {"ug":21,"name":"Soziales und Konsumentenschutz","amount_mio":500.3,"examples":["Menschen mit Behinderungen","Community Nursing","24-h-Betreuung","Lebensmittelweitergabe"]},
+    {"ug":24,"name":"Gesundheit","amount_mio":58.2,"examples":["Primärversorgung","Gesund aus der Krise","Krisenintervention","Suchtprävention","Lehrpraxen"]},
+    {"ug":25,"name":"Familie und Jugend","amount_mio":145.2,"examples":["Schülerfreifahrten Gelegenheitsverkehr","Familienberatung","Jugendförderung"]},
+    {"ug":30,"name":"Bildung","amount_mio":89.0,"examples":["Lehre mit Matura","OeAD","Basisbildung/Pflichtschulabschluss"]},
+    {"ug":31,"name":"Wissenschaft und Forschung","amount_mio":917.0,"examples":["FWF","OeAD","Fachhochschulen"]},
+    {"ug":32,"name":"Kunst und Kultur","amount_mio":241.4,"examples":["Kunst- und Kulturförderungen","ÖFI-Standortförderung"]},
+    {"ug":33,"name":"Wirtschaft (Forschung)","amount_mio":202.3,"examples":["Transformationsoffensive","IPCEI Mikroelektronik/Wasserstoff","CDG","FFG","AWS"]},
+    {"ug":34,"name":"Innovation und Technologie (Forschung)","amount_mio":399.3,"examples":["Klimaneutrale Stadt","Energiewende","Mobilitätswende","Kreislaufwirtschaft","Weltraum/Luftfahrt","digitale Schlüsseltechnologien"]},
+    {"ug":40,"name":"Wirtschaft","amount_mio":1575.7,"examples":["Unternehmens-Energiekostenzuschuss 987,7 Mio. €","Investitionsprämie 420,0 Mio. €","Handwerkerbonus 64,9 Mio. €","FISA+ 50,8 Mio. €"]},
+    {"ug":41,"name":"Mobilität","amount_mio":558.6,"examples":["RRF-Mittel","Klima- und Energiefonds","Schienengüterverkehr","Privatbahnen","Anschlussbahn-/Terminalförderung"]},
+    {"ug":42,"name":"Land- und Forstwirtschaft, Regionen und Wasserwirtschaft","amount_mio":2261.6,"examples":["Gemeinsame Agrarpolitik","EFRE","ausgelaufene Energiekrisenmaßnahmen"]},
+    {"ug":43,"name":"Umwelt, Klima und Kreislaufwirtschaft","amount_mio":2650.9,"examples":["thermisch-energetische Sanierung 1.085,5 Mio. €","EAG-Verbindlichkeiten 908,7 Mio. €","Umweltförderung im Inland 108,0 Mio. €","Klima- und Energiefonds 177,3 Mio. €"]},
+    {"ug":44,"name":"Finanzausgleich","amount_mio":80.8,"examples":["Hagelversicherungs-Förderung 73,8 Mio. €","Städte- und Gemeindebund 6,9 Mio. €"]},
+    {"ug":45,"name":"Bundesvermögen","amount_mio":446.8,"examples":["COFAG","IAKW","internationale Finanzinstitutionen","OeKB Soft Loans"]}
+  ],
+  "known_external_entity_programs_2024_mio":[
+    {"ug":12,"name":"ADA operationelle Maßnahmen EZA-Gesetz","amount_mio":126.3},
+    {"ug":12,"name":"Auslandskatastrophenfonds","amount_mio":79.6},
+    {"ug":21,"name":"Unterstützungsfonds Bundespflegegeldgesetz","amount_mio":155.3},
+    {"ug":21,"name":"Ausgleichstaxfonds Behinderteneinstellungsgesetz","amount_mio":132.3},
+    {"ug":31,"name":"FWF Förderprogramme","amount_mio":346.9},
+    {"ug":34,"name":"FFG Basisprogramme","amount_mio":112.7},
+    {"ug":45,"name":"COFAG","amount_mio":284.4}
+  ],
+  "administration_costs_2024_mio":280.2,
+  "administration_costs_scope":"Förderungsabwicklungskosten externer Rechtsträger; separat von der direkten Fördersumme führen.",
+  "rules":[
+    "UG-Summe ist ein Zwischenlayer, kein Programm-Inventar: mehrere Programme können in einer UG liegen.",
+    "EU-/RRF-Anteile und Zahlungen an Abwicklungsstellen müssen auf Programmebene separat markiert werden.",
+    "Abwicklungskosten von 280,2 Mio. € dürfen nicht in die 12.584,2 Mio. € direkte Fördermittel hineingerechnet werden.",
+    "UG-Verschiebungen zwischen Jahren sind kein realer Einsparungseffekt und müssen bei Zeitreihen als Reorganisation markiert werden.",
+    "SUB-D gilt erst vollständig geschlossen, wenn der aktuelle BMF-CSV auf Programm-/Kontenebene normalisiert und gegen diese UG-Summen reconciliiert ist."
+  ],
+  "validation":{
+    "row_count":24,
+    "rounding_tolerance_mio":0.2,
+    "sum_rule":"Summe aller 24 UG-Werte muss innerhalb Rundungstoleranz dem publizierten Gesamtwert 12.584,2 Mio. € entsprechen."
+  },
+  "coverage":{
+    "SUB_D1_federal_ug_level_2024":"closed",
+    "SUB_D2_current_program_csv":"open",
+    "program_examples":"partial",
+    "administration_cost_baseline":"closed_for_2024"
+  }
+}
