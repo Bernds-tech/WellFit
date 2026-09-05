@@ -1,0 +1,153 @@
+{
+  "version": "2026-09-06-v1",
+  "title": "WERK Österreich – Arbeitsstand der zwölf politischen Leitfelder",
+  "purpose": "Verknüpft die zwölf Programm-Leitfelder mit vorhandenen Fachanalysen, kanonischen Datenbaselines, Reformakten und offenen Arbeitsblöcken. Fehlende Reformakten werden sichtbar ausgewiesen statt durch allgemeine Programmtexte verdeckt.",
+  "rules": [
+    "Ein vorhandener Analyse- oder Datensatz ist noch keine beschlossene WERK-Reform.",
+    "Ein Leitfeld darf mehrere fachliche Datenuniversen enthalten; diese werden nicht automatisch addiert.",
+    "Reform-IDs dürfen nur referenziert werden, wenn sie in reforms.json existieren.",
+    "Datenlücken-IDs referenzieren das Abschlussregister und bleiben offen, solange ihr dortiger Status nicht geschlossen ist.",
+    "Fehlt eine eigene Reformakte, bleibt reform_gap ausdrücklich true.",
+    "Querschnittswirkungen zwischen Leitfeldern werden bei späteren Wirkungsrechnungen zusätzlich geprüft."
+  ],
+  "fields": [
+    {
+      "id": 1,
+      "name": "Finanzen, Budget & Schulden",
+      "analysis_artifacts": ["analysis-bud01-baseline.json", "analysis-stress-framework.json", "analysis-state-balance-risks.json"],
+      "canonical_data": ["budget-baseline-2026-2031.json", "bud01-balance-gap-2026-2031.json", "medium-term-fiscal-path.json", "debt-model.json", "bud01-stress-test-framework.json"],
+      "reform_ids": ["BUD-01", "BUD-02", "DEBT-01", "DEBT-02"],
+      "gap_ids": ["GAP-FISC-01", "GAP-FISC-02", "GAP-BASE-01"],
+      "reform_gap": false,
+      "work_status": "fortgeschrittene Daten- und Reformarchitektur",
+      "next_work": ["Teilsektorpfad Länder/Gemeinden weiter trennen", "WERK-Nettoeffekte erst nach vollständigen Übergangs-, Verteilungs- und Stresstests zum Sanierungspfad verdichten"]
+    },
+    {
+      "id": 2,
+      "name": "Steuern, Abgaben & Verteilung",
+      "analysis_artifacts": ["analysis-tax-system.json", "analysis-distribution-households.json", "analysis-subsidies-transfers.json"],
+      "canonical_data": ["tax-baseline-2022-2025.json", "tax-social-contribution-branch-2024-2025.json", "tax-expenditure-priority-2024.json", "tax-expenditure-law-groups-2022-2024.json", "distribution-baseline-2025-2026.json", "payroll-employee-kernel-2026.json", "subsidy-baseline-architecture.json", "subsidy-esvg-benchmark-2024.json", "subsidy-federal-ug-2024.json", "gambling-model.json"],
+      "reform_ids": ["TAX-01", "TAX-02", "SUB-01", "GAME-01"],
+      "gap_ids": ["GAP-TAX-01", "GAP-TAX-02", "GAP-DIST-01", "GAP-SUB-01"],
+      "reform_gap": false,
+      "work_status": "starke Baseline; dynamische Netto- und Verteilungsmodelle teilweise offen",
+      "next_work": ["vollständige Steuer-/Beitragsbasen weiter schließen", "Haushalts-Mikrosimulation und effektive Grenzbelastung vervollständigen", "Förderprogramme programmweise normalisieren"]
+    },
+    {
+      "id": 3,
+      "name": "Wirtschaft, Arbeit & Standort",
+      "analysis_artifacts": ["analysis-labour-productivity.json"],
+      "canonical_data": [],
+      "reform_ids": [],
+      "gap_ids": [],
+      "reform_gap": true,
+      "work_status": "Fachanalyse vorhanden; eigene WERK-Reformakten fehlen",
+      "next_work": ["Arbeitsmarkt-/Fachkräfte-Baseline in kanonischen Datensatz überführen", "Produktivitäts- und Standortreformen als einzelne Wirkungsakten definieren"]
+    },
+    {
+      "id": 4,
+      "name": "Staat, Verwaltung & öffentliche Vermögen",
+      "analysis_artifacts": ["analysis-program-review.json", "analysis-public-procurement.json", "analysis-public-sector-assets.json", "analysis-state-roi-transformation.json"],
+      "canonical_data": ["admin-model.json", "state-slimming-baseline.json", "state-slimming-costing-inputs.json", "state-slimming-workstreams.json", "state-slimming-attrition-policy.json"],
+      "reform_ids": ["PART-01", "ADM-01", "ADM-02"],
+      "gap_ids": [],
+      "reform_gap": false,
+      "work_status": "mehrere Reformpfade vorhanden; vollständige Euro-Nettoeffekte noch nicht geschlossen",
+      "next_work": ["Verwaltungsreformen gegen natürliche Fluktuation und Transformationskosten durchrechnen", "Beschaffung und Staatsvermögen stärker in Reformregister überführen"]
+    },
+    {
+      "id": 5,
+      "name": "Bildung, Forschung & Innovation",
+      "analysis_artifacts": ["analysis-education-skills.json", "analysis-productivity-innovation.json"],
+      "canonical_data": [],
+      "reform_ids": [],
+      "gap_ids": [],
+      "reform_gap": true,
+      "work_status": "Fachanalysen vorhanden; Reform- und Finanzierungsakten fehlen",
+      "next_work": ["Bildungsbaseline nach Ausgaben, Ergebnissen und Kompetenzindikatoren kanonisieren", "Forschungs-/Innovationsförderung mit Zusätzlichkeit und Outcome-Daten verbinden", "erste Reformakten anlegen"]
+    },
+    {
+      "id": 6,
+      "name": "Gesundheit, Pflege & soziale Sicherheit",
+      "analysis_artifacts": ["analysis-health-care.json", "analysis-pensions-demography.json"],
+      "canonical_data": ["pension-baseline-2024-2031.json", "pension-longterm-2023-2070.json", "health-baseline-2024-2031.json", "health-longterm-2022-2070.json", "health-service-activity-2024.json", "health-extramural-baseline-2023-2026.json", "care-baseline-2024-2050.json"],
+      "reform_ids": [],
+      "gap_ids": ["GAP-PENS-01", "GAP-PENS-02", "GAP-HEALTH-01", "GAP-HEALTH-02", "GAP-CARE-01"],
+      "reform_gap": true,
+      "work_status": "sehr starke Datenbasis; konkrete WERK-Reformszenarien bewusst noch nicht als Reformakten freigegeben",
+      "next_work": ["Pensions-Übergangskosten und Verteilung rechnen", "Gesundheits-Ambulantisierung mit Vollkosten und Kapazitäten modellieren", "Pflegereform nach Versorgungsform und Land rechnen", "danach getrennte Reformakten erstellen"]
+    },
+    {
+      "id": 7,
+      "name": "Familie, Generationen, Migration & Integration",
+      "analysis_artifacts": ["analysis-social-family-migration.json", "analysis-pensions-demography.json"],
+      "canonical_data": ["distribution-baseline-2025-2026.json"],
+      "reform_ids": [],
+      "gap_ids": ["GAP-DIST-01"],
+      "reform_gap": true,
+      "work_status": "Analyse vorhanden; Familien-, Demografie- und Integrationswirkungen noch nicht in getrennten Reformakten",
+      "next_work": ["Familien- und Transferwirkung mit Haushaltsmodell verbinden", "Migration/Integration nach Verfahren, Bildung, Arbeit und Kosten strukturieren", "Demografiepfad als Generationenrechnung konsolidieren"]
+    },
+    {
+      "id": 8,
+      "name": "Wohnen, Regionen, Gemeinden & Landwirtschaft",
+      "analysis_artifacts": ["analysis-housing-building.json", "analysis-municipal-finance.json", "analysis-regional-disparities.json", "analysis-agriculture-food.json"],
+      "canonical_data": ["competence-inventory.json", "regions.json"],
+      "reform_ids": ["REG-01"],
+      "gap_ids": ["GAP-FISC-02"],
+      "reform_gap": true,
+      "work_status": "Regionalitätsreform vorhanden; Wohnen, Gemeinden und Landwirtschaft brauchen eigene Reformakten",
+      "next_work": ["Gemeindefinanzen und Finanzausgleich mit Kompetenzmodell verbinden", "Wohnkosten-/Boden-/Raumordnungsreform als eigene Akte aufbauen", "Landwirtschafts- und Regionalförderungen wirkungsbezogen strukturieren"]
+    },
+    {
+      "id": 9,
+      "name": "Sicherheit, Justiz, Rechtsstaat & Resilienz",
+      "analysis_artifacts": ["analysis-security-justice.json", "analysis-defence-resilience.json"],
+      "canonical_data": ["legal.json", "legal-roadmap.json"],
+      "reform_ids": [],
+      "gap_ids": [],
+      "reform_gap": true,
+      "work_status": "Analyse und Rechtsrahmen vorhanden; konkrete Sicherheits-/Justiz-/Resilienzreformen fehlen im Register",
+      "next_work": ["Polizei/Justiz-Kapazität und Verfahrensdauer quantifizieren", "Bundesheer/Zivilschutz/Resilienz nach Fähigkeiten und Kosten strukturieren", "weltanschauliche Neutralität als Rechtsstaats-Querschnitt fortführen"]
+    },
+    {
+      "id": 10,
+      "name": "Energie, Klima, Verkehr & Infrastruktur",
+      "analysis_artifacts": ["analysis-energy-networks.json", "analysis-climate-environment.json", "analysis-transport-infrastructure.json"],
+      "canonical_data": [],
+      "reform_ids": [],
+      "gap_ids": [],
+      "reform_gap": true,
+      "work_status": "drei Fachanalysen vorhanden; kanonische Kosten-/Kapazitätsbaselines und Reformakten fehlen",
+      "next_work": ["Energie-/Netz-/Speicherbaseline konsolidieren", "Klimamaßnahmen nach Kosten je zusätzlicher Wirkung vergleichbar machen", "Verkehrsinvestitionen und Erhaltungsbedarf in State-ROI-Logik überführen"]
+    },
+    {
+      "id": 11,
+      "name": "Demokratie, Transparenz & Digitalstaat",
+      "analysis_artifacts": ["analysis-digital-state-ai.json", "analysis-transparency-corruption.json"],
+      "canonical_data": ["vote-constitutional-options.json", "vote-format.json", "votes.json", "democracy-minimum-standard.json", "state-direct-democracy-audit.json", "state-democracy-fit.json"],
+      "reform_ids": ["DIR-01", "ORG-01"],
+      "gap_ids": [],
+      "reform_gap": false,
+      "work_status": "starke Governance-Architektur; amtliche WERK-Vote-Rechts-/Sicherheitsfreigabe offen",
+      "next_work": ["Verfassungsvariante für verbindliche Abstimmungen finalisieren", "technisches Sicherheitsmodell und analogen Zugang schließen", "Transparenz-/Antikorruptionsreformen stärker als einzelne Akten ausformen"]
+    },
+    {
+      "id": 12,
+      "name": "Europa, Tourismus, Kultur & Medien",
+      "analysis_artifacts": ["analysis-eu-funds-rules.json", "analysis-tourism-culture-media.json"],
+      "canonical_data": [],
+      "reform_ids": ["EU-01"],
+      "gap_ids": [],
+      "reform_gap": true,
+      "work_status": "EU-RRF-Akte vorhanden; Tourismus, Kultur und Medien noch ohne eigene Reformakten",
+      "next_work": ["EU-Mittel-Nachlauf und Folgekosten weiterführen", "Tourismus nach Wertschöpfung, Infrastruktur und Wohnraumeffekt strukturieren", "Kultur-/Medienförderung nach Transparenz und Staatsferne in eigene Akten überführen"]
+    }
+  ],
+  "summary": {
+    "fields_total": 12,
+    "fields_with_at_least_one_reform": 6,
+    "fields_with_explicit_reform_gap": 7,
+    "interpretation": "Ein reform_gap bedeutet nicht, dass WERK zu diesem Thema keine Position oder Analyse hat. Es bedeutet, dass noch keine ausreichend abgegrenzte, gerechnete Reformakte im zentralen Reformregister existiert. Leitfeld 8 hat trotz REG-01 zusätzliche wesentliche Teilbereiche ohne eigene Reformakte."
+  }
+}
