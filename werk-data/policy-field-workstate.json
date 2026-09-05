@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v2",
+  "version": "2026-09-06-v3",
   "title": "WERK Österreich – Arbeitsstand der zwölf politischen Leitfelder",
   "purpose": "Verknüpft die zwölf Programm-Leitfelder mit vorhandenen Fachanalysen, kanonischen Datenbaselines, Reformakten und offenen Arbeitsblöcken. Fehlende Reformakten werden sichtbar ausgewiesen statt durch allgemeine Programmtexte verdeckt.",
   "rules": [
@@ -37,12 +37,12 @@
       "id": 3,
       "name": "Wirtschaft, Arbeit & Standort",
       "analysis_artifacts": ["analysis-labour-productivity.json"],
-      "canonical_data": [],
+      "canonical_data": ["labour-productivity-baseline-2025-2026.json"],
       "reform_ids": [],
       "gap_ids": ["GAP-LAB-01"],
       "reform_gap": true,
-      "work_status": "Fachanalyse vorhanden; eigene WERK-Reformakten fehlen",
-      "next_work": ["Arbeitsmarkt-/Fachkräfte-Baseline in kanonischen Datensatz überführen", "Produktivitäts- und Standortreformen als einzelne Wirkungsakten definieren"]
+      "work_status": "aktuelle Arbeitsmarkt-/Produktivitätsbaseline vorhanden; Matching-, Arbeitszeit- und konkrete Reformmodelle offen",
+      "next_work": ["Beruf-/Branche-/Bundesland-Matchingmatrix aus Arbeitslosen, offenen Stellen und Qualifikation aufbauen", "Arbeitszeitwünsche und Teilzeitgründe mit Betreuung/Pflege und Grenzbelastung verbinden", "Produktivitäts- und Standortreformen als einzelne Wirkungsakten definieren"]
     },
     {
       "id": 4,
