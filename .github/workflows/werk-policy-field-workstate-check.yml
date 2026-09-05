@@ -1,0 +1,33 @@
+name: WERK Policy Field Workstate Check
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/policy-field-workstate.json'
+      - 'werk-data/core.json'
+      - 'werk-data/policy-field-map.json'
+      - 'werk-data/reforms.json'
+      - 'werk-data/analysis-data-closure-register.json'
+      - 'werk-data/analysis-*.json'
+      - 'werk-data/*baseline*.json'
+      - 'scripts/werk-policy-field-workstate-contract.mjs'
+      - '.github/workflows/werk-policy-field-workstate-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  policy-workstate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate 12-field workstate links
+        run: node scripts/werk-policy-field-workstate-contract.mjs
