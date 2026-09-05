@@ -27,6 +27,19 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
+## XLOCK-WF-RUDI-WORLD-20260905
+- Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-3D-001`
+- Status: ACTIVE
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: graphical coordination plus current physical web implementation for Rudi as a DOM-surface-bound Landingpage resident. Includes letter/surface footing, scroll-with-surface, route-guided catch-up, layering, CTA attention and machine verification. Excludes backend/auth/data, mission/reward/economy, location/camera, native Buddy runtime and production deployment authority.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`; physical graphical ownership drift remains under `WF-MIG-001`.
+- Branches/PRs: WellFit `codex/rudi-living-world-coordination-20260905`; WellFit-now `codex/rudi-3d-living-avatar-20260905` / PR #401.
+- Acquired: 2026-09-05 Europe/Vienna
+- Updated: 2026-09-05 after exact WellFit-now head `0240d7542d5451ab052743b605275a5cae895f7a` passed Build #1260, Container #245, Database #237, Beta Emulator #216 and Project Memory Guard/Quality/Status.
+- Resume from: harden deterministic physical route invariants and reconcile stale WellFit-now memory/PR wording. The public ChatGPT Site remains a separate synchronization/visual-acceptance step and is not changed by this lock.
+
 No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
 
 ## Superseded locks
