@@ -50,7 +50,7 @@ jobs:
           }
           NODE
 
-      - name: V71 structural contract
+      - name: V71 structural and policy coverage contract
         shell: bash
         run: |
           set -euo pipefail
@@ -60,6 +60,8 @@ jobs:
           const html = fs.readFileSync('werk-v71.html', 'utf8');
           const index = fs.readFileSync('index.html', 'utf8');
           const core = JSON.parse(fs.readFileSync('werk-data/core.json', 'utf8'));
+          const map = JSON.parse(fs.readFileSync('werk-data/policy-field-map.json', 'utf8'));
+          const master = JSON.parse(fs.readFileSync('werk-data/austria-analysis-master.json', 'utf8'));
           const manifest = JSON.parse(fs.readFileSync('werk-data/preview-manifest.json', 'utf8'));
 
           if (!html.includes('site-v71.css?v=20260905-v71')) fail('V71 CSS reference missing');
@@ -67,15 +69,39 @@ jobs:
           if (!html.includes('site-v71.js?v=20260905-v71')) fail('V71 renderer reference missing');
           if (!html.includes('id="policyFieldGrid"')) fail('policyFieldGrid missing');
           if (!index.includes('werk-v71.html?v=20260905-v71')) fail('Stable preview does not redirect to V71');
+
           if (!Array.isArray(core.pillars) || core.pillars.length !== 8) fail(`Expected 8 binding pillars, got ${core.pillars?.length}`);
           if (!Array.isArray(core.policy_fields) || core.policy_fields.length !== 12) fail(`Expected 12 policy fields, got ${core.policy_fields?.length}`);
           if (new Set(core.policy_fields.map(x => x.id)).size !== 12) fail('Policy field IDs are not unique');
+          if (!Array.isArray(map.fields) || map.fields.length !== 12) fail(`Expected 12 policy mapping fields, got ${map.fields?.length}`);
+          if (!Array.isArray(master.domains) || master.domains.length !== 41 || master.domains_total !== 41) fail(`Expected master universe 41, got ${master.domains?.length}/${master.domains_total}`);
+
+          const coreById = new Map(core.policy_fields.map(x => [Number(x.id), x]));
+          const mappedDomains = [];
+          for (const field of map.fields) {
+            const coreField = coreById.get(Number(field.id));
+            if (!coreField) fail(`Mapped field ${field.id} missing from core`);
+            if (coreField.name !== field.name) fail(`Policy field name mismatch at ${field.id}: ${coreField.name} != ${field.name}`);
+            if (!Array.isArray(field.domains) || field.domains.length === 0) fail(`Mapped field ${field.id} has no domains`);
+            mappedDomains.push(...field.domains);
+          }
+          const masterSet = new Set(master.domains);
+          const counts = new Map();
+          for (const domain of mappedDomains) counts.set(domain, (counts.get(domain) || 0) + 1);
+          const missing = master.domains.filter(d => !counts.has(d));
+          const unknown = [...counts.keys()].filter(d => !masterSet.has(d));
+          const duplicates = [...counts.entries()].filter(([,n]) => n !== 1);
+          if (mappedDomains.length !== 41) fail(`Expected exactly 41 mapped entries, got ${mappedDomains.length}`);
+          if (missing.length) fail(`Unmapped master domains: ${missing.join(' | ')}`);
+          if (unknown.length) fail(`Unknown mapped domains: ${unknown.join(' | ')}`);
+          if (duplicates.length) fail(`Domains not mapped exactly once: ${duplicates.map(([d,n]) => `${d}=${n}`).join(' | ')}`);
+
           if (manifest.current_preview !== 'werk-v71.html') fail(`Manifest preview mismatch: ${manifest.current_preview}`);
           for (const item of manifest.required || []) {
             const p = String(item.path || '').replace(/^\.\//, '');
             if (!p || !fs.existsSync(p)) fail(`Manifest path missing: ${item.path}`);
           }
-          console.log('V71 contract OK: 8 binding pillars, 12 policy fields, stable redirect and manifest paths valid');
+          console.log('V71 contract OK: 8 binding pillars, 12 policy fields, 41/41 master domains mapped exactly once, stable redirect and manifest paths valid');
           NODE
 
       - name: Version regression guard
