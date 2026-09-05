@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'werk-data/health-service-activity-2024.json'
+      - 'werk-data/health-extramural-baseline-2023-2026.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-health-activity-check.yml'
   workflow_dispatch:
@@ -23,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Validate hospital activity, cost and ambulantisation guards
+      - name: Validate hospital and extramural activity, cost and ambulantisation guards
         shell: bash
         run: |
           set -euo pipefail
@@ -33,6 +34,7 @@ jobs:
           const fail=m=>{throw new Error(m)};
           const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const d=read('werk-data/health-service-activity-2024.json');
+          const x=read('werk-data/health-extramural-baseline-2023-2026.json');
           const gaps=read('werk-data/analysis-data-closure-register.json');
 
           const costs=d.lgf_costs_2024_eur;
@@ -88,7 +90,6 @@ jobs:
 
           if(d['2025_specialty_cost_data_gap']?.finding?.length<40)fail('2025 specialty cost gap evidence missing');
           if(d.coverage?.HEALTH2_H_specialty_case_full_cost_matrix!=='open')fail('Specialty full-cost matrix must remain open');
-          if(d.coverage?.HEALTH2_I_outpatient_extramural_activity_and_unit_costs!=='open')fail('Extramural activity/unit-cost gate must remain open');
           if(d.coverage?.HEALTH2_J_werk_ambulantisation_scenario_and_transition_costs!=='open')fail('WERK ambulantisation model must remain open');
           if(d.coverage?.gap_health_02_status!=='partially_closed')fail('GAP-HEALTH-02 data file must remain partial');
 
@@ -97,7 +98,33 @@ jobs:
             if(!rules.toLowerCase().includes(token.toLowerCase()))fail(`Ambulantisation guard missing ${token}`);
           }
 
+          const kv=x.all_social_health_insurance_2024_mio;
+          const benefitParts=['medical_aid','pharmaceuticals','medical_aids_devices','dental_treatment_and_prosthetics','institutional_care','medical_home_nursing','sickness_benefit','rehabilitation_benefit','maternity_benefits','medical_rehabilitation','health_strengthening_disease_prevention','early_detection_and_health_promotion','travel_and_transport','other_benefits'].reduce((s,k)=>s+kv[k],0);
+          eq(benefitParts,kv.insurance_benefits,0,'2024 health-insurance benefit decomposition');
+          eq(kv.insurance_benefits+kv.administrative_expense+kv.depreciation+kv.other_expense,kv.expenses_total,0,'2024 health-insurance expense decomposition');
+          eq(kv.income_total-kv.expenses_total,kv.balance,0,'2024 health-insurance balance');
+
+          const o=x.oegk_2024_mio;
+          eq((o.medical_aid_and_equivalent_services-o.increase_vs_2023_mio)*(1+o.increase_vs_2023_pct/100),o.medical_aid_and_equivalent_services,2,'ÖGK 2024 physician expenditure growth bridge');
+
+          const f=x.oegk_forecast_2025_2026_mrd;
+          if(!(f.insurance_benefits['2026']>f.insurance_benefits['2025']&&f.insurance_benefits['2025']>f.insurance_benefits['2019']))fail('ÖGK insurance-benefit forecast ordering invalid');
+          const selected=f['2026_selected_components'];
+          if(!(selected.outpatient_niedergelassen+selected.stationary_hospital+selected.medicines < f.insurance_benefits['2026']))fail('Selected ÖGK 2026 components must remain an incomplete subset, not full decomposition');
+
+          for(const c of [x.oegk_consultations_2023_mio.general_practice,x.oegk_consultations_2023_mio.general_specialties]){
+            eq(c.e_card+c.o_card,c.total,0.01,'ÖGK consultation e-card+o-card total');
+            eq(c.o_card/c.total*100,c.o_card_share_pct,0.5,'ÖGK consultation o-card share');
+          }
+          const wa=x.wahlärzte_2023_mio;
+          if(!(wa.oegk_reimbursements<wa.submitted_invoices))fail('Wahlarzt reimbursements must remain below submitted private invoices');
+          if(x.coverage?.health2_i_status!=='partially_closed')fail('Extramural HEALTH2-I status must be partial');
+          for(const gate of ['EXTRA_F_current_2026_contacts_by_specialty_and_state','EXTRA_G_unit_costs_by_specialty_service_and_state','EXTRA_H_standardised_waiting_times_current'])if(x.coverage?.[gate]!=='open')fail(`${gate} must remain open`);
+
+          const xRules=(x.accounting_rules||[]).join(' ');
+          for(const token of ['unterschiedliche institutionelle Universen','nicht additiv','andere denominators','kein Effizienzpotenzial'])if(!xRules.toLowerCase().includes(token.toLowerCase()))fail(`Extramural accounting guard missing ${token}`);
+
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-HEALTH-02');
           if(!gap||!['offen','teilweise vorhanden'].includes(gap.status))fail('GAP-HEALTH-02 closure-register status invalid');
-          console.log(`Health activity contract OK: EUR ${(costs.end_cost_total/1e9).toFixed(3)}bn LGF end costs, ${st.meddok_stationary_stays} MedDok stays, ${a.ambulatory_patients} ambulatory patients and ${dc.stationary_and_ambulatory.eligible_service_instances_total} day-clinic-eligible service instances remain separately accounted.`);
+          console.log(`Health activity contract OK: hospital and extramural universes reconcile separately; 2024 all-KV medical aid EUR ${kv.medical_aid}m, ÖGK physician/equivalent EUR ${o.medical_aid_and_equivalent_services.toFixed(1)}m and LGF ambulatory end-cost EUR ${(a.ambulatory_end_cost_eur/1e9).toFixed(3)}bn are not mixed.`);
           NODE
