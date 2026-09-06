@@ -14,6 +14,7 @@
   "source_authority": {
     "repository": "Bernds-tech/WellFit-now",
     "main_commit": "b07d39938aeab4e32eddac7d19b8e15e22afacb7",
+    "main_commit_semantics": "Immutable runtime source pin for Site synchronization; this is not a claim about the current mutable main branch tip.",
     "dom_world_source_pr": 401,
     "dom_world_verified_head": "54186ec16a617549acbaa0437b0b81ab36ee2abb",
     "fallback_hardening_pr": 402,
@@ -29,6 +30,42 @@
       "beta_emulator": "not_triggered_path_filtered",
       "beta_emulator_note": "The Beta-1 emulator workflow is path-filtered to Firebase, mission, package and related server files. PR #402 changed only landing Rudi runtime/validator plus Project Memory, so the workflow correctly did not trigger.",
       "result": "success"
+    },
+    "technical_closeout": {
+      "pr": 403,
+      "verified_head": "a0f2f62793f1abf8403a60871eea84a35e9c2e9d",
+      "merge": "40af0c25725e4bec096db690da808ad669691f2e",
+      "exact_head_ci": {
+        "build": 1305,
+        "container": 290,
+        "database": 282,
+        "project_memory_guard": 132,
+        "project_memory_quality": 140,
+        "project_memory_status": 148,
+        "result": "success"
+      },
+      "runtime_source_unchanged": true,
+      "compare_base": "b07d39938aeab4e32eddac7d19b8e15e22afacb7",
+      "compare_head": "40af0c25725e4bec096db690da808ad669691f2e",
+      "compare_result": "ahead_by_1_memory_only",
+      "changed_path_prefixes": [
+        "project-memory/"
+      ],
+      "changed_files": [
+        "project-memory/AUTO_HANDOFF.md",
+        "project-memory/CHANGE_REQUESTS.md",
+        "project-memory/CONTRADICTIONS.md",
+        "project-memory/CURRENT_STATE.md",
+        "project-memory/EXECUTION_RECEIPTS.md",
+        "project-memory/NEXT_BEST_ACTION.md",
+        "project-memory/OPEN_LOOPS.md",
+        "project-memory/PROJECT_STATUS.md",
+        "project-memory/SESSION_HANDOFF.md",
+        "project-memory/STARTED_WORK.md",
+        "project-memory/TASK_LEDGER.md",
+        "project-memory/WORK_LOCKS.md"
+      ],
+      "rule": "PR #403 is technical-memory closeout evidence only. It must not replace the runtime source pin or cause Site synchronization from merge 40af0c25725e4bec096db690da808ad669691f2e."
     }
   },
   "required_source_files": [
