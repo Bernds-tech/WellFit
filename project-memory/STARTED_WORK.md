@@ -13,18 +13,19 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WFG-RUDI-WORLD-001
 - Started: 2026-09-05
-- Updated: 2026-09-05
+- Updated: 2026-09-06
 - Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R2
 - Scope: graphical authority for Rudi Rastlos as a physically grounded resident of the public Landingpage: DOM-bound footing, letter/surface climbing, surface-relative scrolling, front/back layering, visible catch-up routes and exact public-Site synchronization/visual acceptance. No backend, auth, mission/reward, economy, location/camera or native Buddy authority changes.
-- Branch/PR: WellFit coordination `codex/rudi-living-world-coordination-20260905` / PR #29; physical implementation merged through `Bernds-tech/WellFit-now` PR #401.
-- Work lock: `LOCK-WFG-RUDI-WORLD-001` remains ACTIVE for the graphical Site synchronization/acceptance step.
-- Cross-repo lock: `XLOCK-WF-RUDI-WORLD-20260905` RELEASED after runtime merge.
+- Branch/PR: WellFit coordination through PRs #29/#30/#31/#34; physical implementation/hardening through WellFit-now PRs #401/#402; technical memory closeout through WellFit-now PR #403.
+- Work lock: `LOCK-WFG-RUDI-WORLD-001` remains ACTIVE only for the graphical Site synchronization/acceptance step.
+- Cross-repo implementation locks: `XLOCK-WF-RUDI-WORLD-20260905` and `XLOCK-WF-RUDI-FALLBACK-20260906` are RELEASED.
 - Dependencies: graphical ownership drift under `WF-MIG-001`, graphical/Buddy presentation boundary `WF-CONTRACT-BUDDY-001`, and exact public ChatGPT Site source access for visual acceptance.
-- Completed so far: owner direction superseded viewport-clamped behavior; WellFit-now now has one active DOM-surface controller. The `F` in `WellFit` is the initial climb/podium; narrow letters and thin ledges remain valid surfaces; Rudi follows the exact bound DOM surface and may leave the viewport; catch-up waits for full offscreen plus scroll-settle; autonomous moves and catch-up use visible grounded walk/climb routes; imported root translation is flattened so DOM geometry owns locomotion; stale CTA attention is cleared on scroll. Strict-Effects replay, timer races, slow GLTF load, reduced-motion, mobile non-mount, Canvas pointer interception and GLTF failure fallback were hardened. Manual Meshy workflows were also made branch-safe, parameterized and self-validating. PR #401 exact head `54186ec16a617549acbaa0437b0b81ab36ee2abb` passed Build #1285, Container #270, Database #262, Beta Emulator #241 and all Project Memory gates, then squash-merged to WellFit-now main as `9ae4f278a90d17d612f0399c40babd32c344e02b`.
-- Still open: the separately hosted public `wellfit-bewegt` ChatGPT Site has not been proven synchronized to the merged DOM-bound runtime. Site version 105 is older-renderer evidence and cannot be used as acceptance for the new architecture. Real WebGL foot contact, climb path, layer/occlusion, scroll/offscreen/catch-up behavior, CTA pass-through/attention and reduced-motion fallback require preview on the exact target Site.
-- Exact next step: load the editable `wellfit-bewegt` Site source, synchronize the merged WellFit-now `9ae4f278...` DOM-world implementation and assets, preview it on the exact Site, correct any perceptual defects, then deliberately publish only after owner/device visual acceptance.
-- Owner action needed: no new product decision. The only external dependency is access to the exact editable Site context for synchronization and visual acceptance.
+- Completed so far: owner direction superseded viewport-clamped behavior. WellFit-now PR #401 created one active DOM-surface controller with `F` as first climb/podium, narrow letters/thin ledges, exact surface-relative scroll, full-offscreen + scroll-settle catch-up, visible grounded walk/climb routes, DOM-owned locomotion, CTA gaze without relocation and foreground/background layering; the parallel viewport/chapter controller was deleted. PR #402 hardened reduced-motion/static/WebGL failure transitions by cancelling pending timers/journeys and attention, making route guides WebGL-only, waiting for a real fallback anchor and loading only walk/idle/inspect/celebrate/climb initially. Hardened source is immutable merge `b07d39938aeab4e32eddac7d19b8e15e22afacb7`.
+- Technical closeout: WellFit-now PR #403 exact head `a0f2f62793f1abf8403a60871eea84a35e9c2e9d` passed Build #1305, Container #290, Database #282 and Project Memory Guard #132 / Quality #140 / Status #148, then squash-merged as `40af0c25725e4bec096db690da808ad669691f2e`. The technical Rudi task/lock is closed there; no second technical implementation is pending.
+- Still open: the separately hosted public `wellfit-bewegt` ChatGPT Site has not been proven synchronized to hardened source `b07d399...`. Site version 105 is older-renderer evidence and cannot be used as acceptance. Real WebGL foot contact, F climb, surface-relative scroll, full offscreen departure, grounded catch-up/journeys, occlusion/layering, CTA pass-through/attention and reduced-motion/static fallback require preview on the exact target Site.
+- Exact next step: load the editable `wellfit-bewegt` Site source, apply the current `RUDI_SITE_SYNC_MANIFEST.json` pinned to `b07d399...`, execute all ten visual checks and deliberately publish only if every check passes.
+- Owner action needed: no new product decision. The external dependency is access to the exact editable Site context for synchronization and visual acceptance.
 
 ## WFG-AVATAR-PUPPET-001
 - Started: 2026-08-28
@@ -36,8 +37,8 @@ Canonical register for work that has started but is not yet fully completed.
 - Cross-repo lock: `XLOCK-WF-AVATAR-PUPPET-20260828` released after technical merge; Site visual loop remains open.
 - Dependencies: `WF-XDEP-004`, current physical UI ownership drift and actual ChatGPT Site source synchronization; no native Buddy runtime dependency for this web-only presentation behavior.
 - Completed so far: live failure recorded by merged WellFit PR #25; old whole-image attention path superseded; articulated head/body Puppet renderer implemented in WellFit-now; exact head `f2b2bdb89655bea3398687a35540704b091672d7` passed Build #1198, Container Build #183, Database Package Tests #175 and Project Memory Guard/Quality/Status; PR #390 merged to WellFit-now main as `d374e4db4777406d93a8aad72adc10ab47db216f`.
-- Still open: the actual public ChatGPT Site `wellfit-bewegt` is a separate Sites source and still lacks this Puppet behavior. It must be opened via ChatGPT Sites/Edit so the Site is referenced in the composer, then the verified renderer/pivots must be ported, previewed on that exact Site and deliberately published.
-- Exact next step: load the editable ChatGPT Site source; do not perform another GitHub-only substitute and do not claim the public Site changed from the WellFit-now merge.
+- Still open: no current rendered evidence proves the intended independent head/body behavior on the exact public Site. This remains distinct from Rudi technical closeout.
+- Exact next step: load the editable ChatGPT Site source; visually verify/port the relevant articulated behavior on the exact preview without seams/ghosting/layout regression, then publish deliberately only after visual evidence.
 - Owner action needed: only the product UI handoff that loads the Site into an editable composer; after that the implementation can be applied without new product decisions.
 
 ## WFG-VIS-001
@@ -88,7 +89,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Closed: 2026-08-26
 - Status: COUNTERCHECKED
 - Risk: R3
-- Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged WellFit-Buddy baseline.
+- Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged Buddy Unity source baseline.
 - Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / PR #20.
 - Cross-repo lock: `XLOCK-WF-MIG-002-20260826` released.
 - Result: stale Unity-project claims corrected; `MIGRATE_NOW` bounded to fresh destination initialization and incremental Buddy-domain ports while source/server authority remain preserved.
