@@ -1,16 +1,18 @@
 {
-  "version": "2026-09-06-v2",
+  "version": "2026-09-06-v3",
   "reform_id": "SV-01",
   "status": "owner_requested_goal_conditional_calculation_not_funded_or_legislated",
-  "owner_goal": "Nach vollständigem Schuldenabbau zunächst Arbeitnehmerbeiträge zur KV/PV/ALV um insgesamt 15,5 Mrd. Euro jährlich senken; Leistungen und erworbene Ansprüche durch dauerhafte Ersatzfinanzierung erhalten.",
+  "owner_goal": "Mit dem Schuldenabbau Arbeitnehmer-KV/PV/ALV nach und nach senken; bis zur Schuldenfreiheit sollen die Beiträge um 50% reduziert sein. Gegenfinanzierung aus tatsächlich frei werdenden Zinsausgaben bei erhaltenen Leistungen.",
   "scope_interpretation": "Employee KV/PV/ALV only; insurance benefits and accrued pension rights preserved. Employer contributions, AK/WF levies, pensioner/self-employed regimes are separate. Complete abolition of all payroll levies is not assumed.",
   "activation": {
-    "requires_debt_free_general_government": true,
+    "requires_debt_free_general_government": false,
     "requires_sustainable_replacement_financing": true,
     "requires_preserved_insurance_entitlements": true,
     "requires_household_distribution_review": true,
     "calendar_year": null,
-    "currently_active": false
+    "currently_active": false,
+    "requires_funded_base_debt_repayment": true,
+    "requires_realized_recurring_interest_savings": true
   },
   "payroll_scenarios": {
     "monthly_gross_eur": [
@@ -104,10 +106,10 @@
     "same_pay_as_work_general_claim_verified": false
   },
   "alternative_financing_options_to_evaluate": [
-    "Redirect sustained debt-service capacity after debt freedom, with demographic and crisis reserve.",
-    "Stage employee-contribution relief within verified recurring capacity; no pre-debt start is assumed.",
-    "Compare a capped refundable employment credit for low/middle incomes while preserving insurance funding; avoid benefit cliffs.",
-    "Evaluate a wider tax base only with legal, distribution and additional-revenue modelling; VAT shifts may burden nonworkers and pensioners."
+    "Allocate realized avoided interest to progressive employee relief, protecting funded base repayment and service financing.",
+    "Compare interest-allocation shares for relief versus additional repayment and explicit reserve.",
+    "If 50% target is not covered by realized savings, disclose gap and separately assess further financing or slower relief; do not automatically book future savings.",
+    "Finalize relative contribution-rate reduction with low-income SV refund, tax and household transfer review."
   ],
   "funding_gate": {
     "status": "blocked",
@@ -123,7 +125,7 @@
     "verified_additional_debt_repayment_bn": 0,
     "boundary": "Stylized cash-flow reconciliation across receiving budget and all displaced recipients; not a new ESA sector total. Broad 2024 payroll benchmark includes levies outside pure SV."
   },
-  "first_stage": {
+  "superseded_first_stage": {
     "annual_gross_contribution_relief_bn": 15.5,
     "meaning": "Political annual gross contribution relief volume, not net household gain and not a verified exact half of pure employee KV/PV/ALV receipts.",
     "individual_reduction_share": null,
@@ -132,6 +134,38 @@
     "indexation_rule": null,
     "further_full_abolition_automatically_authorized": false,
     "full_abolition_scenarios_role": "comparison_only_not_first_stage",
-    "activation": "after_complete_debt_repayment_and_verified_replacement_financing"
+    "activation": "after_complete_debt_repayment_and_verified_replacement_financing",
+    "status": "superseded_by_progressive_50_percent_goal"
+  },
+  "progressive_target": {
+    "employee_core_reduction_share": 0.5,
+    "target_milestone": "general_government_debt_freedom",
+    "start": "during_funded_debt_repayment_as_realized_interest_savings_become_available",
+    "verified_annual_gross_target_bn": null,
+    "distribution_rule": "Relative 50% reduction of employee KV/PV/ALV at target; legal rate schedule and low-income/household review remain open.",
+    "financing_rule": "Net replacement cost <= recurring realized interest saving allocated to SV. No use of base repayment or cumulative historical savings. Additional wage-tax recapture only after evidence.",
+    "same_interest_euro_may_fund_both_relief_and_extra_repayment": false,
+    "full_abolition_automatically_authorized": false,
+    "end_target_financing_proven": false
+  },
+  "linked_debt_scenarios": {
+    "annual_base_repayment_bn": 10,
+    "default_interest_to_relief_share": 1,
+    "contribution_base": "broad_2024_withholding_reference_only_not_pure_employee_SV",
+    "default_tax_recapture_share": 0,
+    "rate_pct_cases": [
+      1,
+      2.5,
+      4
+    ],
+    "interest_to_relief_share_cases": [
+      0,
+      0.5,
+      1
+    ],
+    "lag_years_default": 1,
+    "lag_years_stress": 3,
+    "assumptions": "Constant nominal debt and contribution bases, funded 10bn base repayment, no new deficits/SFA, zero additional implementation/service costs only as sensitivity. Year-end repayments; savings available after lag. Unused interest reserved; unspent final base repayment not credited to relief. No macro forecast or actual maturity schedule.",
+    "rate_source_boundary": "OeBFA 2026-07-31 federal-only 2.10% portfolio cost and 12.10y maturity checked 2026-09-06 at https://www.oebfa.at/; not applied as total-state saving rate. Realized avoidable cost needs an actual maturity/counterfactual schedule."
   }
 }

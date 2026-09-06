@@ -139,3 +139,8 @@
 - Owner direction: first post-debt employee contribution relief stage of 15.5bn EUR/year, roughly half the previously discussed broad reference; replace immediate full-abolition program target.
 - Classification: refinement of SV-01; R2; implementation and publication on existing WERK branch authorized.
 - Boundary: gross contribution relief, not guaranteed household net or a universal 50% rate reduction; preserve benefits and funding gates.
+
+## WERK-CR-SV-003
+- Date: 2026-09-06
+- Owner direction supersedes SV-002: reduce employee KV/PV/ALV progressively during debt repayment; target 50% reduction by debt freedom, financed by realized avoided interest.
+- R2; preserve insurance entitlements and funded base repayment; no dual use of interest for relief and accelerated repayment.

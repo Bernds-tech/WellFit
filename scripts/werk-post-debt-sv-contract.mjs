@@ -1,19 +1,22 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {employeeRelief,postDebtCapacity,replacementCost} from './lib/werk-post-debt-sv.mjs';
+import {employeeRelief,postDebtCapacity,replacementCost,debtLinkedRelief} from './lib/werk-post-debt-sv.mjs';
 import {round,finite} from './lib/werk-calculation.mjs';
 const hashes={};
 const read=n=>{const p=`werk-data/${n}.json`,s=fs.readFileSync(p,'utf8');hashes[p]=createHash('sha256').update(s).digest('hex');return JSON.parse(s);};
 const spec=read('post-debt-employee-sv-model'),kernel=read('payroll-employee-kernel-2026'),debt=read('debt-model'),source=read('employee-payroll-withholding-2024');
 const reforms=read('reforms').reforms;
 assert.ok(reforms.some(x=>x.id==='SV-01'));assert.equal(spec.reform_id,'SV-01');
-for(const k of ['requires_debt_free_general_government','requires_sustainable_replacement_financing','requires_preserved_insurance_entitlements','requires_household_distribution_review'])assert.equal(spec.activation[k],true);
+for(const k of ['requires_funded_base_debt_repayment','requires_realized_recurring_interest_savings','requires_sustainable_replacement_financing','requires_preserved_insurance_entitlements','requires_household_distribution_review'])assert.equal(spec.activation[k],true);
 assert.equal(spec.activation.currently_active,false);assert.equal(spec.activation.calendar_year,null);
-assert.equal(spec.first_stage.annual_gross_contribution_relief_bn,15.5);
-assert.equal(spec.first_stage.individual_reduction_share,null);
-assert.equal(spec.first_stage.further_full_abolition_automatically_authorized,false);
-assert.equal(spec.first_stage.full_abolition_scenarios_role,'comparison_only_not_first_stage');
+assert.equal(spec.activation.requires_debt_free_general_government,false);
+assert.equal(spec.progressive_target.employee_core_reduction_share,.5);
+assert.equal(spec.progressive_target.same_interest_euro_may_fund_both_relief_and_extra_repayment,false);
+assert.equal(spec.progressive_target.end_target_financing_proven,false);
+assert.equal(spec.progressive_target.verified_annual_gross_target_bn,null);
+assert.equal(spec.progressive_target.full_abolition_automatically_authorized,false);
+assert.equal(debt.employee_relief_link.target_employee_contribution_reduction_share,.5);
 assert.equal(spec.funding_gate.status,'blocked');assert.equal(spec.funding_gate.verified_annual_replacement_cost_bn,null);
 assert.equal(spec.funding_gate.verified_annual_replacement_financing_bn,null);assert.equal(spec.funding_gate.employment_effect_persons,null);assert.equal(spec.funding_gate.current_budget_credit_bn,0);
 assert.equal(source.pure_employee_kv_pv_alv_total_eur,null);
@@ -58,11 +61,10 @@ const fundingRows=[...f.annual_gross_contribution_loss_bn_cases,broadBenchmark].
     basis:grossLoss===broadBenchmark?'2024_broad_payroll_reference_not_pure_SV01_cost':'hypothetical_gross_loss',
     cumulative_net_need_bn:Object.fromEntries([1,5,10].map(y=>[y,round(net*y+f.oneoff_transition_cost_bn)]))};
 }));
-const target=spec.first_stage.annual_gross_contribution_relief_bn;
-assert.ok(f.annual_gross_contribution_loss_bn_cases.includes(target));
-const firstStageRows=fundingRows.filter(x=>x.gross_loss_bn===target);
+const target=broadBenchmark*spec.progressive_target.employee_core_reduction_share;
+
 const comparisons=spec.work_vs_nonwork_scenarios.monthly_gross_eur.flatMap(gross=>{
-  const r=employeeRelief(kernel,{monthlyGross:gross});
+  const r=employeeRelief(kernel,{monthlyGross:gross,reductionShare:.5});
   return spec.work_vs_nonwork_scenarios.assumed_monthly_cash_benefits_eur.flatMap(benefit=>
     spec.work_vs_nonwork_scenarios.additional_monthly_work_costs_and_transfer_losses_eur.map(cost=>{
       assert.ok(finite(benefit)>=0&&finite(cost)>=0);
@@ -72,9 +74,26 @@ const comparisons=spec.work_vs_nonwork_scenarios.monthly_gross_eur.flatMap(gross
         actual_ams_entitlement_eur:null,actual_household_gain_eur:null};
     }));
 });
-const out={version:'2026-09-06-v2',reform_id:'SV-01',status:'conditional_static_scenarios',source_sha256:hashes,
+const linkedSpec=spec.linked_debt_scenarios;
+assert.equal(linkedSpec.annual_base_repayment_bn,10);
+assert.equal(linkedSpec.lag_years_default,1);assert.equal(linkedSpec.lag_years_stress,3);
+assert.equal(linkedSpec.default_interest_to_relief_share,1);
+assert.equal(linkedSpec.default_tax_recapture_share,0);
+const inputs=[];
+for(const ratePct of linkedSpec.rate_pct_cases)for(const interestToReliefShare of linkedSpec.interest_to_relief_share_cases)
+  inputs.push({debt:D,ratePct,interestToReliefShare,taxRecaptureShare:0,lagYears:1});
+for(const taxRecaptureShare of [.2,.3,.4])inputs.push({debt:D,ratePct:2.5,interestToReliefShare:1,taxRecaptureShare,lagYears:1});
+for(const taxRecaptureShare of [0,.3])inputs.push({debt:debt.baselines.general_government.debt_eur_billion,ratePct:2.5,interestToReliefShare:1,taxRecaptureShare,lagYears:1});
+for(const taxRecaptureShare of [0,.3])inputs.push({debt:D,ratePct:2.5,interestToReliefShare:1,taxRecaptureShare,lagYears:3});
+const linkedPaths=inputs.map(i=>debtLinkedRelief({...i,annualBase:linkedSpec.annual_base_repayment_bn,contributionBase:broadBenchmark,reductionTarget:spec.progressive_target.employee_core_reduction_share}));
+for(const path of linkedPaths)for(const r of path.annual_rows){
+ assert.ok(Math.abs(r.realized_interest_saving_bn-r.net_replacement_cost_bn-r.extra_repayment_bn-r.unallocated_interest_bn)<.000003,'Interest double use');
+ assert.ok(r.modeled_contribution_reduction_pct<=50.000001);
+ assert.ok(r.net_replacement_cost_bn<=r.realized_interest_saving_bn+.000001);
+}
+const out={version:'2026-09-06-v3',reform_id:'SV-01',status:'conditional_scenarios_with_linked_debt_paths',source_sha256:hashes,
   source_year:2024,payroll_rule_year:2026,activation_year:null,
-  first_stage:{annual_gross_relief_target_bn:target,percentage_of_broad_2024_reference:round(target/broadBenchmark*100),individual_reduction_share:null,verified_net_household_gain_bn:null,financing_sensitivities:firstStageRows,full_abolition_is_current_program_target:false},
+  progressive_target:{employee_core_reduction_share:.5,target_milestone:'debt_freedom',verified_gross_cost_bn:null,target_financing_proven:false,broad_reference_half_bn:target,reference_scope:'proxy_not_pure_employee_contributions',linked_debt_paths:linkedPaths},
   payroll_examples:payrollRows,
   financing_capacity_scenarios:capacityRows,replacement_cost_scenarios:fundingRows,work_nonwork_sensitivities:comparisons,
   existing_receipts_redirection:{illustrative_redirected_existing_receipts_bn:broadBenchmark,displaced_recipient_receipts_bn:-broadBenchmark,replacement_financing_if_services_preserved_bn:broadBenchmark,additional_external_revenue_bn:0,additional_debt_repayment_capacity_bn:0,basis:spec.existing_receipts_accounting.boundary},
@@ -84,17 +103,77 @@ const out={version:'2026-09-06-v2',reform_id:'SV-01',status:'conditional_static_
     future_earnings_linked_benefit_recalculation_open:true,not_a_current_budget_saving:true}};
 const fmt=(n,d=2)=>new Intl.NumberFormat('de-AT',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
 const table=(h,rs)=>'| '+h.join(' | ')+' |\n| '+h.map(()=>'---').join(' | ')+' |\n'+rs.map(r=>'| '+r.join(' | ')+' |').join('\n')+'\n';
-let md=`# SV-01 – Mehr Netto nach Schuldenfreiheit\n\nStand 6. September 2026. Neu aufgenommene politische Zielstufe nach BUD-01 (Budgetbalance) und BUD-02 (Schuldenabbau). **Erste Zielstufe: Arbeitnehmer-KV/PV/ALV auf Lohn und Gehalt um insgesamt 15,5 Mrd. € jährlich senken; Versicherungsleistungen und erworbene Pensionsansprüche erhalten.** Arbeitgeberbeiträge, AK/Wohnbauförderung und Selbständigen-/Pensionsbeiträge sind eigenständige Fragen.\n\nAktivierung erst bei schuldenfreiem Gesamtstaat, dauerhaft gesicherter Ersatzfinanzierung und geprüfter Verteilung. Ein Startjahr oder eine bereits finanzierte Reform wird nicht behauptet.\n\n## 1. Vergleichsszenario: vollständiger Wegfall der Arbeitnehmerbeiträge\n\nStatischer Vergleich mit dem bestehenden 2026-Regelkern, gleicher Bruttolohn und unverändertem Steuertarif. ASVG-Standardfall, außerhalb Wiens, ganzjährig 14 gleich hohe Bruttobezüge. Lohnsteuer steigt, weil nur die verbleibenden Beiträge abzugsfähig sind. **Vor Arbeitnehmerveranlagung, SV-Rückerstattung, Haushaltstransfers und Finanzierungslasten.** Regelmonat und Jahresdurchschnitt sind unterschiedliche Größen.\n\n`;
-const firstStageMd=`## Beschlossene Zielpräzisierung: zunächst 15,5 Mrd. € jährlich\n\nPolitisches **Bruttoentlastungsziel**, keine bereits finanzierte Zusage und kein garantierter Nettozuwachs der Haushalte. 15,5 Mrd. € entsprechen ${fmt(target/broadBenchmark*100,2)} % der breiten 2024-Referenz. Das ist grob die Hälfte; die exakte Hälfte dieser Referenz wäre ${fmt(broadBenchmark/2,3)} Mrd. €. Diese Referenz ist weiterhin keine reine KV/PV/ALV-Summe. Individuelle Beitragssenkung, Verteilung und Indexierung bis zum tatsächlichen Start bleiben offen. Eine spätere vollständige Abschaffung ist nur ein Vergleichsszenario und benötigt eine eigene Entscheidung.\n\nBei voller Umsetzung der Zielstufe und nominal konstanten Werten:\n\n`+table(['Angenommener Lohnsteuer-Rückfluss','Nettofinanzierungsbedarf/Jahr Mrd. €','5 Jahre','10 Jahre'],firstStageRows.map(x=>[fmt(x.tax_recapture_share*100,0)+' %',fmt(x.net_replacement_need_bn,3),fmt(x.cumulative_net_need_bn[5],3),fmt(x.cumulative_net_need_bn[10],3)]))+`\nOhne Rückfluss gerechnet müssen jährlich 15,5 Mrd. € ersetzt werden, über fünf Jahre 77,5 und über zehn Jahre 155 Mrd. €. Bei **angenommenen** 30 % Rückfluss wären es 10,85 / 54,25 / 108,5 Mrd. €. Zusätzliche Umsetzungs- und Leistungskosten sind noch offen. Bei unveränderten Leistungen brauchen die Versicherungszweige den Bruttobeitragsausfall ersetzt; Lohnsteuer-Rückflüsse vermindern nur die konsolidierte Haushaltsbelastung.\n\nDie bisherigen bedingten 18,504 Mrd. € Haushaltsspielraum nach Reserve würden das 15,5-Mrd.-Ziel rein rechnerisch auch ohne Lohnsteuer-Rückfluss abdecken: Rest ${fmt(18.504-target,3)} Mrd. €. Diese Kapazität setzt unter anderem die dauerhaft finanzierte 10-Mrd.-Tilgungsbasis und 2,5 % vermiedene Zinslast auf 525,2 Mrd. € voraus. Sie ist kein aktueller oder zugesicherter zukünftiger Überschuss.\n\nDie folgenden individuellen Zahlen zeigen ausdrücklich die **vollständige Abschaffung als Vergleich**. Aus dem 15,5-Mrd.-Gesamtziel lässt sich ohne Verteilungsregel kein bestimmter Nettogewinn pro Person ableiten.\n\n`;
-md=md.replace('## 1. Vergleichsszenario:',firstStageMd+'## 1. Vergleichsszenario:');
-md+=table(['Monatsbrutto €','Regelmonat netto heute','Regelmonat netto ohne DN-KV/PV/ALV','Mehr im Regelmonat','Mehr im Jahr'],payrollRows.filter(x=>x.region==='outside_vienna'&&x.reduction_share===1).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.ordinary_month_net_before_eur),fmt(x.ordinary_month_net_after_eur),fmt(x.ordinary_month_net_gain_eur),fmt(x.annual_net_gain_eur)]));
-md+=`\nDer volle Standard-DN-Kernbeitrag beträgt 3,87 % KV + 10,25 % PV + bis zu 2,95 % ALV = **bis zu 17,07 %** der Beitragsgrundlage. Die oft genannten 18,07 % enthalten außerhalb Wiens zusätzlich AK und Wohnbauförderung. Niedrige ALV-Sätze und Beitragsobergrenzen bleiben im Ausgangsfall berücksichtigt. Das JSON enthält ${payrollRows.length} Beispiele für 25/50/100 % Entlastung in und außerhalb Wiens. Höhere Einkommen erhalten in Euro zunächst mehr Entlastung; Fairness für kleine Einkommen muss nach Veranlagung und Transfers geprüft werden.\n\n## 2. Welche Einnahmen müssten ersetzt werden?\n\n[Statistik Austria, Lohnsteuerstatistik 2024, Tabelle 16](https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/steuerstatistiken/lohnsteuerstatistik): Aus Beschäftigungsverhältnissen wurden **${fmt(broadBenchmark,3)} Mrd. €** an Beiträgen einschließlich weiterer Lohnzettel-Umlagen einbehalten. Die gespeicherte Original-ODS enthält 19 Bruttobezugsgruppen und ${fmt(source.totals.persons,0)} Personen mit Beschäftigungsbezügen.\n\nDies ist eine Größenordnungsreferenz, **keine exakte KV/PV/ALV-Reformkostensumme**: AK/Wohnbauförderung und unterschiedliche Beitragsregime sind enthalten; reine Pensionslohnzettel ausgeschlossen. Die Überblickstabelle mit Personenklassifikation nennt 31,955 Mrd. €; sie hat eine andere Abgrenzung. Arbeitgeberbeiträge werden nicht hinzugerechnet. 2024 ist kein automatisch fortgeschriebener Wert für die spätere Schuldenfreiheit.\n\nBei unveränderten Leistungen müssen die ausgefallenen Beiträge in der Versicherungsfinanzierung vollständig ersetzt werden. Zusätzliche Lohnsteuer kann einen Teil davon im konsolidierten Staatshaushalt finanzieren. Die Aufteilung zwischen Bund/Ländern/Gemeinden und Versicherungsträgern muss geregelt werden.\n\n**Die bereits einbehaltenen Beiträge sind keine zusätzlichen Einnahmen für die Schuldentilgung.** Eine bloße Umleitung der breiten Referenzsumme in einen Tilgungstopf bringt dort rechnerisch +${fmt(broadBenchmark,3)} Mrd. €, entzieht den bisherigen Empfängern aber dieselbe Summe. Werden Leistungen und Ansprüche erhalten, ist dieser Ausfall zu ersetzen: +${fmt(broadBenchmark,3)} − ${fmt(broadBenchmark,3)} = **0 Mrd. € zusätzlicher Tilgungsspielraum**. Ohne Ersatz bleibt eine Finanzierungslücke; eine neue Verschuldung dafür verlagert Schulden lediglich. Tatsächliche Ausgabensenkungen oder zusätzliche externe Einnahmen wären eigenständig zu belegen. Das ist eine Zahlungsstrom-Gegenrechnung einschließlich aller bisherigen Empfänger, keine neue ESVG-Sektorensumme.\n\nReine Finanzierungssensitivitäten, volle Umsetzung des jeweiligen Bruttoentlastungsvolumens, nominal konstante Werte; tatsächliche Anlauf-/Mehrkosten noch offen:\n\n`;
-md+=table(['Angenommener Bruttoausfall Mrd. €/Jahr','Angenommener Lohnsteuer-Rückfluss','Netto/Jahr','Netto 5 Jahre','Netto 10 Jahre'],fundingRows.filter(x=>x.tax_recapture_share===0.3).map(x=>[fmt(x.gross_loss_bn,3)+(x.basis.startsWith('2024')?' (breite 2024-Referenz)':''),'30 %',fmt(x.net_replacement_need_bn,3),fmt(x.cumulative_net_need_bn[5],3),fmt(x.cumulative_net_need_bn[10],3)]));
-md+=`\nDie 30 % sind **keine empirisch berechnete gesamtstaatliche Rückflussquote**. Individuelle Payroll-Fälle werden nicht auf alle Beschäftigten hochgerechnet. Ergebnisse für 0/20/30/40 % stehen im JSON. Unbekannte tatsächliche Reformkosten bleiben als offen ausgewiesen.\n\n## 3. Finanzierung nach Ende der Schuldentilgung\n\nIm bisherigen vereinfachten Tilgungsmodell mit ${fmt(D,1)} Mrd. € Startschuld und dauerhaft 10 Mrd. € Basis-Nettotilgung entspricht der später freie Primärüberschuss rechnerisch **10 + Startschuld × angenommener vermiedener Zinssatz**. Das setzt unveränderte sonstige Einnahmen/Ausgaben und eine tatsächlich dauerhaft finanzierte Tilgungsbasis voraus. Bei 2,5 % sind das **23,13 Mrd. €/Jahr**.\n\nDas ist derselbe Spielraum, der während der Tilgung durch Zinsreinvestition die Tilgung beschleunigt. Er wird **einmal** verwendet: weder kumulierte historische Zinsersparnisse noch die letzte, verkürzte Tilgungsrate werden zusätzlich als Dauerertrag addiert. Wenn die Reformen nur genau den bereits zinsbereinigten Überschuss von 10 Mrd. € sichern, darf der Zinsvorteil nicht nochmals addiert werden.\n\nBedingte finanzierbare Brutto-Beitragsentlastung bei angenommenen 30 % Lohnsteuer-Rückfluss und ohne zusätzliche Umsetzungskosten:\n\n`;
-md+=table(['Vermeidungszins','Reserve','Freier Haushaltsspielraum Mrd. €/Jahr','Finanzierbarer Bruttoausfall Mrd. €/Jahr'],capacityRows.filter(x=>x.tax_recapture_share===0.3).map(x=>[fmt(x.interest_pct,1)+' %',fmt(x.reserve_share*100,0)+' %',fmt(x.available_bn,3),fmt(x.affordable_gross_loss_bn,3)]));
-md+=`\nBei 2,5 % und 20 % zurückbehaltenem Spielraum für andere Bedarfe stehen **18,504 Mrd. €/Jahr** zur Verfügung. Bei 30 % Rückfluss könnte das **26,434 Mrd. € Brutto-Beitragsausfall** tragen. Gegenüber der breiten 2024-Referenz wäre der Nettofinanzierungsbedarf ${fmt(broadBenchmark*0.7,3)} Mrd. €, also ${fmt(broadBenchmark*0.7-18.504,3)} Mrd. € höher. Das ist ein Größenordnungsvergleich, kein Beweis einer tatsächlichen Finanzierungslücke von SV-01. Bis dahin können Demografie, Leistungen, Löhne, Zinsen und Steuern erheblich anders sein.\n\n## 4. Arbeit gegenüber Arbeitslosigkeit\n\n[AMS, aktualisiert 05.08.2026](https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/geld-vom-ams/arbeitslosengeld): Grundbetrag grundsätzlich 55 % des gesetzlich ermittelten Nettoeinkommens; Ergänzung begrenzt auf 60 %, mit Familienzuschlägen auf 80 %. Grundlage sind historische Beitragsgrundlagen samt Aufwertung, pauschalem Sonderzahlungsanteil und eigener Nettoumrechnung. **Das belegt nicht, dass Arbeitslose generell gleich viel erhalten wie Beschäftigte.** Arbeitslosengeld ist grundsätzlich zeitlich begrenzt; Sozialhilfe und weitere Haushaltshilfen sind getrennte Leistungen.\n\nDer relevante Arbeitsanreiz lautet: Jahresnetto aus Beschäftigung / 12 minus vergleichbare monatliche Geldleistungen ohne Erwerbsarbeit minus zusätzliche Arbeitskosten und wegfallende Transfers. Gleicher Haushalt, gleiche Wohn-/Familienlage und gleicher Zeitraum; gemeinsame Transfers nicht doppelt zählen.\n\nBeispiel mit **ausdrücklich angenommenen** 1.500 € monatlichen Geldleistungen ohne Arbeit sowie 300 € zusätzlichen Arbeitskosten/Transferverlusten:\n\n`;
-md+=table(['Monatsbrutto bei Arbeit','Heutiger Arbeitsvorteil pro Monat','Arbeitsvorteil ohne DN-KV/PV/ALV'],comparisons.filter(x=>x.assumed_nonwork_monthly_cash_eur===1500&&x.work_cost_and_lost_transfers_eur===300).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.current_monthly_work_advantage_eur),fmt(x.reformed_monthly_work_advantage_eur)]));
-md+=`\nDiese Leistungsbeträge sind keine errechneten AMS-Ansprüche. Der Arbeitsvorteil nach endgültiger Veranlagung und konkreten Haushaltstransfers bleibt offen. Würde künftiges Arbeitslosengeld weiterhin prozentuell vom reformbedingt höheren Netto abhängen, könnte auch die Leistung steigen; ein unveränderter Leistungsbetrag ist deshalb nur eine isolierte Szenarioannahme. Das JSON enthält ${comparisons.length} Vergleichsfälle.\n\n## 5. Verbindlich festgehaltene nächste Rechenschritte\n\n- KV/PV/ALV nach Arbeitnehmergruppe und Beitragsgrundlage von AK/WF und anderen Umlagen trennen; Pensionist:innen/Selbständige eigenständig behandeln.\n- Steuer-/Transfermodell einschließlich SV-Rückerstattung, Verkehrsabsetzbetragszuschlag und zukünftiger ALG-Bemessung vervollständigen.\n- Versicherungsansprüche, Ersatztransfers, Umsetzungskosten und demografischen Leistungsbedarf über den tatsächlichen Reformstart hinaus sichern.\n- Vollständige Abschaffung mit gestufter Entlastung und gezielter Erwerbsgutschrift vergleichen. Die Zielstufe bleibt nach Schuldenfreiheit; ein früherer Start wird nicht angenommen.\n\nSV-01 ist eine Entlastungsreform mit Finanzierungsbedarf und wird nicht als Sparbeitrag auf die aktuelle Budgetlücke gebucht. Vollständige [Gesamtrechnung](WERK_GESAMTRECHNUNG.md).\n\nReproduzieren: \`python scripts/werk-import-employee-withholding.py\`, \`node scripts/werk-post-debt-sv-contract.mjs\`; mit \`--write\` werden die jeweiligen Artefakte neu erzeugt. Quellen und Regeln sind im JSON versioniert.\n`;
+const selected=linkedPaths.find(p=>p.inputs.debt===D&&p.inputs.ratePct===2.5&&p.inputs.interestToReliefShare===1&&p.inputs.taxRecaptureShare===0&&p.inputs.lagYears===1);
+const withRecapture=linkedPaths.find(p=>p.inputs.debt===D&&p.inputs.ratePct===2.5&&p.inputs.interestToReliefShare===1&&p.inputs.taxRecaptureShare===.3&&p.inputs.lagYears===1);
+let md=`# SV-01 – Weniger Schulden, weniger Zinsen, weniger Arbeitnehmerbeiträge
+
+Stand 6. September 2026. **Neues Ziel: Arbeitnehmer-KV/PV/ALV während des Schuldenabbaus schrittweise senken; bis Schuldenfreiheit um 50 %.** Versicherungsleistungen und erworbene Ansprüche bleiben erhalten. Arbeitgeberbeiträge, AK/WF und nicht beschäftigungsbezogene Regime sind getrennt. Das ersetzt die frühere 15,5-Mrd.-Zielstufe erst nach Schuldenfreiheit.
+
+## 1. Regel für Entlastung und Gegenfinanzierung
+
+Zuerst BUD-01 finanzieren und eine tragfähige Basistilgung sichern. Anschließend darf ein tatsächlich dauerhaft frei werdender Zinsbetrag für Beitragssenkungen eingesetzt werden. **Zinsersparnis = Netto-Ersatzfinanzierung der Beiträge + zusätzliche Tilgung + nicht gebundene Reserve.** Jeder Euro hat genau eine Verwendung. Die normale Basistilgung bleibt geschützt. Ihre nach Schuldenfreiheit entfallende Verwendung wird in diesem Modell nicht zusätzlich für SV angerechnet.
+
+Die Standardrechnung weist sämtliche realisierten Zinsersparnisse bis zum Ziel der Beitragssenkung zu; 50/50-Aufteilung und reine zusätzliche Tilgung sind Vergleichsfälle. Ein konkreter gesetzlicher Aufteilungsschlüssel bleibt auszuarbeiten. Nicht mehr benötigter Zinsbetrag bleibt Reserve. Zusätzliche Lohnsteuer kann die konsolidierte Belastung mindern, ist aber keine nachgewiesene gesamtstaatliche Quote. Die Versicherungszweige brauchen den vollen Bruttoausfall ersetzt.
+
+**Das 50%-Ziel bleibt eine politische Vorgabe; seine vollständige Deckung allein aus Zinsersparnissen ist offen.** Bei fehlender Deckung wird keine ungefinanzierte Senkung vorgezogen. Ein Kalenderdatum wird nicht versprochen. Auch Fälligkeiten, Rezession, steigende Refinanzierungskosten, Lohn-/Beitragsbasis, Demografie und Krisenreserve sind im echten Finanzierungsnachweis zu berücksichtigen.
+
+## 2. Reicht die Zinsersparnis für 50 %?
+
+Die [Statistik-Austria-Lohnzetteltabelle 2024](https://www.statistik.at/statistiken/volkswirtschaft-und-oeffentliche-finanzen/oeffentliche-finanzen/steuerstatistiken/lohnsteuerstatistik) ergibt ${fmt(broadBenchmark,6)} Mrd. € einbehaltene Beiträge einschließlich weiterer Umlagen. 19 Gruppen und ${fmt(source.totals.persons,0)} Personen sind zur gespeicherten Originaldatei abgeglichen. **Diese breite Summe ist keine reine Arbeitnehmer-KV/PV/ALV-Basis.** Ihre Hälfte (${fmt(target,6)} Mrd. €) dient nur als Größenvergleich; die echten Kosten einer Halbierung bleiben offen. Bereits eingehobene Beiträge sind keine zusätzlichen Einnahmen; ihre Umleitung bei vollständigem Ersatz der bestehenden Finanzierung schafft 0 € Tilgungsspielraum.
+
+Unter der bisherigen Annahme von ${fmt(D,1)} Mrd. € Startschuld und 2,5 % vermiedenen Zinsen werden nach vollständiger Wirkung aller Tilgungen jährlich höchstens **${fmt(selected.full_annual_interest_saving_bn,3)} Mrd. €** frei. Gegen die breite Halbierungsreferenz wäre ohne Steuer-Rückfluss eine Lücke von **${fmt(selected.target_financing_shortfall_after_full_interest_effect_bn,3)} Mrd. €** vorhanden. Das ist ein Sensitivitätsvergleich, keine nachgewiesene SV-Finanzierungslücke.
+
+Mit **angenommenen** 30 % zusätzlichem Lohnsteuer-Rückfluss sinkt der Netto-Ersatzbedarf dieser Referenz auf ${fmt(withRecapture.target_net_replacement_cost_bn,3)} Mrd. €. Im statischen Szenario erreicht die Entlastung dann das Referenzziel in Jahr ${withRecapture.target_reached_year}; ohne Rückfluss wird es nicht erreicht. Die 30 % sind keine empirisch ermittelte gesamtstaatliche Quote. Kostensteigerungen und Umsetzungskosten sind noch nicht angesetzt.
+
+Die [OeBFA](https://www.oebfa.at/) weist für das Bundesportfolio zum 31.07.2026 2,10 % effektive Verzinsung und 12,10 Jahre durchschnittliche Restlaufzeit aus. Das ist eine andere Schuldabgrenzung und wird nicht als Gesamtstaatszins verwendet. Eine Durchschnittslaufzeit ersetzt keinen Fälligkeitsplan. Die Szenarien verwenden 1/2,5/4 % und einen bzw. drei Jahre Verzögerung als reine Sensitivitäten.
+
+## 3. Schrittweiser Verlauf im Referenzszenario
+
+${fmt(D,1)} Mrd. € Startschuld (amtliche Projektion 2031, kein festgelegter WERK-Startwert), jährlich 10 Mrd. € dauerhaft finanzierte Basistilgung, 2,5 % Vermeidungssatz, gesamte Zinsersparnis für SV, keine Steuer-Rückflüsse. Zahlung am Jahresende; Zinsentlastung frühestens im Folgejahr. Konstante nominale Werte, keine neuen Defizite oder Stock-Flow-Effekte, keine zusätzlichen Kosten. Prozentwerte beziehen sich ausschließlich auf die breite Referenz, nicht auf gesicherte individuelle Beitragssätze.
+
+`;
+md+=table(['Jahr ab Tilgungsstart','Restschuld Mrd. €','Jährliche Zinsersparnis = SV-Finanzierung Mrd. €','Senkung der breiten Referenz'],selected.annual_rows.filter(r=>[1,5,10,20,30,40,selected.repayment_complete_year,selected.repayment_complete_year+1].includes(r.year)).map(r=>[r.year,fmt(r.remaining_debt_bn,3),fmt(r.realized_interest_saving_bn,3),fmt(r.modeled_contribution_reduction_pct,2)+' %']));
+md+=`
+Die letzte Tilgung im Jahr ${selected.repayment_complete_year} wirkt erst im Folgejahr voll auf die Zinsen. Die Entlastung ist bereits während der Tilgung wirksam, aber das politische 50%-Ziel wird im Fall ohne Rückfluss gegen diese breite Referenz nicht gedeckt. Die gesamte Pfadserie enthält ${linkedPaths.length} Szenarien mit vollständigen Jahresreihen, kumulierten Kosten und einem eigenständigen Zielerreichungscheck.
+
+## 4. Auswirkung auf die Tilgungsdauer
+
+Gleiche Startschuld, 10 Mrd. € Basistilgung, 2,5 % Zinsannahme und ein Jahr Verzögerung; ohne Steuer-Rückfluss:
+
+`;
+md+=table(['Zinsersparnis für SV','Zinsersparnis für zusätzliche Tilgung','Tilgungsjahre','Referenzsenkung bei Schuldenfreiheit'],linkedPaths.filter(p=>p.inputs.debt===D&&p.inputs.ratePct===2.5&&p.inputs.taxRecaptureShare===0&&p.inputs.lagYears===1).map(p=>[fmt(p.inputs.interestToReliefShare*100,0)+' %',fmt((1-p.inputs.interestToReliefShare)*100,0)+' %',p.repayment_complete_year,fmt(p.reduction_pct_at_debt_freedom,2)+' %']));
+md+=`
+Die beschleunigte Tilgungsdauer aus voller Zinsreinvestition darf daher nicht gemeinsam mit voller SV-Finanzierung aus denselben Zinsen versprochen werden. Die bestehenden Post-Tilgungs-Kapazitätsszenarien bleiben im JSON als separate Vergleichsrechnung erhalten; sie sind keine zusätzliche Finanzierung während dieses Pfads.
+
+## 5. Was 50 % weniger Arbeitnehmerbeiträge individuell bewirken könnten
+
+Statischer ASVG-Standardfall nach 2026-Regeln: ganzjährig 14 gleiche Bruttobezüge, außerhalb Wiens; KV/PV/ALV relativ halbiert, AK/WF unverändert. Unveränderter Steuertarif: weniger abzugsfähige Beiträge führen zu mehr Lohnsteuer. **Vor Arbeitnehmerveranlagung, SV-Rückerstattung, Haushaltstransfers und Finanzierungslasten.** Die individuelle Tabelle setzt die erreichte 50%-Senkung voraus und belegt keine gesamtstaatliche Finanzierung.
+
+`;
+md+=table(['Monatsbrutto €','Regelmonat netto heute','Netto bei halbem KV/PV/ALV','Mehr im Regelmonat','Mehr im Jahr'],payrollRows.filter(x=>x.region==='outside_vienna'&&x.reduction_share===.5).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.ordinary_month_net_before_eur),fmt(x.ordinary_month_net_after_eur),fmt(x.ordinary_month_net_gain_eur),fmt(x.annual_net_gain_eur)]));
+md+=`
+Das JSON erhält auch 25 % als Zwischenstand und 100 % als Vergleich; eine Vollabschaffung ist nicht automatisch vorgesehen. Weniger Beiträge bedeuten keinen gleich hohen Nettozuwachs. Niedrige ALV-Sätze und Beitragsobergrenzen sind berücksichtigt; die abschließende Verteilungsprüfung bleibt offen.
+
+## 6. Vergleich mit Nichterwerbstätigkeit
+
+[AMS](https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/geld-vom-ams/arbeitslosengeld): Grundbetrag grundsätzlich 55 % des gesetzlich berechneten historischen Nettoeinkommens; bedingte Ergänzungsgrenzen 60/80 %. Das ist keine allgemeine Gleichstellung mit Erwerbseinkommen. Arbeitslosengeld ist zeitlich begrenzt. Verglichen werden derselbe Haushalt und Zeitraum: Jahresnetto / 12, Geldleistungen, zusätzliche Arbeitskosten und wegfallende Transfers.
+
+Bei rein angenommenen 1.500 € monatlichen Leistungen ohne Arbeit und 300 € Arbeitskosten/Transferverlusten:
+
+`;
+md+=table(['Monatsbrutto','Heutiger Arbeitsvorteil pro Monat','Bei halbem KV/PV/ALV'],comparisons.filter(x=>x.assumed_nonwork_monthly_cash_eur===1500&&x.work_cost_and_lost_transfers_eur===300).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.current_monthly_work_advantage_eur),fmt(x.reformed_monthly_work_advantage_eur)]));
+md+=`
+Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensitivität festgehalten. Künftige nettoabhängige Leistungen könnten ebenfalls steigen. Endgültige Veranlagung und tatsächlicher Haushaltsvorteil bleiben offen.
+
+## 7. Offene Nachweise
+
+- Reine Arbeitnehmer-KV/PV/ALV-Beitragsbasis und zukünftiger Leistungsbedarf je Zweig.
+- Nachweislich finanzierte Basistilgung, Fälligkeitsplan und dauerhaft realisierbare Nettozinsersparnisse unter Stress.
+- Gesetzliche Mittelverteilung, Reserve und Ersatztransfers; keine doppelte Verwendung von Zinsersparnissen.
+- Verteilung nach Einkommen, Steuerveranlagung und Haushaltstransfers sowie tatsächliche Umsetzungskosten.
+
+Technische Rechnung vorhanden; **50%-Zieldeckung und Aktivierung bleiben offen**. [Gesamtrechnung](WERK_GESAMTRECHNUNG.md). Reproduzieren mit \`python3 scripts/werk-import-employee-withholding.py\` und \`node scripts/werk-post-debt-sv-contract.mjs\`; Generierung jeweils mit \`--write\`.
+`;
 for(const [p,s] of Object.entries({'werk-data/post-debt-employee-sv-results.json':JSON.stringify(out,null,2)+'\n','WERK_SV_NACH_SCHULDENFREIHEIT.md':md})){
   if(process.argv.includes('--write'))fs.writeFileSync(p,s);else assert.equal(fs.readFileSync(p,'utf8'),s,`${p}: regenerate`);
 }

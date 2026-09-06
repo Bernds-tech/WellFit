@@ -102,3 +102,9 @@ No additional locks recorded.
 - Scope: SV model, calculations, program, funding/status registers.
 
 - Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-003
+- Status: ACTIVE
+- Task: WERK-SV-003
+- Holder: Codex 2026-09-06
+- Scope: WERK SV and debt scenario linkage, program and registers.

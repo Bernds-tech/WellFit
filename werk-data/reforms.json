@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v4",
+  "version": "2026-09-06-v5",
   "method": "Erst rechnen. Dann entscheiden.",
   "rules": {
     "no_fabricated_numbers": true,
@@ -7,47 +7,8 @@
     "publication_note": "Politische Zielwerte, geltendes Recht, Ausgangsdaten und noch offene Rechnungen werden sichtbar getrennt. Frühere Projektideen werden bei geänderter Rechts- oder Datenlage neu bewertet."
   },
   "reforms": [
-    {
-      "id": "DEBT-01",
-      "area": "Finanzen & Schulden",
-      "title": "Fällige Schulden nicht automatisch refinanzieren",
-      "status": "weit entwickelt",
-      "problem": "Hohe Bundesfinanzschuld und langfristiger Refinanzierungsbedarf begrenzen budgetären Handlungsspielraum.",
-      "goal": "Zusätzliche Überschüsse primär nutzen, um fällige Schulden nicht erneut aufzunehmen; günstige Altanleihen nicht hektisch zurückkaufen.",
-      "baseline": {"date": "2026-07-31", "federal_financial_debt_eur_billion": 320.167, "effective_interest_pct": 2.10, "average_residual_maturity_years": 12.10, "source": "OeBFA"},
-      "source_ids": ["OEBFA-DEBT"],
-      "costs": "geringe direkte Transformationskosten; makro-/budgetäre Opportunitätskosten im Gesamtpfad zu modellieren",
-      "financing": "nur aus realen Budgetüberschüssen und verfügbaren Tilgungsmitteln",
-      "impact_1y": "abhängig von Fälligkeitsprofil und tatsächlich verfügbarem Überschuss",
-      "impact_5y": "weniger Refinanzierungsbedarf gegenüber Referenzpfad; exakte Zahl offen",
-      "impact_10y": "kumulierte Zinsersparnis verstärkt Tilgung; Szenario offen",
-      "current_level": "Bund",
-      "target_level": "Bund",
-      "legal_status": "budgetär/gesetzlich grundsätzlich gestaltbar; Detailprüfung offen",
-      "citizen_vote": "nein",
-      "kpi": ["Bundesfinanzschuld", "Zinsaufwand", "Refinanzierungsvolumen", "durchschnittliche Restlaufzeit"],
-      "review": "jährlich im Budget- und Schuldenbericht"
-    },
-    {
-      "id": "DEBT-02",
-      "area": "Finanzen & Schulden",
-      "title": "Schuldentilgungs-/Sinking-Fund",
-      "status": "Konzept",
-      "problem": "Tilgungsmittel können ohne klare Bindungslogik später wieder in laufenden Ausgaben aufgehen.",
-      "goal": "Überschüsse und definierte Zinsersparnisse transparent für Schuldentilgung binden.",
-      "source_ids": ["OEBFA-DEBT"],
-      "costs": "administrativ gering; Rechts-/Budgetmechanik auszuarbeiten",
-      "financing": "keine Kreditaufnahme zur Befüllung; nur reale Überschüsse bzw. zugewiesene Einsparungen",
-      "impact_1y": "Transparenz und Bindung von Tilgungsmitteln",
-      "impact_5y": "kumulativ höherer Schuldenabbau, abhängig von Überschüssen",
-      "impact_10y": "verstärkter Schuldenabbau durch Wiederanlage von Zinsersparnissen",
-      "current_level": "Bund",
-      "target_level": "Bund",
-      "legal_status": "Gesetzes- und Budgetmechanik offen",
-      "citizen_vote": "nein",
-      "kpi": ["jährliche Fondszuführung", "tatsächliche Tilgung", "Zinsersparnis"],
-      "review": "jährlich"
-    },
+    {"id": "DEBT-01", "area": "Finanzen & Schulden", "title": "Fällige Schulden nicht automatisch refinanzieren", "status": "weit entwickelt", "problem": "Hohe Bundesfinanzschuld und langfristiger Refinanzierungsbedarf begrenzen budgetären Handlungsspielraum.", "goal": "Zusätzliche Überschüsse primär nutzen, um fällige Schulden nicht erneut aufzunehmen; günstige Altanleihen nicht hektisch zurückkaufen. SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "baseline": {"date": "2026-07-31", "federal_financial_debt_eur_billion": 320.167, "effective_interest_pct": 2.1, "average_residual_maturity_years": 12.1, "source": "OeBFA"}, "source_ids": ["OEBFA-DEBT"], "costs": "geringe direkte Transformationskosten; makro-/budgetäre Opportunitätskosten im Gesamtpfad zu modellieren", "financing": "nur aus realen Budgetüberschüssen und verfügbaren Tilgungsmitteln SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "impact_1y": "abhängig von Fälligkeitsprofil und tatsächlich verfügbarem Überschuss", "impact_5y": "weniger Refinanzierungsbedarf gegenüber Referenzpfad; exakte Zahl offen", "impact_10y": "kumulierte Zinsersparnis verstärkt Tilgung; Szenario offen SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "current_level": "Bund", "target_level": "Bund", "legal_status": "budgetär/gesetzlich grundsätzlich gestaltbar; Detailprüfung offen", "citizen_vote": "nein", "kpi": ["Bundesfinanzschuld", "Zinsaufwand", "Refinanzierungsvolumen", "durchschnittliche Restlaufzeit"], "review": "jährlich im Budget- und Schuldenbericht"},
+    {"id": "DEBT-02", "area": "Finanzen & Schulden", "title": "Schuldentilgungs-/Sinking-Fund", "status": "Konzept", "problem": "Tilgungsmittel können ohne klare Bindungslogik später wieder in laufenden Ausgaben aufgehen.", "goal": "Überschüsse und definierte Zinsersparnisse transparent für Schuldentilgung binden. SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "source_ids": ["OEBFA-DEBT"], "costs": "administrativ gering; Rechts-/Budgetmechanik auszuarbeiten", "financing": "keine Kreditaufnahme zur Befüllung; nur reale Überschüsse bzw. zugewiesene Einsparungen SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "impact_1y": "Transparenz und Bindung von Tilgungsmitteln", "impact_5y": "kumulativ höherer Schuldenabbau, abhängig von Überschüssen", "impact_10y": "verstärkter Schuldenabbau durch Wiederanlage von Zinsersparnissen SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "current_level": "Bund", "target_level": "Bund", "legal_status": "Gesetzes- und Budgetmechanik offen", "citizen_vote": "nein", "kpi": ["jährliche Fondszuführung", "tatsächliche Tilgung", "Zinsersparnis"], "review": "jährlich"},
     {
       "id": "BUD-01",
       "area": "Finanzen & Budget",
@@ -69,26 +30,7 @@
       "kpi": ["Maastricht-Defizit", "struktureller Saldo", "Schuldenquote", "Primärsaldo", "Zinsausgaben"],
       "review": "monatlich im Vollzug, jährlich gesamtstaatlich"
     },
-    {
-      "id": "BUD-02",
-      "area": "Finanzen & Budget",
-      "title": "10-Milliarden-Tilgungsziel als zweite Sanierungsstufe",
-      "status": "politisches Ziel – Rechnung offen",
-      "problem": "Ein bloß ausgeglichener Haushalt stabilisiert den Schuldenstand, reduziert ihn aber ohne Überschüsse nicht schnell genug.",
-      "goal": "Nach Erreichen eines nachhaltig ausgeglichenen Haushalts eine jährliche Tilgungs-Zielgröße von mindestens 10 Mrd. € anstreben; nur aus realen Überschüssen, nicht durch neue Kreditaufnahme.",
-      "source_ids": ["OEBFA-DEBT", "BMF-BUDGET-2026"],
-      "costs": "Opportunitätskosten gegenüber anderen Ausgaben und Investitionen; konkrete Tragfähigkeit anhand BIP-, Zins- und Konjunkturszenarien zu rechnen",
-      "financing": "Primärüberschüsse, nicht refinanzierte Fälligkeiten und definierte Zinsersparnisse",
-      "impact_1y": "noch kein Automatismus; zuerst Budgetbalance und belastbares Fälligkeitsmodell",
-      "impact_5y": "bei Erreichen der Zielgröße bis zu 50 Mrd. € Bruttotilgung vor Zins-/Fälligkeitseffekten; kein Prognosewert",
-      "impact_10y": "bei dauerhaft erreichter Zielgröße bis zu 100 Mrd. € Bruttotilgung vor Zins-/Fälligkeitseffekten; kein Prognosewert",
-      "current_level": "Bund / gesamtstaatlicher Finanzrahmen",
-      "target_level": "Bund mit gesamtstaatlich abgestimmtem Schuldenpfad",
-      "legal_status": "politische Zielgröße; Budget-, Stabilitäts- und Krisenklauseln auszuarbeiten",
-      "citizen_vote": "nein",
-      "kpi": ["jährliche Nettotilgung", "Primärüberschuss", "Schuldenquote", "Zinsersparnis"],
-      "review": "jährlich; Zielgröße bei schweren Krisen nur transparent und befristet aussetzbar"
-    },
+    {"id": "BUD-02", "area": "Finanzen & Budget", "title": "10-Milliarden-Tilgungsziel als zweite Sanierungsstufe", "status": "politisches Ziel – Rechnung offen", "problem": "Ein bloß ausgeglichener Haushalt stabilisiert den Schuldenstand, reduziert ihn aber ohne Überschüsse nicht schnell genug.", "goal": "Nach Erreichen eines nachhaltig ausgeglichenen Haushalts eine jährliche Tilgungs-Zielgröße von mindestens 10 Mrd. € anstreben; nur aus realen Überschüssen, nicht durch neue Kreditaufnahme. SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "source_ids": ["OEBFA-DEBT", "BMF-BUDGET-2026"], "costs": "Opportunitätskosten gegenüber anderen Ausgaben und Investitionen; konkrete Tragfähigkeit anhand BIP-, Zins- und Konjunkturszenarien zu rechnen", "financing": "Primärüberschüsse, nicht refinanzierte Fälligkeiten und definierte Zinsersparnisse SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "impact_1y": "noch kein Automatismus; zuerst Budgetbalance und belastbares Fälligkeitsmodell", "impact_5y": "bei Erreichen der Zielgröße bis zu 50 Mrd. € Bruttotilgung vor Zins-/Fälligkeitseffekten; kein Prognosewert", "impact_10y": "bei dauerhaft erreichter Zielgröße bis zu 100 Mrd. € Bruttotilgung vor Zins-/Fälligkeitseffekten; kein Prognosewert SV-01: Für Arbeitnehmerentlastung verwendete Zinsersparnisse stehen nicht zugleich für zusätzliche Tilgung bereit; Mittelverwendung getrennt ausweisen.", "current_level": "Bund / gesamtstaatlicher Finanzrahmen", "target_level": "Bund mit gesamtstaatlich abgestimmtem Schuldenpfad", "legal_status": "politische Zielgröße; Budget-, Stabilitäts- und Krisenklauseln auszuarbeiten", "citizen_vote": "nein", "kpi": ["jährliche Nettotilgung", "Primärüberschuss", "Schuldenquote", "Zinsersparnis"], "review": "jährlich; Zielgröße bei schweren Krisen nur transparent und befristet aussetzbar"},
     {
       "id": "SUB-01",
       "area": "Finanzen & Förderungen",
@@ -313,6 +255,6 @@
       "kpi": ["aktive Partnerlisten", "Compliance-Verstöße", "regionale Abdeckung", "Konfliktlösungsdauer"],
       "review": "jährlich durch Integritäts-/Revisionsfunktion"
     },
-    {"id": "SV-01", "area": "Steuern, Arbeit & soziale Sicherheit", "title": "Arbeitnehmer-SV nach Schuldenfreiheit zunächst um 15,5 Mrd. Euro jährlich senken", "status": "politisches Langfristziel – bedingte Rechnung vorhanden, Finanzierung offen", "problem": "Beiträge auf Arbeit verringern das verfügbare Einkommen; der Abstand zwischen Beschäftigung und Nichterwerbstätigkeit hängt zusätzlich von Steuern, Transfers und Arbeitskosten ab.", "goal": "Nach vollständigem gesamtstaatlichem Schuldenabbau Arbeitnehmer-KV/PV/ALV auf Lohn und Gehalt zunächst um insgesamt 15,5 Mrd. Euro jährlich senken; Versicherungsleistungen und erworbene Ansprüche durch dauerhafte Ersatzfinanzierung erhalten. Individuelle Beitragssätze und Verteilung noch offen.", "costs": "Tatsächlicher Arbeitnehmer-KV/PV/ALV-Ausfall abzüglich zusätzlicher Lohnsteuer, zuzüglich Übergangs-/Betriebs-/Leistungskosten. Exakte Kosten offen; breite Lohnzettelreferenz 2024 ist keine Reformkostensumme.", "financing": "Dauerhafter Haushaltsspielraum nach Ende von Tilgung/Zinslast, mit Reserve; weitere Finanzierung nur nach Netto- und Verteilungsnachweis. Kein heutiger Sparbeitrag.", "impact_1y": "Erst nach Schuldenfreiheit und Ersatzfinanzierung. 15,5 Mrd. Euro Bruttoentlastungsziel; statische Payroll-Szenarien für 25/50/100% nur zum Vergleich, keine automatische individuelle Halbierung. Tatsächliche Startkosten offen.", "impact_5y": "Fünfjahres-Finanzierungssensitivität gerechnet; Preis-/Leistungs-/Demografiepfad bis tatsächlichem Start offen.", "impact_10y": "Zehnjahres-Finanzierungssensitivität gerechnet; tatsächliche Dauerfinanzierung offen.", "current_level": "Bund / Sozialversicherung / Finanzausgleich", "target_level": "Gesamtstaatlich finanzierte Arbeitnehmerentlastung bei gesicherten Versicherungsansprüchen", "legal_status": "WERK-Zielvorschlag vom 06.09.2026; nicht geltendes Recht. Beitrags-, Leistungs-, Steuer- und Finanzausgleichsrecht auszuarbeiten.", "citizen_vote": "nach vollständiger Kosten-, Verteilungs- und Rechtsprüfung", "kpi": ["Nettoeinkommensgewinn nach Veranlagung und Transfers", "Ersatzbedarf je Versicherungszweig", "Erwerbsanreiz je Haushalt", "Schuldenfreiheit und Krisenreserve", "Erhalt der Leistungsansprüche"], "review": "vor Aktivierung umfassend; danach jährlich mit Demografie-, Deckungs- und Verteilungsprüfung", "scenario_model": "werk-data/post-debt-employee-sv-model.json", "calculation_results": "werk-data/post-debt-employee-sv-results.json", "activation_stage": "after_complete_general_government_debt_repayment", "verified_annual_net_eur_billion": null}
+    {"id": "SV-01", "area": "Steuern, Arbeit & soziale Sicherheit", "title": "Arbeitnehmer-SV mit dem Schuldenabbau schrittweise um 50% senken", "status": "politisches Langfristziel – bedingte Rechnung vorhanden, Finanzierung offen", "problem": "Beiträge auf Arbeit verringern das verfügbare Einkommen; der Abstand zwischen Beschäftigung und Nichterwerbstätigkeit hängt zusätzlich von Steuern, Transfers und Arbeitskosten ab.", "goal": "Während des Schuldenabbaus Arbeitnehmer-KV/PV/ALV schrittweise senken; bis Schuldenfreiheit relative Reduktion um 50% anstreben, bei erhaltenen Leistungen und Ansprüchen.", "costs": "Tatsächlicher Arbeitnehmer-KV/PV/ALV-Ausfall abzüglich zusätzlicher Lohnsteuer, zuzüglich Übergangs-/Betriebs-/Leistungskosten. Exakte Kosten offen; breite Lohnzettelreferenz 2024 ist keine Reformkostensumme.", "financing": "Tatsächlich realisierte laufende Zinsersparnisse ersetzen Beitragseinnahmen. Keine doppelte Verwendung für zusätzliche Tilgung; gesicherte Basistilgung bleibt erhalten. Zieldeckung offen.", "impact_1y": "Erste Entlastung nur aus nachweislich frei gewordenen laufenden Zinsausgaben; Zinswirkung nach Fälligkeit und Tilgung verzögert.", "impact_5y": "Gekoppelte Tilgungs-/Entlastungspfade mit getrennter Mittelverwendung gerechnet; tatsächliche Zins- und Beitragsbasis offen.", "impact_10y": "Fortgesetzte gedeckte Beitragssenkung; 50%-Ziel bei Schuldenfreiheit nicht automatisch finanziert.", "current_level": "Bund / Sozialversicherung / Finanzausgleich", "target_level": "Gesamtstaatlich finanzierte Arbeitnehmerentlastung bei gesicherten Versicherungsansprüchen", "legal_status": "WERK-Zielvorschlag vom 06.09.2026; nicht geltendes Recht. Beitrags-, Leistungs-, Steuer- und Finanzausgleichsrecht auszuarbeiten.", "citizen_vote": "nach vollständiger Kosten-, Verteilungs- und Rechtsprüfung", "kpi": ["Nettoeinkommensgewinn nach Veranlagung und Transfers", "Ersatzbedarf je Versicherungszweig", "Erwerbsanreiz je Haushalt", "Schuldenfreiheit und Krisenreserve", "Erhalt der Leistungsansprüche"], "review": "vor Aktivierung umfassend; danach jährlich mit Demografie-, Deckungs- und Verteilungsprüfung", "scenario_model": "werk-data/post-debt-employee-sv-model.json", "calculation_results": "werk-data/post-debt-employee-sv-results.json", "activation_stage": "during_funded_debt_repayment_from_realized_interest_savings", "verified_annual_net_eur_billion": null, "target_reduction_share": 0.5}
   ]
 }

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {employeeRelief,postDebtCapacity,replacementCost} from './lib/werk-post-debt-sv.mjs';
+import {employeeRelief,postDebtCapacity,replacementCost,debtLinkedRelief} from './lib/werk-post-debt-sv.mjs';
 const kernel=JSON.parse(fs.readFileSync('werk-data/payroll-employee-kernel-2026.json','utf8'));
 const original=JSON.stringify(kernel);let count=0;
 const check=(label,fn)=>{try{fn();count++;}catch(e){throw Error(label+': '+e.message);}};
@@ -37,12 +37,30 @@ for(const args of [{startingDebt:null,baseRepayment:10,ratePct:2.5},{startingDeb
 for(const args of [{grossLoss:30,taxRecaptureShare:1},{grossLoss:30,taxRecaptureShare:NaN},{grossLoss:-1,taxRecaptureShare:.3},{grossLoss:30,taxRecaptureShare:.3,runningCost:-1}])check('Reject invalid replacement cost',()=>assert.throws(()=>replacementCost(args)));
 const out=JSON.parse(fs.readFileSync('werk-data/post-debt-employee-sv-results.json','utf8'));
 check('No invented aggregate or activation',()=>{assert.equal(out.pure_employee_kv_pv_alv_total_bn,null);assert.equal(out.verified_reform_cost_bn,null);assert.equal(out.activation_year,null);close(out.broad_withholding_reference_bn,31.952625);});
-check('First stage volume is not an individual 50 percent cut',()=>{close(out.first_stage.annual_gross_relief_target_bn,15.5);assert.equal(out.first_stage.individual_reduction_share,null);assert.equal(out.first_stage.full_abolition_is_current_program_target,false);const a=out.first_stage.financing_sensitivities.find(x=>x.tax_recapture_share===0);close(a.cumulative_net_need_bn[10],155);const b=out.first_stage.financing_sensitivities.find(x=>x.tax_recapture_share===.3);close(b.net_replacement_need_bn,10.85);close(b.cumulative_net_need_bn[5],54.25);});
+check('Progressive target replaces post-debt fixed volume',()=>{close(out.progressive_target.employee_core_reduction_share,.5);assert.equal(out.progressive_target.verified_gross_cost_bn,null);assert.equal(out.progressive_target.target_financing_proven,false);});
+check('Independent linked-path timing and single use',()=>{
+ const p=debtLinkedRelief({debt:50,annualBase:10,ratePct:10,contributionBase:20});
+ assert.equal(p.repayment_complete_year,5);close(p.annual_rows[0].realized_interest_saving_bn,0);close(p.annual_rows[1].realized_interest_saving_bn,1);close(p.annual_rows[4].gross_contribution_relief_bn,4);close(p.annual_rows[5].gross_contribution_relief_bn,5);close(p.annual_rows[4].cumulative_net_relief_cost_bn,10);
+ assert.equal(p.target_reached_by_debt_freedom,false);close(p.target_financing_shortfall_after_full_interest_effect_bn,5);
+});
+check('Lag prevents spending future interest',()=>{const p=debtLinkedRelief({debt:50,annualBase:10,ratePct:10,contributionBase:20,lagYears:3});close(p.annual_rows[2].gross_contribution_relief_bn,0);close(p.annual_rows[3].gross_contribution_relief_bn,1);});
+check('Reinvestment and relief are competing alternatives',()=>{
+ const a={debt:525.2,annualBase:10,ratePct:2.5,contributionBase:31.952625};
+ assert.equal(debtLinkedRelief({...a,interestToReliefShare:0}).repayment_complete_year,34);
+ assert.equal(debtLinkedRelief({...a,interestToReliefShare:.5}).repayment_complete_year,41);
+ assert.equal(debtLinkedRelief(a).repayment_complete_year,53);
+ const r=debtLinkedRelief({...a,taxRecaptureShare:.3});assert.equal(r.target_reached_year,46);assert.equal(r.target_reached_by_debt_freedom,true);
+});
+check('Relief cap reserves excess interest and protects base',()=>{const p=debtLinkedRelief({debt:50,annualBase:10,ratePct:10,contributionBase:2});close(p.annual_rows[2].gross_contribution_relief_bn,1);close(p.annual_rows[2].unallocated_interest_bn,1);assert.equal(p.repayment_complete_year,5);});
+check('Zero interest means no interest-funded relief',()=>{const p=debtLinkedRelief({debt:50,annualBase:10,ratePct:0,contributionBase:20});assert.ok(p.annual_rows.every(r=>r.gross_contribution_relief_bn===0));assert.equal(p.target_reached_year,null);});
+check('No fabricated debt-free milestone outside horizon',()=>{const p=debtLinkedRelief({debt:50,annualBase:10,ratePct:10,contributionBase:20,maxYears:2});assert.equal(p.repayment_complete_year,null);assert.equal(p.target_reached_by_debt_freedom,null);});
+for(const change of [{debt:null},{annualBase:0},{contributionBase:0},{ratePct:NaN},{interestToReliefShare:1.1},{taxRecaptureShare:1},{lagYears:0},{lagYears:1.5},{reductionTarget:1.1}])check('Reject unsafe linked input '+JSON.stringify(change),()=>assert.throws(()=>debtLinkedRelief({debt:50,annualBase:10,ratePct:10,contributionBase:20,...change})));
+check('All generated annual allocations reconcile',()=>{for(const p of out.progressive_target.linked_debt_paths)for(const r of p.annual_rows){close(r.realized_interest_saving_bn,r.net_replacement_cost_bn+r.extra_repayment_bn+r.unallocated_interest_bn,.000003);close(r.gross_contribution_relief_bn-r.wage_tax_recapture_bn,r.net_replacement_cost_bn,.000003);assert.ok(r.modeled_contribution_reduction_pct<=50.000001);}});
 check('Existing receipts cannot be booked twice',()=>{const r=out.existing_receipts_redirection;close(r.illustrative_redirected_existing_receipts_bn+r.displaced_recipient_receipts_bn,0);close(r.additional_external_revenue_bn,0);close(r.additional_debt_repayment_capacity_bn,0);});
 check('19-bracket source total preserved',()=>{const s=JSON.parse(fs.readFileSync('werk-data/employee-payroll-withholding-2024.json','utf8'));assert.equal(s.brackets.length,19);assert.equal(s.totals.persons,4918470);assert.equal(s.totals.withheld_contributions_and_levies_thousand_eur,31952625);});
 check('Work comparison is annual, not regular-month versus year',()=>{
   const r=out.work_nonwork_sensitivities.find(x=>x.monthly_gross_eur===3000&&x.assumed_nonwork_monthly_cash_eur===1500&&x.work_cost_and_lost_transfers_eur===300);
-  close(r.current_monthly_work_advantage_eur,766.95,.011);close(r.reformed_monthly_work_advantage_eur,1205.65,.011);assert.equal(r.actual_ams_entitlement_eur,null);
+  close(r.current_monthly_work_advantage_eur,766.95,.011);close(r.reformed_monthly_work_advantage_eur,986.30,.011);assert.equal(r.actual_ams_entitlement_eur,null);
 });
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-sv-negative-'));
 try{
@@ -52,12 +70,14 @@ try{
   check('Clean isolated generation',()=>assert.equal(run().status,0));
   const p=path.join(tmp,'werk-data/post-debt-employee-sv-model.json'),raw=fs.readFileSync(p,'utf8');
   for(const [label,mutate] of [
-    ['Invented individual first-stage percentage',s=>s.first_stage.individual_reduction_share=.5],
-    ['Automatic full abolition after first stage',s=>s.first_stage.further_full_abolition_automatically_authorized=true],
+    ['Changed target without owner decision',s=>s.progressive_target.employee_core_reduction_share=1],
+    ['Double use of interest',s=>s.progressive_target.same_interest_euro_may_fund_both_relief_and_extra_repayment=true],
     ['Double-booked existing contributions',s=>s.existing_receipts_accounting.redirection_creates_additional_revenue=true],
     ['Invented repayment from redirection',s=>s.existing_receipts_accounting.verified_additional_debt_repayment_bn=31.96],
     ['Premature activation',s=>s.activation.currently_active=true],
-    ['Missing debt-free requirement',s=>s.activation.requires_debt_free_general_government=false],
+    ['Unfunded base repayment',s=>s.activation.requires_funded_base_debt_repayment=false],
+    ['Spending unrealized interest',s=>s.activation.requires_realized_recurring_interest_savings=false],
+    ['Unsupported target coverage',s=>s.progressive_target.end_target_financing_proven=true],
     ['Fake funded cost',s=>s.funding_gate.verified_annual_replacement_cost_bn=1],
     ['Invalid 55 percent claim',s=>s.official_unemployment_rules.basic_replacement_pct=100],
     ['Unsupported equal-pay generalisation',s=>s.official_unemployment_rules.same_pay_as_work_general_claim_verified=true],

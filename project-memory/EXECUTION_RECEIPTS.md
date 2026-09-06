@@ -102,3 +102,9 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Countercheck: 37 SV numerical/negative cases; four affected local workflow bodies.
 - Remote CI: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json. Recovery: revert bounded SV-002 commits.
 - Falsifier: automatic 50% personal cut, household net equated to gross volume or automatic future full abolition. These claims are guarded against.
+
+## WERK-SV-003 — 2026-09-06
+- Model: 16 coupled annual paths; same interest cannot fund relief and additional debt repayment; savings delayed 1/3 years. 50% payroll cases highlighted.
+- Countercheck: 55 numerical/negative cases, including allocation identity, lag, target coverage and protected base repayment; relevant workflow bodies.
+- Falsifier: faster fully reinvested debt path and full relief claimed simultaneously; prospective interest spent early; unknown pure SV aggregate treated as known.
+- Remote CI: pending. Recovery: revert bounded SV-003 changes; no runtime migration.

@@ -85,7 +85,7 @@ Nur ab Beginn einer tatsächlich finanzierten Tilgungsphase. Kein Kalenderdatum 
 | 525,2 | 15 | 36 | 26 |
 | 525,2 | 20 | 27 | 21 |
 
-Jahresendzahlungen einschließlich kleinerer letzter Rate. Bei 10 Mrd. € Basistilgung ohne Reinvestition sind nach 1/5/10 Jahren 10/50/100 Mrd. € getilgt; die kumulierten rechnerischen Zinsvorteile bei 2,5 % betragen 0/2,5/11,25 Mrd. €. Reinvestierte Zinsvorteile sind bereits in der höheren Tilgung enthalten und werden nicht nochmals hinzuaddiert. Das JSON enthält 48 Fälle, einschließlich 0/1/2,5/4 % Vermeidungssatz.
+Jahresendzahlungen einschließlich kleinerer letzter Rate. Bei 10 Mrd. € Basistilgung ohne Reinvestition sind nach 1/5/10 Jahren 10/50/100 Mrd. € getilgt; die kumulierten rechnerischen Zinsvorteile bei 2,5 % betragen 0/2,5/11,25 Mrd. €. Reinvestierte Zinsvorteile sind bereits in der höheren Tilgung enthalten und werden nicht nochmals hinzuaddiert. Bei SV-01 für Beitragsentlastung eingesetzte Zinsen entfallen für diese Tilgungsbeschleunigung; die Varianten sind Alternativen. Das JSON enthält 48 Fälle, einschließlich 0/1/2,5/4 % Vermeidungssatz.
 
 ## 5. Arbeitszeit und Betreuung
 
@@ -155,9 +155,9 @@ Diese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert
 | REG-01 | Subsidiaritäts- und Kompetenzordnung | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | DIR-01 | WERK VOTE | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | ORG-01 | WERK-Bürgerlisten-Pakt | Kosten-/Wirkungsmodell offen | offen / offen / offen |
-| SV-01 | Arbeitnehmer-SV nach Schuldenfreiheit zunächst um 15,5 Mrd. Euro jährlich senken | SV-01 (nach Schuldenfreiheit) | offen / offen / offen |
+| SV-01 | Arbeitnehmer-SV mit dem Schuldenabbau schrittweise um 50% senken | SV-01 (während Schuldentilgung) | offen / offen / offen |
 
-Die neue Zielstufe **SV-01** nach vollständiger Schuldenfreiheit ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.
+Der schrittweise Entlastungspfad **SV-01** während des Schuldenabbaus ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.
 
 Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehmensspezifische zusätzliche Maastricht-Effekte; bei EU-01 Kosten und Periodisierung des RRF-Nachlaufs; bei TAX-01 Verhaltens-/Investitionssimulation; bei REG-01 Übergangskosten je Kompetenz; bei DIR-01 und ORG-01 Infrastruktur-/Betriebskosten und der passende private/öffentliche Finanzierungsumfang. DEBT-02 ist eine Tilgungsorganisation und kein zusätzlicher Sparbeitrag.
 

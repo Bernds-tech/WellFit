@@ -5,12 +5,12 @@
   "source_sha256": {
     "werk-data/calculation-assumptions.json": "b881f7d40d36f5f50d36ca0c3b8c905141ef7d10bd496da32899319fed67fd22",
     "werk-data/budget-baseline-2026-2031.json": "6a56e4df54c58a1c812ee9222e7c6e23921641a5a6031e05a108ded1614a148a",
-    "werk-data/funding-matrix.json": "3671f7596abd9aaed73df5d1ed38408355c7aa8df8822c4f71a628bad05ffb1e",
-    "werk-data/reforms.json": "c8343cf22731733b483f2aa8816f1b4187e2368a129714f44830c39bd4e14bec",
+    "werk-data/funding-matrix.json": "939f8b3cf3a20f28bc247c071a0e24a4fab927b899300e36582745eed8f9834c",
+    "werk-data/reforms.json": "84479531849ae5729cd4ca7159fce7b5ff136a738138d12e92013e35e52da41d",
     "werk-data/admin-model.json": "95701417ef30de97a0e9516ba6f5a9698dc52c252db28eb166610337301e8a65",
     "werk-data/tax-compliance-model.json": "bc3cfc87e2cc3b95ecb1d1b9100d96630854a713a3ba1d1a007d149894f66744",
     "werk-data/gambling-model.json": "e733868a4802dd36252e214e3065e0d7ea329207512097a1ccb7f82b47843388",
-    "werk-data/debt-model.json": "43e6d246fa811e0d32a7f49fb78dc84d8ac1dee18615d08bfc63b2fad2fde6b8",
+    "werk-data/debt-model.json": "0c66de9a551b67607dcb1dc83a7b5d1d1a4b95ac98dbed78296b59adb264719f",
     "werk-data/labour-time-care-constraints-2025.json": "016b2b9ef677a52a3a252800cf1243bcaf45bba61eb384c88caa62403e2438cc",
     "werk-data/payroll-employee-kernel-2026.json": "9c0a8ee265c0d6e5c84adad5bcc6749a48f6f3431f114a3956fbe5e1aa7206fe",
     "werk-data/government-baseline-2025-2031.json": "79312c80a89c0bd8025c7b554fe56ed086a0481d1f770736ecd3b4d1a1c582ee",
@@ -5657,9 +5657,9 @@
     },
     {
       "id": "SV-01",
-      "title": "Arbeitnehmer-SV nach Schuldenfreiheit zunächst um 15,5 Mrd. Euro jährlich senken",
+      "title": "Arbeitnehmer-SV mit dem Schuldenabbau schrittweise um 50% senken",
       "cost_description": "Tatsächlicher Arbeitnehmer-KV/PV/ALV-Ausfall abzüglich zusätzlicher Lohnsteuer, zuzüglich Übergangs-/Betriebs-/Leistungskosten. Exakte Kosten offen; breite Lohnzettelreferenz 2024 ist keine Reformkostensumme.",
-      "scenario_module": "SV-01 (nach Schuldenfreiheit)",
+      "scenario_module": "SV-01 (während Schuldentilgung)",
       "verified_annual_net_bn": null,
       "verified_cumulative_net_bn": {
         "1": null,

@@ -1,48 +1,48 @@
 {
-  "version":"2026-09-05-v3",
-  "title":"WERK Schulden-Szenariorechner",
-  "status":"illustratives BUD-02-Szenario – Tilgungsphase beginnt erst nach nachgewiesener BUD-01-Budgetbalance",
-  "baselines":{
-    "general_government":{
-      "label":"Gesamtstaatlicher Maastricht-Schuldenstand",
-      "debt_eur_billion":431.4,
-      "debt_ratio_gdp_pct":83.5,
-      "data_date":"2026-Q1",
-      "source_id":"STAT-DEBT",
-      "use":"aktueller Ist-Anker für das langfristige Ziel eines schuldenfreien Gesamtstaats; kein automatisch angenommener BUD-02-Startwert"
+  "version": "2026-09-06-v4",
+  "title": "WERK Schulden-Szenariorechner",
+  "status": "illustratives BUD-02-Szenario – Tilgungsphase beginnt erst nach nachgewiesener BUD-01-Budgetbalance",
+  "baselines": {
+    "general_government": {
+      "label": "Gesamtstaatlicher Maastricht-Schuldenstand",
+      "debt_eur_billion": 431.4,
+      "debt_ratio_gdp_pct": 83.5,
+      "data_date": "2026-Q1",
+      "source_id": "STAT-DEBT",
+      "use": "aktueller Ist-Anker für das langfristige Ziel eines schuldenfreien Gesamtstaats; kein automatisch angenommener BUD-02-Startwert"
     },
-    "federal_refinancing":{
-      "label":"Bundesfinanzschuld / OeBFA-Portfolio",
-      "debt_eur_billion":320.167,
-      "data_date":"2026-07-31",
-      "source_id":"OEBFA-DEBT",
-      "use":"DEBT-01 Refinanzierungs-, Laufzeiten- und Nicht-Refinanzierungsstrategie des Bundes"
+    "federal_refinancing": {
+      "label": "Bundesfinanzschuld / OeBFA-Portfolio",
+      "debt_eur_billion": 320.167,
+      "data_date": "2026-07-31",
+      "source_id": "OEBFA-DEBT",
+      "use": "DEBT-01 Refinanzierungs-, Laufzeiten- und Nicht-Refinanzierungsstrategie des Bundes"
     },
-    "adopted_policy_projection_2031":{
-      "label":"BMF Maastricht-Schuldenstand 2031 im beschlossenen Referenzpfad",
-      "debt_eur_billion":525.2,
-      "debt_ratio_gdp_pct":85.0,
-      "data_date":"2031-policy-projection-from-2026-07-10-budget",
-      "source_id":"BMF-BUDGET-2728-REPORT",
-      "use":"Referenz dafür, warum ein fixer Tilgungshorizont vor BUD-01 nicht seriös festgelegt werden kann; kein WERK-Zielwert"
+    "adopted_policy_projection_2031": {
+      "label": "BMF Maastricht-Schuldenstand 2031 im beschlossenen Referenzpfad",
+      "debt_eur_billion": 525.2,
+      "debt_ratio_gdp_pct": 85.0,
+      "data_date": "2031-policy-projection-from-2026-07-10-budget",
+      "source_id": "BMF-BUDGET-2728-REPORT",
+      "use": "Referenz dafür, warum ein fixer Tilgungshorizont vor BUD-01 nicht seriös festgelegt werden kann; kein WERK-Zielwert"
     }
   },
-  "balance_gate":{
-    "required_before_bud02":true,
-    "source":"bud01-balance-gap-2026-2031.json",
-    "official_baseline_2031_maastricht_balance_eur_billion":-18.0,
-    "official_baseline_2031_gap_to_zero_eur_billion":18.0,
-    "rule":"BUD-02 mit mindestens 10 Mrd. EUR jährlicher Nettotilgung darf erst beginnen, wenn der gesamtstaatliche Haushalt nachhaltig mindestens ausgeglichen ist. Defizitabbau und Tilgung sind keine gleichzeitig addierbaren Sparziele.",
-    "horizon_rule":"Der politische Tilgungshorizont wird am tatsächlichen BUD-02-Start aus dem dann aktuellen Schuldenstand, Fälligkeitsprofil, Zinsen und dauerhaft tragfähigen Überschuss neu berechnet."
+  "balance_gate": {
+    "required_before_bud02": true,
+    "source": "bud01-balance-gap-2026-2031.json",
+    "official_baseline_2031_maastricht_balance_eur_billion": -18.0,
+    "official_baseline_2031_gap_to_zero_eur_billion": 18.0,
+    "rule": "BUD-02 mit mindestens 10 Mrd. EUR jährlicher Nettotilgung darf erst beginnen, wenn der gesamtstaatliche Haushalt nachhaltig mindestens ausgeglichen ist. Defizitabbau und Tilgung sind keine gleichzeitig addierbaren Sparziele.",
+    "horizon_rule": "Der politische Tilgungshorizont wird am tatsächlichen BUD-02-Start aus dem dann aktuellen Schuldenstand, Fälligkeitsprofil, Zinsen und dauerhaft tragfähigen Überschuss neu berechnet."
   },
-  "default_inputs":{
-    "model":"general_government",
-    "annual_net_principal_reduction_eur_billion":10,
-    "years":60,
-    "assumed_avoided_refinancing_rate_pct":2.5,
-    "start_delay_years":0
+  "default_inputs": {
+    "model": "general_government",
+    "annual_net_principal_reduction_eur_billion": 10,
+    "years": 60,
+    "assumed_avoided_refinancing_rate_pct": 2.5,
+    "start_delay_years": 0
   },
-  "input_rules":[
+  "input_rules": [
     "Für das politische Ziel 'Österreich schuldenfrei' ist der konsolidierte Maastricht-Schuldenstand des Gesamtstaats die richtige Bezugsgröße; die OeBFA-Bundesfinanzschuld ist nicht mit der gesamten Staatsschuld gleichzusetzen.",
     "BUD-01 und BUD-02 sind aufeinanderfolgende Stufen: zuerst nachhaltige Budgetbalance, erst danach Nettotilgung aus echten Überschüssen.",
     "Der aktuelle Ist-Schuldenstand oder die BMF-Projektion 2031 ist kein automatisch festgelegter Startwert der späteren Tilgungsphase. Der Startwert wird bei Aktivierung von BUD-02 aktualisiert.",
@@ -52,12 +52,21 @@
     "Das einfache Modell berücksichtigt noch keine Änderung von BIP, Inflation, Primärsaldo, Fälligkeitsstruktur, Länder-/Gemeindeschulden, Risikoprämien oder Konjunktur.",
     "Für DEBT-01 bleibt zusätzlich ein OeBFA-kompatibles Fälligkeitsmodell des Bundes erforderlich."
   ],
-  "formulas":{
-    "remaining_principal":"max(starting_debt - annual_net_principal_reduction * effective_years, 0)",
-    "gross_principal_reduction":"starting_debt - remaining_principal",
-    "simple_repayment_years_after_start":"starting_debt / annual_net_principal_reduction, sofern annual_net_principal_reduction > 0",
-    "simple_cumulative_avoided_interest":"Summe der bereits wirksamen jährlichen Nettotilgungen × angenommener vermiedener Refinanzierungszins; Tilgung am Jahresende, Wirkung frühestens ab Folgejahr",
-    "effective_years":"max(years - start_delay_years, 0)"
+  "formulas": {
+    "remaining_principal": "max(starting_debt - annual_net_principal_reduction * effective_years, 0)",
+    "gross_principal_reduction": "starting_debt - remaining_principal",
+    "simple_repayment_years_after_start": "starting_debt / annual_net_principal_reduction, sofern annual_net_principal_reduction > 0",
+    "simple_cumulative_avoided_interest": "Summe der bereits wirksamen jährlichen Nettotilgungen × angenommener vermiedener Refinanzierungszins; Tilgung am Jahresende, Wirkung frühestens ab Folgejahr",
+    "effective_years": "max(years - start_delay_years, 0)"
   },
-  "publication_warning":"Der Rechner zeigt nur eine hypothetische Tilgungsphase nach Budgetbalance, keine Prognose und kein Versprechen eines Schuldenfrei-Jahres. Die BUD-01-Sanierungsphase ist zeitlich nicht in die einfache Tilgungsdauer eingerechnet. Insbesondere die Zinsdifferenz ist keine gesicherte Budgeteinsparung."
+  "publication_warning": "Der Rechner zeigt nur eine hypothetische Tilgungsphase nach Budgetbalance, keine Prognose und kein Versprechen eines Schuldenfrei-Jahres. Die BUD-01-Sanierungsphase ist zeitlich nicht in die einfache Tilgungsdauer eingerechnet. Insbesondere die Zinsdifferenz ist keine gesicherte Budgeteinsparung.",
+  "employee_relief_link": {
+    "reform_id": "SV-01",
+    "model": "post-debt-employee-sv-model.json",
+    "target_employee_contribution_reduction_share": 0.5,
+    "timing": "progressively_during_debt_repayment",
+    "accounting_rule": "Interest savings allocated to employee relief cannot also be reinvested in repayment. Existing 100% reinvestment scenarios are alternatives, not simultaneous funding.",
+    "base_repayment_protected": true,
+    "verified_interest_allocation_bn": null
+  }
 }

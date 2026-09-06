@@ -1,6 +1,15 @@
-# WERK — Arbeitnehmerentlastung nach Schuldenfreiheit
+# WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current refinement: WERK-SV-002
+## Current refinement: WERK-SV-003
+Owner supersedes delayed relief: progressively reduce employee KV/PV/ALV during funded debt repayment, reaching a relative 50% reduction by debt freedom as a political goal. Funding comes from recurring realized avoided interest. Base repayment and service entitlements remain protected. An interest euro cannot pay both relief and additional principal.
+
+Implementation: existing SV files extended in place; historical `post-debt` paths retained to preserve references. Coupled model has 16 full annual paths: allocation 0/50/100% of interest to relief, 1/2.5/4% assumed rates, 0/20/30/40% recapture sensitivities, 431.4/525.2bn debt anchors and 1/3-year savings lag. Main report highlights 50% payroll cases; full abolition remains comparison only. Old 15.5bn goal is explicitly superseded. Debt/reform registers, overall calculation, field workstate and program updated.
+
+At 525.2bn debt, funded 10bn annual base repayment and 2.5% rate: pure reinvestment 34 years; 50/50 split 41; full interest allocation to SV 53. At debt freedom end-year53, 13bn annual savings are effective; full 13.13bn follows in year54. Broad 2024 reference half 15.9763125bn exceeds eventual no-recapture interest by 2.8463125bn; this is not actual pure-SV cost. At assumed 30% recapture, net reference target 11.18341875bn can be reached in year46. No empirical recapture or actual end-target financing is claimed. Exact employee aggregate, maturities, demographic costs, reserve and actual rate law remain open.
+
+Verification: 55 independent numerical/negative cases; final local fiscal/registry/frontend checks and remote CI pending. Recovery: revert SV-003 bounded commits only. No Sites deployment.
+
+## Previous refinement: WERK-SV-002
 Owner chose an initial 15.5bn EUR annual gross employee KV/PV/ALV relief volume after complete debt repayment. This supersedes immediate full abolition as the current program target; full abolition remains comparison only and requires a later decision. No personal 50% reduction is implied. Distribution and indexation until future activation are open. Without recapture, 1/5/10-year replacement is 15.5/77.5/155bn; at an assumed 30% tax recapture 10.85/54.25/108.5bn. Extra implementation/service costs remain open. Under the prior conditional 18.504bn capacity case, 3.004bn would remain even without recapture; this is not verified future financing. 37 SV counterchecks; VERIFIED at 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. See WERK_SV_002_CI_RECEIPT.json.
 
 ## Previous implementation: WERK-SV-001

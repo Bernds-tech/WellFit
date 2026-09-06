@@ -146,3 +146,10 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: 15.5bn first stage, program and deterministic calculations.
 
 - Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.
+
+## WERK-SV-003
+- Status: IN_PROGRESS
+- Risk: R2
+- Change: WERK-CR-SV-003
+- Lock: LOCK-WERK-SV-003
+- Scope: coupled debt/interest/employee-relief calculation and revised program.
