@@ -115,8 +115,8 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-LAB-003
 - Date: 2026-09-06
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Result: 3072 monthly occupation/state pairs and complete source-backed regional AL/OS stocks; 21 fault-injection cases and dependent local contracts pass.
-- Evidence: WERK_LABOUR_HANDOFF.md; publication and exact remote CI pending.
+- Evidence: WERK_LABOUR_HANDOFF.md and WERK_LABOUR_003_CI_RECEIPT.json; all 13 CI workflows passed at ece6767e5a4d4362f43c07a0ae7033b509de585a.
 - Recovery: revert bounded LAB-003 change set.

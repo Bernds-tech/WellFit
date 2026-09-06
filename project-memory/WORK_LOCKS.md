@@ -57,7 +57,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-LAB-003
 - Task: WERK-LAB-003
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: same-period regional labour source reconciliation, occupation supply acquisition and dependent data contracts; existing WERK branch only.
+- Released: 2026-09-06 after publication and exact-commit success of all 13 workflows; receipt WERK_LABOUR_003_CI_RECEIPT.json.

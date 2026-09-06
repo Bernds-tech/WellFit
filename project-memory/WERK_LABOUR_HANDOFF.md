@@ -1,7 +1,8 @@
 # WERK labour continuation — WERK-LAB-003
 
 ## Current continuation — 2026-09-06
-- WERK-LAB-003 is locally verified; publication and exact remote CI are the next unverified step.
+- WERK-LAB-003 is VERIFIED and published at `ece6767e5a4d4362f43c07a0ae7033b509de585a`. All 13 triggered workflows succeeded on this exact implementation commit, including both new source imports and 21 fault-injection cases. Run IDs and URLs: `WERK_LABOUR_003_CI_RECEIPT.json`.
+- All 24 blob hashes and full tree match local implementation `5894c72`, preserved on `archive/werk-lab-003-local-5894c72`. The connected GitHub app performed the non-forced branch update. No publication approval is pending for this completed change set.
 - Existing regional baseline now reconciles all nine AL and OS stocks directly to pinned `ams-eckdaten-2026-08.xlsx`: 311448 / 79769 nationally, OÖ vacancies 19678. Gender, youth, 50-plus, long-term unemployment and apprenticeship counts retain source cell locators and overlapping-population warnings.
 - New `labour-occupation-supply-2026-08.json`: 3072 observed state/4-digit-occupation pairs; 1962 both observed, 1013 supply-only and 97 vacancy-only. Unknown sides remain null. Explicitly published zero remains zero.
 - Source: 40818 AL occupational-wish rows / 10763 immediately available OS rows for 2026-08-31, all regional and national stocks reconciled with the separate official workbook. AL records include stock/entry/exit: only BESTAND is aggregated. Sex/nationality rows are aggregated, without additional filtering.

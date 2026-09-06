@@ -93,10 +93,10 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-LAB-003
 - Started: 2026-09-06
-- Status: IN_PROGRESS
+- Status: VERIFIED
 - Risk: R2
 - Scope: close missing regional stock with official workbook and acquire occupation/education supply without inventing a joint distribution.
 - Base: 8f6799f; WERK-LAB-002 is verified and closed.
 - Lock: LOCK-WERK-LAB-003
 - Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local checks passed.
-- Next: publish and verify exact remote CI; see WERK_LABOUR_HANDOFF.md.
+- Closed: 2026-09-06. Published implementation ece6767e5a4d4362f43c07a0ae7033b509de585a; all 13 CI workflows succeeded. See WERK_LABOUR_003_CI_RECEIPT.json.
