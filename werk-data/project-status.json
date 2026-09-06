@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-06-v26",
+  "version":"2026-09-06-v27",
   "current_preview":"V71 – 12 Leitfelder mit 41/41-Abdeckung und realem Analyse-/Daten-/Reformarbeitsstand",
   "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Programm-, Dokument-, Fiskal- und Fachdatenarchitektur deutlich fortgeschritten, noch nicht öffentlich produktiv freigegeben",
   "components":[
@@ -57,7 +57,7 @@
       "werk-data/labour-productivity-baseline-2025-2026.json",
       "werk-data/labour-matching-baseline-2025-2026.json",
       "werk-data/labour-matching-matrix-priority-groups.json",
-        "werk-data/labour-occupation-region-matching-matrix.json","werk-data/labour-occupation-supply-2026-08.json",
+        "werk-data/labour-occupation-region-matching-matrix.json","werk-data/labour-occupation-supply-2026-08.json","werk-data/labour-qualification-working-time-2026-08.json",
       "werk-data/policy-field-workstate.json",
       "werk-data/analysis-data-closure-register.json"
     ],
@@ -86,7 +86,7 @@
       "Pension: Mittel-/Langfristbaselines bis 2070 getrennt nach Datenuniversum",
       "Gesundheit/Pflege: Finanzierungs-, Aktivitäts- und Langfristpfade mit Doppelzählungsschutz",
       "Steuern/Verteilung: Steuer-/Tax-Expenditure-/Payroll-/Haushaltsinputs mit offenen Mikrosimulationsgates",
-      "Labour: ILO/AMS getrennt; neun quellenabgeglichene AL-/OS-Snapshots; 3072 August-Beruf×Bundesland-Kombinationen; 12 Juli-Bildungszeilen und 6 Prioritätsgruppen; 869-Personen-Restdifferenz unverändert",
+      "Labour: ILO/AMS getrennt; neun quellenabgeglichene AL-/OS-Snapshots; 3072 August-Beruf×Bundesland-Kombinationen; 12 Juli-Bildungszeilen und 6 Prioritätsgruppen; 869 Personen durch amtliches XX Ungeklärt erklärt und unverteilt; 189 August-Bildungs- und 67 Stellen-Arbeitszeitzeilen ohne synthetisches Matching",
       "IDEENWERK: No-Login Intake/Status, Worker, Duplikat-/PII-Pfade und 100k DB-Test dokumentiert"
     ]
   },

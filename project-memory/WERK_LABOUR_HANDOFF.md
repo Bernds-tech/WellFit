@@ -1,6 +1,20 @@
-# WERK labour continuation — WERK-LAB-003
+# WERK labour continuation — WERK-LAB-004
+
 
 ## Current continuation — 2026-09-06
+- WERK-LAB-004: LOCAL_VERIFIED; publication and exact-implementation CI pending.
+- Added 189 regional education rows and 67 regional employment-type/working-time rows for August. All nine states independently reconcile AL 311448 / immediately available OS 79769 to the existing workbook baseline.
+- Immediately available vacancies: full-time 54930, part-time 11542, either 13297. The three categories are disjoint; either is counted once. Non-immediate vacancies 14420 are retained in source controls and excluded from the matching stock.
+- Four pinned original CSV slices: August AL education (3373 rows), OS education (3457), OS employment-type/time (1055), and July AL education (3404). Complete-download hashes and original contiguous line ranges remain recorded; all aggregates re-extract without network access.
+- July: every one of the 12 existing education detail rows reconciles to the official code crosswalk. The 869-person residual is exactly XX Ungeklärt, remains unallocated to the six priority groups; unexplained source difference is now zero. August XX has 952 people.
+- Highest completed worker education and vacancy requirements are separate concepts. Generic L*/M*/H* vacancy codes remain raw. Missing sides remain null; explicit source zero remains zero.
+- None of these CSVs jointly observes occupation, detail qualification and working time. No synthetic cross join, feasible additional hours, care capacity, individual matching, employment or budget effect is claimed. Joint cells stay empty and effect fields null.
+- LAB-D retains its bounded baseline closure; LAB-E stays partial. LAB-F is now partial because vacancy time is observed; feasible worker time and care remain open. Registry, analysis, workstate, dependencies, manifest and project/site status are synchronized; percentages unchanged.
+- Local checks passed: main labour contract, all four source importers, 33 fault-injection cases, policy field contract, registry and eight frontend workflow run steps.
+- Next substantive gate: jointly observed occupation × qualification × region and feasible time/care, followed by net gains, mobility, task fit and reskilling outcomes. Do not multiply separate marginals. LAB-SOURCE-001 remains open.
+- Recovery: revert bounded LAB-004 implementation. No Sites deployment or database/runtime change.
+
+## Previous WERK-LAB-003 continuation — 2026-09-06
 - WERK-LAB-003 is VERIFIED and published at `ece6767e5a4d4362f43c07a0ae7033b509de585a`. All 13 triggered workflows succeeded on this exact implementation commit, including both new source imports and 21 fault-injection cases. Run IDs and URLs: `WERK_LABOUR_003_CI_RECEIPT.json`.
 - All 24 blob hashes and full tree match local implementation `5894c72`, preserved on `archive/werk-lab-003-local-5894c72`. The connected GitHub app performed the non-forced branch update. No publication approval is pending for this completed change set.
 - Existing regional baseline now reconciles all nine AL and OS stocks directly to pinned `ams-eckdaten-2026-08.xlsx`: 311448 / 79769 nationally, OÖ vacancies 19678. Gender, youth, 50-plus, long-term unemployment and apprenticeship counts retain source cell locators and overlapping-population warnings.

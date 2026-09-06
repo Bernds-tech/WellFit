@@ -38,6 +38,7 @@
     {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-matching-matrix-priority-groups.json"},
     {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-occupation-region-matching-matrix.json"},
     {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-occupation-supply-2026-08.json"},
+    {"group":"Arbeitsmarktmatching","path":"./werk-data/labour-qualification-working-time-2026-08.json"},
     {"group":"BUD-01 Datenlücken","path":"./werk-data/analysis-data-closure-register.json"},
     {"group":"Reformen","path":"./werk-data/reforms.json"},
     {"group":"Regionen","path":"./werk-data/regions.json"},

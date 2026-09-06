@@ -62,3 +62,10 @@ No additional locks recorded.
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: same-period regional labour source reconciliation, occupation supply acquisition and dependent data contracts; existing WERK branch only.
 - Released: 2026-09-06 after publication and exact-commit success of all 13 workflows; receipt WERK_LABOUR_003_CI_RECEIPT.json.
+
+## LOCK-WERK-LAB-004
+- Task: WERK-LAB-004
+- Status: ACTIVE
+- Risk: R2
+- Holder: Codex WERK continuation 2026-09-06
+- Scope: qualification and working-time evidence for August, no invented joint distribution; existing WERK branch.

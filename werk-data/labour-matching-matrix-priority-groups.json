@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v1",
+  "version": "2026-09-06-v2",
   "title": "WERK Österreich – Prioritäre Arbeitsmarkt-Matchinggruppen",
   "status": "education_layer_verified_occupation_region_time_pending",
   "reference_period": "2026-07",
@@ -135,7 +135,17 @@
     "unallocated_difference": 869,
     "detailed_vacancy_sum": 79770,
     "published_vacancy_total": 79770,
-    "rule": "Die 869 Personen Differenz werden nicht erfunden oder auf Bildungsgruppen verteilt. Die veröffentlichten Zeilenanteile sind gerundet und der Detailausweis deckt den Gesamtbestand nicht exakt ab."
+    "rule": "Die 869 Personen Differenz werden nicht erfunden oder auf Bildungsgruppen verteilt. Die veröffentlichten Zeilenanteile sind gerundet und der Detailausweis deckt den Gesamtbestand nicht exakt ab.",
+    "source_explanation": {
+      "status": "explained_by_official_unclear_category",
+      "artifact": "labour-qualification-working-time-2026-08.json",
+      "source_id": "al_education_july",
+      "source_code": "XX",
+      "source_label": "Ungeklärt",
+      "source_count": 869,
+      "unexplained_source_difference": 0,
+      "allocated_to_priority_groups": false
+    }
   },
   "aggregated_priority_groups": [
     {

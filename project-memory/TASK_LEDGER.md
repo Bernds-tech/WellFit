@@ -120,3 +120,11 @@ Keep history append-only; supersede rather than delete.
 - Result: 3072 monthly occupation/state pairs and complete source-backed regional AL/OS stocks; 21 fault-injection cases and dependent local contracts pass.
 - Evidence: WERK_LABOUR_HANDOFF.md and WERK_LABOUR_003_CI_RECEIPT.json; all 13 CI workflows passed at ece6767e5a4d4362f43c07a0ae7033b509de585a.
 - Recovery: revert bounded LAB-003 change set.
+
+## WERK-LAB-004
+- Date: 2026-09-06
+- Status: LOCAL_VERIFIED
+- Risk: R2
+- Result: source-backed regional education and vacancy time; July 869 explained as XX, unallocated; joint matching and feasible hours blocked.
+- Evidence: WERK_LABOUR_HANDOFF.md; source imports, 33 negative cases and dependent contracts pass locally. Publication and CI pending.
+- Recovery: revert bounded LAB-004 change set.

@@ -1,10 +1,11 @@
 {
-  "version": "2026-09-06-v2",
+  "version": "2026-09-06-v3",
   "domain": "Arbeitsmarkt, Erwerbspotenzial und Produktivität",
   "status": "vertieft – Endrechnung offen",
   "budget_priority_link": "BUD-01",
   "principle": "BUD-01 darf nicht nur über Kürzungen erreicht werden. Höhere produktive Erwerbsbeteiligung, bessere Arbeitsanreize und höhere Produktivität können Einnahmen stärken und Transfers reduzieren; diese Effekte müssen aber konservativ und ohne Doppelzählung gerechnet werden.",
   "current_facts": [
+    {"fact":"August 2026: 189 regionale Bildungs- und 67 Stellen-Beschäftigungsart-/Arbeitszeitzeilen. Sofortige Stellen: 54930 Vollzeit, 11542 Teilzeit, 13297 beides; zusammen 79769. Getrennte Tabellen erlauben kein gemeinsames Personenmatching.","source":"labour-qualification-working-time-2026-08.json"},
     {
       "fact": "Erwerbstätigenquote 15–64 im Jahr 2025: Frauen 71,0 %, Männer 77,7 %.",
       "source": "Statistik Austria Gender-Statistik Erwerbstätigkeit 2025"
@@ -72,6 +73,6 @@
     "labour-productivity-baseline-2025-2026.json",
     "labour-matching-baseline-2025-2026.json",
     "labour-matching-matrix-priority-groups.json",
-    "labour-occupation-region-matching-matrix.json","labour-occupation-supply-2026-08.json"
+    "labour-occupation-region-matching-matrix.json","labour-occupation-supply-2026-08.json","labour-qualification-working-time-2026-08.json"
   ]
 }

@@ -100,3 +100,12 @@ Canonical register for work that has started but is not yet fully completed.
 - Lock: LOCK-WERK-LAB-003
 - Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local checks passed.
 - Closed: 2026-09-06. Published implementation ece6767e5a4d4362f43c07a0ae7033b509de585a; all 13 CI workflows succeeded. See WERK_LABOUR_003_CI_RECEIPT.json.
+
+## WERK-LAB-004
+- Started: 2026-09-06
+- Status: LOCAL_VERIFIED
+- Risk: R2
+- Base: 22d67e9; LAB-003 verified.
+- Lock: LOCK-WERK-LAB-004
+- Scope: same-period education and working-time constraints with source reconciliation; qualification-by-occupation remains unproven.
+- Local result: 189 education / 67 time-type rows, July residual explained but unallocated; 33 negative cases and dependent contracts pass. Publication/CI pending.

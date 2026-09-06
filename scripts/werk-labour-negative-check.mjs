@@ -9,6 +9,8 @@ const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-labour-negative-'));
 const labour='scripts/werk-labour-productivity-contract.mjs';
 const sourceCheck='scripts/werk-import-occupation-evidence.py';
 const regionalCheck='scripts/werk-import-regional-labour.py';
+const qtCheck='scripts/werk-import-qualification-time.py';
+const qt='werk-data/labour-qualification-working-time-2026-08.json';
 const supplyCheck='scripts/werk-import-occupation-supply.py';
 const baseline='werk-data/labour-productivity-baseline-2025-2026.json';
 const education='werk-data/labour-matching-matrix-priority-groups.json';
@@ -18,6 +20,18 @@ const matching='werk-data/labour-matching-baseline-2025-2026.json';
 const supply='werk-data/labour-occupation-supply-2026-08.json';
 const run=source=>spawnSync(source?'python3':process.execPath,source?[source===true?sourceCheck:source,'--check']:[labour],{cwd:tmp,encoding:'utf8'});
 const cases=[
+  ['invented joint education and occupation',qt,d=>d.scope.education_occupation_joint_observed=true,/Unproven qualification/],
+  ['synthetic qualification cells',qt,d=>d.joint_matching_cells.push({region:'Wien'}),/Synthetic qualification/],
+  ['invented feasible hours',qt,d=>d.matching_gate.feasible_additional_working_hours=0,/effects and feasible hours must remain null/],
+  ['duplicate regional education',qt,d=>d.education_records.push(d.education_records[0]),/Duplicate\/invalid regional education/],
+  ['zero-filled unpublished education',qt,d=>d.education_records.find(r=>r.registered_immediate_vacancies===null).registered_immediate_vacancies=0,/Unobserved education side must remain null/],
+  ['duplicate working-time category',qt,d=>d.working_time_records.push(d.working_time_records[0]),/Duplicate\/invalid working-time key/],
+  ['flexible vacancies double counted',qt,d=>d.national_working_time['V - Vollzeit']+=d.national_working_time['B - Beides (Vollzeit oder Teilzeit)'],/Working-time national category total/],
+  ['non-immediate vacancies admitted',qt,d=>d.scope.vacancy_availability_filter='all',/Working-time\/availability guard changed/],
+  ['unclear education allocated',qt,d=>d.july_residual_audit.allocated_to_known_education=true,/July residual must remain/],
+  ['mixed qualification source month',qt,d=>d.sources[0].reference_date='2026-07-31',/Qualification\/time source date mismatch/,qtCheck],
+  ['qualification source label drift',qt,d=>d.education_records[0].supply_label='wrong',/Qualification\/time extraction mismatch: education_records/,qtCheck],
+  ['sum-preserving education allocation drift',qt,d=>{const r=d.education_records.filter(x=>x.region==='Wien'&&x.registered_unemployed>1);r[0].registered_unemployed++;r[1].registered_unemployed--;},/Qualification\/time extraction mismatch: education_records/,qtCheck],
   ['missing numeric operand',baseline,d=>delete d.actuals.ilo_q2_2026.derived_labour_force_persons,/ILO labour force identity/],
   ['null source count',education,d=>d.detailed_rows[0].registered_unemployed=null,/Invalid count/],
   ['wrong group ratio',education,d=>d.aggregated_priority_groups[0].derived_unemployed_per_vacancy=0,/group ratio/],
@@ -47,8 +61,8 @@ const cases=[
 try{
   fs.cpSync('werk-data',path.join(tmp,'werk-data'),{recursive:true});
   fs.mkdirSync(path.join(tmp,'scripts'));
-  for(const script of [labour,sourceCheck,regionalCheck,supplyCheck])fs.copyFileSync(script,path.join(tmp,script));
-  for(const source of [false,true,regionalCheck,supplyCheck]){
+  for(const script of [labour,sourceCheck,regionalCheck,supplyCheck,qtCheck])fs.copyFileSync(script,path.join(tmp,script));
+  for(const source of [false,true,regionalCheck,supplyCheck,qtCheck]){
     const r=run(source);assert.equal(r.status,0,`Unmodified baseline failed: ${r.stderr}`);
   }
   for(const [name,file,mutate,error,source=false] of cases){

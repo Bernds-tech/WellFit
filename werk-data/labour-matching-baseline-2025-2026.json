@@ -509,9 +509,10 @@
     {
       "id": "MATCH-EDU",
       "dimension": "Qualifikation/Bildung",
-      "status": "prioritäre nationale Schicht vorhanden",
+      "status": "Nationale Juli- und regionale August-Schicht vorhanden; gemeinsame Berufsdimension offen",
       "artifact": "labour-matching-matrix-priority-groups.json",
-      "need": "Bildungsschicht nun mit Beruf und Region kreuzen; Bildung allein ist kein Matching."
+      "need": "Höchste abgeschlossene Ausbildung und Stellenanforderung getrennt halten; nur gemeinsam beobachtete Berufs-/Qualifikationsmerkmale verbinden.",
+      "regional_artifact": "labour-qualification-working-time-2026-08.json"
     },
     {
       "id": "MATCH-REG",
@@ -522,8 +523,9 @@
     {
       "id": "MATCH-TIME",
       "dimension": "Arbeitszeit",
-      "status": "offen",
-      "need": "Voll-/Teilzeitangebot gegen gewünschte und real mögliche Arbeitszeit inklusive Betreuung/Pflege."
+      "status": "Stellennachfrage regional vorhanden; real mögliche Angebotsstunden offen",
+      "need": "Vollzeit, Teilzeit und beides disjunkt halten; gewünschte und real mögliche Arbeitszeit inklusive Betreuung/Pflege gemeinsam belegen.",
+      "artifact": "labour-qualification-working-time-2026-08.json"
     },
     {
       "id": "MATCH-HEALTH",
@@ -552,7 +554,8 @@
       "regionale AMS-Snapshots August 2026",
       "prioritäre Bildungs-Matchinggruppen Juli 2026",
       "publizierte Beruf×Region-Engpasssignale Q2 2026, getrennt vom gemeinsamen Matching",
-      "3072 beobachtete Beruf×Bundesland-Kombinationen August 2026 aus getrennten AL-/OS-CSV-Quellen"
+      "3072 beobachtete Beruf×Bundesland-Kombinationen August 2026 aus getrennten AL-/OS-CSV-Quellen",
+      "189 regionale Bildungs- und 67 disjunkte Stellen-Arbeitszeit-/Beschäftigungsartzeilen August 2026; keine synthetische Kreuztabelle"
     ],
     "rule": "Eine nationale Fachkräfte- oder Aktivierungsreform wird erst als Einspar-/Beschäftigungseffekt gerechnet, wenn Beruf, Qualifikation, Region, Arbeitszeit und Übergangskosten mindestens für die prioritären Gruppen gemeinsam modelliert sind.",
     "next_artifact": "labour-occupation-region-matching-matrix.json",

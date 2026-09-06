@@ -1,0 +1,3437 @@
+{
+  "version": "2026-09-06-v1",
+  "title": "WERK – Regionale Qualifikation und Stellen-Arbeitszeit August 2026",
+  "status": "education_and_vacancy_time_marginals_verified_joint_matching_blocked",
+  "reference_period": "2026-08",
+  "sources": [
+    {
+      "id": "al_education",
+      "authority": "AMS Österreich",
+      "url": "https://www.arbeitsmarktdatenbank.at/opendata/AL_Ausbildung_RGS.csv",
+      "catalog_url": "https://www.data.gv.at/datasets/cfe2ff7e9ad53c1ee053c630070ab143?locale=de",
+      "license": "https://creativecommons.org/licenses/by/4.0/deed.de",
+      "checked_at": "2026-09-06",
+      "encoding": "cp1252",
+      "delimiter": ";",
+      "reference_date": "2026-08-31",
+      "snapshot_file": "werk-data/sources/ams-al-education-2026-08.csv.gz",
+      "snapshot_gzip_sha256": "d50212118dd454a74303be7d20e42f50612929a0eb788ed67b488af3346a588a",
+      "snapshot_raw_sha256": "d094ead30ef0b3a5133fcaa0886b444e559924b91efd0763f6e2094cc55bea96",
+      "acquisition": {
+        "full_sha256": "cf785ab513eba9c2401b637883b2286d3cca4bffe41b90b0cc071228216d3331",
+        "full_bytes": 18713198,
+        "first_line": 307356,
+        "last_line": 310728,
+        "row_count": 3373,
+        "period": "2026-08-31"
+      },
+      "snapshot_rule": "Originalheader und unveränderte Originalzeilen des angegebenen Monats; historischer Gesamtdownload nicht im Repository."
+    },
+    {
+      "id": "os_education",
+      "authority": "AMS Österreich",
+      "url": "https://www.arbeitsmarktdatenbank.at/opendata/OS_Ausbildung_RGS.csv",
+      "catalog_url": "https://www.data.gv.at/datasets/cfe2ff7e9ad53c1ee053c630070ab117?locale=de",
+      "license": "https://creativecommons.org/licenses/by/4.0/deed.de",
+      "checked_at": "2026-09-06",
+      "encoding": "cp1252",
+      "delimiter": ";",
+      "reference_date": "2026-08-31",
+      "snapshot_file": "werk-data/sources/ams-os-education-2026-08.csv.gz",
+      "snapshot_gzip_sha256": "191ac9064b86abed0684575c9d6cc4e212c34601bc4b6c46d3ab2e96f655d3d8",
+      "snapshot_raw_sha256": "fd755624113ede3f1129699f1398caeed494e86e15b77f0e322485ca79f8765f",
+      "acquisition": {
+        "full_sha256": "c761a9cf6daa7b52f64fde5c4c1dc63a538a36e6d5beb9f031c6c8342052f2e2",
+        "full_bytes": 24699764,
+        "first_line": 308709,
+        "last_line": 312165,
+        "row_count": 3457,
+        "period": "2026-08-31"
+      },
+      "snapshot_rule": "Originalheader und unveränderte Originalzeilen des angegebenen Monats; historischer Gesamtdownload nicht im Repository."
+    },
+    {
+      "id": "os_time",
+      "authority": "AMS Österreich",
+      "url": "https://www.arbeitsmarktdatenbank.at/opendata/OS_BeschArt_Arbeitszeit_RGS.csv",
+      "catalog_url": "https://www.data.gv.at/datasets/cfe2ff7e9ad53c1ee053c630070ab119?locale=de",
+      "license": "https://creativecommons.org/licenses/by/4.0/deed.de",
+      "checked_at": "2026-09-06",
+      "encoding": "cp1252",
+      "delimiter": ";",
+      "reference_date": "2026-08-31",
+      "snapshot_file": "werk-data/sources/ams-os-time-2026-08.csv.gz",
+      "snapshot_gzip_sha256": "516270c989f543f286b312a38713b3497b166c52147149b9d8565620114d5408",
+      "snapshot_raw_sha256": "e1b0e73a2b298573b3f979f28db210d01a30c41c612879ce1c71c33fca6e62d2",
+      "acquisition": {
+        "full_sha256": "65a539f31eb2f4c526e6c49151a784fc1650e37db01b79d3365779c89a6c1783",
+        "full_bytes": 18449799,
+        "first_line": 184157,
+        "last_line": 185211,
+        "row_count": 1055,
+        "period": "2026-08-31"
+      },
+      "snapshot_rule": "Originalheader und unveränderte Originalzeilen des angegebenen Monats; historischer Gesamtdownload nicht im Repository."
+    },
+    {
+      "id": "al_education_july",
+      "authority": "AMS Österreich",
+      "url": "https://www.arbeitsmarktdatenbank.at/opendata/AL_Ausbildung_RGS.csv",
+      "catalog_url": "https://www.data.gv.at/datasets/cfe2ff7e9ad53c1ee053c630070ab143?locale=de",
+      "license": "https://creativecommons.org/licenses/by/4.0/deed.de",
+      "checked_at": "2026-09-06",
+      "encoding": "cp1252",
+      "delimiter": ";",
+      "reference_date": "2026-07-31",
+      "snapshot_file": "werk-data/sources/ams-al-education-july-2026-07.csv.gz",
+      "snapshot_gzip_sha256": "f950a8f18740f2783db790226ff36af3c2a69d69165f66559040b7c73daebc72",
+      "snapshot_raw_sha256": "1e7b64f2c534b8e9874642d571c31141ed1f145e9463e58b122ff2fd2d6eac8a",
+      "acquisition": {
+        "full_sha256": "cf785ab513eba9c2401b637883b2286d3cca4bffe41b90b0cc071228216d3331",
+        "full_bytes": 18713198,
+        "first_line": 303952,
+        "last_line": 307355,
+        "row_count": 3404,
+        "period": "2026-07-31"
+      },
+      "snapshot_rule": "Originalheader und unveränderte Originalzeilen des angegebenen Monats; historischer Gesamtdownload nicht im Repository."
+    }
+  ],
+  "scope": {
+    "supply_education": "höchste abgeschlossene Ausbildung; Personenbestand",
+    "vacancy_education": "Anforderung der Stelle; rohe AMS-Codes einschließlich allgemeiner L*/M*/H*-Kategorien erhalten",
+    "vacancy_availability_filter": "Bestand_sofort_verfuegbar",
+    "vacancy_time": "V - Vollzeit; T - Teilzeit; B - Beides (Vollzeit oder Teilzeit); drei disjunkte Angebotskategorien",
+    "stock_measure": "BESTAND; ZUGANG/ABGANG sind Flüsse und werden nicht addiert",
+    "missing_cell_means": "not_published_unknown",
+    "zero_means": "explicitly_reported_zero",
+    "education_occupation_joint_observed": false,
+    "education_working_time_joint_observed": false,
+    "supply_feasible_hours_observed": false,
+    "care_schedule_capacity_observed": false,
+    "synthetic_cross_join_allowed": false,
+    "allocation_of_unclear_education_allowed": false,
+    "geography": "Bundesland aus AMS-RGS-Code; administrative Zuständigkeit ist keine Pendeldistanz",
+    "join_rule": "Gemeinsamer Monat/Bundesland erlaubt Summenkontrollen, aber keine Verteilung der Bildungsgruppen auf Berufe oder Arbeitszeiten. Allgemeine Ausbildungsanforderungen nicht künstlich auf Detailabschlüsse verteilen.",
+    "flexible_time_counted_once": true,
+    "not_immediate_vacancies_excluded_from_matching_baseline": true
+  },
+  "july_supply_crosswalk": {
+    "EDU-PS": [
+      "PO",
+      "PS"
+    ],
+    "EDU-LEHRE": [
+      "LE",
+      "LM",
+      "LT"
+    ],
+    "EDU-BMS-T": [
+      "MT"
+    ],
+    "EDU-BMS-K": [
+      "MK"
+    ],
+    "EDU-BMS-S": [
+      "MS"
+    ],
+    "EDU-AHS": [
+      "HA"
+    ],
+    "EDU-BHS-T": [
+      "HT"
+    ],
+    "EDU-BHS-K": [
+      "HK"
+    ],
+    "EDU-BHS-S": [
+      "HS"
+    ],
+    "EDU-AKA": [
+      "AK"
+    ],
+    "EDU-FH": [
+      "FB",
+      "FH"
+    ],
+    "EDU-UNI": [
+      "UB",
+      "UV"
+    ]
+  },
+  "matching_gate": {
+    "status": "blocked",
+    "employment_effect_persons": null,
+    "budget_effect_eur": null,
+    "feasible_additional_working_hours": null
+  },
+  "counts": {
+    "al_education": {
+      "source_rows": 3373,
+      "rows_by_availability": {
+        "all_registered_unemployed": 3373
+      },
+      "stocks_by_availability": {
+        "all_registered_unemployed": 311448
+      },
+      "included_rows": 3373,
+      "included_stock": 311448,
+      "rgs_count": 98
+    },
+    "os_education": {
+      "source_rows": 3457,
+      "rows_by_availability": {
+        "Bestand_nicht_sofort_verfuegbar": 740,
+        "Bestand_sofort_verfuegbar": 1450,
+        "nicht_relevant": 1267
+      },
+      "stocks_by_availability": {
+        "Bestand_nicht_sofort_verfuegbar": 14420,
+        "Bestand_sofort_verfuegbar": 79769,
+        "nicht_relevant": 0
+      },
+      "included_rows": 1450,
+      "included_stock": 79769,
+      "rgs_count": 97
+    },
+    "os_time": {
+      "source_rows": 1055,
+      "rows_by_availability": {
+        "Bestand_nicht_sofort_verfuegbar": 305,
+        "Bestand_sofort_verfuegbar": 396,
+        "nicht_relevant": 354
+      },
+      "stocks_by_availability": {
+        "Bestand_nicht_sofort_verfuegbar": 14420,
+        "Bestand_sofort_verfuegbar": 79769,
+        "nicht_relevant": 0
+      },
+      "included_rows": 396,
+      "included_stock": 79769,
+      "rgs_count": 97
+    },
+    "al_education_july": {
+      "source_rows": 3404,
+      "rows_by_availability": {
+        "all_registered_unemployed": 3404
+      },
+      "stocks_by_availability": {
+        "all_registered_unemployed": 298885
+      },
+      "included_rows": 3404,
+      "included_stock": 298885,
+      "rgs_count": 99
+    }
+  },
+  "education_records": [
+    {
+      "region": "Burgenland",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": null,
+      "registered_unemployed": 23,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 9,
+        "os": 0
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 32,
+      "registered_immediate_vacancies": 3,
+      "source_rows": {
+        "al": 11,
+        "os": 2
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 102,
+      "registered_immediate_vacancies": 9,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 34,
+      "source_rows": {
+        "al": 0,
+        "os": 5
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": null,
+      "registered_unemployed": 282,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 12,
+        "os": 0
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 260,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 12,
+        "os": 4
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 358,
+      "registered_immediate_vacancies": 9,
+      "source_rows": {
+        "al": 12,
+        "os": 4
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 214,
+      "registered_immediate_vacancies": 30,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 15,
+      "source_rows": {
+        "al": 0,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 2894,
+      "registered_immediate_vacancies": 601,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 79,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 12,
+        "os": 4
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 47,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 12,
+        "os": 0
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 26,
+      "source_rows": {
+        "al": 0,
+        "os": 4
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 304,
+      "registered_immediate_vacancies": 3,
+      "source_rows": {
+        "al": 12,
+        "os": 1
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 370,
+      "registered_immediate_vacancies": 21,
+      "source_rows": {
+        "al": 12,
+        "os": 5
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 55,
+      "registered_immediate_vacancies": 6,
+      "source_rows": {
+        "al": 10,
+        "os": 2
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 144,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 12,
+        "os": 3
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 2600,
+      "registered_immediate_vacancies": 546,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 63,
+      "registered_immediate_vacancies": 3,
+      "source_rows": {
+        "al": 12,
+        "os": 3
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 368,
+      "registered_immediate_vacancies": 38,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Burgenland",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 15,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 10,
+        "os": 0
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 62,
+      "registered_immediate_vacancies": 19,
+      "source_rows": {
+        "al": 11,
+        "os": 5
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 71,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 14,
+        "os": 3
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 197,
+      "registered_immediate_vacancies": 77,
+      "source_rows": {
+        "al": 15,
+        "os": 6
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 78,
+      "source_rows": {
+        "al": 0,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 450,
+      "registered_immediate_vacancies": 4,
+      "source_rows": {
+        "al": 16,
+        "os": 3
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 475,
+      "registered_immediate_vacancies": 41,
+      "source_rows": {
+        "al": 16,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 595,
+      "registered_immediate_vacancies": 25,
+      "source_rows": {
+        "al": 15,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 407,
+      "registered_immediate_vacancies": 161,
+      "source_rows": {
+        "al": 16,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 70,
+      "source_rows": {
+        "al": 0,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 5347,
+      "registered_immediate_vacancies": 2676,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 159,
+      "registered_immediate_vacancies": 10,
+      "source_rows": {
+        "al": 15,
+        "os": 6
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 29,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 10,
+        "os": 0
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 93,
+      "source_rows": {
+        "al": 0,
+        "os": 8
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 251,
+      "registered_immediate_vacancies": 7,
+      "source_rows": {
+        "al": 15,
+        "os": 4
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 566,
+      "registered_immediate_vacancies": 43,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 112,
+      "registered_immediate_vacancies": 4,
+      "source_rows": {
+        "al": 14,
+        "os": 2
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 564,
+      "registered_immediate_vacancies": 340,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 5110,
+      "registered_immediate_vacancies": 2402,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 241,
+      "registered_immediate_vacancies": 28,
+      "source_rows": {
+        "al": 15,
+        "os": 4
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 992,
+      "registered_immediate_vacancies": 142,
+      "source_rows": {
+        "al": 16,
+        "os": 7
+      }
+    },
+    {
+      "region": "Kärnten",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 24,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 8,
+        "os": 0
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 150,
+      "registered_immediate_vacancies": 44,
+      "source_rows": {
+        "al": 38,
+        "os": 18
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 246,
+      "registered_immediate_vacancies": 17,
+      "source_rows": {
+        "al": 42,
+        "os": 9
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 706,
+      "registered_immediate_vacancies": 192,
+      "source_rows": {
+        "al": 44,
+        "os": 20
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 196,
+      "source_rows": {
+        "al": 0,
+        "os": 21
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 1834,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 44,
+        "os": 4
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 1514,
+      "registered_immediate_vacancies": 98,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 1597,
+      "registered_immediate_vacancies": 64,
+      "source_rows": {
+        "al": 44,
+        "os": 20
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 1452,
+      "registered_immediate_vacancies": 464,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 282,
+      "source_rows": {
+        "al": 0,
+        "os": 19
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 14789,
+      "registered_immediate_vacancies": 4730,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 533,
+      "registered_immediate_vacancies": 38,
+      "source_rows": {
+        "al": 42,
+        "os": 16
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 50,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 25,
+        "os": 0
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 366,
+      "source_rows": {
+        "al": 0,
+        "os": 21
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 1458,
+      "registered_immediate_vacancies": 21,
+      "source_rows": {
+        "al": 44,
+        "os": 12
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 1551,
+      "registered_immediate_vacancies": 202,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 365,
+      "registered_immediate_vacancies": 45,
+      "source_rows": {
+        "al": 40,
+        "os": 13
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 1674,
+      "registered_immediate_vacancies": 272,
+      "source_rows": {
+        "al": 44,
+        "os": 20
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 16524,
+      "registered_immediate_vacancies": 5042,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 565,
+      "registered_immediate_vacancies": 23,
+      "source_rows": {
+        "al": 43,
+        "os": 11
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 2570,
+      "registered_immediate_vacancies": 336,
+      "source_rows": {
+        "al": 44,
+        "os": 22
+      }
+    },
+    {
+      "region": "Niederösterreich",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 104,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 32,
+        "os": 0
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 136,
+      "registered_immediate_vacancies": 37,
+      "source_rows": {
+        "al": 28,
+        "os": 9
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 199,
+      "registered_immediate_vacancies": 31,
+      "source_rows": {
+        "al": 29,
+        "os": 5
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 429,
+      "registered_immediate_vacancies": 237,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 304,
+      "source_rows": {
+        "al": 0,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 1063,
+      "registered_immediate_vacancies": 7,
+      "source_rows": {
+        "al": 30,
+        "os": 7
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 892,
+      "registered_immediate_vacancies": 120,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 1207,
+      "registered_immediate_vacancies": 70,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 806,
+      "registered_immediate_vacancies": 789,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 742,
+      "source_rows": {
+        "al": 0,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 12350,
+      "registered_immediate_vacancies": 8087,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 417,
+      "registered_immediate_vacancies": 83,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 143,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 27,
+        "os": 0
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 223,
+      "source_rows": {
+        "al": 0,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 710,
+      "registered_immediate_vacancies": 12,
+      "source_rows": {
+        "al": 30,
+        "os": 4
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 1045,
+      "registered_immediate_vacancies": 427,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 239,
+      "registered_immediate_vacancies": 41,
+      "source_rows": {
+        "al": 28,
+        "os": 9
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 1663,
+      "registered_immediate_vacancies": 644,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 15564,
+      "registered_immediate_vacancies": 7254,
+      "source_rows": {
+        "al": 30,
+        "os": 15
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 479,
+      "registered_immediate_vacancies": 23,
+      "source_rows": {
+        "al": 30,
+        "os": 9
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 1748,
+      "registered_immediate_vacancies": 547,
+      "source_rows": {
+        "al": 30,
+        "os": 14
+      }
+    },
+    {
+      "region": "Oberösterreich",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 234,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 30,
+        "os": 0
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 43,
+      "registered_immediate_vacancies": 22,
+      "source_rows": {
+        "al": 7,
+        "os": 5
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 66,
+      "registered_immediate_vacancies": 6,
+      "source_rows": {
+        "al": 12,
+        "os": 3
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 188,
+      "registered_immediate_vacancies": 104,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 51,
+      "source_rows": {
+        "al": 0,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 461,
+      "registered_immediate_vacancies": 2,
+      "source_rows": {
+        "al": 12,
+        "os": 1
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 274,
+      "registered_immediate_vacancies": 35,
+      "source_rows": {
+        "al": 12,
+        "os": 4
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 373,
+      "registered_immediate_vacancies": 16,
+      "source_rows": {
+        "al": 12,
+        "os": 5
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 237,
+      "registered_immediate_vacancies": 129,
+      "source_rows": {
+        "al": 12,
+        "os": 5
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 217,
+      "source_rows": {
+        "al": 0,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 3639,
+      "registered_immediate_vacancies": 2218,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 96,
+      "registered_immediate_vacancies": 27,
+      "source_rows": {
+        "al": 11,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": "Teilintegrierte Lehre",
+      "registered_unemployed": 64,
+      "registered_immediate_vacancies": 1,
+      "source_rows": {
+        "al": 12,
+        "os": 1
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 71,
+      "source_rows": {
+        "al": 0,
+        "os": 5
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 243,
+      "registered_immediate_vacancies": 2,
+      "source_rows": {
+        "al": 12,
+        "os": 2
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 410,
+      "registered_immediate_vacancies": 113,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 74,
+      "registered_immediate_vacancies": 3,
+      "source_rows": {
+        "al": 10,
+        "os": 1
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 420,
+      "registered_immediate_vacancies": 324,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 3943,
+      "registered_immediate_vacancies": 2743,
+      "source_rows": {
+        "al": 12,
+        "os": 6
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 274,
+      "registered_immediate_vacancies": 19,
+      "source_rows": {
+        "al": 12,
+        "os": 3
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 885,
+      "registered_immediate_vacancies": 103,
+      "source_rows": {
+        "al": 12,
+        "os": 5
+      }
+    },
+    {
+      "region": "Salzburg",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 18,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 8,
+        "os": 0
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 126,
+      "registered_immediate_vacancies": 48,
+      "source_rows": {
+        "al": 26,
+        "os": 10
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 190,
+      "registered_immediate_vacancies": 7,
+      "source_rows": {
+        "al": 25,
+        "os": 3
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 422,
+      "registered_immediate_vacancies": 200,
+      "source_rows": {
+        "al": 28,
+        "os": 12
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 209,
+      "source_rows": {
+        "al": 0,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 1880,
+      "registered_immediate_vacancies": 2,
+      "source_rows": {
+        "al": 28,
+        "os": 1
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 871,
+      "registered_immediate_vacancies": 99,
+      "source_rows": {
+        "al": 28,
+        "os": 13
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 1220,
+      "registered_immediate_vacancies": 23,
+      "source_rows": {
+        "al": 28,
+        "os": 11
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 1157,
+      "registered_immediate_vacancies": 543,
+      "source_rows": {
+        "al": 27,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 394,
+      "source_rows": {
+        "al": 0,
+        "os": 13
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 11924,
+      "registered_immediate_vacancies": 4710,
+      "source_rows": {
+        "al": 28,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 312,
+      "registered_immediate_vacancies": 44,
+      "source_rows": {
+        "al": 27,
+        "os": 12
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 148,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 25,
+        "os": 0
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 167,
+      "source_rows": {
+        "al": 0,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 788,
+      "registered_immediate_vacancies": 18,
+      "source_rows": {
+        "al": 28,
+        "os": 8
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 990,
+      "registered_immediate_vacancies": 137,
+      "source_rows": {
+        "al": 28,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 135,
+      "registered_immediate_vacancies": 5,
+      "source_rows": {
+        "al": 22,
+        "os": 3
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 1130,
+      "registered_immediate_vacancies": 82,
+      "source_rows": {
+        "al": 28,
+        "os": 12
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 14438,
+      "registered_immediate_vacancies": 3731,
+      "source_rows": {
+        "al": 28,
+        "os": 14
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 801,
+      "registered_immediate_vacancies": 21,
+      "source_rows": {
+        "al": 27,
+        "os": 5
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 2745,
+      "registered_immediate_vacancies": 246,
+      "source_rows": {
+        "al": 28,
+        "os": 13
+      }
+    },
+    {
+      "region": "Steiermark",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 112,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 22,
+        "os": 0
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 77,
+      "registered_immediate_vacancies": 30,
+      "source_rows": {
+        "al": 13,
+        "os": 6
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 74,
+      "registered_immediate_vacancies": 14,
+      "source_rows": {
+        "al": 14,
+        "os": 5
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 141,
+      "registered_immediate_vacancies": 88,
+      "source_rows": {
+        "al": 13,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 172,
+      "source_rows": {
+        "al": 0,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 449,
+      "registered_immediate_vacancies": 1,
+      "source_rows": {
+        "al": 16,
+        "os": 1
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 279,
+      "registered_immediate_vacancies": 37,
+      "source_rows": {
+        "al": 16,
+        "os": 7
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 466,
+      "registered_immediate_vacancies": 4,
+      "source_rows": {
+        "al": 16,
+        "os": 2
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 235,
+      "registered_immediate_vacancies": 175,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 169,
+      "source_rows": {
+        "al": 0,
+        "os": 7
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 3930,
+      "registered_immediate_vacancies": 2690,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 112,
+      "registered_immediate_vacancies": 24,
+      "source_rows": {
+        "al": 15,
+        "os": 6
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 12,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 10,
+        "os": 0
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 71,
+      "source_rows": {
+        "al": 0,
+        "os": 6
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 290,
+      "registered_immediate_vacancies": 4,
+      "source_rows": {
+        "al": 16,
+        "os": 1
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 365,
+      "registered_immediate_vacancies": 66,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 67,
+      "registered_immediate_vacancies": 10,
+      "source_rows": {
+        "al": 13,
+        "os": 4
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 826,
+      "registered_immediate_vacancies": 378,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 4558,
+      "registered_immediate_vacancies": 3275,
+      "source_rows": {
+        "al": 16,
+        "os": 8
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 270,
+      "registered_immediate_vacancies": 12,
+      "source_rows": {
+        "al": 16,
+        "os": 5
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 1108,
+      "registered_immediate_vacancies": 120,
+      "source_rows": {
+        "al": 16,
+        "os": 7
+      }
+    },
+    {
+      "region": "Tirol",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 88,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 10,
+        "os": 0
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 37,
+      "registered_immediate_vacancies": 15,
+      "source_rows": {
+        "al": 6,
+        "os": 2
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 52,
+      "registered_immediate_vacancies": 10,
+      "source_rows": {
+        "al": 8,
+        "os": 3
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 123,
+      "registered_immediate_vacancies": 73,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 360,
+      "source_rows": {
+        "al": 0,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": null,
+      "registered_unemployed": 318,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 8,
+        "os": 0
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 233,
+      "registered_immediate_vacancies": 34,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 299,
+      "registered_immediate_vacancies": 20,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 199,
+      "registered_immediate_vacancies": 73,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 51,
+      "source_rows": {
+        "al": 0,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 3565,
+      "registered_immediate_vacancies": 1614,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 103,
+      "registered_immediate_vacancies": 8,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 40,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 8,
+        "os": 0
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 17,
+      "source_rows": {
+        "al": 0,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 288,
+      "registered_immediate_vacancies": 13,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 273,
+      "registered_immediate_vacancies": 110,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 64,
+      "registered_immediate_vacancies": 2,
+      "source_rows": {
+        "al": 8,
+        "os": 1
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 971,
+      "registered_immediate_vacancies": 208,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 4141,
+      "registered_immediate_vacancies": 796,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 156,
+      "registered_immediate_vacancies": 232,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 448,
+      "registered_immediate_vacancies": 100,
+      "source_rows": {
+        "al": 8,
+        "os": 4
+      }
+    },
+    {
+      "region": "Vorarlberg",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 98,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 8,
+        "os": 0
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 365,
+      "registered_immediate_vacancies": 39,
+      "source_rows": {
+        "al": 29,
+        "os": 12
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 784,
+      "registered_immediate_vacancies": 24,
+      "source_rows": {
+        "al": 30,
+        "os": 7
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 1457,
+      "registered_immediate_vacancies": 475,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 1683,
+      "source_rows": {
+        "al": 0,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 11688,
+      "registered_immediate_vacancies": 34,
+      "source_rows": {
+        "al": 30,
+        "os": 11
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 2443,
+      "registered_immediate_vacancies": 163,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 3738,
+      "registered_immediate_vacancies": 24,
+      "source_rows": {
+        "al": 30,
+        "os": 9
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 2685,
+      "registered_immediate_vacancies": 544,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 225,
+      "source_rows": {
+        "al": 0,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 23310,
+      "registered_immediate_vacancies": 3210,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 467,
+      "registered_immediate_vacancies": 43,
+      "source_rows": {
+        "al": 29,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": null,
+      "registered_unemployed": 167,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 28,
+        "os": 0
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 250,
+      "source_rows": {
+        "al": 0,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 2223,
+      "registered_immediate_vacancies": 38,
+      "source_rows": {
+        "al": 30,
+        "os": 10
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 2609,
+      "registered_immediate_vacancies": 50,
+      "source_rows": {
+        "al": 30,
+        "os": 11
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 694,
+      "registered_immediate_vacancies": 45,
+      "source_rows": {
+        "al": 30,
+        "os": 10
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 9810,
+      "registered_immediate_vacancies": 598,
+      "source_rows": {
+        "al": 30,
+        "os": 13
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 43837,
+      "registered_immediate_vacancies": 4113,
+      "source_rows": {
+        "al": 30,
+        "os": 14
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 4864,
+      "registered_immediate_vacancies": 84,
+      "source_rows": {
+        "al": 30,
+        "os": 11
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 13328,
+      "registered_immediate_vacancies": 445,
+      "source_rows": {
+        "al": 30,
+        "os": 12
+      }
+    },
+    {
+      "region": "Wien",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 259,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 30,
+        "os": 0
+      }
+    }
+  ],
+  "working_time_records": [
+    {
+      "region": "Burgenland",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 184,
+      "source_rows": 6
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 231,
+      "source_rows": 6
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 944,
+      "source_rows": 6
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "GER - geringfügige Beschäftigung",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 3
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 2
+    },
+    {
+      "region": "Burgenland",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 761,
+      "source_rows": 8
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 896,
+      "source_rows": 8
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 4549,
+      "source_rows": 8
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 10,
+      "source_rows": 2
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 5,
+      "source_rows": 1
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 2,
+      "source_rows": 1
+    },
+    {
+      "region": "Kärnten",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 3
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1679,
+      "source_rows": 22
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 2285,
+      "source_rows": 22
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 8426,
+      "source_rows": 22
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 18,
+      "source_rows": 6
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 3
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "GER - geringfügige Beschäftigung",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 3
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 5,
+      "source_rows": 3
+    },
+    {
+      "region": "Niederösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 19,
+      "source_rows": 10
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 2831,
+      "source_rows": 15
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 2492,
+      "source_rows": 15
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 14323,
+      "source_rows": 15
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 13,
+      "source_rows": 7
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "GER - geringfügige Beschäftigung",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 2
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Oberösterreich",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 13,
+      "source_rows": 6
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1142,
+      "source_rows": 6
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 818,
+      "source_rows": 6
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 4241,
+      "source_rows": 6
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 1
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Salzburg",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1451,
+      "source_rows": 14
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1410,
+      "source_rows": 14
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 7784,
+      "source_rows": 14
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 5,
+      "source_rows": 2
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 2
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 31,
+      "source_rows": 12
+    },
+    {
+      "region": "Steiermark",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1144,
+      "source_rows": 8
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 954,
+      "source_rows": 8
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 5236,
+      "source_rows": 8
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Tirol",
+      "employment_type": "GER - geringfügige Beschäftigung",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 1
+    },
+    {
+      "region": "Vorarlberg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 975,
+      "source_rows": 4
+    },
+    {
+      "region": "Vorarlberg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 434,
+      "source_rows": 4
+    },
+    {
+      "region": "Vorarlberg",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 2326,
+      "source_rows": 4
+    },
+    {
+      "region": "Vorarlberg",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Wien",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 3071,
+      "source_rows": 13
+    },
+    {
+      "region": "Wien",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1942,
+      "source_rows": 14
+    },
+    {
+      "region": "Wien",
+      "employment_type": "ARN - Arbeiter_in/Angestellte_r",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 7000,
+      "source_rows": 13
+    },
+    {
+      "region": "Wien",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 12,
+      "source_rows": 3
+    },
+    {
+      "region": "Wien",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 4
+    },
+    {
+      "region": "Wien",
+      "employment_type": "FDV - freie Dienstnehmer",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 1
+    },
+    {
+      "region": "Wien",
+      "employment_type": "GER - geringfügige Beschäftigung",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 1,
+      "source_rows": 1
+    },
+    {
+      "region": "Wien",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "B - Beides (Vollzeit oder Teilzeit)",
+      "registered_immediate_vacancies": 3,
+      "source_rows": 2
+    },
+    {
+      "region": "Wien",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "T - Teilzeit",
+      "registered_immediate_vacancies": 4,
+      "source_rows": 3
+    },
+    {
+      "region": "Wien",
+      "employment_type": "SON - sonstige Dienstverhältnisse",
+      "working_time": "V - Vollzeit",
+      "registered_immediate_vacancies": 46,
+      "source_rows": 9
+    }
+  ],
+  "regional_totals": [
+    {
+      "region": "Burgenland",
+      "registered_unemployed": 8210,
+      "vacancies_education_total": 1368,
+      "vacancies_time_total": 1368
+    },
+    {
+      "region": "Niederösterreich",
+      "registered_unemployed": 47682,
+      "vacancies_education_total": 12440,
+      "vacancies_time_total": 12440
+    },
+    {
+      "region": "Salzburg",
+      "registered_unemployed": 11708,
+      "vacancies_education_total": 6206,
+      "vacancies_time_total": 6206
+    },
+    {
+      "region": "Steiermark",
+      "registered_unemployed": 39389,
+      "vacancies_education_total": 10686,
+      "vacancies_time_total": 10686
+    },
+    {
+      "region": "Kärnten",
+      "registered_unemployed": 15652,
+      "vacancies_education_total": 6228,
+      "vacancies_time_total": 6228
+    },
+    {
+      "region": "Tirol",
+      "registered_unemployed": 13347,
+      "vacancies_education_total": 7340,
+      "vacancies_time_total": 7340
+    },
+    {
+      "region": "Vorarlberg",
+      "registered_unemployed": 11408,
+      "vacancies_education_total": 3736,
+      "vacancies_time_total": 3736
+    },
+    {
+      "region": "Oberösterreich",
+      "registered_unemployed": 39324,
+      "vacancies_education_total": 19678,
+      "vacancies_time_total": 19678
+    },
+    {
+      "region": "Wien",
+      "registered_unemployed": 124728,
+      "vacancies_education_total": 12087,
+      "vacancies_time_total": 12087
+    }
+  ],
+  "national_education": [
+    {
+      "region": "Österreich",
+      "education_code": "AK",
+      "supply_label": "Akademie",
+      "vacancy_label": "Akademie",
+      "registered_unemployed": 1019,
+      "registered_immediate_vacancies": 254,
+      "source_rows": {
+        "al": 167,
+        "os": 67
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "FB",
+      "supply_label": "Fachhochschule Bakkalaureat",
+      "vacancy_label": "Fachhochschule Bakkalaureat",
+      "registered_unemployed": 1714,
+      "registered_immediate_vacancies": 120,
+      "source_rows": {
+        "al": 185,
+        "os": 40
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "FH",
+      "supply_label": "Fachhochschule",
+      "vacancy_label": "Fachhochschule",
+      "registered_unemployed": 3765,
+      "registered_immediate_vacancies": 1455,
+      "source_rows": {
+        "al": 192,
+        "os": 90
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "H*",
+      "supply_label": null,
+      "vacancy_label": "Höhere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 3087,
+      "source_rows": {
+        "al": 0,
+        "os": 93
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "HA",
+      "supply_label": "Allg. höhere Schule",
+      "vacancy_label": "Allg. höhere Schule",
+      "registered_unemployed": 18425,
+      "registered_immediate_vacancies": 58,
+      "source_rows": {
+        "al": 196,
+        "os": 28
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "HK",
+      "supply_label": "Höhere kaufm. Schule",
+      "vacancy_label": "Höhere kaufm. Schule",
+      "registered_unemployed": 7241,
+      "registered_immediate_vacancies": 635,
+      "source_rows": {
+        "al": 196,
+        "os": 89
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "HS",
+      "supply_label": "Höhere sonstige Schule",
+      "vacancy_label": "Höhere sonstige Schule",
+      "registered_unemployed": 9853,
+      "registered_immediate_vacancies": 255,
+      "source_rows": {
+        "al": 195,
+        "os": 77
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "HT",
+      "supply_label": "Höhere techn.-gewerbl. Schule",
+      "vacancy_label": "Höhere techn.-gewerbl. Schule",
+      "registered_unemployed": 7392,
+      "registered_immediate_vacancies": 2908,
+      "source_rows": {
+        "al": 195,
+        "os": 94
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "L*",
+      "supply_label": null,
+      "vacancy_label": "Allg. Lehrausbildung",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 2165,
+      "source_rows": {
+        "al": 0,
+        "os": 90
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "LE",
+      "supply_label": "Lehre",
+      "vacancy_label": "Lehre",
+      "registered_unemployed": 81748,
+      "registered_immediate_vacancies": 30536,
+      "source_rows": {
+        "al": 196,
+        "os": 96
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "LM",
+      "supply_label": "Lehre u. Meisterprüfung",
+      "vacancy_label": "Lehre u. Meisterprüfung",
+      "registered_unemployed": 2278,
+      "registered_immediate_vacancies": 285,
+      "source_rows": {
+        "al": 189,
+        "os": 80
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "LT",
+      "supply_label": "Teilintegrierte Lehre",
+      "vacancy_label": "Teilintegrierte Lehre",
+      "registered_unemployed": 700,
+      "registered_immediate_vacancies": 1,
+      "source_rows": {
+        "al": 157,
+        "os": 1
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "M*",
+      "supply_label": null,
+      "vacancy_label": "Mittlere Schule",
+      "registered_unemployed": null,
+      "registered_immediate_vacancies": 1284,
+      "source_rows": {
+        "al": 0,
+        "os": 90
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "MK",
+      "supply_label": "Mittlere kaufm. Schule",
+      "vacancy_label": "Mittlere kaufm. Schule",
+      "registered_unemployed": 6555,
+      "registered_immediate_vacancies": 118,
+      "source_rows": {
+        "al": 195,
+        "os": 46
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "MS",
+      "supply_label": "Sonstige mittlere Schule",
+      "vacancy_label": "Sonstige mittlere Schule",
+      "registered_unemployed": 8179,
+      "registered_immediate_vacancies": 1169,
+      "source_rows": {
+        "al": 196,
+        "os": 93
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "MT",
+      "supply_label": "Mittlere techn.-gewerbl. Schule",
+      "vacancy_label": "Mittlere techn.-gewerbl. Schule",
+      "registered_unemployed": 1805,
+      "registered_immediate_vacancies": 161,
+      "source_rows": {
+        "al": 175,
+        "os": 45
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "PO",
+      "supply_label": "Keine abgeschl. Pflichtschule",
+      "vacancy_label": "Keine abgeschl. Pflichtschule",
+      "registered_unemployed": 17202,
+      "registered_immediate_vacancies": 2854,
+      "source_rows": {
+        "al": 196,
+        "os": 89
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "PS",
+      "supply_label": "Pflichtschule",
+      "vacancy_label": "Pflichtschule",
+      "registered_unemployed": 110715,
+      "registered_immediate_vacancies": 29902,
+      "source_rows": {
+        "al": 196,
+        "os": 97
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "UB",
+      "supply_label": "Bakkalaureatstudium",
+      "vacancy_label": "Bakkalaureatstudium",
+      "registered_unemployed": 7713,
+      "registered_immediate_vacancies": 445,
+      "source_rows": {
+        "al": 193,
+        "os": 55
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "UV",
+      "supply_label": "Universität",
+      "vacancy_label": "Universität",
+      "registered_unemployed": 24192,
+      "registered_immediate_vacancies": 2077,
+      "source_rows": {
+        "al": 196,
+        "os": 90
+      }
+    },
+    {
+      "region": "Österreich",
+      "education_code": "XX",
+      "supply_label": "Ungeklärt",
+      "vacancy_label": null,
+      "registered_unemployed": 952,
+      "registered_immediate_vacancies": null,
+      "source_rows": {
+        "al": 158,
+        "os": 0
+      }
+    }
+  ],
+  "national_working_time": {
+    "B - Beides (Vollzeit oder Teilzeit)": 13297,
+    "T - Teilzeit": 11542,
+    "V - Vollzeit": 54930
+  },
+  "july_residual_audit": {
+    "reference_period": "2026-07",
+    "source_id": "al_education_july",
+    "national_unemployed": 298885,
+    "national_education_codes": [
+      {
+        "code": "AK",
+        "label": "Akademie",
+        "registered_unemployed": 980
+      },
+      {
+        "code": "FB",
+        "label": "Fachhochschule Bakkalaureat",
+        "registered_unemployed": 1652
+      },
+      {
+        "code": "FH",
+        "label": "Fachhochschule",
+        "registered_unemployed": 3695
+      },
+      {
+        "code": "HA",
+        "label": "Allg. höhere Schule",
+        "registered_unemployed": 17599
+      },
+      {
+        "code": "HK",
+        "label": "Höhere kaufm. Schule",
+        "registered_unemployed": 6720
+      },
+      {
+        "code": "HS",
+        "label": "Höhere sonstige Schule",
+        "registered_unemployed": 9215
+      },
+      {
+        "code": "HT",
+        "label": "Höhere techn.-gewerbl. Schule",
+        "registered_unemployed": 7108
+      },
+      {
+        "code": "LE",
+        "label": "Lehre",
+        "registered_unemployed": 78954
+      },
+      {
+        "code": "LM",
+        "label": "Lehre u. Meisterprüfung",
+        "registered_unemployed": 2230
+      },
+      {
+        "code": "LT",
+        "label": "Teilintegrierte Lehre",
+        "registered_unemployed": 644
+      },
+      {
+        "code": "MK",
+        "label": "Mittlere kaufm. Schule",
+        "registered_unemployed": 6247
+      },
+      {
+        "code": "MS",
+        "label": "Sonstige mittlere Schule",
+        "registered_unemployed": 7801
+      },
+      {
+        "code": "MT",
+        "label": "Mittlere techn.-gewerbl. Schule",
+        "registered_unemployed": 1759
+      },
+      {
+        "code": "PO",
+        "label": "Keine abgeschl. Pflichtschule",
+        "registered_unemployed": 16382
+      },
+      {
+        "code": "PS",
+        "label": "Pflichtschule",
+        "registered_unemployed": 106058
+      },
+      {
+        "code": "UB",
+        "label": "Bakkalaureatstudium",
+        "registered_unemployed": 7486
+      },
+      {
+        "code": "UV",
+        "label": "Universität",
+        "registered_unemployed": 23486
+      },
+      {
+        "code": "XX",
+        "label": "Ungeklärt",
+        "registered_unemployed": 869
+      }
+    ],
+    "residual_code": "XX",
+    "residual_label": "Ungeklärt",
+    "residual_count": 869,
+    "allocated_to_known_education": false,
+    "unexplained_source_difference": 0
+  },
+  "joint_matching_cells": [],
+  "joint_dimension_audit": [
+    {
+      "artifact": "labour-occupation-supply-2026-08.json",
+      "observed_dimensions": [
+        "Berufswunsch bzw. Stellenberuf",
+        "Bundesland"
+      ],
+      "missing_joint_dimensions": [
+        "Detailqualifikation",
+        "Arbeitszeit"
+      ]
+    },
+    {
+      "source_id": "al_education",
+      "observed_dimensions": [
+        "höchster Ausbildungsabschluss",
+        "Geschlecht",
+        "AMS-Geschäftsstelle"
+      ],
+      "missing_joint_dimensions": [
+        "Beruf",
+        "real mögliche Arbeitszeit",
+        "Betreuung"
+      ]
+    },
+    {
+      "source_id": "os_education",
+      "observed_dimensions": [
+        "Ausbildungsanforderung",
+        "Verfügbarkeit",
+        "AMS-Geschäftsstelle"
+      ],
+      "missing_joint_dimensions": [
+        "Beruf",
+        "Arbeitszeit"
+      ]
+    },
+    {
+      "source_id": "os_time",
+      "observed_dimensions": [
+        "Beschäftigungsart",
+        "Arbeitszeitkategorie",
+        "Verfügbarkeit",
+        "AMS-Geschäftsstelle"
+      ],
+      "missing_joint_dimensions": [
+        "Beruf",
+        "Ausbildungsanforderung",
+        "Lage und Umfang der Stunden"
+      ]
+    }
+  ]
+}

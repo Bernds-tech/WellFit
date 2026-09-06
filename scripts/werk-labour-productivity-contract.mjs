@@ -6,6 +6,7 @@ const m=JSON.parse(fs.readFileSync('werk-data/labour-matching-baseline-2025-2026
 const p=JSON.parse(fs.readFileSync('werk-data/labour-matching-matrix-priority-groups.json','utf8'));
 const o=JSON.parse(fs.readFileSync('werk-data/labour-occupation-region-matching-matrix.json','utf8'));
 const supply=JSON.parse(fs.readFileSync('werk-data/labour-occupation-supply-2026-08.json','utf8'));
+const qt=JSON.parse(fs.readFileSync('werk-data/labour-qualification-working-time-2026-08.json','utf8'));
 const closure=JSON.parse(fs.readFileSync('werk-data/analysis-data-closure-register.json','utf8'));
 const fail=x=>{throw new Error(x)};
 const near=(a,b,t,msg)=>{if(!Number.isFinite(a)||!Number.isFinite(b)||Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
@@ -211,6 +212,48 @@ for(const [kind,field,total] of [['al','registered_unemployed_occupation_wish',n
   near(supply.counts[kind].stock_total,total,0,'Occupation national total');
 }
 
+if(qt.reference_period!=='2026-08'||qt.status!=='education_and_vacancy_time_marginals_verified_joint_matching_blocked')fail('Qualification/time scope or period mismatch');
+for(const flag of ['education_occupation_joint_observed','education_working_time_joint_observed','supply_feasible_hours_observed','care_schedule_capacity_observed','synthetic_cross_join_allowed','allocation_of_unclear_education_allowed'])if(qt.scope[flag]!==false)fail(`Unproven qualification/time dimension: ${flag}`);
+if(qt.scope.flexible_time_counted_once!==true||qt.scope.not_immediate_vacancies_excluded_from_matching_baseline!==true||qt.scope.vacancy_availability_filter!=='Bestand_sofort_verfuegbar')fail('Working-time/availability guard changed');
+if(qt.scope.missing_cell_means!=='not_published_unknown'||qt.scope.zero_means!=='explicitly_reported_zero')fail('Qualification missing/zero semantics changed');
+if(qt.matching_gate.status!=='blocked'||qt.matching_gate.employment_effect_persons!==null||qt.matching_gate.budget_effect_eur!==null||qt.matching_gate.feasible_additional_working_hours!==null)fail('Qualification/time effects and feasible hours must remain null');
+if(!Array.isArray(qt.joint_matching_cells)||qt.joint_matching_cells.length!==0)fail('Synthetic qualification/time joint cells forbidden');
+const eduKeys=new Set();
+for(const r of qt.education_records){
+  const key=`${r.region}|${r.education_code}`;
+  if(eduKeys.has(key)||!regionNames.has(r.region)||!/^\w[\w*]$/.test(r.education_code))fail('Duplicate/invalid regional education key');eduKeys.add(key);
+  for(const [kind,field,label] of [['al','registered_unemployed','supply_label'],['os','registered_immediate_vacancies','vacancy_label']]){
+    count(r.source_rows[kind],'Education source rows');
+    if(r.source_rows[kind]>0){count(r[field],'Education observed count');if(typeof r[label]!=='string'||!r[label])fail('Education source label missing');}
+    else if(r[field]!==null||r[label]!==null)fail('Unobserved education side must remain null');
+  }
+}
+const timeKeys=new Set(),timeTotals=new Map();
+for(const r of qt.working_time_records){
+  const key=`${r.region}|${r.employment_type}|${r.working_time}`;
+  if(timeKeys.has(key)||!regionNames.has(r.region))fail('Duplicate/invalid working-time key');timeKeys.add(key);
+  if(!['V - Vollzeit','T - Teilzeit','B - Beides (Vollzeit oder Teilzeit)'].includes(r.working_time))fail('Unknown working-time category');
+  count(r.registered_immediate_vacancies,'Working-time stock');count(r.source_rows,'Working-time source rows');
+  if(r.source_rows===0)fail('Working-time row has no source');
+  timeTotals.set(r.working_time,(timeTotals.get(r.working_time)||0)+r.registered_immediate_vacancies);
+}
+if(Object.keys(qt.national_working_time).length!==3)fail('Working-time national category count');
+for(const [label,n] of timeTotals)near(qt.national_working_time[label],n,0,'Working-time national category total');
+near([...timeTotals.values()].reduce((a,b)=>a+b,0),national.registered_vacancies_total,0,'Working-time national stock, flexible once');
+for(const region of regions){
+  const er=qt.education_records.filter(r=>r.region===region.region),tr=qt.working_time_records.filter(r=>r.region===region.region);
+  near(er.reduce((n,r)=>n+(r.registered_unemployed??0),0),region.registered_unemployed,0,'Education region AL total');
+  near(er.reduce((n,r)=>n+(r.registered_immediate_vacancies??0),0),region.registered_vacancies,0,'Education region OS total');
+  near(tr.reduce((n,r)=>n+r.registered_immediate_vacancies,0),region.registered_vacancies,0,'Working-time region OS total');
+}
+const residual=qt.july_residual_audit,explanation=p.reconciliation.source_explanation;
+if(residual.reference_period!=='2026-07'||residual.residual_code!=='XX'||residual.residual_label!=='Ungeklärt'||residual.allocated_to_known_education!==false)fail('July residual must remain the unclear education category');
+near(residual.residual_count,p.reconciliation.unallocated_difference,0,'July official unclear category count');
+near(residual.unexplained_source_difference,0,0,'July source difference now explained');
+if(explanation.artifact!=='labour-qualification-working-time-2026-08.json'||explanation.source_code!=='XX'||explanation.allocated_to_priority_groups!==false)fail('July source explanation linkage/allocation invalid');
+near(explanation.source_count,residual.residual_count,0,'July linked explanation count');
+near(explanation.unexplained_source_difference,residual.unexplained_source_difference,0,'July linked unexplained difference');
+
 const gap=closure.priority_1_data_gaps.find(x=>x.id==='GAP-LAB-01');
 if(!gap||gap.status!=='teilweise vorhanden')fail('Labour parent gap must remain partial');
 const subgates=new Map((gap.subgates||[]).map(x=>[x.id,x]));
@@ -225,4 +268,4 @@ for(const id of ['LAB-E','LAB-F','LAB-G','LAB-H','LAB-I'])if(subgates.get(id).st
 if(gap.effect_gate.status!=='blocked'||gap.effect_gate.employment_effect_persons!==null||gap.effect_gate.budget_effect_eur!==null)fail('Labour budget/employment booking must remain blocked');
 if(!closure.closure_order.includes('GAP-LAB-01'))fail('Labour gap omitted from closure order');
 
-console.log(`WERK labour/productivity contract OK: 9 regional AL/OS stocks reconcile; 12 education rows/6 groups and 869-person residual; ${o.records.length} Q2 shortage rows and ${supply.records.length} August occupation-region stock pairs; 9 subgates, joint qualification/matching and fiscal effects blocked.`);
+console.log(`WERK labour/productivity contract OK: 9 regional AL/OS stocks; 12 July education rows/6 groups with 869 officially unclear; ${o.records.length} Q2 shortage rows; ${supply.records.length} August occupation pairs; ${qt.education_records.length} education and ${qt.working_time_records.length} working-time rows. Joint matching, feasible hours and fiscal effects blocked.`);
