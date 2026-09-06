@@ -27,7 +27,18 @@ Use this register for work that touches more than one WellFit repository.
 
 ## Active locks
 
-No active Rudi implementation hardening cross-repo lock. The hardened WellFit-now source is merged and pinned by `RUDI_SITE_SYNC_MANIFEST.json`; remaining work is the actual public ChatGPT Site synchronization and visual acceptance under `WFG-RUDI-WORLD-001` / `WF-LOOP-006`.
+## XLOCK-WF-RUDI-MEMORY-20260906
+- Cross-ID: `WFG-RUDI-WORLD-001` / `WFN-RUDI-3D-001` memory consolidation
+- Status: ACTIVE
+- Lead repository: `Bernds-tech/WellFit`
+- Participating repositories: `Bernds-tech/WellFit-now`
+- Scope: documentation/project-memory reconciliation only after the hardened Rudi runtime and Site-sync contract were merged. Replace stale active instructions that still point to PR #401, Site v105, the deleted viewport/props controller or pre-hardening source `9ae4f278...` with the immutable hardened source `b07d39938aeab4e32eddac7d19b8e15e22afacb7`, PR #402 evidence and the current `RUDI_SITE_SYNC_MANIFEST.json`. No runtime, visual redesign, Site publication, backend/auth/data, mission/reward/economy, location/camera or native Buddy mutation.
+- Contract IDs: `WF-CONTRACT-BUDDY-001`
+- Dependency IDs: `WF-XDEP-004`; graphical ownership drift remains under `WF-MIG-001`.
+- Branches/PRs: WellFit `codex/rudi-memory-consolidation-20260906`; WellFit-now memory branch to be created from hardened main `b07d39938aeab4e32eddac7d19b8e15e22afacb7`.
+- Acquired: 2026-09-06 Europe/Vienna
+- Updated: 2026-09-06 after mandatory preflight found that WellFit `STARTED_WORK.md`, `WORK_LOCKS.md`, `OPEN_LOOPS.md` and `TASK_LEDGER.md` still referenced the pre-hardening PR #401 source, while WellFit-now active Rudi memory still referenced Site v105, the removed props/viewport path and an obsolete owner-review next step.
+- Resume from: reconcile the technical memory first, merge it with green Project Memory gates, then update WellFit local task/loop/lock/ledger/handoff/status to the hardened source and release this lock. Do not change runtime code.
 
 No active avatar-attention implementation cross-repo lock. The remaining public ChatGPT Site synchronization is a graphical WellFit/Sites step tracked by WF-LOOP-005.
 
