@@ -20,18 +20,114 @@
     "source_id": "AMS-EDU-JUL-2026"
   },
   "detailed_rows": [
-    {"id":"EDU-PS","label":"Maximal Pflichtschule","registered_unemployed":122440,"unemployed_share_pct":41.0,"registered_vacancies":32971,"vacancy_share_pct":41.3,"derived_unemployed_per_vacancy":3.71},
-    {"id":"EDU-LEHRE","label":"Lehre","registered_unemployed":81828,"unemployed_share_pct":27.4,"registered_vacancies":32441,"vacancy_share_pct":40.7,"derived_unemployed_per_vacancy":2.52},
-    {"id":"EDU-BMS-T","label":"Mittlere technisch-gewerbliche Schule","registered_unemployed":1759,"unemployed_share_pct":0.6,"registered_vacancies":153,"vacancy_share_pct":0.2,"derived_unemployed_per_vacancy":11.50},
-    {"id":"EDU-BMS-K","label":"Mittlere kaufmännische Schule","registered_unemployed":6247,"unemployed_share_pct":2.1,"registered_vacancies":114,"vacancy_share_pct":0.1,"derived_unemployed_per_vacancy":54.80},
-    {"id":"EDU-BMS-S","label":"Sonstige mittlere Schule","registered_unemployed":7801,"unemployed_share_pct":2.6,"registered_vacancies":2439,"vacancy_share_pct":3.1,"derived_unemployed_per_vacancy":3.20},
-    {"id":"EDU-AHS","label":"Allgemeinbildende höhere Schule","registered_unemployed":17599,"unemployed_share_pct":5.9,"registered_vacancies":88,"vacancy_share_pct":0.1,"derived_unemployed_per_vacancy":199.99},
-    {"id":"EDU-BHS-T","label":"Höhere technisch-gewerbliche Schule","registered_unemployed":7108,"unemployed_share_pct":2.4,"registered_vacancies":2933,"vacancy_share_pct":3.7,"derived_unemployed_per_vacancy":2.42},
-    {"id":"EDU-BHS-K","label":"Höhere kaufmännische Schule","registered_unemployed":6720,"unemployed_share_pct":2.2,"registered_vacancies":710,"vacancy_share_pct":0.9,"derived_unemployed_per_vacancy":9.46},
-    {"id":"EDU-BHS-S","label":"Sonstige höhere Schule","registered_unemployed":9215,"unemployed_share_pct":3.1,"registered_vacancies":3396,"vacancy_share_pct":4.3,"derived_unemployed_per_vacancy":2.71},
-    {"id":"EDU-AKA","label":"Akademie","registered_unemployed":980,"unemployed_share_pct":0.3,"registered_vacancies":290,"vacancy_share_pct":0.4,"derived_unemployed_per_vacancy":3.38},
-    {"id":"EDU-FH","label":"Fachhochschule","registered_unemployed":5347,"unemployed_share_pct":1.8,"registered_vacancies":1640,"vacancy_share_pct":2.1,"derived_unemployed_per_vacancy":3.26},
-    {"id":"EDU-UNI","label":"Universität, Hochschule, Pädagogische Hochschule","registered_unemployed":30972,"unemployed_share_pct":10.4,"registered_vacancies":2595,"vacancy_share_pct":3.3,"derived_unemployed_per_vacancy":11.94}
+    {
+      "id": "EDU-PS",
+      "label": "Maximal Pflichtschule",
+      "registered_unemployed": 122440,
+      "unemployed_share_pct": 41.0,
+      "registered_vacancies": 32971,
+      "vacancy_share_pct": 41.3,
+      "derived_unemployed_per_vacancy": 3.71
+    },
+    {
+      "id": "EDU-LEHRE",
+      "label": "Lehre",
+      "registered_unemployed": 81828,
+      "unemployed_share_pct": 27.4,
+      "registered_vacancies": 32441,
+      "vacancy_share_pct": 40.7,
+      "derived_unemployed_per_vacancy": 2.52
+    },
+    {
+      "id": "EDU-BMS-T",
+      "label": "Mittlere technisch-gewerbliche Schule",
+      "registered_unemployed": 1759,
+      "unemployed_share_pct": 0.6,
+      "registered_vacancies": 153,
+      "vacancy_share_pct": 0.2,
+      "derived_unemployed_per_vacancy": 11.5
+    },
+    {
+      "id": "EDU-BMS-K",
+      "label": "Mittlere kaufmännische Schule",
+      "registered_unemployed": 6247,
+      "unemployed_share_pct": 2.1,
+      "registered_vacancies": 114,
+      "vacancy_share_pct": 0.1,
+      "derived_unemployed_per_vacancy": 54.8
+    },
+    {
+      "id": "EDU-BMS-S",
+      "label": "Sonstige mittlere Schule",
+      "registered_unemployed": 7801,
+      "unemployed_share_pct": 2.6,
+      "registered_vacancies": 2439,
+      "vacancy_share_pct": 3.1,
+      "derived_unemployed_per_vacancy": 3.2
+    },
+    {
+      "id": "EDU-AHS",
+      "label": "Allgemeinbildende höhere Schule",
+      "registered_unemployed": 17599,
+      "unemployed_share_pct": 5.9,
+      "registered_vacancies": 88,
+      "vacancy_share_pct": 0.1,
+      "derived_unemployed_per_vacancy": 199.99
+    },
+    {
+      "id": "EDU-BHS-T",
+      "label": "Höhere technisch-gewerbliche Schule",
+      "registered_unemployed": 7108,
+      "unemployed_share_pct": 2.4,
+      "registered_vacancies": 2933,
+      "vacancy_share_pct": 3.7,
+      "derived_unemployed_per_vacancy": 2.42
+    },
+    {
+      "id": "EDU-BHS-K",
+      "label": "Höhere kaufmännische Schule",
+      "registered_unemployed": 6720,
+      "unemployed_share_pct": 2.2,
+      "registered_vacancies": 710,
+      "vacancy_share_pct": 0.9,
+      "derived_unemployed_per_vacancy": 9.46
+    },
+    {
+      "id": "EDU-BHS-S",
+      "label": "Sonstige höhere Schule",
+      "registered_unemployed": 9215,
+      "unemployed_share_pct": 3.1,
+      "registered_vacancies": 3396,
+      "vacancy_share_pct": 4.3,
+      "derived_unemployed_per_vacancy": 2.71
+    },
+    {
+      "id": "EDU-AKA",
+      "label": "Akademie",
+      "registered_unemployed": 980,
+      "unemployed_share_pct": 0.3,
+      "registered_vacancies": 290,
+      "vacancy_share_pct": 0.4,
+      "derived_unemployed_per_vacancy": 3.38
+    },
+    {
+      "id": "EDU-FH",
+      "label": "Fachhochschule",
+      "registered_unemployed": 5347,
+      "unemployed_share_pct": 1.8,
+      "registered_vacancies": 1640,
+      "vacancy_share_pct": 2.1,
+      "derived_unemployed_per_vacancy": 3.26
+    },
+    {
+      "id": "EDU-UNI",
+      "label": "Universität, Hochschule, Pädagogische Hochschule",
+      "registered_unemployed": 30972,
+      "unemployed_share_pct": 10.4,
+      "registered_vacancies": 2595,
+      "vacancy_share_pct": 3.3,
+      "derived_unemployed_per_vacancy": 11.94
+    }
   ],
   "reconciliation": {
     "detailed_unemployed_sum": 298016,
@@ -43,64 +139,88 @@
   },
   "aggregated_priority_groups": [
     {
-      "id":"PRIO-LOW-EDU",
-      "label":"Maximal Pflichtschule",
-      "registered_unemployed":122440,
-      "registered_vacancies":32971,
-      "derived_unemployed_per_vacancy":3.71,
-      "registered_unemployment_rate_pct":19.5,
-      "priority_reason":"Höchstes Arbeitslosigkeitsrisiko und größter Arbeitslosenbestand. Gleichzeitig verlangt ein großer Anteil der AMS-Stellen maximal Pflichtschule; fehlende Passung muss daher vor allem nach Beruf, Region, Gesundheit, Sprache und Arbeitszeit untersucht werden.",
-      "next_match":"Ö-ISCO/AMS-Berufsgruppen + Bundesland + gesundheitliche Vermittlungseinschränkung + Arbeitszeit"
+      "id": "PRIO-LOW-EDU",
+      "label": "Maximal Pflichtschule",
+      "registered_unemployed": 122440,
+      "registered_vacancies": 32971,
+      "derived_unemployed_per_vacancy": 3.71,
+      "registered_unemployment_rate_pct": 19.5,
+      "priority_reason": "Höchstes Arbeitslosigkeitsrisiko und größter Arbeitslosenbestand. Gleichzeitig verlangt ein großer Anteil der AMS-Stellen maximal Pflichtschule; fehlende Passung muss daher vor allem nach Beruf, Region, Gesundheit, Sprache und Arbeitszeit untersucht werden.",
+      "next_match": "Ö-ISCO/AMS-Berufsgruppen + Bundesland + gesundheitliche Vermittlungseinschränkung + Arbeitszeit",
+      "member_row_ids": [
+        "EDU-PS"
+      ]
     },
     {
-      "id":"PRIO-APPRENTICESHIP",
-      "label":"Lehrabschluss",
-      "registered_unemployed":81828,
-      "registered_vacancies":32441,
-      "derived_unemployed_per_vacancy":2.52,
-      "registered_unemployment_rate_pct":5.8,
-      "priority_reason":"27,4 % der Arbeitslosen besitzen Lehre, während 40,7 % der AMS-Stellen einen Lehrabschluss verlangen. Das deutet auf erhebliche berufliche, regionale oder fachspezifische Fehlpassung hin, nicht auf generellen Mangel an Lehrabschlüssen.",
-      "next_match":"Lehrberuf/Fachrichtung + aktuelle Zielberufe + Region + Entlohnung + Skill-Obsoleszenz"
+      "id": "PRIO-APPRENTICESHIP",
+      "label": "Lehrabschluss",
+      "registered_unemployed": 81828,
+      "registered_vacancies": 32441,
+      "derived_unemployed_per_vacancy": 2.52,
+      "registered_unemployment_rate_pct": 5.8,
+      "priority_reason": "27,4 % der Arbeitslosen besitzen Lehre, während 40,7 % der AMS-Stellen einen Lehrabschluss verlangen. Diese unterschiedlichen Bestandsanteile begründen eine Prüfung beruflicher, regionaler und fachspezifischer Passung; sie belegen weder deren Ursache noch einen generellen Mangel an Lehrabschlüssen.",
+      "next_match": "Lehrberuf/Fachrichtung + aktuelle Zielberufe + Region + Entlohnung + Skill-Obsoleszenz",
+      "member_row_ids": [
+        "EDU-LEHRE"
+      ]
     },
     {
-      "id":"PRIO-BMS",
-      "label":"Berufsbildende mittlere Schule (BMS)",
-      "registered_unemployed":15807,
-      "registered_vacancies":2706,
-      "derived_unemployed_per_vacancy":5.84,
-      "registered_unemployment_rate_pct":3.6,
-      "priority_reason":"Niedriges relatives Arbeitslosigkeitsrisiko, aber sehr unterschiedliche Teilgruppen. Kaufmännische und technisch-gewerbliche Abschlüsse dürfen nicht gemeinsam als ein Skillprofil behandelt werden.",
-      "next_match":"BMS-Fachrichtung getrennt gegen Berufsgruppen und Branchen"
+      "id": "PRIO-BMS",
+      "label": "Berufsbildende mittlere Schule (BMS)",
+      "registered_unemployed": 15807,
+      "registered_vacancies": 2706,
+      "derived_unemployed_per_vacancy": 5.84,
+      "registered_unemployment_rate_pct": 3.6,
+      "priority_reason": "Niedriges relatives Arbeitslosigkeitsrisiko, aber sehr unterschiedliche Teilgruppen. Kaufmännische und technisch-gewerbliche Abschlüsse dürfen nicht gemeinsam als ein Skillprofil behandelt werden.",
+      "next_match": "BMS-Fachrichtung getrennt gegen Berufsgruppen und Branchen",
+      "member_row_ids": [
+        "EDU-BMS-T",
+        "EDU-BMS-K",
+        "EDU-BMS-S"
+      ]
     },
     {
-      "id":"PRIO-AHS",
-      "label":"AHS",
-      "registered_unemployed":17599,
-      "registered_vacancies":88,
-      "derived_unemployed_per_vacancy":199.99,
-      "registered_unemployment_rate_pct":5.6,
-      "priority_reason":"Die extrem niedrige Zahl von Stellen, die ausdrücklich AHS als Mindestqualifikation angeben, zeigt die Grenze der Bildungsklassifikation. AHS ist häufig allgemeine Vorbildung statt berufsspezifischer Qualifikation.",
-      "next_match":"Berufserfahrung, weiterführende Ausbildung und Übergang in berufsspezifische Qualifikation statt Quotienteninterpretation"
+      "id": "PRIO-AHS",
+      "label": "AHS",
+      "registered_unemployed": 17599,
+      "registered_vacancies": 88,
+      "derived_unemployed_per_vacancy": 199.99,
+      "registered_unemployment_rate_pct": 5.6,
+      "priority_reason": "Die extrem niedrige Zahl von Stellen, die ausdrücklich AHS als Mindestqualifikation angeben, zeigt die Grenze der Bildungsklassifikation. AHS ist häufig allgemeine Vorbildung statt berufsspezifischer Qualifikation.",
+      "next_match": "Berufserfahrung, weiterführende Ausbildung und Übergang in berufsspezifische Qualifikation statt Quotienteninterpretation",
+      "member_row_ids": [
+        "EDU-AHS"
+      ]
     },
     {
-      "id":"PRIO-BHS",
-      "label":"Berufsbildende höhere Schule (BHS)",
-      "registered_unemployed":23043,
-      "registered_vacancies":7039,
-      "derived_unemployed_per_vacancy":3.27,
-      "registered_unemployment_rate_pct":4.1,
-      "priority_reason":"Technische, kaufmännische und sonstige höhere Schulen zeigen stark unterschiedliche Stellenrelationen; Fachrichtung ist deshalb zwingend.",
-      "next_match":"HTL/HAK/sonstige BHS getrennt nach Beruf und Region"
+      "id": "PRIO-BHS",
+      "label": "Berufsbildende höhere Schule (BHS)",
+      "registered_unemployed": 23043,
+      "registered_vacancies": 7039,
+      "derived_unemployed_per_vacancy": 3.27,
+      "registered_unemployment_rate_pct": 4.1,
+      "priority_reason": "Technische, kaufmännische und sonstige höhere Schulen zeigen stark unterschiedliche Stellenrelationen; Fachrichtung ist deshalb zwingend.",
+      "next_match": "HTL/HAK/sonstige BHS getrennt nach Beruf und Region",
+      "member_row_ids": [
+        "EDU-BHS-T",
+        "EDU-BHS-K",
+        "EDU-BHS-S"
+      ]
     },
     {
-      "id":"PRIO-TERTIARY",
-      "label":"Uni/FH/PH/Akademie",
-      "registered_unemployed":37299,
-      "registered_vacancies":4525,
-      "derived_unemployed_per_vacancy":8.24,
-      "registered_unemployment_rate_pct":3.8,
-      "priority_reason":"Niedriges gesamtwirtschaftliches Arbeitslosigkeitsrisiko bei zugleich heterogenen Fachrichtungen. Ein aggregierter Hochschulquotient ist für konkrete Vermittlung ungeeignet.",
-      "next_match":"Studien-/Fachrichtung, Berufserfahrung und sektorale Nachfrage getrennt"
+      "id": "PRIO-TERTIARY",
+      "label": "Uni/FH/PH/Akademie",
+      "registered_unemployed": 37299,
+      "registered_vacancies": 4525,
+      "derived_unemployed_per_vacancy": 8.24,
+      "registered_unemployment_rate_pct": 3.8,
+      "priority_reason": "Niedriges gesamtwirtschaftliches Arbeitslosigkeitsrisiko bei zugleich heterogenen Fachrichtungen. Ein aggregierter Hochschulquotient ist für konkrete Vermittlung ungeeignet.",
+      "next_match": "Studien-/Fachrichtung, Berufserfahrung und sektorale Nachfrage getrennt",
+      "member_row_ids": [
+        "EDU-AKA",
+        "EDU-FH",
+        "EDU-UNI"
+      ]
     }
   ],
   "priority_order_for_next_matrix": [
@@ -127,11 +247,11 @@
     "Umschulungsdauer, Kosten und nachhaltige Erfolgsquote priorisierter Übergänge"
   ],
   "source": {
-    "id":"AMS-EDU-JUL-2026",
-    "authority":"Arbeitsmarktservice Österreich",
-    "title":"Arbeitsmarkt & Bildung – Juli 2026",
-    "url":"https://www.ams.at/content/dam/download/arbeitsmarktdaten/%C3%B6sterreich/berichte-auswertungen/001_am_bildung_0726.pdf",
-    "published":"2026-08",
-    "checked_at":"2026-09-06"
+    "id": "AMS-EDU-JUL-2026",
+    "authority": "Arbeitsmarktservice Österreich",
+    "title": "Arbeitsmarkt & Bildung – Juli 2026",
+    "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/%C3%B6sterreich/berichte-auswertungen/001_am_bildung_0726.pdf",
+    "published": "2026-08",
+    "checked_at": "2026-09-06"
   }
 }

@@ -8,6 +8,11 @@ on:
       - 'werk-data/labour-productivity-baseline-2025-2026.json'
       - 'werk-data/labour-matching-baseline-2025-2026.json'
       - 'werk-data/labour-matching-matrix-priority-groups.json'
+      - 'werk-data/labour-occupation-region-matching-matrix.json'
+      - 'werk-data/sources/ams-bmasgpk-fachkraefte-2026-q2.xlsx'
+      - 'werk-data/analysis-data-closure-register.json'
+      - 'scripts/werk-import-occupation-evidence.py'
+      - 'scripts/werk-labour-negative-check.mjs'
       - 'scripts/werk-labour-productivity-contract.mjs'
       - '.github/workflows/werk-labour-productivity-check.yml'
   workflow_dispatch:
@@ -27,3 +32,8 @@ jobs:
           node-version: '22'
       - name: Validate labour, productivity and matching baselines
         run: node scripts/werk-labour-productivity-contract.mjs
+
+      - name: Reconcile every published row to pinned source workbook
+        run: python3 scripts/werk-import-occupation-evidence.py --check
+      - name: Reject malformed or falsely closed labour inputs
+        run: node scripts/werk-labour-negative-check.mjs

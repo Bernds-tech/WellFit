@@ -22,7 +22,7 @@
     {"id":"pension-baseline","name":"Pensionen","status":"ug22-ug23-ask-and-longterm-scenarios-tested","estimate_pct":82},
     {"id":"health-care","name":"Gesundheit & Pflege","status":"financing-activity-longterm-care-baselines-tested-reform-costing-open","estimate_pct":80},
     {"id":"tax-distribution","name":"Steuern & Verteilung","status":"tax-expenditure-payroll-distribution-layers-tested-microsimulation-open","estimate_pct":78},
-    {"id":"labour-productivity","name":"Wirtschaft, Arbeit & Standort","status":"actuals-regional-demand-and-education-matching-tested-occupation-region-open","estimate_pct":72},
+    {"id":"labour-productivity","name":"Wirtschaft, Arbeit & Standort","status":"actuals-education-and-occupation-shortage-evidence-joint-matching-open","estimate_pct":72},
     {"id":"data-closure","name":"BUD-01 Datenlückenabschluss","status":"multiple-domain-baselines-tested-final-net-effect-gates-open","estimate_pct":69},
     {"id":"source-audit","name":"Quellen- und Aktualitätsaudit","status":"advanced-in-progress","estimate_pct":97},
     {"id":"vote","name":"WERK VOTE Frageakten, Formatvergleich und rechtliche Ausbaustufen","status":"prototype-with-staged-legal-model-and-minimum-standard","estimate_pct":92},
@@ -57,6 +57,7 @@
       "werk-data/labour-productivity-baseline-2025-2026.json",
       "werk-data/labour-matching-baseline-2025-2026.json",
       "werk-data/labour-matching-matrix-priority-groups.json",
+        "werk-data/labour-occupation-region-matching-matrix.json",
       "werk-data/policy-field-workstate.json",
       "werk-data/analysis-data-closure-register.json"
     ],

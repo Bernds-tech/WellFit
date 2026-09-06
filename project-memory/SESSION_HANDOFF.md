@@ -16,3 +16,6 @@ Update this at the end of substantial work or whenever pausing at a non-obvious 
 - Falsification question: if the exact Site preview still shows no independent head movement or shows seams/ghosting/wrong crops after the port, the per-asset Puppet configuration must be tuned before publication.
 
 Future handoffs must record updated time, active IDs, exact last verified result, first unproven step, blockers/open loops, failed-attempt references, evidence/PR/commit references and any user input still required.
+
+## WERK branch continuation — 2026-09-05 UTC
+This branch also hosts the separately requested WERK reform project. For WERK continuation, read `project-memory/WERK_LABOUR_HANDOFF.md` and `werk-data/project-status.json`; do not follow the unrelated WellFit avatar next action. Task `WERK-LAB-002` implements labour subgates, published occupation evidence and strict data validation. Local checks passed at 869423f. Automatic approval review blocked publication; explicit owner approval is required before retrying the public push. Remote branch remains b64294d, so implementation CI remains unrun. See WERK_LABOUR_HANDOFF.md for the receipt.

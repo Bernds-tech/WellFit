@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v2",
+  "version": "2026-09-06-v3",
   "title": "WERK Österreich – Arbeitsmarkt-Matching-Baseline 2025/2026",
   "status": "partial_matching_baseline_no_reform_effect_yet",
   "checked_at": "2026-09-06",
@@ -17,7 +17,11 @@
     "vacancies_annual_average": 139900,
     "vacancy_rate_pct": 3.2,
     "yoy_change_pct": -19.5,
-    "sector_counts": {"trade_and_services": 82200,"production": 34900,"public_and_social": 22800},
+    "sector_counts": {
+      "trade_and_services": 82200,
+      "production": 34900,
+      "public_and_social": 22800
+    },
     "full_time_share_pct": 82.5,
     "minimum_education_share_pct": {
       "compulsory_or_no_minimum": 40.1,
@@ -26,58 +30,316 @@
       "higher_than_matura": 11.8,
       "note": "Lehrstellen sind zusätzlich rund 9 % der Vakanzen; Kategorien der Pressemeldung sind deshalb nicht als additive 100-%-Zerlegung zu behandeln."
     },
-    "largest_occupation_groups_share_pct": {"services_and_sales":24.4,"technicians_and_associate_professionals":18.6,"craft_and_related_trades":17.7},
-    "search_duration": {"permanently_advertised_share":"gut ein Viertel","six_months_or_longer_share_pct_approx":13.0,"one_to_six_months_share":"etwa zwei von fünf"},
-    "source_id":"STAT-VAC-2025-FINAL"
+    "largest_occupation_groups_share_pct": {
+      "services_and_sales": 24.4,
+      "technicians_and_associate_professionals": 18.6,
+      "craft_and_related_trades": 17.7
+    },
+    "search_duration": {
+      "permanently_advertised_share": "gut ein Viertel",
+      "six_months_or_longer_share_pct_approx": 13.0,
+      "one_to_six_months_share": "etwa zwei von fünf"
+    },
+    "source_id": "STAT-VAC-2025-FINAL"
   },
   "current_demand_direction_q2_2026": {
-    "vacancies":123400,"vacancy_rate_pct":2.9,"qoq_change_pct":-7.3,"yoy_change_pct":-16.6,"full_time_share_pct":78.4,
-    "interpretation":"Die gesamtwirtschaftliche Arbeitskräftenachfrage ist 2026 gegenüber dem Vorjahr weiter rückläufig; regionale und berufliche Engpässe können trotzdem gleichzeitig bestehen.",
-    "source_id":"STAT-VAC-Q2-2026"
+    "vacancies": 123400,
+    "vacancy_rate_pct": 2.9,
+    "qoq_change_pct": -7.3,
+    "yoy_change_pct": -16.6,
+    "full_time_share_pct": 78.4,
+    "interpretation": "Die gesamtwirtschaftliche Arbeitskräftenachfrage ist 2026 gegenüber dem Vorjahr weiter rückläufig; regionale und berufliche Engpässe können trotzdem gleichzeitig bestehen.",
+    "source_id": "STAT-VAC-Q2-2026"
   },
   "regional_ams_snapshots_august_2026": [
-    {"region":"Burgenland","registered_unemployed":8210,"registered_unemployment_rate_pct":6.7,"registered_vacancies":1368,"vacancies_yoy_pct":0.1,"derived_unemployed_per_registered_vacancy":6.00,"notable_internal_dispersion":"Offene Stellen nach Bezirken reichen im Vorjahresvergleich von -24,0 % Eisenstadt bis +21,2 % Stegersbach/Jennersdorf.","source_id":"AMS-BGLD-AUG-2026"},
-    {"region":"Niederösterreich","registered_unemployed":47682,"registered_unemployment_rate_pct":6.7,"registered_vacancies":12440,"vacancies_yoy_pct":-11.5,"derived_unemployed_per_registered_vacancy":3.83,"notable_internal_dispersion":"Arbeitslosigkeit steigt überproportional u. a. in wissenschaftlich-technischen Dienstleistungen, Gesundheit/Soziales, öffentlicher Verwaltung und Warenherstellung; offene Stellen gehen in fast allen Branchen zurück.","source_id":"AMS-NOE-AUG-2026"},
-    {"region":"Salzburg","registered_unemployed":11708,"registered_unemployment_rate_pct":4.1,"registered_vacancies":6206,"vacancies_yoy_pct":-6.1,"derived_unemployed_per_registered_vacancy":1.89,"notable_internal_dispersion":"Arbeitslosigkeit steigt besonders in Beherbergung/Gastronomie, öffentlicher Verwaltung und Gesundheit/Soziales; Stellenangebote sinken in fast allen Arbeitsmarktbezirken.","source_id":"AMS-SALZBURG-AUG-2026"},
-    {"region":"Steiermark","registered_unemployed":39389,"registered_unemployment_rate_pct":6.7,"registered_vacancies":10686,"vacancies_yoy_pct":-2.7,"derived_unemployed_per_registered_vacancy":3.69,"notable_internal_dispersion":"Regionale Bezirke zeigen stark unterschiedliche Stellen- und Arbeitslosenentwicklung; Graz/Graz-Umgebung allein meldet 4.109 offene Stellen bei 20.765 Arbeitssuchenden inkl. regionaler Abgrenzung.","source_id":"AMS-STMK-AUG-2026"},
-    {"region":"Kärnten","registered_unemployed":15652,"registered_unemployment_rate_pct":6.4,"registered_vacancies":6228,"vacancies_yoy_pct":18.8,"derived_unemployed_per_registered_vacancy":2.51,"notable_internal_dispersion":"Offene Stellen steigen besonders bei Hilfsberufen, Metall/Elektro und Bau, während Arbeitslosigkeit im Metall-/Elektrobereich und Bau sinkt.","source_id":"AMS-KTN-AUG-2026"},
-    {"region":"Tirol","registered_unemployed":13347,"registered_unemployment_rate_pct":3.5,"registered_vacancies":7340,"vacancies_yoy_pct":3.4,"derived_unemployed_per_registered_vacancy":1.82,"notable_internal_dispersion":"Mehr Stellen in Arbeitskräfteüberlassung, Warenherstellung, Verwaltung und Bau; weniger im Handel, Gesundheit/Soziales und Tourismus. Gleichzeitig steigt Arbeitslosigkeit in Handel und Tourismus.","source_id":"AMS-TIROL-AUG-2026"},
-    {"region":"Vorarlberg","registered_unemployed":11408,"registered_unemployment_rate_pct":6.2,"registered_vacancies":3736,"vacancies_yoy_pct":-0.6,"derived_unemployed_per_registered_vacancy":3.05,"notable_internal_dispersion":"44,8 % der Arbeitslosen haben höchstens Pflichtschulabschluss; Stellen wachsen in Lehr-/Kultur- und Fremdenverkehrsberufen, sinken u. a. in Metall/Elektro, Gesundheit und Verkehr.","source_id":"AMS-VBG-AUG-2026"},
-    {"region":"Oberösterreich","registered_unemployment_rate_pct":5.3,"registered_vacancies":null,"vacancies_yoy_pct":7.3,"derived_unemployed_per_registered_vacancy":null,"notable_internal_dispersion":"Nachfrage steigt besonders in Arbeitskräfteüberlassung, Produktion, Bau und handwerklichen Berufen; Chancen werden insbesondere für niedrig Qualifizierte und technische Abschlüsse gemeldet.","source_id":"AMS-OOE-AUG-2026"},
-    {"region":"Wien","registered_unemployed":124728,"registered_unemployment_rate_pct":null,"registered_vacancies":null,"vacancies_yoy_pct":null,"derived_unemployed_per_registered_vacancy":null,"notable_internal_dispersion":"Arbeitslosigkeit steigt im Jahresvergleich nur leicht; gleichzeitig verschärft sich der Lehrstellenmarkt mit 5.440 Lehrstellensuchenden gegenüber 496 sofort offenen Lehrstellen.","source_id":"AMS-WIEN-AUG-2026"}
+    {
+      "region": "Burgenland",
+      "registered_unemployed": 8210,
+      "registered_unemployment_rate_pct": 6.7,
+      "registered_vacancies": 1368,
+      "vacancies_yoy_pct": 0.1,
+      "derived_unemployed_per_registered_vacancy": 6.0,
+      "notable_internal_dispersion": "Offene Stellen nach Bezirken reichen im Vorjahresvergleich von -24,0 % Eisenstadt bis +21,2 % Stegersbach/Jennersdorf.",
+      "source_id": "AMS-BGLD-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Niederösterreich",
+      "registered_unemployed": 47682,
+      "registered_unemployment_rate_pct": 6.7,
+      "registered_vacancies": 12440,
+      "vacancies_yoy_pct": -11.5,
+      "derived_unemployed_per_registered_vacancy": 3.83,
+      "notable_internal_dispersion": "Arbeitslosigkeit steigt überproportional u. a. in wissenschaftlich-technischen Dienstleistungen, Gesundheit/Soziales, öffentlicher Verwaltung und Warenherstellung; offene Stellen gehen in fast allen Branchen zurück.",
+      "source_id": "AMS-NOE-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Salzburg",
+      "registered_unemployed": 11708,
+      "registered_unemployment_rate_pct": 4.1,
+      "registered_vacancies": 6206,
+      "vacancies_yoy_pct": -6.1,
+      "derived_unemployed_per_registered_vacancy": 1.89,
+      "notable_internal_dispersion": "Arbeitslosigkeit steigt besonders in Beherbergung/Gastronomie, öffentlicher Verwaltung und Gesundheit/Soziales; Stellenangebote sinken in fast allen Arbeitsmarktbezirken.",
+      "source_id": "AMS-SALZBURG-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Steiermark",
+      "registered_unemployed": 39389,
+      "registered_unemployment_rate_pct": 6.7,
+      "registered_vacancies": 10686,
+      "vacancies_yoy_pct": -2.7,
+      "derived_unemployed_per_registered_vacancy": 3.69,
+      "notable_internal_dispersion": "Regionale Bezirke zeigen stark unterschiedliche Stellen- und Arbeitslosenentwicklung; Graz/Graz-Umgebung allein meldet 4.109 offene Stellen bei 20.765 Arbeitssuchenden inkl. regionaler Abgrenzung.",
+      "source_id": "AMS-STMK-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Kärnten",
+      "registered_unemployed": 15652,
+      "registered_unemployment_rate_pct": 6.4,
+      "registered_vacancies": 6228,
+      "vacancies_yoy_pct": 18.8,
+      "derived_unemployed_per_registered_vacancy": 2.51,
+      "notable_internal_dispersion": "Offene Stellen steigen besonders bei Hilfsberufen, Metall/Elektro und Bau, während Arbeitslosigkeit im Metall-/Elektrobereich und Bau sinkt.",
+      "source_id": "AMS-KTN-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Tirol",
+      "registered_unemployed": 13347,
+      "registered_unemployment_rate_pct": 3.5,
+      "registered_vacancies": 7340,
+      "vacancies_yoy_pct": 3.4,
+      "derived_unemployed_per_registered_vacancy": 1.82,
+      "notable_internal_dispersion": "Mehr Stellen in Arbeitskräfteüberlassung, Warenherstellung, Verwaltung und Bau; weniger im Handel, Gesundheit/Soziales und Tourismus. Gleichzeitig steigt Arbeitslosigkeit in Handel und Tourismus.",
+      "source_id": "AMS-TIROL-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Vorarlberg",
+      "registered_unemployed": 11408,
+      "registered_unemployment_rate_pct": 6.2,
+      "registered_vacancies": 3736,
+      "vacancies_yoy_pct": -0.6,
+      "derived_unemployed_per_registered_vacancy": 3.05,
+      "notable_internal_dispersion": "44,8 % der Arbeitslosen haben höchstens Pflichtschulabschluss; Stellen wachsen in Lehr-/Kultur- und Fremdenverkehrsberufen, sinken u. a. in Metall/Elektro, Gesundheit und Verkehr.",
+      "source_id": "AMS-VBG-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    },
+    {
+      "region": "Oberösterreich",
+      "registered_unemployment_rate_pct": 5.3,
+      "registered_vacancies": null,
+      "vacancies_yoy_pct": 7.3,
+      "derived_unemployed_per_registered_vacancy": null,
+      "notable_internal_dispersion": "Nachfrage steigt besonders in Arbeitskräfteüberlassung, Produktion, Bau und handwerklichen Berufen; Chancen werden insbesondere für niedrig Qualifizierte und technische Abschlüsse gemeldet.",
+      "source_id": "AMS-OOE-AUG-2026",
+      "reference_period": "2026-08",
+      "registered_unemployed": 39324,
+      "field_sources": {
+        "registered_unemployed": "AMS-NATIONAL-REPORT-AUG-2026",
+        "registered_vacancies": "not_extracted"
+      },
+      "vacancy_availability": null
+    },
+    {
+      "region": "Wien",
+      "registered_unemployed": 124728,
+      "registered_unemployment_rate_pct": 11.7,
+      "registered_vacancies": 12087,
+      "vacancies_yoy_pct": -10.8,
+      "derived_unemployed_per_registered_vacancy": 10.32,
+      "notable_internal_dispersion": "Arbeitslosigkeit steigt im Jahresvergleich nur leicht; gleichzeitig verschärft sich der Lehrstellenmarkt mit 5.440 Lehrstellensuchenden gegenüber 496 sofort offenen Lehrstellen.",
+      "source_id": "AMS-WIEN-REPORT-AUG-2026",
+      "reference_period": "2026-08",
+      "vacancy_availability": "sofort verfügbar"
+    }
   ],
   "derived_regional_diagnostics": {
-    "regions_with_comparable_unemployment_and_vacancy_stock":7,
-    "lowest_unemployed_per_registered_vacancy":{"region":"Tirol","value":1.82},
-    "highest_unemployed_per_registered_vacancy":{"region":"Burgenland","value":6.00},
-    "warning":"Diese Quotienten messen nur zwei AMS-Bestände im selben Monat. Sie sagen nichts darüber aus, ob Qualifikation, Beruf, Wohnort, Mobilität, Arbeitszeit, Gesundheit oder Entlohnung tatsächlich zusammenpassen."
+    "regions_with_comparable_unemployment_and_vacancy_stock": 8,
+    "lowest_unemployed_per_registered_vacancy": {
+      "region": "Tirol",
+      "value": 1.82
+    },
+    "highest_unemployed_per_registered_vacancy": {
+      "region": "Wien",
+      "value": 10.32
+    },
+    "warning": "Diese Quotienten messen nur zwei AMS-Bestände im selben Monat. Sie sagen nichts darüber aus, ob Qualifikation, Beruf, Wohnort, Mobilität, Arbeitszeit, Gesundheit oder Entlohnung tatsächlich zusammenpassen."
   },
   "matching_dimensions": [
-    {"id":"MATCH-OCC","dimension":"Beruf","status":"teilweise vorhanden","need":"Arbeitslose und offene Stellen auf kompatible Ö-ISCO/AMS-Berufsgruppen abbilden."},
-    {"id":"MATCH-EDU","dimension":"Qualifikation/Bildung","status":"prioritäre nationale Schicht vorhanden","artifact":"labour-matching-matrix-priority-groups.json","need":"Bildungsschicht nun mit Beruf und Region kreuzen; Bildung allein ist kein Matching."},
-    {"id":"MATCH-REG","dimension":"Region/Mobilität","status":"teilweise vorhanden","need":"Bundesland-/Bezirksmatrix plus zumutbare Pendeldistanzen und ÖV-Erreichbarkeit."},
-    {"id":"MATCH-TIME","dimension":"Arbeitszeit","status":"offen","need":"Voll-/Teilzeitangebot gegen gewünschte und real mögliche Arbeitszeit inklusive Betreuung/Pflege."},
-    {"id":"MATCH-HEALTH","dimension":"Gesundheit","status":"teilweise vorhanden","need":"Vermittlungseinschränkungen nicht als pauschale Nicht-Verfügbarkeit behandeln; konkrete Tätigkeitsanforderungen nötig."},
-    {"id":"MATCH-WAGE","dimension":"Entlohnung/Grenzbelastung","status":"offen","need":"angebotenes Entgelt, Pendel-/Betreuungskosten und Nettozuwachs mit Distribution-/Payroll-Kernel verbinden."},
-    {"id":"MATCH-SKILL","dimension":"Umschulung/Skill-Distanz","status":"offen","need":"Zeit, Kosten und Abschlusswahrscheinlichkeit für Qualifizierung zwischen Ausgangs- und Zielberuf modellieren."}
+    {
+      "id": "MATCH-OCC",
+      "dimension": "Beruf",
+      "status": "amtliche Engpassschicht vorhanden; gemeinsame Angebotsmatrix offen",
+      "need": "Arbeitslose und offene Stellen auf kompatible Ö-ISCO/AMS-Berufsgruppen abbilden.",
+      "artifact": "labour-occupation-region-matching-matrix.json"
+    },
+    {
+      "id": "MATCH-EDU",
+      "dimension": "Qualifikation/Bildung",
+      "status": "prioritäre nationale Schicht vorhanden",
+      "artifact": "labour-matching-matrix-priority-groups.json",
+      "need": "Bildungsschicht nun mit Beruf und Region kreuzen; Bildung allein ist kein Matching."
+    },
+    {
+      "id": "MATCH-REG",
+      "dimension": "Region/Mobilität",
+      "status": "teilweise vorhanden",
+      "need": "Bundesland-/Bezirksmatrix plus zumutbare Pendeldistanzen und ÖV-Erreichbarkeit."
+    },
+    {
+      "id": "MATCH-TIME",
+      "dimension": "Arbeitszeit",
+      "status": "offen",
+      "need": "Voll-/Teilzeitangebot gegen gewünschte und real mögliche Arbeitszeit inklusive Betreuung/Pflege."
+    },
+    {
+      "id": "MATCH-HEALTH",
+      "dimension": "Gesundheit",
+      "status": "teilweise vorhanden",
+      "need": "Vermittlungseinschränkungen nicht als pauschale Nicht-Verfügbarkeit behandeln; konkrete Tätigkeitsanforderungen nötig."
+    },
+    {
+      "id": "MATCH-WAGE",
+      "dimension": "Entlohnung/Grenzbelastung",
+      "status": "offen",
+      "need": "angebotenes Entgelt, Pendel-/Betreuungskosten und Nettozuwachs mit Distribution-/Payroll-Kernel verbinden."
+    },
+    {
+      "id": "MATCH-SKILL",
+      "dimension": "Umschulung/Skill-Distanz",
+      "status": "offen",
+      "need": "Zeit, Kosten und Abschlusswahrscheinlichkeit für Qualifizierung zwischen Ausgangs- und Zielberuf modellieren."
+    }
   ],
   "werk_reform_gate": {
-    "status":"blocked",
-    "completed_layers":["nationale Nachfrage-Struktur 2025","aktuelle Vakanzenrichtung Q2 2026","regionale AMS-Snapshots August 2026","prioritäre Bildungs-Matchinggruppen Juli 2026"],
-    "rule":"Eine nationale Fachkräfte- oder Aktivierungsreform wird erst als Einspar-/Beschäftigungseffekt gerechnet, wenn Beruf, Qualifikation, Region, Arbeitszeit und Übergangskosten mindestens für die prioritären Gruppen gemeinsam modelliert sind.",
-    "next_artifact":"labour-occupation-region-matching-matrix.json"
+    "status": "blocked",
+    "completed_layers": [
+      "nationale Nachfrage-Struktur 2025",
+      "aktuelle Vakanzenrichtung Q2 2026",
+      "regionale AMS-Snapshots August 2026",
+      "prioritäre Bildungs-Matchinggruppen Juli 2026",
+      "publizierte Beruf×Region-Engpasssignale Q2 2026, getrennt vom gemeinsamen Matching"
+    ],
+    "rule": "Eine nationale Fachkräfte- oder Aktivierungsreform wird erst als Einspar-/Beschäftigungseffekt gerechnet, wenn Beruf, Qualifikation, Region, Arbeitszeit und Übergangskosten mindestens für die prioritären Gruppen gemeinsam modelliert sind.",
+    "next_artifact": "labour-occupation-region-matching-matrix.json",
+    "next_action": "Vorhandene Beruf×Region-Engpassschicht um kompatible Angebots- und Detailqualifikationsdaten ergänzen."
   },
   "sources": [
-    {"id":"STAT-VAC-2025-FINAL","authority":"Statistik Austria","title":"Zahl der offenen Stellen 2025 erneut gesunken – korrigierte Pressemeldung 05.02.2026","url":"https://www.statistik.at/fileadmin/announcement/2026/02/20260205OffeneStellen2025Q4.pdf","checked_at":"2026-09-06"},
-    {"id":"STAT-VAC-Q2-2026","authority":"Statistik Austria","title":"Offene Stellen 2. Quartal 2026","url":"https://www.statistik.at/statistiken/arbeitsmarkt/arbeitskraeftenachfrage/offene-stellen","checked_at":"2026-09-06"},
-    {"id":"AMS-BGLD-AUG-2026","authority":"AMS Burgenland","title":"Wichtige Arbeitsmarktdaten August 2026","url":"https://www.ams.at/content/dam/download/arbeitsmarktdaten/burgenland/100_wichtige_am_daten_bgld_0826.pdf","checked_at":"2026-09-06"},
-    {"id":"AMS-NOE-AUG-2026","authority":"AMS Niederösterreich","title":"Aktuelles vom niederösterreichischen Arbeitsmarkt – August 2026","url":"https://www.ams.at/regionen/niederoesterreich/news/2026/09/082026","checked_at":"2026-09-06"},
-    {"id":"AMS-SALZBURG-AUG-2026","authority":"AMS Salzburg","title":"Bundesland Salzburg weist Ende August eine Arbeitslosenquote von 4,1 Prozent auf","url":"https://www.ams.at/regionen/salzburg/news/2026/09/bundesland-salzburg-weist-ende-august-eine-arbeitslosenquote-von-4%2C1-prozent-auf","checked_at":"2026-09-06"},
-    {"id":"AMS-STMK-AUG-2026","authority":"AMS Steiermark","title":"Der steirische Arbeitsmarkt: August 2026","url":"https://www.ams.at/regionen/steiermark/news/2026/09/steirischer-arbeitsmarkt-august-2026","checked_at":"2026-09-06"},
-    {"id":"AMS-KTN-AUG-2026","authority":"AMS Kärnten","title":"Der Kärntner Arbeitsmarkt im August 2026","url":"https://www.ams.at/regionen/kaernten/news/2026/08/der-kaerntner-arbeitsmarkt-im-august-2026","checked_at":"2026-09-06"},
-    {"id":"AMS-TIROL-AUG-2026","authority":"AMS Tirol","title":"Robuster Arbeitsmarkt im Sommer – August 2026","url":"https://www.ams.at/regionen/tirol/news/2026/09/robuster-arbeitsmarkt-im-sommer","checked_at":"2026-09-06"},
-    {"id":"AMS-VBG-AUG-2026","authority":"AMS Vorarlberg","title":"Arbeitsmarktinformation Vorarlberg August 2026","url":"https://www.ams.at/content/dam/download/arbeitsmarktdaten/vorarlberg/arbeitsmarktdaten_vorarlberg_august%202026.pdf","checked_at":"2026-09-06"},
-    {"id":"AMS-OOE-AUG-2026","authority":"AMS Oberösterreich","title":"Arbeitsmarkt Oberösterreich – August 2026","url":"https://www.ams.at/regionen/oberoesterreich/news/2026/09/arbeitsmarkt-oberoesterreich---august-2026","checked_at":"2026-09-06"},
-    {"id":"AMS-WIEN-AUG-2026","authority":"AMS Wien","title":"Betriebe bilden immer weniger Lehrlinge aus – August 2026 Arbeitsmarktwerte","url":"https://www.ams.at/regionen/wien/news/2026/09/betriebe-bilden-immer-weniger-lehrlinge-aus","checked_at":"2026-09-06"}
-  ]
+    {
+      "id": "STAT-VAC-2025-FINAL",
+      "authority": "Statistik Austria",
+      "title": "Zahl der offenen Stellen 2025 erneut gesunken – korrigierte Pressemeldung 05.02.2026",
+      "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260205OffeneStellen2025Q4.pdf",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "STAT-VAC-Q2-2026",
+      "authority": "Statistik Austria",
+      "title": "Offene Stellen 2. Quartal 2026",
+      "url": "https://www.statistik.at/statistiken/arbeitsmarkt/arbeitskraeftenachfrage/offene-stellen",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-BGLD-AUG-2026",
+      "authority": "AMS Burgenland",
+      "title": "Wichtige Arbeitsmarktdaten August 2026",
+      "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/burgenland/100_wichtige_am_daten_bgld_0826.pdf",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-NOE-AUG-2026",
+      "authority": "AMS Niederösterreich",
+      "title": "Aktuelles vom niederösterreichischen Arbeitsmarkt – August 2026",
+      "url": "https://www.ams.at/regionen/niederoesterreich/news/2026/09/082026",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-SALZBURG-AUG-2026",
+      "authority": "AMS Salzburg",
+      "title": "Bundesland Salzburg weist Ende August eine Arbeitslosenquote von 4,1 Prozent auf",
+      "url": "https://www.ams.at/regionen/salzburg/news/2026/09/bundesland-salzburg-weist-ende-august-eine-arbeitslosenquote-von-4%2C1-prozent-auf",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-STMK-AUG-2026",
+      "authority": "AMS Steiermark",
+      "title": "Der steirische Arbeitsmarkt: August 2026",
+      "url": "https://www.ams.at/regionen/steiermark/news/2026/09/steirischer-arbeitsmarkt-august-2026",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-KTN-AUG-2026",
+      "authority": "AMS Kärnten",
+      "title": "Der Kärntner Arbeitsmarkt im August 2026",
+      "url": "https://www.ams.at/regionen/kaernten/news/2026/08/der-kaerntner-arbeitsmarkt-im-august-2026",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-TIROL-AUG-2026",
+      "authority": "AMS Tirol",
+      "title": "Robuster Arbeitsmarkt im Sommer – August 2026",
+      "url": "https://www.ams.at/regionen/tirol/news/2026/09/robuster-arbeitsmarkt-im-sommer",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-VBG-AUG-2026",
+      "authority": "AMS Vorarlberg",
+      "title": "Arbeitsmarktinformation Vorarlberg August 2026",
+      "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/vorarlberg/arbeitsmarktdaten_vorarlberg_august%202026.pdf",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-OOE-AUG-2026",
+      "authority": "AMS Oberösterreich",
+      "title": "Arbeitsmarkt Oberösterreich – August 2026",
+      "url": "https://www.ams.at/regionen/oberoesterreich/news/2026/09/arbeitsmarkt-oberoesterreich---august-2026",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-WIEN-AUG-2026",
+      "authority": "AMS Wien",
+      "title": "Betriebe bilden immer weniger Lehrlinge aus – August 2026 Arbeitsmarktwerte",
+      "url": "https://www.ams.at/regionen/wien/news/2026/09/betriebe-bilden-immer-weniger-lehrlinge-aus",
+      "checked_at": "2026-09-06"
+    },
+    {
+      "id": "AMS-WIEN-REPORT-AUG-2026",
+      "authority": "AMS Wien",
+      "title": "Arbeitsmarktreport August 2026",
+      "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/wien/900_arbeitsmarktreport_august_2026.pdf",
+      "checked_at": "2026-09-05",
+      "locator": "Seite 1: AL und vorläufige Quote; Seite 4: sofort verfügbare Stellen"
+    },
+    {
+      "id": "AMS-NATIONAL-REPORT-AUG-2026",
+      "authority": "AMS Österreich",
+      "title": "Übersicht über den Arbeitsmarkt August 2026",
+      "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/%C3%B6sterreich/berichte-auswertungen/001_uebersicht_aktuell.pdf",
+      "checked_at": "2026-09-05",
+      "locator": "Seite 2: alle neun regionalen AL-Bestände; Seite 5: sofort verfügbare Stellen",
+      "mutable_url": true,
+      "reference_period": "2026-08"
+    }
+  ],
+  "national_august_reconciliation": {
+    "reference_period": "2026-08",
+    "registered_unemployed_total": 311448,
+    "sum_regional_registered_unemployed": 311448,
+    "registered_vacancies_total": 79769,
+    "regions_with_observed_vacancy_stock": 8,
+    "source_id": "AMS-NATIONAL-REPORT-AUG-2026",
+    "rule": "Alle neun Arbeitslosenbestände ergeben den nationalen Bestand. Fehlender OÖ-Stellenbestand bleibt null; kein aus Restbeträgen erfundener Quellenwert."
+  }
 }

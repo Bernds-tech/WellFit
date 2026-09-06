@@ -79,3 +79,12 @@ Canonical register for work that has started but is not yet fully completed.
 - Result: stale Unity-project claims corrected; `MIGRATE_NOW` bounded to fresh destination initialization and incremental Buddy-domain ports while source/server authority remain preserved.
 - Evidence: WF-EV-005, merged Buddy PRs #18/#19 and green Quality/Status checks on PR #20 before final closeout.
 - Next step: merge after final green Guard/review, then begin the separately locked Unity destination task.
+
+## WERK-LAB-002
+- Started: 2026-09-05 UTC
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Scope: GAP-LAB-01 subgates, verified regional/occupation evidence and labour data contract integrity on werk-v49-preview-host only.
+- Starting evidence: b64294d; expanded labour check 33996097649 and policy check 33996225256 succeeded. Sites v53 is a separate older publication.
+- Lock: LOCK-WERK-LAB-002
+- Next: obtain explicit publication approval after auto-review blocked the push, then confirm exact remote implementation CI. Local contracts/source reconciliation and ten negative checks passed at 869423f. See WERK_LABOUR_HANDOFF.md.

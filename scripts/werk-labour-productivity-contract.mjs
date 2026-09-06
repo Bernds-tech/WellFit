@@ -1,10 +1,14 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const d=JSON.parse(fs.readFileSync('werk-data/labour-productivity-baseline-2025-2026.json','utf8'));
 const m=JSON.parse(fs.readFileSync('werk-data/labour-matching-baseline-2025-2026.json','utf8'));
 const p=JSON.parse(fs.readFileSync('werk-data/labour-matching-matrix-priority-groups.json','utf8'));
+const o=JSON.parse(fs.readFileSync('werk-data/labour-occupation-region-matching-matrix.json','utf8'));
+const closure=JSON.parse(fs.readFileSync('werk-data/analysis-data-closure-register.json','utf8'));
 const fail=x=>{throw new Error(x)};
-const near=(a,b,t,msg)=>{if(Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
+const near=(a,b,t,msg)=>{if(!Number.isFinite(a)||!Number.isFinite(b)||Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
+const count=(x,msg)=>{if(!Number.isSafeInteger(x)||x<0)fail(`Invalid count ${msg}: ${x}`)};
 
 if(d.status!=='official_actuals_plus_separately_labeled_forecast') fail('Unexpected labour baseline status');
 if(!Array.isArray(d.concept_guardrails)||d.concept_guardrails.length<6) fail('Concept guardrails incomplete');
@@ -61,7 +65,11 @@ const regionNames=new Set(regions.map(r=>r.region));
 if(regionNames.size!==9)fail('Regional snapshot names not unique');
 let comparable=0;const ratios=[];
 for(const r of regions){
+  count(r.registered_unemployed,`${r.region} unemployed`);
+  if(r.reference_period!=='2026-08')fail(`${r.region}: wrong snapshot period`);
   if(r.registered_unemployed!=null&&r.registered_vacancies!=null){
+    count(r.registered_vacancies,`${r.region} vacancies`);
+    if(r.registered_vacancies===0||r.vacancy_availability!=='sofort verfügbar')fail(`${r.region}: incompatible vacancy denominator`);
     comparable++;
     const calc=r.registered_unemployed/r.registered_vacancies;
     near(r.derived_unemployed_per_registered_vacancy,calc,0.01,`${r.region} unemployment/vacancy ratio`);
@@ -72,6 +80,12 @@ if(comparable!==m.derived_regional_diagnostics?.regions_with_comparable_unemploy
 ratios.sort((x,y)=>x.value-y.value);
 if(ratios[0].region!==m.derived_regional_diagnostics.lowest_unemployed_per_registered_vacancy.region)fail('Lowest regional ratio mismatch');
 if(ratios.at(-1).region!==m.derived_regional_diagnostics.highest_unemployed_per_registered_vacancy.region)fail('Highest regional ratio mismatch');
+near(ratios[0].value,m.derived_regional_diagnostics.lowest_unemployed_per_registered_vacancy.value,0.001,'Lowest ratio value');
+near(ratios.at(-1).value,m.derived_regional_diagnostics.highest_unemployed_per_registered_vacancy.value,0.001,'Highest ratio value');
+const national=m.national_august_reconciliation;
+near(regions.reduce((n,r)=>n+r.registered_unemployed,0),national.registered_unemployed_total,0,'National/regional August unemployed total');
+near(national.sum_regional_registered_unemployed,national.registered_unemployed_total,0,'Stored August reconciliation');
+if(national.reference_period!=='2026-08'||national.regions_with_observed_vacancy_stock!==comparable)fail('Regional scope metadata mismatch');
 if(!String(m.derived_regional_diagnostics?.warning||'').toLowerCase().includes('sagen nichts darüber aus'))fail('Regional-ratio warning missing');
 
 const dims=new Map((m.matching_dimensions||[]).map(x=>[x.id,x]));
@@ -88,12 +102,16 @@ const rowIds=new Set();
 let sumU=0,sumV=0;
 for(const r of rows){
   if(!r.id||rowIds.has(r.id))fail(`Duplicate education row ${r.id}`);rowIds.add(r.id);
+  count(r.registered_unemployed,`${r.id} unemployed`);count(r.registered_vacancies,`${r.id} vacancies`);
+  if(r.registered_vacancies===0)fail(`${r.id}: zero denominator`);
   sumU+=r.registered_unemployed;sumV+=r.registered_vacancies;
   near(r.derived_unemployed_per_vacancy,r.registered_unemployed/r.registered_vacancies,0.01,`${r.id} education ratio`);
 }
 near(sumU,p.reconciliation.detailed_unemployed_sum,0.1,'Education unemployed detail sum');
 near(sumV,p.reconciliation.detailed_vacancy_sum,0.1,'Education vacancy detail sum');
 near(p.reconciliation.published_unemployed_total-sumU,p.reconciliation.unallocated_difference,0.1,'Unallocated education unemployment difference');
+near(p.reconciliation.published_unemployed_total,p.published_totals.registered_unemployed,0,'Education published unemployment totals disagree');
+near(p.reconciliation.published_vacancy_total,p.published_totals.registered_vacancies,0,'Education published vacancy totals disagree');
 near(sumV,p.published_totals.registered_vacancies,0.1,'Education vacancy published total');
 if(p.reconciliation.unallocated_difference<=0)fail('Expected explicit positive unallocated unemployment difference');
 if(!String(p.reconciliation.rule||'').includes('nicht erfunden'))fail('Education reconciliation must prohibit invented allocation');
@@ -104,4 +122,55 @@ const bhs=groups.get('PRIO-BHS');near(bhs.registered_unemployed,7108+6720+9215,0
 const ter=groups.get('PRIO-TERTIARY');near(ter.registered_unemployed,980+5347+30972,0.1,'Tertiary unemployment aggregate');near(ter.registered_vacancies,290+1640+2595,0.1,'Tertiary vacancy aggregate');
 if(!Array.isArray(p.next_required_layers)||p.next_required_layers.length<5)fail('Priority matching next layers incomplete');
 
-console.log(`WERK labour/productivity contract OK: ILO/AMS scopes separated; 9 regional snapshots (${comparable} comparable stock ratios); 12 education detail rows + 6 priority groups reconcile; 869-person education residual remains explicit; reform gate advanced to occupation×region matching.`);
+const usedMembers=new Set();
+if(p.aggregated_priority_groups.length!==6)fail('Expected exactly six education groups');
+for(const g of p.aggregated_priority_groups){
+  if(!g.member_row_ids?.length)fail(`${g.id}: missing source members`);
+  const members=g.member_row_ids.map(id=>{
+    if(usedMembers.has(id)||!rowIds.has(id))fail(`${g.id}: duplicate or unknown member ${id}`);
+    usedMembers.add(id);return rows.find(r=>r.id===id);
+  });
+  near(g.registered_unemployed,members.reduce((n,r)=>n+r.registered_unemployed,0),0,`${g.id} members unemployed`);
+  near(g.registered_vacancies,members.reduce((n,r)=>n+r.registered_vacancies,0),0,`${g.id} members vacancies`);
+  near(g.derived_unemployed_per_vacancy,g.registered_unemployed/g.registered_vacancies,0.01,`${g.id} group ratio`);
+}
+if(usedMembers.size!==rows.length)fail('Education groups do not partition all detail rows');
+
+if(o.status!=='published_shortage_signals_only_joint_matching_blocked'||o.reference_period!=='2026-Q2')fail('Occupation source scope/period mismatch');
+if(o.scope.minimum_qualification!=='mindestens Lehre'||o.scope.stock_statistic!=='Quartalsdurchschnitt; keine Monatssumme')fail('Occupation qualification/stock scope changed');
+if(o.scope.displayed_stock_includes_agency_discount!==false||o.scope.indicator_agency_weight!==0.9)fail('Displayed stock must remain distinct from adjusted indicator input');
+if(o.scope.missing_cell_means!=='not_published_unknown'||o.scope.cross_region_additive!==false||o.scope.cross_occupation_additive!==false)fail('Sparse/hierarchical occupation rows must not be silently added or zero-filled');
+if(o.scope.education_cross_tab_available!==false||o.scope.individual_matching_available!==false)fail('Engpass evidence is not joint matching');
+const sourceHash=createHash('sha256').update(fs.readFileSync(o.source_file)).digest('hex');
+if(sourceHash!==o.source_sha256)fail('Occupation source snapshot hash mismatch');
+const keys=new Set(),occCounts=new Map();
+for(const r of o.records){
+  const key=`${r.region}|${r.occupation_code}`;
+  if(keys.has(key))fail(`Duplicate occupation-region key ${key}`);keys.add(key);
+  if(!['Österreich',...regionNames].includes(r.region)||!/^(\d{4}|\d{6})$/.test(r.occupation_code))fail(`Invalid occupation key ${key}`);
+  if(!Number.isFinite(r.ams_vacancies_quarter_average)||r.ams_vacancies_quarter_average<=0)fail(`Invalid occupation stock ${key}`);
+  if(![1,2].includes(r.reported_shortage_score)||![r.reported_t1,r.reported_t2,r.reported_t3].every(x=>[-2,-1,0,1,2].includes(x)))fail(`Invalid published score ${key}`);
+  if(typeof r.reported_pressure_below_one_flag!=='boolean'||!['up','unchanged','down'].includes(r.reported_yoy_direction))fail(`Invalid published flag ${key}`);
+  if(!Number.isSafeInteger(r.source_row)||r.source_row<7||!r.source_sheet)fail(`Missing source locator ${key}`);
+  occCounts.set(r.region,(occCounts.get(r.region)||0)+1);
+}
+if(occCounts.size!==10||o.records.length!==o.published_row_count)fail('Occupation coverage count mismatch');
+for(const [region,n] of Object.entries(o.published_rows_by_region))near(n,occCounts.get(region),0,`${region} source rows`);
+if(o.matching_gate.status!=='blocked'||o.matching_gate.employment_effect_persons!==null||o.matching_gate.budget_effect_eur!==null)fail('Unverified occupation effects must remain null and blocked');
+if(new Set(o.matching_gate.priority_group_links.map(x=>x.priority_group_id)).size!==6||o.matching_gate.priority_group_links.some(x=>!groups.has(x.priority_group_id)))fail('Occupation links must resolve to all six education groups');
+
+const gap=closure.priority_1_data_gaps.find(x=>x.id==='GAP-LAB-01');
+if(!gap||gap.status!=='teilweise vorhanden')fail('Labour parent gap must remain partial');
+const subgates=new Map((gap.subgates||[]).map(x=>[x.id,x]));
+if(subgates.size!==9||gap.subgates.length!==9)fail('Expected nine unique labour subgates');
+for(const id of ['LAB-A','LAB-B','LAB-C','LAB-D','LAB-E','LAB-F','LAB-G','LAB-H','LAB-I']){
+  const gate=subgates.get(id);
+  if(!gate||!closure.status_values.includes(gate.status)||!gate.close_when||!gate.scope)fail(`Incomplete subgate ${id}`);
+  if(!Array.isArray(gate.artifacts)||(gate.status==='geschlossen'&&!gate.artifacts.length))fail(`Missing closure evidence ${id}`);
+  for(const path of gate.artifacts)if(!fs.existsSync(`werk-data/${path}`))fail(`Missing subgate artifact ${path}`);
+}
+for(const id of ['LAB-E','LAB-F','LAB-G','LAB-H','LAB-I'])if(subgates.get(id).status==='geschlossen')fail(`Unverified matching subgate closed: ${id}`);
+if(gap.effect_gate.status!=='blocked'||gap.effect_gate.employment_effect_persons!==null||gap.effect_gate.budget_effect_eur!==null)fail('Labour budget/employment booking must remain blocked');
+if(!closure.closure_order.includes('GAP-LAB-01'))fail('Labour gap omitted from closure order');
+
+console.log(`WERK labour/productivity contract OK: 9 regional AL stocks reconcile (${comparable} comparable vacancy ratios); 12 education rows/6 groups and 869-person residual; ${o.records.length} published occupation-region rows; 9 subgates, joint matching and fiscal effects blocked.`);

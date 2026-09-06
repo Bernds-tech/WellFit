@@ -37,3 +37,12 @@ Prevents two agents/sessions from independently working the same task.
 - Recovery: revert PR #22; runtime repositories remain unchanged.
 
 No additional locks recorded.
+## LOCK-WERK-LAB-002
+- Task: WERK-LAB-002
+- Status: RELEASED
+- Holder: Codex current WERK continuation
+- Acquired: 2026-09-05 UTC
+- Scope: labour JSON, labour validation/workflow, dependent WERK registers and WERK project memory only.
+- Branch: werk-v49-preview-host
+- Released: 2026-09-05 UTC after local verification and commit 869423f.
+- Receipt: WERK_LABOUR_HANDOFF.md; publication blocked by automatic approval review; no remote update or deployment occurred.

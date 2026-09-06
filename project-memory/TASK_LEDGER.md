@@ -101,3 +101,12 @@ Keep history append-only; supersede rather than delete.
 - Rollback/recovery: revert WellFit-now merge if the renderer proves visually defective; original PNG assets and public Site remain unchanged.
 - Falsification question: a preview of the actual `wellfit-bewegt` Site that still shows no movement, seams/ghosting, wrong head crop or layout stacking regression requires further Site-specific tuning before publication.
 - Next step: open the actual Site via ChatGPT Sites/Edit so it is referenced in the composer, port the verified renderer/pivots, review the exact preview, then deliberately publish the updated version.
+
+## WERK-LAB-002
+- Date: 2026-09-05 UTC
+- Status: IMPLEMENTED
+- Risk: R2
+- Scope: WERK labour data/validation on werk-v49-preview-host only.
+- Result: nine GAP-LAB-01 subgates, 452 source-reconciled occupation-region rows, regional missing-value repair and ten negative-path checks. No estimated reform effect.
+- Evidence and next action: project-memory/WERK_LABOUR_HANDOFF.md; local checks passed at 869423f. Automatic approval review blocked public push; explicit publication approval and remote CI confirmation pending.
+- Recovery: revert bounded WERK commit; unrelated WellFit/Sites/runtime work unchanged.
