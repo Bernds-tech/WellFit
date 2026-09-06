@@ -172,7 +172,7 @@ Keep history append-only; supersede rather than delete.
 - Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.
 
 ## WERK-SV-004
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Task: add bounded final annual assessment to employee SV-01 calculation; preserve funding and household gates.
 
-- WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. Remote CI pending.
+- WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. All four triggered remote workflows succeeded at 190e1940446205c4532ecef62c6d6f038a79cd01; WERK_SV_004_CI_RECEIPT.json.

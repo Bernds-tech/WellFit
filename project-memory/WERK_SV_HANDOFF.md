@@ -1,7 +1,7 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 ## Current continuation: WERK-SV-004
-Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed (36 annual + 55 SV + 42 general counterchecks). Remote publication/CI pending.
+Status: VERIFIED at 190e1940446205c4532ecef62c6d6f038a79cd01. All four triggered workflows (Fiscal, Distribution, Registry, Frontend) succeeded. All five relevant local workflow bodies passed, including Policy Field (36 annual + 55 SV + 42 general counterchecks). See WERK_SV_004_CI_RECEIPT.json.
 Current owner goal remains progressive 50% employee KV/PV/ALV relief during funded debt repayment.
 
 New canonical annual-assessment rules and module feed 48 SV cases, 24 general extra-hours cases and 27 hypothetical work/nonwork comparisons. Sources: current dated RIS §§16/33/41/77 and BMF 2026 tariff/credits; 2025 Taxbook / 2027 annotations not mixed in. Scope: standard full-year employee, 14 equal pay packets, no family/commuter/other-income/transfers/extra e-card fee, model before payslip cent and assessment whole-euro rounding. Optional employer §77(4) rollup remains outside old withholding measure; annual §41(4) correction now included. PAY-I closed only for this standard scope; general household and marginal-burden gates remain open.

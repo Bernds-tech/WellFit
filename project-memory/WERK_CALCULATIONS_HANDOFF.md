@@ -31,3 +31,5 @@ Replace scenario assumptions with measured process-specific transition/running c
 
 ## WERK-SV-004 extension
 24 existing extra-hours cases now additionally include standard 2026 annual assessment using the shared module. Original withholding fields remain separately named. See WERK_SV_JAHRESNETTO.md and WERK_SV_HANDOFF.md; no added verified funding.
+
+SV-004 extension VERIFIED at 190e1940446205c4532ecef62c6d6f038a79cd01; Fiscal, Distribution, Registry and Frontend CI successful; WERK_SV_004_CI_RECEIPT.json.

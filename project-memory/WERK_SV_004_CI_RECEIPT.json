@@ -1,0 +1,66 @@
+{
+  "task": "WERK-SV-004",
+  "checked_at": "2026-09-06",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_commit": "190e1940446205c4532ecef62c6d6f038a79cd01",
+  "verified_tree": "7f78ecfe97d0f9c347f38c060352e5a722f9872d",
+  "local_implementation_commit": "f4e205310dc1d1ce8fcdffe162b5f9d4b48951eb",
+  "status": "VERIFIED",
+  "local_workflow_bodies": [
+    "Distribution",
+    "Fiscal",
+    "Registry",
+    "Policy Field",
+    "Frontend"
+  ],
+  "counterchecks": {
+    "annual_assessment": 36,
+    "employee_sv": 55,
+    "general_calculation": 42
+  },
+  "scope": {
+    "annual_sv_cases": 48,
+    "extra_hours_cases": 24,
+    "work_nonwork_sensitivities": 27,
+    "household_transfers": "open",
+    "population_tax_recapture": "open",
+    "pure_employee_contribution_aggregate": "open",
+    "target_financing_proven": false,
+    "sites_deployed": false
+  },
+  "workflow_runs": [
+    {
+      "id": 34036730630,
+      "name": "WERK Fiscal Data Contract",
+      "head_sha": "190e1940446205c4532ecef62c6d6f038a79cd01",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34036730630"
+    },
+    {
+      "id": 34036730656,
+      "name": "WERK Frontend Check",
+      "head_sha": "190e1940446205c4532ecef62c6d6f038a79cd01",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34036730656"
+    },
+    {
+      "id": 34036730597,
+      "name": "WERK Distribution Data Contract",
+      "head_sha": "190e1940446205c4532ecef62c6d6f038a79cd01",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34036730597"
+    },
+    {
+      "id": 34036730601,
+      "name": "WERK Data Contract Registry Check",
+      "head_sha": "190e1940446205c4532ecef62c6d6f038a79cd01",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34036730601"
+    }
+  ]
+}

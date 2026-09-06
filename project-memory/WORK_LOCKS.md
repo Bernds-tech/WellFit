@@ -112,7 +112,9 @@ No additional locks recorded.
 - Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-004
-- Status: ACTIVE
+- Status: RELEASED
 - Task: WERK-SV-004
 - Holder: Codex 2026-09-06
 - Scope: WERK employee assessment and dependent SV calculations/registers only.
+
+- Verified: 190e1940446205c4532ecef62c6d6f038a79cd01; all four triggered workflows succeeded. WERK_SV_004_CI_RECEIPT.json.
