@@ -46,3 +46,11 @@ No additional locks recorded.
 - Branch: werk-v49-preview-host
 - Released: 2026-09-05 UTC after local verification and commit 869423f.
 - Receipt: WERK_LABOUR_HANDOFF.md; publication blocked by automatic approval review; no remote update or deployment occurred.
+
+### WERK-LAB-002 publication continuation — 2026-09-06
+- Status: RELEASED
+- Holder: Codex WERK continuation 2026-09-06
+- Scope: publication receipt and WERK-specific memory reconciliation only.
+- Previous lock reconciled: local implementation preserved; owner answered the concrete publication request with “Weiter”.
+- Remote implementation: 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered checks succeeded.
+- Released: 2026-09-06 after exact-commit CI verification and preparation of the publication receipt.

@@ -104,9 +104,11 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-LAB-002
 - Date: 2026-09-05 UTC
-- Status: IMPLEMENTED
+- Status: VERIFIED
 - Risk: R2
 - Scope: WERK labour data/validation on werk-v49-preview-host only.
 - Result: nine GAP-LAB-01 subgates, 452 source-reconciled occupation-region rows, regional missing-value repair and ten negative-path checks. No estimated reform effect.
-- Evidence and next action: project-memory/WERK_LABOUR_HANDOFF.md; local checks passed at 869423f. Automatic approval review blocked public push; explicit publication approval and remote CI confirmation pending.
 - Recovery: revert bounded WERK commit; unrelated WellFit/Sites/runtime work unchanged.
+- Updated: 2026-09-06 UTC; publication blocker resolved after owner continuation approval.
+- Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
+- Next: WERK-LAB-002 publication/verification is complete. Substantive matching gates remain open; no additional approval is pending for this completed change set.

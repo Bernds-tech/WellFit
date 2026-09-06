@@ -82,9 +82,11 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-LAB-002
 - Started: 2026-09-05 UTC
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Scope: GAP-LAB-01 subgates, verified regional/occupation evidence and labour data contract integrity on werk-v49-preview-host only.
 - Starting evidence: b64294d; expanded labour check 33996097649 and policy check 33996225256 succeeded. Sites v53 is a separate older publication.
 - Lock: LOCK-WERK-LAB-002
-- Next: obtain explicit publication approval after auto-review blocked the push, then confirm exact remote implementation CI. Local contracts/source reconciliation and ten negative checks passed at 869423f. See WERK_LABOUR_HANDOFF.md.
+- Updated: 2026-09-06 UTC; publication blocker resolved after owner continuation approval.
+- Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
+- Next: WERK-LAB-002 publication/verification is complete. Substantive matching gates remain open; no additional approval is pending for this completed change set.
