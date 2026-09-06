@@ -1,6 +1,6 @@
 # WERK-CALC-001 — Gesamtrechnung
 
-Updated: 2026-09-06. Status: locally verified; remote publication and exact-commit CI pending.
+Updated: 2026-09-06. Status: VERIFIED at d876d9f91c1edadd505edff018e7377500dab0b3; all three triggered CI workflows succeeded. See WERK_CALCULATIONS_CI_RECEIPT.json.
 
 Owner explicitly requested all calculations. Existing public WERK branch publication authorization persists from the earlier continuation response. Existing LAB-005 remains verified. No Sites deployment follows from GitHub publication.
 

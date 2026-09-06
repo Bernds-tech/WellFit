@@ -121,8 +121,9 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-CALC-001
 - Started: 2026-09-06
-- Status: IMPLEMENTED_NOT_VERIFIED (local checks complete; remote CI pending)
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-CALC-001
 - Lock: LOCK-WERK-CALC-001
 - Scope: konsolidierte Rechenstrecke mit 1/5/10-Jahren, Kosten, Gegenprüfung und CI.
+- Closed: 2026-09-06. Implementation d876d9f91c1edadd505edff018e7377500dab0b3, three triggered CI workflows successful; WERK_CALCULATIONS_CI_RECEIPT.json.

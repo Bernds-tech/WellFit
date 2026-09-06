@@ -85,6 +85,6 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 ## WERK-CALC-001 local execution — 2026-09-06
 - Implementation: reproducible budget/cost/debt/hours/payroll calculation with source hashes.
 - Countercheck: all 13 WERK workflow bodies locally; changed fiscal/registry checks rerun; 42 numerical/negative cases; official BMF table 22 rechecked.
-- Remote CI: pending publication.
+- Remote CI: d876d9f91c1edadd505edff018e7377500dab0b3; all three triggered workflows passed. Receipt WERK_CALCULATIONS_CI_RECEIPT.json.
 - Recovery: revert bounded CALC-001 commits; no external runtime state change.
 - Falsifier: missing inputs passing validation, unaccounted source rounding, duplicated module/debt benefits or any scenario being booked as verified funding would invalidate this result. Relevant counterexamples pass.

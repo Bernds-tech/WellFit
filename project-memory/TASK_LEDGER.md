@@ -138,8 +138,9 @@ Keep history append-only; supersede rather than delete.
 - Recovery: revert bounded LAB-005 changes on existing WERK branch.
 
 ## WERK-CALC-001
-- Status: IMPLEMENTED_NOT_VERIFIED (remote CI pending; all local checks pass)
+- Status: VERIFIED
 - Change: WERK-CR-CALC-001
 - Risk: R2
 - Branch: werk-v49-preview-host
 - Evidence: WERK_CALCULATIONS_HANDOFF.md; reproducible report and 42 countercheck cases.
+- Remote evidence: d876d9f91c1edadd505edff018e7377500dab0b3, Fiscal/Registry/Frontend success; WERK_CALCULATIONS_CI_RECEIPT.json.

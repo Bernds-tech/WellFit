@@ -1,0 +1,42 @@
+{
+  "task": "WERK-CALC-001",
+  "checked_at": "2026-09-06",
+  "status": "VERIFIED",
+  "implementation_sha": "d876d9f91c1edadd505edff018e7377500dab0b3",
+  "tree_sha": "4883e81f9cd282b01f5818457d24b42b095e9c5f",
+  "local_original_sha": "656515cf6de0820cc031a3a0ba40a6cac583dfd7",
+  "workflow_runs": [
+    {
+      "id": 34030995723,
+      "name": "WERK Data Contract Registry Check",
+      "conclusion": "success",
+      "head_sha": "d876d9f91c1edadd505edff018e7377500dab0b3",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34030995723"
+    },
+    {
+      "id": 34030995771,
+      "name": "WERK Frontend Check",
+      "conclusion": "success",
+      "head_sha": "d876d9f91c1edadd505edff018e7377500dab0b3",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34030995771"
+    },
+    {
+      "id": 34030995741,
+      "name": "WERK Fiscal Data Contract",
+      "conclusion": "success",
+      "head_sha": "d876d9f91c1edadd505edff018e7377500dab0b3",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34030995741"
+    }
+  ],
+  "local_verification": {
+    "workflow_bodies_passed": 13,
+    "calculation_counterchecks": 42,
+    "final_changed_fiscal_registry_checks_rerun": true
+  },
+  "boundaries": [
+    "Conditional scenarios are arithmetic, not verified financing.",
+    "All 15 reform dossiers reviewed; zero verified funding contributions.",
+    "No Sites deployment.",
+    "Documentation receipt commit does not alter calculation implementation."
+  ]
+}

@@ -81,7 +81,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-CALC-001
 - Task: WERK-CALC-001
-- Status: ACTIVE
+- Status: RELEASED
 - Holder: Codex 2026-09-06
 - Scope: WERK-Rechenartefakte, Fiskalvertrag und Projektübergabe.
 - Branch: werk-v49-preview-host
+- Released: 2026-09-06 after exact-implementation CI success and receipt.
