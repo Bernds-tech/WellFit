@@ -109,3 +109,12 @@ Canonical register for work that has started but is not yet fully completed.
 - Lock: LOCK-WERK-LAB-004
 - Scope: same-period education and working-time constraints with source reconciliation; qualification-by-occupation remains unproven.
 - Local result: 189 education / 67 time-type rows, July residual explained but unallocated; 33 negative cases and dependent contracts pass. All 13 CI workflows passed at bc7152d31dc598738bd0f12a02e3bebc830f974d; WERK_LABOUR_004_CI_RECEIPT.json.
+
+## WERK-LAB-005
+- Started: 2026-09-06
+- Status: LOCAL_VERIFIED
+- Risk: R2
+- Base: cc67ee2; LAB-004 published and verified.
+- Lock: LOCK-WERK-LAB-005
+- Scope: source-backed working-time wishes and care constraints, preserving distinct populations/periods and blocked employment/fiscal effects.
+- Local evidence: three pinned ODS sources; 48 wish, 39 reason, 20 childcare rows; 45 negative cases and dependent contracts pass. Publication/CI pending.

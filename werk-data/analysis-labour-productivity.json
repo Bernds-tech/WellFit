@@ -1,10 +1,11 @@
 {
-  "version": "2026-09-06-v3",
+  "version": "2026-09-06-v4",
   "domain": "Arbeitsmarkt, Erwerbspotenzial und Produktivität",
   "status": "vertieft – Endrechnung offen",
   "budget_priority_link": "BUD-01",
   "principle": "BUD-01 darf nicht nur über Kürzungen erreicht werden. Höhere produktive Erwerbsbeteiligung, bessere Arbeitsanreize und höhere Produktivität können Einnahmen stärken und Transfers reduzieren; diese Effekte müssen aber konservativ und ohne Doppelzählung gerechnet werden.",
   "current_facts": [
+    {"fact":"2025 wünschten rund 200400 Teilzeitbeschäftigte im Alter 15–74 mehr Stunden; rund 110600 waren binnen zwei Wochen verfügbar. 453000 Teilzeitbeschäftigte ab 15 nannten Kinder-/Erwachsenenbetreuung als Grund. Verschiedene Grundgesamtheiten, keine Addition oder Stundenwirkung.","source":"labour-time-care-constraints-2025.json"},
     {"fact":"August 2026: 189 regionale Bildungs- und 67 Stellen-Beschäftigungsart-/Arbeitszeitzeilen. Sofortige Stellen: 54930 Vollzeit, 11542 Teilzeit, 13297 beides; zusammen 79769. Getrennte Tabellen erlauben kein gemeinsames Personenmatching.","source":"labour-qualification-working-time-2026-08.json"},
     {
       "fact": "Erwerbstätigenquote 15–64 im Jahr 2025: Frauen 71,0 %, Männer 77,7 %.",
@@ -61,7 +62,7 @@
     "keine Lohnnebenkostensenkung als Nettoentlastung ohne Gegenfinanzierung"
   ],
   "next_data_needed": [
-    "Arbeitszeitwünsche nach Geschlecht/Alter/Familie",
+    "Gewünschte und real mögliche Zusatzstunden gemeinsam nach Beruf, Region, Familie und Betreuung; Wünsche nach Alter/Bildung/Geschlecht 2025 sind als getrennte Auswertungen vorhanden",
     "Grenzabgabenbelastung nach Haushaltstyp",
     "AMS Wirkungsdaten nach Instrument",
     "Gemeinsam beobachtete Detailqualifikation zu den Berufswunsch-/Stellenbeständen August 2026; Q2-Engpasspopulation bleibt getrennt",
@@ -73,6 +74,6 @@
     "labour-productivity-baseline-2025-2026.json",
     "labour-matching-baseline-2025-2026.json",
     "labour-matching-matrix-priority-groups.json",
-    "labour-occupation-region-matching-matrix.json","labour-occupation-supply-2026-08.json","labour-qualification-working-time-2026-08.json"
+    "labour-occupation-region-matching-matrix.json","labour-occupation-supply-2026-08.json","labour-qualification-working-time-2026-08.json","labour-time-care-constraints-2025.json"
   ]
 }

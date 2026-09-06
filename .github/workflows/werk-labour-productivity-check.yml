@@ -24,6 +24,11 @@ on:
       - 'scripts/werk-import-regional-labour.py'
       - 'scripts/werk-import-occupation-supply.py'
       - 'scripts/werk-import-qualification-time.py'
+      - 'scripts/werk-import-time-care.py'
+      - 'werk-data/labour-time-care-constraints-2025.json'
+      - 'werk-data/sources/stat-ake-working-wishes-2025.ods'
+      - 'werk-data/sources/stat-ake-parttime-2025.ods'
+      - 'werk-data/sources/stat-childcare-vif-2024-25.ods'
       - 'scripts/werk-labour-negative-check.mjs'
       - 'scripts/werk-labour-productivity-contract.mjs'
       - '.github/workflows/werk-labour-productivity-check.yml'
@@ -53,5 +58,7 @@ jobs:
         run: python3 scripts/werk-import-occupation-supply.py --check
       - name: Reconcile education and working-time slices, including July residual
         run: python3 scripts/werk-import-qualification-time.py --check
+      - name: Reconcile published time wishes, sampling flags and childcare categories
+        run: python3 scripts/werk-import-time-care.py --check
       - name: Reject malformed or falsely closed labour inputs
         run: node scripts/werk-labour-negative-check.mjs

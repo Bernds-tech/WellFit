@@ -1,7 +1,24 @@
-# WERK labour continuation — WERK-LAB-004
+# WERK labour continuation — WERK-LAB-005
+
 
 
 ## Current continuation — 2026-09-06
+- WERK-LAB-005: LOCAL_VERIFIED; publication and exact-implementation CI pending.
+- Added labour-time-care-constraints-2025.json with three pinned, unchanged Statistik Austria ODS workbooks. Source SHA256, URL, byte size and displayed cell references are recorded. New stdlib importer re-extracts without network access.
+- 48 R3 working-time-wish rows: total, age and education by sex; 39 T7 parttime-reason rows: age by sex; three R1 slack controls; 20 childcare state/age rows: Austria plus nine states, ages 0–2 and 3–5, five count/share categories each.
+- R3 population is ILO parttime employed 15–74, private households, annual average 2025. Published 200.4 thousand want additional hours; 110.6 thousand are available within two weeks. These are nested survey estimates, not August AMS unemployed, extra workers or a quantified hours effect.
+- T7 covers parttime employed 15-plus, not R3's 15–74. Published 453.0 thousand cite childcare or adult care jointly; 291.5 thousand do not want fulltime. Do not split the care category, treat non-fulltime preference as zero desire for any extra hour, or join these separate marginals to R3.
+- Only displayed estimates are canonical. Across R3/T7: 87 non-interpretable (x) metric cells stay null and 56 high-uncertainty cells retain flags. The original ODS includes hidden underlying numerical values even for (x); the importer never uses them. R3 repeated blank ODS header rows are expanded, so references use actual spreadsheet row numbers.
+- Survey sums use rounding intervals (0.1 thousand display) and skip reconstruction when a component is uninterpretably small. Age totals and nested education totals are explicitly nonadditive across groupings; published percentages use their specific denominator.
+- Childcare 2024/25, age reference 2024-09-01: 334867 attending children under six, 200762 in VIF facilities. All regional totals and four disjoint opening categories reconcile exactly. All 20 VIF age shares agree with the separate official press table; all-age 60.0% / rounded 200800 agree with its headline. Same statistical source, not an independent second survey.
+- VIF counts are attending children at facility location, not residents, parents, free slots or employee fulltime equivalents. KTH 2025/26 nationwide monitoring is scheduled for 2026-10-08 on the official page; keep periods separate from AKE2025/AMS2026. Styria includes source-specific summer opening weeks.
+- LAB-F remains partial: hours wanted, concrete time windows, available care capacity/personnel, cost, household net gains and travel still lack a jointly observed evidence layer. No synthetic joint cells or employment/fiscal/free-place claim.
+- Registry now has seven labour scripts and seven canonical labour artifacts within the existing tenth contract. Linked the same artifact to fields 3, 5 and 7 and their analysis/dependencies; no duplicate dataset or new reform/progress percentage.
+- Local evidence: all five source importers, main contract, 45 fault-injection cases, policy-field, registry and eight frontend steps passed. Fault cases include hidden precision, unmasked suppression, lost uncertainty, wrong year/denominator, fictitious free places, care-category split, VIF duplication/definition and actual ODS row locator drift.
+- Next: joint occupation × qualification × region, and available time windows/extra hours linked to care/transport/net gain; existing LAB-SOURCE-001 still open. Separate aggregate evidence alone cannot close those gates.
+- Recovery: revert bounded LAB-005 change set. No Sites/runtime/database deployment.
+
+## Previous WERK-LAB-004 continuation — 2026-09-06
 - WERK-LAB-004: VERIFIED and published at bc7152d31dc598738bd0f12a02e3bebc830f974d. All 13 triggered workflows succeeded on this exact implementation; receipt WERK_LABOUR_004_CI_RECEIPT.json.
 - All 24 blobs and full tree ea2b388d93c32cf4257ddae97fef599cebda7bbf match local 083397a, preserved at archive/werk-lab-004-local-083397a. Non-forced connected GitHub publication completed; no approval pending.
 - Added 189 regional education rows and 67 regional employment-type/working-time rows for August. All nine states independently reconcile AL 311448 / immediately available OS 79769 to the existing workbook baseline.

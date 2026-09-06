@@ -114,3 +114,11 @@
 - Classification: extend existing GAP-LAB-01 evidence; no new parallel policy model.
 - Task: WERK-LAB-004
 - Decision: acquire same-period education and working-time evidence, audit joint dimensions, retain blocked reform effects.
+
+## WERK-CR-LAB-005
+- Date: 2026-09-06
+- Status: ACCEPTED
+- Task: WERK-LAB-005
+- Owner instruction: continue substantive data/model development on existing WERK branch.
+- Scope: official time-wish and care evidence; no synthetic joint distribution or assumed reform effects.
+- Recovery: revert bounded LAB-005 implementation.

@@ -7,6 +7,7 @@ const p=JSON.parse(fs.readFileSync('werk-data/labour-matching-matrix-priority-gr
 const o=JSON.parse(fs.readFileSync('werk-data/labour-occupation-region-matching-matrix.json','utf8'));
 const supply=JSON.parse(fs.readFileSync('werk-data/labour-occupation-supply-2026-08.json','utf8'));
 const qt=JSON.parse(fs.readFileSync('werk-data/labour-qualification-working-time-2026-08.json','utf8'));
+const tc=JSON.parse(fs.readFileSync('werk-data/labour-time-care-constraints-2025.json','utf8'));
 const closure=JSON.parse(fs.readFileSync('werk-data/analysis-data-closure-register.json','utf8'));
 const fail=x=>{throw new Error(x)};
 const near=(a,b,t,msg)=>{if(!Number.isFinite(a)||!Number.isFinite(b)||Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
@@ -253,6 +254,19 @@ near(residual.unexplained_source_difference,0,0,'July source difference now expl
 if(explanation.artifact!=='labour-qualification-working-time-2026-08.json'||explanation.source_code!=='XX'||explanation.allocated_to_priority_groups!==false)fail('July source explanation linkage/allocation invalid');
 near(explanation.source_count,residual.residual_count,0,'July linked explanation count');
 near(explanation.unexplained_source_difference,residual.unexplained_source_difference,0,'July linked unexplained difference');
+
+if(tc.status!=='published_marginals_reconciled_joint_feasibility_blocked'||tc.effect_gate.status!=='blocked')fail('Time/care status must remain blocked');
+for(const key of ['employment_effect_persons','budget_effect_eur','feasible_additional_hours','available_childcare_places'])if(tc.effect_gate[key]!==null)fail('Time/care effects/free places must remain null');
+if(tc.joint_matching_cells.length!==0)fail('Time/care synthetic joint cells forbidden');
+for(const key of ['hidden_ods_numbers_used','suppressed_values_reconstructed','survey_added_to_ams_stocks','wishes_equal_feasible_hours','child_counts_equal_free_places','children_equal_parents','synthetic_household_region_join','care_reason_split_into_child_and_adult'])if(tc.scope[key]!==false)fail('Unsupported time/care inference');
+for(const records of [tc.working_time_wishes,tc.slack_controls,tc.parttime_reasons])for(const row of records)for(const metric of Object.values(row.metrics)){
+  if(metric.quality==='not_interpretable'){if(metric.value!==null||metric.display!=='(x)')fail('Uninterpretable survey value must remain null');}
+  else if(!['published','high_sampling_uncertainty'].includes(metric.quality)||!Number.isFinite(metric.value)||metric.value<0)fail('Invalid survey estimate/quality');
+  if(!['thousand_persons','percent'].includes(metric.unit))fail('Survey unit mismatch');
+}
+const timeTotal=tc.working_time_wishes.find(r=>r.sex==='all'&&r.dimension==='total');
+near(timeTotal.metrics.wants_more.value,200.4,0,'Published parttime wish control');
+near(timeTotal.metrics.available_within_two_weeks.value,110.6,0,'Published parttime availability control');
 
 const gap=closure.priority_1_data_gaps.find(x=>x.id==='GAP-LAB-01');
 if(!gap||gap.status!=='teilweise vorhanden')fail('Labour parent gap must remain partial');

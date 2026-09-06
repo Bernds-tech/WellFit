@@ -1,0 +1,6347 @@
+{
+  "version": "2026-09-06-v1",
+  "title": "WERK – Arbeitszeitwünsche, Teilzeitgründe und Kinderbetreuungszeiten",
+  "status": "published_marginals_reconciled_joint_feasibility_blocked",
+  "periods": {
+    "labour_survey": "2025",
+    "childcare": "2024/25",
+    "child_age_reference": "2024-09-01"
+  },
+  "sources": [
+    {
+      "id": "ake_wishes",
+      "authority": "STATISTIK AUSTRIA",
+      "url": "https://www.statistik.at/fileadmin/pages/262/10_Arbeitswunsch_stilleReserve_2025.ods",
+      "file": "werk-data/sources/stat-ake-working-wishes-2025.ods",
+      "sha256": "80f0dbbc1f32fac778174adb2f836cff49d233d3b3b168ea7c81e8576e1652d4",
+      "bytes": 64974,
+      "checked_at": "2026-09-06",
+      "sheets_used": [
+        "R3",
+        "R1"
+      ],
+      "attribution": "Quelle: STATISTIK AUSTRIA; Originalarbeitsmappe unverändert. WERK normalisiert ausschließlich veröffentlichte Zellanzeigen."
+    },
+    {
+      "id": "ake_parttime",
+      "authority": "STATISTIK AUSTRIA",
+      "url": "https://www.statistik.at/fileadmin/pages/263/11_Teilzeitarbeit_Teilzeitquote_2025.ods",
+      "file": "werk-data/sources/stat-ake-parttime-2025.ods",
+      "sha256": "2dd50c6ab3b58dc0173ba681c9d9d09190ab394d61db78d55a04497ebb325c55",
+      "bytes": 160718,
+      "checked_at": "2026-09-06",
+      "sheets_used": [
+        "T7"
+      ],
+      "attribution": "Quelle: STATISTIK AUSTRIA; Originalarbeitsmappe unverändert. WERK normalisiert ausschließlich veröffentlichte Zellanzeigen."
+    },
+    {
+      "id": "kth_vif",
+      "authority": "STATISTIK AUSTRIA",
+      "url": "https://www.statistik.at/fileadmin/pages/318/6_KTH_Kinder_VIF-Kategorien_2024_25.ods",
+      "file": "werk-data/sources/stat-childcare-vif-2024-25.ods",
+      "sha256": "8b9140190b901cfb08a68a35aafb7205ff03ffb39fc2b605addfb9b41bd68c1d",
+      "bytes": 13653,
+      "checked_at": "2026-09-06",
+      "sheets_used": [
+        "Tabelle1"
+      ],
+      "attribution": "Quelle: STATISTIK AUSTRIA; Originalarbeitsmappe unverändert. WERK normalisiert ausschließlich veröffentlichte Zellanzeigen."
+    }
+  ],
+  "scope": {
+    "survey_values": "published_display_only",
+    "suppressed_value": null,
+    "hidden_ods_numbers_used": false,
+    "suppressed_values_reconstructed": false,
+    "survey_added_to_ams_stocks": false,
+    "wishes_equal_feasible_hours": false,
+    "child_counts_equal_free_places": false,
+    "children_equal_parents": false,
+    "synthetic_household_region_join": false,
+    "care_reason_split_into_child_and_adult": false,
+    "wish_population": "ILO_parttime_employed_15_74_private_households_2025",
+    "reason_population": "ILO_parttime_employed_15_plus_private_households_2025",
+    "childcare_denominator": "attending_children_same_age_excluding_hort_groups",
+    "childcare_geography": "facility_location_not_parent_residence",
+    "education_parent_rows_nonadditive": true,
+    "parttime_15_64_summary_nonadditive": true
+  },
+  "survey_interpretation": {
+    "unit": "thousand_persons or percent, as marked per cell",
+    "rounding": "Anzeigen auf eine Dezimalstelle; Rundungsdifferenzen zulassen, nicht ausgleichen. Tausenderwerte sind Hochrechnungen, keine exakten Personenregister.",
+    "quality": "(x) statistisch nicht interpretierbar: null. Geklammerte Zahlen stark zufallsbehaftet: Wert mit Unsicherheitsflag erhalten. Numerische ODS-Hintergrundwerte werden nicht ausgewertet.",
+    "sample": "Mikrozensus: 0,6%-Quartalsstichprobe, Jahresdurchschnitt über alle Wochen; Privathaushalte ohne Präsenz-/Zivildiener.",
+    "availability": "Teilzeit, Wunsch nach Mehrstunden und Verfügbarkeit binnen zwei Wochen sind verschachtelte Gruppen; nicht addieren.",
+    "dimensions": "Alter und Bildung sind getrennte Auswertungen nach Geschlecht, keine gemeinsame Alter×Bildung-Matrix. Höhere Schule sowie Hochschule/Akademie enthalten ihre Untergruppen.",
+    "reason_limits": "Kein Wunsch nach Vollzeit schließt einen Wunsch nach einzelnen Zusatzstunden nicht aus. Kinder-/Erwachsenenbetreuung ist eine gemeinsame Quellkategorie; Teilzeitgründe und Mehrarbeitswünsche liegen nicht gemeinsam vor."
+  },
+  "childcare_definition": {
+    "vif": {
+      "weeks_per_year_min": 47,
+      "hours_per_week_min": 45,
+      "weekdays": 5,
+      "days_with_9_5_hours_min": 4,
+      "lunch_offered": true
+    },
+    "half_day": "Mindestens 45 Wochen, 20 Wochenstunden, Montag bis Freitag, durchschnittlich vier Stunden täglich.",
+    "full_day": "Mindestens 45 Wochen, 30 Wochenstunden, Montag bis Freitag, durchschnittlich sechs Stunden täglich und Mittagessen.",
+    "category_partition": "Publizierte Kategorien halbtägig, ganztägig, VIF und unter Mindestgrenze bilden eine disjunkte Aufteilung; VIF nicht nochmals zu ganztägig zählen.",
+    "reference_note": "Kategorien laut historischer Vereinbarung 2014 zur Zeitvergleichbarkeit; keine Behauptung eines aktuellen individuellen Rechtsanspruchs.",
+    "styria_note": "Sommeröffnungswochen eigener Sommerbetreuung am vorhandenen Standort berücksichtigt.",
+    "availability_unknown": "Besuchte Einrichtungen und deren Öffnungszeiten belegen keine freien Plätze, Wartelisten, Kosten, Eltern-Arbeitszeiten oder erreichbaren Standorte."
+  },
+  "cross_source_controls": {
+    "childcare_press_release": {
+      "url": "https://www.statistik.at/fileadmin/announcement/2025/08/20250825KTHMonitoringbericht2024_25.pdf",
+      "checked_at": "2026-09-06",
+      "vif_share_all_attending_under_six_pct": 60.0,
+      "vif_children_rounded_to_hundreds": 200800,
+      "note": "Separate amtliche Darstellung; gleicher statistischer Ursprung, keine unabhängige zweite Erhebung."
+    }
+  },
+  "next_joint_evidence": [
+    "Beruf × Qualifikation × Region im gleichen Zeitraum und Datenuniversum",
+    "Gewünschte zusätzliche Stunden und reale Zeitfenster gemeinsam mit Betreuung/Pflege, Wegezeiten, Kosten und Haushaltsnettogewinn",
+    "Betreuungsplätze: belegte freie Kapazität, Personal, Öffnungs-/Schließzeiten, Bedarf und Erreichbarkeit",
+    "Pflegeeinschränkungen nicht aus gemeinsamem Kinder-/Erwachsenenbetreuungsgrund künstlich abtrennen"
+  ],
+  "linked_artifacts": [
+    "labour-qualification-working-time-2026-08.json",
+    "labour-matching-baseline-2025-2026.json",
+    "care-baseline-2024-2050.json",
+    "distribution-baseline-2025-2026.json"
+  ],
+  "joint_matching_cells": [],
+  "effect_gate": {
+    "status": "blocked",
+    "employment_effect_persons": null,
+    "budget_effect_eur": null,
+    "feasible_additional_hours": null,
+    "available_childcare_places": null
+  },
+  "working_time_wishes": [
+    {
+      "sex": "all",
+      "dimension": "total",
+      "label": "Insgesamt",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 4488.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "4 488,3",
+          "cell": "R3!C9"
+        },
+        "parttime": {
+          "value": 1387.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 387,9",
+          "cell": "R3!D9"
+        },
+        "wants_more": {
+          "value": 200.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "200,4",
+          "cell": "R3!E9"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 14.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,4",
+          "cell": "R3!F9"
+        },
+        "available_within_two_weeks": {
+          "value": 110.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "110,6",
+          "cell": "R3!G9"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,0",
+          "cell": "R3!H9"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,5",
+          "cell": "R3!I9"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "15–24",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 461.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "461,2",
+          "cell": "R3!C11"
+        },
+        "parttime": {
+          "value": 136.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "136,6",
+          "cell": "R3!D11"
+        },
+        "wants_more": {
+          "value": 23.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,7",
+          "cell": "R3!E11"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,3",
+          "cell": "R3!F11"
+        },
+        "available_within_two_weeks": {
+          "value": 15.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,1",
+          "cell": "R3!G11"
+        },
+        "available_pct_of_parttime": {
+          "value": 11.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "11,0",
+          "cell": "R3!H11"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,3",
+          "cell": "R3!I11"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "25–34",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 980.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "980,9",
+          "cell": "R3!C12"
+        },
+        "parttime": {
+          "value": 260.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "260,9",
+          "cell": "R3!D12"
+        },
+        "wants_more": {
+          "value": 52.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "52,1",
+          "cell": "R3!E12"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 20.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "20,0",
+          "cell": "R3!F12"
+        },
+        "available_within_two_weeks": {
+          "value": 26.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "26,4",
+          "cell": "R3!G12"
+        },
+        "available_pct_of_parttime": {
+          "value": 10.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,1",
+          "cell": "R3!H12"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,7",
+          "cell": "R3!I12"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "35–44",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 1080.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 080,9",
+          "cell": "R3!C13"
+        },
+        "parttime": {
+          "value": 357.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "357,9",
+          "cell": "R3!D13"
+        },
+        "wants_more": {
+          "value": 56.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "56,5",
+          "cell": "R3!E13"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 15.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "15,8",
+          "cell": "R3!F13"
+        },
+        "available_within_two_weeks": {
+          "value": 27.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "27,8",
+          "cell": "R3!G13"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,8",
+          "cell": "R3!H13"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,6",
+          "cell": "R3!I13"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "45–54",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 1041.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 041,6",
+          "cell": "R3!C14"
+        },
+        "parttime": {
+          "value": 299.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "299,4",
+          "cell": "R3!D14"
+        },
+        "wants_more": {
+          "value": 46.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "46,5",
+          "cell": "R3!E14"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 15.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "15,5",
+          "cell": "R3!F14"
+        },
+        "available_within_two_weeks": {
+          "value": 27.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "27,2",
+          "cell": "R3!G14"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,1",
+          "cell": "R3!H14"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,6",
+          "cell": "R3!I14"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "55–64",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 834.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "834,8",
+          "cell": "R3!C15"
+        },
+        "parttime": {
+          "value": 267.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "267,6",
+          "cell": "R3!D15"
+        },
+        "wants_more": {
+          "value": 20.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,0",
+          "cell": "R3!E15"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 7.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,5",
+          "cell": "R3!F15"
+        },
+        "available_within_two_weeks": {
+          "value": 12.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,9",
+          "cell": "R3!G15"
+        },
+        "available_pct_of_parttime": {
+          "value": 4.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,8",
+          "cell": "R3!H15"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,5",
+          "cell": "R3!I15"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "age",
+      "label": "65–74",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 89.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "89,0",
+          "cell": "R3!C16"
+        },
+        "parttime": {
+          "value": 65.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "65,5",
+          "cell": "R3!D16"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E16"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F16"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G16"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H16"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I16"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Pflichtschule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 531.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "531,6",
+          "cell": "R3!C27"
+        },
+        "parttime": {
+          "value": 163.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "163,5",
+          "cell": "R3!D27"
+        },
+        "wants_more": {
+          "value": 25.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "25,0",
+          "cell": "R3!E27"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 15.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "15,3",
+          "cell": "R3!F27"
+        },
+        "available_within_two_weeks": {
+          "value": 16.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,0",
+          "cell": "R3!G27"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,8",
+          "cell": "R3!H27"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,0",
+          "cell": "R3!I27"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Lehre",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 1448.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 448,1",
+          "cell": "R3!C28"
+        },
+        "parttime": {
+          "value": 357.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "357,7",
+          "cell": "R3!D28"
+        },
+        "wants_more": {
+          "value": 40.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "40,3",
+          "cell": "R3!E28"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 11.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "11,3",
+          "cell": "R3!F28"
+        },
+        "available_within_two_weeks": {
+          "value": 24.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "24,9",
+          "cell": "R3!G28"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,0",
+          "cell": "R3!H28"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,7",
+          "cell": "R3!I28"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "BMS",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 496.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "496,0",
+          "cell": "R3!C29"
+        },
+        "parttime": {
+          "value": 192.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "192,8",
+          "cell": "R3!D29"
+        },
+        "wants_more": {
+          "value": 23.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,8",
+          "cell": "R3!E29"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 12.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "12,3",
+          "cell": "R3!F29"
+        },
+        "available_within_two_weeks": {
+          "value": 12.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,5",
+          "cell": "R3!G29"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,5",
+          "cell": "R3!H29"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,5",
+          "cell": "R3!I29"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Höhere Schule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 910.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "910,2",
+          "cell": "R3!C30"
+        },
+        "parttime": {
+          "value": 319.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "319,8",
+          "cell": "R3!D30"
+        },
+        "wants_more": {
+          "value": 48.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "48,1",
+          "cell": "R3!E30"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 15.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "15,1",
+          "cell": "R3!F30"
+        },
+        "available_within_two_weeks": {
+          "value": 26.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "26,2",
+          "cell": "R3!G30"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,2",
+          "cell": "R3!H30"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,9",
+          "cell": "R3!I30"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "AHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 324.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "324,5",
+          "cell": "R3!C31"
+        },
+        "parttime": {
+          "value": 137.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "137,6",
+          "cell": "R3!D31"
+        },
+        "wants_more": {
+          "value": 23.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,7",
+          "cell": "R3!E31"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,3",
+          "cell": "R3!F31"
+        },
+        "available_within_two_weeks": {
+          "value": 12.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,9",
+          "cell": "R3!G31"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,4",
+          "cell": "R3!H31"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 4.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,0",
+          "cell": "R3!I31"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "BHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 585.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "585,7",
+          "cell": "R3!C32"
+        },
+        "parttime": {
+          "value": 182.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "182,2",
+          "cell": "R3!D32"
+        },
+        "wants_more": {
+          "value": 24.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "24,4",
+          "cell": "R3!E32"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 13.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "13,4",
+          "cell": "R3!F32"
+        },
+        "available_within_two_weeks": {
+          "value": 13.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "13,3",
+          "cell": "R3!G32"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,3",
+          "cell": "R3!H32"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,3",
+          "cell": "R3!I32"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Hochschule und Akademie",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 1102.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 102,5",
+          "cell": "R3!C33"
+        },
+        "parttime": {
+          "value": 354.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "354,1",
+          "cell": "R3!D33"
+        },
+        "wants_more": {
+          "value": 63.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "63,2",
+          "cell": "R3!E33"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,8",
+          "cell": "R3!F33"
+        },
+        "available_within_two_weeks": {
+          "value": 31.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "31,0",
+          "cell": "R3!G33"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,8",
+          "cell": "R3!H33"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,8",
+          "cell": "R3!I33"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Akademie",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 60.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "60,6",
+          "cell": "R3!C34"
+        },
+        "parttime": {
+          "value": 22.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "22,2",
+          "cell": "R3!D34"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E34"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F34"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G34"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H34"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I34"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "dimension": "education",
+      "label": "Universität, FH",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 1041.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 041,9",
+          "cell": "R3!C35"
+        },
+        "parttime": {
+          "value": 331.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "331,9",
+          "cell": "R3!D35"
+        },
+        "wants_more": {
+          "value": 61.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "61,0",
+          "cell": "R3!E35"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 18.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "18,4",
+          "cell": "R3!F35"
+        },
+        "available_within_two_weeks": {
+          "value": 30.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,0",
+          "cell": "R3!G35"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,0",
+          "cell": "R3!H35"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,9",
+          "cell": "R3!I35"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "total",
+      "label": "Zusammen",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 2354.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "2 354,5",
+          "cell": "R3!C37"
+        },
+        "parttime": {
+          "value": 325.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "325,6",
+          "cell": "R3!D37"
+        },
+        "wants_more": {
+          "value": 57.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "57,7",
+          "cell": "R3!E37"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,7",
+          "cell": "R3!F37"
+        },
+        "available_within_two_weeks": {
+          "value": 36.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "36,7",
+          "cell": "R3!G37"
+        },
+        "available_pct_of_parttime": {
+          "value": 11.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "11,3",
+          "cell": "R3!H37"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,6",
+          "cell": "R3!I37"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "15–24",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 242.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "242,7",
+          "cell": "R3!C39"
+        },
+        "parttime": {
+          "value": 50.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "50,1",
+          "cell": "R3!D39"
+        },
+        "wants_more": {
+          "value": 9.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,6",
+          "cell": "R3!E39"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 19.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "19,1",
+          "cell": "R3!F39"
+        },
+        "available_within_two_weeks": {
+          "value": 6.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,4",
+          "cell": "R3!G39"
+        },
+        "available_pct_of_parttime": {
+          "value": 12.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "12,8",
+          "cell": "R3!H39"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,6",
+          "cell": "R3!I39"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "25–34",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 516.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "516,5",
+          "cell": "R3!C40"
+        },
+        "parttime": {
+          "value": 68.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "68,6",
+          "cell": "R3!D40"
+        },
+        "wants_more": {
+          "value": 20.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,7",
+          "cell": "R3!E40"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 30.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "30,1",
+          "cell": "R3!F40"
+        },
+        "available_within_two_weeks": {
+          "value": 13.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "13,2",
+          "cell": "R3!G40"
+        },
+        "available_pct_of_parttime": {
+          "value": 19.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "19,2",
+          "cell": "R3!H40"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,6",
+          "cell": "R3!I40"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "35–44",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 564.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "564,7",
+          "cell": "R3!C41"
+        },
+        "parttime": {
+          "value": 57.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "57,7",
+          "cell": "R3!D41"
+        },
+        "wants_more": {
+          "value": 12.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,8",
+          "cell": "R3!E41"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 22.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "22,2",
+          "cell": "R3!F41"
+        },
+        "available_within_two_weeks": {
+          "value": 8.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,2",
+          "cell": "R3!G41"
+        },
+        "available_pct_of_parttime": {
+          "value": 14.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,3",
+          "cell": "R3!H41"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,5",
+          "cell": "R3!I41"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "45–54",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 526.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "526,9",
+          "cell": "R3!C42"
+        },
+        "parttime": {
+          "value": 44.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,7",
+          "cell": "R3!D42"
+        },
+        "wants_more": {
+          "value": 8.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,4",
+          "cell": "R3!E42"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 18.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "18,8",
+          "cell": "R3!F42"
+        },
+        "available_within_two_weeks": {
+          "value": 5.0,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,0)",
+          "cell": "R3!G42"
+        },
+        "available_pct_of_parttime": {
+          "value": 11.1,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(11,1)",
+          "cell": "R3!H42"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 0.9,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(0,9)",
+          "cell": "R3!I42"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "55–64",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 451.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "451,5",
+          "cell": "R3!C43"
+        },
+        "parttime": {
+          "value": 69.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "69,1",
+          "cell": "R3!D43"
+        },
+        "wants_more": {
+          "value": 5.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,4)",
+          "cell": "R3!E43"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 7.8,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(7,8)",
+          "cell": "R3!F43"
+        },
+        "available_within_two_weeks": {
+          "value": 3.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,3)",
+          "cell": "R3!G43"
+        },
+        "available_pct_of_parttime": {
+          "value": 4.8,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,8)",
+          "cell": "R3!H43"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 0.7,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(0,7)",
+          "cell": "R3!I43"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "age",
+      "label": "65–74",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 52.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "52,1",
+          "cell": "R3!C44"
+        },
+        "parttime": {
+          "value": 35.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "35,4",
+          "cell": "R3!D44"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E44"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F44"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G44"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H44"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I44"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Pflichtschule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 287.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "287,8",
+          "cell": "R3!C55"
+        },
+        "parttime": {
+          "value": 41.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "41,3",
+          "cell": "R3!D55"
+        },
+        "wants_more": {
+          "value": 11.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,2",
+          "cell": "R3!E55"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 27.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "27,2",
+          "cell": "R3!F55"
+        },
+        "available_within_two_weeks": {
+          "value": 8.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,5",
+          "cell": "R3!G55"
+        },
+        "available_pct_of_parttime": {
+          "value": 20.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "20,5",
+          "cell": "R3!H55"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,9",
+          "cell": "R3!I55"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Lehre",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 926.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "926,7",
+          "cell": "R3!C56"
+        },
+        "parttime": {
+          "value": 84.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "84,1",
+          "cell": "R3!D56"
+        },
+        "wants_more": {
+          "value": 10.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,7",
+          "cell": "R3!E56"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 12.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "12,7",
+          "cell": "R3!F56"
+        },
+        "available_within_two_weeks": {
+          "value": 8.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,1",
+          "cell": "R3!G56"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,7",
+          "cell": "R3!H56"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 0.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,9",
+          "cell": "R3!I56"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "BMS",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 203.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "203,1",
+          "cell": "R3!C57"
+        },
+        "parttime": {
+          "value": 28.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "28,5",
+          "cell": "R3!D57"
+        },
+        "wants_more": {
+          "value": 4.0,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,0)",
+          "cell": "R3!E57"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 14.2,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(14,2)",
+          "cell": "R3!F57"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G57"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H57"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I57"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Höhere Schule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 441.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "441,5",
+          "cell": "R3!C58"
+        },
+        "parttime": {
+          "value": 86.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "86,1",
+          "cell": "R3!D58"
+        },
+        "wants_more": {
+          "value": 14.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,7",
+          "cell": "R3!E58"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,0",
+          "cell": "R3!F58"
+        },
+        "available_within_two_weeks": {
+          "value": 8.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,5",
+          "cell": "R3!G58"
+        },
+        "available_pct_of_parttime": {
+          "value": 9.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "9,9",
+          "cell": "R3!H58"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,9",
+          "cell": "R3!I58"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "AHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 152.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "152,3",
+          "cell": "R3!C59"
+        },
+        "parttime": {
+          "value": 42.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "42,9",
+          "cell": "R3!D59"
+        },
+        "wants_more": {
+          "value": 9.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,2",
+          "cell": "R3!E59"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 21.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "21,4",
+          "cell": "R3!F59"
+        },
+        "available_within_two_weeks": {
+          "value": 5.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,4)",
+          "cell": "R3!G59"
+        },
+        "available_pct_of_parttime": {
+          "value": 12.6,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(12,6)",
+          "cell": "R3!H59"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.6,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,6)",
+          "cell": "R3!I59"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "BHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 289.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "289,3",
+          "cell": "R3!C60"
+        },
+        "parttime": {
+          "value": 43.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "43,2",
+          "cell": "R3!D60"
+        },
+        "wants_more": {
+          "value": 5.5,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,5)",
+          "cell": "R3!E60"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 12.6,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(12,6)",
+          "cell": "R3!F60"
+        },
+        "available_within_two_weeks": {
+          "value": 3.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,1)",
+          "cell": "R3!G60"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.2,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(7,2)",
+          "cell": "R3!H60"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.1,
+          "unit": "percent",
+          "quality": "high_sampling_uncertainty",
+          "display": "(1,1)",
+          "cell": "R3!I60"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Hochschule und Akademie",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 495.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "495,3",
+          "cell": "R3!C61"
+        },
+        "parttime": {
+          "value": 85.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "85,5",
+          "cell": "R3!D61"
+        },
+        "wants_more": {
+          "value": 17.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,1",
+          "cell": "R3!E61"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 19.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "19,9",
+          "cell": "R3!F61"
+        },
+        "available_within_two_weeks": {
+          "value": 9.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,3",
+          "cell": "R3!G61"
+        },
+        "available_pct_of_parttime": {
+          "value": 10.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,8",
+          "cell": "R3!H61"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,9",
+          "cell": "R3!I61"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Akademie",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 15.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,9",
+          "cell": "R3!C62"
+        },
+        "parttime": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!D62"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E62"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F62"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G62"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H62"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I62"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "dimension": "education",
+      "label": "Universität, FH",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 479.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "479,4",
+          "cell": "R3!C63"
+        },
+        "parttime": {
+          "value": 82.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "82,8",
+          "cell": "R3!D63"
+        },
+        "wants_more": {
+          "value": 16.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,8",
+          "cell": "R3!E63"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 20.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "20,3",
+          "cell": "R3!F63"
+        },
+        "available_within_two_weeks": {
+          "value": 9.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,2",
+          "cell": "R3!G63"
+        },
+        "available_pct_of_parttime": {
+          "value": 11.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "11,1",
+          "cell": "R3!H63"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 1.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,9",
+          "cell": "R3!I63"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "total",
+      "label": "Zusammen",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 2133.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "2 133,9",
+          "cell": "R3!C65"
+        },
+        "parttime": {
+          "value": 1062.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 062,3",
+          "cell": "R3!D65"
+        },
+        "wants_more": {
+          "value": 142.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "142,8",
+          "cell": "R3!E65"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 13.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "13,4",
+          "cell": "R3!F65"
+        },
+        "available_within_two_weeks": {
+          "value": 73.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "73,9",
+          "cell": "R3!G65"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,0",
+          "cell": "R3!H65"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,5",
+          "cell": "R3!I65"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "15–24",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 218.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "218,4",
+          "cell": "R3!C67"
+        },
+        "parttime": {
+          "value": 86.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "86,5",
+          "cell": "R3!D67"
+        },
+        "wants_more": {
+          "value": 14.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,1",
+          "cell": "R3!E67"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 16.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "16,3",
+          "cell": "R3!F67"
+        },
+        "available_within_two_weeks": {
+          "value": 8.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,7",
+          "cell": "R3!G67"
+        },
+        "available_pct_of_parttime": {
+          "value": 10.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,0",
+          "cell": "R3!H67"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 4.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,0",
+          "cell": "R3!I67"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "25–34",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 464.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "464,4",
+          "cell": "R3!C68"
+        },
+        "parttime": {
+          "value": 192.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "192,3",
+          "cell": "R3!D68"
+        },
+        "wants_more": {
+          "value": 31.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "31,4",
+          "cell": "R3!E68"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 16.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "16,4",
+          "cell": "R3!F68"
+        },
+        "available_within_two_weeks": {
+          "value": 13.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "13,2",
+          "cell": "R3!G68"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,9",
+          "cell": "R3!H68"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,9",
+          "cell": "R3!I68"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "35–44",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 516.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "516,2",
+          "cell": "R3!C69"
+        },
+        "parttime": {
+          "value": 300.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "300,2",
+          "cell": "R3!D69"
+        },
+        "wants_more": {
+          "value": 43.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "43,7",
+          "cell": "R3!E69"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 14.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,6",
+          "cell": "R3!F69"
+        },
+        "available_within_two_weeks": {
+          "value": 19.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "19,5",
+          "cell": "R3!G69"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,5",
+          "cell": "R3!H69"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,8",
+          "cell": "R3!I69"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "45–54",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 514.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "514,7",
+          "cell": "R3!C70"
+        },
+        "parttime": {
+          "value": 254.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "254,7",
+          "cell": "R3!D70"
+        },
+        "wants_more": {
+          "value": 38.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "38,0",
+          "cell": "R3!E70"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 14.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,9",
+          "cell": "R3!F70"
+        },
+        "available_within_two_weeks": {
+          "value": 22.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "22,2",
+          "cell": "R3!G70"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,7",
+          "cell": "R3!H70"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 4.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,3",
+          "cell": "R3!I70"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "55–64",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 383.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "383,3",
+          "cell": "R3!C71"
+        },
+        "parttime": {
+          "value": 198.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "198,5",
+          "cell": "R3!D71"
+        },
+        "wants_more": {
+          "value": 14.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,6",
+          "cell": "R3!E71"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 7.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,4",
+          "cell": "R3!F71"
+        },
+        "available_within_two_weeks": {
+          "value": 9.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,6",
+          "cell": "R3!G71"
+        },
+        "available_pct_of_parttime": {
+          "value": 4.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,9",
+          "cell": "R3!H71"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 2.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,5",
+          "cell": "R3!I71"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "age",
+      "label": "65–74",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 36.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "36,9",
+          "cell": "R3!C72"
+        },
+        "parttime": {
+          "value": 30.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,1",
+          "cell": "R3!D72"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E72"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F72"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G72"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H72"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I72"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Pflichtschule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 243.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "243,7",
+          "cell": "R3!C83"
+        },
+        "parttime": {
+          "value": 122.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "122,2",
+          "cell": "R3!D83"
+        },
+        "wants_more": {
+          "value": 13.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "13,8",
+          "cell": "R3!E83"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 11.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "11,3",
+          "cell": "R3!F83"
+        },
+        "available_within_two_weeks": {
+          "value": 7.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,5",
+          "cell": "R3!G83"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,1",
+          "cell": "R3!H83"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,1",
+          "cell": "R3!I83"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Lehre",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 521.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "521,4",
+          "cell": "R3!C84"
+        },
+        "parttime": {
+          "value": 273.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "273,6",
+          "cell": "R3!D84"
+        },
+        "wants_more": {
+          "value": 29.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "29,6",
+          "cell": "R3!E84"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 10.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,8",
+          "cell": "R3!F84"
+        },
+        "available_within_two_weeks": {
+          "value": 16.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,8",
+          "cell": "R3!G84"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,1",
+          "cell": "R3!H84"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,2",
+          "cell": "R3!I84"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "BMS",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 292.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "292,9",
+          "cell": "R3!C85"
+        },
+        "parttime": {
+          "value": 164.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "164,2",
+          "cell": "R3!D85"
+        },
+        "wants_more": {
+          "value": 19.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "19,8",
+          "cell": "R3!E85"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 12.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "12,0",
+          "cell": "R3!F85"
+        },
+        "available_within_two_weeks": {
+          "value": 10.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,1",
+          "cell": "R3!G85"
+        },
+        "available_pct_of_parttime": {
+          "value": 6.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,2",
+          "cell": "R3!H85"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,5",
+          "cell": "R3!I85"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Höhere Schule",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 468.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "468,7",
+          "cell": "R3!C86"
+        },
+        "parttime": {
+          "value": 233.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "233,7",
+          "cell": "R3!D86"
+        },
+        "wants_more": {
+          "value": 33.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "33,5",
+          "cell": "R3!E86"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 14.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,3",
+          "cell": "R3!F86"
+        },
+        "available_within_two_weeks": {
+          "value": 17.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,7",
+          "cell": "R3!G86"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,6",
+          "cell": "R3!H86"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,8",
+          "cell": "R3!I86"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "AHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 172.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "172,3",
+          "cell": "R3!C87"
+        },
+        "parttime": {
+          "value": 94.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "94,7",
+          "cell": "R3!D87"
+        },
+        "wants_more": {
+          "value": 14.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,5",
+          "cell": "R3!E87"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 15.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "15,3",
+          "cell": "R3!F87"
+        },
+        "available_within_two_weeks": {
+          "value": 7.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,5",
+          "cell": "R3!G87"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,9",
+          "cell": "R3!H87"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 4.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,3",
+          "cell": "R3!I87"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "BHS",
+      "parent_label": "Höhere Schule",
+      "metrics": {
+        "employed": {
+          "value": 296.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "296,4",
+          "cell": "R3!C88"
+        },
+        "parttime": {
+          "value": 139.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "139,0",
+          "cell": "R3!D88"
+        },
+        "wants_more": {
+          "value": 18.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "18,9",
+          "cell": "R3!E88"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 13.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "13,6",
+          "cell": "R3!F88"
+        },
+        "available_within_two_weeks": {
+          "value": 10.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,2",
+          "cell": "R3!G88"
+        },
+        "available_pct_of_parttime": {
+          "value": 7.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,4",
+          "cell": "R3!H88"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,5",
+          "cell": "R3!I88"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Hochschule und Akademie",
+      "parent_label": null,
+      "metrics": {
+        "employed": {
+          "value": 607.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "607,1",
+          "cell": "R3!C89"
+        },
+        "parttime": {
+          "value": 268.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "268,6",
+          "cell": "R3!D89"
+        },
+        "wants_more": {
+          "value": 46.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "46,1",
+          "cell": "R3!E89"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,2",
+          "cell": "R3!F89"
+        },
+        "available_within_two_weeks": {
+          "value": 21.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "21,8",
+          "cell": "R3!G89"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,1",
+          "cell": "R3!H89"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,6",
+          "cell": "R3!I89"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Akademie",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 44.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,6",
+          "cell": "R3!C90"
+        },
+        "parttime": {
+          "value": 19.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "19,5",
+          "cell": "R3!D90"
+        },
+        "wants_more": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!E90"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!F90"
+        },
+        "available_within_two_weeks": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!G90"
+        },
+        "available_pct_of_parttime": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!H90"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": null,
+          "unit": "percent",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "R3!I90"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "dimension": "education",
+      "label": "Universität, FH",
+      "parent_label": "Hochschule und Akademie",
+      "metrics": {
+        "employed": {
+          "value": 562.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "562,5",
+          "cell": "R3!C91"
+        },
+        "parttime": {
+          "value": 249.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "249,1",
+          "cell": "R3!D91"
+        },
+        "wants_more": {
+          "value": 44.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,2",
+          "cell": "R3!E91"
+        },
+        "wants_more_pct_of_parttime": {
+          "value": 17.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "17,7",
+          "cell": "R3!F91"
+        },
+        "available_within_two_weeks": {
+          "value": 20.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,9",
+          "cell": "R3!G91"
+        },
+        "available_pct_of_parttime": {
+          "value": 8.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,4",
+          "cell": "R3!H91"
+        },
+        "underemployment_pct_of_all_employed": {
+          "value": 3.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,7",
+          "cell": "R3!I91"
+        }
+      }
+    }
+  ],
+  "slack_controls": [
+    {
+      "sex": "all",
+      "metrics": {
+        "total_slack": {
+          "value": 544.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "544,5",
+          "cell": "R1!B6"
+        },
+        "ilo_unemployed": {
+          "value": 269.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "269,5",
+          "cell": "R1!C6"
+        },
+        "reserve_unavailable": {
+          "value": 73.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "73,7",
+          "cell": "R1!E6"
+        },
+        "reserve_available": {
+          "value": 90.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "90,6",
+          "cell": "R1!G6"
+        },
+        "parttime_underemployed": {
+          "value": 110.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "110,6",
+          "cell": "R1!I6"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "metrics": {
+        "total_slack": {
+          "value": 264.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "264,7",
+          "cell": "R1!B40"
+        },
+        "ilo_unemployed": {
+          "value": 149.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "149,1",
+          "cell": "R1!C40"
+        },
+        "reserve_unavailable": {
+          "value": 34.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "34,7",
+          "cell": "R1!E40"
+        },
+        "reserve_available": {
+          "value": 44.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,3",
+          "cell": "R1!G40"
+        },
+        "parttime_underemployed": {
+          "value": 36.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "36,7",
+          "cell": "R1!I40"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "metrics": {
+        "total_slack": {
+          "value": 279.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "279,7",
+          "cell": "R1!B74"
+        },
+        "ilo_unemployed": {
+          "value": 120.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "120,5",
+          "cell": "R1!C74"
+        },
+        "reserve_unavailable": {
+          "value": 39.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "39,0",
+          "cell": "R1!E74"
+        },
+        "reserve_available": {
+          "value": 46.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "46,4",
+          "cell": "R1!G74"
+        },
+        "parttime_underemployed": {
+          "value": 73.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "73,9",
+          "cell": "R1!I74"
+        }
+      }
+    }
+  ],
+  "parttime_reasons": [
+    {
+      "sex": "all",
+      "age": "Insgesamt",
+      "is_total": true,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 1396.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 396,6",
+          "cell": "T7!B7"
+        },
+        "child_or_adult_care": {
+          "value": 453.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "453,0",
+          "cell": "T7!C7"
+        },
+        "no_fulltime_wanted": {
+          "value": 291.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "291,5",
+          "cell": "T7!D7"
+        },
+        "other_personal_family": {
+          "value": 142.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "142,0",
+          "cell": "T7!E7"
+        },
+        "no_fulltime_found": {
+          "value": 94.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "94,9",
+          "cell": "T7!F7"
+        },
+        "education_training": {
+          "value": 157.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "157,2",
+          "cell": "T7!G7"
+        },
+        "other": {
+          "value": 257.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "257,9",
+          "cell": "T7!H7"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "15–19",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 36.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "36,1",
+          "cell": "T7!B8"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C8"
+        },
+        "no_fulltime_wanted": {
+          "value": 3.2,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,2)",
+          "cell": "T7!D8"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E8"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F8"
+        },
+        "education_training": {
+          "value": 23.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,5",
+          "cell": "T7!G8"
+        },
+        "other": {
+          "value": 4.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,3)",
+          "cell": "T7!H8"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "20–24",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 100.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "100,6",
+          "cell": "T7!B9"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C9"
+        },
+        "no_fulltime_wanted": {
+          "value": 11.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,8",
+          "cell": "T7!D9"
+        },
+        "other_personal_family": {
+          "value": 5.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,1)",
+          "cell": "T7!E9"
+        },
+        "no_fulltime_found": {
+          "value": 8.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,3",
+          "cell": "T7!F9"
+        },
+        "education_training": {
+          "value": 62.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "62,6",
+          "cell": "T7!G9"
+        },
+        "other": {
+          "value": 10.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,7",
+          "cell": "T7!H9"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "25–29",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 116.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "116,7",
+          "cell": "T7!B10"
+        },
+        "child_or_adult_care": {
+          "value": 22.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "22,6",
+          "cell": "T7!C10"
+        },
+        "no_fulltime_wanted": {
+          "value": 16.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,8",
+          "cell": "T7!D10"
+        },
+        "other_personal_family": {
+          "value": 8.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,4",
+          "cell": "T7!E10"
+        },
+        "no_fulltime_found": {
+          "value": 11.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,1",
+          "cell": "T7!F10"
+        },
+        "education_training": {
+          "value": 41.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "41,5",
+          "cell": "T7!G10"
+        },
+        "other": {
+          "value": 16.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,3",
+          "cell": "T7!H10"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "30–34",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 144.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "144,2",
+          "cell": "T7!B11"
+        },
+        "child_or_adult_care": {
+          "value": 78.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "78,7",
+          "cell": "T7!C11"
+        },
+        "no_fulltime_wanted": {
+          "value": 15.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,9",
+          "cell": "T7!D11"
+        },
+        "other_personal_family": {
+          "value": 8.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,2",
+          "cell": "T7!E11"
+        },
+        "no_fulltime_found": {
+          "value": 10.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,2",
+          "cell": "T7!F11"
+        },
+        "education_training": {
+          "value": 14.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,4",
+          "cell": "T7!G11"
+        },
+        "other": {
+          "value": 16.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,9",
+          "cell": "T7!H11"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "35–39",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 178.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "178,8",
+          "cell": "T7!B12"
+        },
+        "child_or_adult_care": {
+          "value": 119.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "119,5",
+          "cell": "T7!C12"
+        },
+        "no_fulltime_wanted": {
+          "value": 17.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,4",
+          "cell": "T7!D12"
+        },
+        "other_personal_family": {
+          "value": 11.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,5",
+          "cell": "T7!E12"
+        },
+        "no_fulltime_found": {
+          "value": 8.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,6",
+          "cell": "T7!F12"
+        },
+        "education_training": {
+          "value": 5.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,1)",
+          "cell": "T7!G12"
+        },
+        "other": {
+          "value": 16.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,7",
+          "cell": "T7!H12"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "40–44",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 179.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "179,1",
+          "cell": "T7!B13"
+        },
+        "child_or_adult_care": {
+          "value": 109.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "109,3",
+          "cell": "T7!C13"
+        },
+        "no_fulltime_wanted": {
+          "value": 21.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "21,7",
+          "cell": "T7!D13"
+        },
+        "other_personal_family": {
+          "value": 13.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "13,9",
+          "cell": "T7!E13"
+        },
+        "no_fulltime_found": {
+          "value": 9.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,7",
+          "cell": "T7!F13"
+        },
+        "education_training": {
+          "value": 4.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,4)",
+          "cell": "T7!G13"
+        },
+        "other": {
+          "value": 20.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,2",
+          "cell": "T7!H13"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "45–49",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 152.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "152,8",
+          "cell": "T7!B14"
+        },
+        "child_or_adult_care": {
+          "value": 68.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "68,1",
+          "cell": "T7!C14"
+        },
+        "no_fulltime_wanted": {
+          "value": 30.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,3",
+          "cell": "T7!D14"
+        },
+        "other_personal_family": {
+          "value": 17.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,1",
+          "cell": "T7!E14"
+        },
+        "no_fulltime_found": {
+          "value": 10.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,6",
+          "cell": "T7!F14"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G14"
+        },
+        "other": {
+          "value": 24.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "24,7",
+          "cell": "T7!H14"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "50–54",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 146.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "146,6",
+          "cell": "T7!B15"
+        },
+        "child_or_adult_care": {
+          "value": 30.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,0",
+          "cell": "T7!C15"
+        },
+        "no_fulltime_wanted": {
+          "value": 44.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,7",
+          "cell": "T7!D15"
+        },
+        "other_personal_family": {
+          "value": 23.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,9",
+          "cell": "T7!E15"
+        },
+        "no_fulltime_found": {
+          "value": 12.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,7",
+          "cell": "T7!F15"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G15"
+        },
+        "other": {
+          "value": 32.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "32,8",
+          "cell": "T7!H15"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "55–59",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 161.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "161,4",
+          "cell": "T7!B16"
+        },
+        "child_or_adult_care": {
+          "value": 17.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,1",
+          "cell": "T7!C16"
+        },
+        "no_fulltime_wanted": {
+          "value": 60.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "60,8",
+          "cell": "T7!D16"
+        },
+        "other_personal_family": {
+          "value": 25.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "25,1",
+          "cell": "T7!E16"
+        },
+        "no_fulltime_found": {
+          "value": 14.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,2",
+          "cell": "T7!F16"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G16"
+        },
+        "other": {
+          "value": 43.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "43,5",
+          "cell": "T7!H16"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "60–64",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 106.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "106,1",
+          "cell": "T7!B17"
+        },
+        "child_or_adult_care": {
+          "value": 4.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,3)",
+          "cell": "T7!C17"
+        },
+        "no_fulltime_wanted": {
+          "value": 37.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "37,9",
+          "cell": "T7!D17"
+        },
+        "other_personal_family": {
+          "value": 15.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,2",
+          "cell": "T7!E17"
+        },
+        "no_fulltime_found": {
+          "value": 5.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,1)",
+          "cell": "T7!F17"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G17"
+        },
+        "other": {
+          "value": 43.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "43,3",
+          "cell": "T7!H17"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "65 und älter",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 74.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "74,1",
+          "cell": "T7!B18"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C18"
+        },
+        "no_fulltime_wanted": {
+          "value": 30.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,9",
+          "cell": "T7!D18"
+        },
+        "other_personal_family": {
+          "value": 11.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,8",
+          "cell": "T7!E18"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F18"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G18"
+        },
+        "other": {
+          "value": 28.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "28,6",
+          "cell": "T7!H18"
+        }
+      }
+    },
+    {
+      "sex": "all",
+      "age": "15–64",
+      "is_total": false,
+      "overlapping_age_summary": true,
+      "metrics": {
+        "parttime_total": {
+          "value": 1322.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 322,4",
+          "cell": "T7!B19"
+        },
+        "child_or_adult_care": {
+          "value": 452.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "452,2",
+          "cell": "T7!C19"
+        },
+        "no_fulltime_wanted": {
+          "value": 260.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "260,6",
+          "cell": "T7!D19"
+        },
+        "other_personal_family": {
+          "value": 130.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "130,2",
+          "cell": "T7!E19"
+        },
+        "no_fulltime_found": {
+          "value": 93.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "93,3",
+          "cell": "T7!F19"
+        },
+        "education_training": {
+          "value": 156.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "156,9",
+          "cell": "T7!G19"
+        },
+        "other": {
+          "value": 229.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "229,3",
+          "cell": "T7!H19"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "Zusammen",
+      "is_total": true,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 331.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "331,0",
+          "cell": "T7!B21"
+        },
+        "child_or_adult_care": {
+          "value": 28.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "28,0",
+          "cell": "T7!C21"
+        },
+        "no_fulltime_wanted": {
+          "value": 74.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "74,9",
+          "cell": "T7!D21"
+        },
+        "other_personal_family": {
+          "value": 38.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "38,4",
+          "cell": "T7!E21"
+        },
+        "no_fulltime_found": {
+          "value": 30.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "30,6",
+          "cell": "T7!F21"
+        },
+        "education_training": {
+          "value": 61.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "61,0",
+          "cell": "T7!G21"
+        },
+        "other": {
+          "value": 98.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "98,0",
+          "cell": "T7!H21"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "15–19",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 11.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,9",
+          "cell": "T7!B22"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C22"
+        },
+        "no_fulltime_wanted": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!D22"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E22"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F22"
+        },
+        "education_training": {
+          "value": 6.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,8",
+          "cell": "T7!G22"
+        },
+        "other": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!H22"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "20–24",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 38.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "38,2",
+          "cell": "T7!B23"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C23"
+        },
+        "no_fulltime_wanted": {
+          "value": 4.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,4)",
+          "cell": "T7!D23"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E23"
+        },
+        "no_fulltime_found": {
+          "value": 3.2,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,2)",
+          "cell": "T7!F23"
+        },
+        "education_training": {
+          "value": 22.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "22,6",
+          "cell": "T7!G23"
+        },
+        "other": {
+          "value": 5.7,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,7)",
+          "cell": "T7!H23"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "25–29",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 39.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "39,7",
+          "cell": "T7!B24"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C24"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,3)",
+          "cell": "T7!D24"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E24"
+        },
+        "no_fulltime_found": {
+          "value": 4.6,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,6)",
+          "cell": "T7!F24"
+        },
+        "education_training": {
+          "value": 20.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,7",
+          "cell": "T7!G24"
+        },
+        "other": {
+          "value": 5.6,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,6)",
+          "cell": "T7!H24"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "30–34",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 28.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "28,9",
+          "cell": "T7!B25"
+        },
+        "child_or_adult_care": {
+          "value": 3.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,1)",
+          "cell": "T7!C25"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.9,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,9)",
+          "cell": "T7!D25"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E25"
+        },
+        "no_fulltime_found": {
+          "value": 3.9,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,9)",
+          "cell": "T7!F25"
+        },
+        "education_training": {
+          "value": 5.7,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,7)",
+          "cell": "T7!G25"
+        },
+        "other": {
+          "value": 7.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,7",
+          "cell": "T7!H25"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "35–39",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 29.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "29,3",
+          "cell": "T7!B26"
+        },
+        "child_or_adult_care": {
+          "value": 4.9,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,9)",
+          "cell": "T7!C26"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.9,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,9)",
+          "cell": "T7!D26"
+        },
+        "other_personal_family": {
+          "value": 4.0,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,0)",
+          "cell": "T7!E26"
+        },
+        "no_fulltime_found": {
+          "value": 4.5,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,5)",
+          "cell": "T7!F26"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G26"
+        },
+        "other": {
+          "value": 7.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,6",
+          "cell": "T7!H26"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "40–44",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 28.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "28,3",
+          "cell": "T7!B27"
+        },
+        "child_or_adult_care": {
+          "value": 7.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,5",
+          "cell": "T7!C27"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,3)",
+          "cell": "T7!D27"
+        },
+        "other_personal_family": {
+          "value": 3.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,4)",
+          "cell": "T7!E27"
+        },
+        "no_fulltime_found": {
+          "value": 3.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,1)",
+          "cell": "T7!F27"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G27"
+        },
+        "other": {
+          "value": 7.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,5",
+          "cell": "T7!H27"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "45–49",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 23.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,3",
+          "cell": "T7!B28"
+        },
+        "child_or_adult_care": {
+          "value": 5.6,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,6)",
+          "cell": "T7!C28"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.4,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,4)",
+          "cell": "T7!D28"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E28"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F28"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G28"
+        },
+        "other": {
+          "value": 7.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,0",
+          "cell": "T7!H28"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "50–54",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 21.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "21,4",
+          "cell": "T7!B29"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C29"
+        },
+        "no_fulltime_wanted": {
+          "value": 5.3,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,3)",
+          "cell": "T7!D29"
+        },
+        "other_personal_family": {
+          "value": 3.8,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,8)",
+          "cell": "T7!E29"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F29"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G29"
+        },
+        "other": {
+          "value": 7.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,1",
+          "cell": "T7!H29"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "55–59",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 25.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "25,1",
+          "cell": "T7!B30"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C30"
+        },
+        "no_fulltime_wanted": {
+          "value": 7.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,6",
+          "cell": "T7!D30"
+        },
+        "other_personal_family": {
+          "value": 4.0,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,0)",
+          "cell": "T7!E30"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F30"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G30"
+        },
+        "other": {
+          "value": 9.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,4",
+          "cell": "T7!H30"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "60–64",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 44.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "44,0",
+          "cell": "T7!B31"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C31"
+        },
+        "no_fulltime_wanted": {
+          "value": 11.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,4",
+          "cell": "T7!D31"
+        },
+        "other_personal_family": {
+          "value": 6.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,1",
+          "cell": "T7!E31"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F31"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G31"
+        },
+        "other": {
+          "value": 23.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "23,0",
+          "cell": "T7!H31"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "65 und älter",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 40.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "40,8",
+          "cell": "T7!B32"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C32"
+        },
+        "no_fulltime_wanted": {
+          "value": 16.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,8",
+          "cell": "T7!D32"
+        },
+        "other_personal_family": {
+          "value": 6.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,9",
+          "cell": "T7!E32"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F32"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G32"
+        },
+        "other": {
+          "value": 15.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,8",
+          "cell": "T7!H32"
+        }
+      }
+    },
+    {
+      "sex": "men",
+      "age": "15–64",
+      "is_total": false,
+      "overlapping_age_summary": true,
+      "metrics": {
+        "parttime_total": {
+          "value": 290.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "290,2",
+          "cell": "T7!B33"
+        },
+        "child_or_adult_care": {
+          "value": 27.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "27,8",
+          "cell": "T7!C33"
+        },
+        "no_fulltime_wanted": {
+          "value": 58.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "58,1",
+          "cell": "T7!D33"
+        },
+        "other_personal_family": {
+          "value": 31.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "31,5",
+          "cell": "T7!E33"
+        },
+        "no_fulltime_found": {
+          "value": 29.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "29,8",
+          "cell": "T7!F33"
+        },
+        "education_training": {
+          "value": 60.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "60,9",
+          "cell": "T7!G33"
+        },
+        "other": {
+          "value": 82.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "82,2",
+          "cell": "T7!H33"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "Zusammen",
+      "is_total": true,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 1065.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 065,6",
+          "cell": "T7!B35"
+        },
+        "child_or_adult_care": {
+          "value": 425.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "425,0",
+          "cell": "T7!C35"
+        },
+        "no_fulltime_wanted": {
+          "value": 216.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "216,6",
+          "cell": "T7!D35"
+        },
+        "other_personal_family": {
+          "value": 103.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "103,6",
+          "cell": "T7!E35"
+        },
+        "no_fulltime_found": {
+          "value": 64.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "64,3",
+          "cell": "T7!F35"
+        },
+        "education_training": {
+          "value": 96.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "96,2",
+          "cell": "T7!G35"
+        },
+        "other": {
+          "value": 159.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "159,9",
+          "cell": "T7!H35"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "15–19",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 24.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "24,1",
+          "cell": "T7!B36"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C36"
+        },
+        "no_fulltime_wanted": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!D36"
+        },
+        "other_personal_family": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!E36"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F36"
+        },
+        "education_training": {
+          "value": 16.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,7",
+          "cell": "T7!G36"
+        },
+        "other": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!H36"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "20–24",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 62.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "62,4",
+          "cell": "T7!B37"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C37"
+        },
+        "no_fulltime_wanted": {
+          "value": 7.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,4",
+          "cell": "T7!D37"
+        },
+        "other_personal_family": {
+          "value": 3.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,1)",
+          "cell": "T7!E37"
+        },
+        "no_fulltime_found": {
+          "value": 5.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,1)",
+          "cell": "T7!F37"
+        },
+        "education_training": {
+          "value": 40.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "40,0",
+          "cell": "T7!G37"
+        },
+        "other": {
+          "value": 5.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,1)",
+          "cell": "T7!H37"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "25–29",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 77.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "77,0",
+          "cell": "T7!B38"
+        },
+        "child_or_adult_care": {
+          "value": 21.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "21,8",
+          "cell": "T7!C38"
+        },
+        "no_fulltime_wanted": {
+          "value": 11.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,5",
+          "cell": "T7!D38"
+        },
+        "other_personal_family": {
+          "value": 5.6,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,6)",
+          "cell": "T7!E38"
+        },
+        "no_fulltime_found": {
+          "value": 6.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,6",
+          "cell": "T7!F38"
+        },
+        "education_training": {
+          "value": 20.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,8",
+          "cell": "T7!G38"
+        },
+        "other": {
+          "value": 10.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,6",
+          "cell": "T7!H38"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "30–34",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 115.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "115,3",
+          "cell": "T7!B39"
+        },
+        "child_or_adult_care": {
+          "value": 75.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "75,6",
+          "cell": "T7!C39"
+        },
+        "no_fulltime_wanted": {
+          "value": 9.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,9",
+          "cell": "T7!D39"
+        },
+        "other_personal_family": {
+          "value": 5.5,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(5,5)",
+          "cell": "T7!E39"
+        },
+        "no_fulltime_found": {
+          "value": 6.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,3",
+          "cell": "T7!F39"
+        },
+        "education_training": {
+          "value": 8.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,7",
+          "cell": "T7!G39"
+        },
+        "other": {
+          "value": 9.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,2",
+          "cell": "T7!H39"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "35–39",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 149.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "149,4",
+          "cell": "T7!B40"
+        },
+        "child_or_adult_care": {
+          "value": 114.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "114,6",
+          "cell": "T7!C40"
+        },
+        "no_fulltime_wanted": {
+          "value": 11.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,5",
+          "cell": "T7!D40"
+        },
+        "other_personal_family": {
+          "value": 7.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "7,4",
+          "cell": "T7!E40"
+        },
+        "no_fulltime_found": {
+          "value": 4.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,1)",
+          "cell": "T7!F40"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G40"
+        },
+        "other": {
+          "value": 9.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,1",
+          "cell": "T7!H40"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "40–44",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 150.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "150,8",
+          "cell": "T7!B41"
+        },
+        "child_or_adult_care": {
+          "value": 101.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "101,7",
+          "cell": "T7!C41"
+        },
+        "no_fulltime_wanted": {
+          "value": 16.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "16,4",
+          "cell": "T7!D41"
+        },
+        "other_personal_family": {
+          "value": 10.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,5",
+          "cell": "T7!E41"
+        },
+        "no_fulltime_found": {
+          "value": 6.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "6,6",
+          "cell": "T7!F41"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G41"
+        },
+        "other": {
+          "value": 12.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,6",
+          "cell": "T7!H41"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "45–49",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 129.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "129,6",
+          "cell": "T7!B42"
+        },
+        "child_or_adult_care": {
+          "value": 62.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "62,6",
+          "cell": "T7!C42"
+        },
+        "no_fulltime_wanted": {
+          "value": 24.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "24,9",
+          "cell": "T7!D42"
+        },
+        "other_personal_family": {
+          "value": 14.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,7",
+          "cell": "T7!E42"
+        },
+        "no_fulltime_found": {
+          "value": 8.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "8,1",
+          "cell": "T7!F42"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G42"
+        },
+        "other": {
+          "value": 17.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "17,8",
+          "cell": "T7!H42"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "50–54",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 125.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "125,1",
+          "cell": "T7!B43"
+        },
+        "child_or_adult_care": {
+          "value": 27.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "27,5",
+          "cell": "T7!C43"
+        },
+        "no_fulltime_wanted": {
+          "value": 39.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "39,5",
+          "cell": "T7!D43"
+        },
+        "other_personal_family": {
+          "value": 20.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,1",
+          "cell": "T7!E43"
+        },
+        "no_fulltime_found": {
+          "value": 10.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "10,3",
+          "cell": "T7!F43"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G43"
+        },
+        "other": {
+          "value": 25.7,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "25,7",
+          "cell": "T7!H43"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "55–59",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 136.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "136,4",
+          "cell": "T7!B44"
+        },
+        "child_or_adult_care": {
+          "value": 15.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "15,5",
+          "cell": "T7!C44"
+        },
+        "no_fulltime_wanted": {
+          "value": 53.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "53,2",
+          "cell": "T7!D44"
+        },
+        "other_personal_family": {
+          "value": 21.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "21,1",
+          "cell": "T7!E44"
+        },
+        "no_fulltime_found": {
+          "value": 11.9,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "11,9",
+          "cell": "T7!F44"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G44"
+        },
+        "other": {
+          "value": 34.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "34,0",
+          "cell": "T7!H44"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "60–64",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 62.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "62,1",
+          "cell": "T7!B45"
+        },
+        "child_or_adult_care": {
+          "value": 3.0,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,0)",
+          "cell": "T7!C45"
+        },
+        "no_fulltime_wanted": {
+          "value": 26.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "26,5",
+          "cell": "T7!D45"
+        },
+        "other_personal_family": {
+          "value": 9.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "9,1",
+          "cell": "T7!E45"
+        },
+        "no_fulltime_found": {
+          "value": 3.1,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(3,1)",
+          "cell": "T7!F45"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G45"
+        },
+        "other": {
+          "value": 20.3,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "20,3",
+          "cell": "T7!H45"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "65 und älter",
+      "is_total": false,
+      "overlapping_age_summary": false,
+      "metrics": {
+        "parttime_total": {
+          "value": 33.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "33,4",
+          "cell": "T7!B46"
+        },
+        "child_or_adult_care": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!C46"
+        },
+        "no_fulltime_wanted": {
+          "value": 14.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "14,1",
+          "cell": "T7!D46"
+        },
+        "other_personal_family": {
+          "value": 4.9,
+          "unit": "thousand_persons",
+          "quality": "high_sampling_uncertainty",
+          "display": "(4,9)",
+          "cell": "T7!E46"
+        },
+        "no_fulltime_found": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!F46"
+        },
+        "education_training": {
+          "value": null,
+          "unit": "thousand_persons",
+          "quality": "not_interpretable",
+          "display": "(x)",
+          "cell": "T7!G46"
+        },
+        "other": {
+          "value": 12.8,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "12,8",
+          "cell": "T7!H46"
+        }
+      }
+    },
+    {
+      "sex": "women",
+      "age": "15–64",
+      "is_total": false,
+      "overlapping_age_summary": true,
+      "metrics": {
+        "parttime_total": {
+          "value": 1032.2,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "1 032,2",
+          "cell": "T7!B47"
+        },
+        "child_or_adult_care": {
+          "value": 424.4,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "424,4",
+          "cell": "T7!C47"
+        },
+        "no_fulltime_wanted": {
+          "value": 202.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "202,6",
+          "cell": "T7!D47"
+        },
+        "other_personal_family": {
+          "value": 98.6,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "98,6",
+          "cell": "T7!E47"
+        },
+        "no_fulltime_found": {
+          "value": 63.5,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "63,5",
+          "cell": "T7!F47"
+        },
+        "education_training": {
+          "value": 96.0,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "96,0",
+          "cell": "T7!G47"
+        },
+        "other": {
+          "value": 147.1,
+          "unit": "thousand_persons",
+          "quality": "published",
+          "display": "147,1",
+          "cell": "T7!H47"
+        }
+      }
+    }
+  ],
+  "childcare_opening_categories": [
+    {
+      "region": "Österreich",
+      "age": "0-2",
+      "children": {
+        "total": 84237,
+        "half_day": 3436,
+        "full_day": 26279,
+        "vif": 52958,
+        "below_threshold": 1564
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J7"
+        },
+        "half_day": {
+          "value": 4.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,1",
+          "cell": "Tabelle1!J18"
+        },
+        "full_day": {
+          "value": 31.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "31,2",
+          "cell": "Tabelle1!J29"
+        },
+        "vif": {
+          "value": 62.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "62,9",
+          "cell": "Tabelle1!J40"
+        },
+        "below_threshold": {
+          "value": 1.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,9",
+          "cell": "Tabelle1!J51"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B7",
+        "half_day": "Tabelle1!B18",
+        "full_day": "Tabelle1!B29",
+        "vif": "Tabelle1!B40",
+        "below_threshold": "Tabelle1!B51"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Österreich",
+      "age": "3-5",
+      "children": {
+        "total": 250630,
+        "half_day": 10867,
+        "full_day": 79885,
+        "vif": 147804,
+        "below_threshold": 12074
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K7"
+        },
+        "half_day": {
+          "value": 4.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,3",
+          "cell": "Tabelle1!K18"
+        },
+        "full_day": {
+          "value": 31.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "31,9",
+          "cell": "Tabelle1!K29"
+        },
+        "vif": {
+          "value": 59.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "59,0",
+          "cell": "Tabelle1!K40"
+        },
+        "below_threshold": {
+          "value": 4.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "4,8",
+          "cell": "Tabelle1!K51"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C7",
+        "half_day": "Tabelle1!C18",
+        "full_day": "Tabelle1!C29",
+        "vif": "Tabelle1!C40",
+        "below_threshold": "Tabelle1!C51"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Burgenland",
+      "age": "0-2",
+      "children": {
+        "total": 2833,
+        "half_day": 142,
+        "full_day": 1222,
+        "vif": 1460,
+        "below_threshold": 9
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J8"
+        },
+        "half_day": {
+          "value": 5.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "5,0",
+          "cell": "Tabelle1!J19"
+        },
+        "full_day": {
+          "value": 43.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "43,1",
+          "cell": "Tabelle1!J30"
+        },
+        "vif": {
+          "value": 51.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "51,5",
+          "cell": "Tabelle1!J41"
+        },
+        "below_threshold": {
+          "value": 0.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,3",
+          "cell": "Tabelle1!J52"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B8",
+        "half_day": "Tabelle1!B19",
+        "full_day": "Tabelle1!B30",
+        "vif": "Tabelle1!B41",
+        "below_threshold": "Tabelle1!B52"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Burgenland",
+      "age": "3-5",
+      "children": {
+        "total": 7391,
+        "half_day": 30,
+        "full_day": 1823,
+        "vif": 5493,
+        "below_threshold": 45
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K8"
+        },
+        "half_day": {
+          "value": 0.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,4",
+          "cell": "Tabelle1!K19"
+        },
+        "full_day": {
+          "value": 24.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "24,7",
+          "cell": "Tabelle1!K30"
+        },
+        "vif": {
+          "value": 74.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "74,3",
+          "cell": "Tabelle1!K41"
+        },
+        "below_threshold": {
+          "value": 0.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,6",
+          "cell": "Tabelle1!K52"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C8",
+        "half_day": "Tabelle1!C19",
+        "full_day": "Tabelle1!C30",
+        "vif": "Tabelle1!C41",
+        "below_threshold": "Tabelle1!C52"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Kärnten",
+      "age": "0-2",
+      "children": {
+        "total": 4668,
+        "half_day": 26,
+        "full_day": 1233,
+        "vif": 3230,
+        "below_threshold": 179
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J9"
+        },
+        "half_day": {
+          "value": 0.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,6",
+          "cell": "Tabelle1!J20"
+        },
+        "full_day": {
+          "value": 26.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "26,4",
+          "cell": "Tabelle1!J31"
+        },
+        "vif": {
+          "value": 69.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "69,2",
+          "cell": "Tabelle1!J42"
+        },
+        "below_threshold": {
+          "value": 3.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,8",
+          "cell": "Tabelle1!J53"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B9",
+        "half_day": "Tabelle1!B20",
+        "full_day": "Tabelle1!B31",
+        "vif": "Tabelle1!B42",
+        "below_threshold": "Tabelle1!B53"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Kärnten",
+      "age": "3-5",
+      "children": {
+        "total": 13300,
+        "half_day": 190,
+        "full_day": 6619,
+        "vif": 5138,
+        "below_threshold": 1353
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K9"
+        },
+        "half_day": {
+          "value": 1.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "1,4",
+          "cell": "Tabelle1!K20"
+        },
+        "full_day": {
+          "value": 49.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "49,8",
+          "cell": "Tabelle1!K31"
+        },
+        "vif": {
+          "value": 38.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "38,6",
+          "cell": "Tabelle1!K42"
+        },
+        "below_threshold": {
+          "value": 10.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,2",
+          "cell": "Tabelle1!K53"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C9",
+        "half_day": "Tabelle1!C20",
+        "full_day": "Tabelle1!C31",
+        "vif": "Tabelle1!C42",
+        "below_threshold": "Tabelle1!C53"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Niederösterreich",
+      "age": "0-2",
+      "children": {
+        "total": 16809,
+        "half_day": 388,
+        "full_day": 5488,
+        "vif": 10838,
+        "below_threshold": 95
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J10"
+        },
+        "half_day": {
+          "value": 2.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,3",
+          "cell": "Tabelle1!J21"
+        },
+        "full_day": {
+          "value": 32.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "32,6",
+          "cell": "Tabelle1!J32"
+        },
+        "vif": {
+          "value": 64.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "64,5",
+          "cell": "Tabelle1!J43"
+        },
+        "below_threshold": {
+          "value": 0.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,6",
+          "cell": "Tabelle1!J54"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B10",
+        "half_day": "Tabelle1!B21",
+        "full_day": "Tabelle1!B32",
+        "vif": "Tabelle1!B43",
+        "below_threshold": "Tabelle1!B54"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Niederösterreich",
+      "age": "3-5",
+      "children": {
+        "total": 48240,
+        "half_day": 1673,
+        "full_day": 18868,
+        "vif": 27241,
+        "below_threshold": 458
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K10"
+        },
+        "half_day": {
+          "value": 3.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,5",
+          "cell": "Tabelle1!K21"
+        },
+        "full_day": {
+          "value": 39.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "39,1",
+          "cell": "Tabelle1!K32"
+        },
+        "vif": {
+          "value": 56.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "56,5",
+          "cell": "Tabelle1!K43"
+        },
+        "below_threshold": {
+          "value": 0.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,9",
+          "cell": "Tabelle1!K54"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C10",
+        "half_day": "Tabelle1!C21",
+        "full_day": "Tabelle1!C32",
+        "vif": "Tabelle1!C43",
+        "below_threshold": "Tabelle1!C54"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Oberösterreich",
+      "age": "0-2",
+      "children": {
+        "total": 10741,
+        "half_day": 697,
+        "full_day": 7078,
+        "vif": 2899,
+        "below_threshold": 67
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J11"
+        },
+        "half_day": {
+          "value": 6.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,5",
+          "cell": "Tabelle1!J22"
+        },
+        "full_day": {
+          "value": 65.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "65,9",
+          "cell": "Tabelle1!J33"
+        },
+        "vif": {
+          "value": 27.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "27,0",
+          "cell": "Tabelle1!J44"
+        },
+        "below_threshold": {
+          "value": 0.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,6",
+          "cell": "Tabelle1!J55"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B11",
+        "half_day": "Tabelle1!B22",
+        "full_day": "Tabelle1!B33",
+        "vif": "Tabelle1!B44",
+        "below_threshold": "Tabelle1!B55"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Oberösterreich",
+      "age": "3-5",
+      "children": {
+        "total": 44285,
+        "half_day": 1436,
+        "full_day": 24303,
+        "vif": 18278,
+        "below_threshold": 268
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K11"
+        },
+        "half_day": {
+          "value": 3.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "3,2",
+          "cell": "Tabelle1!K22"
+        },
+        "full_day": {
+          "value": 54.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "54,9",
+          "cell": "Tabelle1!K33"
+        },
+        "vif": {
+          "value": 41.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "41,3",
+          "cell": "Tabelle1!K44"
+        },
+        "below_threshold": {
+          "value": 0.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,6",
+          "cell": "Tabelle1!K55"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C11",
+        "half_day": "Tabelle1!C22",
+        "full_day": "Tabelle1!C33",
+        "vif": "Tabelle1!C44",
+        "below_threshold": "Tabelle1!C55"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Salzburg",
+      "age": "0-2",
+      "children": {
+        "total": 4778,
+        "half_day": 371,
+        "full_day": 2155,
+        "vif": 1911,
+        "below_threshold": 341
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J12"
+        },
+        "half_day": {
+          "value": 7.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,8",
+          "cell": "Tabelle1!J23"
+        },
+        "full_day": {
+          "value": 45.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "45,1",
+          "cell": "Tabelle1!J34"
+        },
+        "vif": {
+          "value": 40.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "40,0",
+          "cell": "Tabelle1!J45"
+        },
+        "below_threshold": {
+          "value": 7.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,1",
+          "cell": "Tabelle1!J56"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B12",
+        "half_day": "Tabelle1!B23",
+        "full_day": "Tabelle1!B34",
+        "vif": "Tabelle1!B45",
+        "below_threshold": "Tabelle1!B56"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Salzburg",
+      "age": "3-5",
+      "children": {
+        "total": 16269,
+        "half_day": 432,
+        "full_day": 5638,
+        "vif": 7769,
+        "below_threshold": 2430
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K12"
+        },
+        "half_day": {
+          "value": 2.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,7",
+          "cell": "Tabelle1!K23"
+        },
+        "full_day": {
+          "value": 34.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "34,7",
+          "cell": "Tabelle1!K34"
+        },
+        "vif": {
+          "value": 47.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "47,8",
+          "cell": "Tabelle1!K45"
+        },
+        "below_threshold": {
+          "value": 14.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "14,9",
+          "cell": "Tabelle1!K56"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C12",
+        "half_day": "Tabelle1!C23",
+        "full_day": "Tabelle1!C34",
+        "vif": "Tabelle1!C45",
+        "below_threshold": "Tabelle1!C56"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Steiermark",
+      "age": "0-2",
+      "children": {
+        "total": 7280,
+        "half_day": 977,
+        "full_day": 3279,
+        "vif": 2876,
+        "below_threshold": 148
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J13"
+        },
+        "half_day": {
+          "value": 13.4,
+          "unit": "percent",
+          "quality": "published",
+          "display": "13,4",
+          "cell": "Tabelle1!J24"
+        },
+        "full_day": {
+          "value": 45.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "45,0",
+          "cell": "Tabelle1!J35"
+        },
+        "vif": {
+          "value": 39.5,
+          "unit": "percent",
+          "quality": "published",
+          "display": "39,5",
+          "cell": "Tabelle1!J46"
+        },
+        "below_threshold": {
+          "value": 2.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,0",
+          "cell": "Tabelle1!J57"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B13",
+        "half_day": "Tabelle1!B24",
+        "full_day": "Tabelle1!B35",
+        "vif": "Tabelle1!B46",
+        "below_threshold": "Tabelle1!B57"
+      },
+      "source_region_note": "summer_open_weeks_included"
+    },
+    {
+      "region": "Steiermark",
+      "age": "3-5",
+      "children": {
+        "total": 30572,
+        "half_day": 5490,
+        "full_day": 9458,
+        "vif": 14107,
+        "below_threshold": 1517
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K13"
+        },
+        "half_day": {
+          "value": 18.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "18,0",
+          "cell": "Tabelle1!K24"
+        },
+        "full_day": {
+          "value": 30.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "30,9",
+          "cell": "Tabelle1!K35"
+        },
+        "vif": {
+          "value": 46.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "46,1",
+          "cell": "Tabelle1!K46"
+        },
+        "below_threshold": {
+          "value": 5.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "5,0",
+          "cell": "Tabelle1!K57"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C13",
+        "half_day": "Tabelle1!C24",
+        "full_day": "Tabelle1!C35",
+        "vif": "Tabelle1!C46",
+        "below_threshold": "Tabelle1!C57"
+      },
+      "source_region_note": "summer_open_weeks_included"
+    },
+    {
+      "region": "Tirol",
+      "age": "0-2",
+      "children": {
+        "total": 6885,
+        "half_day": 395,
+        "full_day": 2417,
+        "vif": 3636,
+        "below_threshold": 437
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J14"
+        },
+        "half_day": {
+          "value": 5.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "5,7",
+          "cell": "Tabelle1!J25"
+        },
+        "full_day": {
+          "value": 35.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "35,1",
+          "cell": "Tabelle1!J36"
+        },
+        "vif": {
+          "value": 52.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "52,8",
+          "cell": "Tabelle1!J47"
+        },
+        "below_threshold": {
+          "value": 6.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,3",
+          "cell": "Tabelle1!J58"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B14",
+        "half_day": "Tabelle1!B25",
+        "full_day": "Tabelle1!B36",
+        "vif": "Tabelle1!B47",
+        "below_threshold": "Tabelle1!B58"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Tirol",
+      "age": "3-5",
+      "children": {
+        "total": 21830,
+        "half_day": 632,
+        "full_day": 4746,
+        "vif": 11501,
+        "below_threshold": 4951
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K14"
+        },
+        "half_day": {
+          "value": 2.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "2,9",
+          "cell": "Tabelle1!K25"
+        },
+        "full_day": {
+          "value": 21.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "21,7",
+          "cell": "Tabelle1!K36"
+        },
+        "vif": {
+          "value": 52.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "52,7",
+          "cell": "Tabelle1!K47"
+        },
+        "below_threshold": {
+          "value": 22.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "22,7",
+          "cell": "Tabelle1!K58"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C14",
+        "half_day": "Tabelle1!C25",
+        "full_day": "Tabelle1!C36",
+        "vif": "Tabelle1!C47",
+        "below_threshold": "Tabelle1!C58"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Vorarlberg",
+      "age": "0-2",
+      "children": {
+        "total": 4427,
+        "half_day": 384,
+        "full_day": 584,
+        "vif": 3186,
+        "below_threshold": 273
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J15"
+        },
+        "half_day": {
+          "value": 8.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "8,7",
+          "cell": "Tabelle1!J26"
+        },
+        "full_day": {
+          "value": 13.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "13,2",
+          "cell": "Tabelle1!J37"
+        },
+        "vif": {
+          "value": 72.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "72,0",
+          "cell": "Tabelle1!J48"
+        },
+        "below_threshold": {
+          "value": 6.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "6,2",
+          "cell": "Tabelle1!J59"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B15",
+        "half_day": "Tabelle1!B26",
+        "full_day": "Tabelle1!B37",
+        "vif": "Tabelle1!B48",
+        "below_threshold": "Tabelle1!B59"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Vorarlberg",
+      "age": "3-5",
+      "children": {
+        "total": 12742,
+        "half_day": 928,
+        "full_day": 2518,
+        "vif": 8313,
+        "below_threshold": 983
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K15"
+        },
+        "half_day": {
+          "value": 7.3,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,3",
+          "cell": "Tabelle1!K26"
+        },
+        "full_day": {
+          "value": 19.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "19,8",
+          "cell": "Tabelle1!K37"
+        },
+        "vif": {
+          "value": 65.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "65,2",
+          "cell": "Tabelle1!K48"
+        },
+        "below_threshold": {
+          "value": 7.7,
+          "unit": "percent",
+          "quality": "published",
+          "display": "7,7",
+          "cell": "Tabelle1!K59"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C15",
+        "half_day": "Tabelle1!C26",
+        "full_day": "Tabelle1!C37",
+        "vif": "Tabelle1!C48",
+        "below_threshold": "Tabelle1!C59"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Wien",
+      "age": "0-2",
+      "children": {
+        "total": 25816,
+        "half_day": 56,
+        "full_day": 2823,
+        "vif": 22922,
+        "below_threshold": 15
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!J16"
+        },
+        "half_day": {
+          "value": 0.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,2",
+          "cell": "Tabelle1!J27"
+        },
+        "full_day": {
+          "value": 10.9,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,9",
+          "cell": "Tabelle1!J38"
+        },
+        "vif": {
+          "value": 88.8,
+          "unit": "percent",
+          "quality": "published",
+          "display": "88,8",
+          "cell": "Tabelle1!J49"
+        },
+        "below_threshold": {
+          "value": 0.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,1",
+          "cell": "Tabelle1!J60"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!B16",
+        "half_day": "Tabelle1!B27",
+        "full_day": "Tabelle1!B38",
+        "vif": "Tabelle1!B49",
+        "below_threshold": "Tabelle1!B60"
+      },
+      "source_region_note": null
+    },
+    {
+      "region": "Wien",
+      "age": "3-5",
+      "children": {
+        "total": 56001,
+        "half_day": 56,
+        "full_day": 5912,
+        "vif": 49964,
+        "below_threshold": 69
+      },
+      "shares_of_attending_children": {
+        "total": {
+          "value": 100.0,
+          "unit": "percent",
+          "quality": "published",
+          "display": "100,0",
+          "cell": "Tabelle1!K16"
+        },
+        "half_day": {
+          "value": 0.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,1",
+          "cell": "Tabelle1!K27"
+        },
+        "full_day": {
+          "value": 10.6,
+          "unit": "percent",
+          "quality": "published",
+          "display": "10,6",
+          "cell": "Tabelle1!K38"
+        },
+        "vif": {
+          "value": 89.2,
+          "unit": "percent",
+          "quality": "published",
+          "display": "89,2",
+          "cell": "Tabelle1!K49"
+        },
+        "below_threshold": {
+          "value": 0.1,
+          "unit": "percent",
+          "quality": "published",
+          "display": "0,1",
+          "cell": "Tabelle1!K60"
+        }
+      },
+      "count_cells": {
+        "total": "Tabelle1!C16",
+        "half_day": "Tabelle1!C27",
+        "full_day": "Tabelle1!C38",
+        "vif": "Tabelle1!C49",
+        "below_threshold": "Tabelle1!C60"
+      },
+      "source_region_note": null
+    }
+  ],
+  "quality_counts": {
+    "wishes": {
+      "published": 284,
+      "high_sampling_uncertainty": 18,
+      "not_interpretable": 34
+    },
+    "slack": {
+      "published": 15,
+      "high_sampling_uncertainty": 0,
+      "not_interpretable": 0
+    },
+    "reasons": {
+      "published": 182,
+      "high_sampling_uncertainty": 38,
+      "not_interpretable": 53
+    }
+  }
+}

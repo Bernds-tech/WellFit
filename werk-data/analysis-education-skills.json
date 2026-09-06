@@ -1,10 +1,12 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-06-v1",
   "domain":"Bildung, Kompetenzen und lebenslanges Lernen",
   "status":"vertieft – Endrechnung offen",
   "budget_priority_link":"BUD-01",
   "principle":"Bildung wird nicht als kurzfristiger Sparblock behandelt. Entscheidend ist die Wirkung je eingesetztem Euro: Basiskompetenzen, Chancengerechtigkeit, Abschlussquoten, Übergang in Arbeit und langfristige Produktivität.",
+  "canonical_data":["labour-time-care-constraints-2025.json"],
   "current_facts":[
+    {"fact":"2024/25 besuchten 200762 von 334867 betreuten Kindern unter sechs Jahren VIF-konforme Einrichtungen. Öffnungszeitkategorien und Altersgruppen sind für alle neun Bundesländer belegt; freie Plätze und zusätzliche Eltern-Arbeitsstunden bleiben unbekannt.","source":"labour-time-care-constraints-2025.json"},
     {"fact":"Staatliche Bildungsausgaben nach österreichischer Systematik lagen 2024 bei 28,977 Mrd. Euro, +11,0 % gegenüber 2023.","source":"Statistik Austria Bildungsausgaben, erstellt 06.03.2026"},
     {"fact":"Davon entfielen 2024 rund 17,399 Mrd. Euro auf Personal, 6,311 Mrd. auf Sachaufwand und 2,170 Mrd. auf Investitionen.","source":"Statistik Austria"},
     {"fact":"Nach Gebietskörperschaft: Bund rund 14,495 Mrd. Euro, Länder 6,647 Mrd., Wien 3,037 Mrd., Gemeinden inkl. Schulgemeindeverbände 4,797 Mrd. Euro.","source":"Statistik Austria"},
@@ -35,5 +37,5 @@
     "Investitionen in Schulstandorte und Digitalisierung mit Lebenszykluskosten und tatsächlicher Nutzung prüfen"
   ],
   "do_not_count_yet":["keine pauschale Lehrer-/Schulstandortkürzung","keine Bildungsausgabensteigerung automatisch als Ineffizienz interpretieren","keine Verwaltungsdigitalisierung als Einsparung ohne realen Personal-/Zeitnachweis","keine soziale Fördermaßnahme streichen nur weil kurzfristig kein Budgeteffekt sichtbar ist"],
-  "next_data_needed":["Kosten je Schüler nach Stufe/Bundesland","Lehrer-/Support-/Verwaltungs-VZÄ","Lernstandsdaten und Abschlussquoten","Schulstandorte/Auslastung","Elementarbetreuung Kapazität/Öffnungszeiten","Universitätskosten/Abschluss/Dropout","Erwachsenenbildungs-Wirkungsdaten"]
+  "next_data_needed":["Kosten je Schüler nach Stufe/Bundesland","Lehrer-/Support-/Verwaltungs-VZÄ","Lernstandsdaten und Abschlussquoten","Schulstandorte/Auslastung","Elementarbetreuung: freie Plätze, Personal und erreichbare Zeitfenster; Öffnungszeitkategorien 2024/25 vorhanden","Universitätskosten/Abschluss/Dropout","Erwachsenenbildungs-Wirkungsdaten"]
 }

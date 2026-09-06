@@ -1,10 +1,12 @@
 {
-  "version":"2026-09-03-v1",
+  "version":"2026-09-06-v1",
   "domain":"Soziales, Familie, Armut und Migration/Integration",
   "status":"vertieft – Endrechnung offen",
   "budget_priority_link":"BUD-01",
   "principle":"Soziale Sicherung wird auf Treffsicherheit, Arbeitsanreize, Armutsvermeidung und Zuständigkeitsklarheit geprüft. Migration/Asyl wird strikt von frei gestaltbarer Sozialpolitik getrennt, weil Bundes-, EU- und Völkerrecht Grenzen setzen.",
+  "canonical_data":["labour-time-care-constraints-2025.json"],
   "current_facts":[
+    {"fact":"2024/25 besuchten 200762 von 334867 betreuten Kindern unter sechs Jahren VIF-konforme Einrichtungen. Öffnungszeitkategorien und Altersgruppen sind für alle neun Bundesländer belegt; freie Plätze und zusätzliche Eltern-Arbeitsstunden bleiben unbekannt.","source":"labour-time-care-constraints-2025.json"},
     {"fact":"Sozialausgaben 2025 vorläufig: 171,8 Mrd. Euro bzw. 33,4 % des BIP; Pensionsleistungen allein 15,9 % des BIP.","source":"Statistik Austria Sozialquote/Sozialausgaben, 2026"},
     {"fact":"Bundesbudget 2026 enthält große Ausgabenblöcke in UG 21 Soziales, UG 25 Familie/Jugend sowie UG 18 Fremdenwesen; gesamtstaatliche Sozialausgaben reichen jedoch weit über den Bundeshaushalt hinaus.","source":"BMF BVA 2026"},
     {"fact":"Migration, Asyl und wesentliche Fremdenrechtsmaterien liegen verfassungsrechtlich im Kern beim Bund; Länder/Gemeinden tragen jedoch relevante Unterbringungs-, Integrations-, Bildungs- und Infrastrukturfolgen.","source":"B-VG Kompetenzinventar / WERK Rechtsaudit"}

@@ -9,6 +9,9 @@ const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-labour-negative-'));
 const labour='scripts/werk-labour-productivity-contract.mjs';
 const sourceCheck='scripts/werk-import-occupation-evidence.py';
 const regionalCheck='scripts/werk-import-regional-labour.py';
+const tcCheck='scripts/werk-import-time-care.py';
+const tc='werk-data/labour-time-care-constraints-2025.json';
+const tcMetric=d=>Object.values(d.working_time_wishes.flatMap(r=>Object.values(r.metrics))).find(m=>m.quality==='not_interpretable');
 const qtCheck='scripts/werk-import-qualification-time.py';
 const qt='werk-data/labour-qualification-working-time-2026-08.json';
 const supplyCheck='scripts/werk-import-occupation-supply.py';
@@ -20,6 +23,19 @@ const matching='werk-data/labour-matching-baseline-2025-2026.json';
 const supply='werk-data/labour-occupation-supply-2026-08.json';
 const run=source=>spawnSync(source?'python3':process.execPath,source?[source===true?sourceCheck:source,'--check']:[labour],{cwd:tmp,encoding:'utf8'});
 const cases=[
+  ['suppressed survey estimate unmasked',tc,d=>tcMetric(d).value=1.2,/Uninterpretable survey value must remain null/],
+  ['hidden ODS precision used',tc,d=>d.scope.hidden_ods_numbers_used=true,/Unsupported time\/care inference/],
+  ['survey added to AMS month',tc,d=>d.scope.survey_added_to_ams_stocks=true,/Unsupported time\/care inference/],
+  ['invented childcare places',tc,d=>d.effect_gate.available_childcare_places=0,/Time\/care effects\/free places must remain null/],
+  ['mixed childcare year',tc,d=>d.periods.childcare='2025/26',/Time\/care periods must stay separate/,tcCheck],
+  ['population denominator replaced',tc,d=>d.scope.childcare_denominator='all_resident_children',/Childcare denominator guard changed/,tcCheck],
+  ['care reason falsely split',tc,d=>d.scope.care_reason_split_into_child_and_adult=true,/Unsupported time\/care inference/],
+  ['sampling uncertainty erased',tc,d=>Object.values(d.working_time_wishes.flatMap(r=>Object.values(r.metrics))).find(m=>m.quality==='high_sampling_uncertainty').quality='published',/Time\/care extraction mismatch: working_time_wishes/,tcCheck],
+  ['survey display precision invented',tc,d=>d.working_time_wishes[0].metrics.parttime.value=1387.9312,/Time\/care extraction mismatch: working_time_wishes/,tcCheck],
+  ['ODS repeated-row locator drift',tc,d=>d.working_time_wishes[0].metrics.parttime.cell='R3!D7',/Time\/care extraction mismatch: working_time_wishes/,tcCheck],
+  ['VIF counted again as full-day',tc,d=>d.childcare_opening_categories[0].children.full_day+=d.childcare_opening_categories[0].children.vif,/Time\/care extraction mismatch: childcare_opening_categories/,tcCheck],
+  ['VIF definition weakened',tc,d=>d.childcare_definition.vif.weeks_per_year_min=45,/VIF source definition changed/,tcCheck],
+
   ['invented joint education and occupation',qt,d=>d.scope.education_occupation_joint_observed=true,/Unproven qualification/],
   ['synthetic qualification cells',qt,d=>d.joint_matching_cells.push({region:'Wien'}),/Synthetic qualification/],
   ['invented feasible hours',qt,d=>d.matching_gate.feasible_additional_working_hours=0,/effects and feasible hours must remain null/],
@@ -61,8 +77,8 @@ const cases=[
 try{
   fs.cpSync('werk-data',path.join(tmp,'werk-data'),{recursive:true});
   fs.mkdirSync(path.join(tmp,'scripts'));
-  for(const script of [labour,sourceCheck,regionalCheck,supplyCheck,qtCheck])fs.copyFileSync(script,path.join(tmp,script));
-  for(const source of [false,true,regionalCheck,supplyCheck,qtCheck]){
+  for(const script of [labour,sourceCheck,regionalCheck,supplyCheck,qtCheck,tcCheck])fs.copyFileSync(script,path.join(tmp,script));
+  for(const source of [false,true,regionalCheck,supplyCheck,qtCheck,tcCheck]){
     const r=run(source);assert.equal(r.status,0,`Unmodified baseline failed: ${r.stderr}`);
   }
   for(const [name,file,mutate,error,source=false] of cases){

@@ -70,3 +70,10 @@ No additional locks recorded.
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: qualification and working-time evidence for August, no invented joint distribution; existing WERK branch.
 - Released: 2026-09-06 after exact-implementation success of all 13 workflows and preparation of WERK_LABOUR_004_CI_RECEIPT.json.
+
+## LOCK-WERK-LAB-005
+- Task: WERK-LAB-005
+- Status: ACTIVE
+- Risk: R2
+- Holder: Codex WERK continuation 2026-09-06
+- Scope: working-time wishes/care evidence and dependent WERK data contracts on existing branch.
