@@ -78,3 +78,10 @@ No additional locks recorded.
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: working-time wishes/care evidence and dependent WERK data contracts on existing branch.
 - Released: 2026-09-06 after successful publication and all 13 exact-implementation CI workflows; WERK_LABOUR_005_CI_RECEIPT.json.
+
+## LOCK-WERK-CALC-001
+- Task: WERK-CALC-001
+- Status: ACTIVE
+- Holder: Codex 2026-09-06
+- Scope: WERK-Rechenartefakte, Fiskalvertrag und Projektübergabe.
+- Branch: werk-v49-preview-host

@@ -122,3 +122,8 @@
 - Owner instruction: continue substantive data/model development on existing WERK branch.
 - Scope: official time-wish and care evidence; no synthetic joint distribution or assumed reform effects.
 - Recovery: revert bounded LAB-005 implementation.
+
+## WERK-CR-CALC-001 — Gesamtrechnung
+- Date: 2026-09-06
+- Owner request: „weiter! … rechne mal alles durch!!!!“
+- Scope: reproduzierbare Budget-, Reform-Sensitivitäts-, Tilgungs-, Mehrstunden- und Payroll-Rechnung; bestehender WERK-Zweig. Keine Gleichsetzung von Szenario und finanzierter Reform.

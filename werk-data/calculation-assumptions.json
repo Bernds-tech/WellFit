@@ -1,0 +1,36 @@
+{
+  "version": "2026-09-06-v1",
+  "status": "illustrative_assumptions_not_estimates_or_policy_decisions",
+  "horizons_years": [1, 5, 10],
+  "gross_effect_ramp": [0.25, 0.75, 1, 1, 1, 1, 1, 1, 1, 1],
+  "operating_cost_rule": "Full additional annual operating costs from year 1; gross effect ramps. Transition is paid once at time zero.",
+  "transition_cost_per_module_mio_cases": [0, 10, 25, 50],
+  "combined_overlap_haircuts_on_gross": [0, 0.25, 0.5],
+  "combined_rule": "ADM-01/ADM-02 share one module. Conditional joint cases only; overlap haircut reduces gross benefits, never costs. No case is credited to the funding matrix.",
+  "discount_rate_pct": 3,
+  "price_rule": "Static nominal source bases (administration 2026, tax/gambling 2025), no growth or inflation. Ten-year results are sensitivities, not an official forecast.",
+  "sensitivity_inputs": {
+    "administration_efficiency_pct": [0.5, 1, 2],
+    "incremental_corporate_tax_yield_pct": [0.25, 0.5, 1],
+    "gambling_market_and_yield_pct_pairs": [[-5, 0], [0, 0], [5, 5]]
+  },
+  "debt": {
+    "annual_base_repayment_bn_cases": [10, 15, 20],
+    "avoided_refinancing_rate_pct_cases": [0, 1, 2.5, 4],
+    "reinvest_interest_share_cases": [0, 1],
+    "rule": "Conditional repayment phase only: sustainable funded base surplus, no new deficits or stock-flow adjustments; repayment at year-end, interest benefit from the following year. Reinvested interest is included in principal reduction and cannot be added again. No start calendar year is assumed."
+  },
+  "labour": {
+    "uptake_share_cases": [0.25, 0.5, 1],
+    "additional_weekly_hours_cases": [5, 10, 15],
+    "fte_weekly_hours": 40,
+    "rule": "Mechanical hours equivalents using survey availability, not matched jobs, feasible hours, employment effects or budget revenue. No multiplication of individual payroll cases by the survey population."
+  },
+  "payroll": {
+    "fulltime_monthly_gross_eur_cases": [3000, 4000, 5000],
+    "weekly_hours_cases": [20, 25, 30, 40],
+    "fulltime_weekly_hours": 40,
+    "regions": ["outside_vienna", "vienna"],
+    "rule": "Constant annual employment at each hours level, proportional gross, 12 ordinary plus two equal special payments; standard ASVG employee. Employer withholding before assessment, no household transfers, childcare/transport costs, employer contributions or midyear change."
+  }
+}

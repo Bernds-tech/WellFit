@@ -1,0 +1,5676 @@
+{
+  "version": "2026-09-06-v1",
+  "status": "audited_arithmetic_conditional_scenarios_not_funded_program",
+  "assumptions_artifact": "werk-data/calculation-assumptions.json",
+  "source_sha256": {
+    "werk-data/calculation-assumptions.json": "b881f7d40d36f5f50d36ca0c3b8c905141ef7d10bd496da32899319fed67fd22",
+    "werk-data/budget-baseline-2026-2031.json": "6a56e4df54c58a1c812ee9222e7c6e23921641a5a6031e05a108ded1614a148a",
+    "werk-data/funding-matrix.json": "41c27996bc9cfbc3328ec8e58453113d0458f640885d9f49bd6f59e3d49d425a",
+    "werk-data/reforms.json": "723f572f305737431b7864adcb8624c444d0d597fe5200b08a6fb2939384f986",
+    "werk-data/admin-model.json": "95701417ef30de97a0e9516ba6f5a9698dc52c252db28eb166610337301e8a65",
+    "werk-data/tax-compliance-model.json": "bc3cfc87e2cc3b95ecb1d1b9100d96630854a713a3ba1d1a007d149894f66744",
+    "werk-data/gambling-model.json": "e733868a4802dd36252e214e3065e0d7ea329207512097a1ccb7f82b47843388",
+    "werk-data/debt-model.json": "43e6d246fa811e0d32a7f49fb78dc84d8ac1dee18615d08bfc63b2fad2fde6b8",
+    "werk-data/labour-time-care-constraints-2025.json": "016b2b9ef677a52a3a252800cf1243bcaf45bba61eb384c88caa62403e2438cc",
+    "werk-data/payroll-employee-kernel-2026.json": "9c0a8ee265c0d6e5c84adad5bcc6749a48f6f3431f114a3956fbe5e1aa7206fe",
+    "werk-data/government-baseline-2025-2031.json": "79312c80a89c0bd8025c7b554fe56ed086a0481d1f770736ecd3b4d1a1c582ee",
+    "werk-data/pension-baseline-2024-2031.json": "343c8270e9aa3688fa6f98593b26b219abdba445c3ce2835b6bd07750b874e78",
+    "werk-data/health-baseline-2024-2031.json": "6b02f234429bd216298c047a7617044b5074642c6638d2564062eb7b0125c67d",
+    "werk-data/care-baseline-2024-2050.json": "6b6507a6dde219f38d66942967bbe4f7f417ea5e01ebc41c333640b2583fa880",
+    "werk-data/fiscal-model.json": "a36818a7c6515d61542113260ef23629dab2d4cd21cc2e61315b574e9cadf286"
+  },
+  "coverage": {
+    "registered_reforms": 15,
+    "distinct_default_scenario_modules": 3,
+    "verified_funding": {
+      "verified_annual_net_bn": 0,
+      "verified_count": 0
+    },
+    "rule": "Null means unknown, not zero effect. Zero funding credit means no verified amount is currently booked."
+  },
+  "budget": {
+    "unit": "billion_eur",
+    "target_annual_surplus_bn": 10,
+    "rows": [
+      {
+        "year": 2026,
+        "revenue_bn": 269.7,
+        "expenditure_bn": 291.8,
+        "interest_bn": 9.4,
+        "primary_balance_bn": -12.8,
+        "balance_bn": -22.2,
+        "gap_to_balance_bn": 22.2,
+        "improvement_to_target_bn": 32.2,
+        "remaining_target_gap_after_verified_effects_bn": 32.2,
+        "debt_bn": 438.2,
+        "debt_ratio_pct": 82.9,
+        "revenue_expenditure_balance_rounding_residual_bn": 0.1,
+        "primary_interest_balance_rounding_residual_bn": 0
+      },
+      {
+        "year": 2027,
+        "revenue_bn": 280.1,
+        "expenditure_bn": 299.2,
+        "interest_bn": 10.6,
+        "primary_balance_bn": -8.5,
+        "balance_bn": -19.1,
+        "gap_to_balance_bn": 19.1,
+        "improvement_to_target_bn": 29.1,
+        "remaining_target_gap_after_verified_effects_bn": 29.1,
+        "debt_bn": 457.3,
+        "debt_ratio_pct": 83.6,
+        "revenue_expenditure_balance_rounding_residual_bn": 0,
+        "primary_interest_balance_rounding_residual_bn": 0
+      },
+      {
+        "year": 2028,
+        "revenue_bn": 289.9,
+        "expenditure_bn": 306.8,
+        "interest_bn": 11.7,
+        "primary_balance_bn": -5.2,
+        "balance_bn": -16.9,
+        "gap_to_balance_bn": 16.9,
+        "improvement_to_target_bn": 26.9,
+        "remaining_target_gap_after_verified_effects_bn": 26.9,
+        "debt_bn": 473.4,
+        "debt_ratio_pct": 83.8,
+        "revenue_expenditure_balance_rounding_residual_bn": 0,
+        "primary_interest_balance_rounding_residual_bn": 0
+      },
+      {
+        "year": 2029,
+        "revenue_bn": 298.4,
+        "expenditure_bn": 314.8,
+        "interest_bn": 12.9,
+        "primary_balance_bn": -3.6,
+        "balance_bn": -16.5,
+        "gap_to_balance_bn": 16.5,
+        "improvement_to_target_bn": 26.5,
+        "remaining_target_gap_after_verified_effects_bn": 26.5,
+        "debt_bn": 490.3,
+        "debt_ratio_pct": 84.2,
+        "revenue_expenditure_balance_rounding_residual_bn": 0.1,
+        "primary_interest_balance_rounding_residual_bn": 0
+      },
+      {
+        "year": 2030,
+        "revenue_bn": 306.3,
+        "expenditure_bn": 323.4,
+        "interest_bn": 14.3,
+        "primary_balance_bn": -2.9,
+        "balance_bn": -17.1,
+        "gap_to_balance_bn": 17.1,
+        "improvement_to_target_bn": 27.1,
+        "remaining_target_gap_after_verified_effects_bn": 27.1,
+        "debt_bn": 507.8,
+        "debt_ratio_pct": 84.6,
+        "revenue_expenditure_balance_rounding_residual_bn": 0,
+        "primary_interest_balance_rounding_residual_bn": -0.1
+      },
+      {
+        "year": 2031,
+        "revenue_bn": 314.4,
+        "expenditure_bn": 332.4,
+        "interest_bn": 15.4,
+        "primary_balance_bn": -2.6,
+        "balance_bn": -18,
+        "gap_to_balance_bn": 18,
+        "improvement_to_target_bn": 28,
+        "remaining_target_gap_after_verified_effects_bn": 28,
+        "debt_bn": 525.2,
+        "debt_ratio_pct": 85,
+        "revenue_expenditure_balance_rounding_residual_bn": 0,
+        "primary_interest_balance_rounding_residual_bn": 0
+      }
+    ],
+    "cumulative": [
+      {
+        "years": 1,
+        "from": 2026,
+        "to": 2026,
+        "cumulative_deficit_bn": 22.2,
+        "cumulative_interest_bn": 9.4,
+        "cumulative_primary_deficit_bn": 12.8,
+        "cumulative_improvement_to_annual_target_bn": 32.2
+      },
+      {
+        "years": 5,
+        "from": 2026,
+        "to": 2030,
+        "cumulative_deficit_bn": 91.8,
+        "cumulative_interest_bn": 58.9,
+        "cumulative_primary_deficit_bn": 33,
+        "cumulative_improvement_to_annual_target_bn": 141.8
+      },
+      {
+        "years": 6,
+        "from": 2026,
+        "to": 2031,
+        "cumulative_deficit_bn": 109.8,
+        "cumulative_interest_bn": 74.3,
+        "cumulative_primary_deficit_bn": 35.6,
+        "cumulative_improvement_to_annual_target_bn": 169.8
+      }
+    ],
+    "official_ten_year_projection": null,
+    "reason": "Official reference ends in 2031; no unlabelled extrapolation to 2035.",
+    "end_2026_to_end_2031_debt_change_bn": 87,
+    "deficits_2027_2031_bn": 87.6,
+    "derived_stock_flow_and_rounding_residual_2027_2031_bn": -0.6,
+    "historical_calculator_base": {
+      "year": 2025,
+      "bridge_bn": 31.5
+    },
+    "already_in_reference_government_consolidation": {
+      "years": [
+        2025,
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031
+      ],
+      "original_2025_package": [
+        6251,
+        8657,
+        11135,
+        13027,
+        14602,
+        14602,
+        14602
+      ],
+      "update_and_concretisation": [
+        -409,
+        388,
+        -926,
+        -1520,
+        -2093,
+        -2131,
+        -2206
+      ],
+      "updated_2025_package": [
+        5843,
+        9045,
+        10209,
+        11507,
+        12510,
+        12472,
+        12397
+      ],
+      "new_measures_since_june_2025": [
+        0,
+        -958,
+        1259,
+        2480,
+        2318,
+        2316,
+        2578
+      ],
+      "total_consolidation_since_2025": [
+        5843,
+        8088,
+        11469,
+        13987,
+        14828,
+        14788,
+        14975
+      ],
+      "expenditure_side_share_pct": [
+        71,
+        76,
+        68,
+        68,
+        68,
+        69,
+        71
+      ],
+      "revenue_side_share_pct": [
+        29,
+        24,
+        32,
+        32,
+        32,
+        31,
+        29
+      ],
+      "warning": "Der Budgetdienst bezeichnet insbesondere die Ressorteinsparungen des Konsolidierungspakets 2025 weiterhin als mögliche Obergrenze, weil Teile nur teilweise realisiert sein dürften."
+    }
+  },
+  "default_modules": [
+    {
+      "id": "ADM-01/ADM-02",
+      "source": "admin-model.json",
+      "base_year": 2026,
+      "assumption": "1% von 0.979 Mrd. EUR",
+      "gross_mio": 9.79,
+      "running_mio": 0,
+      "steady_annual_net_before_transition_mio": 9.79,
+      "verified_net_mio": null,
+      "actual_transition_cost_mio": null,
+      "immediate_full_effect_cumulative_before_transition_mio": {
+        "1": 9.79,
+        "5": 48.95,
+        "10": 97.9
+      },
+      "transition_scenarios": [
+        {
+          "transition_cost_mio": 0,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 2.4475,
+              "running_cost_mio": 0,
+              "annual_net_mio": 2.4475,
+              "cumulative_net_mio": 2.4475,
+              "npv_mio": 2.376214
+            },
+            {
+              "year": 2,
+              "gross_mio": 7.3425,
+              "running_cost_mio": 0,
+              "annual_net_mio": 7.3425,
+              "cumulative_net_mio": 9.79,
+              "npv_mio": 9.297224
+            },
+            {
+              "year": 3,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 19.58,
+              "npv_mio": 18.256461
+            },
+            {
+              "year": 4,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 29.37,
+              "npv_mio": 26.954749
+            },
+            {
+              "year": 5,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 39.16,
+              "npv_mio": 35.399689
+            },
+            {
+              "year": 6,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 48.95,
+              "npv_mio": 43.59866
+            },
+            {
+              "year": 7,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 58.74,
+              "npv_mio": 51.558826
+            },
+            {
+              "year": 8,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 68.53,
+              "npv_mio": 59.287142
+            },
+            {
+              "year": 9,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 78.32,
+              "npv_mio": 66.790362
+            },
+            {
+              "year": 10,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 88.11,
+              "npv_mio": 74.075042
+            }
+          ],
+          "break_even_year_within_horizon": 1
+        },
+        {
+          "transition_cost_mio": 10,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 2.4475,
+              "running_cost_mio": 0,
+              "annual_net_mio": 2.4475,
+              "cumulative_net_mio": -7.5525,
+              "npv_mio": -7.623786
+            },
+            {
+              "year": 2,
+              "gross_mio": 7.3425,
+              "running_cost_mio": 0,
+              "annual_net_mio": 7.3425,
+              "cumulative_net_mio": -0.21,
+              "npv_mio": -0.702776
+            },
+            {
+              "year": 3,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 9.58,
+              "npv_mio": 8.256461
+            },
+            {
+              "year": 4,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 19.37,
+              "npv_mio": 16.954749
+            },
+            {
+              "year": 5,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 29.16,
+              "npv_mio": 25.399689
+            },
+            {
+              "year": 6,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 38.95,
+              "npv_mio": 33.59866
+            },
+            {
+              "year": 7,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 48.74,
+              "npv_mio": 41.558826
+            },
+            {
+              "year": 8,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 58.53,
+              "npv_mio": 49.287142
+            },
+            {
+              "year": 9,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 68.32,
+              "npv_mio": 56.790362
+            },
+            {
+              "year": 10,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 78.11,
+              "npv_mio": 64.075042
+            }
+          ],
+          "break_even_year_within_horizon": 3
+        },
+        {
+          "transition_cost_mio": 25,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 2.4475,
+              "running_cost_mio": 0,
+              "annual_net_mio": 2.4475,
+              "cumulative_net_mio": -22.5525,
+              "npv_mio": -22.623786
+            },
+            {
+              "year": 2,
+              "gross_mio": 7.3425,
+              "running_cost_mio": 0,
+              "annual_net_mio": 7.3425,
+              "cumulative_net_mio": -15.21,
+              "npv_mio": -15.702776
+            },
+            {
+              "year": 3,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": -5.42,
+              "npv_mio": -6.743539
+            },
+            {
+              "year": 4,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 4.37,
+              "npv_mio": 1.954749
+            },
+            {
+              "year": 5,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 14.16,
+              "npv_mio": 10.399689
+            },
+            {
+              "year": 6,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 23.95,
+              "npv_mio": 18.59866
+            },
+            {
+              "year": 7,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 33.74,
+              "npv_mio": 26.558826
+            },
+            {
+              "year": 8,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 43.53,
+              "npv_mio": 34.287142
+            },
+            {
+              "year": 9,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 53.32,
+              "npv_mio": 41.790362
+            },
+            {
+              "year": 10,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 63.11,
+              "npv_mio": 49.075042
+            }
+          ],
+          "break_even_year_within_horizon": 4
+        },
+        {
+          "transition_cost_mio": 50,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 2.4475,
+              "running_cost_mio": 0,
+              "annual_net_mio": 2.4475,
+              "cumulative_net_mio": -47.5525,
+              "npv_mio": -47.623786
+            },
+            {
+              "year": 2,
+              "gross_mio": 7.3425,
+              "running_cost_mio": 0,
+              "annual_net_mio": 7.3425,
+              "cumulative_net_mio": -40.21,
+              "npv_mio": -40.702776
+            },
+            {
+              "year": 3,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": -30.42,
+              "npv_mio": -31.743539
+            },
+            {
+              "year": 4,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": -20.63,
+              "npv_mio": -23.045251
+            },
+            {
+              "year": 5,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": -10.84,
+              "npv_mio": -14.600311
+            },
+            {
+              "year": 6,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": -1.05,
+              "npv_mio": -6.40134
+            },
+            {
+              "year": 7,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 8.74,
+              "npv_mio": 1.558826
+            },
+            {
+              "year": 8,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 18.53,
+              "npv_mio": 9.287142
+            },
+            {
+              "year": 9,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 28.32,
+              "npv_mio": 16.790362
+            },
+            {
+              "year": 10,
+              "gross_mio": 9.79,
+              "running_cost_mio": 0,
+              "annual_net_mio": 9.79,
+              "cumulative_net_mio": 38.11,
+              "npv_mio": 24.075042
+            }
+          ],
+          "break_even_year_within_horizon": 7
+        }
+      ]
+    },
+    {
+      "id": "TAX-02",
+      "source": "tax-compliance-model.json",
+      "base_year": 2025,
+      "assumption": "0.5% zusätzlich auf KÖSt-Basis 2025",
+      "gross_mio": 59.3665,
+      "running_mio": 20,
+      "steady_annual_net_before_transition_mio": 39.3665,
+      "verified_net_mio": null,
+      "actual_transition_cost_mio": null,
+      "immediate_full_effect_cumulative_before_transition_mio": {
+        "1": 39.3665,
+        "5": 196.8325,
+        "10": 393.665
+      },
+      "transition_scenarios": [
+        {
+          "transition_cost_mio": 0,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 14.841625,
+              "running_cost_mio": 20,
+              "annual_net_mio": -5.158375,
+              "cumulative_net_mio": -5.158375,
+              "npv_mio": -5.008131
+            },
+            {
+              "year": 2,
+              "gross_mio": 44.524875,
+              "running_cost_mio": 20,
+              "annual_net_mio": 24.524875,
+              "cumulative_net_mio": 19.3665,
+              "npv_mio": 18.108916
+            },
+            {
+              "year": 3,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 58.733,
+              "npv_mio": 54.13484
+            },
+            {
+              "year": 4,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 98.0995,
+              "npv_mio": 89.111465
+            },
+            {
+              "year": 5,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 137.466,
+              "npv_mio": 123.069354
+            },
+            {
+              "year": 6,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 176.8325,
+              "npv_mio": 156.038178
+            },
+            {
+              "year": 7,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 216.199,
+              "npv_mio": 188.046745
+            },
+            {
+              "year": 8,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 255.5655,
+              "npv_mio": 219.123024
+            },
+            {
+              "year": 9,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 294.932,
+              "npv_mio": 249.294168
+            },
+            {
+              "year": 10,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 334.2985,
+              "npv_mio": 278.586541
+            }
+          ],
+          "break_even_year_within_horizon": 2
+        },
+        {
+          "transition_cost_mio": 10,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 14.841625,
+              "running_cost_mio": 20,
+              "annual_net_mio": -5.158375,
+              "cumulative_net_mio": -15.158375,
+              "npv_mio": -15.008131
+            },
+            {
+              "year": 2,
+              "gross_mio": 44.524875,
+              "running_cost_mio": 20,
+              "annual_net_mio": 24.524875,
+              "cumulative_net_mio": 9.3665,
+              "npv_mio": 8.108916
+            },
+            {
+              "year": 3,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 48.733,
+              "npv_mio": 44.13484
+            },
+            {
+              "year": 4,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 88.0995,
+              "npv_mio": 79.111465
+            },
+            {
+              "year": 5,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 127.466,
+              "npv_mio": 113.069354
+            },
+            {
+              "year": 6,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 166.8325,
+              "npv_mio": 146.038178
+            },
+            {
+              "year": 7,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 206.199,
+              "npv_mio": 178.046745
+            },
+            {
+              "year": 8,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 245.5655,
+              "npv_mio": 209.123024
+            },
+            {
+              "year": 9,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 284.932,
+              "npv_mio": 239.294168
+            },
+            {
+              "year": 10,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 324.2985,
+              "npv_mio": 268.586541
+            }
+          ],
+          "break_even_year_within_horizon": 2
+        },
+        {
+          "transition_cost_mio": 25,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 14.841625,
+              "running_cost_mio": 20,
+              "annual_net_mio": -5.158375,
+              "cumulative_net_mio": -30.158375,
+              "npv_mio": -30.008131
+            },
+            {
+              "year": 2,
+              "gross_mio": 44.524875,
+              "running_cost_mio": 20,
+              "annual_net_mio": 24.524875,
+              "cumulative_net_mio": -5.6335,
+              "npv_mio": -6.891084
+            },
+            {
+              "year": 3,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 33.733,
+              "npv_mio": 29.13484
+            },
+            {
+              "year": 4,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 73.0995,
+              "npv_mio": 64.111465
+            },
+            {
+              "year": 5,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 112.466,
+              "npv_mio": 98.069354
+            },
+            {
+              "year": 6,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 151.8325,
+              "npv_mio": 131.038178
+            },
+            {
+              "year": 7,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 191.199,
+              "npv_mio": 163.046745
+            },
+            {
+              "year": 8,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 230.5655,
+              "npv_mio": 194.123024
+            },
+            {
+              "year": 9,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 269.932,
+              "npv_mio": 224.294168
+            },
+            {
+              "year": 10,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 309.2985,
+              "npv_mio": 253.586541
+            }
+          ],
+          "break_even_year_within_horizon": 3
+        },
+        {
+          "transition_cost_mio": 50,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 14.841625,
+              "running_cost_mio": 20,
+              "annual_net_mio": -5.158375,
+              "cumulative_net_mio": -55.158375,
+              "npv_mio": -55.008131
+            },
+            {
+              "year": 2,
+              "gross_mio": 44.524875,
+              "running_cost_mio": 20,
+              "annual_net_mio": 24.524875,
+              "cumulative_net_mio": -30.6335,
+              "npv_mio": -31.891084
+            },
+            {
+              "year": 3,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 8.733,
+              "npv_mio": 4.13484
+            },
+            {
+              "year": 4,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 48.0995,
+              "npv_mio": 39.111465
+            },
+            {
+              "year": 5,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 87.466,
+              "npv_mio": 73.069354
+            },
+            {
+              "year": 6,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 126.8325,
+              "npv_mio": 106.038178
+            },
+            {
+              "year": 7,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 166.199,
+              "npv_mio": 138.046745
+            },
+            {
+              "year": 8,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 205.5655,
+              "npv_mio": 169.123024
+            },
+            {
+              "year": 9,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 244.932,
+              "npv_mio": 199.294168
+            },
+            {
+              "year": 10,
+              "gross_mio": 59.3665,
+              "running_cost_mio": 20,
+              "annual_net_mio": 39.3665,
+              "cumulative_net_mio": 284.2985,
+              "npv_mio": 228.586541
+            }
+          ],
+          "break_even_year_within_horizon": 3
+        }
+      ]
+    },
+    {
+      "id": "GAME-01",
+      "source": "gambling-model.json",
+      "base_year": 2025,
+      "assumption": "Markt 0%, Abgabenwirkung 0%",
+      "gross_mio": 0,
+      "running_mio": 10,
+      "steady_annual_net_before_transition_mio": -10,
+      "verified_net_mio": null,
+      "actual_transition_cost_mio": null,
+      "immediate_full_effect_cumulative_before_transition_mio": {
+        "1": -10,
+        "5": -50,
+        "10": -100
+      },
+      "transition_scenarios": [
+        {
+          "transition_cost_mio": 0,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -10,
+              "npv_mio": -9.708738
+            },
+            {
+              "year": 2,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -20,
+              "npv_mio": -19.134697
+            },
+            {
+              "year": 3,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -30,
+              "npv_mio": -28.286114
+            },
+            {
+              "year": 4,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -40,
+              "npv_mio": -37.170984
+            },
+            {
+              "year": 5,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -50,
+              "npv_mio": -45.797072
+            },
+            {
+              "year": 6,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -60,
+              "npv_mio": -54.171914
+            },
+            {
+              "year": 7,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -70,
+              "npv_mio": -62.30283
+            },
+            {
+              "year": 8,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -80,
+              "npv_mio": -70.196922
+            },
+            {
+              "year": 9,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -90,
+              "npv_mio": -77.861089
+            },
+            {
+              "year": 10,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -100,
+              "npv_mio": -85.302028
+            }
+          ],
+          "break_even_year_within_horizon": null
+        },
+        {
+          "transition_cost_mio": 10,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -20,
+              "npv_mio": -19.708738
+            },
+            {
+              "year": 2,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -30,
+              "npv_mio": -29.134697
+            },
+            {
+              "year": 3,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -40,
+              "npv_mio": -38.286114
+            },
+            {
+              "year": 4,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -50,
+              "npv_mio": -47.170984
+            },
+            {
+              "year": 5,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -60,
+              "npv_mio": -55.797072
+            },
+            {
+              "year": 6,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -70,
+              "npv_mio": -64.171914
+            },
+            {
+              "year": 7,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -80,
+              "npv_mio": -72.30283
+            },
+            {
+              "year": 8,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -90,
+              "npv_mio": -80.196922
+            },
+            {
+              "year": 9,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -100,
+              "npv_mio": -87.861089
+            },
+            {
+              "year": 10,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -110,
+              "npv_mio": -95.302028
+            }
+          ],
+          "break_even_year_within_horizon": null
+        },
+        {
+          "transition_cost_mio": 25,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -35,
+              "npv_mio": -34.708738
+            },
+            {
+              "year": 2,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -45,
+              "npv_mio": -44.134697
+            },
+            {
+              "year": 3,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -55,
+              "npv_mio": -53.286114
+            },
+            {
+              "year": 4,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -65,
+              "npv_mio": -62.170984
+            },
+            {
+              "year": 5,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -75,
+              "npv_mio": -70.797072
+            },
+            {
+              "year": 6,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -85,
+              "npv_mio": -79.171914
+            },
+            {
+              "year": 7,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -95,
+              "npv_mio": -87.30283
+            },
+            {
+              "year": 8,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -105,
+              "npv_mio": -95.196922
+            },
+            {
+              "year": 9,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -115,
+              "npv_mio": -102.861089
+            },
+            {
+              "year": 10,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -125,
+              "npv_mio": -110.302028
+            }
+          ],
+          "break_even_year_within_horizon": null
+        },
+        {
+          "transition_cost_mio": 50,
+          "rows": [
+            {
+              "year": 1,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -60,
+              "npv_mio": -59.708738
+            },
+            {
+              "year": 2,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -70,
+              "npv_mio": -69.134697
+            },
+            {
+              "year": 3,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -80,
+              "npv_mio": -78.286114
+            },
+            {
+              "year": 4,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -90,
+              "npv_mio": -87.170984
+            },
+            {
+              "year": 5,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -100,
+              "npv_mio": -95.797072
+            },
+            {
+              "year": 6,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -110,
+              "npv_mio": -104.171914
+            },
+            {
+              "year": 7,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -120,
+              "npv_mio": -112.30283
+            },
+            {
+              "year": 8,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -130,
+              "npv_mio": -120.196922
+            },
+            {
+              "year": 9,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -140,
+              "npv_mio": -127.861089
+            },
+            {
+              "year": 10,
+              "gross_mio": 0,
+              "running_cost_mio": 10,
+              "annual_net_mio": -10,
+              "cumulative_net_mio": -150,
+              "npv_mio": -135.302028
+            }
+          ],
+          "break_even_year_within_horizon": null
+        }
+      ]
+    }
+  ],
+  "sensitivity_rows": [
+    {
+      "module": "ADM-01/ADM-02",
+      "input_pct": 0.5,
+      "gross_mio": 4.895,
+      "net_before_transition_mio": 4.895
+    },
+    {
+      "module": "ADM-01/ADM-02",
+      "input_pct": 1,
+      "gross_mio": 9.79,
+      "net_before_transition_mio": 9.79
+    },
+    {
+      "module": "ADM-01/ADM-02",
+      "input_pct": 2,
+      "gross_mio": 19.58,
+      "net_before_transition_mio": 19.58
+    },
+    {
+      "module": "TAX-02",
+      "input_pct": 0.25,
+      "gross_mio": 29.68325,
+      "net_before_transition_mio": 9.68325
+    },
+    {
+      "module": "TAX-02",
+      "input_pct": 0.5,
+      "gross_mio": 59.3665,
+      "net_before_transition_mio": 39.3665
+    },
+    {
+      "module": "TAX-02",
+      "input_pct": 1,
+      "gross_mio": 118.733,
+      "net_before_transition_mio": 98.733
+    },
+    {
+      "module": "GAME-01",
+      "market_pct": -5,
+      "yield_pct": 0,
+      "gross_mio": -38.15,
+      "net_before_transition_mio": -48.15
+    },
+    {
+      "module": "GAME-01",
+      "market_pct": 0,
+      "yield_pct": 0,
+      "gross_mio": 0,
+      "net_before_transition_mio": -10
+    },
+    {
+      "module": "GAME-01",
+      "market_pct": 5,
+      "yield_pct": 5,
+      "gross_mio": 78.2075,
+      "net_before_transition_mio": 68.2075
+    }
+  ],
+  "combined_conditional_cases": [
+    {
+      "overlap_haircut": 0,
+      "transition_per_module_mio": 0,
+      "transition_cost_mio": 0,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 17.289125,
+          "running_cost_mio": 30,
+          "annual_net_mio": -12.710875,
+          "cumulative_net_mio": -12.710875,
+          "npv_mio": -12.340655
+        },
+        {
+          "year": 2,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 9.1565,
+          "npv_mio": 8.271443
+        },
+        {
+          "year": 3,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 48.313,
+          "npv_mio": 44.105187
+        },
+        {
+          "year": 4,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 87.4695,
+          "npv_mio": 78.89523
+        },
+        {
+          "year": 5,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 126.626,
+          "npv_mio": 112.671971
+        },
+        {
+          "year": 6,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 165.7825,
+          "npv_mio": 145.464924
+        },
+        {
+          "year": 7,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 204.939,
+          "npv_mio": 177.302741
+        },
+        {
+          "year": 8,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 244.0955,
+          "npv_mio": 208.213244
+        },
+        {
+          "year": 9,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 283.252,
+          "npv_mio": 238.223441
+        },
+        {
+          "year": 10,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 322.4085,
+          "npv_mio": 267.359554
+        }
+      ],
+      "break_even_year_within_horizon": 2
+    },
+    {
+      "overlap_haircut": 0,
+      "transition_per_module_mio": 10,
+      "transition_cost_mio": 30,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 17.289125,
+          "running_cost_mio": 30,
+          "annual_net_mio": -12.710875,
+          "cumulative_net_mio": -42.710875,
+          "npv_mio": -42.340655
+        },
+        {
+          "year": 2,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -20.8435,
+          "npv_mio": -21.728557
+        },
+        {
+          "year": 3,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 18.313,
+          "npv_mio": 14.105187
+        },
+        {
+          "year": 4,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 57.4695,
+          "npv_mio": 48.89523
+        },
+        {
+          "year": 5,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 96.626,
+          "npv_mio": 82.671971
+        },
+        {
+          "year": 6,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 135.7825,
+          "npv_mio": 115.464924
+        },
+        {
+          "year": 7,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 174.939,
+          "npv_mio": 147.302741
+        },
+        {
+          "year": 8,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 214.0955,
+          "npv_mio": 178.213244
+        },
+        {
+          "year": 9,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 253.252,
+          "npv_mio": 208.223441
+        },
+        {
+          "year": 10,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 292.4085,
+          "npv_mio": 237.359554
+        }
+      ],
+      "break_even_year_within_horizon": 3
+    },
+    {
+      "overlap_haircut": 0,
+      "transition_per_module_mio": 25,
+      "transition_cost_mio": 75,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 17.289125,
+          "running_cost_mio": 30,
+          "annual_net_mio": -12.710875,
+          "cumulative_net_mio": -87.710875,
+          "npv_mio": -87.340655
+        },
+        {
+          "year": 2,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -65.8435,
+          "npv_mio": -66.728557
+        },
+        {
+          "year": 3,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": -26.687,
+          "npv_mio": -30.894813
+        },
+        {
+          "year": 4,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 12.4695,
+          "npv_mio": 3.89523
+        },
+        {
+          "year": 5,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 51.626,
+          "npv_mio": 37.671971
+        },
+        {
+          "year": 6,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 90.7825,
+          "npv_mio": 70.464924
+        },
+        {
+          "year": 7,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 129.939,
+          "npv_mio": 102.302741
+        },
+        {
+          "year": 8,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 169.0955,
+          "npv_mio": 133.213244
+        },
+        {
+          "year": 9,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 208.252,
+          "npv_mio": 163.223441
+        },
+        {
+          "year": 10,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 247.4085,
+          "npv_mio": 192.359554
+        }
+      ],
+      "break_even_year_within_horizon": 4
+    },
+    {
+      "overlap_haircut": 0,
+      "transition_per_module_mio": 50,
+      "transition_cost_mio": 150,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 17.289125,
+          "running_cost_mio": 30,
+          "annual_net_mio": -12.710875,
+          "cumulative_net_mio": -162.710875,
+          "npv_mio": -162.340655
+        },
+        {
+          "year": 2,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -140.8435,
+          "npv_mio": -141.728557
+        },
+        {
+          "year": 3,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": -101.687,
+          "npv_mio": -105.894813
+        },
+        {
+          "year": 4,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": -62.5305,
+          "npv_mio": -71.10477
+        },
+        {
+          "year": 5,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": -23.374,
+          "npv_mio": -37.328029
+        },
+        {
+          "year": 6,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 15.7825,
+          "npv_mio": -4.535076
+        },
+        {
+          "year": 7,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 54.939,
+          "npv_mio": 27.302741
+        },
+        {
+          "year": 8,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 94.0955,
+          "npv_mio": 58.213244
+        },
+        {
+          "year": 9,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 133.252,
+          "npv_mio": 88.223441
+        },
+        {
+          "year": 10,
+          "gross_mio": 69.1565,
+          "running_cost_mio": 30,
+          "annual_net_mio": 39.1565,
+          "cumulative_net_mio": 172.4085,
+          "npv_mio": 117.359554
+        }
+      ],
+      "break_even_year_within_horizon": 6
+    },
+    {
+      "overlap_haircut": 0.25,
+      "transition_per_module_mio": 0,
+      "transition_cost_mio": 0,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 12.966844,
+          "running_cost_mio": 30,
+          "annual_net_mio": -17.033156,
+          "cumulative_net_mio": -17.033156,
+          "npv_mio": -16.537045
+        },
+        {
+          "year": 2,
+          "gross_mio": 38.900531,
+          "running_cost_mio": 30,
+          "annual_net_mio": 8.900531,
+          "cumulative_net_mio": -8.132625,
+          "npv_mio": -8.147441
+        },
+        {
+          "year": 3,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 13.73475,
+          "npv_mio": 11.864305
+        },
+        {
+          "year": 4,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 35.602125,
+          "npv_mio": 31.293185
+        },
+        {
+          "year": 5,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 57.4695,
+          "npv_mio": 50.156175
+        },
+        {
+          "year": 6,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 79.336875,
+          "npv_mio": 68.469757
+        },
+        {
+          "year": 7,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 101.20425,
+          "npv_mio": 86.249934
+        },
+        {
+          "year": 8,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 123.071625,
+          "npv_mio": 103.512242
+        },
+        {
+          "year": 9,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 144.939,
+          "npv_mio": 120.271764
+        },
+        {
+          "year": 10,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 166.806375,
+          "npv_mio": 136.543144
+        }
+      ],
+      "break_even_year_within_horizon": 3
+    },
+    {
+      "overlap_haircut": 0.25,
+      "transition_per_module_mio": 10,
+      "transition_cost_mio": 30,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 12.966844,
+          "running_cost_mio": 30,
+          "annual_net_mio": -17.033156,
+          "cumulative_net_mio": -47.033156,
+          "npv_mio": -46.537045
+        },
+        {
+          "year": 2,
+          "gross_mio": 38.900531,
+          "running_cost_mio": 30,
+          "annual_net_mio": 8.900531,
+          "cumulative_net_mio": -38.132625,
+          "npv_mio": -38.147441
+        },
+        {
+          "year": 3,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -16.26525,
+          "npv_mio": -18.135695
+        },
+        {
+          "year": 4,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 5.602125,
+          "npv_mio": 1.293185
+        },
+        {
+          "year": 5,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 27.4695,
+          "npv_mio": 20.156175
+        },
+        {
+          "year": 6,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 49.336875,
+          "npv_mio": 38.469757
+        },
+        {
+          "year": 7,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 71.20425,
+          "npv_mio": 56.249934
+        },
+        {
+          "year": 8,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 93.071625,
+          "npv_mio": 73.512242
+        },
+        {
+          "year": 9,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 114.939,
+          "npv_mio": 90.271764
+        },
+        {
+          "year": 10,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 136.806375,
+          "npv_mio": 106.543144
+        }
+      ],
+      "break_even_year_within_horizon": 4
+    },
+    {
+      "overlap_haircut": 0.25,
+      "transition_per_module_mio": 25,
+      "transition_cost_mio": 75,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 12.966844,
+          "running_cost_mio": 30,
+          "annual_net_mio": -17.033156,
+          "cumulative_net_mio": -92.033156,
+          "npv_mio": -91.537045
+        },
+        {
+          "year": 2,
+          "gross_mio": 38.900531,
+          "running_cost_mio": 30,
+          "annual_net_mio": 8.900531,
+          "cumulative_net_mio": -83.132625,
+          "npv_mio": -83.147441
+        },
+        {
+          "year": 3,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -61.26525,
+          "npv_mio": -63.135695
+        },
+        {
+          "year": 4,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -39.397875,
+          "npv_mio": -43.706815
+        },
+        {
+          "year": 5,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -17.5305,
+          "npv_mio": -24.843825
+        },
+        {
+          "year": 6,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 4.336875,
+          "npv_mio": -6.530243
+        },
+        {
+          "year": 7,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 26.20425,
+          "npv_mio": 11.249934
+        },
+        {
+          "year": 8,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 48.071625,
+          "npv_mio": 28.512242
+        },
+        {
+          "year": 9,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 69.939,
+          "npv_mio": 45.271764
+        },
+        {
+          "year": 10,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 91.806375,
+          "npv_mio": 61.543144
+        }
+      ],
+      "break_even_year_within_horizon": 6
+    },
+    {
+      "overlap_haircut": 0.25,
+      "transition_per_module_mio": 50,
+      "transition_cost_mio": 150,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 12.966844,
+          "running_cost_mio": 30,
+          "annual_net_mio": -17.033156,
+          "cumulative_net_mio": -167.033156,
+          "npv_mio": -166.537045
+        },
+        {
+          "year": 2,
+          "gross_mio": 38.900531,
+          "running_cost_mio": 30,
+          "annual_net_mio": 8.900531,
+          "cumulative_net_mio": -158.132625,
+          "npv_mio": -158.147441
+        },
+        {
+          "year": 3,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -136.26525,
+          "npv_mio": -138.135695
+        },
+        {
+          "year": 4,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -114.397875,
+          "npv_mio": -118.706815
+        },
+        {
+          "year": 5,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -92.5305,
+          "npv_mio": -99.843825
+        },
+        {
+          "year": 6,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -70.663125,
+          "npv_mio": -81.530243
+        },
+        {
+          "year": 7,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -48.79575,
+          "npv_mio": -63.750066
+        },
+        {
+          "year": 8,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -26.928375,
+          "npv_mio": -46.487758
+        },
+        {
+          "year": 9,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": -5.061,
+          "npv_mio": -29.728236
+        },
+        {
+          "year": 10,
+          "gross_mio": 51.867375,
+          "running_cost_mio": 30,
+          "annual_net_mio": 21.867375,
+          "cumulative_net_mio": 16.806375,
+          "npv_mio": -13.456856
+        }
+      ],
+      "break_even_year_within_horizon": 10
+    },
+    {
+      "overlap_haircut": 0.5,
+      "transition_per_module_mio": 0,
+      "transition_cost_mio": 0,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 8.644562,
+          "running_cost_mio": 30,
+          "annual_net_mio": -21.355438,
+          "cumulative_net_mio": -21.355438,
+          "npv_mio": -20.733434
+        },
+        {
+          "year": 2,
+          "gross_mio": 25.933687,
+          "running_cost_mio": 30,
+          "annual_net_mio": -4.066313,
+          "cumulative_net_mio": -25.42175,
+          "npv_mio": -24.566324
+        },
+        {
+          "year": 3,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -20.8435,
+          "npv_mio": -20.376577
+        },
+        {
+          "year": 4,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -16.26525,
+          "npv_mio": -16.308861
+        },
+        {
+          "year": 5,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -11.687,
+          "npv_mio": -12.359622
+        },
+        {
+          "year": 6,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -7.10875,
+          "npv_mio": -8.52541
+        },
+        {
+          "year": 7,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -2.5305,
+          "npv_mio": -4.802874
+        },
+        {
+          "year": 8,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": 2.04775,
+          "npv_mio": -1.188761
+        },
+        {
+          "year": 9,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": 6.626,
+          "npv_mio": 2.320087
+        },
+        {
+          "year": 10,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": 11.20425,
+          "npv_mio": 5.726735
+        }
+      ],
+      "break_even_year_within_horizon": 8
+    },
+    {
+      "overlap_haircut": 0.5,
+      "transition_per_module_mio": 10,
+      "transition_cost_mio": 30,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 8.644562,
+          "running_cost_mio": 30,
+          "annual_net_mio": -21.355438,
+          "cumulative_net_mio": -51.355438,
+          "npv_mio": -50.733434
+        },
+        {
+          "year": 2,
+          "gross_mio": 25.933687,
+          "running_cost_mio": 30,
+          "annual_net_mio": -4.066313,
+          "cumulative_net_mio": -55.42175,
+          "npv_mio": -54.566324
+        },
+        {
+          "year": 3,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -50.8435,
+          "npv_mio": -50.376577
+        },
+        {
+          "year": 4,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -46.26525,
+          "npv_mio": -46.308861
+        },
+        {
+          "year": 5,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -41.687,
+          "npv_mio": -42.359622
+        },
+        {
+          "year": 6,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -37.10875,
+          "npv_mio": -38.52541
+        },
+        {
+          "year": 7,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -32.5305,
+          "npv_mio": -34.802874
+        },
+        {
+          "year": 8,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -27.95225,
+          "npv_mio": -31.188761
+        },
+        {
+          "year": 9,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -23.374,
+          "npv_mio": -27.679913
+        },
+        {
+          "year": 10,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -18.79575,
+          "npv_mio": -24.273265
+        }
+      ],
+      "break_even_year_within_horizon": null
+    },
+    {
+      "overlap_haircut": 0.5,
+      "transition_per_module_mio": 25,
+      "transition_cost_mio": 75,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 8.644562,
+          "running_cost_mio": 30,
+          "annual_net_mio": -21.355438,
+          "cumulative_net_mio": -96.355437,
+          "npv_mio": -95.733434
+        },
+        {
+          "year": 2,
+          "gross_mio": 25.933687,
+          "running_cost_mio": 30,
+          "annual_net_mio": -4.066313,
+          "cumulative_net_mio": -100.42175,
+          "npv_mio": -99.566324
+        },
+        {
+          "year": 3,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -95.8435,
+          "npv_mio": -95.376577
+        },
+        {
+          "year": 4,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -91.26525,
+          "npv_mio": -91.308861
+        },
+        {
+          "year": 5,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -86.687,
+          "npv_mio": -87.359622
+        },
+        {
+          "year": 6,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -82.10875,
+          "npv_mio": -83.52541
+        },
+        {
+          "year": 7,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -77.5305,
+          "npv_mio": -79.802874
+        },
+        {
+          "year": 8,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -72.95225,
+          "npv_mio": -76.188761
+        },
+        {
+          "year": 9,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -68.374,
+          "npv_mio": -72.679913
+        },
+        {
+          "year": 10,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -63.79575,
+          "npv_mio": -69.273265
+        }
+      ],
+      "break_even_year_within_horizon": null
+    },
+    {
+      "overlap_haircut": 0.5,
+      "transition_per_module_mio": 50,
+      "transition_cost_mio": 150,
+      "rows": [
+        {
+          "year": 1,
+          "gross_mio": 8.644562,
+          "running_cost_mio": 30,
+          "annual_net_mio": -21.355438,
+          "cumulative_net_mio": -171.355437,
+          "npv_mio": -170.733434
+        },
+        {
+          "year": 2,
+          "gross_mio": 25.933687,
+          "running_cost_mio": 30,
+          "annual_net_mio": -4.066313,
+          "cumulative_net_mio": -175.42175,
+          "npv_mio": -174.566324
+        },
+        {
+          "year": 3,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -170.8435,
+          "npv_mio": -170.376577
+        },
+        {
+          "year": 4,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -166.26525,
+          "npv_mio": -166.308861
+        },
+        {
+          "year": 5,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -161.687,
+          "npv_mio": -162.359622
+        },
+        {
+          "year": 6,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -157.10875,
+          "npv_mio": -158.52541
+        },
+        {
+          "year": 7,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -152.5305,
+          "npv_mio": -154.802874
+        },
+        {
+          "year": 8,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -147.95225,
+          "npv_mio": -151.188761
+        },
+        {
+          "year": 9,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -143.374,
+          "npv_mio": -147.679913
+        },
+        {
+          "year": 10,
+          "gross_mio": 34.57825,
+          "running_cost_mio": 30,
+          "annual_net_mio": 4.57825,
+          "cumulative_net_mio": -138.79575,
+          "npv_mio": -144.273265
+        }
+      ],
+      "break_even_year_within_horizon": null
+    }
+  ],
+  "combined_steady_net_before_transition_mio": 39.1565,
+  "conditional_scale_comparison": {
+    "share_of_2026_target_gap_pct": 0.121604,
+    "warning": "Scale comparison only; no funding credit and no proven independence between modules."
+  },
+  "operating_break_even": {
+    "admin_efficiency_pct": 0,
+    "tax_incremental_yield_pct": 0.168445,
+    "gambling_combined_yield_change_pct": 1.310616
+  },
+  "debt_cases": [
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 44,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 381.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 44,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 1.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 44,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 381.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 44,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 1.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 44,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 381.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 1,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.9,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 4.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 44,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 1.4,
+          "interest_benefit_bn": 4.3,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 94.6,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 37,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 380.38995,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.40604,
+          "reinvested_interest_bn": 0.40604,
+          "cumulative_principal_reduction_bn": 51.01005,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 1.01005,
+          "cumulative_reinvested_interest_bn": 1.01005
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 326.777875,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.936853,
+          "reinvested_interest_bn": 0.936853,
+          "cumulative_principal_reduction_bn": 104.622125,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 4.622125,
+          "cumulative_reinvested_interest_bn": 4.622125
+        },
+        {
+          "year": 37,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.631216,
+          "interest_benefit_bn": 4.307688,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 360.631216,
+          "cumulative_interest_benefit_bn": 75.076471,
+          "cumulative_reinvested_interest_bn": 70.768784
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 44,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 381.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 2.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 2.25,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 11.25,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 44,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 1.4,
+          "interest_benefit_bn": 10.75,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 236.5,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 30,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 378.836715,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.038129,
+          "reinvested_interest_bn": 1.038129,
+          "cumulative_principal_reduction_bn": 52.563285,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 2.563285,
+          "cumulative_reinvested_interest_bn": 2.563285
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 319.366182,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 2.48863,
+          "reinvested_interest_bn": 2.48863,
+          "cumulative_principal_reduction_bn": 112.033818,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 12.033818,
+          "cumulative_reinvested_interest_bn": 12.033818
+        },
+        {
+          "year": 30,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 10.464074,
+          "reinvested_interest_bn": 2.837042,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 300,
+          "cumulative_interest_benefit_bn": 139.027032,
+          "cumulative_reinvested_interest_bn": 131.4
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 44,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 381.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 4,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 3.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 18,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 44,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 1.4,
+          "interest_benefit_bn": 17.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 378.4,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 26,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 421.4,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 377.236774,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.698586,
+          "reinvested_interest_bn": 1.698586,
+          "cumulative_principal_reduction_bn": 54.163226,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 4.163226,
+          "cumulative_reinvested_interest_bn": 4.163226
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 311.338929,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 4.233118,
+          "reinvested_interest_bn": 4.233118,
+          "cumulative_principal_reduction_bn": 120.061071,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 20.061071,
+          "cumulative_reinvested_interest_bn": 20.061071
+        },
+        {
+          "year": 26,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 16.658363,
+          "reinvested_interest_bn": 4.940917,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 260,
+          "cumulative_interest_benefit_bn": 183.117446,
+          "cumulative_reinvested_interest_bn": 171.4
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 356.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 281.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 356.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 281.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 356.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 1.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 281.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.35,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 6.75,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 4.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 60.9,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 26,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 354.884925,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0.60906,
+          "reinvested_interest_bn": 0.60906,
+          "cumulative_principal_reduction_bn": 76.515075,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 1.515075,
+          "cumulative_reinvested_interest_bn": 1.515075
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 274.466812,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.405279,
+          "reinvested_interest_bn": 1.405279,
+          "cumulative_principal_reduction_bn": 156.933188,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 6.933188,
+          "cumulative_reinvested_interest_bn": 6.933188
+        },
+        {
+          "year": 26,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 7.752007,
+          "interest_benefit_bn": 4.23648,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 382.752007,
+          "cumulative_interest_benefit_bn": 52.884472,
+          "cumulative_reinvested_interest_bn": 48.647993
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 356.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 3.75,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 281.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 3.375,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 16.875,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 10.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 152.25,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 352.555072,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.557193,
+          "reinvested_interest_bn": 1.557193,
+          "cumulative_principal_reduction_bn": 78.844928,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 3.844928,
+          "cumulative_reinvested_interest_bn": 3.844928
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 263.349273,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 3.732945,
+          "reinvested_interest_bn": 3.732945,
+          "cumulative_principal_reduction_bn": 168.050727,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 18.050727,
+          "cumulative_reinvested_interest_bn": 18.050727
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 10.193728,
+          "reinvested_interest_bn": 8.650889,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 330,
+          "cumulative_interest_benefit_bn": 102.942839,
+          "cumulative_reinvested_interest_bn": 101.4
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 356.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 2.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 6,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 281.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 5.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 27,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 16.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 243.6,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 20,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 416.4,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 350.155162,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 2.547878,
+          "reinvested_interest_bn": 2.547878,
+          "cumulative_principal_reduction_bn": 81.244838,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 6.244838,
+          "cumulative_reinvested_interest_bn": 6.244838
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 251.308393,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 6.349677,
+          "reinvested_interest_bn": 6.349677,
+          "cumulative_principal_reduction_bn": 180.091607,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 30.091607,
+          "cumulative_reinvested_interest_bn": 30.091607
+        },
+        {
+          "year": 20,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 16.602738,
+          "reinvested_interest_bn": 1.331559,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 300,
+          "cumulative_interest_benefit_bn": 146.671179,
+          "cumulative_reinvested_interest_bn": 131.4
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 231.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 231.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 2,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 231.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 1.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 9,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 4.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 46.2,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 20,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 329.3799,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0.81208,
+          "reinvested_interest_bn": 0.81208,
+          "cumulative_principal_reduction_bn": 102.0201,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 2.0201,
+          "cumulative_reinvested_interest_bn": 2.0201
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 222.155749,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 1.873705,
+          "reinvested_interest_bn": 1.873705,
+          "cumulative_principal_reduction_bn": 209.244251,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 9.244251,
+          "cumulative_reinvested_interest_bn": 9.244251
+        },
+        {
+          "year": 20,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 15.182099,
+          "interest_benefit_bn": 4.162179,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 395.182099,
+          "cumulative_interest_benefit_bn": 40.38008,
+          "cumulative_reinvested_interest_bn": 36.217901
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 231.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 4.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 22.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 10.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 115.5,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 18,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 326.27343,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 2.076258,
+          "reinvested_interest_bn": 2.076258,
+          "cumulative_principal_reduction_bn": 105.12657,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 5.12657,
+          "cumulative_reinvested_interest_bn": 5.12657
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 207.332365,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 4.977259,
+          "reinvested_interest_bn": 4.977259,
+          "cumulative_principal_reduction_bn": 224.067635,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 24.067635,
+          "cumulative_reinvested_interest_bn": 24.067635
+        },
+        {
+          "year": 18,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 14.105391,
+          "interest_benefit_bn": 10.432365,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 354.105391,
+          "cumulative_interest_benefit_bn": 87.726974,
+          "cumulative_reinvested_interest_bn": 77.294609
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 22,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 331.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 3.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 8,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 231.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 7.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 36,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 22,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.4,
+          "interest_benefit_bn": 16.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 431.4,
+          "cumulative_interest_benefit_bn": 184.8,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "general_government",
+      "starting_debt_bn": 431.4,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 16,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 411.4,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 323.073549,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 3.397171,
+          "reinvested_interest_bn": 3.397171,
+          "cumulative_principal_reduction_bn": 108.326451,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 8.326451,
+          "cumulative_reinvested_interest_bn": 8.326451
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 191.277858,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 8.466236,
+          "reinvested_interest_bn": 8.466236,
+          "cumulative_principal_reduction_bn": 240.122142,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 40.122142,
+          "cumulative_reinvested_interest_bn": 40.122142
+        },
+        {
+          "year": 16,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 16.01887,
+          "reinvested_interest_bn": 10.928247,
+          "cumulative_principal_reduction_bn": 431.4,
+          "cumulative_base_repayment_bn": 320,
+          "cumulative_interest_benefit_bn": 116.490623,
+          "cumulative_reinvested_interest_bn": 111.4
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 53,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 475.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 53,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 53,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 475.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 53,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 53,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 475.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 1,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.9,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 4.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 53,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 5.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 137.8,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 43,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 474.18995,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.40604,
+          "reinvested_interest_bn": 0.40604,
+          "cumulative_principal_reduction_bn": 51.01005,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 1.01005,
+          "cumulative_reinvested_interest_bn": 1.01005
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 420.577875,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0.936853,
+          "reinvested_interest_bn": 0.936853,
+          "cumulative_principal_reduction_bn": 104.622125,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 4.622125,
+          "cumulative_reinvested_interest_bn": 4.622125
+        },
+        {
+          "year": 43,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 6.410105,
+          "interest_benefit_bn": 5.187899,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 426.410105,
+          "cumulative_interest_benefit_bn": 103.977794,
+          "cumulative_reinvested_interest_bn": 98.789895
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 53,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 475.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 2.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 2.25,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 11.25,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 53,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 13,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 344.5,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 34,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 472.636715,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.038129,
+          "reinvested_interest_bn": 1.038129,
+          "cumulative_principal_reduction_bn": 52.563285,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 2.563285,
+          "cumulative_reinvested_interest_bn": 2.563285
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 413.166182,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 2.48863,
+          "reinvested_interest_bn": 2.48863,
+          "cumulative_principal_reduction_bn": 112.033818,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 12.033818,
+          "cumulative_reinvested_interest_bn": 12.033818
+        },
+        {
+          "year": 34,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 12.588509,
+          "reinvested_interest_bn": 11.659656,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 340,
+          "cumulative_interest_benefit_bn": 186.128853,
+          "cumulative_reinvested_interest_bn": 185.2
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 53,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 475.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 50,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 4,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 3.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 18,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 53,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 20.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 551.2,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 10,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 29,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 515.2,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 10,
+          "cumulative_base_repayment_bn": 10,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 471.036774,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 1.698586,
+          "reinvested_interest_bn": 1.698586,
+          "cumulative_principal_reduction_bn": 54.163226,
+          "cumulative_base_repayment_bn": 50,
+          "cumulative_interest_benefit_bn": 4.163226,
+          "cumulative_reinvested_interest_bn": 4.163226
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 405.138929,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 4.233118,
+          "reinvested_interest_bn": 4.233118,
+          "cumulative_principal_reduction_bn": 120.061071,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 20.061071,
+          "cumulative_reinvested_interest_bn": 20.061071
+        },
+        {
+          "year": 29,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 10,
+          "interest_benefit_bn": 19.987033,
+          "reinvested_interest_bn": 15.52417,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 290,
+          "cumulative_interest_benefit_bn": 239.662863,
+          "cumulative_reinvested_interest_bn": 235.2
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 36,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 450.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 375.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 36,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 36,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 450.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 375.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 36,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 36,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 450.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0.6,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 1.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 375.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.35,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 6.75,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 36,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.2,
+          "interest_benefit_bn": 5.25,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 94.5,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 31,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 448.684925,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0.60906,
+          "reinvested_interest_bn": 0.60906,
+          "cumulative_principal_reduction_bn": 76.515075,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 1.515075,
+          "cumulative_reinvested_interest_bn": 1.515075
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 368.266812,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.405279,
+          "reinvested_interest_bn": 1.405279,
+          "cumulative_principal_reduction_bn": 156.933188,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 6.933188,
+          "cumulative_reinvested_interest_bn": 6.933188
+        },
+        {
+          "year": 31,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 3.426627,
+          "interest_benefit_bn": 5.217734,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 453.426627,
+          "cumulative_interest_benefit_bn": 76.991107,
+          "cumulative_reinvested_interest_bn": 71.773373
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 36,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 450.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 3.75,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 375.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 3.375,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 16.875,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 36,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.2,
+          "interest_benefit_bn": 13.125,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 236.25,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 26,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 446.355072,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 1.557193,
+          "reinvested_interest_bn": 1.557193,
+          "cumulative_principal_reduction_bn": 78.844928,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 3.844928,
+          "cumulative_reinvested_interest_bn": 3.844928
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 357.149273,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 3.732945,
+          "reinvested_interest_bn": 3.732945,
+          "cumulative_principal_reduction_bn": 168.050727,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 18.050727,
+          "cumulative_reinvested_interest_bn": 18.050727
+        },
+        {
+          "year": 26,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 12.833541,
+          "interest_benefit_bn": 12.809161,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 387.833541,
+          "cumulative_interest_benefit_bn": 150.17562,
+          "cumulative_reinvested_interest_bn": 137.366459
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 36,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 450.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 2.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 75,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 6,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 375.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 5.4,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 150,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 27,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 36,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 0.2,
+          "interest_benefit_bn": 21,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 378,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 15,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 23,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 510.2,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 15,
+          "cumulative_base_repayment_bn": 15,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 443.955162,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 2.547878,
+          "reinvested_interest_bn": 2.547878,
+          "cumulative_principal_reduction_bn": 81.244838,
+          "cumulative_base_repayment_bn": 75,
+          "cumulative_interest_benefit_bn": 6.244838,
+          "cumulative_reinvested_interest_bn": 6.244838
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 345.108393,
+          "base_repayment_bn": 15,
+          "interest_benefit_bn": 6.349677,
+          "reinvested_interest_bn": 6.349677,
+          "cumulative_principal_reduction_bn": 180.091607,
+          "cumulative_base_repayment_bn": 150,
+          "cumulative_interest_benefit_bn": 30.091607,
+          "cumulative_reinvested_interest_bn": 30.091607
+        },
+        {
+          "year": 23,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 11.480453,
+          "interest_benefit_bn": 20.548782,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 341.480453,
+          "cumulative_interest_benefit_bn": 204.268329,
+          "cumulative_reinvested_interest_bn": 183.719547
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 0,
+      "reinvest_share": 0,
+      "repayment_complete_year": 27,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 325.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 27,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 0,
+      "reinvest_share": 1,
+      "repayment_complete_year": 27,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 325.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 27,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 1,
+      "reinvest_share": 0,
+      "repayment_complete_year": 27,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 2,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 325.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 1.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 9,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 27,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 5.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 70.2,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 1,
+      "reinvest_share": 1,
+      "repayment_complete_year": 24,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 423.1799,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0.81208,
+          "reinvested_interest_bn": 0.81208,
+          "cumulative_principal_reduction_bn": 102.0201,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 2.0201,
+          "cumulative_reinvested_interest_bn": 2.0201
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 315.955749,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 1.873705,
+          "reinvested_interest_bn": 1.873705,
+          "cumulative_principal_reduction_bn": 209.244251,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 9.244251,
+          "cumulative_reinvested_interest_bn": 9.244251
+        },
+        {
+          "year": 24,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 10.873963,
+          "interest_benefit_bn": 5.14326,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 470.873963,
+          "cumulative_interest_benefit_bn": 59.469297,
+          "cumulative_reinvested_interest_bn": 54.326037
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 2.5,
+      "reinvest_share": 0,
+      "repayment_complete_year": 27,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 325.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 4.5,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 22.5,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 27,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 13,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 175.5,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 2.5,
+      "reinvest_share": 1,
+      "repayment_complete_year": 21,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 420.07343,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 2.076258,
+          "reinvested_interest_bn": 2.076258,
+          "cumulative_principal_reduction_bn": 105.12657,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 5.12657,
+          "cumulative_reinvested_interest_bn": 5.12657
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 301.132365,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 4.977259,
+          "reinvested_interest_bn": 4.977259,
+          "cumulative_principal_reduction_bn": 224.067635,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 24.067635,
+          "cumulative_reinvested_interest_bn": 24.067635
+        },
+        {
+          "year": 21,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 14.306848,
+          "interest_benefit_bn": 12.772329,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 414.306848,
+          "cumulative_interest_benefit_bn": 123.665481,
+          "cumulative_reinvested_interest_bn": 110.893152
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 4,
+      "reinvest_share": 0,
+      "repayment_complete_year": 27,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 425.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 3.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 100,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 8,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 325.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 7.2,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 200,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 36,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 27,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 5.2,
+          "interest_benefit_bn": 20.8,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 525.2,
+          "cumulative_interest_benefit_bn": 280.8,
+          "cumulative_reinvested_interest_bn": 0
+        }
+      ]
+    },
+    {
+      "baseline": "adopted_policy_projection_2031",
+      "starting_debt_bn": 525.2,
+      "annual_base_repayment_bn": 20,
+      "rate_pct": 4,
+      "reinvest_share": 1,
+      "repayment_complete_year": 19,
+      "rows": [
+        {
+          "year": 1,
+          "remaining_debt_bn": 505.2,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 0,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 20,
+          "cumulative_base_repayment_bn": 20,
+          "cumulative_interest_benefit_bn": 0,
+          "cumulative_reinvested_interest_bn": 0
+        },
+        {
+          "year": 5,
+          "remaining_debt_bn": 416.873549,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 3.397171,
+          "reinvested_interest_bn": 3.397171,
+          "cumulative_principal_reduction_bn": 108.326451,
+          "cumulative_base_repayment_bn": 100,
+          "cumulative_interest_benefit_bn": 8.326451,
+          "cumulative_reinvested_interest_bn": 8.326451
+        },
+        {
+          "year": 10,
+          "remaining_debt_bn": 285.077858,
+          "base_repayment_bn": 20,
+          "interest_benefit_bn": 8.466236,
+          "reinvested_interest_bn": 8.466236,
+          "cumulative_principal_reduction_bn": 240.122142,
+          "cumulative_base_repayment_bn": 200,
+          "cumulative_interest_benefit_bn": 40.122142,
+          "cumulative_reinvested_interest_bn": 40.122142
+        },
+        {
+          "year": 19,
+          "remaining_debt_bn": 0,
+          "base_repayment_bn": 12.291742,
+          "interest_benefit_bn": 20.51633,
+          "reinvested_interest_bn": 0,
+          "cumulative_principal_reduction_bn": 525.2,
+          "cumulative_base_repayment_bn": 372.291742,
+          "cumulative_interest_benefit_bn": 173.424588,
+          "cumulative_reinvested_interest_bn": 152.908258
+        }
+      ]
+    }
+  ],
+  "labour": {
+    "wants_more_persons": 200400,
+    "available_persons": 110600,
+    "not_available_within_two_weeks_difference_persons": 89800,
+    "available_share_of_wishers_pct": 55.189621,
+    "conditional_hours_cases": [
+      {
+        "uptake_share": 0.25,
+        "weekly_extra_hours": 5,
+        "assumed_participating_persons": 27650,
+        "weekly_hours_equivalent": 138250,
+        "fte_equivalent": 3456.25,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 0.25,
+        "weekly_extra_hours": 10,
+        "assumed_participating_persons": 27650,
+        "weekly_hours_equivalent": 276500,
+        "fte_equivalent": 6912.5,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 0.25,
+        "weekly_extra_hours": 15,
+        "assumed_participating_persons": 27650,
+        "weekly_hours_equivalent": 414750,
+        "fte_equivalent": 10368.75,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 0.5,
+        "weekly_extra_hours": 5,
+        "assumed_participating_persons": 55300,
+        "weekly_hours_equivalent": 276500,
+        "fte_equivalent": 6912.5,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 0.5,
+        "weekly_extra_hours": 10,
+        "assumed_participating_persons": 55300,
+        "weekly_hours_equivalent": 553000,
+        "fte_equivalent": 13825,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 0.5,
+        "weekly_extra_hours": 15,
+        "assumed_participating_persons": 55300,
+        "weekly_hours_equivalent": 829500,
+        "fte_equivalent": 20737.5,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 1,
+        "weekly_extra_hours": 5,
+        "assumed_participating_persons": 110600,
+        "weekly_hours_equivalent": 553000,
+        "fte_equivalent": 13825,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 1,
+        "weekly_extra_hours": 10,
+        "assumed_participating_persons": 110600,
+        "weekly_hours_equivalent": 1106000,
+        "fte_equivalent": 27650,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      },
+      {
+        "uptake_share": 1,
+        "weekly_extra_hours": 15,
+        "assumed_participating_persons": 110600,
+        "weekly_hours_equivalent": 1659000,
+        "fte_equivalent": 41475,
+        "proven_employment_effect": null,
+        "budget_effect_eur": null
+      }
+    ],
+    "childcare": {
+      "attending_under_six": 334867,
+      "vif_children": 200762,
+      "attending_non_vif": 134105,
+      "vif_share_pct": 59.952757,
+      "free_places": null
+    }
+  },
+  "payroll_examples": [
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 1500,
+      "ordinary_month_net_eur": 1273.2,
+      "annual_net_before_assessment_eur": 17737.42,
+      "annual_gross_eur": 21000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 1875,
+      "ordinary_month_net_eur": 1542.38,
+      "annual_net_before_assessment_eur": 21573.03,
+      "annual_gross_eur": 26250,
+      "extra_annual_net_vs_20h_eur": 3835.61,
+      "extra_net_per_calendar_month_vs_20h_eur": 319.63,
+      "incremental_employee_tax_sv_share_pct": 26.94
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 2250,
+      "ordinary_month_net_eur": 1774.66,
+      "annual_net_before_assessment_eur": 24923.54,
+      "annual_gross_eur": 31500,
+      "extra_annual_net_vs_20h_eur": 7186.13,
+      "extra_net_per_calendar_month_vs_20h_eur": 598.84,
+      "incremental_employee_tax_sv_share_pct": 31.56
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 3000,
+      "ordinary_month_net_eur": 2174.08,
+      "annual_net_before_assessment_eur": 30803.41,
+      "annual_gross_eur": 42000,
+      "extra_annual_net_vs_20h_eur": 13066,
+      "extra_net_per_calendar_month_vs_20h_eur": 1088.83,
+      "incremental_employee_tax_sv_share_pct": 37.78
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 2000,
+      "ordinary_month_net_eur": 1627.26,
+      "annual_net_before_assessment_eur": 22793.41,
+      "annual_gross_eur": 28000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 2500,
+      "ordinary_month_net_eur": 1903.95,
+      "annual_net_before_assessment_eur": 26826.96,
+      "annual_gross_eur": 35000,
+      "extra_annual_net_vs_20h_eur": 4033.55,
+      "extra_net_per_calendar_month_vs_20h_eur": 336.13,
+      "incremental_employee_tax_sv_share_pct": 42.38
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 3000,
+      "ordinary_month_net_eur": 2174.08,
+      "annual_net_before_assessment_eur": 30803.41,
+      "annual_gross_eur": 42000,
+      "extra_annual_net_vs_20h_eur": 8010,
+      "extra_net_per_calendar_month_vs_20h_eur": 667.5,
+      "incremental_employee_tax_sv_share_pct": 42.79
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 4000,
+      "ordinary_month_net_eur": 2724.78,
+      "annual_net_before_assessment_eur": 38970.9,
+      "annual_gross_eur": 56000,
+      "extra_annual_net_vs_20h_eur": 16177.49,
+      "extra_net_per_calendar_month_vs_20h_eur": 1348.12,
+      "incremental_employee_tax_sv_share_pct": 42.22
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 2500,
+      "ordinary_month_net_eur": 1903.95,
+      "annual_net_before_assessment_eur": 26826.96,
+      "annual_gross_eur": 35000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 3125,
+      "ordinary_month_net_eur": 2245.77,
+      "annual_net_before_assessment_eur": 31858.56,
+      "annual_gross_eur": 43750,
+      "extra_annual_net_vs_20h_eur": 5031.6,
+      "extra_net_per_calendar_month_vs_20h_eur": 419.3,
+      "incremental_employee_tax_sv_share_pct": 42.5
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 3750,
+      "ordinary_month_net_eur": 2601.88,
+      "annual_net_before_assessment_eur": 37106.38,
+      "annual_gross_eur": 52500,
+      "extra_annual_net_vs_20h_eur": 10279.42,
+      "extra_net_per_calendar_month_vs_20h_eur": 856.62,
+      "incremental_employee_tax_sv_share_pct": 41.26
+    },
+    {
+      "region": "outside_vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 5000,
+      "ordinary_month_net_eur": 3216.36,
+      "annual_net_before_assessment_eur": 46428.94,
+      "annual_gross_eur": 70000,
+      "extra_annual_net_vs_20h_eur": 19601.98,
+      "extra_net_per_calendar_month_vs_20h_eur": 1633.5,
+      "incremental_employee_tax_sv_share_pct": 43.99
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 1500,
+      "ordinary_month_net_eur": 1269.45,
+      "annual_net_before_assessment_eur": 17692.42,
+      "annual_gross_eur": 21000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 1875,
+      "ordinary_month_net_eur": 1538.63,
+      "annual_net_before_assessment_eur": 21528.03,
+      "annual_gross_eur": 26250,
+      "extra_annual_net_vs_20h_eur": 3835.61,
+      "extra_net_per_calendar_month_vs_20h_eur": 319.63,
+      "incremental_employee_tax_sv_share_pct": 26.94
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 2250,
+      "ordinary_month_net_eur": 1770.72,
+      "annual_net_before_assessment_eur": 24876.29,
+      "annual_gross_eur": 31500,
+      "extra_annual_net_vs_20h_eur": 7183.88,
+      "extra_net_per_calendar_month_vs_20h_eur": 598.66,
+      "incremental_employee_tax_sv_share_pct": 31.58
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 3000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 3000,
+      "ordinary_month_net_eur": 2168.83,
+      "annual_net_before_assessment_eur": 30740.41,
+      "annual_gross_eur": 42000,
+      "extra_annual_net_vs_20h_eur": 13048,
+      "extra_net_per_calendar_month_vs_20h_eur": 1087.33,
+      "incremental_employee_tax_sv_share_pct": 37.87
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 2000,
+      "ordinary_month_net_eur": 1623.26,
+      "annual_net_before_assessment_eur": 22745.41,
+      "annual_gross_eur": 28000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 2500,
+      "ordinary_month_net_eur": 1899.58,
+      "annual_net_before_assessment_eur": 26774.46,
+      "annual_gross_eur": 35000,
+      "extra_annual_net_vs_20h_eur": 4029.05,
+      "extra_net_per_calendar_month_vs_20h_eur": 335.75,
+      "incremental_employee_tax_sv_share_pct": 42.44
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 3000,
+      "ordinary_month_net_eur": 2168.83,
+      "annual_net_before_assessment_eur": 30740.41,
+      "annual_gross_eur": 42000,
+      "extra_annual_net_vs_20h_eur": 7995,
+      "extra_net_per_calendar_month_vs_20h_eur": 666.25,
+      "incremental_employee_tax_sv_share_pct": 42.89
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 4000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 4000,
+      "ordinary_month_net_eur": 2718.78,
+      "annual_net_before_assessment_eur": 38898.9,
+      "annual_gross_eur": 56000,
+      "extra_annual_net_vs_20h_eur": 16153.49,
+      "extra_net_per_calendar_month_vs_20h_eur": 1346.12,
+      "incremental_employee_tax_sv_share_pct": 42.31
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 20,
+      "monthly_gross_eur": 2500,
+      "ordinary_month_net_eur": 1899.58,
+      "annual_net_before_assessment_eur": 26774.46,
+      "annual_gross_eur": 35000,
+      "extra_annual_net_vs_20h_eur": 0,
+      "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_employee_tax_sv_share_pct": null
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 25,
+      "monthly_gross_eur": 3125,
+      "ordinary_month_net_eur": 2240.3,
+      "annual_net_before_assessment_eur": 31792.94,
+      "annual_gross_eur": 43750,
+      "extra_annual_net_vs_20h_eur": 5018.48,
+      "extra_net_per_calendar_month_vs_20h_eur": 418.21,
+      "incremental_employee_tax_sv_share_pct": 42.65
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 30,
+      "monthly_gross_eur": 3750,
+      "ordinary_month_net_eur": 2596.26,
+      "annual_net_before_assessment_eur": 37038.88,
+      "annual_gross_eur": 52500,
+      "extra_annual_net_vs_20h_eur": 10264.42,
+      "extra_net_per_calendar_month_vs_20h_eur": 855.37,
+      "incremental_employee_tax_sv_share_pct": 41.35
+    },
+    {
+      "region": "vienna",
+      "fulltime_monthly_gross_eur": 5000,
+      "weekly_hours": 40,
+      "monthly_gross_eur": 5000,
+      "ordinary_month_net_eur": 3208.86,
+      "annual_net_before_assessment_eur": 46338.94,
+      "annual_gross_eur": 70000,
+      "extra_annual_net_vs_20h_eur": 19564.48,
+      "extra_net_per_calendar_month_vs_20h_eur": 1630.37,
+      "incremental_employee_tax_sv_share_pct": 44.1
+    }
+  ],
+  "non_additive_sector_changes": {
+    "federal_pension_budget": {
+      "from": 2026,
+      "to": 2031,
+      "from_mio": 34175,
+      "to_mio": 42596,
+      "change_mio": 8421,
+      "scope": "UG22+UG23 ist eine Bundesbudgetperspektive, keine gesamtstaatliche Pensionsausgabe. Die Pensionskomponente ohne UG23-Pflegegeld ist nur bis 2028 mit derselben Detailtiefe verfügbar."
+    },
+    "public_current_health": {
+      "from": 2024,
+      "to": 2025,
+      "from_mio": 43793,
+      "to_mio": 46384,
+      "change_mio": 2591,
+      "scope": "SHA public current spending; 2025 preliminary; not additional to consolidated government spending."
+    },
+    "care_real_cost": {
+      "from": 2021,
+      "to": 2050,
+      "from_bn": 2.71,
+      "to_bn": 10.7,
+      "change_bn": 7.99,
+      "scope": "Net expenditure of states and municipalities for care services under constant service mix/incidence assumptions; not the same as 2024 gross service expenditure.",
+      "prices": "constant 2021 prices, source scenario; overlaps health, not additive"
+    }
+  },
+  "reform_coverage": [
+    {
+      "id": "DEBT-01",
+      "title": "Fällige Schulden nicht automatisch refinanzieren",
+      "cost_description": "geringe direkte Transformationskosten; makro-/budgetäre Opportunitätskosten im Gesamtpfad zu modellieren",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "budget_or_debt_target_not_independent_funding_source"
+    },
+    {
+      "id": "DEBT-02",
+      "title": "Schuldentilgungs-/Sinking-Fund",
+      "cost_description": "administrativ gering; Rechts-/Budgetmechanik auszuarbeiten",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "budget_or_debt_target_not_independent_funding_source"
+    },
+    {
+      "id": "BUD-01",
+      "title": "Vom Defizit zum strukturell ausgeglichenen Haushalt",
+      "cost_description": "politische und wirtschaftliche Anpassungskosten hängen von Maßnahmenmix und Konjunktur ab; keine pauschale Einsparungszahl ohne Ressortrechnung",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "budget_or_debt_target_not_independent_funding_source"
+    },
+    {
+      "id": "BUD-02",
+      "title": "10-Milliarden-Tilgungsziel als zweite Sanierungsstufe",
+      "cost_description": "Opportunitätskosten gegenüber anderen Ausgaben und Investitionen; konkrete Tragfähigkeit anhand BIP-, Zins- und Konjunkturszenarien zu rechnen",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "budget_or_debt_target_not_independent_funding_source"
+    },
+    {
+      "id": "SUB-01",
+      "title": "Förderungen befristen, evaluieren und Doppelstrukturen abbauen",
+      "cost_description": "Evaluierungs-, Daten- und Umstellungskosten; Höhe offen",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "PART-01",
+      "title": "Aktive Eigentümerstrategie für Bundesbeteiligungen",
+      "cost_description": "Eigentümercontrolling und Bewertungsmodelle; administrativ gegenüber Beteiligungsvolumen gering, exakt offen",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "EU-01",
+      "title": "RRF-Mittel vollständig sichern und Wirkungs-Nachlauf aufbauen",
+      "cost_description": "Projektabschluss, Prüfung und Wirkungsmonitoring; aus vorhandenen Programm-/Ressortstrukturen zu beziffern",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "TAX-01",
+      "title": "Körperschaftsteuer neu rechnen statt alten Pauschalsatz fortschreiben",
+      "cost_description": "administrative Umstellungs- und Compliancekosten abhängig vom Modell",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "TAX-02",
+      "title": "Gewinnverlagerung und konzerninterne Lizenzmodelle gezielt prüfen",
+      "cost_description": "zusätzliche Prüf- und Datenkapazität; Umfang offen",
+      "scenario_module": "TAX-02",
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "ADM-01",
+      "title": "Digitales Genehmigungsportal mit verbindlichen Fristen",
+      "cost_description": "IT, Registeranbindung und Prozessumbau zu berechnen",
+      "scenario_module": "ADM-01/ADM-02",
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "ADM-02",
+      "title": "Digitalisierung nur mit messbarem Nutzen finanzieren",
+      "cost_description": "Portfolio- und Nutzencontrolling; gegenüber Projektvolumen zu quantifizieren",
+      "scenario_module": "ADM-01/ADM-02",
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "GAME-01",
+      "title": "Glücksspielabgaben nur gemeinsam mit Kanalisierung und Spielerschutz neu ordnen",
+      "cost_description": "Aufsicht, Sperrregister, Marktmonitoring und Vollzug; aus Gesetzesmodell zu beziffern",
+      "scenario_module": "GAME-01",
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "REG-01",
+      "title": "Subsidiaritäts- und Kompetenzordnung",
+      "cost_description": "Rechts-, Organisations- und Übergangskosten je Kompetenzverschiebung",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "DIR-01",
+      "title": "WERK VOTE",
+      "cost_description": "Identitäts-, Wahlgeheimnis-, Audit-, Sicherheits- und Betriebsarchitektur zu kalkulieren",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    },
+    {
+      "id": "ORG-01",
+      "title": "WERK-Bürgerlisten-Pakt",
+      "cost_description": "Organisation, Prüfung, Rechenschaft und gemeinsame Infrastruktur",
+      "scenario_module": null,
+      "verified_annual_net_bn": null,
+      "verified_cumulative_net_bn": {
+        "1": null,
+        "5": null,
+        "10": null
+      },
+      "status": "full_reform_costing_open"
+    }
+  ],
+  "excluded_from_funding": [
+    "Already legislated government consolidation",
+    "Existing ABB/customs collection",
+    "Gross subsidies and tax expenditures",
+    "Intergovernmental transfers and ownership cash flows",
+    "Unspent digital fund allocation",
+    "ADM-01/ADM-02 double counting",
+    "Hypothetical labour availability and payroll population extrapolation",
+    "Debt interest benefit already reinvested in repayment",
+    "Political/party organisation budgets without a public-finance perimeter"
+  ],
+  "known_findings": [
+    "Funding aliases FISC-01/GMBL-01 corrected to SUB-01/GAME-01.",
+    "Legacy fiscal-model and funding-matrix use explicitly historical 2025 baseline; this calculation uses official 2026–2031 reference.",
+    "Legacy administration UI uses 15m DADEX baseline as illustrative transition input; it is not a verified additional WERK transformation cost.",
+    "Registry contains 15 reform dossiers; technical completeness is not fiscal coverage."
+  ]
+}

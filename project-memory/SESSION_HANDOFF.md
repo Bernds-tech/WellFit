@@ -28,3 +28,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK continuation: WERK-LAB-005
 2026-09-06: working-time wishes/availability (48 rows), parttime reasons (39), childcare opening categories (20 region/age rows) and three slack controls are published and VERIFIED at 5dbe5eedd1c3347e44cdce68ffb2725f78562fca. All 13 workflows succeeded, including three-source ODS reconciliation and 45 negative cases. 87 uninterpretable metric cells remain null; 56 uncertain estimates keep flags; hidden ODS precision is unused. Read WERK_LABOUR_HANDOFF.md and WERK_LABOUR_005_CI_RECEIPT.json first. Periods/populations remain separate and no free places, feasible hours or fiscal effect is inferred. The shared artifact is linked to fields 3, 5 and 7. Next: jointly observed qualification and concrete working-time/care/transport/net-gain conditions. No Sites deployment.
+
+### Latest WERK owner direction: WERK-CALC-001
+2026-09-06: Owner asked to calculate everything. Start with WERK_CALCULATIONS_HANDOFF.md and WERK_GESAMTRECHNUNG.md. Consolidated conditional calculation is complete locally; exact remote CI pending. Fifteen reform dossiers are inventoried, but verified funding remains zero. LAB-005 evidence persists; no Sites deployment.

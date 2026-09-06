@@ -82,3 +82,9 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Falsification question: a transform-composition visual regression, a qualifying avatar not being detected, or a canonical/Sites surface using different source would require immediate adjustment/reconciliation.
 
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.
+## WERK-CALC-001 local execution — 2026-09-06
+- Implementation: reproducible budget/cost/debt/hours/payroll calculation with source hashes.
+- Countercheck: all 13 WERK workflow bodies locally; changed fiscal/registry checks rerun; 42 numerical/negative cases; official BMF table 22 rechecked.
+- Remote CI: pending publication.
+- Recovery: revert bounded CALC-001 commits; no external runtime state change.
+- Falsifier: missing inputs passing validation, unaccounted source rounding, duplicated module/debt benefits or any scenario being booked as verified funding would invalidate this result. Relevant counterexamples pass.

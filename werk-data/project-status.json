@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-06-v28",
+  "version":"2026-09-06-v29",
   "current_preview":"V71 – 12 Leitfelder mit 41/41-Abdeckung und realem Analyse-/Daten-/Reformarbeitsstand",
   "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Programm-, Dokument-, Fiskal- und Fachdatenarchitektur deutlich fortgeschritten, noch nicht öffentlich produktiv freigegeben",
   "components":[
@@ -16,7 +16,7 @@
     {"id":"partners","name":"Bürgerlisten-System","status":"constitutional-and-neutrality-core-linked","estimate_pct":93},
     {"id":"reforms","name":"Reformregister-Struktur","status":"advanced","estimate_pct":97},
     {"id":"reform-content","name":"Reformakten mit Problem/Ziel/Rechnung/Recht/KPI","status":"6-of-12-fields-have-at-least-one-record-8-fields-have-major-gaps","estimate_pct":70},
-    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"official-2026-2031-baseline-government-baseline-and-data-contracts","estimate_pct":93},
+    {"id":"fiscal-model","name":"Budget-, Referenzpfad-, Saldo-, Tilgungs- und Sensitivitätsmodelle","status":"reproducible-1-5-10-year-scenarios-verified-funding-remains-zero","estimate_pct":93},
     {"id":"government-baseline","name":"Regierungsmaßnahmen-/Doppelzählungsbaseline","status":"aggregates-2025-2031-old-detail-2025-2029-new-detail-2026-2031-legal-partial","estimate_pct":89},
     {"id":"subsidy-baseline","name":"Förderbaseline / SUB-01","status":"bhg-esvg-tdb-benchmark-and-ug-layer-program-extraction-open","estimate_pct":64},
     {"id":"pension-baseline","name":"Pensionen","status":"ug22-ug23-ask-and-longterm-scenarios-tested","estimate_pct":82},
@@ -116,8 +116,10 @@
     "Bereits beschlossene oder im Referenzpfad angenommene Regierungsmaßnahmen werden nie nochmals als WERK-Effekt gebucht.",
     "Fördervolumen ist kein Einsparpotenzial; BHG, ESVG, EU/RRF und Transparenzdatenbank werden zuerst reconciliert.",
     "Arbeitslose und offene Stellen werden nicht nach Gesamtzahl gematcht; Beruf, Qualifikation, Region, Arbeitszeit, Gesundheit, Mobilität, Entlohnung und Skill-Distanz sind getrennte Dimensionen.",
-    "Die erste BUD-01-Gesamtrechnung bleibt gesperrt, solange zentrale Teilsektor-, Baseline-, Dauereffekt-, Transformationskosten-, Verteilungs-, Stress- und Matchinggates offen sind.",
+    "Die Freigabe einer finanzierten BUD-01-Endrechnung bleibt gesperrt, solange zentrale Teilsektor-, Baseline-, Dauereffekt-, Transformationskosten-, Verteilungs-, Stress- und Matchinggates offen sind.",
     "Technische Staging-Freigabe ersetzt keine juristische/datenschutzrechtliche Produktivfreigabe."
   ],
   "note":"Stand 06.09.2026: Neben den etablierten Fiskal-, Rechts-, Förder-, Pensions-, Gesundheits-, Pflege-, Steuer- und Verteilungsblöcken besitzt nun auch Leitfeld 3 eine getrennte Arbeitsmarkt-/Produktivitäts- und Matchingbaseline. Die zwölf Leitfelder sind mit ihrem realen Arbeitsstand verknüpft; Datenfortschritt und Reformreife werden getrennt ausgewiesen."
+,
+  "calculation_review": {"task": "WERK-CALC-001", "report": "WERK_GESAMTRECHNUNG.md", "results": "werk-data/calculation-results-2026.json", "assumptions": "werk-data/calculation-assumptions.json", "registered_reforms": 15, "verified_funding_contributions": 0, "readiness_note": "Technische Modellreife in estimate_pct ist kein Anteil finanzierter Reformen. Bedingte Szenariorechnung ist erstellt; vollständig finanzierte Endrechnung bleibt offen."}
 }

@@ -11,6 +11,25 @@ on:
       - 'werk-data/government-package-2025-2029.json'
       - 'werk-data/government-new-measures-2026-2031.json'
       - 'werk-data/analysis-data-closure-register.json'
+      - 'werk-data/calculation-*.json'
+      - 'werk-data/fiscal-model.json'
+      - 'werk-data/bud01-balance-gap-2026-2031.json'
+      - 'scripts/werk-bud01-balance-gap-contract.mjs'
+      - 'werk-data/funding-matrix.json'
+      - 'werk-data/reforms.json'
+      - 'werk-data/admin-model.json'
+      - 'werk-data/tax-compliance-model.json'
+      - 'werk-data/gambling-model.json'
+      - 'werk-data/debt-model.json'
+      - 'werk-data/labour-time-care-constraints-2025.json'
+      - 'werk-data/payroll-employee-kernel-2026.json'
+      - 'werk-data/pension-baseline-2024-2031.json'
+      - 'werk-data/health-baseline-2024-2031.json'
+      - 'werk-data/care-baseline-2024-2050.json'
+      - 'scripts/werk-calculation-*.mjs'
+      - 'scripts/lib/werk-calculation.mjs'
+      - 'scripts/lib/werk-payroll-2026.mjs'
+      - 'WERK_GESAMTRECHNUNG.md'
       - '.github/workflows/werk-fiscal-data-check.yml'
   workflow_dispatch:
 
@@ -37,7 +56,7 @@ jobs:
           const fs = require('fs');
           const fail = msg => { throw new Error(msg); };
           const read = p => JSON.parse(fs.readFileSync(p, 'utf8'));
-          const eq = (a,b,tol,msg) => { if (Math.abs(a-b) > tol) fail(`${msg}: ${a} != ${b}`); };
+          const eq = (a,b,tol,msg) => { if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(tol) || tol < 0 || Math.abs(a-b) > tol) fail(`${msg}: ${a} != ${b}`); };
           const arr = (x,n,msg) => { if (!Array.isArray(x) || x.length !== n || x.some(v=>!Number.isFinite(v))) fail(msg); };
 
           const budget = read('werk-data/budget-baseline-2026-2031.json');
@@ -127,3 +146,11 @@ jobs:
 
           console.log(`Fiscal data contract OK: BUD-01 6y baseline; ${oldRows.length} original-package rows; ${freshRows.length} new-measure rows; aggregates reconcile without unpublished extrapolation.`);
           NODE
+
+      - name: Recompute consolidated calculation and source hashes
+        run: node scripts/werk-calculation-contract.mjs
+      - name: Countercheck calculation and invalid inputs
+        run: node scripts/werk-calculation-negative-check.mjs
+
+      - name: Reconcile balance gap including published rounding residuals
+        run: node scripts/werk-bud01-balance-gap-contract.mjs

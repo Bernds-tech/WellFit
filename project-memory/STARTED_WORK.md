@@ -118,3 +118,11 @@ Canonical register for work that has started but is not yet fully completed.
 - Lock: LOCK-WERK-LAB-005
 - Scope: source-backed working-time wishes and care constraints, preserving distinct populations/periods and blocked employment/fiscal effects.
 - Local evidence: three pinned ODS sources; 48 wish, 39 reason, 20 childcare rows; 45 negative cases and dependent contracts pass. All 13 CI workflows passed at 5dbe5eedd1c3347e44cdce68ffb2725f78562fca; WERK_LABOUR_005_CI_RECEIPT.json.
+
+## WERK-CALC-001
+- Started: 2026-09-06
+- Status: IMPLEMENTED_NOT_VERIFIED (local checks complete; remote CI pending)
+- Risk: R2
+- Change: WERK-CR-CALC-001
+- Lock: LOCK-WERK-CALC-001
+- Scope: konsolidierte Rechenstrecke mit 1/5/10-Jahren, Kosten, Gegenprüfung und CI.
