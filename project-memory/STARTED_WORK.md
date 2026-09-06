@@ -112,9 +112,9 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-LAB-005
 - Started: 2026-09-06
-- Status: LOCAL_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Base: cc67ee2; LAB-004 published and verified.
 - Lock: LOCK-WERK-LAB-005
 - Scope: source-backed working-time wishes and care constraints, preserving distinct populations/periods and blocked employment/fiscal effects.
-- Local evidence: three pinned ODS sources; 48 wish, 39 reason, 20 childcare rows; 45 negative cases and dependent contracts pass. Publication/CI pending.
+- Local evidence: three pinned ODS sources; 48 wish, 39 reason, 20 childcare rows; 45 negative cases and dependent contracts pass. All 13 CI workflows passed at 5dbe5eedd1c3347e44cdce68ffb2725f78562fca; WERK_LABOUR_005_CI_RECEIPT.json.

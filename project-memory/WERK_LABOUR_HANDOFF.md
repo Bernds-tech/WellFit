@@ -3,7 +3,8 @@
 
 
 ## Current continuation — 2026-09-06
-- WERK-LAB-005: LOCAL_VERIFIED; publication and exact-implementation CI pending.
+- WERK-LAB-005: VERIFIED and published at 5dbe5eedd1c3347e44cdce68ffb2725f78562fca. All 13 workflows succeeded on this exact implementation, including the new time/care source step and 45 negative cases. See WERK_LABOUR_005_CI_RECEIPT.json.
+- All 24 blobs and full tree e157c2e1e74ddbbd7244365148ee20032815f09d match local 7b70189, preserved at archive/werk-lab-005-local-7b70189. Non-forced publication completed.
 - Added labour-time-care-constraints-2025.json with three pinned, unchanged Statistik Austria ODS workbooks. Source SHA256, URL, byte size and displayed cell references are recorded. New stdlib importer re-extracts without network access.
 - 48 R3 working-time-wish rows: total, age and education by sex; 39 T7 parttime-reason rows: age by sex; three R1 slack controls; 20 childcare state/age rows: Austria plus nine states, ages 0–2 and 3–5, five count/share categories each.
 - R3 population is ILO parttime employed 15–74, private households, annual average 2025. Published 200.4 thousand want additional hours; 110.6 thousand are available within two weeks. These are nested survey estimates, not August AMS unemployed, extra workers or a quantified hours effect.

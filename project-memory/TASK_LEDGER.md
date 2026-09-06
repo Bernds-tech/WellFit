@@ -131,8 +131,8 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-LAB-005
 - Date: 2026-09-06
-- Status: LOCAL_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Result: survey working-time wishes/availability and parttime reasons, childcare opening categories; displayed precision and uncertainty preserved, feasibility effects blocked.
-- Evidence: WERK_LABOUR_HANDOFF.md; source re-extraction and 45 negative cases plus dependent contracts passed. Publication/CI pending.
+- Evidence: WERK_LABOUR_HANDOFF.md; source re-extraction and 45 negative cases plus dependent contracts passed. All 13 CI workflows passed at 5dbe5eedd1c3347e44cdce68ffb2725f78562fca; WERK_LABOUR_005_CI_RECEIPT.json.
 - Recovery: revert bounded LAB-005 changes on existing WERK branch.

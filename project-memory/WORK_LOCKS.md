@@ -73,7 +73,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-LAB-005
 - Task: WERK-LAB-005
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: working-time wishes/care evidence and dependent WERK data contracts on existing branch.
+- Released: 2026-09-06 after successful publication and all 13 exact-implementation CI workflows; WERK_LABOUR_005_CI_RECEIPT.json.
