@@ -88,3 +88,10 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Remote CI: d876d9f91c1edadd505edff018e7377500dab0b3; all three triggered workflows passed. Receipt WERK_CALCULATIONS_CI_RECEIPT.json.
 - Recovery: revert bounded CALC-001 commits; no external runtime state change.
 - Falsifier: missing inputs passing validation, unaccounted source rounding, duplicated module/debt benefits or any scenario being booked as verified funding would invalidate this result. Relevant counterexamples pass.
+
+## WERK-SV-001 — 2026-09-06
+- Result: conditional employee relief, preserved-benefit funding model and existing-receipts accounting.
+- Countercheck: five relevant local workflow bodies; 34 SV numerical/negative cases plus source reconciliation and existing 42 calculation cases.
+- Remote verification: pending publication.
+- Falsifier: redirected existing contributions credited as new revenue, benefit funding omitted, premature activation or final-assessment claims would invalidate the calculation.
+- Recovery: revert bounded SV-001 changes on WERK branch.

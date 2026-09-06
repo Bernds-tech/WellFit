@@ -86,3 +86,9 @@ No additional locks recorded.
 - Scope: WERK-Rechenartefakte, Fiskalvertrag und Projektübergabe.
 - Branch: werk-v49-preview-host
 - Released: 2026-09-06 after exact-implementation CI success and receipt.
+
+## LOCK-WERK-SV-001
+- Status: ACTIVE
+- Task: WERK-SV-001
+- Holder: Codex 2026-09-06
+- Scope: SV-01 model, source data, existing calculation and WERK registers.

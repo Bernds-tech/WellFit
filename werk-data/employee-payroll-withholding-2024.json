@@ -1,0 +1,292 @@
+{
+  "version": "2026-09-06-v1",
+  "year": 2024,
+  "status": "official_employment_payroll_withholding_not_core_insurance_total",
+  "source": {
+    "authority": "STATISTIK AUSTRIA",
+    "url": "https://www.statistik.at/fileadmin/pages/243/Tabellen_16.1-16.1.2.zip",
+    "archive_member": "Tabellen 16.1-16.1.2/Tab.16.1.ods",
+    "local_file": "werk-data/sources/stat-lohnsteuer-employment-2024.ods",
+    "sha256": "1490c42a3a4e8576ddeb951fe94914a0c940d0c27914d3198566650bad4ba900",
+    "sheet": "Tab_16_1",
+    "checked_at": "2026-09-06",
+    "publication_url": "https://www.statistik.at/fileadmin/publications/Lohnsteuer_2024_barr.pdf"
+  },
+  "scope": "Table 16: employment wage slips grouped by person, including employment of people also receiving pensions; pension wage slips excluded. Withholding includes chamber/housing levies and mixed employee regimes, not just standard ASVG KV/PV/ALV.",
+  "method": "Published displayed integers in thousand EUR, no hidden spreadsheet precision; adapted source extract with explicit rounding residuals.",
+  "totals": {
+    "persons": 4918470,
+    "gross_thousand_eur": 205249708,
+    "withheld_contributions_and_levies_thousand_eur": 31952625,
+    "withheld_wage_tax_thousand_eur": 28077528
+  },
+  "total_cells": {
+    "persons": "F27",
+    "gross": "G27",
+    "contributions": "K52",
+    "tax": "M52"
+  },
+  "brackets": [
+    {
+      "bracket": "0 bis unter 2",
+      "persons": 305252,
+      "gross_thousand_eur": 283200,
+      "withheld_contributions_and_levies_thousand_eur": 23711,
+      "withheld_wage_tax_thousand_eur": 3447,
+      "cells": {
+        "persons": "F8",
+        "gross": "G8",
+        "contributions": "K33",
+        "tax": "M33"
+      }
+    },
+    {
+      "bracket": "2 bis unter 4",
+      "persons": 192522,
+      "gross_thousand_eur": 564288,
+      "withheld_contributions_and_levies_thousand_eur": 54855,
+      "withheld_wage_tax_thousand_eur": 11200,
+      "cells": {
+        "persons": "F9",
+        "gross": "G9",
+        "contributions": "K34",
+        "tax": "M34"
+      }
+    },
+    {
+      "bracket": "4 bis unter 6",
+      "persons": 157797,
+      "gross_thousand_eur": 783928,
+      "withheld_contributions_and_levies_thousand_eur": 77317,
+      "withheld_wage_tax_thousand_eur": 14437,
+      "cells": {
+        "persons": "F10",
+        "gross": "G10",
+        "contributions": "K35",
+        "tax": "M35"
+      }
+    },
+    {
+      "bracket": "6 bis unter 8",
+      "persons": 154573,
+      "gross_thousand_eur": 1077063,
+      "withheld_contributions_and_levies_thousand_eur": 92483,
+      "withheld_wage_tax_thousand_eur": 19342,
+      "cells": {
+        "persons": "F11",
+        "gross": "G11",
+        "contributions": "K36",
+        "tax": "M36"
+      }
+    },
+    {
+      "bracket": "8 bis unter 10",
+      "persons": 102166,
+      "gross_thousand_eur": 917545,
+      "withheld_contributions_and_levies_thousand_eur": 123875,
+      "withheld_wage_tax_thousand_eur": 26072,
+      "cells": {
+        "persons": "F12",
+        "gross": "G12",
+        "contributions": "K37",
+        "tax": "M37"
+      }
+    },
+    {
+      "bracket": "10 bis unter 12",
+      "persons": 96699,
+      "gross_thousand_eur": 1062105,
+      "withheld_contributions_and_levies_thousand_eur": 151503,
+      "withheld_wage_tax_thousand_eur": 32160,
+      "cells": {
+        "persons": "F13",
+        "gross": "G13",
+        "contributions": "K38",
+        "tax": "M38"
+      }
+    },
+    {
+      "bracket": "12 bis unter 15",
+      "persons": 156529,
+      "gross_thousand_eur": 2120126,
+      "withheld_contributions_and_levies_thousand_eur": 310463,
+      "withheld_wage_tax_thousand_eur": 58633,
+      "cells": {
+        "persons": "F14",
+        "gross": "G14",
+        "contributions": "K39",
+        "tax": "M39"
+      }
+    },
+    {
+      "bracket": "15 bis unter 18",
+      "persons": 168051,
+      "gross_thousand_eur": 2776319,
+      "withheld_contributions_and_levies_thousand_eur": 411752,
+      "withheld_wage_tax_thousand_eur": 76742,
+      "cells": {
+        "persons": "F15",
+        "gross": "G15",
+        "contributions": "K40",
+        "tax": "M40"
+      }
+    },
+    {
+      "bracket": "18 bis unter 20",
+      "persons": 113997,
+      "gross_thousand_eur": 2165943,
+      "withheld_contributions_and_levies_thousand_eur": 326589,
+      "withheld_wage_tax_thousand_eur": 66623,
+      "cells": {
+        "persons": "F16",
+        "gross": "G16",
+        "contributions": "K41",
+        "tax": "M41"
+      }
+    },
+    {
+      "bracket": "20 bis unter 25",
+      "persons": 288001,
+      "gross_thousand_eur": 6482430,
+      "withheld_contributions_and_levies_thousand_eur": 995582,
+      "withheld_wage_tax_thousand_eur": 240661,
+      "cells": {
+        "persons": "F17",
+        "gross": "G17",
+        "contributions": "K42",
+        "tax": "M42"
+      }
+    },
+    {
+      "bracket": "25 bis unter 30",
+      "persons": 315888,
+      "gross_thousand_eur": 8697128,
+      "withheld_contributions_and_levies_thousand_eur": 1388533,
+      "withheld_wage_tax_thousand_eur": 427855,
+      "cells": {
+        "persons": "F18",
+        "gross": "G18",
+        "contributions": "K43",
+        "tax": "M43"
+      }
+    },
+    {
+      "bracket": "30 bis unter 35",
+      "persons": 326544,
+      "gross_thousand_eur": 10617997,
+      "withheld_contributions_and_levies_thousand_eur": 1810108,
+      "withheld_wage_tax_thousand_eur": 656535,
+      "cells": {
+        "persons": "F19",
+        "gross": "G19",
+        "contributions": "K44",
+        "tax": "M44"
+      }
+    },
+    {
+      "bracket": "35 bis unter 40",
+      "persons": 339127,
+      "gross_thousand_eur": 12722020,
+      "withheld_contributions_and_levies_thousand_eur": 2229271,
+      "withheld_wage_tax_thousand_eur": 960000,
+      "cells": {
+        "persons": "F20",
+        "gross": "G20",
+        "contributions": "K45",
+        "tax": "M45"
+      }
+    },
+    {
+      "bracket": "40 bis unter 50",
+      "persons": 652612,
+      "gross_thousand_eur": 29288383,
+      "withheld_contributions_and_levies_thousand_eur": 5151810,
+      "withheld_wage_tax_thousand_eur": 2713360,
+      "cells": {
+        "persons": "F21",
+        "gross": "G21",
+        "contributions": "K46",
+        "tax": "M46"
+      }
+    },
+    {
+      "bracket": "50 bis unter 70",
+      "persons": 819045,
+      "gross_thousand_eur": 48061964,
+      "withheld_contributions_and_levies_thousand_eur": 8356824,
+      "withheld_wage_tax_thousand_eur": 5939957,
+      "cells": {
+        "persons": "F22",
+        "gross": "G22",
+        "contributions": "K47",
+        "tax": "M47"
+      }
+    },
+    {
+      "bracket": "70 bis unter 100",
+      "persons": 467501,
+      "gross_thousand_eur": 38380843,
+      "withheld_contributions_and_levies_thousand_eur": 6334560,
+      "withheld_wage_tax_thousand_eur": 6476272,
+      "cells": {
+        "persons": "F23",
+        "gross": "G23",
+        "contributions": "K48",
+        "tax": "M48"
+      }
+    },
+    {
+      "bracket": "100 bis unter 150",
+      "persons": 186802,
+      "gross_thousand_eur": 22092216,
+      "withheld_contributions_and_levies_thousand_eur": 2850811,
+      "withheld_wage_tax_thousand_eur": 4973515,
+      "cells": {
+        "persons": "F24",
+        "gross": "G24",
+        "contributions": "K49",
+        "tax": "M49"
+      }
+    },
+    {
+      "bracket": "150 bis unter 200",
+      "persons": 45008,
+      "gross_thousand_eur": 7664028,
+      "withheld_contributions_and_levies_thousand_eur": 755666,
+      "withheld_wage_tax_thousand_eur": 2087562,
+      "cells": {
+        "persons": "F25",
+        "gross": "G25",
+        "contributions": "K50",
+        "tax": "M50"
+      }
+    },
+    {
+      "bracket": "200 und mehr",
+      "persons": 30356,
+      "gross_thousand_eur": 9492183,
+      "withheld_contributions_and_levies_thousand_eur": 506910,
+      "withheld_wage_tax_thousand_eur": 3293155,
+      "cells": {
+        "persons": "F26",
+        "gross": "G26",
+        "contributions": "K51",
+        "tax": "M51"
+      }
+    }
+  ],
+  "published_total_minus_bracket_sum": {
+    "persons": 0,
+    "gross_thousand_eur": -1,
+    "withheld_contributions_and_levies_thousand_eur": 2,
+    "withheld_wage_tax_thousand_eur": 0
+  },
+  "classification_warning": "Overview table classifies persons by dominant income and reports 31,955.0m employee withholding; this employment-slip-only table reports 31,952.625m. These are different populations and amounts, not a correction to one another.",
+  "pure_employee_kv_pv_alv_total_eur": null,
+  "future_post_debt_reform_cost_eur": null,
+  "rules": [
+    "Do not add pension withholding or employer contributions.",
+    "Do not treat this 2024 broad payroll aggregate as the future SV-01 cost.",
+    "No bracket average payroll simulation: employment duration and special regimes are not jointly identified."
+  ]
+}

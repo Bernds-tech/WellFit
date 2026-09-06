@@ -31,3 +31,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK owner direction: WERK-CALC-001
 2026-09-06: Owner asked to calculate everything. Start with WERK_CALCULATIONS_HANDOFF.md and WERK_GESAMTRECHNUNG.md. Consolidated conditional calculation is VERIFIED at d876d9f91c1edadd505edff018e7377500dab0b3; Fiscal, Registry and Frontend CI succeeded. See WERK_CALCULATIONS_CI_RECEIPT.json. Fifteen reform dossiers are inventoried, but verified funding remains zero. LAB-005 evidence persists; no Sites deployment.
+
+### Latest WERK owner direction: WERK-SV-001
+2026-09-06: SV-01 adds employee KV/PV/ALV relief only after debt freedom and secured replacement financing. Read WERK_SV_HANDOFF.md and WERK_SV_NACH_SCHULDENFREIHEIT.md. Existing 31.96bn withholding is not additional revenue: redirection does not create repayment capacity. Sixteen reform dossiers; actual funding remains open. Final remote CI pending. No Sites deployment.

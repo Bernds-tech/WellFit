@@ -1,6 +1,6 @@
 # WERK Gesamtrechnung – 6. September 2026
 
-Reproduzierbar aus 15 versionierten Eingabedateien. Alle Beträge nominal, sofern anders bezeichnet. **15 Reformakten, 3 unterschiedliche Sensitivitätsmodelle, 0 verifizierte Finanzierungsbeiträge.** Das Programm ist noch nicht durchfinanziert.
+Reproduzierbar aus 15 versionierten Eingabedateien. Alle Beträge nominal, sofern anders bezeichnet. **16 Reformakten, 3 unterschiedliche Sensitivitätsmodelle, 0 verifizierte Finanzierungsbeiträge.** Das Programm ist noch nicht durchfinanziert.
 
 ## 1. Haushalt und Finanzierungsbedarf
 
@@ -155,6 +155,9 @@ Diese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert
 | REG-01 | Subsidiaritäts- und Kompetenzordnung | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | DIR-01 | WERK VOTE | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | ORG-01 | WERK-Bürgerlisten-Pakt | Kosten-/Wirkungsmodell offen | offen / offen / offen |
+| SV-01 | Arbeitnehmer-SV nach Schuldenfreiheit durch gesicherte Ersatzfinanzierung ablösen | SV-01 (nach Schuldenfreiheit) | offen / offen / offen |
+
+Die neue Zielstufe **SV-01** nach vollständiger Schuldenfreiheit ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.
 
 Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehmensspezifische zusätzliche Maastricht-Effekte; bei EU-01 Kosten und Periodisierung des RRF-Nachlaufs; bei TAX-01 Verhaltens-/Investitionssimulation; bei REG-01 Übergangskosten je Kompetenz; bei DIR-01 und ORG-01 Infrastruktur-/Betriebskosten und der passende private/öffentliche Finanzierungsumfang. DEBT-02 ist eine Tilgungsorganisation und kein zusätzlicher Sparbeitrag.
 

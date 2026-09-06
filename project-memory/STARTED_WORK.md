@@ -127,3 +127,11 @@ Canonical register for work that has started but is not yet fully completed.
 - Lock: LOCK-WERK-CALC-001
 - Scope: konsolidierte Rechenstrecke mit 1/5/10-Jahren, Kosten, Gegenprüfung und CI.
 - Closed: 2026-09-06. Implementation d876d9f91c1edadd505edff018e7377500dab0b3, three triggered CI workflows successful; WERK_CALCULATIONS_CI_RECEIPT.json.
+
+## WERK-SV-001
+- Status: IN_PROGRESS
+- Risk: R2
+- Started: 2026-09-06
+- Change: WERK-CR-SV-001
+- Lock: LOCK-WERK-SV-001
+- Scope: post-debt employee contribution reform and financial scenarios; WERK branch only.

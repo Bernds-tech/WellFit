@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-01-v2",
+  "version": "2026-09-06-v3",
   "method": "Erst rechnen. Dann entscheiden.",
   "rules": {
     "no_fabricated_numbers": true,
@@ -312,6 +312,7 @@
       "citizen_vote": "nein",
       "kpi": ["aktive Partnerlisten", "Compliance-Verstöße", "regionale Abdeckung", "Konfliktlösungsdauer"],
       "review": "jährlich durch Integritäts-/Revisionsfunktion"
-    }
+    },
+    {"id": "SV-01", "area": "Steuern, Arbeit & soziale Sicherheit", "title": "Arbeitnehmer-SV nach Schuldenfreiheit durch gesicherte Ersatzfinanzierung ablösen", "status": "politisches Langfristziel – bedingte Rechnung vorhanden, Finanzierung offen", "problem": "Beiträge auf Arbeit verringern das verfügbare Einkommen; der Abstand zwischen Beschäftigung und Nichterwerbstätigkeit hängt zusätzlich von Steuern, Transfers und Arbeitskosten ab.", "goal": "Nach vollständigem gesamtstaatlichem Schuldenabbau Arbeitnehmer-KV/PV/ALV auf Lohn und Gehalt abschaffen; Versicherungsleistungen und erworbene Ansprüche durch dauerhafte Ersatzfinanzierung erhalten.", "costs": "Tatsächlicher Arbeitnehmer-KV/PV/ALV-Ausfall abzüglich zusätzlicher Lohnsteuer, zuzüglich Übergangs-/Betriebs-/Leistungskosten. Exakte Kosten offen; breite Lohnzettelreferenz 2024 ist keine Reformkostensumme.", "financing": "Dauerhafter Haushaltsspielraum nach Ende von Tilgung/Zinslast, mit Reserve; weitere Finanzierung nur nach Netto- und Verteilungsnachweis. Kein heutiger Sparbeitrag.", "impact_1y": "Erst nach Schuldenfreiheit und Ersatzfinanzierung. Statische Payroll-Szenarien für 25/50/100% Entlastung gerechnet; tatsächliche Startkosten offen.", "impact_5y": "Fünfjahres-Finanzierungssensitivität gerechnet; Preis-/Leistungs-/Demografiepfad bis tatsächlichem Start offen.", "impact_10y": "Zehnjahres-Finanzierungssensitivität gerechnet; tatsächliche Dauerfinanzierung offen.", "current_level": "Bund / Sozialversicherung / Finanzausgleich", "target_level": "Gesamtstaatlich finanzierte Arbeitnehmerentlastung bei gesicherten Versicherungsansprüchen", "legal_status": "WERK-Zielvorschlag vom 06.09.2026; nicht geltendes Recht. Beitrags-, Leistungs-, Steuer- und Finanzausgleichsrecht auszuarbeiten.", "citizen_vote": "nach vollständiger Kosten-, Verteilungs- und Rechtsprüfung", "kpi": ["Nettoeinkommensgewinn nach Veranlagung und Transfers", "Ersatzbedarf je Versicherungszweig", "Erwerbsanreiz je Haushalt", "Schuldenfreiheit und Krisenreserve", "Erhalt der Leistungsansprüche"], "review": "vor Aktivierung umfassend; danach jährlich mit Demografie-, Deckungs- und Verteilungsprüfung", "scenario_model": "werk-data/post-debt-employee-sv-model.json", "calculation_results": "werk-data/post-debt-employee-sv-results.json", "activation_stage": "after_complete_general_government_debt_repayment", "verified_annual_net_eur_billion": null}
   ]
 }

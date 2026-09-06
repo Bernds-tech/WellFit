@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v7",
+  "version": "2026-09-06-v8",
   "title": "WERK Österreich – Dokument-Abhängigkeitskarte",
   "purpose": "Parteiprogramm und Statuten werden als Teil des WERK-Gesamtsystems gepflegt. Änderungen an Daten, Reformen, Rechtslage oder Organisationsmodell lösen eine Prüfung aller betroffenen Dokumentabschnitte aus.",
   "update_cadence": "weekly_review_plus_event_driven",
@@ -26,6 +26,9 @@
         "werk-data/bud01-balance-gap-2026-2031.json",
         "werk-data/medium-term-fiscal-path.json",
         "werk-data/debt-model.json",
+        "werk-data/post-debt-employee-sv-model.json",
+        "werk-data/post-debt-employee-sv-results.json",
+        "werk-data/employee-payroll-withholding-2024.json",
         "werk-data/distribution-baseline-2025-2026.json",
         "werk-data/labour-productivity-baseline-2025-2026.json",
         "werk-data/labour-matching-baseline-2025-2026.json",

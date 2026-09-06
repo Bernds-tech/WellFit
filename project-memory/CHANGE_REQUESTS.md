@@ -127,3 +127,9 @@
 - Date: 2026-09-06
 - Owner request: „weiter! … rechne mal alles durch!!!!“
 - Scope: reproduzierbare Budget-, Reform-Sensitivitäts-, Tilgungs-, Mehrstunden- und Payroll-Rechnung; bestehender WERK-Zweig. Keine Gleichsetzung von Szenario und finanzierter Reform.
+
+## WERK-CR-SV-001 — Arbeitnehmer-SV nach Schuldenfreiheit
+- Date: 2026-09-06
+- Owner: Nach Schuldenabbau Sozialversicherung bei Gehältern abdrehen; Erwerbsanreiz stärken.
+- Interpretation for calculation: Arbeitnehmer-KV/PV/ALV entfallen; Leistungen bleiben erhalten, Arbeitgeberbeiträge sowie AK/WF separat. Steuer- und Haushaltswirkung sowie Ersatzfinanzierung explizit rechnen.
+- Scope: neue bedingte Reformakte SV-01, bestehender Payroll-/Tilgungsrechner, Quellenabgleich und Fortschreibung.

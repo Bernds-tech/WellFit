@@ -2,7 +2,7 @@
 
 ## Parteiprogramm
 
-Arbeitsfassung v2 · 12 Leitfelder · Datenstand 05.09.2026
+Arbeitsfassung v2 · 12 Leitfelder · Datenstand 05.09.2026 · Ergänzung SV-01: 06.09.2026
 
 Erst rechnen. Dann entscheiden.
 
@@ -67,6 +67,12 @@ Erst nach nachgewiesener Budgetbalance folgt die zweite Sanierungsstufe: mindest
 
 | Wichtig: Defizitabbau und Schuldentilgung dürfen nicht doppelt gezählt werden. Solange der Staat ein Defizit hat, ist ein zusätzliches 10-Mrd.-Tilgungsziel keine zweite, gleichzeitig buchbare Einsparung. |
 | --- |
+
+### SV-01 – Arbeitnehmerentlastung nach Schuldenfreiheit
+
+Als langfristige dritte Stufe strebt WERK an, nach vollständigem gesamtstaatlichem Schuldenabbau die Arbeitnehmerbeiträge zur Kranken-, Pensions- und Arbeitslosenversicherung auf Lohn und Gehalt abzuschaffen. Versicherungsleistungen und erworbene Pensionsansprüche bleiben erhalten und benötigen eine dauerhaft gesicherte Ersatzfinanzierung. Arbeitgeberbeiträge und weitere Lohnabgaben werden gesondert bewertet.
+
+Schuldenfreiheit allein löst die Entlastung nicht automatisch aus. Vor der Umsetzung werden der tatsächlich freie Haushaltsspielraum, demografischer Leistungsbedarf, Krisenreserve, höhere Lohnsteuer durch den entfallenden Beitragsabzug sowie die Nettoverteilung nach Steuern und Transfers gerechnet. Maßgeblich ist der verfügbare Einkommensgewinn gleicher Haushalte nach zusätzlichen Arbeitskosten. Eine allgemeine Gleichstellung von Arbeitslosengeld und Erwerbseinkommen wird nicht unterstellt. Die erste statische Szenariorechnung liegt vor; die vollständige Finanzierung und gesetzliche Ausgestaltung sind offen.
 
 ## 3. Steuern, Abgaben & Verteilung
 

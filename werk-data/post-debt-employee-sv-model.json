@@ -1,0 +1,125 @@
+{
+  "version": "2026-09-06-v1",
+  "reform_id": "SV-01",
+  "status": "owner_requested_goal_conditional_calculation_not_funded_or_legislated",
+  "owner_goal": "Nach vollständigem Schuldenabbau sollen Arbeitnehmer keine eigenen Sozialversicherungsbeiträge auf Lohn und Gehalt mehr zahlen, damit Erwerbsarbeit mehr verfügbares Einkommen bringt.",
+  "scope_interpretation": "Employee KV/PV/ALV only; insurance benefits and accrued pension rights preserved. Employer contributions, AK/WF levies, pensioner/self-employed regimes are separate. Complete abolition of all payroll levies is not assumed.",
+  "activation": {
+    "requires_debt_free_general_government": true,
+    "requires_sustainable_replacement_financing": true,
+    "requires_preserved_insurance_entitlements": true,
+    "requires_household_distribution_review": true,
+    "calendar_year": null,
+    "currently_active": false
+  },
+  "payroll_scenarios": {
+    "monthly_gross_eur": [
+      1500,
+      2000,
+      2500,
+      3000,
+      4000,
+      5000,
+      7000,
+      10000
+    ],
+    "employee_core_reduction_shares": [
+      0.25,
+      0.5,
+      1
+    ],
+    "regions": [
+      "outside_vienna",
+      "vienna"
+    ],
+    "tax_treatment": "Unchanged 2026 tax schedule as static counterfactual: only remaining contributions deductible. Higher wage tax offsets part of contribution relief. This is not enacted future law.",
+    "price_and_duration": "Fourteen constant salaries, full-year standard ASVG employment; all monetary results expressed at 2026 rules, not nominal income decades later.",
+    "excluded": [
+      "final employee tax assessment",
+      "SV refund and traffic-credit supplement changes",
+      "household transfer withdrawal",
+      "family/commuter cases",
+      "behavioural or employment effects",
+      "funding-tax incidence"
+    ]
+  },
+  "post_debt_financing_scenarios": {
+    "starting_debt_baseline": "adopted_policy_projection_2031",
+    "base_annual_net_repayment_bn": 10,
+    "avoided_interest_pct": [
+      1,
+      2.5,
+      4
+    ],
+    "reserve_shares": [
+      0,
+      0.2
+    ],
+    "assumed_tax_recapture_shares": [
+      0,
+      0.2,
+      0.3,
+      0.4
+    ],
+    "annual_gross_contribution_loss_bn_cases": [
+      20,
+      25,
+      30
+    ],
+    "annual_new_operating_cost_bn": 0,
+    "oneoff_transition_cost_bn": 0,
+    "zero_cost_rule": "Zero new costs is an illustrative upper funding-capacity bound, not evidence of costless implementation. Actual costs remain unknown.",
+    "formula": "Conditional post-debt primary surplus = base repayment + starting debt * avoided interest rate; budget available = surplus * (1-reserve); net contribution replacement need = gross loss * (1-tax recapture) + extra running costs. No cumulative interest added.",
+    "assumption": "Same constant nominal counterfactual as existing debt model: sustainable primary surplus survives until and after debt freedom, with no additional demographic/service expenditure, crises or growth. Former repayment and interest savings have not been allocated elsewhere. Values are scenario accounting, not an economic forecast."
+  },
+  "work_vs_nonwork_scenarios": {
+    "assumed_monthly_cash_benefits_eur": [
+      1200,
+      1500,
+      1800
+    ],
+    "additional_monthly_work_costs_and_transfer_losses_eur": [
+      0,
+      300,
+      600
+    ],
+    "monthly_gross_eur": [
+      2000,
+      3000,
+      4000
+    ],
+    "benefit_rule": "User-editable hypothetical total nonwork household cash inflow, not an AMS entitlement or a finding about actual recipients. Same household must be compared; shared transfers cancel, changes belong in the loss input. Employment comparison uses annual cash net / 12 including special pay.",
+    "future_benefit_rule": "Nonwork benefits held fixed only for isolated sensitivity. If future ALG remains linked to reformed net wages, benefits may also rise; this must be legislated and costed separately."
+  },
+  "official_unemployment_rules": {
+    "source_url": "https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/geld-vom-ams/arbeitslosengeld",
+    "source_updated": "2026-08-05",
+    "checked_at": "2026-09-06",
+    "basic_replacement_pct": 55,
+    "supplement_cap_without_family_pct": 60,
+    "supplement_cap_with_family_pct": 80,
+    "basic_duration_weeks": 20,
+    "rules": "AMS uses historical contribution bases, adjustments, one-sixth uplift for special payments and statutory net conversion. 55% is not simply 55% of current monthly payslip net. 60/80% are conditional caps, not universal rates. Duration differs by insurance/age; no automatic full-year ALG assumption.",
+    "same_pay_as_work_general_claim_verified": false
+  },
+  "alternative_financing_options_to_evaluate": [
+    "Redirect sustained debt-service capacity after debt freedom, with demographic and crisis reserve.",
+    "Stage employee-contribution relief within verified recurring capacity; no pre-debt start is assumed.",
+    "Compare a capped refundable employment credit for low/middle incomes while preserving insurance funding; avoid benefit cliffs.",
+    "Evaluate a wider tax base only with legal, distribution and additional-revenue modelling; VAT shifts may burden nonworkers and pensioners."
+  ],
+  "funding_gate": {
+    "status": "blocked",
+    "verified_annual_replacement_cost_bn": null,
+    "verified_annual_replacement_financing_bn": null,
+    "employment_effect_persons": null,
+    "current_budget_credit_bn": 0
+  },
+  "existing_receipts_accounting": {
+    "already_collected": true,
+    "redirection_creates_additional_revenue": false,
+    "existing_services_and_entitlements_preserved": true,
+    "verified_additional_debt_repayment_bn": 0,
+    "boundary": "Stylized cash-flow reconciliation across receiving budget and all displaced recipients; not a new ESA sector total. Broad 2024 payroll benchmark includes levies outside pure SV."
+  }
+}

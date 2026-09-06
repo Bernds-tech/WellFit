@@ -30,6 +30,13 @@ on:
       - 'scripts/lib/werk-calculation.mjs'
       - 'scripts/lib/werk-payroll-2026.mjs'
       - 'WERK_GESAMTRECHNUNG.md'
+      - 'werk-data/post-debt-employee-sv-*.json'
+      - 'werk-data/employee-payroll-withholding-2024.json'
+      - 'werk-data/sources/stat-lohnsteuer-employment-2024.ods'
+      - 'scripts/werk-post-debt-sv-*.mjs'
+      - 'scripts/lib/werk-post-debt-sv.mjs'
+      - 'scripts/werk-import-employee-withholding.py'
+      - 'WERK_SV_NACH_SCHULDENFREIHEIT.md'
       - '.github/workflows/werk-fiscal-data-check.yml'
   workflow_dispatch:
 
@@ -154,3 +161,10 @@ jobs:
 
       - name: Reconcile balance gap including published rounding residuals
         run: node scripts/werk-bud01-balance-gap-contract.mjs
+
+      - name: Reconcile original employee payroll withholding table
+        run: python3 scripts/werk-import-employee-withholding.py
+      - name: Recompute post-debt employee contribution scenarios
+        run: node scripts/werk-post-debt-sv-contract.mjs
+      - name: Countercheck post-debt scenarios and funding gates
+        run: node scripts/werk-post-debt-sv-negative-check.mjs
