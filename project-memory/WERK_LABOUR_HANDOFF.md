@@ -2,7 +2,8 @@
 
 
 ## Current continuation — 2026-09-06
-- WERK-LAB-004: LOCAL_VERIFIED; publication and exact-implementation CI pending.
+- WERK-LAB-004: VERIFIED and published at bc7152d31dc598738bd0f12a02e3bebc830f974d. All 13 triggered workflows succeeded on this exact implementation; receipt WERK_LABOUR_004_CI_RECEIPT.json.
+- All 24 blobs and full tree ea2b388d93c32cf4257ddae97fef599cebda7bbf match local 083397a, preserved at archive/werk-lab-004-local-083397a. Non-forced connected GitHub publication completed; no approval pending.
 - Added 189 regional education rows and 67 regional employment-type/working-time rows for August. All nine states independently reconcile AL 311448 / immediately available OS 79769 to the existing workbook baseline.
 - Immediately available vacancies: full-time 54930, part-time 11542, either 13297. The three categories are disjoint; either is counted once. Non-immediate vacancies 14420 are retained in source controls and excluded from the matching stock.
 - Four pinned original CSV slices: August AL education (3373 rows), OS education (3457), OS employment-type/time (1055), and July AL education (3404). Complete-download hashes and original contiguous line ranges remain recorded; all aggregates re-extract without network access.

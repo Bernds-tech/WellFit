@@ -1,0 +1,138 @@
+{
+  "task": "WERK-LAB-004",
+  "verified_at": "2026-09-06",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_commit": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+  "implementation_tree": "ea2b388d93c32cf4257ddae97fef599cebda7bbf",
+  "local_original_commit": "083397a89c6775416364416c48d01a5468151a72",
+  "publication_verification": "All 24 blob hashes and full tree match local verified commit; non-forced update on existing WERK branch.",
+  "data_evidence": {
+    "regional_education_rows": 189,
+    "regional_time_type_rows": 67,
+    "al_education_source_rows": 3373,
+    "os_education_source_rows": 3457,
+    "os_time_source_rows": 1055,
+    "july_education_source_rows": 3404,
+    "july_unclear_education": 869,
+    "july_residual_allocated": false,
+    "august_unclear_education": 952,
+    "immediate_vacancies": {
+      "full_time": 54930,
+      "part_time": 11542,
+      "either": 13297,
+      "total": 79769
+    },
+    "non_immediate_vacancies_excluded": 14420,
+    "negative_cases": 33,
+    "joint_matching_observed": false,
+    "feasible_additional_hours": null
+  },
+  "deployment_claim": false,
+  "workflows": [
+    {
+      "id": 34028393418,
+      "name": "WERK Frontend Check",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393418"
+    },
+    {
+      "id": 34028393406,
+      "name": "WERK Distribution Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393406"
+    },
+    {
+      "id": 34028393446,
+      "name": "WERK Subsidy Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393446"
+    },
+    {
+      "id": 34028393441,
+      "name": "WERK Care Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393441"
+    },
+    {
+      "id": 34028393450,
+      "name": "WERK Fiscal Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393450"
+    },
+    {
+      "id": 34028393416,
+      "name": "WERK Baseline Legal Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393416"
+    },
+    {
+      "id": 34028393490,
+      "name": "WERK Tax Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393490"
+    },
+    {
+      "id": 34028393432,
+      "name": "WERK Policy Field Workstate Check",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393432"
+    },
+    {
+      "id": 34028393629,
+      "name": "WERK Health Activity Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393629"
+    },
+    {
+      "id": 34028393494,
+      "name": "WERK Data Contract Registry Check",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393494"
+    },
+    {
+      "id": 34028393459,
+      "name": "WERK Health Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393459"
+    },
+    {
+      "id": 34028393426,
+      "name": "WERK Pension Data Contract",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393426"
+    },
+    {
+      "id": 34028393405,
+      "name": "WERK Labour Productivity Data Check",
+      "head_sha": "bc7152d31dc598738bd0f12a02e3bebc830f974d",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34028393405"
+    }
+  ]
+}

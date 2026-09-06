@@ -123,8 +123,8 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-LAB-004
 - Date: 2026-09-06
-- Status: LOCAL_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Result: source-backed regional education and vacancy time; July 869 explained as XX, unallocated; joint matching and feasible hours blocked.
-- Evidence: WERK_LABOUR_HANDOFF.md; source imports, 33 negative cases and dependent contracts pass locally. Publication and CI pending.
+- Evidence: WERK_LABOUR_HANDOFF.md; source imports, 33 negative cases and dependent contracts pass locally. All 13 CI workflows passed at bc7152d31dc598738bd0f12a02e3bebc830f974d; WERK_LABOUR_004_CI_RECEIPT.json.
 - Recovery: revert bounded LAB-004 change set.

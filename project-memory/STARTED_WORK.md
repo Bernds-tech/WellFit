@@ -103,9 +103,9 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-LAB-004
 - Started: 2026-09-06
-- Status: LOCAL_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Base: 22d67e9; LAB-003 verified.
 - Lock: LOCK-WERK-LAB-004
 - Scope: same-period education and working-time constraints with source reconciliation; qualification-by-occupation remains unproven.
-- Local result: 189 education / 67 time-type rows, July residual explained but unallocated; 33 negative cases and dependent contracts pass. Publication/CI pending.
+- Local result: 189 education / 67 time-type rows, July residual explained but unallocated; 33 negative cases and dependent contracts pass. All 13 CI workflows passed at bc7152d31dc598738bd0f12a02e3bebc830f974d; WERK_LABOUR_004_CI_RECEIPT.json.

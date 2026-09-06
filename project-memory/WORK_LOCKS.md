@@ -65,7 +65,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-LAB-004
 - Task: WERK-LAB-004
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: qualification and working-time evidence for August, no invented joint distribution; existing WERK branch.
+- Released: 2026-09-06 after exact-implementation success of all 13 workflows and preparation of WERK_LABOUR_004_CI_RECEIPT.json.
