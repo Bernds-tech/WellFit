@@ -5,8 +5,8 @@
   "source_sha256": {
     "werk-data/calculation-assumptions.json": "b881f7d40d36f5f50d36ca0c3b8c905141ef7d10bd496da32899319fed67fd22",
     "werk-data/budget-baseline-2026-2031.json": "6a56e4df54c58a1c812ee9222e7c6e23921641a5a6031e05a108ded1614a148a",
-    "werk-data/funding-matrix.json": "5dd9ba05ef9bbe2dcc77ed7492ff0ceb7acde2d5585ee84c4c07a163cdcd4e1d",
-    "werk-data/reforms.json": "b6aff7a67a8660caf6b47d6a80a6085bd956916596e549f58634e6874fc60e36",
+    "werk-data/funding-matrix.json": "3671f7596abd9aaed73df5d1ed38408355c7aa8df8822c4f71a628bad05ffb1e",
+    "werk-data/reforms.json": "c8343cf22731733b483f2aa8816f1b4187e2368a129714f44830c39bd4e14bec",
     "werk-data/admin-model.json": "95701417ef30de97a0e9516ba6f5a9698dc52c252db28eb166610337301e8a65",
     "werk-data/tax-compliance-model.json": "bc3cfc87e2cc3b95ecb1d1b9100d96630854a713a3ba1d1a007d149894f66744",
     "werk-data/gambling-model.json": "e733868a4802dd36252e214e3065e0d7ea329207512097a1ccb7f82b47843388",
@@ -5657,7 +5657,7 @@
     },
     {
       "id": "SV-01",
-      "title": "Arbeitnehmer-SV nach Schuldenfreiheit durch gesicherte Ersatzfinanzierung ablösen",
+      "title": "Arbeitnehmer-SV nach Schuldenfreiheit zunächst um 15,5 Mrd. Euro jährlich senken",
       "cost_description": "Tatsächlicher Arbeitnehmer-KV/PV/ALV-Ausfall abzüglich zusätzlicher Lohnsteuer, zuzüglich Übergangs-/Betriebs-/Leistungskosten. Exakte Kosten offen; breite Lohnzettelreferenz 2024 ist keine Reformkostensumme.",
       "scenario_module": "SV-01 (nach Schuldenfreiheit)",
       "verified_annual_net_bn": null,

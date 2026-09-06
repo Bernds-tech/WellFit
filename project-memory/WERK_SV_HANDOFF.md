@@ -1,5 +1,9 @@
-# WERK-SV-001 — Arbeitnehmerentlastung nach Schuldenfreiheit
+# WERK — Arbeitnehmerentlastung nach Schuldenfreiheit
 
+## Current refinement: WERK-SV-002
+Owner chose an initial 15.5bn EUR annual gross employee KV/PV/ALV relief volume after complete debt repayment. This supersedes immediate full abolition as the current program target; full abolition remains comparison only and requires a later decision. No personal 50% reduction is implied. Distribution and indexation until future activation are open. Without recapture, 1/5/10-year replacement is 15.5/77.5/155bn; at an assumed 30% tax recapture 10.85/54.25/108.5bn. Extra implementation/service costs remain open. Under the prior conditional 18.504bn capacity case, 3.004bn would remain even without recapture; this is not verified future financing. 37 SV counterchecks; remote CI pending.
+
+## Previous implementation: WERK-SV-001
 Updated: 2026-09-06. Status: VERIFIED at 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered workflows succeeded. See WERK_SV_CI_RECEIPT.json.
 
 Owner requested continued calculations and abolition of wage social insurance after debt repayment. SV-01 records employee KV/PV/ALV relief with preserved insurance and pension rights; employer contributions, AK/WF and non-employee groups remain separate. Existing public WERK branch publication authorization persists; no Sites deployment.

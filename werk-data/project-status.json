@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-06-v30",
+  "version":"2026-09-06-v31",
   "current_preview":"V71 – 12 Leitfelder mit 41/41-Abdeckung und realem Analyse-/Daten-/Reformarbeitsstand",
   "overall_phase":"Prüffassung mit aktivem isoliertem WERK-Staging; Programm-, Dokument-, Fiskal- und Fachdatenarchitektur deutlich fortgeschritten, noch nicht öffentlich produktiv freigegeben",
   "components":[
@@ -123,5 +123,5 @@
 ,
   "calculation_review": {"task": "WERK-CALC-001", "report": "WERK_GESAMTRECHNUNG.md", "results": "werk-data/calculation-results-2026.json", "assumptions": "werk-data/calculation-assumptions.json", "registered_reforms": 16, "verified_funding_contributions": 0, "readiness_note": "Technische Modellreife in estimate_pct ist kein Anteil finanzierter Reformen. Bedingte Szenariorechnung ist erstellt; vollständig finanzierte Endrechnung bleibt offen."}
 ,
-  "post_debt_employee_relief": {"reform_id": "SV-01", "model": "werk-data/post-debt-employee-sv-model.json", "report": "WERK_SV_NACH_SCHULDENFREIHEIT.md", "status": "conditional_goal_financing_open", "note": "Leitfelder mit Reformakten umfassen auch bedingte Langfristziele; keine erhöhte Finanzierungsquote."}
+  "post_debt_employee_relief": {"reform_id": "SV-01", "model": "werk-data/post-debt-employee-sv-model.json", "report": "WERK_SV_NACH_SCHULDENFREIHEIT.md", "status": "conditional_goal_financing_open", "first_stage_annual_gross_relief_bn": 15.5, "individual_rate_cut": null, "note": "Leitfelder mit Reformakten umfassen auch bedingte Langfristziele; keine erhöhte Finanzierungsquote."}
 }

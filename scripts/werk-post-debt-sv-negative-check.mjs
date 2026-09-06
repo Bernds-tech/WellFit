@@ -37,6 +37,7 @@ for(const args of [{startingDebt:null,baseRepayment:10,ratePct:2.5},{startingDeb
 for(const args of [{grossLoss:30,taxRecaptureShare:1},{grossLoss:30,taxRecaptureShare:NaN},{grossLoss:-1,taxRecaptureShare:.3},{grossLoss:30,taxRecaptureShare:.3,runningCost:-1}])check('Reject invalid replacement cost',()=>assert.throws(()=>replacementCost(args)));
 const out=JSON.parse(fs.readFileSync('werk-data/post-debt-employee-sv-results.json','utf8'));
 check('No invented aggregate or activation',()=>{assert.equal(out.pure_employee_kv_pv_alv_total_bn,null);assert.equal(out.verified_reform_cost_bn,null);assert.equal(out.activation_year,null);close(out.broad_withholding_reference_bn,31.952625);});
+check('First stage volume is not an individual 50 percent cut',()=>{close(out.first_stage.annual_gross_relief_target_bn,15.5);assert.equal(out.first_stage.individual_reduction_share,null);assert.equal(out.first_stage.full_abolition_is_current_program_target,false);const a=out.first_stage.financing_sensitivities.find(x=>x.tax_recapture_share===0);close(a.cumulative_net_need_bn[10],155);const b=out.first_stage.financing_sensitivities.find(x=>x.tax_recapture_share===.3);close(b.net_replacement_need_bn,10.85);close(b.cumulative_net_need_bn[5],54.25);});
 check('Existing receipts cannot be booked twice',()=>{const r=out.existing_receipts_redirection;close(r.illustrative_redirected_existing_receipts_bn+r.displaced_recipient_receipts_bn,0);close(r.additional_external_revenue_bn,0);close(r.additional_debt_repayment_capacity_bn,0);});
 check('19-bracket source total preserved',()=>{const s=JSON.parse(fs.readFileSync('werk-data/employee-payroll-withholding-2024.json','utf8'));assert.equal(s.brackets.length,19);assert.equal(s.totals.persons,4918470);assert.equal(s.totals.withheld_contributions_and_levies_thousand_eur,31952625);});
 check('Work comparison is annual, not regular-month versus year',()=>{
@@ -51,6 +52,8 @@ try{
   check('Clean isolated generation',()=>assert.equal(run().status,0));
   const p=path.join(tmp,'werk-data/post-debt-employee-sv-model.json'),raw=fs.readFileSync(p,'utf8');
   for(const [label,mutate] of [
+    ['Invented individual first-stage percentage',s=>s.first_stage.individual_reduction_share=.5],
+    ['Automatic full abolition after first stage',s=>s.first_stage.further_full_abolition_automatically_authorized=true],
     ['Double-booked existing contributions',s=>s.existing_receipts_accounting.redirection_creates_additional_revenue=true],
     ['Invented repayment from redirection',s=>s.existing_receipts_accounting.verified_additional_debt_repayment_bn=31.96],
     ['Premature activation',s=>s.activation.currently_active=true],

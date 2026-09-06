@@ -1,10 +1,29 @@
 # SV-01 – Mehr Netto nach Schuldenfreiheit
 
-Stand 6. September 2026. Neu aufgenommene politische Zielstufe nach BUD-01 (Budgetbalance) und BUD-02 (Schuldenabbau). **Ziel: Arbeitnehmer-KV/PV/ALV auf Lohn und Gehalt abschaffen, Versicherungsleistungen und erworbene Pensionsansprüche erhalten.** Arbeitgeberbeiträge, AK/Wohnbauförderung und Selbständigen-/Pensionsbeiträge sind eigenständige Fragen.
+Stand 6. September 2026. Neu aufgenommene politische Zielstufe nach BUD-01 (Budgetbalance) und BUD-02 (Schuldenabbau). **Erste Zielstufe: Arbeitnehmer-KV/PV/ALV auf Lohn und Gehalt um insgesamt 15,5 Mrd. € jährlich senken; Versicherungsleistungen und erworbene Pensionsansprüche erhalten.** Arbeitgeberbeiträge, AK/Wohnbauförderung und Selbständigen-/Pensionsbeiträge sind eigenständige Fragen.
 
 Aktivierung erst bei schuldenfreiem Gesamtstaat, dauerhaft gesicherter Ersatzfinanzierung und geprüfter Verteilung. Ein Startjahr oder eine bereits finanzierte Reform wird nicht behauptet.
 
-## 1. Nettoeffekt der vollständigen Arbeitnehmerentlastung
+## Beschlossene Zielpräzisierung: zunächst 15,5 Mrd. € jährlich
+
+Politisches **Bruttoentlastungsziel**, keine bereits finanzierte Zusage und kein garantierter Nettozuwachs der Haushalte. 15,5 Mrd. € entsprechen 48,51 % der breiten 2024-Referenz. Das ist grob die Hälfte; die exakte Hälfte dieser Referenz wäre 15,976 Mrd. €. Diese Referenz ist weiterhin keine reine KV/PV/ALV-Summe. Individuelle Beitragssenkung, Verteilung und Indexierung bis zum tatsächlichen Start bleiben offen. Eine spätere vollständige Abschaffung ist nur ein Vergleichsszenario und benötigt eine eigene Entscheidung.
+
+Bei voller Umsetzung der Zielstufe und nominal konstanten Werten:
+
+| Angenommener Lohnsteuer-Rückfluss | Nettofinanzierungsbedarf/Jahr Mrd. € | 5 Jahre | 10 Jahre |
+| --- | --- | --- | --- |
+| 0 % | 15,500 | 77,500 | 155,000 |
+| 20 % | 12,400 | 62,000 | 124,000 |
+| 30 % | 10,850 | 54,250 | 108,500 |
+| 40 % | 9,300 | 46,500 | 93,000 |
+
+Ohne Rückfluss gerechnet müssen jährlich 15,5 Mrd. € ersetzt werden, über fünf Jahre 77,5 und über zehn Jahre 155 Mrd. €. Bei **angenommenen** 30 % Rückfluss wären es 10,85 / 54,25 / 108,5 Mrd. €. Zusätzliche Umsetzungs- und Leistungskosten sind noch offen. Bei unveränderten Leistungen brauchen die Versicherungszweige den Bruttobeitragsausfall ersetzt; Lohnsteuer-Rückflüsse vermindern nur die konsolidierte Haushaltsbelastung.
+
+Die bisherigen bedingten 18,504 Mrd. € Haushaltsspielraum nach Reserve würden das 15,5-Mrd.-Ziel rein rechnerisch auch ohne Lohnsteuer-Rückfluss abdecken: Rest 3,004 Mrd. €. Diese Kapazität setzt unter anderem die dauerhaft finanzierte 10-Mrd.-Tilgungsbasis und 2,5 % vermiedene Zinslast auf 525,2 Mrd. € voraus. Sie ist kein aktueller oder zugesicherter zukünftiger Überschuss.
+
+Die folgenden individuellen Zahlen zeigen ausdrücklich die **vollständige Abschaffung als Vergleich**. Aus dem 15,5-Mrd.-Gesamtziel lässt sich ohne Verteilungsregel kein bestimmter Nettogewinn pro Person ableiten.
+
+## 1. Vergleichsszenario: vollständiger Wegfall der Arbeitnehmerbeiträge
 
 Statischer Vergleich mit dem bestehenden 2026-Regelkern, gleicher Bruttolohn und unverändertem Steuertarif. ASVG-Standardfall, außerhalb Wiens, ganzjährig 14 gleich hohe Bruttobezüge. Lohnsteuer steigt, weil nur die verbleibenden Beiträge abzugsfähig sind. **Vor Arbeitnehmerveranlagung, SV-Rückerstattung, Haushaltstransfers und Finanzierungslasten.** Regelmonat und Jahresdurchschnitt sind unterschiedliche Größen.
 
@@ -31,10 +50,11 @@ Bei unveränderten Leistungen müssen die ausgefallenen Beiträge in der Versich
 
 **Die bereits einbehaltenen Beiträge sind keine zusätzlichen Einnahmen für die Schuldentilgung.** Eine bloße Umleitung der breiten Referenzsumme in einen Tilgungstopf bringt dort rechnerisch +31,953 Mrd. €, entzieht den bisherigen Empfängern aber dieselbe Summe. Werden Leistungen und Ansprüche erhalten, ist dieser Ausfall zu ersetzen: +31,953 − 31,953 = **0 Mrd. € zusätzlicher Tilgungsspielraum**. Ohne Ersatz bleibt eine Finanzierungslücke; eine neue Verschuldung dafür verlagert Schulden lediglich. Tatsächliche Ausgabensenkungen oder zusätzliche externe Einnahmen wären eigenständig zu belegen. Das ist eine Zahlungsstrom-Gegenrechnung einschließlich aller bisherigen Empfänger, keine neue ESVG-Sektorensumme.
 
-Reine Finanzierungssensitivitäten, vollständige sofortige Entlastung, nominal konstante Werte; tatsächliche Anlauf-/Mehrkosten noch offen:
+Reine Finanzierungssensitivitäten, volle Umsetzung des jeweiligen Bruttoentlastungsvolumens, nominal konstante Werte; tatsächliche Anlauf-/Mehrkosten noch offen:
 
 | Angenommener Bruttoausfall Mrd. €/Jahr | Angenommener Lohnsteuer-Rückfluss | Netto/Jahr | Netto 5 Jahre | Netto 10 Jahre |
 | --- | --- | --- | --- | --- |
+| 15,500 | 30 % | 10,850 | 54,250 | 108,500 |
 | 20,000 | 30 % | 14,000 | 70,000 | 140,000 |
 | 25,000 | 30 % | 17,500 | 87,500 | 175,000 |
 | 30,000 | 30 % | 21,000 | 105,000 | 210,000 |

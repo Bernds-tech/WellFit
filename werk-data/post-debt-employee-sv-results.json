@@ -1,17 +1,70 @@
 {
-  "version": "2026-09-06-v1",
+  "version": "2026-09-06-v2",
   "reform_id": "SV-01",
   "status": "conditional_static_scenarios",
   "source_sha256": {
-    "werk-data/post-debt-employee-sv-model.json": "58e75edea1a538b0f7063b4bb459a2aace038bd4817a1b8c1767692a4af9b22a",
+    "werk-data/post-debt-employee-sv-model.json": "39e01cb17e3cd461b357fb879332d45bb9499ed9a976ca6615e4b56a03dd39d5",
     "werk-data/payroll-employee-kernel-2026.json": "9c0a8ee265c0d6e5c84adad5bcc6749a48f6f3431f114a3956fbe5e1aa7206fe",
     "werk-data/debt-model.json": "43e6d246fa811e0d32a7f49fb78dc84d8ac1dee18615d08bfc63b2fad2fde6b8",
     "werk-data/employee-payroll-withholding-2024.json": "cf1ac8435f3ef6f9f091db2494bf5c5d74940703a1586094e98ac654d2886fe8",
-    "werk-data/reforms.json": "b6aff7a67a8660caf6b47d6a80a6085bd956916596e549f58634e6874fc60e36"
+    "werk-data/reforms.json": "c8343cf22731733b483f2aa8816f1b4187e2368a129714f44830c39bd4e14bec"
   },
   "source_year": 2024,
   "payroll_rule_year": 2026,
   "activation_year": null,
+  "first_stage": {
+    "annual_gross_relief_target_bn": 15.5,
+    "percentage_of_broad_2024_reference": 48.509317,
+    "individual_reduction_share": null,
+    "verified_net_household_gain_bn": null,
+    "financing_sensitivities": [
+      {
+        "gross_loss_bn": 15.5,
+        "tax_recapture_share": 0,
+        "net_replacement_need_bn": 15.5,
+        "basis": "hypothetical_gross_loss",
+        "cumulative_net_need_bn": {
+          "1": 15.5,
+          "5": 77.5,
+          "10": 155
+        }
+      },
+      {
+        "gross_loss_bn": 15.5,
+        "tax_recapture_share": 0.2,
+        "net_replacement_need_bn": 12.4,
+        "basis": "hypothetical_gross_loss",
+        "cumulative_net_need_bn": {
+          "1": 12.4,
+          "5": 62,
+          "10": 124
+        }
+      },
+      {
+        "gross_loss_bn": 15.5,
+        "tax_recapture_share": 0.3,
+        "net_replacement_need_bn": 10.85,
+        "basis": "hypothetical_gross_loss",
+        "cumulative_net_need_bn": {
+          "1": 10.85,
+          "5": 54.25,
+          "10": 108.5
+        }
+      },
+      {
+        "gross_loss_bn": 15.5,
+        "tax_recapture_share": 0.4,
+        "net_replacement_need_bn": 9.3,
+        "basis": "hypothetical_gross_loss",
+        "cumulative_net_need_bn": {
+          "1": 9.3,
+          "5": 46.5,
+          "10": 93
+        }
+      }
+    ],
+    "full_abolition_is_current_program_target": false
+  },
   "payroll_examples": [
     {
       "region": "outside_vienna",
@@ -977,6 +1030,50 @@
     }
   ],
   "replacement_cost_scenarios": [
+    {
+      "gross_loss_bn": 15.5,
+      "tax_recapture_share": 0,
+      "net_replacement_need_bn": 15.5,
+      "basis": "hypothetical_gross_loss",
+      "cumulative_net_need_bn": {
+        "1": 15.5,
+        "5": 77.5,
+        "10": 155
+      }
+    },
+    {
+      "gross_loss_bn": 15.5,
+      "tax_recapture_share": 0.2,
+      "net_replacement_need_bn": 12.4,
+      "basis": "hypothetical_gross_loss",
+      "cumulative_net_need_bn": {
+        "1": 12.4,
+        "5": 62,
+        "10": 124
+      }
+    },
+    {
+      "gross_loss_bn": 15.5,
+      "tax_recapture_share": 0.3,
+      "net_replacement_need_bn": 10.85,
+      "basis": "hypothetical_gross_loss",
+      "cumulative_net_need_bn": {
+        "1": 10.85,
+        "5": 54.25,
+        "10": 108.5
+      }
+    },
+    {
+      "gross_loss_bn": 15.5,
+      "tax_recapture_share": 0.4,
+      "net_replacement_need_bn": 9.3,
+      "basis": "hypothetical_gross_loss",
+      "cumulative_net_need_bn": {
+        "1": 9.3,
+        "5": 46.5,
+        "10": 93
+      }
+    },
     {
       "gross_loss_bn": 20,
       "tax_recapture_share": 0,

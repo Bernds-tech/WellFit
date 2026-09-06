@@ -155,7 +155,7 @@ Diese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert
 | REG-01 | Subsidiaritäts- und Kompetenzordnung | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | DIR-01 | WERK VOTE | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | ORG-01 | WERK-Bürgerlisten-Pakt | Kosten-/Wirkungsmodell offen | offen / offen / offen |
-| SV-01 | Arbeitnehmer-SV nach Schuldenfreiheit durch gesicherte Ersatzfinanzierung ablösen | SV-01 (nach Schuldenfreiheit) | offen / offen / offen |
+| SV-01 | Arbeitnehmer-SV nach Schuldenfreiheit zunächst um 15,5 Mrd. Euro jährlich senken | SV-01 (nach Schuldenfreiheit) | offen / offen / offen |
 
 Die neue Zielstufe **SV-01** nach vollständiger Schuldenfreiheit ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.
 

@@ -133,3 +133,9 @@
 - Owner: Nach Schuldenabbau Sozialversicherung bei Gehältern abdrehen; Erwerbsanreiz stärken.
 - Interpretation for calculation: Arbeitnehmer-KV/PV/ALV entfallen; Leistungen bleiben erhalten, Arbeitgeberbeiträge sowie AK/WF separat. Steuer- und Haushaltswirkung sowie Ersatzfinanzierung explizit rechnen.
 - Scope: neue bedingte Reformakte SV-01, bestehender Payroll-/Tilgungsrechner, Quellenabgleich und Fortschreibung.
+
+## WERK-CR-SV-002
+- Date: 2026-09-06
+- Owner direction: first post-debt employee contribution relief stage of 15.5bn EUR/year, roughly half the previously discussed broad reference; replace immediate full-abolition program target.
+- Classification: refinement of SV-01; R2; implementation and publication on existing WERK branch authorized.
+- Boundary: gross contribution relief, not guaranteed household net or a universal 50% rate reduction; preserve benefits and funding gates.

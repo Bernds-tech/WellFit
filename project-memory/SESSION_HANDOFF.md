@@ -34,3 +34,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK owner direction: WERK-SV-001
 2026-09-06: SV-01 adds employee KV/PV/ALV relief only after debt freedom and secured replacement financing. Read WERK_SV_HANDOFF.md and WERK_SV_NACH_SCHULDENFREIHEIT.md. Existing 31.96bn withholding is not additional revenue: redirection does not create repayment capacity. Sixteen reform dossiers; actual funding remains open. VERIFIED at 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. See WERK_SV_CI_RECEIPT.json. No Sites deployment.
+
+### Latest WERK owner direction: WERK-SV-002
+2026-09-06: first post-debt relief stage is now 15.5bn EUR/year of employee KV/PV/ALV, not immediate full abolition. This political gross volume does not imply a 50% individual rate cut or guaranteed household net gain. Funding/benefit preservation gates persist. Read WERK_SV_HANDOFF.md; remote CI pending.

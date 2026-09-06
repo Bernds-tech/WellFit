@@ -1,8 +1,8 @@
 {
-  "version": "2026-09-06-v1",
+  "version": "2026-09-06-v2",
   "reform_id": "SV-01",
   "status": "owner_requested_goal_conditional_calculation_not_funded_or_legislated",
-  "owner_goal": "Nach vollständigem Schuldenabbau sollen Arbeitnehmer keine eigenen Sozialversicherungsbeiträge auf Lohn und Gehalt mehr zahlen, damit Erwerbsarbeit mehr verfügbares Einkommen bringt.",
+  "owner_goal": "Nach vollständigem Schuldenabbau zunächst Arbeitnehmerbeiträge zur KV/PV/ALV um insgesamt 15,5 Mrd. Euro jährlich senken; Leistungen und erworbene Ansprüche durch dauerhafte Ersatzfinanzierung erhalten.",
   "scope_interpretation": "Employee KV/PV/ALV only; insurance benefits and accrued pension rights preserved. Employer contributions, AK/WF levies, pensioner/self-employed regimes are separate. Complete abolition of all payroll levies is not assumed.",
   "activation": {
     "requires_debt_free_general_government": true,
@@ -62,6 +62,7 @@
       0.4
     ],
     "annual_gross_contribution_loss_bn_cases": [
+      15.5,
       20,
       25,
       30
@@ -121,5 +122,16 @@
     "existing_services_and_entitlements_preserved": true,
     "verified_additional_debt_repayment_bn": 0,
     "boundary": "Stylized cash-flow reconciliation across receiving budget and all displaced recipients; not a new ESA sector total. Broad 2024 payroll benchmark includes levies outside pure SV."
+  },
+  "first_stage": {
+    "annual_gross_contribution_relief_bn": 15.5,
+    "meaning": "Political annual gross contribution relief volume, not net household gain and not a verified exact half of pure employee KV/PV/ALV receipts.",
+    "individual_reduction_share": null,
+    "distribution_rule": null,
+    "nominal_start_year_amount_bn": null,
+    "indexation_rule": null,
+    "further_full_abolition_automatically_authorized": false,
+    "full_abolition_scenarios_role": "comparison_only_not_first_stage",
+    "activation": "after_complete_debt_repayment_and_verified_replacement_financing"
   }
 }

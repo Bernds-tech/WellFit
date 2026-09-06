@@ -94,3 +94,9 @@ No additional locks recorded.
 - Scope: SV-01 model, source data, existing calculation and WERK registers.
 
 - Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-002
+- Status: ACTIVE
+- Task: WERK-SV-002
+- Holder: Codex 2026-09-06
+- Scope: SV model, calculations, program, funding/status registers.
