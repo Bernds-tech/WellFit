@@ -146,7 +146,9 @@ Keep history append-only; supersede rather than delete.
 - Remote evidence: d876d9f91c1edadd505edff018e7377500dab0b3, Fiscal/Registry/Frontend success; WERK_CALCULATIONS_CI_RECEIPT.json.
 
 ## WERK-SV-001
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Change: WERK-CR-SV-001
 - Risk: R2
-- Evidence: WERK_SV_HANDOFF.md; final remote CI pending.
+- Evidence: WERK_SV_HANDOFF.md; WERK_SV_CI_RECEIPT.json.
+
+- Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.

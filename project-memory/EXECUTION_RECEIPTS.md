@@ -92,6 +92,6 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 ## WERK-SV-001 — 2026-09-06
 - Result: conditional employee relief, preserved-benefit funding model and existing-receipts accounting.
 - Countercheck: five relevant local workflow bodies; 34 SV numerical/negative cases plus source reconciliation and existing 42 calculation cases.
-- Remote verification: pending publication.
+- Remote verification: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered workflows successful; WERK_SV_CI_RECEIPT.json.
 - Falsifier: redirected existing contributions credited as new revenue, benefit funding omitted, premature activation or final-assessment claims would invalidate the calculation.
 - Recovery: revert bounded SV-001 changes on WERK branch.

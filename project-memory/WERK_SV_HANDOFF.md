@@ -1,6 +1,6 @@
 # WERK-SV-001 — Arbeitnehmerentlastung nach Schuldenfreiheit
 
-Updated: 2026-09-06. Status: IMPLEMENTED, final remote CI pending.
+Updated: 2026-09-06. Status: VERIFIED at 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered workflows succeeded. See WERK_SV_CI_RECEIPT.json.
 
 Owner requested continued calculations and abolition of wage social insurance after debt repayment. SV-01 records employee KV/PV/ALV relief with preserved insurance and pension rights; employer contributions, AK/WF and non-employee groups remain separate. Existing public WERK branch publication authorization persists; no Sites deployment.
 
@@ -14,7 +14,7 @@ Owner requested continued calculations and abolition of wage social insurance af
 - Reform inventory now 16; 8 fields have dossiers, not necessarily funded measures. Program text, dependency map, manifest and fiscal registry updated.
 
 ## Validation and recovery
-Five relevant workflow bodies run locally (Fiscal, Distribution, Registry, Policy Field, Frontend), including 34 SV counterchecks, original-source import and 42 existing calculation counterchecks. Remote implementation SHA and run evidence will be recorded after publication. Recovery: revert bounded SV-001 commits; no runtime state migration.
+Five relevant workflow bodies run locally (Fiscal, Distribution, Registry, Policy Field, Frontend), including 34 SV counterchecks, original-source import and 42 existing calculation counterchecks. Remote Fiscal, Registry, Policy Field and Frontend workflows succeeded at the exact implementation SHA; see WERK_SV_CI_RECEIPT.json. Recovery: revert bounded SV-001 commits; no runtime state migration.
 
 ## First unproven step
 Pure employee KV/PV/ALV aggregate by group; final assessment and household transfer effects; sustainable replacement financing and demographic costs. These are substantive open gates even when technical CI succeeds.

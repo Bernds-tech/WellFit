@@ -1,0 +1,57 @@
+{
+  "task": "WERK-SV-001",
+  "date": "2026-09-06",
+  "status": "VERIFIED",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_sha": "2096e1cf402ad36968a3d57ffc74c7efc39eba83",
+  "implementation_tree": "2af2694281cec57accf8c1500b61a74e9ac94ecd",
+  "local_workflows": [
+    "Fiscal",
+    "Distribution",
+    "Registry",
+    "Policy Field",
+    "Frontend"
+  ],
+  "sv_counterchecks": 34,
+  "existing_calculation_counterchecks": 42,
+  "workflow_runs": [
+    {
+      "id": 34032408252,
+      "name": "WERK Data Contract Registry Check",
+      "head_sha": "2096e1cf402ad36968a3d57ffc74c7efc39eba83",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34032408252"
+    },
+    {
+      "id": 34032408275,
+      "name": "WERK Policy Field Workstate Check",
+      "head_sha": "2096e1cf402ad36968a3d57ffc74c7efc39eba83",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34032408275"
+    },
+    {
+      "id": 34032408314,
+      "name": "WERK Frontend Check",
+      "head_sha": "2096e1cf402ad36968a3d57ffc74c7efc39eba83",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34032408314"
+    },
+    {
+      "id": 34032408271,
+      "name": "WERK Fiscal Data Contract",
+      "head_sha": "2096e1cf402ad36968a3d57ffc74c7efc39eba83",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34032408271"
+    }
+  ],
+  "limits": [
+    "Technical validation; actual replacement financing, final household effects and activation remain unverified.",
+    "Existing receipt redirection creates zero additional debt repayment capacity if displaced funding is replaced.",
+    "No Sites deployment."
+  ]
+}

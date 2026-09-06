@@ -88,7 +88,9 @@ No additional locks recorded.
 - Released: 2026-09-06 after exact-implementation CI success and receipt.
 
 ## LOCK-WERK-SV-001
-- Status: ACTIVE
+- Status: RELEASED
 - Task: WERK-SV-001
 - Holder: Codex 2026-09-06
 - Scope: SV-01 model, source data, existing calculation and WERK registers.
+
+- Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.
