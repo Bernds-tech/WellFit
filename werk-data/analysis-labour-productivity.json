@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-03-v1",
+  "version": "2026-09-06-v2",
   "domain": "Arbeitsmarkt, Erwerbspotenzial und Produktivität",
   "status": "vertieft – Endrechnung offen",
   "budget_priority_link": "BUD-01",
@@ -63,7 +63,7 @@
     "Arbeitszeitwünsche nach Geschlecht/Alter/Familie",
     "Grenzabgabenbelastung nach Haushaltstyp",
     "AMS Wirkungsdaten nach Instrument",
-    "Kompatible Berufs-/Detailqualifikations-Angebotsdaten für die publizierten regionalen Engpasssignale Q2 2026; offene OÖ-Stellenbasis August direkt extrahieren",
+    "Gemeinsam beobachtete Detailqualifikation zu den Berufswunsch-/Stellenbeständen August 2026; Q2-Engpasspopulation bleibt getrennt",
     "Produktivitätsdaten nach Branche",
     "Kinderbetreuungs- und Pflegekapazität nach Gemeinde/Region",
     "Beschäftigungswirkung bisheriger Lohnnebenkostensenkungen"
@@ -72,6 +72,6 @@
     "labour-productivity-baseline-2025-2026.json",
     "labour-matching-baseline-2025-2026.json",
     "labour-matching-matrix-priority-groups.json",
-    "labour-occupation-region-matching-matrix.json"
+    "labour-occupation-region-matching-matrix.json","labour-occupation-supply-2026-08.json"
   ]
 }

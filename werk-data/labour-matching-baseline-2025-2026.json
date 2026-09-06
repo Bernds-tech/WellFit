@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v3",
+  "version": "2026-09-06-v4",
   "title": "WERK Österreich – Arbeitsmarkt-Matching-Baseline 2025/2026",
   "status": "partial_matching_baseline_no_reform_effect_yet",
   "checked_at": "2026-09-06",
@@ -62,7 +62,43 @@
       "notable_internal_dispersion": "Offene Stellen nach Bezirken reichen im Vorjahresvergleich von -24,0 % Eisenstadt bis +21,2 % Stegersbach/Jennersdorf.",
       "source_id": "AMS-BGLD-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 4035,
+      "unemployed_women": 4175,
+      "unemployed_age_15_24": 811,
+      "unemployed_age_50_plus": 3236,
+      "unemployed_duration_over_one_year": 1458,
+      "apprenticeship_seekers": 233,
+      "registered_apprenticeship_vacancies": 132,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 7,
+        "cells": {
+          "registered_unemployed": "B7",
+          "unemployed_men_and_alternative_gender": "C7",
+          "unemployed_women": "D7",
+          "unemployed_age_15_24": "E7",
+          "unemployed_age_50_plus": "G7",
+          "unemployed_duration_over_one_year": "I7",
+          "registered_vacancies": "M7",
+          "apprenticeship_seekers": "N7",
+          "registered_apprenticeship_vacancies": "O7",
+          "registered_unemployment_rate_pct": "K7"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Niederösterreich",
@@ -74,7 +110,43 @@
       "notable_internal_dispersion": "Arbeitslosigkeit steigt überproportional u. a. in wissenschaftlich-technischen Dienstleistungen, Gesundheit/Soziales, öffentlicher Verwaltung und Warenherstellung; offene Stellen gehen in fast allen Branchen zurück.",
       "source_id": "AMS-NOE-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 24023,
+      "unemployed_women": 23659,
+      "unemployed_age_15_24": 5015,
+      "unemployed_age_50_plus": 17316,
+      "unemployed_duration_over_one_year": 7721,
+      "apprenticeship_seekers": 1847,
+      "registered_apprenticeship_vacancies": 809,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 9,
+        "cells": {
+          "registered_unemployed": "B9",
+          "unemployed_men_and_alternative_gender": "C9",
+          "unemployed_women": "D9",
+          "unemployed_age_15_24": "E9",
+          "unemployed_age_50_plus": "G9",
+          "unemployed_duration_over_one_year": "I9",
+          "registered_vacancies": "M9",
+          "apprenticeship_seekers": "N9",
+          "registered_apprenticeship_vacancies": "O9",
+          "registered_unemployment_rate_pct": "K9"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Salzburg",
@@ -86,7 +158,43 @@
       "notable_internal_dispersion": "Arbeitslosigkeit steigt besonders in Beherbergung/Gastronomie, öffentlicher Verwaltung und Gesundheit/Soziales; Stellenangebote sinken in fast allen Arbeitsmarktbezirken.",
       "source_id": "AMS-SALZBURG-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 5997,
+      "unemployed_women": 5711,
+      "unemployed_age_15_24": 1507,
+      "unemployed_age_50_plus": 3487,
+      "unemployed_duration_over_one_year": 1377,
+      "apprenticeship_seekers": 419,
+      "registered_apprenticeship_vacancies": 754,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 11,
+        "cells": {
+          "registered_unemployed": "B11",
+          "unemployed_men_and_alternative_gender": "C11",
+          "unemployed_women": "D11",
+          "unemployed_age_15_24": "E11",
+          "unemployed_age_50_plus": "G11",
+          "unemployed_duration_over_one_year": "I11",
+          "registered_vacancies": "M11",
+          "apprenticeship_seekers": "N11",
+          "registered_apprenticeship_vacancies": "O11",
+          "registered_unemployment_rate_pct": "K11"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Steiermark",
@@ -98,7 +206,43 @@
       "notable_internal_dispersion": "Regionale Bezirke zeigen stark unterschiedliche Stellen- und Arbeitslosenentwicklung; Graz/Graz-Umgebung allein meldet 4.109 offene Stellen bei 20.765 Arbeitssuchenden inkl. regionaler Abgrenzung.",
       "source_id": "AMS-STMK-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 19940,
+      "unemployed_women": 19449,
+      "unemployed_age_15_24": 3976,
+      "unemployed_age_50_plus": 13643,
+      "unemployed_duration_over_one_year": 7400,
+      "apprenticeship_seekers": 1165,
+      "registered_apprenticeship_vacancies": 838,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 12,
+        "cells": {
+          "registered_unemployed": "B12",
+          "unemployed_men_and_alternative_gender": "C12",
+          "unemployed_women": "D12",
+          "unemployed_age_15_24": "E12",
+          "unemployed_age_50_plus": "G12",
+          "unemployed_duration_over_one_year": "I12",
+          "registered_vacancies": "M12",
+          "apprenticeship_seekers": "N12",
+          "registered_apprenticeship_vacancies": "O12",
+          "registered_unemployment_rate_pct": "K12"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Kärnten",
@@ -110,7 +254,43 @@
       "notable_internal_dispersion": "Offene Stellen steigen besonders bei Hilfsberufen, Metall/Elektro und Bau, während Arbeitslosigkeit im Metall-/Elektrobereich und Bau sinkt.",
       "source_id": "AMS-KTN-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 7869,
+      "unemployed_women": 7783,
+      "unemployed_age_15_24": 1683,
+      "unemployed_age_50_plus": 5663,
+      "unemployed_duration_over_one_year": 2658,
+      "apprenticeship_seekers": 604,
+      "registered_apprenticeship_vacancies": 524,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 8,
+        "cells": {
+          "registered_unemployed": "B8",
+          "unemployed_men_and_alternative_gender": "C8",
+          "unemployed_women": "D8",
+          "unemployed_age_15_24": "E8",
+          "unemployed_age_50_plus": "G8",
+          "unemployed_duration_over_one_year": "I8",
+          "registered_vacancies": "M8",
+          "apprenticeship_seekers": "N8",
+          "registered_apprenticeship_vacancies": "O8",
+          "registered_unemployment_rate_pct": "K8"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Tirol",
@@ -122,7 +302,43 @@
       "notable_internal_dispersion": "Mehr Stellen in Arbeitskräfteüberlassung, Warenherstellung, Verwaltung und Bau; weniger im Handel, Gesundheit/Soziales und Tourismus. Gleichzeitig steigt Arbeitslosigkeit in Handel und Tourismus.",
       "source_id": "AMS-TIROL-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 6809,
+      "unemployed_women": 6538,
+      "unemployed_age_15_24": 1822,
+      "unemployed_age_50_plus": 3853,
+      "unemployed_duration_over_one_year": 1364,
+      "apprenticeship_seekers": 500,
+      "registered_apprenticeship_vacancies": 1476,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 13,
+        "cells": {
+          "registered_unemployed": "B13",
+          "unemployed_men_and_alternative_gender": "C13",
+          "unemployed_women": "D13",
+          "unemployed_age_15_24": "E13",
+          "unemployed_age_50_plus": "G13",
+          "unemployed_duration_over_one_year": "I13",
+          "registered_vacancies": "M13",
+          "apprenticeship_seekers": "N13",
+          "registered_apprenticeship_vacancies": "O13",
+          "registered_unemployment_rate_pct": "K13"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Vorarlberg",
@@ -134,23 +350,91 @@
       "notable_internal_dispersion": "44,8 % der Arbeitslosen haben höchstens Pflichtschulabschluss; Stellen wachsen in Lehr-/Kultur- und Fremdenverkehrsberufen, sinken u. a. in Metall/Elektro, Gesundheit und Verkehr.",
       "source_id": "AMS-VBG-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 5882,
+      "unemployed_women": 5526,
+      "unemployed_age_15_24": 1615,
+      "unemployed_age_50_plus": 3372,
+      "unemployed_duration_over_one_year": 1453,
+      "apprenticeship_seekers": 283,
+      "registered_apprenticeship_vacancies": 203,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 14,
+        "cells": {
+          "registered_unemployed": "B14",
+          "unemployed_men_and_alternative_gender": "C14",
+          "unemployed_women": "D14",
+          "unemployed_age_15_24": "E14",
+          "unemployed_age_50_plus": "G14",
+          "unemployed_duration_over_one_year": "I14",
+          "registered_vacancies": "M14",
+          "apprenticeship_seekers": "N14",
+          "registered_apprenticeship_vacancies": "O14",
+          "registered_unemployment_rate_pct": "K14"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     },
     {
       "region": "Oberösterreich",
       "registered_unemployment_rate_pct": 5.3,
-      "registered_vacancies": null,
+      "registered_vacancies": 19678,
       "vacancies_yoy_pct": 7.3,
-      "derived_unemployed_per_registered_vacancy": null,
+      "derived_unemployed_per_registered_vacancy": 2.0,
       "notable_internal_dispersion": "Nachfrage steigt besonders in Arbeitskräfteüberlassung, Produktion, Bau und handwerklichen Berufen; Chancen werden insbesondere für niedrig Qualifizierte und technische Abschlüsse gemeldet.",
       "source_id": "AMS-OOE-AUG-2026",
       "reference_period": "2026-08",
       "registered_unemployed": 39324,
       "field_sources": {
-        "registered_unemployed": "AMS-NATIONAL-REPORT-AUG-2026",
-        "registered_vacancies": "not_extracted"
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
       },
-      "vacancy_availability": null
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 19514,
+      "unemployed_women": 19810,
+      "unemployed_age_15_24": 5054,
+      "unemployed_age_50_plus": 12316,
+      "unemployed_duration_over_one_year": 6212,
+      "apprenticeship_seekers": 1136,
+      "registered_apprenticeship_vacancies": 1109,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 10,
+        "cells": {
+          "registered_unemployed": "B10",
+          "unemployed_men_and_alternative_gender": "C10",
+          "unemployed_women": "D10",
+          "unemployed_age_15_24": "E10",
+          "unemployed_age_50_plus": "G10",
+          "unemployed_duration_over_one_year": "I10",
+          "registered_vacancies": "M10",
+          "apprenticeship_seekers": "N10",
+          "registered_apprenticeship_vacancies": "O10",
+          "registered_unemployment_rate_pct": "K10"
+        }
+      }
     },
     {
       "region": "Wien",
@@ -162,11 +446,47 @@
       "notable_internal_dispersion": "Arbeitslosigkeit steigt im Jahresvergleich nur leicht; gleichzeitig verschärft sich der Lehrstellenmarkt mit 5.440 Lehrstellensuchenden gegenüber 496 sofort offenen Lehrstellen.",
       "source_id": "AMS-WIEN-REPORT-AUG-2026",
       "reference_period": "2026-08",
-      "vacancy_availability": "sofort verfügbar"
+      "vacancy_availability": "sofort verfügbar",
+      "unemployed_men_and_alternative_gender": 65866,
+      "unemployed_women": 58862,
+      "unemployed_age_15_24": 12436,
+      "unemployed_age_50_plus": 33585,
+      "unemployed_duration_over_one_year": 26352,
+      "apprenticeship_seekers": 5440,
+      "registered_apprenticeship_vacancies": 496,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 15,
+        "cells": {
+          "registered_unemployed": "B15",
+          "unemployed_men_and_alternative_gender": "C15",
+          "unemployed_women": "D15",
+          "unemployed_age_15_24": "E15",
+          "unemployed_age_50_plus": "G15",
+          "unemployed_duration_over_one_year": "I15",
+          "registered_vacancies": "M15",
+          "apprenticeship_seekers": "N15",
+          "registered_apprenticeship_vacancies": "O15",
+          "registered_unemployment_rate_pct": "K15"
+        }
+      },
+      "field_sources": {
+        "registered_unemployed": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_men_and_alternative_gender": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_women": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_15_24": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_age_50_plus": "AMS-ECKDATEN-AUG-2026",
+        "unemployed_duration_over_one_year": "AMS-ECKDATEN-AUG-2026",
+        "registered_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "apprenticeship_seekers": "AMS-ECKDATEN-AUG-2026",
+        "registered_apprenticeship_vacancies": "AMS-ECKDATEN-AUG-2026",
+        "registered_unemployment_rate_pct": "AMS-ECKDATEN-AUG-2026"
+      }
     }
   ],
   "derived_regional_diagnostics": {
-    "regions_with_comparable_unemployment_and_vacancy_stock": 8,
+    "regions_with_comparable_unemployment_and_vacancy_stock": 9,
     "lowest_unemployed_per_registered_vacancy": {
       "region": "Tirol",
       "value": 1.82
@@ -181,9 +501,10 @@
     {
       "id": "MATCH-OCC",
       "dimension": "Beruf",
-      "status": "amtliche Engpassschicht vorhanden; gemeinsame Angebotsmatrix offen",
-      "need": "Arbeitslose und offene Stellen auf kompatible Ö-ISCO/AMS-Berufsgruppen abbilden.",
-      "artifact": "labour-occupation-region-matching-matrix.json"
+      "status": "Berufswunsch-/Stellenbestände nach Bundesland August vorhanden; gemeinsame Detailqualifikation offen",
+      "need": "Gemeinsame Detailqualifikation und weitere Matchingdimensionen beschaffen; August-Allqualifikationsdaten nicht ungeprüft mit Q2-Engpasspopulation ab Lehre verbinden.",
+      "artifact": "labour-occupation-region-matching-matrix.json",
+      "supply_artifact": "labour-occupation-supply-2026-08.json"
     },
     {
       "id": "MATCH-EDU",
@@ -230,11 +551,12 @@
       "aktuelle Vakanzenrichtung Q2 2026",
       "regionale AMS-Snapshots August 2026",
       "prioritäre Bildungs-Matchinggruppen Juli 2026",
-      "publizierte Beruf×Region-Engpasssignale Q2 2026, getrennt vom gemeinsamen Matching"
+      "publizierte Beruf×Region-Engpasssignale Q2 2026, getrennt vom gemeinsamen Matching",
+      "3072 beobachtete Beruf×Bundesland-Kombinationen August 2026 aus getrennten AL-/OS-CSV-Quellen"
     ],
     "rule": "Eine nationale Fachkräfte- oder Aktivierungsreform wird erst als Einspar-/Beschäftigungseffekt gerechnet, wenn Beruf, Qualifikation, Region, Arbeitszeit und Übergangskosten mindestens für die prioritären Gruppen gemeinsam modelliert sind.",
     "next_artifact": "labour-occupation-region-matching-matrix.json",
-    "next_action": "Vorhandene Beruf×Region-Engpassschicht um kompatible Angebots- und Detailqualifikationsdaten ergänzen."
+    "next_action": "Beruf×Region-Monatsbestände um gemeinsam beobachtete Detailqualifikation und real mögliche Arbeitsbedingungen ergänzen."
   },
   "sources": [
     {
@@ -331,6 +653,15 @@
       "locator": "Seite 2: alle neun regionalen AL-Bestände; Seite 5: sofort verfügbare Stellen",
       "mutable_url": true,
       "reference_period": "2026-08"
+    },
+    {
+      "id": "AMS-ECKDATEN-AUG-2026",
+      "authority": "AMS Österreich",
+      "title": "Eckdaten August 2026",
+      "url": "https://www.ams.at/content/dam/download/arbeitsmarktdaten/%C3%B6sterreich/berichte-auswertungen/001_eckdaten_0826.xlsx",
+      "checked_at": "2026-09-06",
+      "locator": "August 2026!A7:O16",
+      "source_file": "werk-data/sources/ams-eckdaten-2026-08.xlsx"
     }
   ],
   "national_august_reconciliation": {
@@ -338,8 +669,57 @@
     "registered_unemployed_total": 311448,
     "sum_regional_registered_unemployed": 311448,
     "registered_vacancies_total": 79769,
-    "regions_with_observed_vacancy_stock": 8,
-    "source_id": "AMS-NATIONAL-REPORT-AUG-2026",
-    "rule": "Alle neun Arbeitslosenbestände ergeben den nationalen Bestand. Fehlender OÖ-Stellenbestand bleibt null; kein aus Restbeträgen erfundener Quellenwert."
+    "regions_with_observed_vacancy_stock": 9,
+    "source_id": "AMS-ECKDATEN-AUG-2026",
+    "rule": "Alle neun Arbeitslosen- und Stellenbestände sind direkt aus der amtlichen August-Arbeitsmappe belegt und summieren auf die publizierten Österreichwerte; keine Restwert-Imputation.",
+    "sum_regional_registered_vacancies": 79769
+  },
+  "regional_source_evidence": {
+    "source_file": "werk-data/sources/ams-eckdaten-2026-08.xlsx",
+    "source_sha256": "5e024503a6cd53e5cec1bb9b81afcf75a9097d39feacd6ed30115ebd9c4ab992",
+    "reference_period": "2026-08",
+    "count_columns": {
+      "registered_unemployed": "B",
+      "unemployed_men_and_alternative_gender": "C",
+      "unemployed_women": "D",
+      "unemployed_age_15_24": "E",
+      "unemployed_age_50_plus": "G",
+      "unemployed_duration_over_one_year": "I",
+      "registered_vacancies": "M",
+      "apprenticeship_seekers": "N",
+      "registered_apprenticeship_vacancies": "O"
+    },
+    "national_record": {
+      "region": "Österreich",
+      "registered_unemployed": 311448,
+      "unemployed_men_and_alternative_gender": 159935,
+      "unemployed_women": 151513,
+      "unemployed_age_15_24": 33919,
+      "unemployed_age_50_plus": 96471,
+      "unemployed_duration_over_one_year": 55995,
+      "registered_vacancies": 79769,
+      "apprenticeship_seekers": 11627,
+      "registered_apprenticeship_vacancies": 6341,
+      "registered_unemployment_rate_pct": 7.2,
+      "source_locator": {
+        "source_id": "AMS-ECKDATEN-AUG-2026",
+        "sheet": "August 2026",
+        "row": 16,
+        "cells": {
+          "registered_unemployed": "B16",
+          "unemployed_men_and_alternative_gender": "C16",
+          "unemployed_women": "D16",
+          "unemployed_age_15_24": "E16",
+          "unemployed_age_50_plus": "G16",
+          "unemployed_duration_over_one_year": "I16",
+          "registered_vacancies": "M16",
+          "apprenticeship_seekers": "N16",
+          "registered_apprenticeship_vacancies": "O16",
+          "registered_unemployment_rate_pct": "K16"
+        }
+      }
+    },
+    "subgroup_rule": "Geschlecht, Alter und Dauer sind überlappende Sichten; keine addierbaren Aktivierungsgruppen. Langzeitarbeitslosigkeit ist nicht Langzeitbeschäftigungslosigkeit.",
+    "rate_status": "geschätzt; veröffentlichte Quote auf eine Dezimalstelle gerundet"
   }
 }

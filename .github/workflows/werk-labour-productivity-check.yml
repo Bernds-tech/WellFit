@@ -9,9 +9,15 @@ on:
       - 'werk-data/labour-matching-baseline-2025-2026.json'
       - 'werk-data/labour-matching-matrix-priority-groups.json'
       - 'werk-data/labour-occupation-region-matching-matrix.json'
+      - 'werk-data/labour-occupation-supply-2026-08.json'
+      - 'werk-data/sources/ams-eckdaten-2026-08.xlsx'
+      - 'werk-data/sources/ams-al-occupation-2026-08.csv.gz'
+      - 'werk-data/sources/ams-os-occupation-2026-08.csv.gz'
       - 'werk-data/sources/ams-bmasgpk-fachkraefte-2026-q2.xlsx'
       - 'werk-data/analysis-data-closure-register.json'
       - 'scripts/werk-import-occupation-evidence.py'
+      - 'scripts/werk-import-regional-labour.py'
+      - 'scripts/werk-import-occupation-supply.py'
       - 'scripts/werk-labour-negative-check.mjs'
       - 'scripts/werk-labour-productivity-contract.mjs'
       - '.github/workflows/werk-labour-productivity-check.yml'
@@ -35,5 +41,9 @@ jobs:
 
       - name: Reconcile every published row to pinned source workbook
         run: python3 scripts/werk-import-occupation-evidence.py --check
+      - name: Reconcile regional stocks and subgroups to August workbook
+        run: python3 scripts/werk-import-regional-labour.py --check
+      - name: Reconcile August occupation stocks to pinned AMS CSV slices
+        run: python3 scripts/werk-import-occupation-supply.py --check
       - name: Reject malformed or falsely closed labour inputs
         run: node scripts/werk-labour-negative-check.mjs

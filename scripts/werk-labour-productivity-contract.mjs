@@ -5,6 +5,7 @@ const d=JSON.parse(fs.readFileSync('werk-data/labour-productivity-baseline-2025-
 const m=JSON.parse(fs.readFileSync('werk-data/labour-matching-baseline-2025-2026.json','utf8'));
 const p=JSON.parse(fs.readFileSync('werk-data/labour-matching-matrix-priority-groups.json','utf8'));
 const o=JSON.parse(fs.readFileSync('werk-data/labour-occupation-region-matching-matrix.json','utf8'));
+const supply=JSON.parse(fs.readFileSync('werk-data/labour-occupation-supply-2026-08.json','utf8'));
 const closure=JSON.parse(fs.readFileSync('werk-data/analysis-data-closure-register.json','utf8'));
 const fail=x=>{throw new Error(x)};
 const near=(a,b,t,msg)=>{if(!Number.isFinite(a)||!Number.isFinite(b)||Math.abs(a-b)>t)fail(`${msg}: ${a} != ${b}`)};
@@ -85,6 +86,19 @@ near(ratios.at(-1).value,m.derived_regional_diagnostics.highest_unemployed_per_r
 const national=m.national_august_reconciliation;
 near(regions.reduce((n,r)=>n+r.registered_unemployed,0),national.registered_unemployed_total,0,'National/regional August unemployed total');
 near(national.sum_regional_registered_unemployed,national.registered_unemployed_total,0,'Stored August reconciliation');
+near(regions.reduce((n,r)=>n+r.registered_vacancies,0),national.registered_vacancies_total,0,'National/regional August vacancy total');
+near(national.sum_regional_registered_vacancies,national.registered_vacancies_total,0,'Stored August vacancy reconciliation');
+if(comparable!==9)fail('All nine regional vacancy stocks must now be directly observed');
+const regionalSource=m.regional_source_evidence;
+if(regionalSource.reference_period!=='2026-08'||createHash('sha256').update(fs.readFileSync(regionalSource.source_file)).digest('hex')!==regionalSource.source_sha256)fail('Regional workbook scope/hash mismatch');
+for(const field of Object.keys(regionalSource.count_columns)){
+  for(const r of regions)count(r[field],`${r.region} ${field}`);
+  near(regions.reduce((n,r)=>n+r[field],0),regionalSource.national_record[field],0,`Regional subgroup total ${field}`);
+}
+for(const r of regions){
+  near(r.unemployed_men_and_alternative_gender+r.unemployed_women,r.registered_unemployed,0,'Regional gender identity');
+  for(const field of ['unemployed_age_15_24','unemployed_age_50_plus','unemployed_duration_over_one_year'])if(r[field]>r.registered_unemployed)fail('Regional subgroup exceeds unemployment');
+}
 if(national.reference_period!=='2026-08'||national.regions_with_observed_vacancy_stock!==comparable)fail('Regional scope metadata mismatch');
 if(!String(m.derived_regional_diagnostics?.warning||'').toLowerCase().includes('sagen nichts darüber aus'))fail('Regional-ratio warning missing');
 
@@ -159,6 +173,44 @@ for(const [region,n] of Object.entries(o.published_rows_by_region))near(n,occCou
 if(o.matching_gate.status!=='blocked'||o.matching_gate.employment_effect_persons!==null||o.matching_gate.budget_effect_eur!==null)fail('Unverified occupation effects must remain null and blocked');
 if(new Set(o.matching_gate.priority_group_links.map(x=>x.priority_group_id)).size!==6||o.matching_gate.priority_group_links.some(x=>!groups.has(x.priority_group_id)))fail('Occupation links must resolve to all six education groups');
 
+if(supply.reference_period!=='2026-08'||supply.source_date!=='2026-08-31'||supply.status!=='observed_occupation_region_stocks_joint_qualification_blocked')fail('Occupation supply scope/period mismatch');
+if(supply.scope.education_cross_tab_available!==false||supply.scope.individual_matching_available!==false||supply.scope.q2_shortage_join_allowed!==false)fail('Occupation supply is not joint qualification or Q2 matching');
+if(supply.scope.missing_cell_means!=='not_published_unknown'||supply.scope.zero_means!=='explicitly_reported_zero')fail('Occupation missing/zero semantics changed');
+if(supply.matching_gate.status!=='blocked'||supply.matching_gate.employment_effect_persons!==null||supply.matching_gate.budget_effect_eur!==null)fail('Occupation supply effects must remain null and blocked');
+const supplyKeys=new Set(),observed={both_observed:0,al_only:0,os_only:0};
+for(const r of supply.records){
+  const key=`${r.region}|${r.occupation_code}`;
+  if(supplyKeys.has(key))fail('Duplicate occupation supply key');supplyKeys.add(key);
+  if(!regionNames.has(r.region)||!/^\d{4}$/.test(r.occupation_code))fail('Invalid occupation supply key');
+  if(!Object.hasOwn(observed,r.observation_status))fail('Invalid occupation observation status');observed[r.observation_status]++;
+  for(const [kind,field,label] of [['al','registered_unemployed_occupation_wish','supply_label'],['os','registered_immediate_vacancies','vacancy_label']]){
+    count(r.source_rows[kind],'Occupation source row count');
+    const present=r.observation_status==='both_observed'||r.observation_status===`${kind}_only`;
+    if(present){
+      count(r[field],'Occupation observed count');
+      if(r.source_rows[kind]===0||typeof r[label]!=='string'||!r[label])fail('Observed occupation lacks source rows/label');
+    }else if(r[field]!==null||r[label]!==null||r.source_rows[kind]!==0)fail('Unobserved occupation side must remain null');
+  }
+}
+near(supply.counts.occupation_region_pairs,supply.records.length,0,'Occupation pair count');
+near(supply.counts.both_observed,observed.both_observed,0,'Both observed count');
+near(supply.counts.supply_only,observed.al_only,0,'Supply-only count');
+near(supply.counts.vacancy_only,observed.os_only,0,'Vacancy-only count');
+if(supply.regional_totals.length!==9||new Set(supply.regional_totals.map(r=>r.region)).size!==9)fail('Occupation regional total coverage');
+for(const base of regions){
+  const rows=supply.records.filter(r=>r.region===base.region),total=supply.regional_totals.find(r=>r.region===base.region);
+  for(const [field,baseField] of [['registered_unemployed_occupation_wish','registered_unemployed'],['registered_immediate_vacancies','registered_vacancies']]){
+    const sum=rows.filter(r=>r[field]!==null).reduce((n,r)=>n+r[field],0);
+    near(sum,base[baseField],0,`Occupation state sum ${base.region} ${field}`);
+    near(sum,total[baseField],0,'Stored occupation state sum');
+  }
+  near(rows.length,total.observed_occupation_pairs,0,'Regional occupation pair count');
+}
+for(const [kind,field,total] of [['al','registered_unemployed_occupation_wish',national.registered_unemployed_total],['os','registered_immediate_vacancies',national.registered_vacancies_total]]){
+  near(supply.records.reduce((n,r)=>n+r.source_rows[kind],0),supply.counts[kind].source_rows,0,'Occupation source row sum');
+  near(supply.counts[kind].stock_total,total,0,'Occupation national total');
+}
+
 const gap=closure.priority_1_data_gaps.find(x=>x.id==='GAP-LAB-01');
 if(!gap||gap.status!=='teilweise vorhanden')fail('Labour parent gap must remain partial');
 const subgates=new Map((gap.subgates||[]).map(x=>[x.id,x]));
@@ -173,4 +225,4 @@ for(const id of ['LAB-E','LAB-F','LAB-G','LAB-H','LAB-I'])if(subgates.get(id).st
 if(gap.effect_gate.status!=='blocked'||gap.effect_gate.employment_effect_persons!==null||gap.effect_gate.budget_effect_eur!==null)fail('Labour budget/employment booking must remain blocked');
 if(!closure.closure_order.includes('GAP-LAB-01'))fail('Labour gap omitted from closure order');
 
-console.log(`WERK labour/productivity contract OK: 9 regional AL stocks reconcile (${comparable} comparable vacancy ratios); 12 education rows/6 groups and 869-person residual; ${o.records.length} published occupation-region rows; 9 subgates, joint matching and fiscal effects blocked.`);
+console.log(`WERK labour/productivity contract OK: 9 regional AL/OS stocks reconcile; 12 education rows/6 groups and 869-person residual; ${o.records.length} Q2 shortage rows and ${supply.records.length} August occupation-region stock pairs; 9 subgates, joint qualification/matching and fiscal effects blocked.`);

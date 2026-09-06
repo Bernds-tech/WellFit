@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v4",
+  "version": "2026-09-06-v5",
   "title": "WERK Österreich – Dokument-Abhängigkeitskarte",
   "purpose": "Parteiprogramm und Statuten werden als Teil des WERK-Gesamtsystems gepflegt. Änderungen an Daten, Reformen, Rechtslage oder Organisationsmodell lösen eine Prüfung aller betroffenen Dokumentabschnitte aus.",
   "update_cadence": "weekly_review_plus_event_driven",
@@ -30,7 +30,7 @@
         "werk-data/labour-productivity-baseline-2025-2026.json",
         "werk-data/labour-matching-baseline-2025-2026.json",
         "werk-data/labour-matching-matrix-priority-groups.json",
-        "werk-data/labour-occupation-region-matching-matrix.json",
+        "werk-data/labour-occupation-region-matching-matrix.json","werk-data/labour-occupation-supply-2026-08.json",
         "werk-data/pension-baseline-2024-2031.json",
         "werk-data/pension-longterm-2023-2070.json",
         "werk-data/health-baseline-2024-2031.json",

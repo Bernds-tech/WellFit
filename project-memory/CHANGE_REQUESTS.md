@@ -98,3 +98,11 @@
 - Dependencies: the editable ChatGPT Sites source for `wellfit-bewegt` must be loaded; flat PNG whole-image transforms are insufficient for the requested head movement, so the selected characters need layered/rigged presentation (at minimum head + body; eyes where practical).
 - Decision: do not treat the WellFit-now whole-PNG transform as completion. Reconcile against the actual Sites source, implement visible articulated 2D/rigged attention there, preview on that exact Site, and publish only after direct visual verification.
 - Related task: WFG-AVATAR-ATTN-001 / WF-LOOP-005
+
+## WERK-CR-LAB-003
+- Date: 2026-09-06
+- Status: ACCEPTED
+- Source: owner continuation
+- Classification: next existing GAP-LAB-01 evidence slice; no parallel model.
+- Task: WERK-LAB-003
+- Decision: integrate official same-period supply/region evidence, preserve open joint-matching and causal-effect gates.

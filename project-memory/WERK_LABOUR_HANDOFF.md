@@ -1,4 +1,19 @@
-# WERK labour continuation — WERK-LAB-002
+# WERK labour continuation — WERK-LAB-003
+
+## Current continuation — 2026-09-06
+- WERK-LAB-003 is locally verified; publication and exact remote CI are the next unverified step.
+- Existing regional baseline now reconciles all nine AL and OS stocks directly to pinned `ams-eckdaten-2026-08.xlsx`: 311448 / 79769 nationally, OÖ vacancies 19678. Gender, youth, 50-plus, long-term unemployment and apprenticeship counts retain source cell locators and overlapping-population warnings.
+- New `labour-occupation-supply-2026-08.json`: 3072 observed state/4-digit-occupation pairs; 1962 both observed, 1013 supply-only and 97 vacancy-only. Unknown sides remain null. Explicitly published zero remains zero.
+- Source: 40818 AL occupational-wish rows / 10763 immediately available OS rows for 2026-08-31, all regional and national stocks reconciled with the separate official workbook. AL records include stock/entry/exit: only BESTAND is aggregated. Sex/nationality rows are aggregated, without additional filtering.
+- Pinned gzip files contain original header + unmodified cp1252 source lines for the one month. Original whole-download hashes, byte sizes, contiguous original line ranges, monthly slice hashes, URLs and CC BY 4.0 attribution are in the canonical source manifest. Full historical 355MB/81MB downloads are reproducible scratch only, not repository artifacts.
+- RGS coverage: AL 98 / OS 97. These are administrative offices, especially in Vienna with age/sector-specific responsibilities; no travel-time or workplace/residence match is inferred. Code-prefix mapping is backed by the current AMS district directory linked in the artifact.
+- Local evidence: main labour contract; pinned Q2 source check; new regional XLSX and occupation CSV re-extractions; 21 fault-injection cases; policy-field contract; registry and frontend workflow run steps all passed.
+- Registered all five labour validation scripts in the existing tenth LABOUR-DATA contract. Updated gap C, partial gap E, analysis, field 3, document dependencies, manifest and status. No progress percentage or employment/fiscal effect was raised.
+- Next substantive evidence: jointly observed occupation × detail qualification × region for the same population/date; time/care/net gain/mobility/task fit/reskilling outcomes. Q2 shortage populations (at least apprenticeship) stay separate from August all-qualification stocks. Do not form a joint table by multiplying education and occupation marginals.
+- Remaining older evidence issue: LAB-SOURCE-001 is still open. Upper Austria vacancy-stock gap is now resolved, superseding older handoff statements below.
+- Recovery: revert the bounded LAB-003 commit; no database/runtime/Sites publication changed.
+
+## Previous WERK-LAB-002 history (completed)
 
 ## Canonical working surface
 - Repository: Bernds-tech/WellFit; branch: `werk-v49-preview-host`.

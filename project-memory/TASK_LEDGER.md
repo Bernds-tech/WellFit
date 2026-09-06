@@ -112,3 +112,11 @@ Keep history append-only; supersede rather than delete.
 - Updated: 2026-09-06 UTC; publication blocker resolved after owner continuation approval.
 - Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
 - Next: WERK-LAB-002 publication/verification is complete. Substantive matching gates remain open; no additional approval is pending for this completed change set.
+
+## WERK-LAB-003
+- Date: 2026-09-06
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Result: 3072 monthly occupation/state pairs and complete source-backed regional AL/OS stocks; 21 fault-injection cases and dependent local contracts pass.
+- Evidence: WERK_LABOUR_HANDOFF.md; publication and exact remote CI pending.
+- Recovery: revert bounded LAB-003 change set.

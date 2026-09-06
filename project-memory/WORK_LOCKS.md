@@ -54,3 +54,10 @@ No additional locks recorded.
 - Previous lock reconciled: local implementation preserved; owner answered the concrete publication request with “Weiter”.
 - Remote implementation: 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered checks succeeded.
 - Released: 2026-09-06 after exact-commit CI verification and preparation of the publication receipt.
+
+## LOCK-WERK-LAB-003
+- Task: WERK-LAB-003
+- Status: ACTIVE
+- Risk: R2
+- Holder: Codex WERK continuation 2026-09-06
+- Scope: same-period regional labour source reconciliation, occupation supply acquisition and dependent data contracts; existing WERK branch only.

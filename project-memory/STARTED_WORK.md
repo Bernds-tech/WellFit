@@ -90,3 +90,13 @@ Canonical register for work that has started but is not yet fully completed.
 - Updated: 2026-09-06 UTC; publication blocker resolved after owner continuation approval.
 - Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
 - Next: WERK-LAB-002 publication/verification is complete. Substantive matching gates remain open; no additional approval is pending for this completed change set.
+
+## WERK-LAB-003
+- Started: 2026-09-06
+- Status: IN_PROGRESS
+- Risk: R2
+- Scope: close missing regional stock with official workbook and acquire occupation/education supply without inventing a joint distribution.
+- Base: 8f6799f; WERK-LAB-002 is verified and closed.
+- Lock: LOCK-WERK-LAB-003
+- Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local checks passed.
+- Next: publish and verify exact remote CI; see WERK_LABOUR_HANDOFF.md.

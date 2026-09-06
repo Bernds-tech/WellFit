@@ -8,12 +8,15 @@ import { spawnSync } from 'node:child_process';
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-labour-negative-'));
 const labour='scripts/werk-labour-productivity-contract.mjs';
 const sourceCheck='scripts/werk-import-occupation-evidence.py';
+const regionalCheck='scripts/werk-import-regional-labour.py';
+const supplyCheck='scripts/werk-import-occupation-supply.py';
 const baseline='werk-data/labour-productivity-baseline-2025-2026.json';
 const education='werk-data/labour-matching-matrix-priority-groups.json';
 const occupation='werk-data/labour-occupation-region-matching-matrix.json';
 const closure='werk-data/analysis-data-closure-register.json';
 const matching='werk-data/labour-matching-baseline-2025-2026.json';
-const run=source=>spawnSync(source?'python3':process.execPath,source?[sourceCheck,'--check']:[labour],{cwd:tmp,encoding:'utf8'});
+const supply='werk-data/labour-occupation-supply-2026-08.json';
+const run=source=>spawnSync(source?'python3':process.execPath,source?[source===true?sourceCheck:source,'--check']:[labour],{cwd:tmp,encoding:'utf8'});
 const cases=[
   ['missing numeric operand',baseline,d=>delete d.actuals.ilo_q2_2026.derived_labour_force_persons,/ILO labour force identity/],
   ['null source count',education,d=>d.detailed_rows[0].registered_unemployed=null,/Invalid count/],
@@ -25,13 +28,27 @@ const cases=[
   ['falsely closed qualification gate',closure,d=>d.priority_1_data_gaps.find(x=>x.id==='GAP-LAB-01').subgates.find(x=>x.id==='LAB-E').status='geschlossen',/Unverified matching subgate closed/],
   ['source value drift',occupation,d=>d.records[0].ams_vacancies_quarter_average+=1,/Source extraction mismatch: records/,true],
   ['source locator drift',occupation,d=>d.records[0].source_row+=1,/Source extraction mismatch: records/,true],
+  ['regional workbook value drift',matching,d=>d.regional_ams_snapshots_august_2026.find(r=>r.region==='Oberösterreich').registered_vacancies+=1,/Regional source mismatch/,regionalCheck],
+  ['regional workbook locator drift',matching,d=>d.regional_ams_snapshots_august_2026[0].source_locator.row+=1,/Regional source mismatch/,regionalCheck],
+  ['regional subgroup drift',matching,d=>d.regional_ams_snapshots_august_2026[0].unemployed_age_50_plus+=1,/Regional subgroup total/],
+  ['duplicate monthly occupation',supply,d=>d.records.push(d.records[0]),/Duplicate occupation supply key/],
+  ['zero-filled unpublished vacancy',supply,d=>d.records.find(r=>r.observation_status==='al_only').registered_immediate_vacancies=0,/Unobserved occupation side must remain null/],
+  ['monthly stocks used for quarterly shortage',supply,d=>d.scope.q2_shortage_join_allowed=true,/not joint qualification or Q2 matching/],
+  ['invented joint qualification',supply,d=>d.scope.education_cross_tab_available=true,/not joint qualification or Q2 matching/],
+  ['invented monthly budget effect',supply,d=>d.matching_gate.budget_effect_eur=0,/effects must remain null and blocked/],
+  ['monthly occupation source label drift',supply,d=>d.records[0].supply_label='incorrect label',/Occupation supply extraction mismatch: records/,supplyCheck],
+  ['mixed occupation month',supply,d=>d.source_date='2026-07-31',/Occupation supply scope\/period mismatch/],
+  ['sum-preserving occupation allocation drift',supply,d=>{
+    const rows=d.records.filter(r=>r.region==='Wien'&&r.registered_unemployed_occupation_wish>1);
+    rows[0].registered_unemployed_occupation_wish+=1;rows[1].registered_unemployed_occupation_wish-=1;
+  },/Occupation supply extraction mismatch: records/,supplyCheck],
 ];
 
 try{
   fs.cpSync('werk-data',path.join(tmp,'werk-data'),{recursive:true});
   fs.mkdirSync(path.join(tmp,'scripts'));
-  for(const script of [labour,sourceCheck])fs.copyFileSync(script,path.join(tmp,script));
-  for(const source of [false,true]){
+  for(const script of [labour,sourceCheck,regionalCheck,supplyCheck])fs.copyFileSync(script,path.join(tmp,script));
+  for(const source of [false,true,regionalCheck,supplyCheck]){
     const r=run(source);assert.equal(r.status,0,`Unmodified baseline failed: ${r.stderr}`);
   }
   for(const [name,file,mutate,error,source=false] of cases){
