@@ -12,6 +12,14 @@ on:
       - 'scripts/werk-distribution-data-contract.mjs'
       - 'scripts/werk-payroll-kernel-contract.mjs'
       - '.github/workflows/werk-distribution-data-check.yml'
+      - 'werk-data/payroll-annual-assessment*.json'
+      - 'scripts/werk-annual-assessment-*.mjs'
+      - 'scripts/lib/werk-annual-assessment-2026.mjs'
+      - 'WERK_SV_JAHRESNETTO.md'
+      - 'werk-data/post-debt-employee-sv-model.json'
+      - 'scripts/lib/werk-post-debt-sv.mjs'
+      - 'scripts/lib/werk-payroll-2026.mjs'
+      - 'scripts/lib/werk-calculation.mjs'
   workflow_dispatch:
 
 permissions:
@@ -31,3 +39,8 @@ jobs:
         run: node scripts/werk-distribution-data-contract.mjs
       - name: Validate 2026 employee payroll rule kernel
         run: node scripts/werk-payroll-kernel-contract.mjs
+
+      - name: Validate standard annual assessment and generated comparisons
+        run: node scripts/werk-annual-assessment-contract.mjs
+      - name: Countercheck tax, refund and special-payment boundaries
+        run: node scripts/werk-annual-assessment-negative-check.mjs

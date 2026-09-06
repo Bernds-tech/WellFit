@@ -2,10 +2,12 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {employeeRelief,postDebtCapacity,replacementCost,debtLinkedRelief} from './lib/werk-post-debt-sv.mjs';
+import {assessedRelief} from './lib/werk-annual-assessment-2026.mjs';
 import {round,finite} from './lib/werk-calculation.mjs';
 const hashes={};
 const read=n=>{const p=`werk-data/${n}.json`,s=fs.readFileSync(p,'utf8');hashes[p]=createHash('sha256').update(s).digest('hex');return JSON.parse(s);};
 const spec=read('post-debt-employee-sv-model'),kernel=read('payroll-employee-kernel-2026'),debt=read('debt-model'),source=read('employee-payroll-withholding-2024');
+const annualRules=read('payroll-annual-assessment-2026');
 const reforms=read('reforms').reforms;
 assert.ok(reforms.some(x=>x.id==='SV-01'));assert.equal(spec.reform_id,'SV-01');
 for(const k of ['requires_funded_base_debt_repayment','requires_realized_recurring_interest_savings','requires_sustainable_replacement_financing','requires_preserved_insurance_entitlements','requires_household_distribution_review'])assert.equal(spec.activation[k],true);
@@ -31,6 +33,7 @@ assert.equal(spec.official_unemployment_rules.same_pay_as_work_general_claim_ver
 const payrollRows=spec.payroll_scenarios.regions.flatMap(region=>spec.payroll_scenarios.monthly_gross_eur.flatMap(monthlyGross=>
   spec.payroll_scenarios.employee_core_reduction_shares.map(reductionShare=>{
     const r=employeeRelief(kernel,{monthlyGross,region,reductionShare});
+    const a=assessedRelief(r,annualRules);
     assert.ok(Math.abs(r.annual_net_gain_eur-(r.removed_annual_contributions_eur-r.extra_annual_withheld_tax_eur))<1e-7);
     return {region,monthly_gross_eur:monthlyGross,reduction_share:reductionShare,
       ordinary_month_net_before_eur:round(r.ordinary_month_net_before_eur,2),ordinary_month_net_after_eur:round(r.ordinary_month_net_after_eur,2),
@@ -38,7 +41,9 @@ const payrollRows=spec.payroll_scenarios.regions.flatMap(region=>spec.payroll_sc
       annual_net_before_eur:round(r.before.payrollNetBeforeAssessment,2),annual_net_after_eur:round(r.after.payrollNetBeforeAssessment,2),
       annual_net_gain_eur:round(r.annual_net_gain_eur,2),average_calendar_month_net_gain_eur:round(r.annual_net_gain_eur/12,2),
       removed_annual_contributions_eur:round(r.removed_annual_contributions_eur,2),extra_annual_withheld_tax_eur:round(r.extra_annual_withheld_tax_eur,2),
-      final_assessment_gain_eur:null};
+      final_assessment_gain_eur:round(a.annual_net_gain_eur,2),
+      standard_assessed_annual_net_before_eur:round(a.before.annual_net_after_assessment_eur,2),standard_assessed_annual_net_after_eur:round(a.after.annual_net_after_assessment_eur,2),
+      assessment_scope:'standard_2026_before_rounding_household_transfers_excluded'};
   })));
 const f=spec.post_debt_financing_scenarios;
 const D=debt.baselines[f.starting_debt_baseline].debt_eur_billion;
@@ -65,12 +70,15 @@ const target=broadBenchmark*spec.progressive_target.employee_core_reduction_shar
 
 const comparisons=spec.work_vs_nonwork_scenarios.monthly_gross_eur.flatMap(gross=>{
   const r=employeeRelief(kernel,{monthlyGross:gross,reductionShare:.5});
+  const a=assessedRelief(r,annualRules);
   return spec.work_vs_nonwork_scenarios.assumed_monthly_cash_benefits_eur.flatMap(benefit=>
     spec.work_vs_nonwork_scenarios.additional_monthly_work_costs_and_transfer_losses_eur.map(cost=>{
       assert.ok(finite(benefit)>=0&&finite(cost)>=0);
       return {monthly_gross_eur:gross,assumed_nonwork_monthly_cash_eur:benefit,work_cost_and_lost_transfers_eur:cost,
         current_monthly_work_advantage_eur:round(r.before.payrollNetBeforeAssessment/12-benefit-cost,2),
         reformed_monthly_work_advantage_eur:round(r.after.payrollNetBeforeAssessment/12-benefit-cost,2),
+        assessed_current_monthly_work_advantage_eur:round(a.before.annual_net_after_assessment_eur/12-benefit-cost,2),
+        assessed_reformed_monthly_work_advantage_eur:round(a.after.annual_net_after_assessment_eur/12-benefit-cost,2),
         actual_ams_entitlement_eur:null,actual_household_gain_eur:null};
     }));
 });
@@ -91,7 +99,7 @@ for(const path of linkedPaths)for(const r of path.annual_rows){
  assert.ok(r.modeled_contribution_reduction_pct<=50.000001);
  assert.ok(r.net_replacement_cost_bn<=r.realized_interest_saving_bn+.000001);
 }
-const out={version:'2026-09-06-v3',reform_id:'SV-01',status:'conditional_scenarios_with_linked_debt_paths',source_sha256:hashes,
+const out={version:'2026-09-06-v4',reform_id:'SV-01',status:'conditional_scenarios_with_linked_debt_paths',source_sha256:hashes,
   source_year:2024,payroll_rule_year:2026,activation_year:null,
   progressive_target:{employee_core_reduction_share:.5,target_milestone:'debt_freedom',verified_gross_cost_bn:null,target_financing_proven:false,broad_reference_half_bn:target,reference_scope:'proxy_not_pure_employee_contributions',linked_debt_paths:linkedPaths},
   payroll_examples:payrollRows,
@@ -154,16 +162,20 @@ md+=table(['Monatsbrutto €','Regelmonat netto heute','Netto bei halbem KV/PV/A
 md+=`
 Das JSON erhält auch 25 % als Zwischenstand und 100 % als Vergleich; eine Vollabschaffung ist nicht automatisch vorgesehen. Weniger Beiträge bedeuten keinen gleich hohen Nettozuwachs. Niedrige ALV-Sätze und Beitragsobergrenzen sind berücksichtigt; die abschließende Verteilungsprüfung bleibt offen.
 
+Die Standard-Jahresveranlagung ist inzwischen zusätzlich gerechnet: [Jahresnetto und Rückerstattung](WERK_SV_JAHRESNETTO.md). Die folgende ergänzende Tabelle zeigt die Wirkung nach Veranlagung, vor Haushalts-/Finanzierungsinzidenz und Bescheidrundung.
+
+${table(['Monatsbrutto €','Mehr im Jahr nach Standard-Veranlagung €'],payrollRows.filter(x=>x.region==='outside_vienna'&&x.reduction_share===.5).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.final_assessment_gain_eur)]))}
+
 ## 6. Vergleich mit Nichterwerbstätigkeit
 
 [AMS](https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/geld-vom-ams/arbeitslosengeld): Grundbetrag grundsätzlich 55 % des gesetzlich berechneten historischen Nettoeinkommens; bedingte Ergänzungsgrenzen 60/80 %. Das ist keine allgemeine Gleichstellung mit Erwerbseinkommen. Arbeitslosengeld ist zeitlich begrenzt. Verglichen werden derselbe Haushalt und Zeitraum: Jahresnetto / 12, Geldleistungen, zusätzliche Arbeitskosten und wegfallende Transfers.
 
-Bei rein angenommenen 1.500 € monatlichen Leistungen ohne Arbeit und 300 € Arbeitskosten/Transferverlusten:
+Bei rein angenommenen 1.500 € monatlichen Leistungen ohne Arbeit und 300 € Arbeitskosten/Transferverlusten; jetzt einschließlich Standard-Jahresveranlagung:
 
 `;
-md+=table(['Monatsbrutto','Heutiger Arbeitsvorteil pro Monat','Bei halbem KV/PV/ALV'],comparisons.filter(x=>x.assumed_nonwork_monthly_cash_eur===1500&&x.work_cost_and_lost_transfers_eur===300).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.current_monthly_work_advantage_eur),fmt(x.reformed_monthly_work_advantage_eur)]));
+md+=table(['Monatsbrutto','Heutiger Arbeitsvorteil pro Monat','Bei halbem KV/PV/ALV'],comparisons.filter(x=>x.assumed_nonwork_monthly_cash_eur===1500&&x.work_cost_and_lost_transfers_eur===300).map(x=>[fmt(x.monthly_gross_eur,0),fmt(x.assessed_current_monthly_work_advantage_eur),fmt(x.assessed_reformed_monthly_work_advantage_eur)]));
 md+=`
-Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensitivität festgehalten. Künftige nettoabhängige Leistungen könnten ebenfalls steigen. Endgültige Veranlagung und tatsächlicher Haushaltsvorteil bleiben offen.
+Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensitivität festgehalten. Künftige nettoabhängige Leistungen könnten ebenfalls steigen. Veranlagung außerhalb des Standardscope und tatsächlicher Haushaltsvorteil bleiben offen.
 
 ## 7. Offene Nachweise
 

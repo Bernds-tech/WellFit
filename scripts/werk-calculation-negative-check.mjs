@@ -61,7 +61,7 @@ check('Survey hours arithmetic without budget conversion',()=>{
 // End-to-end mutations in an isolated fixture: source files in the repository are never changed.
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-calc-negative-'));
 try {
-  for(const file of [...Object.keys(result.source_sha256),'scripts/werk-calculation-contract.mjs','scripts/lib/werk-calculation.mjs','scripts/lib/werk-payroll-2026.mjs']) {
+  for(const file of [...Object.keys(result.source_sha256),'scripts/werk-calculation-contract.mjs','scripts/lib/werk-calculation.mjs','scripts/lib/werk-payroll-2026.mjs','scripts/lib/werk-annual-assessment-2026.mjs']) {
     const dest=path.join(tmp,file);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(file,dest);
   }
   const run=()=>spawnSync(process.execPath,['scripts/werk-calculation-contract.mjs','--write'],{cwd:tmp,encoding:'utf8'});

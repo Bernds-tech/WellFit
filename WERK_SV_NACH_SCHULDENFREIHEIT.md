@@ -66,19 +66,33 @@ Statischer ASVG-Standardfall nach 2026-Regeln: ganzjährig 14 gleiche Bruttobez�
 
 Das JSON erhält auch 25 % als Zwischenstand und 100 % als Vergleich; eine Vollabschaffung ist nicht automatisch vorgesehen. Weniger Beiträge bedeuten keinen gleich hohen Nettozuwachs. Niedrige ALV-Sätze und Beitragsobergrenzen sind berücksichtigt; die abschließende Verteilungsprüfung bleibt offen.
 
+Die Standard-Jahresveranlagung ist inzwischen zusätzlich gerechnet: [Jahresnetto und Rückerstattung](WERK_SV_JAHRESNETTO.md). Die folgende ergänzende Tabelle zeigt die Wirkung nach Veranlagung, vor Haushalts-/Finanzierungsinzidenz und Bescheidrundung.
+
+| Monatsbrutto € | Mehr im Jahr nach Standard-Veranlagung € |
+| --- | --- |
+| 1 500 | 1 164,90 |
+| 2 000 | 1 491,21 |
+| 2 500 | 1 886,24 |
+| 3 000 | 2 563,56 |
+| 4 000 | 3 099,91 |
+| 5 000 | 3 874,89 |
+| 7 000 | 4 924,70 |
+| 10 000 | 4 661,19 |
+
+
 ## 6. Vergleich mit Nichterwerbstätigkeit
 
 [AMS](https://www.ams.at/arbeitsuchende/arbeitslos-was-tun/geld-vom-ams/arbeitslosengeld): Grundbetrag grundsätzlich 55 % des gesetzlich berechneten historischen Nettoeinkommens; bedingte Ergänzungsgrenzen 60/80 %. Das ist keine allgemeine Gleichstellung mit Erwerbseinkommen. Arbeitslosengeld ist zeitlich begrenzt. Verglichen werden derselbe Haushalt und Zeitraum: Jahresnetto / 12, Geldleistungen, zusätzliche Arbeitskosten und wegfallende Transfers.
 
-Bei rein angenommenen 1.500 € monatlichen Leistungen ohne Arbeit und 300 € Arbeitskosten/Transferverlusten:
+Bei rein angenommenen 1.500 € monatlichen Leistungen ohne Arbeit und 300 € Arbeitskosten/Transferverlusten; jetzt einschließlich Standard-Jahresveranlagung:
 
 | Monatsbrutto | Heutiger Arbeitsvorteil pro Monat | Bei halbem KV/PV/ALV |
 | --- | --- | --- |
-| 2 000 | 99,45 | 234,53 |
-| 3 000 | 766,95 | 986,30 |
-| 4 000 | 1 447,57 | 1 705,90 |
+| 2 000 | 163,40 | 287,67 |
+| 3 000 | 772,67 | 986,30 |
+| 4 000 | 1 447,58 | 1 705,91 |
 
-Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensitivität festgehalten. Künftige nettoabhängige Leistungen könnten ebenfalls steigen. Endgültige Veranlagung und tatsächlicher Haushaltsvorteil bleiben offen.
+Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensitivität festgehalten. Künftige nettoabhängige Leistungen könnten ebenfalls steigen. Veranlagung außerhalb des Standardscope und tatsächlicher Haushaltsvorteil bleiben offen.
 
 ## 7. Offene Nachweise
 

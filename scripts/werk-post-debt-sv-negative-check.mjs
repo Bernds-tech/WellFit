@@ -64,7 +64,7 @@ check('Work comparison is annual, not regular-month versus year',()=>{
 });
 const tmp=fs.mkdtempSync(path.join(os.tmpdir(),'werk-sv-negative-'));
 try{
-  const paths=[...Object.keys(out.source_sha256),'scripts/werk-post-debt-sv-contract.mjs','scripts/lib/werk-post-debt-sv.mjs','scripts/lib/werk-payroll-2026.mjs','scripts/lib/werk-calculation.mjs'];
+  const paths=[...Object.keys(out.source_sha256),'scripts/werk-post-debt-sv-contract.mjs','scripts/lib/werk-post-debt-sv.mjs','scripts/lib/werk-annual-assessment-2026.mjs','scripts/lib/werk-payroll-2026.mjs','scripts/lib/werk-calculation.mjs'];
   for(const p of paths){const dest=path.join(tmp,p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(p,dest);}
   const run=()=>spawnSync(process.execPath,['scripts/werk-post-debt-sv-contract.mjs','--write'],{cwd:tmp,encoding:'utf8'});
   check('Clean isolated generation',()=>assert.equal(run().status,0));

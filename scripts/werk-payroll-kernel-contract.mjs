@@ -3,7 +3,7 @@ import { createPayroll2026 } from './lib/werk-payroll-2026.mjs';
 
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'));
 const fail = m => { throw new Error(m); };
-const eq = (a,b,tol,msg) => { if (Math.abs(a-b) > tol) fail(`${msg}: ${a} != ${b}`); };
+const eq = (a,b,tol,msg) => { if (![a,b,tol].every(Number.isFinite) || tol < 0 || Math.abs(a-b) > tol) fail(`${msg}: ${a} != ${b}`); };
 const p = read('werk-data/payroll-employee-kernel-2026.json');
 const d = read('werk-data/distribution-baseline-2025-2026.json');
 const payroll = createPayroll2026(p);
@@ -79,11 +79,11 @@ eq(high.base,6930,0,'High salary running HBG cap');
 const sp1=payroll.specialEmployeeSv(8000,0),sp2=payroll.specialEmployeeSv(8000,sp1.base);
 eq(sp1.base+sp2.base,13860,0,'High salary annual special HBG cap');
 
-// Scope/gate integrity: employer withholding is verified, final annual assessment and marginal burden are not.
+// Annual assessment is closed only for the separately validated standard scope.
 if(!p.scope.excluded.includes('Dienstgeberwechsel und Kontrollsechstel-Aufrollung')) fail('Control-sixth/dienstgeber-change exclusion guard missing');
 if(p.coverage?.PAY_F_ordinary_running_wage_tax_employer_withholding!=='closed_standard_scope') fail('PAY-F must be closed only for standard employer-withholding scope');
 if(p.coverage?.PAY_H_constant_salary_14_payment_employer_withholding!=='closed_standard_scope_before_assessment') fail('PAY-H standard employer-withholding gate mismatch');
-if(p.coverage?.PAY_I_final_annual_tax_after_employee_assessment!=='open'||p.coverage?.PAY_J_effective_marginal_burden_engine!=='open') fail('Final assessment/marginal-burden gates must remain open');
+if(p.coverage?.PAY_I_final_annual_tax_after_employee_assessment!=='closed_standard_scope'||p.coverage?.PAY_J_effective_marginal_burden_engine!=='open') fail('Standard assessment / open marginal-burden gate mismatch');
 if(!String(wt.scope_warning).includes('nicht ident mit endgültiger Jahressteuer')) fail('Employer-withholding vs final-assessment guard missing');
 
-console.log(`Payroll kernel contract OK: reusable module validates 2026 running/SZ SV, ${wt.table.length} wage-tax bands, ${wt.test_vectors.length} wage-tax vectors and ${p.deterministic_test_vectors.cases.length} annual standard payroll cases; employer withholding is verified while final assessment and marginal burden remain open.`);
+console.log(`Payroll kernel contract OK: reusable module validates 2026 running/SZ SV, ${wt.table.length} wage-tax bands, ${wt.test_vectors.length} wage-tax vectors and ${p.deterministic_test_vectors.cases.length} annual standard payroll cases; withholding verified; standard annual assessment has a separate contract; general household/marginal burden remain open.`);

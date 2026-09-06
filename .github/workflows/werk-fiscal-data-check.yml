@@ -38,6 +38,10 @@ on:
       - 'scripts/werk-import-employee-withholding.py'
       - 'WERK_SV_NACH_SCHULDENFREIHEIT.md'
       - '.github/workflows/werk-fiscal-data-check.yml'
+      - 'werk-data/payroll-annual-assessment*.json'
+      - 'scripts/werk-annual-assessment-*.mjs'
+      - 'scripts/lib/werk-annual-assessment-2026.mjs'
+      - 'WERK_SV_JAHRESNETTO.md'
   workflow_dispatch:
 
 permissions:

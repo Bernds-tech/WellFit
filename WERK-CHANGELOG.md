@@ -1,5 +1,10 @@
 # WERK Österreich – Website Changelog
 
+## 2026-09-06 – WERK-SV-004: Jahresveranlagung
+- 48 SV-Gehaltsvarianten und 24 Mehrstundenfälle um Standard-Jahressteuer, Zuschlag, SV-Rückerstattung und Sonderzahlungs-Jahreskorrektur ergänzt.
+- 27 hypothetische Arbeitsvorteilsvergleiche nach Jahresveranlagung nachgezogen.
+- 36 unabhängige Jahressteuer-/Grenz-/Fehlertests; vollständige Haushaltswirkung und gesamtstaatliche Finanzierung weiter offen.
+
 ## V71 – Datenarchitektur: Programm, BUD-01, Regierungsbaseline & Förderbaseline
 - Acht verbindliche WERK-Säulen und zwölf politische Leitfelder konzeptionell sauber getrennt.
 - Alle zwölf Leitfelder als vollständige Programmübersicht sichtbar; `policy-field-map.json` ordnet alle 41 Master-Analysebereiche genau einmal einem Leitfeld zu.

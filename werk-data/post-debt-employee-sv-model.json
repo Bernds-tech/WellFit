@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06-v3",
+  "version": "2026-09-06-v4",
   "reform_id": "SV-01",
   "status": "owner_requested_goal_conditional_calculation_not_funded_or_legislated",
   "owner_goal": "Mit dem Schuldenabbau Arbeitnehmer-KV/PV/ALV nach und nach senken; bis zur Schuldenfreiheit sollen die Beiträge um 50% reduziert sein. Gegenfinanzierung aus tatsächlich frei werdenden Zinsausgaben bei erhaltenen Leistungen.",
@@ -37,13 +37,16 @@
     "tax_treatment": "Unchanged 2026 tax schedule as static counterfactual: only remaining contributions deductible. Higher wage tax offsets part of contribution relief. This is not enacted future law.",
     "price_and_duration": "Fourteen constant salaries, full-year standard ASVG employment; all monetary results expressed at 2026 rules, not nominal income decades later.",
     "excluded": [
-      "final employee tax assessment",
-      "SV refund and traffic-credit supplement changes",
       "household transfer withdrawal",
       "family/commuter cases",
       "behavioural or employment effects",
-      "funding-tax incidence"
-    ]
+      "funding-tax incidence",
+      "assessment outside reviewed standard scope",
+      "e-card service fee and additional fees",
+      "payslip cent and assessment whole-euro rounding"
+    ],
+    "annual_assessment_artifact": "werk-data/payroll-annual-assessment-2026.json",
+    "annual_assessment_scope": "2026 standard full-year employee: annual tariff, credit supplement, SV refund and §41 special-pay recalculation; no household microsimulation."
   },
   "post_debt_financing_scenarios": {
     "starting_debt_baseline": "adopted_policy_projection_2031",

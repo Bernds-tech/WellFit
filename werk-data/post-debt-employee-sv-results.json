@@ -1,12 +1,13 @@
 {
-  "version": "2026-09-06-v3",
+  "version": "2026-09-06-v4",
   "reform_id": "SV-01",
   "status": "conditional_scenarios_with_linked_debt_paths",
   "source_sha256": {
-    "werk-data/post-debt-employee-sv-model.json": "f7c50c0f6265b44443890b7c33f43b90e4ca26da739513ba00bbd1ce0392b926",
-    "werk-data/payroll-employee-kernel-2026.json": "9c0a8ee265c0d6e5c84adad5bcc6749a48f6f3431f114a3956fbe5e1aa7206fe",
+    "werk-data/post-debt-employee-sv-model.json": "a010ae848ad649eb2c99a7ff82a845a5fe8816e02aa78df0fc49709447bf8055",
+    "werk-data/payroll-employee-kernel-2026.json": "f00ee8dacb7ef3706c6d5b13f8270f4337452c0184920db4546bd94439c0ee6f",
     "werk-data/debt-model.json": "0c66de9a551b67607dcb1dc83a7b5d1d1a4b95ac98dbed78296b59adb264719f",
     "werk-data/employee-payroll-withholding-2024.json": "cf1ac8435f3ef6f9f091db2494bf5c5d74940703a1586094e98ac654d2886fe8",
+    "werk-data/payroll-annual-assessment-2026.json": "6686f8cea750d3fc9638687bf5bd37c2a830521de97ce120c41c28202b56c18b",
     "werk-data/reforms.json": "84479531849ae5729cd4ca7159fce7b5ff136a738138d12e92013e35e52da41d"
   },
   "source_year": 2024,
@@ -11817,7 +11818,10 @@
       "average_calendar_month_net_gain_eur": 61.25,
       "removed_annual_contributions_eur": 741.3,
       "extra_annual_withheld_tax_eur": 6.35,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 582.45,
+      "standard_assessed_annual_net_before_eur": 18807.4,
+      "standard_assessed_annual_net_after_eur": 19389.85,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11832,7 +11836,10 @@
       "average_calendar_month_net_gain_eur": 115.85,
       "removed_annual_contributions_eur": 1482.6,
       "extra_annual_withheld_tax_eur": 92.39,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1164.9,
+      "standard_assessed_annual_net_before_eur": 18807.4,
+      "standard_assessed_annual_net_after_eur": 19972.3,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11847,7 +11854,10 @@
       "average_calendar_month_net_gain_eur": 217.16,
       "removed_annual_contributions_eur": 2965.2,
       "extra_annual_withheld_tax_eur": 359.26,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1968.8,
+      "standard_assessed_annual_net_before_eur": 18807.4,
+      "standard_assessed_annual_net_after_eur": 20776.2,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11862,7 +11872,10 @@
       "average_calendar_month_net_gain_eur": 67.54,
       "removed_annual_contributions_eur": 988.4,
       "extra_annual_withheld_tax_eur": 177.91,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 745.6,
+      "standard_assessed_annual_net_before_eur": 23560.82,
+      "standard_assessed_annual_net_after_eur": 24306.43,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11877,7 +11890,10 @@
       "average_calendar_month_net_gain_eur": 135.08,
       "removed_annual_contributions_eur": 1976.8,
       "extra_annual_withheld_tax_eur": 355.82,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1491.21,
+      "standard_assessed_annual_net_before_eur": 23560.82,
+      "standard_assessed_annual_net_after_eur": 25052.03,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11892,7 +11908,10 @@
       "average_calendar_month_net_gain_eur": 256.53,
       "removed_annual_contributions_eur": 3953.6,
       "extra_annual_withheld_tax_eur": 875.21,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2818.82,
+      "standard_assessed_annual_net_before_eur": 23560.82,
+      "standard_assessed_annual_net_after_eur": 26379.64,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11907,7 +11926,10 @@
       "average_calendar_month_net_gain_eur": 86.31,
       "removed_annual_contributions_eur": 1410.5,
       "extra_annual_withheld_tax_eur": 374.79,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 943.12,
+      "standard_assessed_annual_net_before_eur": 27250.25,
+      "standard_assessed_annual_net_after_eur": 28193.37,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11922,7 +11944,10 @@
       "average_calendar_month_net_gain_eur": 172.62,
       "removed_annual_contributions_eur": 2821,
       "extra_annual_withheld_tax_eur": 749.58,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1886.24,
+      "standard_assessed_annual_net_before_eur": 27250.25,
+      "standard_assessed_annual_net_after_eur": 29136.49,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11937,7 +11962,10 @@
       "average_calendar_month_net_gain_eur": 345.24,
       "removed_annual_contributions_eur": 5642,
       "extra_annual_withheld_tax_eur": 1499.16,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3772.47,
+      "standard_assessed_annual_net_before_eur": 27250.25,
+      "standard_assessed_annual_net_after_eur": 31022.72,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11952,7 +11980,10 @@
       "average_calendar_month_net_gain_eur": 109.67,
       "removed_annual_contributions_eur": 1792.35,
       "extra_annual_withheld_tax_eur": 476.25,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1247.46,
+      "standard_assessed_annual_net_before_eur": 30872.05,
+      "standard_assessed_annual_net_after_eur": 32119.51,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11967,7 +11998,10 @@
       "average_calendar_month_net_gain_eur": 219.35,
       "removed_annual_contributions_eur": 3584.7,
       "extra_annual_withheld_tax_eur": 952.51,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2563.56,
+      "standard_assessed_annual_net_before_eur": 30872.05,
+      "standard_assessed_annual_net_after_eur": 33435.61,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11982,7 +12016,10 @@
       "average_calendar_month_net_gain_eur": 438.7,
       "removed_annual_contributions_eur": 7169.4,
       "extra_annual_withheld_tax_eur": 1905.01,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 5195.75,
+      "standard_assessed_annual_net_before_eur": 30872.05,
+      "standard_assessed_annual_net_after_eur": 36067.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -11997,7 +12034,10 @@
       "average_calendar_month_net_gain_eur": 129.16,
       "removed_annual_contributions_eur": 2389.8,
       "extra_annual_withheld_tax_eur": 839.84,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1549.96,
+      "standard_assessed_annual_net_before_eur": 38970.98,
+      "standard_assessed_annual_net_after_eur": 40520.93,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12012,7 +12052,10 @@
       "average_calendar_month_net_gain_eur": 258.33,
       "removed_annual_contributions_eur": 4779.6,
       "extra_annual_withheld_tax_eur": 1679.69,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3099.91,
+      "standard_assessed_annual_net_before_eur": 38970.98,
+      "standard_assessed_annual_net_after_eur": 42070.89,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12027,7 +12070,10 @@
       "average_calendar_month_net_gain_eur": 516.65,
       "removed_annual_contributions_eur": 9559.2,
       "extra_annual_withheld_tax_eur": 3359.38,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 6199.82,
+      "standard_assessed_annual_net_before_eur": 38970.98,
+      "standard_assessed_annual_net_after_eur": 45170.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12042,7 +12088,10 @@
       "average_calendar_month_net_gain_eur": 161.45,
       "removed_annual_contributions_eur": 2987.25,
       "extra_annual_withheld_tax_eur": 1049.81,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1937.44,
+      "standard_assessed_annual_net_before_eur": 46429.02,
+      "standard_assessed_annual_net_after_eur": 48366.46,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12057,7 +12106,10 @@
       "average_calendar_month_net_gain_eur": 322.91,
       "removed_annual_contributions_eur": 5974.5,
       "extra_annual_withheld_tax_eur": 2099.61,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3874.89,
+      "standard_assessed_annual_net_before_eur": 46429.02,
+      "standard_assessed_annual_net_after_eur": 50303.91,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12072,7 +12124,10 @@
       "average_calendar_month_net_gain_eur": 645.81,
       "removed_annual_contributions_eur": 11949,
       "extra_annual_withheld_tax_eur": 4199.22,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 7749.78,
+      "standard_assessed_annual_net_before_eur": 46429.02,
+      "standard_assessed_annual_net_after_eur": 54178.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12087,7 +12142,10 @@
       "average_calendar_month_net_gain_eur": 210.28,
       "removed_annual_contributions_eur": 4140.33,
       "extra_annual_withheld_tax_eur": 1617.02,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2523.31,
+      "standard_assessed_annual_net_before_eur": 61458.64,
+      "standard_assessed_annual_net_after_eur": 63981.96,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12102,7 +12160,10 @@
       "average_calendar_month_net_gain_eur": 410.39,
       "removed_annual_contributions_eur": 8280.66,
       "extra_annual_withheld_tax_eur": 3355.95,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 4924.7,
+      "standard_assessed_annual_net_before_eur": 61458.64,
+      "standard_assessed_annual_net_after_eur": 66383.35,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12117,7 +12178,10 @@
       "average_calendar_month_net_gain_eur": 810.62,
       "removed_annual_contributions_eur": 16561.31,
       "extra_annual_withheld_tax_eur": 6833.83,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 9727.48,
+      "standard_assessed_annual_net_before_eur": 61458.64,
+      "standard_assessed_annual_net_after_eur": 71186.13,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12132,7 +12196,10 @@
       "average_calendar_month_net_gain_eur": 194.24,
       "removed_annual_contributions_eur": 4140.33,
       "extra_annual_withheld_tax_eur": 1809.49,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2330.77,
+      "standard_assessed_annual_net_before_eur": 85940.57,
+      "standard_assessed_annual_net_after_eur": 88271.34,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12147,7 +12214,10 @@
       "average_calendar_month_net_gain_eur": 388.44,
       "removed_annual_contributions_eur": 8280.66,
       "extra_annual_withheld_tax_eur": 3619.41,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 4661.19,
+      "standard_assessed_annual_net_before_eur": 85940.57,
+      "standard_assessed_annual_net_after_eur": 90601.75,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "outside_vienna",
@@ -12162,7 +12232,10 @@
       "average_calendar_month_net_gain_eur": 776.84,
       "removed_annual_contributions_eur": 16561.31,
       "extra_annual_withheld_tax_eur": 7239.24,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 9322.01,
+      "standard_assessed_annual_net_before_eur": 85940.57,
+      "standard_assessed_annual_net_after_eur": 95262.58,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12177,7 +12250,10 @@
       "average_calendar_month_net_gain_eur": 61.25,
       "removed_annual_contributions_eur": 741.3,
       "extra_annual_withheld_tax_eur": 6.35,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 582.45,
+      "standard_assessed_annual_net_before_eur": 18771.4,
+      "standard_assessed_annual_net_after_eur": 19353.85,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12192,7 +12268,10 @@
       "average_calendar_month_net_gain_eur": 116.6,
       "removed_annual_contributions_eur": 1482.6,
       "extra_annual_withheld_tax_eur": 83.39,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1164.9,
+      "standard_assessed_annual_net_before_eur": 18771.4,
+      "standard_assessed_annual_net_after_eur": 19936.3,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12207,7 +12286,10 @@
       "average_calendar_month_net_gain_eur": 217.91,
       "removed_annual_contributions_eur": 2965.2,
       "extra_annual_withheld_tax_eur": 350.26,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1984.55,
+      "standard_assessed_annual_net_before_eur": 18771.4,
+      "standard_assessed_annual_net_after_eur": 20755.95,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12222,7 +12304,10 @@
       "average_calendar_month_net_gain_eur": 67.54,
       "removed_annual_contributions_eur": 988.4,
       "extra_annual_withheld_tax_eur": 177.91,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 745.6,
+      "standard_assessed_annual_net_before_eur": 23517.42,
+      "standard_assessed_annual_net_after_eur": 24263.02,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12237,7 +12322,10 @@
       "average_calendar_month_net_gain_eur": 135.08,
       "removed_annual_contributions_eur": 1976.8,
       "extra_annual_withheld_tax_eur": 355.82,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1491.21,
+      "standard_assessed_annual_net_before_eur": 23517.42,
+      "standard_assessed_annual_net_after_eur": 25008.63,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12252,7 +12340,10 @@
       "average_calendar_month_net_gain_eur": 257.03,
       "removed_annual_contributions_eur": 3953.6,
       "extra_annual_withheld_tax_eur": 869.21,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2824.82,
+      "standard_assessed_annual_net_before_eur": 23517.42,
+      "standard_assessed_annual_net_after_eur": 26342.24,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12267,7 +12358,10 @@
       "average_calendar_month_net_gain_eur": 86.31,
       "removed_annual_contributions_eur": 1410.5,
       "extra_annual_withheld_tax_eur": 374.79,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 943.12,
+      "standard_assessed_annual_net_before_eur": 27203.49,
+      "standard_assessed_annual_net_after_eur": 28146.61,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12282,7 +12376,10 @@
       "average_calendar_month_net_gain_eur": 172.62,
       "removed_annual_contributions_eur": 2821,
       "extra_annual_withheld_tax_eur": 749.58,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1886.24,
+      "standard_assessed_annual_net_before_eur": 27203.49,
+      "standard_assessed_annual_net_after_eur": 29089.73,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12297,7 +12394,10 @@
       "average_calendar_month_net_gain_eur": 345.24,
       "removed_annual_contributions_eur": 5642,
       "extra_annual_withheld_tax_eur": 1499.16,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3772.47,
+      "standard_assessed_annual_net_before_eur": 27203.49,
+      "standard_assessed_annual_net_after_eur": 30975.96,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12312,7 +12412,10 @@
       "average_calendar_month_net_gain_eur": 109.67,
       "removed_annual_contributions_eur": 1792.35,
       "extra_annual_withheld_tax_eur": 476.25,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1240.57,
+      "standard_assessed_annual_net_before_eur": 30815.94,
+      "standard_assessed_annual_net_after_eur": 32056.51,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12327,7 +12430,10 @@
       "average_calendar_month_net_gain_eur": 219.35,
       "removed_annual_contributions_eur": 3584.7,
       "extra_annual_withheld_tax_eur": 952.51,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2556.66,
+      "standard_assessed_annual_net_before_eur": 30815.94,
+      "standard_assessed_annual_net_after_eur": 33372.61,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12342,7 +12448,10 @@
       "average_calendar_month_net_gain_eur": 438.7,
       "removed_annual_contributions_eur": 7169.4,
       "extra_annual_withheld_tax_eur": 1905.01,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 5188.86,
+      "standard_assessed_annual_net_before_eur": 30815.94,
+      "standard_assessed_annual_net_after_eur": 36004.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12357,7 +12466,10 @@
       "average_calendar_month_net_gain_eur": 129.16,
       "removed_annual_contributions_eur": 2389.8,
       "extra_annual_withheld_tax_eur": 839.84,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1549.96,
+      "standard_assessed_annual_net_before_eur": 38898.98,
+      "standard_assessed_annual_net_after_eur": 40448.93,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12372,7 +12484,10 @@
       "average_calendar_month_net_gain_eur": 258.33,
       "removed_annual_contributions_eur": 4779.6,
       "extra_annual_withheld_tax_eur": 1679.69,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3099.91,
+      "standard_assessed_annual_net_before_eur": 38898.98,
+      "standard_assessed_annual_net_after_eur": 41998.89,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12387,7 +12502,10 @@
       "average_calendar_month_net_gain_eur": 516.65,
       "removed_annual_contributions_eur": 9559.2,
       "extra_annual_withheld_tax_eur": 3359.38,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 6199.82,
+      "standard_assessed_annual_net_before_eur": 38898.98,
+      "standard_assessed_annual_net_after_eur": 45098.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12402,7 +12520,10 @@
       "average_calendar_month_net_gain_eur": 161.45,
       "removed_annual_contributions_eur": 2987.25,
       "extra_annual_withheld_tax_eur": 1049.81,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 1937.44,
+      "standard_assessed_annual_net_before_eur": 46339.02,
+      "standard_assessed_annual_net_after_eur": 48276.46,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12417,7 +12538,10 @@
       "average_calendar_month_net_gain_eur": 322.91,
       "removed_annual_contributions_eur": 5974.5,
       "extra_annual_withheld_tax_eur": 2099.61,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 3874.89,
+      "standard_assessed_annual_net_before_eur": 46339.02,
+      "standard_assessed_annual_net_after_eur": 50213.91,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12432,7 +12556,10 @@
       "average_calendar_month_net_gain_eur": 645.81,
       "removed_annual_contributions_eur": 11949,
       "extra_annual_withheld_tax_eur": 4199.22,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 7749.78,
+      "standard_assessed_annual_net_before_eur": 46339.02,
+      "standard_assessed_annual_net_after_eur": 54088.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12447,7 +12574,10 @@
       "average_calendar_month_net_gain_eur": 211.66,
       "removed_annual_contributions_eur": 4140.33,
       "extra_annual_withheld_tax_eur": 1600.39,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2539.94,
+      "standard_assessed_annual_net_before_eur": 61333.9,
+      "standard_assessed_annual_net_after_eur": 63873.85,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12462,7 +12592,10 @@
       "average_calendar_month_net_gain_eur": 411.78,
       "removed_annual_contributions_eur": 8280.66,
       "extra_annual_withheld_tax_eur": 3339.32,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 4941.33,
+      "standard_assessed_annual_net_before_eur": 61333.9,
+      "standard_assessed_annual_net_after_eur": 66275.24,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12477,7 +12610,10 @@
       "average_calendar_month_net_gain_eur": 812.01,
       "removed_annual_contributions_eur": 16561.31,
       "extra_annual_withheld_tax_eur": 6817.2,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 9744.12,
+      "standard_assessed_annual_net_before_eur": 61333.9,
+      "standard_assessed_annual_net_after_eur": 71078.02,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12492,7 +12628,10 @@
       "average_calendar_month_net_gain_eur": 194.58,
       "removed_annual_contributions_eur": 4140.33,
       "extra_annual_withheld_tax_eur": 1805.34,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 2334.93,
+      "standard_assessed_annual_net_before_eur": 85832.46,
+      "standard_assessed_annual_net_after_eur": 88167.39,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12507,7 +12646,10 @@
       "average_calendar_month_net_gain_eur": 388.78,
       "removed_annual_contributions_eur": 8280.66,
       "extra_annual_withheld_tax_eur": 3615.25,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 4665.35,
+      "standard_assessed_annual_net_before_eur": 85832.46,
+      "standard_assessed_annual_net_after_eur": 90497.8,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     },
     {
       "region": "vienna",
@@ -12522,7 +12664,10 @@
       "average_calendar_month_net_gain_eur": 777.19,
       "removed_annual_contributions_eur": 16561.31,
       "extra_annual_withheld_tax_eur": 7235.08,
-      "final_assessment_gain_eur": null
+      "final_assessment_gain_eur": 9326.17,
+      "standard_assessed_annual_net_before_eur": 85832.46,
+      "standard_assessed_annual_net_after_eur": 95158.63,
+      "assessment_scope": "standard_2026_before_rounding_household_transfers_excluded"
     }
   ],
   "financing_capacity_scenarios": [
@@ -12996,6 +13141,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 699.45,
       "reformed_monthly_work_advantage_eur": 834.53,
+      "assessed_current_monthly_work_advantage_eur": 763.4,
+      "assessed_reformed_monthly_work_advantage_eur": 887.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13005,6 +13152,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 399.45,
       "reformed_monthly_work_advantage_eur": 534.53,
+      "assessed_current_monthly_work_advantage_eur": 463.4,
+      "assessed_reformed_monthly_work_advantage_eur": 587.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13014,6 +13163,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 99.45,
       "reformed_monthly_work_advantage_eur": 234.53,
+      "assessed_current_monthly_work_advantage_eur": 163.4,
+      "assessed_reformed_monthly_work_advantage_eur": 287.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13023,6 +13174,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 399.45,
       "reformed_monthly_work_advantage_eur": 534.53,
+      "assessed_current_monthly_work_advantage_eur": 463.4,
+      "assessed_reformed_monthly_work_advantage_eur": 587.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13032,6 +13185,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 99.45,
       "reformed_monthly_work_advantage_eur": 234.53,
+      "assessed_current_monthly_work_advantage_eur": 163.4,
+      "assessed_reformed_monthly_work_advantage_eur": 287.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13041,6 +13196,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": -200.55,
       "reformed_monthly_work_advantage_eur": -65.47,
+      "assessed_current_monthly_work_advantage_eur": -136.6,
+      "assessed_reformed_monthly_work_advantage_eur": -12.33,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13050,6 +13207,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 99.45,
       "reformed_monthly_work_advantage_eur": 234.53,
+      "assessed_current_monthly_work_advantage_eur": 163.4,
+      "assessed_reformed_monthly_work_advantage_eur": 287.67,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13059,6 +13218,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": -200.55,
       "reformed_monthly_work_advantage_eur": -65.47,
+      "assessed_current_monthly_work_advantage_eur": -136.6,
+      "assessed_reformed_monthly_work_advantage_eur": -12.33,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13068,6 +13229,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": -500.55,
       "reformed_monthly_work_advantage_eur": -365.47,
+      "assessed_current_monthly_work_advantage_eur": -436.6,
+      "assessed_reformed_monthly_work_advantage_eur": -312.33,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13077,6 +13240,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 1366.95,
       "reformed_monthly_work_advantage_eur": 1586.3,
+      "assessed_current_monthly_work_advantage_eur": 1372.67,
+      "assessed_reformed_monthly_work_advantage_eur": 1586.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13086,6 +13251,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 1066.95,
       "reformed_monthly_work_advantage_eur": 1286.3,
+      "assessed_current_monthly_work_advantage_eur": 1072.67,
+      "assessed_reformed_monthly_work_advantage_eur": 1286.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13095,6 +13262,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 766.95,
       "reformed_monthly_work_advantage_eur": 986.3,
+      "assessed_current_monthly_work_advantage_eur": 772.67,
+      "assessed_reformed_monthly_work_advantage_eur": 986.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13104,6 +13273,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 1066.95,
       "reformed_monthly_work_advantage_eur": 1286.3,
+      "assessed_current_monthly_work_advantage_eur": 1072.67,
+      "assessed_reformed_monthly_work_advantage_eur": 1286.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13113,6 +13284,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 766.95,
       "reformed_monthly_work_advantage_eur": 986.3,
+      "assessed_current_monthly_work_advantage_eur": 772.67,
+      "assessed_reformed_monthly_work_advantage_eur": 986.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13122,6 +13295,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 466.95,
       "reformed_monthly_work_advantage_eur": 686.3,
+      "assessed_current_monthly_work_advantage_eur": 472.67,
+      "assessed_reformed_monthly_work_advantage_eur": 686.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13131,6 +13306,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 766.95,
       "reformed_monthly_work_advantage_eur": 986.3,
+      "assessed_current_monthly_work_advantage_eur": 772.67,
+      "assessed_reformed_monthly_work_advantage_eur": 986.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13140,6 +13317,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 466.95,
       "reformed_monthly_work_advantage_eur": 686.3,
+      "assessed_current_monthly_work_advantage_eur": 472.67,
+      "assessed_reformed_monthly_work_advantage_eur": 686.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13149,6 +13328,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 166.95,
       "reformed_monthly_work_advantage_eur": 386.3,
+      "assessed_current_monthly_work_advantage_eur": 172.67,
+      "assessed_reformed_monthly_work_advantage_eur": 386.3,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13158,6 +13339,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 2047.57,
       "reformed_monthly_work_advantage_eur": 2305.9,
+      "assessed_current_monthly_work_advantage_eur": 2047.58,
+      "assessed_reformed_monthly_work_advantage_eur": 2305.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13167,6 +13350,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 1747.57,
       "reformed_monthly_work_advantage_eur": 2005.9,
+      "assessed_current_monthly_work_advantage_eur": 1747.58,
+      "assessed_reformed_monthly_work_advantage_eur": 2005.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13176,6 +13361,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 1447.57,
       "reformed_monthly_work_advantage_eur": 1705.9,
+      "assessed_current_monthly_work_advantage_eur": 1447.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1705.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13185,6 +13372,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 1747.57,
       "reformed_monthly_work_advantage_eur": 2005.9,
+      "assessed_current_monthly_work_advantage_eur": 1747.58,
+      "assessed_reformed_monthly_work_advantage_eur": 2005.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13194,6 +13383,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 1447.57,
       "reformed_monthly_work_advantage_eur": 1705.9,
+      "assessed_current_monthly_work_advantage_eur": 1447.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1705.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13203,6 +13394,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 1147.57,
       "reformed_monthly_work_advantage_eur": 1405.9,
+      "assessed_current_monthly_work_advantage_eur": 1147.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1405.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13212,6 +13405,8 @@
       "work_cost_and_lost_transfers_eur": 0,
       "current_monthly_work_advantage_eur": 1447.57,
       "reformed_monthly_work_advantage_eur": 1705.9,
+      "assessed_current_monthly_work_advantage_eur": 1447.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1705.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13221,6 +13416,8 @@
       "work_cost_and_lost_transfers_eur": 300,
       "current_monthly_work_advantage_eur": 1147.57,
       "reformed_monthly_work_advantage_eur": 1405.9,
+      "assessed_current_monthly_work_advantage_eur": 1147.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1405.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     },
@@ -13230,6 +13427,8 @@
       "work_cost_and_lost_transfers_eur": 600,
       "current_monthly_work_advantage_eur": 847.57,
       "reformed_monthly_work_advantage_eur": 1105.9,
+      "assessed_current_monthly_work_advantage_eur": 847.58,
+      "assessed_reformed_monthly_work_advantage_eur": 1105.91,
       "actual_ams_entitlement_eur": null,
       "actual_household_gain_eur": null
     }

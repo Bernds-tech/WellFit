@@ -1,6 +1,6 @@
 # WERK Gesamtrechnung – 6. September 2026
 
-Reproduzierbar aus 15 versionierten Eingabedateien. Alle Beträge nominal, sofern anders bezeichnet. **16 Reformakten, 3 unterschiedliche Sensitivitätsmodelle, 0 verifizierte Finanzierungsbeiträge.** Das Programm ist noch nicht durchfinanziert.
+Reproduzierbar aus 16 versionierten Eingabedateien. Alle Beträge nominal, sofern anders bezeichnet. **16 Reformakten, 3 unterschiedliche Sensitivitätsmodelle, 0 verifizierte Finanzierungsbeiträge.** Das Programm ist noch nicht durchfinanziert.
 
 ## 1. Haushalt und Finanzierungsbedarf
 
@@ -126,7 +126,25 @@ Vorhandener Payroll-Regelkern 2026, konstante Beschäftigung über das ganze Jah
 | 5 000 | 30 | 3 750 | 37 106,38 | 856,62 |
 | 5 000 | 40 | 5 000 | 46 428,94 | 1 633,50 |
 
-Das Mehrnetto ist zugleich die maximale Summe aus zusätzlichen Betreuungskosten, Fahrtkosten und wegfallenden Transfers, bevor der unmittelbare Geldvorteil aufgebraucht wäre; Veränderungen durch die Arbeitnehmerveranlagung bleiben offen. Es wird nicht mit 110.600 Personen multipliziert.
+Das Mehrnetto ist zugleich die maximale Summe aus zusätzlichen Betreuungskosten, Fahrtkosten und wegfallenden Transfers, bevor der unmittelbare Geldvorteil aufgebraucht wäre; die ergänzende Tabelle berücksichtigt jetzt die Standard-Jahresveranlagung. Haushaltsbezogene Abzüge und Transfers bleiben offen. Es wird nicht mit 110.600 Personen multipliziert.
+
+Nach Standard-Jahresveranlagung 2026, vor zusätzlichen Arbeitskosten, Haushaltstransfers und Bescheidrundung:
+
+| Vollzeitbrutto € | Wochenstunden | Jahresnetto nach Veranlagung € | Mehr pro Kalendermonat gegenüber 20h € |
+| --- | --- | --- | --- |
+| 3 000 | 20 | 18 807,40 | 0,00 |
+| 3 000 | 25 | 22 377,07 | 297,47 |
+| 3 000 | 30 | 25 516,58 | 559,10 |
+| 3 000 | 40 | 30 872,05 | 1 005,39 |
+| 4 000 | 20 | 23 560,82 | 0,00 |
+| 4 000 | 25 | 27 250,25 | 307,45 |
+| 4 000 | 30 | 30 872,05 | 609,27 |
+| 4 000 | 40 | 38 970,98 | 1 284,18 |
+| 5 000 | 20 | 27 250,25 | 0,00 |
+| 5 000 | 25 | 31 858,56 | 384,03 |
+| 5 000 | 30 | 37 106,46 | 821,35 |
+| 5 000 | 40 | 46 429,02 | 1 598,23 |
+
 
 ## 7. Große Ausgabenfelder
 
@@ -157,7 +175,7 @@ Diese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert
 | ORG-01 | WERK-Bürgerlisten-Pakt | Kosten-/Wirkungsmodell offen | offen / offen / offen |
 | SV-01 | Arbeitnehmer-SV mit dem Schuldenabbau schrittweise um 50% senken | SV-01 (während Schuldentilgung) | offen / offen / offen |
 
-Der schrittweise Entlastungspfad **SV-01** während des Schuldenabbaus ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.
+Der schrittweise Entlastungspfad **SV-01** während des Schuldenabbaus ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag. Der [Jahresnetto-Bericht](WERK_SV_JAHRESNETTO.md) ergänzt 48 SV-Varianten um die Standard-Veranlagung; die Mehrstundenrechnung oben verwendet denselben Regelkern.
 
 Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehmensspezifische zusätzliche Maastricht-Effekte; bei EU-01 Kosten und Periodisierung des RRF-Nachlaufs; bei TAX-01 Verhaltens-/Investitionssimulation; bei REG-01 Übergangskosten je Kompetenz; bei DIR-01 und ORG-01 Infrastruktur-/Betriebskosten und der passende private/öffentliche Finanzierungsumfang. DEBT-02 ist eine Tilgungsorganisation und kein zusätzlicher Sparbeitrag.
 

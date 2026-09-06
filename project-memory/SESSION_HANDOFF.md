@@ -40,3 +40,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK owner direction: WERK-SV-003
 2026-09-06: relief now progresses during debt repayment, with a 50% employee KV/PV/ALV reduction goal by debt freedom, funded by realized recurring interest savings. SV-002 timing/15.5bn target superseded. 16 annual paths expose tradeoff: 34/41/53 years for 0/50/100% interest-to-relief at the default 525.2bn/10bn/2.5% assumptions. Target financing remains open. Read WERK_SV_HANDOFF.md; VERIFIED at 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. See WERK_SV_003_CI_RECEIPT.json.
+
+### Latest WERK continuation: WERK-SV-004
+2026-09-06: standard annual assessment added to 48 SV and 24 extra-hours cases; 27 work/nonwork comparisons updated. Start with WERK_SV_HANDOFF.md and WERK_SV_JAHRESNETTO.md. Five local workflow bodies passed, including 36 new annual counterchecks; remote CI not yet claimed. Funding and household gates remain open.

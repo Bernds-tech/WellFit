@@ -41,3 +41,10 @@ Statuses: `NEEDS_VERIFICATION`, `VERIFIED`, `INVALIDATED`, `SUPERSEDED`.
 - Action if false: mark unsupported functionality as preview/roadmap or adjust visuals.
 
 Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED`.
+## ASM-WERK-SV-004
+- Date: 2026-09-06
+- Status: VERIFIED
+- Scope: 2026 standard full-year ASVG, 14 equal salaries, no family/commuter/other-income/extra-fee cases; statutory tariff and credits remain unchanged under hypothetical KV/PV/ALV cuts.
+- Evidence: current RIS EStG §§16,33,41,77, BMF 2026 credit tables.
+- Boundary: model before payslip cent and assessment whole-euro rounding; no population recapture rate follows from examples.
+- Falsification: independent annual-tax anchors or credit/cap boundaries disagree, or source year is not 2026.

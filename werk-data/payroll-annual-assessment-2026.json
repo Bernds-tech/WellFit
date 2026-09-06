@@ -1,0 +1,116 @@
+{
+  "version": "2026-09-06-v1",
+  "rule_year": 2026,
+  "checked_at": "2026-09-06",
+  "status": "standard_scope_annual_assessment_only",
+  "scope": {
+    "monthly_gross_min_eur": 1500,
+    "monthly_gross_max_eur": 10000,
+    "ordinary_payments": 12,
+    "equal_special_payments": 2,
+    "regions": [
+      "outside_vienna",
+      "vienna"
+    ],
+    "excluded": [
+      "Familien-/Pendlerabsetzbeträge und zusätzliche Werbungskosten",
+      "Andere Einkünfte, Transfers, Mehrfachjobs, unterjährige Beschäftigung",
+      "E-card-Serviceentgelt und sonstige zusätzliche Gebühren",
+      "Lohnzettel-Centrundung und Bescheid-Ganz-Euro-Rundung",
+      "Gesamtbevölkerung, Leistungs- und Finanzierungsinzidenz"
+    ]
+  },
+  "annual_tariff_bands": [
+    [
+      13539,
+      0
+    ],
+    [
+      21992,
+      0.2
+    ],
+    [
+      36458,
+      0.3
+    ],
+    [
+      70365,
+      0.4
+    ],
+    [
+      104859,
+      0.48
+    ],
+    [
+      1000000,
+      0.5
+    ],
+    [
+      null,
+      0.55
+    ]
+  ],
+  "annual_standard_expense_allowance_eur": 132,
+  "annual_traffic_credit_eur": 496,
+  "supplement": {
+    "maximum_eur": 804,
+    "income_full_until_eur": 19761,
+    "income_zero_from_eur": 30259
+  },
+  "sv_refund": {
+    "rate": 0.55,
+    "base_cap_eur": 496,
+    "bonus_cap_eur": 804,
+    "base_includes_ordinary_and_special_contributions": true,
+    "base_includes_ak_wf": true,
+    "capped_by_negative_tariff_after_credits": true
+  },
+  "special_recalculation": {
+    "gross_freigrenze_eur": 2615,
+    "max_sixth_for_cap_eur": 25000,
+    "free_amount_eur": 620,
+    "standard_rate": 0.06,
+    "cap_rate": 0.3,
+    "cap_base_threshold_after_contributions_eur": 2490
+  },
+  "reform_assumption": "Only employee KV/PV/ALV rates change. Current tax/refund rules, AK/WF and gross earnings remain unchanged. No aggregate recapture rate is inferred.",
+  "sources": [
+    {
+      "id": "RIS-ESTG-16-2026",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=16&FassungVom=2026-09-06",
+      "role": "Deductible contributions and 132 EUR standard allowance"
+    },
+    {
+      "id": "RIS-ESTG-33-2026",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=33&FassungVom=2026-09-06",
+      "role": "Annual tariff, credits, refund base and negative-tax cap, especially Abs8Z5"
+    },
+    {
+      "id": "RIS-ESTG-41-2026",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=41&FassungVom=2026-09-06",
+      "role": "Assessment: special pay excluded from ordinary income; Abs4 recalculation after contributions"
+    },
+    {
+      "id": "RIS-ESTG-77-2026",
+      "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=77&FassungVom=2026-09-06",
+      "role": "Optional employer special-pay recalculation: previous withholding module excludes this rollup"
+    },
+    {
+      "id": "BMF-CREDITS-2026",
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/uebersicht-steuerabsetzbetraege.html",
+      "role": "2026 amounts, supplement taper"
+    },
+    {
+      "id": "BMF-TARIFF-2026",
+      "url": "https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/steuertarif-steuerabsetzbetraege.html",
+      "role": "2026 annual tariff bands"
+    }
+  ],
+  "source_year_guard": "Taxbook 2026 covers assessment 2025; do not use its indexed amounts for 2026. RIS annotations for 2027 likewise excluded.",
+  "coverage": {
+    "standard_full_year_annual_tax": "closed_standard_scope",
+    "complete_household_assessment": "open",
+    "aggregate_employee_sv_cost": "open",
+    "empirical_population_tax_recapture": "open"
+  }
+}

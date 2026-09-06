@@ -1,17 +1,17 @@
 {
-  "version":"2026-09-05-v2",
+  "version":"2026-09-06-v3",
   "title":"WERK Österreich – Arbeitnehmer-Payroll-Regelkern 2026",
-  "status":"verified-running-and-special-withholding-kernel-final-assessment-open",
-  "checked_at":"2026-09-05",
+  "status":"withholding_verified_standard_annual_assessment_in_separate_module",
+  "checked_at":"2026-09-06",
   "purpose":"Maschinenlesbarer Regelkern für DIST-I/TAX-02. Er trennt laufende Bezüge und Sonderzahlungen sozialversicherungs- und lohnsteuerrechtlich. Der Kern kann im verifizierten Standardscope Arbeitgeber-Einbehaltung für 12 laufende und zwei gleich hohe Sonderzahlungen rechnen. Er ist ausdrücklich noch keine vollständige österreichische Arbeitnehmerveranlagung oder Haushalts-Mikrosimulation.",
   "scope":{
     "included":"Standard-ASVG-Dienstnehmer/in, vollversichert, laufende Geldbezüge und wiederkehrende Sonderzahlungen; Standard-Arbeiterkammerzugehörigkeit; Österreich bzw. Wien als WF-Variante; keine zusätzlichen Freibeträge oder Familien-/Pendler-Sonderfälle.",
-    "excluded":["Lehrlinge","freie Dienstnehmer","geringfügige Beschäftigung als alleiniger Versicherungsfall","Landarbeiterkammer-Sonderfälle","Schlechtwetter/Nachtschwerarbeit","mehrfache Beschäftigung","Altersteilzeit","Sachbezüge","steuerfreie Zulagen/Zuschläge","Pendlerpauschale/Pendlereuro","Freibetragsbescheid","Gewerkschaftsbeiträge","Abfertigungen","Prämien außerhalb des Standard-Jahressechstels","Dienstgeberwechsel und Kontrollsechstel-Aufrollung","Familienbonus-/AVAB-/AEAB-Sonderfälle in der verifizierten Standard-Nettofunktion"],
+    "excluded":["Lehrlinge","freie Dienstnehmer","geringfügige Beschäftigung als alleiniger Versicherungsfall","Landarbeiterkammer-Sonderfälle","Schlechtwetter/Nachtschwerarbeit","mehrfache Beschäftigung","Altersteilzeit","Sachbezüge","steuerfreie Zulagen/Zuschläge","Pendlerpauschale/Pendlereuro","Freibetragsbescheid","Gewerkschaftsbeiträge","Abfertigungen","Prämien außerhalb des Standard-Jahressechstels","Dienstgeberwechsel und Kontrollsechstel-Aufrollung","Familienbonus-/AVAB-/AEAB-Sonderfälle in der verifizierten Standard-Nettofunktion","Optionale Arbeitgeber-Jahresaufrollung nach §77 Abs4; Standard-Korrektur im getrennten Veranlagungsmodul"],
     "rule":"Ein Ergebnis außerhalb dieses Scopes darf nicht als verifizierte Nettolohnabrechnung ausgegeben werden."
   },
   "sources":[
     {"id":"RIS-ESTG-67-2026","authority":"RIS / Bundesrecht","title":"EStG 1988 § 67 – Sonstige Bezüge, Fassung 2026","url":"https://ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10004570&Paragraf=67"},
-    {"id":"BMF-STEUERBUCH-2026","authority":"Bundesministerium für Finanzen","title":"Das Steuerbuch 2026 – Urlaubsgeld und Weihnachtsgeld","url":"https://www.bmf.gv.at/dam/jcr:436f8c01-38e0-41bf-b904-c0e62a862bf1/251117_Steuerbuch2026_DE_BF.pdf"},
+    {"id":"BMF-STEUERBUCH-2026","authority":"Bundesministerium für Finanzen","title":"Das Steuerbuch 2026 – Urlaubsgeld und Weihnachtsgeld","url":"https://www.bmf.gv.at/dam/jcr:436f8c01-38e0-41bf-b904-c0e62a862bf1/251117_Steuerbuch2026_DE_BF.pdf","scope_note":"Steuerbuch 2026 betrifft Veranlagung 2025; keine Quelle indexierter Beträge für Einkommen 2026."},
     {"id":"BMF-LSTR-2026","authority":"Bundesministerium für Finanzen / Findok","title":"Lohnsteuerrichtlinien – LSt-Tabelle 2026 für unselbständig Beschäftigte","publication":"2025-12-18","url":"https://findok.bmf.gv.at/volltext?dokumentId=36d45f2b-2e3b-4e1c-a632-c067dd76817c"},
     {"id":"BMF-TRAFFIC-CREDIT-2026","authority":"Bundesministerium für Finanzen","title":"Verkehrsabsetzbetrag und Zuschlag 2026","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/steuertarif-steuerabsetzbetraege/uebersicht-steuerabsetzbetraege.html"},
     {"id":"BMF-WERBUNGSKOSTEN-2026","authority":"Bundesministerium für Finanzen","title":"Werbungskostenpauschale 2026","url":"https://www.bmf.gv.at/themen/steuern/arbeitnehmerveranlagung/was-kann-ich-geltend-machen/werbungskosten/werbungskosten-ueberblick.html"},
@@ -93,7 +93,7 @@
     {"id":"jahressechstel","inputs":["running_gross_received_ytd_eur","elapsed_calendar_months"],"output":"jahressechstel_eur","status":"verified"},
     {"id":"special_fixed_rate_tax","inputs":["special_gross_within_sixth_eur","deductible_special_sv_eur","jahressechstel_eur","prior_taxable_special_after_sv_eur"],"output":"special_wage_tax_eur","status":"verified_standard_scope","note":"Does not implement §67 high-income exception or control-sixth rollup."},
     {"id":"constant_salary_employer_withholding_14_payments","inputs":["monthly_gross_eur","employment_region"],"output":["annual_gross","running_sv","running_wage_tax","special_sv","special_fixed_tax","payroll_net_before_assessment"],"status":"verified_standard_scope"},
-    {"id":"final_annual_tax_after_employee_assessment","status":"open"},
+    {"id":"final_annual_tax_after_employee_assessment","status":"verified_standard_scope_in_separate_module","module":"scripts/lib/werk-annual-assessment-2026.mjs"},
     {"id":"effective_marginal_burden","status":"open"}
   ],
   "deterministic_test_vectors":{
@@ -116,7 +116,8 @@
     "PAY_F_ordinary_running_wage_tax_employer_withholding":"closed_standard_scope",
     "PAY_G_control_sixth_and_under_year_rollup":"open",
     "PAY_H_constant_salary_14_payment_employer_withholding":"closed_standard_scope_before_assessment",
-    "PAY_I_final_annual_tax_after_employee_assessment":"open",
+    "PAY_I_final_annual_tax_after_employee_assessment":"closed_standard_scope",
     "PAY_J_effective_marginal_burden_engine":"open"
-  }
+  },
+  "annual_assessment_artifact":"werk-data/payroll-annual-assessment-2026.json"
 }

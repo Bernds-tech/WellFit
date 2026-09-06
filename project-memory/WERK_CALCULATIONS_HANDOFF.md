@@ -28,3 +28,6 @@ All 13 WERK workflows executed locally; final changed fiscal/registry checks rer
 
 ## Next substantive work
 Replace scenario assumptions with measured process-specific transition/running costs and additional collectible effects; avoid claiming the 15 dossiers are a financed program. Prioritize subsidy program net-costing and administration pilot boundaries. Pension/health/care baselines exist, but reform cost models remain open. Labour matching joint dimensions and final household assessment remain open.
+
+## WERK-SV-004 extension
+24 existing extra-hours cases now additionally include standard 2026 annual assessment using the shared module. Original withholding fields remain separately named. See WERK_SV_JAHRESNETTO.md and WERK_SV_HANDOFF.md; no added verified funding.

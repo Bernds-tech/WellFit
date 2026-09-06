@@ -144,3 +144,10 @@
 - Date: 2026-09-06
 - Owner direction supersedes SV-002: reduce employee KV/PV/ALV progressively during debt repayment; target 50% reduction by debt freedom, financed by realized avoided interest.
 - R2; preserve insurance entitlements and funded base repayment; no dual use of interest for relief and accelerated repayment.
+
+## WERK-CR-SV-004
+- Date: 2026-09-06
+- Status: ACCEPTED
+- Source: owner continuation, calculate all presently calculable effects.
+- Scope: bounded 2026 annual employee assessment and progressive SV-01 comparison; source audit of employee aggregate. R2; existing WERK branch publication authorization persists.
+- Recovery: revert bounded SV-004 changes.

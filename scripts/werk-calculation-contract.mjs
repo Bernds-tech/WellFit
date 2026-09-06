@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {cashflow, repayment, fundingCredit, finite, round, sum} from './lib/werk-calculation.mjs';
+import {standardAnnualAssessment} from './lib/werk-annual-assessment-2026.mjs';
 import {createPayroll2026} from './lib/werk-payroll-2026.mjs';
 
 const sourceHashes = {};
@@ -16,6 +17,7 @@ const debt = read('debt-model'), labour = read('labour-time-care-constraints-202
 const kernel = read('payroll-employee-kernel-2026'), gov = read('government-baseline-2025-2031');
 const pension = read('pension-baseline-2024-2031'), health = read('health-baseline-2024-2031'), care = read('care-baseline-2024-2050');
 const historical = read('fiscal-model');
+const annualRules = read('payroll-annual-assessment-2026');
 const eq = (x,y,tol=1e-6) => assert.ok(Math.abs(finite(x)-finite(y)) <= tol, `${x} != ${y}`);
 assert.deepEqual(a.horizons_years, [1,5,10]); assert.equal(a.gross_effect_ramp.length,10);
 assert.ok(a.payroll.fulltime_weekly_hours>0); finite(a.payroll.fulltime_weekly_hours);
@@ -101,13 +103,20 @@ const childTotal=sum(childcare.map(x=>x.children.total)), vif=sum(childcare.map(
 const payroll=createPayroll2026(kernel);
 const payrollRows=a.payroll.regions.flatMap(region=>a.payroll.fulltime_monthly_gross_eur_cases.flatMap(fulltimeGross=>{
   const base=payroll.constantSalaryEmployerWithholding({monthlyGross:fulltimeGross*20/a.payroll.fulltime_weekly_hours,region});
+  const assessedBase=standardAnnualAssessment(base,annualRules);
   return a.payroll.weekly_hours_cases.map(hours=>{
     const r=payroll.constantSalaryEmployerWithholding({monthlyGross:fulltimeGross*hours/a.payroll.fulltime_weekly_hours,region});
+    const assessed=standardAnnualAssessment(r,annualRules);
+    const assessedExtra=assessed.annual_net_after_assessment_eur-assessedBase.annual_net_after_assessment_eur;
     const extraGross=r.annualGross-base.annualGross,extraNet=r.payrollNetBeforeAssessment-base.payrollNetBeforeAssessment;
     return {region,fulltime_monthly_gross_eur:fulltimeGross,weekly_hours:hours,monthly_gross_eur:r.monthlyGross,
       ordinary_month_net_eur:round(r.monthlyGross-r.runningSvMonthly-r.runningWageTaxMonthly,2),
       annual_net_before_assessment_eur:round(r.payrollNetBeforeAssessment,2),annual_gross_eur:r.annualGross,
       extra_annual_net_vs_20h_eur:round(extraNet,2),extra_net_per_calendar_month_vs_20h_eur:round(extraNet/12,2),
+      annual_net_after_standard_assessment_eur:round(assessed.annual_net_after_assessment_eur,2),
+      extra_annual_net_after_standard_assessment_vs_20h_eur:round(assessedExtra,2),
+      extra_assessed_net_per_calendar_month_vs_20h_eur:round(assessedExtra/12,2),
+      incremental_assessed_employee_tax_sv_share_pct:extraGross===0?null:round((1-assessedExtra/extraGross)*100,2),
       incremental_employee_tax_sv_share_pct:extraGross===0?null:round((1-extraNet/extraGross)*100,2)};
   });
 }));
@@ -170,9 +179,9 @@ md+=`\nJahresendzahlungen einschließlich kleinerer letzter Rate. Bei 10 Mrd. �
 md+=table(['Angenommene Teilnahme','Zusatzstunden/Woche','VZÄ-Äquivalent'],labourCases.map(x=>[f(x.uptake_share*100,0)+' %',x.weekly_extra_hours,f(x.fte_equivalent,1)]));
 md+=`\nKein Beschäftigungs- oder Budgeteffekt: gewünschte Stundenhöhe, passende Stellen und Arbeitsbedingungen sind nicht gemeinsam beobachtet. Von ${f(childTotal,0)} betreuten Kindern unter sechs Jahren besuchen ${f(vif,0)} eine VIF-kompatible Einrichtung. ${f(childTotal-vif,0)} besuchen andere Öffnungskategorien; daraus folgen weder fehlende noch freie Plätze. Betreuungsjahr 2024/25 und Arbeitskräftejahr 2025 bleiben getrennt.\n\n## 6. Konkrete Mehrarbeitsrechnung\n\nVorhandener Payroll-Regelkern 2026, konstante Beschäftigung über das ganze Jahr, gleichbleibender Stundenlohn; 14 Bruttobezüge. Standard-ASVG, ohne Pendler-/Familienfälle. **Netto nach Arbeitgeber-Einbehaltung, vor Arbeitnehmerveranlagung und ohne Transferentzug, Betreuung oder Fahrtkosten.** Tabelle außerhalb Wiens; Wien-Variante ebenfalls im JSON. Mehrnetto pro Kalendermonat ist Jahresdifferenz geteilt durch zwölf und enthält Sonderzahlungen.\n\n`;
 md+=table(['Vollzeit-Brutto/Monat','Wochenstunden','Teilzeit-Brutto/Monat','Netto/Jahr','Mehrnetto/Monat gegenüber 20 h'],payrollRows.filter(x=>x.region==='outside_vienna').map(x=>[f(x.fulltime_monthly_gross_eur,0),x.weekly_hours,f(x.monthly_gross_eur,0),f(x.annual_net_before_assessment_eur),f(x.extra_net_per_calendar_month_vs_20h_eur)]));
-md+=`\nDas Mehrnetto ist zugleich die maximale Summe aus zusätzlichen Betreuungskosten, Fahrtkosten und wegfallenden Transfers, bevor der unmittelbare Geldvorteil aufgebraucht wäre; Veränderungen durch die Arbeitnehmerveranlagung bleiben offen. Es wird nicht mit 110.600 Personen multipliziert.\n\n## 7. Große Ausgabenfelder\n\n- Bundesbudget UG22+UG23: ${f(p.ug22_plus_ug23_outflows_mio[pi]/1000,3)} Mrd. € 2026 auf ${f(p.ug22_plus_ug23_outflows_mio[pe]/1000,3)} Mrd. € 2031: **+${f(result.non_additive_sector_changes.federal_pension_budget.change_mio/1000,3)} Mrd. €**. Enthält UG23-Pflegegeld; keine gesamtstaatliche Pensionssumme.\n- Laufende öffentliche Gesundheitsausgaben SHA: 43,793 auf 46,384 Mrd. € 2024–2025: **+2,591 Mrd. €**, 2025 vorläufig.\n- Pflege-Sachleistungen Länder/Gemeinden im Quellszenario: 2,71 Mrd. € 2021 auf 10,70 Mrd. € 2050, **+7,99 Mrd. € in konstanten Preisen 2021**. Keine nominale Jahresprognose.\n\nDiese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert. Für Pensionen, Gesundheit und Pflege liegen noch keine vollständig bezifferten WERK-Reformkosten vor. Bruttobudgets sind keine realisierbaren Einsparungen.\n\n## 8. Alle Reformakten\n\n`;
+md+=`\nDas Mehrnetto ist zugleich die maximale Summe aus zusätzlichen Betreuungskosten, Fahrtkosten und wegfallenden Transfers, bevor der unmittelbare Geldvorteil aufgebraucht wäre; die ergänzende Tabelle berücksichtigt jetzt die Standard-Jahresveranlagung. Haushaltsbezogene Abzüge und Transfers bleiben offen. Es wird nicht mit 110.600 Personen multipliziert.\n\nNach Standard-Jahresveranlagung 2026, vor zusätzlichen Arbeitskosten, Haushaltstransfers und Bescheidrundung:\n\n${table(['Vollzeitbrutto €','Wochenstunden','Jahresnetto nach Veranlagung €','Mehr pro Kalendermonat gegenüber 20h €'],payrollRows.filter(x=>x.region==='outside_vienna').map(x=>[f(x.fulltime_monthly_gross_eur,0),x.weekly_hours,f(x.annual_net_after_standard_assessment_eur),f(x.extra_assessed_net_per_calendar_month_vs_20h_eur)]))}\n\n## 7. Große Ausgabenfelder\n\n- Bundesbudget UG22+UG23: ${f(p.ug22_plus_ug23_outflows_mio[pi]/1000,3)} Mrd. € 2026 auf ${f(p.ug22_plus_ug23_outflows_mio[pe]/1000,3)} Mrd. € 2031: **+${f(result.non_additive_sector_changes.federal_pension_budget.change_mio/1000,3)} Mrd. €**. Enthält UG23-Pflegegeld; keine gesamtstaatliche Pensionssumme.\n- Laufende öffentliche Gesundheitsausgaben SHA: 43,793 auf 46,384 Mrd. € 2024–2025: **+2,591 Mrd. €**, 2025 vorläufig.\n- Pflege-Sachleistungen Länder/Gemeinden im Quellszenario: 2,71 Mrd. € 2021 auf 10,70 Mrd. € 2050, **+7,99 Mrd. € in konstanten Preisen 2021**. Keine nominale Jahresprognose.\n\nDiese Sichtweisen werden weder untereinander noch auf die Gesamtausgaben addiert. Für Pensionen, Gesundheit und Pflege liegen noch keine vollständig bezifferten WERK-Reformkosten vor. Bruttobudgets sind keine realisierbaren Einsparungen.\n\n## 8. Alle Reformakten\n\n`;
 md+=table(['ID','Reform','Rechenzuordnung','Verifiziert netto 1/5/10 Jahre'],reformCoverage.map(x=>[x.id,x.title,x.scenario_module??(x.status.startsWith('budget_')?'Haushalts-/Tilgungsrechnung, kein eigener Ertrag':'Kosten-/Wirkungsmodell offen'),'offen / offen / offen']));
-md+=`\nDer schrittweise Entlastungspfad **SV-01** während des Schuldenabbaus ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag.\n`;
+md+=`\nDer schrittweise Entlastungspfad **SV-01** während des Schuldenabbaus ist separat in [WERK_SV_NACH_SCHULDENFREIHEIT.md](WERK_SV_NACH_SCHULDENFREIHEIT.md) durchgerechnet: Arbeitnehmerentlastung, Ersatzfinanzierung und vergleichbare Erwerbsanreize. Sie ist kein zusätzlicher aktueller Sparbeitrag. Der [Jahresnetto-Bericht](WERK_SV_JAHRESNETTO.md) ergänzt 48 SV-Varianten um die Standard-Veranlagung; die Mehrstundenrechnung oben verwendet denselben Regelkern.\n`;
 md+=`\nBei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehmensspezifische zusätzliche Maastricht-Effekte; bei EU-01 Kosten und Periodisierung des RRF-Nachlaufs; bei TAX-01 Verhaltens-/Investitionssimulation; bei REG-01 Übergangskosten je Kompetenz; bei DIR-01 und ORG-01 Infrastruktur-/Betriebskosten und der passende private/öffentliche Finanzierungsumfang. DEBT-02 ist eine Tilgungsorganisation und kein zusätzlicher Sparbeitrag.\n\n## Reproduzieren\n\n\`node scripts/werk-calculation-contract.mjs --write\` erzeugt Bericht und JSON; ohne \`--write\` wird die bytegleiche Neuberechnung geprüft. \`node scripts/werk-calculation-negative-check.mjs\` prüft unabhängige Rechenbeispiele und Fehlerfälle. Alle Eingaben sind über SHA-256 gebunden. Das zentrale Freigabegate für eine finanzierte BUD-01-Endrechnung bleibt offen.\n`;
 const outputs={'werk-data/calculation-results-2026.json':JSON.stringify(result,null,2)+'\n','WERK_GESAMTRECHNUNG.md':md};
 for(const [path,content] of Object.entries(outputs)) {

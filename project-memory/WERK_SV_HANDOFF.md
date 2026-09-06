@@ -1,6 +1,19 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current refinement: WERK-SV-003
+## Current continuation: WERK-SV-004
+Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed (36 annual + 55 SV + 42 general counterchecks). Remote publication/CI pending.
+Current owner goal remains progressive 50% employee KV/PV/ALV relief during funded debt repayment.
+
+New canonical annual-assessment rules and module feed 48 SV cases, 24 general extra-hours cases and 27 hypothetical work/nonwork comparisons. Sources: current dated RIS §§16/33/41/77 and BMF 2026 tariff/credits; 2025 Taxbook / 2027 annotations not mixed in. Scope: standard full-year employee, 14 equal pay packets, no family/commuter/other-income/transfers/extra e-card fee, model before payslip cent and assessment whole-euro rounding. Optional employer §77(4) rollup remains outside old withholding measure; annual §41(4) correction now included. PAY-I closed only for this standard scope; general household and marginal-burden gates remain open.
+
+Half-cut outside Vienna annual gain after assessment: 1500 gross -> 1164.90 EUR; 2000 -> 1491.21; 2500 -> 1886.24; 3000 -> 2563.56; 4000 -> 3099.91. Refund/credit losses explain the change from withholding, together with special-pay annual correction. No empirical population recapture inferred. Official branch statistics still do not identify exact pure employee KV/PV/ALV scope; broad 31.952625bn is neither reform cost nor extra receipts.
+
+Read WERK_SV_JAHRESNETTO.md and generated payroll-annual-assessment-results-2026.json. 36 new counterchecks plus existing 55 SV and 42 general cases. Recovery: revert bounded SV-004 commits. No Sites deployment.
+
+Next unproven: representative pure employee contribution total / microdata; household transfers and other assessment groups; nominal wage/base growth and demographic funding stress; sustainable funded base repayment. Historical SV-003 constant-nominal debt paths and 30% recapture remain sensitivities, not newly proven financing.
+
+
+## Previous refinement: WERK-SV-003
 Owner supersedes delayed relief: progressively reduce employee KV/PV/ALV during funded debt repayment, reaching a relative 50% reduction by debt freedom as a political goal. Funding comes from recurring realized avoided interest. Base repayment and service entitlements remain protected. An interest euro cannot pay both relief and additional principal.
 
 Implementation: existing SV files extended in place; historical `post-debt` paths retained to preserve references. Coupled model has 16 full annual paths: allocation 0/50/100% of interest to relief, 1/2.5/4% assumed rates, 0/20/30/40% recapture sensitivities, 431.4/525.2bn debt anchors and 1/3-year savings lag. Main report highlights 50% payroll cases; full abolition remains comparison only. Old 15.5bn goal is explicitly superseded. Debt/reform registers, overall calculation, field workstate and program updated.

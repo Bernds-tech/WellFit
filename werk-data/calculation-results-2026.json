@@ -12,12 +12,13 @@
     "werk-data/gambling-model.json": "e733868a4802dd36252e214e3065e0d7ea329207512097a1ccb7f82b47843388",
     "werk-data/debt-model.json": "0c66de9a551b67607dcb1dc83a7b5d1d1a4b95ac98dbed78296b59adb264719f",
     "werk-data/labour-time-care-constraints-2025.json": "016b2b9ef677a52a3a252800cf1243bcaf45bba61eb384c88caa62403e2438cc",
-    "werk-data/payroll-employee-kernel-2026.json": "9c0a8ee265c0d6e5c84adad5bcc6749a48f6f3431f114a3956fbe5e1aa7206fe",
+    "werk-data/payroll-employee-kernel-2026.json": "f00ee8dacb7ef3706c6d5b13f8270f4337452c0184920db4546bd94439c0ee6f",
     "werk-data/government-baseline-2025-2031.json": "79312c80a89c0bd8025c7b554fe56ed086a0481d1f770736ecd3b4d1a1c582ee",
     "werk-data/pension-baseline-2024-2031.json": "343c8270e9aa3688fa6f98593b26b219abdba445c3ce2835b6bd07750b874e78",
     "werk-data/health-baseline-2024-2031.json": "6b02f234429bd216298c047a7617044b5074642c6638d2564062eb7b0125c67d",
     "werk-data/care-baseline-2024-2050.json": "6b6507a6dde219f38d66942967bbe4f7f417ea5e01ebc41c333640b2583fa880",
-    "werk-data/fiscal-model.json": "a36818a7c6515d61542113260ef23629dab2d4cd21cc2e61315b574e9cadf286"
+    "werk-data/fiscal-model.json": "a36818a7c6515d61542113260ef23629dab2d4cd21cc2e61315b574e9cadf286",
+    "werk-data/payroll-annual-assessment-2026.json": "6686f8cea750d3fc9638687bf5bd37c2a830521de97ce120c41c28202b56c18b"
   },
   "coverage": {
     "registered_reforms": 16,
@@ -5153,6 +5154,10 @@
       "annual_gross_eur": 21000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 18807.4,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5165,6 +5170,10 @@
       "annual_gross_eur": 26250,
       "extra_annual_net_vs_20h_eur": 3835.61,
       "extra_net_per_calendar_month_vs_20h_eur": 319.63,
+      "annual_net_after_standard_assessment_eur": 22377.07,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 3569.67,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 297.47,
+      "incremental_assessed_employee_tax_sv_share_pct": 32.01,
       "incremental_employee_tax_sv_share_pct": 26.94
     },
     {
@@ -5177,6 +5186,10 @@
       "annual_gross_eur": 31500,
       "extra_annual_net_vs_20h_eur": 7186.13,
       "extra_net_per_calendar_month_vs_20h_eur": 598.84,
+      "annual_net_after_standard_assessment_eur": 25516.58,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 6709.18,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 559.1,
+      "incremental_assessed_employee_tax_sv_share_pct": 36.1,
       "incremental_employee_tax_sv_share_pct": 31.56
     },
     {
@@ -5189,6 +5202,10 @@
       "annual_gross_eur": 42000,
       "extra_annual_net_vs_20h_eur": 13066,
       "extra_net_per_calendar_month_vs_20h_eur": 1088.83,
+      "annual_net_after_standard_assessment_eur": 30872.05,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 12064.65,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1005.39,
+      "incremental_assessed_employee_tax_sv_share_pct": 42.55,
       "incremental_employee_tax_sv_share_pct": 37.78
     },
     {
@@ -5201,6 +5218,10 @@
       "annual_gross_eur": 28000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 23560.82,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5213,6 +5234,10 @@
       "annual_gross_eur": 35000,
       "extra_annual_net_vs_20h_eur": 4033.55,
       "extra_net_per_calendar_month_vs_20h_eur": 336.13,
+      "annual_net_after_standard_assessment_eur": 27250.25,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 3689.43,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 307.45,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.29,
       "incremental_employee_tax_sv_share_pct": 42.38
     },
     {
@@ -5225,6 +5250,10 @@
       "annual_gross_eur": 42000,
       "extra_annual_net_vs_20h_eur": 8010,
       "extra_net_per_calendar_month_vs_20h_eur": 667.5,
+      "annual_net_after_standard_assessment_eur": 30872.05,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 7311.22,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 609.27,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.78,
       "incremental_employee_tax_sv_share_pct": 42.79
     },
     {
@@ -5237,6 +5266,10 @@
       "annual_gross_eur": 56000,
       "extra_annual_net_vs_20h_eur": 16177.49,
       "extra_net_per_calendar_month_vs_20h_eur": 1348.12,
+      "annual_net_after_standard_assessment_eur": 38970.98,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 15410.15,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1284.18,
+      "incremental_assessed_employee_tax_sv_share_pct": 44.96,
       "incremental_employee_tax_sv_share_pct": 42.22
     },
     {
@@ -5249,6 +5282,10 @@
       "annual_gross_eur": 35000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 27250.25,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5261,6 +5298,10 @@
       "annual_gross_eur": 43750,
       "extra_annual_net_vs_20h_eur": 5031.6,
       "extra_net_per_calendar_month_vs_20h_eur": 419.3,
+      "annual_net_after_standard_assessment_eur": 31858.56,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 4608.31,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 384.03,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.33,
       "incremental_employee_tax_sv_share_pct": 42.5
     },
     {
@@ -5273,6 +5314,10 @@
       "annual_gross_eur": 52500,
       "extra_annual_net_vs_20h_eur": 10279.42,
       "extra_net_per_calendar_month_vs_20h_eur": 856.62,
+      "annual_net_after_standard_assessment_eur": 37106.46,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 9856.21,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 821.35,
+      "incremental_assessed_employee_tax_sv_share_pct": 43.68,
       "incremental_employee_tax_sv_share_pct": 41.26
     },
     {
@@ -5285,6 +5330,10 @@
       "annual_gross_eur": 70000,
       "extra_annual_net_vs_20h_eur": 19601.98,
       "extra_net_per_calendar_month_vs_20h_eur": 1633.5,
+      "annual_net_after_standard_assessment_eur": 46429.02,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 19178.77,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1598.23,
+      "incremental_assessed_employee_tax_sv_share_pct": 45.2,
       "incremental_employee_tax_sv_share_pct": 43.99
     },
     {
@@ -5297,6 +5346,10 @@
       "annual_gross_eur": 21000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 18771.4,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5309,6 +5362,10 @@
       "annual_gross_eur": 26250,
       "extra_annual_net_vs_20h_eur": 3835.61,
       "extra_net_per_calendar_month_vs_20h_eur": 319.63,
+      "annual_net_after_standard_assessment_eur": 22332.07,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 3560.67,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 296.72,
+      "incremental_assessed_employee_tax_sv_share_pct": 32.18,
       "incremental_employee_tax_sv_share_pct": 26.94
     },
     {
@@ -5321,6 +5378,10 @@
       "annual_gross_eur": 31500,
       "extra_annual_net_vs_20h_eur": 7183.88,
       "extra_net_per_calendar_month_vs_20h_eur": 598.66,
+      "annual_net_after_standard_assessment_eur": 25474.5,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 6703.1,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 558.59,
+      "incremental_assessed_employee_tax_sv_share_pct": 36.16,
       "incremental_employee_tax_sv_share_pct": 31.58
     },
     {
@@ -5333,6 +5394,10 @@
       "annual_gross_eur": 42000,
       "extra_annual_net_vs_20h_eur": 13048,
       "extra_net_per_calendar_month_vs_20h_eur": 1087.33,
+      "annual_net_after_standard_assessment_eur": 30815.94,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 12044.54,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1003.71,
+      "incremental_assessed_employee_tax_sv_share_pct": 42.65,
       "incremental_employee_tax_sv_share_pct": 37.87
     },
     {
@@ -5345,6 +5410,10 @@
       "annual_gross_eur": 28000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 23517.42,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5357,6 +5426,10 @@
       "annual_gross_eur": 35000,
       "extra_annual_net_vs_20h_eur": 4029.05,
       "extra_net_per_calendar_month_vs_20h_eur": 335.75,
+      "annual_net_after_standard_assessment_eur": 27203.49,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 3686.08,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 307.17,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.34,
       "incremental_employee_tax_sv_share_pct": 42.44
     },
     {
@@ -5369,6 +5442,10 @@
       "annual_gross_eur": 42000,
       "extra_annual_net_vs_20h_eur": 7995,
       "extra_net_per_calendar_month_vs_20h_eur": 666.25,
+      "annual_net_after_standard_assessment_eur": 30815.94,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 7298.52,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 608.21,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.87,
       "incremental_employee_tax_sv_share_pct": 42.89
     },
     {
@@ -5381,6 +5458,10 @@
       "annual_gross_eur": 56000,
       "extra_annual_net_vs_20h_eur": 16153.49,
       "extra_net_per_calendar_month_vs_20h_eur": 1346.12,
+      "annual_net_after_standard_assessment_eur": 38898.98,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 15381.56,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1281.8,
+      "incremental_assessed_employee_tax_sv_share_pct": 45.07,
       "incremental_employee_tax_sv_share_pct": 42.31
     },
     {
@@ -5393,6 +5474,10 @@
       "annual_gross_eur": 35000,
       "extra_annual_net_vs_20h_eur": 0,
       "extra_net_per_calendar_month_vs_20h_eur": 0,
+      "annual_net_after_standard_assessment_eur": 27203.49,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 0,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 0,
+      "incremental_assessed_employee_tax_sv_share_pct": null,
       "incremental_employee_tax_sv_share_pct": null
     },
     {
@@ -5405,6 +5490,10 @@
       "annual_gross_eur": 43750,
       "extra_annual_net_vs_20h_eur": 5018.48,
       "extra_net_per_calendar_month_vs_20h_eur": 418.21,
+      "annual_net_after_standard_assessment_eur": 31792.94,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 4589.44,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 382.45,
+      "incremental_assessed_employee_tax_sv_share_pct": 47.55,
       "incremental_employee_tax_sv_share_pct": 42.65
     },
     {
@@ -5417,6 +5506,10 @@
       "annual_gross_eur": 52500,
       "extra_annual_net_vs_20h_eur": 10264.42,
       "extra_net_per_calendar_month_vs_20h_eur": 855.37,
+      "annual_net_after_standard_assessment_eur": 37038.96,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 9835.47,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 819.62,
+      "incremental_assessed_employee_tax_sv_share_pct": 43.8,
       "incremental_employee_tax_sv_share_pct": 41.35
     },
     {
@@ -5429,6 +5522,10 @@
       "annual_gross_eur": 70000,
       "extra_annual_net_vs_20h_eur": 19564.48,
       "extra_net_per_calendar_month_vs_20h_eur": 1630.37,
+      "annual_net_after_standard_assessment_eur": 46339.02,
+      "extra_annual_net_after_standard_assessment_vs_20h_eur": 19135.53,
+      "extra_assessed_net_per_calendar_month_vs_20h_eur": 1594.63,
+      "incremental_assessed_employee_tax_sv_share_pct": 45.33,
       "incremental_employee_tax_sv_share_pct": 44.1
     }
   ],

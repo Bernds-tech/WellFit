@@ -155,3 +155,13 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: coupled debt/interest/employee-relief calculation and revised program.
 
 - Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.
+
+## WERK-SV-004
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-004
+- Lock: LOCK-WERK-SV-004
+- Base: 97d2835439006bd157ef17d9e41b3fefc9cd8d4c
+- Scope: standard employee annual assessment, source audit, dependent calculations and CI.
+
+- WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. Remote CI pending.

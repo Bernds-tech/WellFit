@@ -1,7 +1,12 @@
 {
-  "version":"2026-09-06-v35",
+  "version":"2026-09-06-v36",
   "current_preview":"werk-v71.html",
   "required":[
+    {"group":"SV Jahresnetto","path":"./WERK_SV_JAHRESNETTO.md"},
+    {"group":"SV Jahresnetto","path":"./werk-data/payroll-annual-assessment-2026.json"},
+    {"group":"SV Jahresnetto","path":"./werk-data/payroll-annual-assessment-results-2026.json"},
+    {"group":"SV Jahresnetto","path":"./scripts/werk-annual-assessment-contract.mjs"},
+    {"group":"SV Jahresnetto","path":"./scripts/werk-annual-assessment-negative-check.mjs"},
     {"group":"Kern","path":"./werk-data/core.json"},
     {"group":"Programmarchitektur","path":"./werk-data/policy-field-map.json"},
     {"group":"Programmarchitektur","path":"./werk-data/austria-analysis-master.json"},
