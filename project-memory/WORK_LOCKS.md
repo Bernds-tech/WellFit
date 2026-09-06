@@ -96,7 +96,9 @@ No additional locks recorded.
 - Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-002
-- Status: ACTIVE
+- Status: RELEASED
 - Task: WERK-SV-002
 - Holder: Codex 2026-09-06
 - Scope: SV model, calculations, program, funding/status registers.
+
+- Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.

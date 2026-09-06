@@ -100,5 +100,5 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Owner refined target to 15.5bn annual gross relief after debt repayment. Program, model, funding/status and generated reports agree.
 - Calculation: no recapture 15.5/77.5/155bn over 1/5/10 years; assumed 30% recapture 10.85/54.25/108.5bn. Actual operating/transition costs and future sustainable financing remain open.
 - Countercheck: 37 SV numerical/negative cases; four affected local workflow bodies.
-- Remote CI: pending. Recovery: revert bounded SV-002 commits.
+- Remote CI: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json. Recovery: revert bounded SV-002 commits.
 - Falsifier: automatic 50% personal cut, household net equated to gross volume or automatic future full abolition. These claims are guarded against.

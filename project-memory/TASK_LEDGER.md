@@ -154,8 +154,10 @@ Keep history append-only; supersede rather than delete.
 - Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.
 
 ## WERK-SV-002
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-SV-002
 - Result: 15.5bn annual gross contribution relief first stage after debt freedom; distribution and indexation open; no automatic full abolition.
-- Evidence: WERK_SV_HANDOFF.md; remote CI pending.
+- Evidence: WERK_SV_HANDOFF.md; WERK_SV_002_CI_RECEIPT.json.
+
+- Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.

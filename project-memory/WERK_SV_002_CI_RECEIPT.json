@@ -1,0 +1,50 @@
+{
+  "task": "WERK-SV-002",
+  "date": "2026-09-06",
+  "status": "VERIFIED",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_sha": "7fc44e6d024bdfc5932f501224094a8d52f482cb",
+  "implementation_tree": "c1b492ae08f9d58596b36d4d29381e7d5ed0bdeb",
+  "annual_gross_relief_target_bn": 15.5,
+  "sv_counterchecks": 37,
+  "workflow_runs": [
+    {
+      "id": 34033539460,
+      "name": "WERK Frontend Check",
+      "head_sha": "7fc44e6d024bdfc5932f501224094a8d52f482cb",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34033539460"
+    },
+    {
+      "id": 34033539483,
+      "name": "WERK Policy Field Workstate Check",
+      "head_sha": "7fc44e6d024bdfc5932f501224094a8d52f482cb",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34033539483"
+    },
+    {
+      "id": 34033539532,
+      "name": "WERK Fiscal Data Contract",
+      "head_sha": "7fc44e6d024bdfc5932f501224094a8d52f482cb",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34033539532"
+    },
+    {
+      "id": 34033539524,
+      "name": "WERK Data Contract Registry Check",
+      "head_sha": "7fc44e6d024bdfc5932f501224094a8d52f482cb",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34033539524"
+    }
+  ],
+  "limits": [
+    "Technical verification; future activation, financing, individual distribution and indexation remain open.",
+    "No automatic individual 50% contribution cut or subsequent full abolition.",
+    "No Sites deployment."
+  ]
+}
