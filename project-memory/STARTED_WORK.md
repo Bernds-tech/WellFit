@@ -148,8 +148,10 @@ Canonical register for work that has started but is not yet fully completed.
 - Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.
 
 ## WERK-SV-003
-- Status: IN_PROGRESS
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-SV-003
 - Lock: LOCK-WERK-SV-003
 - Scope: coupled debt/interest/employee-relief calculation and revised program.
+
+- Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.

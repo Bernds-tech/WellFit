@@ -107,4 +107,4 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Model: 16 coupled annual paths; same interest cannot fund relief and additional debt repayment; savings delayed 1/3 years. 50% payroll cases highlighted.
 - Countercheck: 55 numerical/negative cases, including allocation identity, lag, target coverage and protected base repayment; relevant workflow bodies.
 - Falsifier: faster fully reinvested debt path and full relief claimed simultaneously; prospective interest spent early; unknown pure SV aggregate treated as known.
-- Remote CI: pending. Recovery: revert bounded SV-003 changes; no runtime migration.
+- Remote CI: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json. Recovery: revert bounded SV-003 changes; no runtime migration.

@@ -1,0 +1,53 @@
+{
+  "task": "WERK-SV-003",
+  "date": "2026-09-06",
+  "status": "VERIFIED",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_sha": "5ddea9fd186ea50fd2cde6438767f873acd5a20f",
+  "implementation_tree": "cbb978023f7df1d9787bbcc497fd8ee382ed91a9",
+  "employee_core_reduction_target": 0.5,
+  "timing": "progressive_during_funded_debt_repayment",
+  "linked_scenario_paths": 16,
+  "sv_counterchecks": 55,
+  "workflow_runs": [
+    {
+      "id": 34034400937,
+      "name": "WERK Policy Field Workstate Check",
+      "head_sha": "5ddea9fd186ea50fd2cde6438767f873acd5a20f",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34034400937"
+    },
+    {
+      "id": 34034400963,
+      "name": "WERK Frontend Check",
+      "head_sha": "5ddea9fd186ea50fd2cde6438767f873acd5a20f",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34034400963"
+    },
+    {
+      "id": 34034400948,
+      "name": "WERK Data Contract Registry Check",
+      "head_sha": "5ddea9fd186ea50fd2cde6438767f873acd5a20f",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34034400948"
+    },
+    {
+      "id": 34034400957,
+      "name": "WERK Fiscal Data Contract",
+      "head_sha": "5ddea9fd186ea50fd2cde6438767f873acd5a20f",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34034400957"
+    }
+  ],
+  "limits": [
+    "Technical verification; actual target financing, pure contribution base, maturity schedule and household net effects remain open.",
+    "Same saved interest euro may fund only one of relief, extra repayment or reserve.",
+    "Base repayment protected; delayed interest effect modeled; no calendar-year or 50% coverage promise.",
+    "No Sites deployment."
+  ]
+}

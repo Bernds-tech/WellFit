@@ -104,7 +104,9 @@ No additional locks recorded.
 - Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-003
-- Status: ACTIVE
+- Status: RELEASED
 - Task: WERK-SV-003
 - Holder: Codex 2026-09-06
 - Scope: WERK SV and debt scenario linkage, program and registers.
+
+- Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.
