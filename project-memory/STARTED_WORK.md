@@ -175,3 +175,11 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: contribution-growth and debt-financing durability stress.
 
 - WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
+
+## WERK-SV-006
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-006
+- Lock: LOCK-WERK-SV-006
+- Base: 340850e192d5434de18d28f2bbd1533cad3fbe2f
+- Scope: official contribution-source reconciliation, calculations and contract.

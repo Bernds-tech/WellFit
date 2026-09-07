@@ -126,3 +126,9 @@ No additional locks recorded.
 - Scope: WERK debt/SV calculation, source context, reports and contracts.
 
 - Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-006
+- Status: ACTIVE
+- Task: WERK-SV-006
+- Holder: Codex 2026-09-07
+- Scope: WERK contribution evidence, fiscal contract and reports.

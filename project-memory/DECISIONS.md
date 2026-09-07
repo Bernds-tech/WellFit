@@ -25,3 +25,6 @@
 - Decision: The WellFit phone game has one persistent full-screen camera/AR root. A small WellFit logo and opposite three-line menu are the only permanent navigation chrome. Buddy care, missions, arenas, mayor/checkpoints and essential settings open as overlays without intentionally resetting the AR session. Deeper configuration remains PC-first.
 - Reason: Keep the real world and Buddy as the game, minimize mobile clutter and preserve clear repository/server authority boundaries.
 - Evidence: owner decision captured by WFG-CR-005 and specified in `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md`.
+
+## WERK-SV-006 — separate statistical reference from exact policy cost
+- Preserve official allocation method and missing/year markers; core29.600bn is a qualified reference. Do not replace canonical broad-reference scenarios before statutory-scope reconciliation.

@@ -2,6 +2,7 @@
   "version":"2026-09-07-v37",
   "current_preview":"werk-v71.html",
   "required":[
+{"group":"SV Beitragsbasis","path":"./WERK_SV_BEITRAGSBASIS.md"},{"group":"SV Beitragsbasis","path":"./werk-data/employee-essoss-contribution-bridge-2024.json"},{"group":"SV Beitragsbasis","path":"./scripts/werk-import-essoss-contributions.py"},{"group":"SV Beitragsbasis","path":"./scripts/werk-essoss-contributions-negative-check.py"},
     {"group":"SV Wachstumsstress","path":"./WERK_SV_WACHSTUMSSTRESS.md"},
     {"group":"SV Wachstumsstress","path":"./werk-data/employee-sv-growth-stress-model.json"},
     {"group":"SV Wachstumsstress","path":"./werk-data/employee-sv-growth-stress-results.json"},

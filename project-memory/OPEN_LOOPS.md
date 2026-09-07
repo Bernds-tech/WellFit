@@ -42,3 +42,7 @@ Use this register for started, partial, blocked or implemented-but-unverified vi
 - Next check: no more GitHub-only substitute work. The next execution context must be the actual ChatGPT Site reference in the composer.
 
 Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQUIRED` tasks require an open-loop reference or explicit no-follow-up rationale. Never delete historical loops; close or supersede them. States: `OPEN`, `BLOCKED`, `CLOSED`, `SUPERSEDED`.
+
+## WERK-SV-006 continuation
+- Status: PARTIAL
+- Published seven-system employee contribution bridge is available; actual ALV DN, PV/KV policy scope and future funding remain open. Statistical29.600bn is not booked as exact reform cost.

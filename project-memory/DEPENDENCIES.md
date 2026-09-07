@@ -27,3 +27,6 @@ Track implementation ordering and cross-repository dependencies here.
 - Rule: classify KEEP/REPLACE/MIGRATE_LATER/OBSOLETE before moving or recreating visual code.
 
 States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
+## WERK-SV-006
+- SV-01 financing needs actual ALV employee receipts after reduced DN rates; ESSOSS assumes equal split. PV/KV contributions require legal-scope bridge.
+- Twelve static reference cases do not replace debt/SV growth paths; existing inputs unchanged.

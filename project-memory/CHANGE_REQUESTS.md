@@ -158,3 +158,10 @@
 - Source: owner continuation.
 - Scope: extend existing debt/SV engine with nominal contribution and funded repayment growth; financing durability through ten years after debt freedom. R2.
 - Publication: existing WERK branch authorization persists; no Sites deployment.
+
+## WERK-CR-SV-006
+- Date: 2026-09-07
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: official ESSOSS employee contribution and system financing reconciliation; R2. Existing branch publication authorized.
+- Recovery: revert bounded SV-006 changes.

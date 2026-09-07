@@ -1,6 +1,16 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-005
+
+## Current continuation: WERK-SV-006
+Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed (Fiscal, Distribution, Registry, Policy Field, Frontend).
+
+Official ESSOSS detail workbooks provide 245 year/system cells (1990–2024, missing markers retained) for seven employee-classified systems. In 2024: PV18049m, KV6865m, ALV4686m =>29600m statistical core; half14800m. Other four2337m; total31937m vs overview31938m, 1m unallocated rounded residual. Overview A38 duplicates2023; contextual2024 inferred and flagged, correct detailyearcolumns retained. Method sheets matter: ALV DN=50% of total is explicitly an assumption due to missing data, public-service pension DN includes retired-person pension-security contributions. Therefore exact policy-eligible contribution cash total remains unknown.
+
+Twelve static financing comparisons use historical statistical reference only, do not rebase existing growth/payroll models. D525.2bn and2.5% =>13.13bn avoided interest; no recapture14.8bn referencehalf leaves1.67bn gap; assumed30% recapture10.36bn cost leaves2.77bn comparison surplus. No future-financing proof/current credit. Report WERK_SV_BEITRAGSBASIS.md; canonical employee-essoss-contribution-bridge-2024.json; 8 original ODS files and source/method/hash contracts. Independent arithmetic plus6 invalidnumber/7 corruption checks passed.
+
+Next: actual ALV DN receipts after reduced contribution rates, PV/KV statutory-scope bridge, representative tax recapture, actual avoided-refinancing maturity schedule and funded primary surpluses. Ungated OeBFA July31 snapshot remains320.167bn; homepage snapshot lacked reconciled date. Bond detail page has geographic/investor terms; no attestation or gated-content access performed. No debt-model anchor changes. Recovery: revert bounded SV-006 changes. No Sites deployment.
+
+## Previous continuation: WERK-SV-005
 Status: VERIFIED at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows (Fiscal, Distribution, Registry, Frontend) succeeded. All five relevant local workflow bodies passed, including 28 growth / 55 SV / 36 assessment / 42 general counterchecks. WERK_SV_005_CI_RECEIPT.json.
 Owner continuation 2026-09-07; progressive relative 50% employee KV/PV/ALV goal unchanged.
 

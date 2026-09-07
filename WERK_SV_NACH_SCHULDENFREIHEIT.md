@@ -1,5 +1,7 @@
 # SV-01 – Weniger Schulden, weniger Zinsen, weniger Arbeitnehmerbeiträge
 
+Aktuelle Quellenvertiefung: [Arbeitnehmer-Beitragsbasis 2024](WERK_SV_BEITRAGSBASIS.md) trennt sieben ESSOSS-Systeme; 29,600 Mrd. EUR statistische KV/PV/ALV-Referenz mit angenommener ALV-Aufteilung. Keine automatische Umbasierung der folgenden Szenarien und keine Finanzierungsgutschrift.
+
 Stand 6. September 2026. **Neues Ziel: Arbeitnehmer-KV/PV/ALV während des Schuldenabbaus schrittweise senken; bis Schuldenfreiheit um 50 %.** Versicherungsleistungen und erworbene Ansprüche bleiben erhalten. Arbeitgeberbeiträge, AK/WF und nicht beschäftigungsbezogene Regime sind getrennt. Das ersetzt die frühere 15,5-Mrd.-Zielstufe erst nach Schuldenfreiheit.
 
 ## 1. Regel für Entlastung und Gegenfinanzierung

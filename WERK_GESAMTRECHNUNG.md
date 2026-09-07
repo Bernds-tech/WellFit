@@ -1,5 +1,7 @@
 # WERK Gesamtrechnung – 6. September 2026
 
+Aktuelle Quellenvertiefung: [Arbeitnehmer-Beitragsbasis 2024](WERK_SV_BEITRAGSBASIS.md) trennt sieben ESSOSS-Systeme; 29,600 Mrd. EUR statistische KV/PV/ALV-Referenz mit angenommener ALV-Aufteilung. Keine automatische Umbasierung der folgenden Szenarien und keine Finanzierungsgutschrift.
+
 Reproduzierbar aus 16 versionierten Eingabedateien. Alle Beträge nominal, sofern anders bezeichnet. **16 Reformakten, 3 unterschiedliche Sensitivitätsmodelle, 0 verifizierte Finanzierungsbeiträge.** Das Programm ist noch nicht durchfinanziert.
 
 ## 1. Haushalt und Finanzierungsbedarf

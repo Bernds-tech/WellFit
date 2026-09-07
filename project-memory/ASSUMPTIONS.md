@@ -58,3 +58,8 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - Recovery: revert bounded SV-005 changes only.
 
 - SV-005 validation: geometric-series repayment and compound-growth identities independently checked; 28 growth tests plus existing regression suites pass. Actual growth/funding assumptions remain unverified as real-world forecasts.
+
+## WERK-SV-006 — ESSOSS allocation limits
+- Status: VERIFIED for published method, NEEDS_VERIFICATION for actual policy cash scope.
+- ALV employee4.686bn is statistical half-allocation, not separately measured receipts. Public-service employee category includes pension-security deductions from retirees.
+- Falsifier checked: source method sheets contradict a naive exact-employee-receipts interpretation; exact policy total remains null.

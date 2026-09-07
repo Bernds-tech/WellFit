@@ -45,6 +45,11 @@ on:
       - 'werk-data/employee-sv-growth-stress-*.json'
       - 'scripts/werk-sv-growth-stress-*.mjs'
       - 'WERK_SV_WACHSTUMSSTRESS.md'
+      - 'werk-data/employee-essoss-*.json'
+      - 'werk-data/sources/stat-essoss-*.ods'
+      - 'scripts/werk-import-essoss-contributions.py'
+      - 'scripts/werk-essoss-contributions-negative-check.py'
+      - 'WERK_SV_BEITRAGSBASIS.md'
   workflow_dispatch:
 
 permissions:
@@ -180,3 +185,8 @@ jobs:
         run: node scripts/werk-sv-growth-stress-contract.mjs
       - name: Countercheck durable relief and post-debt funding limits
         run: node scripts/werk-sv-growth-stress-negative-check.mjs
+
+      - name: Reconcile official employee system contributions and source methods
+        run: python3 scripts/werk-import-essoss-contributions.py
+      - name: Countercheck contribution scope and source integrity
+        run: python3 scripts/werk-essoss-contributions-negative-check.py

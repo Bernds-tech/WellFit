@@ -46,3 +46,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK continuation: WERK-SV-005
 2026-09-07: 36 contribution-growth/repayment-growth and post-debt durability stress paths in shared SV engine; no target/policy change. See WERK_SV_HANDOFF.md and WERK_SV_WACHSTUMSSTRESS.md. VERIFIED at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows succeeded. Five local workflow bodies passed. WERK_SV_005_CI_RECEIPT.json.
+
+## WERK-SV-006 continuation, 2026-09-07
+- WERK only; see WERK_SV_HANDOFF.md and WERK_SV_BEITRAGSBASIS.md. Local source/reconciliation and five workflow bodies passed; remote implementation CI pending.

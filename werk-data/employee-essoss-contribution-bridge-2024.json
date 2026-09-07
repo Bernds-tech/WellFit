@@ -1,0 +1,1758 @@
+{
+  "version": "2026-09-07-v1",
+  "year": 2024,
+  "status": "official_statistical_employee_system_split_with_assumed_alv_allocation",
+  "unit": "million_eur_displayed_rounded",
+  "systems": [
+    {
+      "system_id": "01",
+      "system_name": "Gesetzliche Pensionsversicherung",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "01_Gesetzliche Pensionsversicherung.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-01-2024.ods",
+        "sha256": "59be7dd3f1762f7d1e555d98e8ebb114f9a99e7ed6cf837330ec0f3aa999ba44",
+        "sheet": "3_1_2_",
+        "method_sheet": "3_1_4_",
+        "method_row": 4,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "social_insurance_allocated",
+      "method_summary": "Dachverband-Sonderauswertung; DN-Aufteilung berücksichtigt Beitragssätze. Kein Einzelbeitragskonto.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 4243,
+          "source_display": "4,243",
+          "cell": "F4"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 4628,
+          "source_display": "4,628",
+          "cell": "G4"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 4933,
+          "source_display": "4,933",
+          "cell": "H4"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 5140,
+          "source_display": "5,140",
+          "cell": "I4"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 5374,
+          "source_display": "5,374",
+          "cell": "J4"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 5588,
+          "source_display": "5,588",
+          "cell": "K4"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 5714,
+          "source_display": "5,714",
+          "cell": "L4"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 5847,
+          "source_display": "5,847",
+          "cell": "M4"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 6031,
+          "source_display": "6,031",
+          "cell": "N4"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 6255,
+          "source_display": "6,255",
+          "cell": "O4"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 6472,
+          "source_display": "6,472",
+          "cell": "P4"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 6728,
+          "source_display": "6,728",
+          "cell": "Q4"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 6856,
+          "source_display": "6,856",
+          "cell": "R4"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 7045,
+          "source_display": "7,045",
+          "cell": "S4"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 7242,
+          "source_display": "7,242",
+          "cell": "T4"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 7655,
+          "source_display": "7,655",
+          "cell": "U4"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 7984,
+          "source_display": "7,984",
+          "cell": "V4"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 8400,
+          "source_display": "8,400",
+          "cell": "W4"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 8864,
+          "source_display": "8,864",
+          "cell": "X4"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 8953,
+          "source_display": "8,953",
+          "cell": "Y4"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 9211,
+          "source_display": "9,211",
+          "cell": "Z4"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 9640,
+          "source_display": "9,640",
+          "cell": "AA4"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 10036,
+          "source_display": "10,036",
+          "cell": "AB4"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 10408,
+          "source_display": "10,408",
+          "cell": "AC4"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 10761,
+          "source_display": "10,761",
+          "cell": "AD4"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 11143,
+          "source_display": "11,143",
+          "cell": "AE4"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 11639,
+          "source_display": "11,639",
+          "cell": "AF4"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 12523,
+          "source_display": "12,523",
+          "cell": "AG4"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 12853,
+          "source_display": "12,853",
+          "cell": "AH4"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 13502,
+          "source_display": "13,502",
+          "cell": "AI4"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 13656,
+          "source_display": "13,656",
+          "cell": "AJ4"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 14379,
+          "source_display": "14,379",
+          "cell": "AK4"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 15415,
+          "source_display": "15,415",
+          "cell": "AL4"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 16681,
+          "source_display": "16,681",
+          "cell": "AM4"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 18049,
+          "source_display": "18,049",
+          "cell": "AN4"
+        }
+      ]
+    },
+    {
+      "system_id": "02",
+      "system_name": "Pensionen öffentliche Rechtsträger",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "02_Pensionen öffentliche Rechtsträger.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-02-2024.ods",
+        "sha256": "ec6c649f110ba649b4be4148a9dfa5bb323a517a211a6dcc0295c983b9e70c6a",
+        "sheet": "3_2_2_",
+        "method_sheet": "3_2_4_",
+        "method_row": 3,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "mixed_active_and_retired_public_service",
+      "method_summary": "Enthält laut Methodik auch Pensionssicherungsbeiträge aus Ruhebezügen; Arbeitnehmerklassifikation ist keine reine Aktivlohnsumme.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 890,
+          "source_display": "890",
+          "cell": "F3"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 971,
+          "source_display": "971",
+          "cell": "G3"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 1023,
+          "source_display": "1,023",
+          "cell": "H3"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 1089,
+          "source_display": "1,089",
+          "cell": "I3"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 1407,
+          "source_display": "1,407",
+          "cell": "J3"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 1596,
+          "source_display": "1,596",
+          "cell": "K3"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 1859,
+          "source_display": "1,859",
+          "cell": "L3"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 1904,
+          "source_display": "1,904",
+          "cell": "M3"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 1985,
+          "source_display": "1,985",
+          "cell": "N3"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 2017,
+          "source_display": "2,017",
+          "cell": "O3"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 2031,
+          "source_display": "2,031",
+          "cell": "P3"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 2124,
+          "source_display": "2,124",
+          "cell": "Q3"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 2098,
+          "source_display": "2,098",
+          "cell": "R3"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 2094,
+          "source_display": "2,094",
+          "cell": "S3"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 2244,
+          "source_display": "2,244",
+          "cell": "T3"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 2164,
+          "source_display": "2,164",
+          "cell": "U3"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 2190,
+          "source_display": "2,190",
+          "cell": "V3"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 2209,
+          "source_display": "2,209",
+          "cell": "W3"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 2240,
+          "source_display": "2,240",
+          "cell": "X3"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 2270,
+          "source_display": "2,270",
+          "cell": "Y3"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 2263,
+          "source_display": "2,263",
+          "cell": "Z3"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 2241,
+          "source_display": "2,241",
+          "cell": "AA3"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 2212,
+          "source_display": "2,212",
+          "cell": "AB3"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 2261,
+          "source_display": "2,261",
+          "cell": "AC3"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 2193,
+          "source_display": "2,193",
+          "cell": "AD3"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 2213,
+          "source_display": "2,213",
+          "cell": "AE3"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 2215,
+          "source_display": "2,215",
+          "cell": "AF3"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 2152,
+          "source_display": "2,152",
+          "cell": "AG3"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 2113,
+          "source_display": "2,113",
+          "cell": "AH3"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 2092,
+          "source_display": "2,092",
+          "cell": "AI3"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 2028,
+          "source_display": "2,028",
+          "cell": "AJ3"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 1958,
+          "source_display": "1,958",
+          "cell": "AK3"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 1891,
+          "source_display": "1,891",
+          "cell": "AL3"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 1889,
+          "source_display": "1,889",
+          "cell": "AM3"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 1941,
+          "source_display": "1,941",
+          "cell": "AN3"
+        }
+      ]
+    },
+    {
+      "system_id": "05",
+      "system_name": "Betriebliche Pensionsvorsorge",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "05_Betriebliche Pensionsvorsorge.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-05-2024.ods",
+        "sha256": "f5326aba599d26eda9c5f5685c507d176b2167680ed985ad3a923c0fce7328b6",
+        "sheet": "3_5_2_",
+        "method_sheet": "3_5_4_",
+        "method_row": 5,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "occupational_pension",
+      "method_summary": "Beiträge zu Pensionskassen; außerhalb KV/PV/ALV-Kern.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": null,
+          "source_display": "-",
+          "cell": "F5"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 2,
+          "source_display": "2",
+          "cell": "G5"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 4,
+          "source_display": "4",
+          "cell": "H5"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 7,
+          "source_display": "7",
+          "cell": "I5"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 7,
+          "source_display": "7",
+          "cell": "J5"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 9,
+          "source_display": "9",
+          "cell": "K5"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 29,
+          "source_display": "29",
+          "cell": "L5"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "M5"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 20,
+          "source_display": "20",
+          "cell": "N5"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 36,
+          "source_display": "36",
+          "cell": "O5"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 41,
+          "source_display": "41",
+          "cell": "P5"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 43,
+          "source_display": "43",
+          "cell": "Q5"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 50,
+          "source_display": "50",
+          "cell": "R5"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 52,
+          "source_display": "52",
+          "cell": "S5"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 53,
+          "source_display": "53",
+          "cell": "T5"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 61,
+          "source_display": "61",
+          "cell": "U5"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 56,
+          "source_display": "56",
+          "cell": "V5"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 65,
+          "source_display": "65",
+          "cell": "W5"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 69,
+          "source_display": "69",
+          "cell": "X5"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 71,
+          "source_display": "71",
+          "cell": "Y5"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 69,
+          "source_display": "69",
+          "cell": "Z5"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 71,
+          "source_display": "71",
+          "cell": "AA5"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 71,
+          "source_display": "71",
+          "cell": "AB5"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 83,
+          "source_display": "83",
+          "cell": "AC5"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 75,
+          "source_display": "75",
+          "cell": "AD5"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 76,
+          "source_display": "76",
+          "cell": "AE5"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 72,
+          "source_display": "72",
+          "cell": "AF5"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 76,
+          "source_display": "76",
+          "cell": "AG5"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 82,
+          "source_display": "82",
+          "cell": "AH5"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 89,
+          "source_display": "89",
+          "cell": "AI5"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 94,
+          "source_display": "94",
+          "cell": "AJ5"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 96,
+          "source_display": "96",
+          "cell": "AK5"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 104,
+          "source_display": "104",
+          "cell": "AL5"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 112,
+          "source_display": "112",
+          "cell": "AM5"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 126,
+          "source_display": "126",
+          "cell": "AN5"
+        }
+      ]
+    },
+    {
+      "system_id": "08",
+      "system_name": "Gesetzliche Krankenversicherung",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "08_Gesetzliche Krankenversicherung.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-08-2024.ods",
+        "sha256": "b7d51ed8f9f81b57d9062a83db6bbf68d5188a1096dd3aeec2dad8938998939c",
+        "sheet": "3_8_2_",
+        "method_sheet": "3_8_4_",
+        "method_row": 5,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "social_insurance_reported",
+      "method_summary": "Dachverband-Sonderauswertung trennt Arbeitnehmer, Selbständige und Pensionisten; ASVG-Untergruppe nicht separat ausgewiesen.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 1346,
+          "source_display": "1,346",
+          "cell": "F5"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 1456,
+          "source_display": "1,456",
+          "cell": "G5"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 1749,
+          "source_display": "1,749",
+          "cell": "H5"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 1988,
+          "source_display": "1,988",
+          "cell": "I5"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 2197,
+          "source_display": "2,197",
+          "cell": "J5"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 2283,
+          "source_display": "2,283",
+          "cell": "K5"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 2321,
+          "source_display": "2,321",
+          "cell": "L5"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 2376,
+          "source_display": "2,376",
+          "cell": "M5"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 2452,
+          "source_display": "2,452",
+          "cell": "N5"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 2537,
+          "source_display": "2,537",
+          "cell": "O5"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 2622,
+          "source_display": "2,622",
+          "cell": "P5"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 2689,
+          "source_display": "2,689",
+          "cell": "Q5"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 2725,
+          "source_display": "2,725",
+          "cell": "R5"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 2785,
+          "source_display": "2,785",
+          "cell": "S5"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 2977,
+          "source_display": "2,977",
+          "cell": "T5"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 3113,
+          "source_display": "3,113",
+          "cell": "U5"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 3260,
+          "source_display": "3,260",
+          "cell": "V5"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 3414,
+          "source_display": "3,414",
+          "cell": "W5"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 3631,
+          "source_display": "3,631",
+          "cell": "X5"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 3653,
+          "source_display": "3,653",
+          "cell": "Y5"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 3731,
+          "source_display": "3,731",
+          "cell": "Z5"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 3861,
+          "source_display": "3,861",
+          "cell": "AA5"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 3985,
+          "source_display": "3,985",
+          "cell": "AB5"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 4157,
+          "source_display": "4,157",
+          "cell": "AC5"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 4282,
+          "source_display": "4,282",
+          "cell": "AD5"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 4422,
+          "source_display": "4,422",
+          "cell": "AE5"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 4603,
+          "source_display": "4,603",
+          "cell": "AF5"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 4789,
+          "source_display": "4,789",
+          "cell": "AG5"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 5044,
+          "source_display": "5,044",
+          "cell": "AH5"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 5269,
+          "source_display": "5,269",
+          "cell": "AI5"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 5311,
+          "source_display": "5,311",
+          "cell": "AJ5"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 5550,
+          "source_display": "5,550",
+          "cell": "AK5"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 5919,
+          "source_display": "5,919",
+          "cell": "AL5"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 6375,
+          "source_display": "6,375",
+          "cell": "AM5"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 6865,
+          "source_display": "6,865",
+          "cell": "AN5"
+        }
+      ]
+    },
+    {
+      "system_id": "12",
+      "system_name": "Krankenfürsorgeanstalten",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "12_Krankenfürsorgeanstalten.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-12-2024.ods",
+        "sha256": "a48955e69fb6f3b32a13512b24fce2e4af6ee99d29380fc21d90db0ccaa206ef",
+        "sheet": "3_12_2_",
+        "method_sheet": "3_12_4_",
+        "method_row": 4,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "public_service_health_allocated",
+      "method_summary": "Aktive Beamte; eigene Methodik mit 50%-Beitragsaufteilung und Einschränkungen der Datenverfügbarkeit.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 47,
+          "source_display": "47",
+          "cell": "F4"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 51,
+          "source_display": "51",
+          "cell": "G4"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 55,
+          "source_display": "55",
+          "cell": "H4"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 61,
+          "source_display": "61",
+          "cell": "I4"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 64,
+          "source_display": "64",
+          "cell": "J4"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 72,
+          "source_display": "72",
+          "cell": "K4"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 73,
+          "source_display": "73",
+          "cell": "L4"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 73,
+          "source_display": "73",
+          "cell": "M4"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 76,
+          "source_display": "76",
+          "cell": "N4"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 87,
+          "source_display": "87",
+          "cell": "O4"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 87,
+          "source_display": "87",
+          "cell": "P4"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 88,
+          "source_display": "88",
+          "cell": "Q4"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 97,
+          "source_display": "97",
+          "cell": "R4"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 101,
+          "source_display": "101",
+          "cell": "S4"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 105,
+          "source_display": "105",
+          "cell": "T4"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 109,
+          "source_display": "109",
+          "cell": "U4"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 113,
+          "source_display": "113",
+          "cell": "V4"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 116,
+          "source_display": "116",
+          "cell": "W4"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 121,
+          "source_display": "121",
+          "cell": "X4"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 126,
+          "source_display": "126",
+          "cell": "Y4"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 130,
+          "source_display": "130",
+          "cell": "Z4"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 133,
+          "source_display": "133",
+          "cell": "AA4"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 137,
+          "source_display": "137",
+          "cell": "AB4"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 141,
+          "source_display": "141",
+          "cell": "AC4"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 144,
+          "source_display": "144",
+          "cell": "AD4"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 150,
+          "source_display": "150",
+          "cell": "AE4"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 146,
+          "source_display": "146",
+          "cell": "AF4"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 147,
+          "source_display": "147",
+          "cell": "AG4"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 158,
+          "source_display": "158",
+          "cell": "AH4"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 161,
+          "source_display": "161",
+          "cell": "AI4"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 174,
+          "source_display": "174",
+          "cell": "AJ4"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 183,
+          "source_display": "183",
+          "cell": "AK4"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 191,
+          "source_display": "191",
+          "cell": "AL4"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 206,
+          "source_display": "206",
+          "cell": "AM4"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 234,
+          "source_display": "234",
+          "cell": "AN4"
+        }
+      ]
+    },
+    {
+      "system_id": "14",
+      "system_name": "Arbeitslosenversicherung",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "14_Arbeitslosenversicherung.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-14-2024.ods",
+        "sha256": "aaa6cdfd5ae47c66ea3c54c9716443023d67d38d58a156b1f26f10f8dc4d3140",
+        "sheet": "3_14_2_",
+        "method_sheet": "3_14_4_",
+        "method_row": 4,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "assumed_half_of_total",
+      "method_summary": "Arbeitnehmeranteil wird mangels getrennter Daten als Hälfte der ALV-Beiträge angenommen. Kein gemessener DN-Kasseneingang.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 920,
+          "source_display": "920",
+          "cell": "F4"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 965,
+          "source_display": "965",
+          "cell": "G4"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 1144,
+          "source_display": "1,144",
+          "cell": "H4"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 1289,
+          "source_display": "1,289",
+          "cell": "I4"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 1505,
+          "source_display": "1,505",
+          "cell": "J4"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 1618,
+          "source_display": "1,618",
+          "cell": "K4"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 1637,
+          "source_display": "1,637",
+          "cell": "L4"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 1667,
+          "source_display": "1,667",
+          "cell": "M4"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 1732,
+          "source_display": "1,732",
+          "cell": "N4"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 1786,
+          "source_display": "1,786",
+          "cell": "O4"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 1858,
+          "source_display": "1,858",
+          "cell": "P4"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 1964,
+          "source_display": "1,964",
+          "cell": "Q4"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 1989,
+          "source_display": "1,989",
+          "cell": "R4"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 2030,
+          "source_display": "2,030",
+          "cell": "S4"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 2055,
+          "source_display": "2,055",
+          "cell": "T4"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 2124,
+          "source_display": "2,124",
+          "cell": "U4"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 2201,
+          "source_display": "2,201",
+          "cell": "V4"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 2153,
+          "source_display": "2,153",
+          "cell": "W4"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 2359,
+          "source_display": "2,359",
+          "cell": "X4"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 2310,
+          "source_display": "2,310",
+          "cell": "Y4"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 2386,
+          "source_display": "2,386",
+          "cell": "Z4"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 2512,
+          "source_display": "2,512",
+          "cell": "AA4"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 2640,
+          "source_display": "2,640",
+          "cell": "AB4"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 2807,
+          "source_display": "2,807",
+          "cell": "AC4"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 2923,
+          "source_display": "2,923",
+          "cell": "AD4"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 3049,
+          "source_display": "3,049",
+          "cell": "AE4"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 3171,
+          "source_display": "3,171",
+          "cell": "AF4"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 3317,
+          "source_display": "3,317",
+          "cell": "AG4"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 3460,
+          "source_display": "3,460",
+          "cell": "AH4"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 3578,
+          "source_display": "3,578",
+          "cell": "AI4"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 3511,
+          "source_display": "3,511",
+          "cell": "AJ4"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 3795,
+          "source_display": "3,795",
+          "cell": "AK4"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 4034,
+          "source_display": "4,034",
+          "cell": "AL4"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 4349,
+          "source_display": "4,349",
+          "cell": "AM4"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 4686,
+          "source_display": "4,686",
+          "cell": "AN4"
+        }
+      ]
+    },
+    {
+      "system_id": "17",
+      "system_name": "Schlechtwetterentschädigung",
+      "source": {
+        "url": "https://www.statistik.at/fileadmin/pages/341/22_ESSOS_Tabellen_isg_Ausgaben_ods.zip",
+        "archive_member": "17_Schlechtwetterentschädigung.ods",
+        "local_file": "werk-data/sources/stat-essoss-system-17-2024.ods",
+        "sha256": "3e3aa1fb61f410f8ffaf45274ad76f5d3ebfa4b79716ef2c51a2ebfb373258e5",
+        "sheet": "3_17_2_",
+        "method_sheet": "3_17_4_",
+        "method_row": 4,
+        "checked_at": "2026-09-07"
+      },
+      "quality": "separate_levy_allocated",
+      "method_summary": "Hälfte der Schlechtwetterbeiträge; außerhalb KV/PV/ALV-Kern.",
+      "history": [
+        {
+          "year": 1990,
+          "employee_contributions_mio_eur": 13,
+          "source_display": "13",
+          "cell": "F4"
+        },
+        {
+          "year": 1991,
+          "employee_contributions_mio_eur": 14,
+          "source_display": "14",
+          "cell": "G4"
+        },
+        {
+          "year": 1992,
+          "employee_contributions_mio_eur": 16,
+          "source_display": "16",
+          "cell": "H4"
+        },
+        {
+          "year": 1993,
+          "employee_contributions_mio_eur": 16,
+          "source_display": "16",
+          "cell": "I4"
+        },
+        {
+          "year": 1994,
+          "employee_contributions_mio_eur": 18,
+          "source_display": "18",
+          "cell": "J4"
+        },
+        {
+          "year": 1995,
+          "employee_contributions_mio_eur": 18,
+          "source_display": "18",
+          "cell": "K4"
+        },
+        {
+          "year": 1996,
+          "employee_contributions_mio_eur": 8,
+          "source_display": "8",
+          "cell": "L4"
+        },
+        {
+          "year": 1997,
+          "employee_contributions_mio_eur": 18,
+          "source_display": "18",
+          "cell": "M4"
+        },
+        {
+          "year": 1998,
+          "employee_contributions_mio_eur": 18,
+          "source_display": "18",
+          "cell": "N4"
+        },
+        {
+          "year": 1999,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "O4"
+        },
+        {
+          "year": 2000,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "P4"
+        },
+        {
+          "year": 2001,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "Q4"
+        },
+        {
+          "year": 2002,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "R4"
+        },
+        {
+          "year": 2003,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "S4"
+        },
+        {
+          "year": 2004,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "T4"
+        },
+        {
+          "year": 2005,
+          "employee_contributions_mio_eur": 17,
+          "source_display": "17",
+          "cell": "U4"
+        },
+        {
+          "year": 2006,
+          "employee_contributions_mio_eur": 18,
+          "source_display": "18",
+          "cell": "V4"
+        },
+        {
+          "year": 2007,
+          "employee_contributions_mio_eur": 19,
+          "source_display": "19",
+          "cell": "W4"
+        },
+        {
+          "year": 2008,
+          "employee_contributions_mio_eur": 19,
+          "source_display": "19",
+          "cell": "X4"
+        },
+        {
+          "year": 2009,
+          "employee_contributions_mio_eur": 19,
+          "source_display": "19",
+          "cell": "Y4"
+        },
+        {
+          "year": 2010,
+          "employee_contributions_mio_eur": 20,
+          "source_display": "20",
+          "cell": "Z4"
+        },
+        {
+          "year": 2011,
+          "employee_contributions_mio_eur": 20,
+          "source_display": "20",
+          "cell": "AA4"
+        },
+        {
+          "year": 2012,
+          "employee_contributions_mio_eur": 21,
+          "source_display": "21",
+          "cell": "AB4"
+        },
+        {
+          "year": 2013,
+          "employee_contributions_mio_eur": 22,
+          "source_display": "22",
+          "cell": "AC4"
+        },
+        {
+          "year": 2014,
+          "employee_contributions_mio_eur": 22,
+          "source_display": "22",
+          "cell": "AD4"
+        },
+        {
+          "year": 2015,
+          "employee_contributions_mio_eur": 23,
+          "source_display": "23",
+          "cell": "AE4"
+        },
+        {
+          "year": 2016,
+          "employee_contributions_mio_eur": 23,
+          "source_display": "23",
+          "cell": "AF4"
+        },
+        {
+          "year": 2017,
+          "employee_contributions_mio_eur": 25,
+          "source_display": "25",
+          "cell": "AG4"
+        },
+        {
+          "year": 2018,
+          "employee_contributions_mio_eur": 27,
+          "source_display": "27",
+          "cell": "AH4"
+        },
+        {
+          "year": 2019,
+          "employee_contributions_mio_eur": 29,
+          "source_display": "29",
+          "cell": "AI4"
+        },
+        {
+          "year": 2020,
+          "employee_contributions_mio_eur": 29,
+          "source_display": "29",
+          "cell": "AJ4"
+        },
+        {
+          "year": 2021,
+          "employee_contributions_mio_eur": 33,
+          "source_display": "33",
+          "cell": "AK4"
+        },
+        {
+          "year": 2022,
+          "employee_contributions_mio_eur": 34,
+          "source_display": "34",
+          "cell": "AL4"
+        },
+        {
+          "year": 2023,
+          "employee_contributions_mio_eur": 35,
+          "source_display": "35",
+          "cell": "AM4"
+        },
+        {
+          "year": 2024,
+          "employee_contributions_mio_eur": 36,
+          "source_display": "36",
+          "cell": "AN4"
+        }
+      ]
+    }
+  ],
+  "overview": {
+    "url": "https://www.statistik.at/fileadmin/pages/341/6_Finanzierung_1990-2024.ods",
+    "local_file": "werk-data/sources/stat-essoss-financing-1990-2024.ods",
+    "sha256": "103f17d8918c820011f9d8d274fdecf64fbb16591fbd26fea4881c3e3f565f5a",
+    "sheet": "Tabelle1",
+    "employee_total_cell": "E38",
+    "displayed_year_cell": "A38",
+    "displayed_year": "2023",
+    "contextual_year": 2024,
+    "year_status": "inferred_from_title_shares_and_correctly_labelled_system_columns_not_silently_corrected",
+    "employee_total_mio_eur": 31938,
+    "component_total_mio_eur": 31937,
+    "published_minus_components_mio_eur": 1
+  },
+  "bridge": {
+    "core_statistical_employee_pv_kv_alv_mio_eur": 29600,
+    "other_employee_classified_systems_mio_eur": 2337,
+    "broad_payroll_withholding_mio_eur": 31952.625,
+    "broad_minus_core_mio_eur": 2352.625,
+    "difference_interpretation": "Different statistical scope and allocation; not an identified AK/WF levy total.",
+    "exact_policy_eligible_cash_contribution_total_eur": null,
+    "current_budget_credit_eur": 0,
+    "future_reform_cost_eur": null
+  },
+  "sensitivity_scope": "Static comparison using rounded 2024 ESSOSS reference, debt anchors from other periods, assumed rates/recapture; no forecast, growth, maturity schedule, service-cost reserve or proven funding. Existing canonical payroll/debt scenarios are not rebased.",
+  "static_reference_cases": [
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 1,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 4.314,
+      "funding_gap_bn": 10.486,
+      "break_even_rate_pct": 3.430690774
+    },
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 1,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 4.314,
+      "funding_gap_bn": 6.046,
+      "break_even_rate_pct": 2.401483542
+    },
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 2.5,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 10.785,
+      "funding_gap_bn": 4.015,
+      "break_even_rate_pct": 3.430690774
+    },
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 2.5,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 10.785,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 2.401483542
+    },
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 4,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 17.256,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 3.430690774
+    },
+    {
+      "debt_anchor_bn": 431.4,
+      "assumed_avoided_rate_pct": 4,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 17.256,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 2.401483542
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 1,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 5.252,
+      "funding_gap_bn": 9.548,
+      "break_even_rate_pct": 2.817974105
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 1,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 5.252,
+      "funding_gap_bn": 5.108,
+      "break_even_rate_pct": 1.972581874
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 2.5,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 13.13,
+      "funding_gap_bn": 1.67,
+      "break_even_rate_pct": 2.817974105
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 2.5,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 13.13,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 1.972581874
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 4,
+      "assumed_tax_recapture_share": 0,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 14.8,
+      "full_run_rate_avoided_interest_bn": 21.008,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 2.817974105
+    },
+    {
+      "debt_anchor_bn": 525.2,
+      "assumed_avoided_rate_pct": 4,
+      "assumed_tax_recapture_share": 0.3,
+      "gross_reference_half_bn": 14.8,
+      "net_reference_cost_bn": 10.36,
+      "full_run_rate_avoided_interest_bn": 21.008,
+      "funding_gap_bn": 0,
+      "break_even_rate_pct": 1.972581874
+    }
+  ],
+  "open_gates": [
+    "ALV actual employee receipts after reduced DN rates",
+    "PV/KV statutory regime and contribution-category bridge",
+    "Future nominal contribution growth and demographic/service costs",
+    "Representative net tax recapture",
+    "Funded primary surpluses and dated avoided-refinancing interest schedule"
+  ]
+}

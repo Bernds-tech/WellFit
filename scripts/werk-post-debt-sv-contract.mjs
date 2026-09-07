@@ -186,6 +186,7 @@ Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensi
 
 Technische Rechnung vorhanden; **50%-Zieldeckung und Aktivierung bleiben offen**. [Gesamtrechnung](WERK_GESAMTRECHNUNG.md). Reproduzieren mit \`python3 scripts/werk-import-employee-withholding.py\` und \`node scripts/werk-post-debt-sv-contract.mjs\`; Generierung jeweils mit \`--write\`.
 `;
+md = md.slice(0,md.indexOf("\n")+1) + '\nAktuelle Quellenvertiefung: [Arbeitnehmer-Beitragsbasis 2024](WERK_SV_BEITRAGSBASIS.md) trennt sieben ESSOSS-Systeme; 29,600 Mrd. EUR statistische KV/PV/ALV-Referenz mit angenommener ALV-Aufteilung. Keine automatische Umbasierung der folgenden Szenarien und keine Finanzierungsgutschrift.\n' + md.slice(md.indexOf("\n")+1);
 for(const [p,s] of Object.entries({'werk-data/post-debt-employee-sv-results.json':JSON.stringify(out,null,2)+'\n','WERK_SV_NACH_SCHULDENFREIHEIT.md':md})){
   if(process.argv.includes('--write'))fs.writeFileSync(p,s);else assert.equal(fs.readFileSync(p,'utf8'),s,`${p}: regenerate`);
 }

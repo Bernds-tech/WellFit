@@ -182,3 +182,7 @@ Keep history append-only; supersede rather than delete.
 - Task: nominal-growth stress and durable financing check for progressive employee relief.
 
 - WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
+
+## WERK-SV-006
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Task: reconcile official employee contribution financing by payer and system, retain unproven reform-scope gates.
