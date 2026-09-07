@@ -48,3 +48,13 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - Evidence: current RIS EStG §§16,33,41,77, BMF 2026 credit tables.
 - Boundary: model before payslip cent and assessment whole-euro rounding; no population recapture rate follows from examples.
 - Falsification: independent annual-tax anchors or credit/cap boundaries disagree, or source year is not 2026.
+
+## ASM-WERK-SV-005
+- Date: 2026-09-07
+- Status: NEEDS_VERIFICATION
+- Scope: 0/1/2/3% nominal contribution-growth and 0/2% funded base-repayment growth are sensitivities, not forecasts or empirically financed surpluses. Rates 1/2.5/4%, recapture 0/30%; no calendar start.
+- Source boundary: OeNB June 2026 forecast has a short horizon; BMF long-term 2025 projection has a different policy vintage from July 2026 baseline. Neither can validate a constant multi-decade employee-contribution-growth assumption.
+- Falsification: growing costs may invalidate initial target coverage or a previously affordable rate; test post-debt years and hold-rate shortfalls explicitly.
+- Recovery: revert bounded SV-005 changes only.
+
+- SV-005 validation: geometric-series repayment and compound-growth identities independently checked; 28 growth tests plus existing regression suites pass. Actual growth/funding assumptions remain unverified as real-world forecasts.

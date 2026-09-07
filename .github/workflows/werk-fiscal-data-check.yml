@@ -42,6 +42,9 @@ on:
       - 'scripts/werk-annual-assessment-*.mjs'
       - 'scripts/lib/werk-annual-assessment-2026.mjs'
       - 'WERK_SV_JAHRESNETTO.md'
+      - 'werk-data/employee-sv-growth-stress-*.json'
+      - 'scripts/werk-sv-growth-stress-*.mjs'
+      - 'WERK_SV_WACHSTUMSSTRESS.md'
   workflow_dispatch:
 
 permissions:
@@ -172,3 +175,8 @@ jobs:
         run: node scripts/werk-post-debt-sv-contract.mjs
       - name: Countercheck post-debt scenarios and funding gates
         run: node scripts/werk-post-debt-sv-negative-check.mjs
+
+      - name: Recompute growing contribution and repayment financing stress
+        run: node scripts/werk-sv-growth-stress-contract.mjs
+      - name: Countercheck durable relief and post-debt funding limits
+        run: node scripts/werk-sv-growth-stress-negative-check.mjs

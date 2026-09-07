@@ -1,7 +1,10 @@
 {
-  "version":"2026-09-06-v36",
+  "version":"2026-09-07-v37",
   "current_preview":"werk-v71.html",
   "required":[
+    {"group":"SV Wachstumsstress","path":"./WERK_SV_WACHSTUMSSTRESS.md"},
+    {"group":"SV Wachstumsstress","path":"./werk-data/employee-sv-growth-stress-model.json"},
+    {"group":"SV Wachstumsstress","path":"./werk-data/employee-sv-growth-stress-results.json"},
     {"group":"SV Jahresnetto","path":"./WERK_SV_JAHRESNETTO.md"},
     {"group":"SV Jahresnetto","path":"./werk-data/payroll-annual-assessment-2026.json"},
     {"group":"SV Jahresnetto","path":"./werk-data/payroll-annual-assessment-results-2026.json"},

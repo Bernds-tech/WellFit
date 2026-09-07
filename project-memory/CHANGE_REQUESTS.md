@@ -151,3 +151,10 @@
 - Source: owner continuation, calculate all presently calculable effects.
 - Scope: bounded 2026 annual employee assessment and progressive SV-01 comparison; source audit of employee aggregate. R2; existing WERK branch publication authorization persists.
 - Recovery: revert bounded SV-004 changes.
+
+## WERK-CR-SV-005
+- Date: 2026-09-07
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: extend existing debt/SV engine with nominal contribution and funded repayment growth; financing durability through ten years after debt freedom. R2.
+- Publication: existing WERK branch authorization persists; no Sites deployment.

@@ -1,6 +1,21 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-004
+## Current continuation: WERK-SV-005
+Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed, including 28 growth / 55 SV / 36 assessment / 42 general counterchecks. Remote CI pending.
+Owner continuation 2026-09-07; progressive relative 50% employee KV/PV/ALV goal unchanged.
+
+Shared debtLinkedRelief engine extended with optional contribution/repayment growth and post-debt horizon; default constant-case output remains identical. 36 stress paths: 0/1/2/3% contribution growth; 1/2.5/4% avoided interest; 0/30% assumed recapture; fixed or 2%-growing funded base repayment; 1/3-year lag. Ten years after debt freedom reviewed. Different-vintage official debt and broad contribution references explicitly synthetic, not an actual calendar start.
+
+At 525.2bn debt, 10bn fixed funded base repayment, 2.5% rate and assumed 30% recapture: zero growth supports reference target from year46; with 2% contribution growth capacity is 20.76% at debt freedom year53 and 17.20% ten years later. With additionally funded 2% repayment growth, debt freedom year37, capacity28.49%, durable through ten later years23.61%. All figures are broad-reference sensitivities, not actual employee contribution rates or financed forecasts.
+
+Model detects target loss and cost of maintaining previous peak rate. Backward-minimum capacity provides a nondecreasing rate sequence within the observed horizon, with its own unallocated-interest reconciliation. Raw capacity and this alternative are not additive. No perpetual guarantee, automatic rate reversal, funded-base claim or reform activation. 28 new counterchecks plus existing suites. WERK_SV_WACHSTUMSSTRESS.md and employee-sv-growth-stress model/results are canonical.
+
+Official context checked: OeNB June 2026 HICP 3.2/2.4/2.1% for2026–2028 is not a long-term contribution-growth assumption. BMF December2025 long-term outlook is separate from July2026 adopted-policy baseline. No spliced forecasts.
+
+Next: exact pure employee contribution total and representative recapture; actual maturity/counterfactual interest schedule; funded primary surpluses after demographic/health/care costs. Recovery: revert bounded SV-005 commits. No Sites deployment.
+
+
+## Previous continuation: WERK-SV-004
 Status: VERIFIED at 190e1940446205c4532ecef62c6d6f038a79cd01. All four triggered workflows (Fiscal, Distribution, Registry, Frontend) succeeded. All five relevant local workflow bodies passed, including Policy Field (36 annual + 55 SV + 42 general counterchecks). See WERK_SV_004_CI_RECEIPT.json.
 Current owner goal remains progressive 50% employee KV/PV/ALV relief during funded debt repayment.
 

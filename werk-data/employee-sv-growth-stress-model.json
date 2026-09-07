@@ -1,0 +1,77 @@
+{
+  "version": "2026-09-07-v1",
+  "reform_id": "SV-01",
+  "status": "sensitivity_not_forecast_or_funding_proof",
+  "checked_at": "2026-09-07",
+  "inputs": {
+    "contribution_growth_pct_cases": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "rate_pct_cases": [
+      1,
+      2.5,
+      4
+    ],
+    "tax_recapture_share_cases": [
+      0,
+      0.3
+    ],
+    "base_repayment_bn": 10,
+    "indexed_base_growth_pct": 2,
+    "years_after_debt_freedom": 10,
+    "max_years": 100,
+    "lag_years": 1,
+    "stress_lag_years": 3,
+    "reduction_target": 0.5,
+    "interest_to_relief_share": 1
+  },
+  "reference_scope": {
+    "debt_baseline": "adopted_policy_projection_2031",
+    "contribution_artifact": "werk-data/employee-payroll-withholding-2024.json",
+    "contribution_measure": "broad_2024_withheld_contributions_and_levies_not_pure_employee_SV",
+    "model_year_1": "Synthetic alignment of 2031 debt projection and 2024 contribution reference; no actual calendar year or nominal rebasing claimed.",
+    "growth_definition": "Growth of hypothetical receipts at unchanged contribution rates; bundles pay, employment, ceilings and composition, not individual wage growth alone."
+  },
+  "funding_boundary": {
+    "verified_pure_employee_contribution_base_bn": null,
+    "empirical_tax_recapture_share": null,
+    "funded_base_repayment_verified": false,
+    "perpetual_financing_verified": false,
+    "current_budget_credit_bn": 0,
+    "rule": "Finite-horizon affordability cannot activate the reform. Never reverse rates automatically; report hold-rate shortfalls and a nondecreasing affordable envelope within the stated horizon."
+  },
+  "counterfactual": {
+    "interest": "Avoided refinancing of fixed nominal initial principal, constant assumed marginal rate and delayed effects. No actual maturity schedule, debt growth, crisis deficits or reinvested reserves.",
+    "base_repayment": "Growing primary repayment resources only if separately funded after all other primary spending. Nominal tax growth is not automatically free repayment money. After debt freedom base resources are not assigned to SV.",
+    "costs": "No new implementation/administration/demographic cost; financing-capacity sensitivity, not a complete insurance budget.",
+    "nondecreasing_envelope": "At each year use the minimum affordable rate over that year and every later observed year. Costs never exceed current allocated interest. Feasibility outside horizon remains unproven."
+  },
+  "official_context": [
+    {
+      "id": "OENB-JUNE-2026",
+      "url": "https://www.oenb.at/Presse/Pressearchiv/2026/20260612.html",
+      "published": "2026-06-12",
+      "forecast_years": [
+        2026,
+        2027,
+        2028
+      ],
+      "hicp_inflation_pct": [
+        3.2,
+        2.4,
+        2.1
+      ],
+      "use": "Short-term macro context only, not a contribution-growth input. Inflation, wage and contribution-receipt growth differ."
+    },
+    {
+      "id": "BMF-LONGTERM-2025",
+      "url": "https://www.bmf.gv.at/en/services/starting_page_budget/lfp2025.html",
+      "published": "2025-12-23",
+      "horizon_end": 2060,
+      "use": "Interest and demographic risk context only. Different policy vintage from July 2026 budget baseline; do not splice their numerical paths."
+    }
+  ]
+}

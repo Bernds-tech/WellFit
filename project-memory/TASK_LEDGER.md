@@ -176,3 +176,9 @@ Keep history append-only; supersede rather than delete.
 - Task: add bounded final annual assessment to employee SV-01 calculation; preserve funding and household gates.
 
 - WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. All four triggered remote workflows succeeded at 190e1940446205c4532ecef62c6d6f038a79cd01; WERK_SV_004_CI_RECEIPT.json.
+
+## WERK-SV-005
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Task: nominal-growth stress and durable financing check for progressive employee relief.
+
+- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. Remote CI pending.

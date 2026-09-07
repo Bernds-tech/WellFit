@@ -1,5 +1,10 @@
 # WERK Österreich – Website Changelog
 
+## 2026-09-07 – WERK-SV-005: Beitragswachstum und Haltbarkeit
+- Bestehenden Schuldentilgungs-/SV-Rechner um 36 Wachstumspfade bis zehn Jahre nach Schuldenfreiheit erweitert.
+- Historische Zielerreichung, aktuelle Deckung und langfristig haltbare Senkung getrennt; keine automatische spätere Beitragserhöhung.
+- 28 unabhängige Gegenprüfungen; 50%-Ziel und echte Finanzierungsgates bleiben unverändert offen.
+
 ## 2026-09-06 – WERK-SV-004: Jahresveranlagung
 - 48 SV-Gehaltsvarianten und 24 Mehrstundenfälle um Standard-Jahressteuer, Zuschlag, SV-Rückerstattung und Sonderzahlungs-Jahreskorrektur ergänzt.
 - 27 hypothetische Arbeitsvorteilsvergleiche nach Jahresveranlagung nachgezogen.

@@ -43,3 +43,6 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 
 ### Latest WERK continuation: WERK-SV-004
 2026-09-06: standard annual assessment added to 48 SV and 24 extra-hours cases; 27 work/nonwork comparisons updated. Start with WERK_SV_HANDOFF.md and WERK_SV_JAHRESNETTO.md. VERIFIED at 190e1940446205c4532ecef62c6d6f038a79cd01; all four triggered CI workflows succeeded; five local workflow bodies passed. See WERK_SV_004_CI_RECEIPT.json. Funding and household gates remain open.
+
+### Latest WERK continuation: WERK-SV-005
+2026-09-07: 36 contribution-growth/repayment-growth and post-debt durability stress paths in shared SV engine; no target/policy change. See WERK_SV_HANDOFF.md and WERK_SV_WACHSTUMSSTRESS.md. All five relevant local workflow bodies passed; remote CI pending.
