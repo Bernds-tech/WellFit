@@ -188,3 +188,7 @@ Keep history append-only; supersede rather than delete.
 - Task: reconcile official employee contribution financing by payer and system, retain unproven reform-scope gates.
 
 - WERK-SV-006 verified at 25188b55f422ae204de2a495ae53d11338291607; all three triggered remote workflows succeeded; five relevant local workflow bodies passed. WERK_SV_006_CI_RECEIPT.json.
+
+## WERK-SV-007
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Task: calculate ALV threshold net losses, recovery gross and 50%-cut effects with source-backed 2026 rules.

@@ -63,3 +63,7 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - Status: VERIFIED for published method, NEEDS_VERIFICATION for actual policy cash scope.
 - ALV employee4.686bn is statistical half-allocation, not separately measured receipts. Public-service employee category includes pension-security deductions from retirees.
 - Falsifier checked: source method sheets contradict a naive exact-employee-receipts interpretation; exact policy total remains null.
+
+## WERK-SV-007
+- VERIFIED: ÖGK2026 whole-base ALV thresholds; 24 local standard-assessment effects.
+- Falsifier checked: uniform50% core cuts do not remove all net-loss notches. Exact actual ALV-DN aggregate and future-law projection remain unverified.

@@ -165,3 +165,10 @@
 - Source: owner continuation.
 - Scope: official ESSOSS employee contribution and system financing reconciliation; R2. Existing branch publication authorized.
 - Recovery: revert bounded SV-006 changes.
+
+## WERK-CR-SV-007
+- Date: 2026-09-07
+- Status: ACCEPTED
+- Source: owner continuation, calculate employee contribution and work incentives.
+- Scope: 2026 ALV threshold discontinuities and gross recovery with existing standard annual assessment; R2. Actual aggregate ALV receipts remain unresolved. Existing branch publication authorized.
+- Recovery: revert bounded SV-007 changes.

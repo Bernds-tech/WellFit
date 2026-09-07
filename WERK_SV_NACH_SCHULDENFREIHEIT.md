@@ -104,3 +104,5 @@ Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensi
 - Verteilung nach Einkommen, Steuerveranlagung und Haushaltstransfers sowie tatsächliche Umsetzungskosten.
 
 Technische Rechnung vorhanden; **50%-Zieldeckung und Aktivierung bleiben offen**. [Gesamtrechnung](WERK_GESAMTRECHNUNG.md). Reproduzieren mit `python3 scripts/werk-import-employee-withholding.py` und `node scripts/werk-post-debt-sv-contract.mjs`; Generierung jeweils mit `--write`.
+
+Der [ALV-Schwellentest 2026](WERK_SV_ARBEITSANREIZE.md) ergänzt 24 lokale Netto-Schwellenfälle und 192 kleine Bruttoerhöhungen. Die relative Beitragssenkung verkleinert die Sprünge, beseitigt sie bei unveränderter Stufenstruktur aber nicht.

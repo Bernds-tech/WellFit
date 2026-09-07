@@ -1,0 +1,23 @@
+{
+  "version": "2026-09-07-v1",
+  "rule_year": 2026,
+  "status": "standard_scope_work_incentive_diagnostic_not_future_payroll_forecast",
+  "source": {
+    "authority": "Österreichische Gesundheitskasse",
+    "url": "https://www.oegk.at/cdscontent/?contentid=10007.904620&portal=oegkdgportal",
+    "published_rule_date": "2026-01-01",
+    "checked_at": "2026-09-07",
+    "thresholds_eur": [2225, 2427, 2630],
+    "employee_rates_pct": [0, 1, 2, 2.95],
+    "application": "New rate applies to entire relevant contribution base; ordinary and special payments assessed separately."
+  },
+  "regions": ["outside_vienna", "vienna"],
+  "employee_core_reduction_shares": [0, 0.1, 0.25, 0.5],
+  "monthly_gross_increases_eur": [0.01, 1, 5, 10, 20, 30, 50, 100],
+  "scope": "Full year standard ASVG, 12 ordinary and 2 equal special salaries, every payment rises by the stated monthly gross amount. Existing 2026 annual assessment; before payroll cent and assessment whole-euro rounding. No family/commuter/transfers/work expenses, behavioural or population effects.",
+  "policy_interpretation": "Relative KV/PV/ALV cuts reduce but do not remove ALV notches while the stepped whole-base rate structure remains. No new smoothing reform is adopted here.",
+  "future_rule_warning": "2027 onward uses enacted transition rules already recorded under REV-ALV-DN. These 2026 thresholds and reduced rates must not be projected as future law.",
+  "actual_employee_alv_receipts_eur": null,
+  "employment_effect_persons": null,
+  "verified_budget_credit_eur": 0
+}

@@ -50,6 +50,10 @@ on:
       - 'scripts/werk-import-essoss-contributions.py'
       - 'scripts/werk-essoss-contributions-negative-check.py'
       - 'WERK_SV_BEITRAGSBASIS.md'
+      - 'werk-data/employee-alv-threshold-*.json'
+      - 'scripts/werk-alv-threshold-*.mjs'
+      - 'scripts/lib/werk-alv-threshold.mjs'
+      - 'WERK_SV_ARBEITSANREIZE.md'
   workflow_dispatch:
 
 permissions:
@@ -190,3 +194,8 @@ jobs:
         run: python3 scripts/werk-import-essoss-contributions.py
       - name: Countercheck contribution scope and source integrity
         run: python3 scripts/werk-essoss-contributions-negative-check.py
+
+      - name: Recompute employee ALV threshold and recovery diagnostics
+        run: node scripts/werk-alv-threshold-contract.mjs
+      - name: Countercheck contribution jumps and minimum recovery salary
+        run: node scripts/werk-alv-threshold-negative-check.mjs

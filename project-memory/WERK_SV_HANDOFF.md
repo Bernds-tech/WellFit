@@ -1,7 +1,17 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 
-## Current continuation: WERK-SV-006
+## Current continuation: WERK-SV-007
+Status: IMPLEMENTED_NOT_VERIFIED remotely; five local workflow bodies passed.
+
+2026 local work-incentive diagnostics reuse existing payroll/annual-assessment kernels: 3 ALV thresholds ×2 regions ×4 core reduction shares =24 cases; 8 gross steps each =192 comparisons. Whole-base rate jumps remain under uniform 50% KV/PV/ALV reduction. Outside Vienna, +0.01 monthly gross (all14 equal salaries, full year) at2225/2427/2630 yields annual net losses208.20/227.11/233.81 EUR without reform;104.05/113.51/116.86 with50% cut. First restoring monthlygross2251.47/2456.22/2660.43, or2237.14/2440.32/2643.78 withcut. Model before payslip/assessment rounding. Recovery is minimum cent from binary search checked against independent linear search. Six independently calculated contribution jumps,24 gainchecks,6 invalidinputs,5 output/spec corruptions passed.
+
+Canonical WERK_SV_ARBEITSANREIZE.md, employee-alv-threshold model/results2026. No actual population incidence, household-transfer result, employment effect or funding credit. Source ÖGK2026 low-income ALV rules rechecked. Budget-account searches did not identify actual separate ALV-DN receipt totals. Do not invent from ESSOSS50/50 split. 2027+ transition already tracked in REV-ALV-DN/government legal status; current2026 rates not future forecasts. No debt/payroll model rebasing.
+
+Next: calculate continuous contribution-amount transition as an unadopted design candidate with revenue/distribution financing, respecting enacted2027+ transition. Actual ALV-DN cash and PV/KV policy-scope bridge remain open. Recovery: revert bounded SV-007 changes. Existing WERK branch publication authorized; no Sites deployment.
+
+
+## Previous continuation: WERK-SV-006
 Status: VERIFIED at 25188b55f422ae204de2a495ae53d11338291607. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; all five relevant local workflow bodies passed (including Distribution and Policy Field). See WERK_SV_006_CI_RECEIPT.json.
 
 Official ESSOSS detail workbooks provide 245 year/system cells (1990–2024, missing markers retained) for seven employee-classified systems. In 2024: PV18049m, KV6865m, ALV4686m =>29600m statistical core; half14800m. Other four2337m; total31937m vs overview31938m, 1m unallocated rounded residual. Overview A38 duplicates2023; contextual2024 inferred and flagged, correct detailyearcolumns retained. Method sheets matter: ALV DN=50% of total is explicitly an assumption due to missing data, public-service pension DN includes retired-person pension-security contributions. Therefore exact policy-eligible contribution cash total remains unknown.

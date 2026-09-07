@@ -1,0 +1,1652 @@
+{
+  "version": "2026-09-07-v1",
+  "rule_year": 2026,
+  "source_hashes": {
+    "werk-data/employee-alv-threshold-model-2026.json": "31dece63f02386af5b50c03a91bcd976220e0d2582a42fc2ca05473cd852f09f",
+    "werk-data/payroll-employee-kernel-2026.json": "f00ee8dacb7ef3706c6d5b13f8270f4337452c0184920db4546bd94439c0ee6f",
+    "werk-data/payroll-annual-assessment-2026.json": "6686f8cea750d3fc9638687bf5bd37c2a830521de97ce120c41c28202b56c18b",
+    "scripts/lib/werk-alv-threshold.mjs": "79456db94016511dec6a300225de86d739ee7570fe20bff69d80cb2d7cf2a6c4",
+    "scripts/lib/werk-post-debt-sv.mjs": "c80d4dd42c1342fa7c165d87a56fe772b64f21d45669277e8de263c27b631921",
+    "scripts/lib/werk-payroll-2026.mjs": "be6eb811a0cc1fba6dac64e8f573d98ec66214a4067276c216ca886494802863",
+    "scripts/lib/werk-annual-assessment-2026.mjs": "5970fac5a327f4fa29c940d3fa2e3f4bc70b5e983e3f575453ffb64aea4fc277"
+  },
+  "scope": "Full year standard ASVG, 12 ordinary and 2 equal special salaries, every payment rises by the stated monthly gross amount. Existing 2026 annual assessment; before payroll cent and assessment whole-euro rounding. No family/commuter/transfers/work expenses, behavioural or population effects.",
+  "future_rule_warning": "2027 onward uses enacted transition rules already recorded under REV-ALV-DN. These 2026 thresholds and reduced rates must not be projected as future law.",
+  "result_scope": "24 local threshold diagnostics and 192 gross-increase comparisons, not complete marginal household burden.",
+  "current_budget_credit_eur": 0,
+  "employment_effect_persons": null,
+  "rows": [
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 25528.09219806,
+      "annual_net_above_threshold_eur": 25319.88937223,
+      "annual_net_loss_for_one_cent_raise_eur": 208.20282583,
+      "recovery_monthly_gross_eur": 2251.47,
+      "required_monthly_gross_increase_eur": 26.47,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 311.522368,
+          "annual_tax_change_eur": -103.17954217,
+          "annual_net_change_eur": -208.20282583
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 313.7368,
+          "annual_tax_change_eur": -99.32604617,
+          "annual_net_change_eur": -200.41075383
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 322.684,
+          "annual_tax_change_eur": -83.75636534,
+          "annual_net_change_eur": -168.92763466
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 333.868,
+          "annual_tax_change_eur": -64.29426431,
+          "annual_net_change_eur": -129.57373569
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 356.236,
+          "annual_tax_change_eur": -25.37006224,
+          "annual_net_change_eur": -50.86593776
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 378.604,
+          "annual_tax_change_eur": 13.55413982,
+          "annual_net_change_eur": 27.84186018
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 423.34,
+          "annual_tax_change_eur": 91.40254395,
+          "annual_net_change_eur": 185.25745605
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 535.18,
+          "annual_tax_change_eur": 286.02355428,
+          "annual_net_change_eur": 578.79644572
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 26909.70818272,
+      "annual_net_above_threshold_eur": 26682.59526583,
+      "annual_net_loss_for_one_cent_raise_eur": 227.11291689,
+      "recovery_monthly_gross_eur": 2456.22,
+      "required_monthly_gross_increase_eur": 29.22,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 339.803768,
+          "annual_tax_change_eur": -112.55085111,
+          "annual_net_change_eur": -227.11291689
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 342.1568,
+          "annual_tax_change_eur": -108.74328153,
+          "annual_net_change_eur": -219.41351847
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 351.664,
+          "annual_tax_change_eur": -93.35916199,
+          "annual_net_change_eur": -188.30483801
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 363.548,
+          "annual_tax_change_eur": -74.12901257,
+          "annual_net_change_eur": -149.41898743
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 387.316,
+          "annual_tax_change_eur": -35.66871372,
+          "annual_net_change_eur": -71.64728628
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 411.084,
+          "annual_tax_change_eur": 2.79158512,
+          "annual_net_change_eur": 6.12441488
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 458.62,
+          "annual_tax_change_eur": 79.71218282,
+          "annual_net_change_eur": 161.66781718
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 577.46,
+          "annual_tax_change_eur": 272.01367704,
+          "annual_net_change_eur": 550.52632296
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 28261.28302756,
+      "annual_net_above_threshold_eur": 28027.4761294,
+      "annual_net_loss_for_one_cent_raise_eur": 233.80689816,
+      "recovery_monthly_gross_eur": 2660.43,
+      "required_monthly_gross_increase_eur": 30.43,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 349.815098,
+          "annual_tax_change_eur": -115.86819984,
+          "annual_net_change_eur": -233.80689816
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 352.2998,
+          "annual_tax_change_eur": -112.10426035,
+          "annual_net_change_eur": -226.19553965
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 362.339,
+          "annual_tax_change_eur": -96.89642404,
+          "annual_net_change_eur": -195.44257596
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 374.888,
+          "annual_tax_change_eur": -77.88662865,
+          "annual_net_change_eur": -157.00137135
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 399.986,
+          "annual_tax_change_eur": -39.86703786,
+          "annual_net_change_eur": -80.11896214
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 425.084,
+          "annual_tax_change_eur": -1.84744707,
+          "annual_net_change_eur": -3.23655293
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 475.28,
+          "annual_tax_change_eur": 74.1917345,
+          "annual_net_change_eur": 150.5282655
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 600.77,
+          "annual_tax_change_eur": 264.28968844,
+          "annual_net_change_eur": 534.94031156
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 25822.18572354,
+      "annual_net_above_threshold_eur": 25634.81246645,
+      "annual_net_loss_for_one_cent_raise_eur": 187.37325709,
+      "recovery_monthly_gross_eur": 2248.4,
+      "required_monthly_gross_increase_eur": 23.4,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 280.3702512,
+          "annual_tax_change_eur": -92.85699411,
+          "annual_net_change_eur": -187.37325709
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 282.37512,
+          "annual_tax_change_eur": -88.93405736,
+          "annual_net_change_eur": -179.44106264
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 290.4756,
+          "annual_tax_change_eur": -73.08380787,
+          "annual_net_change_eur": -147.39179213
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 300.6012,
+          "annual_tax_change_eur": -53.270996,
+          "annual_net_change_eur": -107.330204
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 320.8524,
+          "annual_tax_change_eur": -13.64537227,
+          "annual_net_change_eur": -27.20702773
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 341.1036,
+          "annual_tax_change_eur": 25.98025146,
+          "annual_net_change_eur": 52.91614854
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 381.606,
+          "annual_tax_change_eur": 105.23149893,
+          "annual_net_change_eur": 213.16250107
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 482.862,
+          "annual_tax_change_eur": 303.3596176,
+          "annual_net_change_eur": 613.7783824
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 27253.22050386,
+      "annual_net_above_threshold_eur": 27048.82816482,
+      "annual_net_loss_for_one_cent_raise_eur": 204.39233904,
+      "recovery_monthly_gross_eur": 2452.8,
+      "required_monthly_gross_increase_eur": 25.8,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 305.8235112,
+          "annual_tax_change_eur": -101.29117216,
+          "annual_net_change_eur": -204.39233904
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 307.95312,
+          "annual_tax_change_eur": -97.40956919,
+          "annual_net_change_eur": -196.54355081
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 316.5576,
+          "annual_tax_change_eur": -81.72632485,
+          "annual_net_change_eur": -164.83127515
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 327.3132,
+          "annual_tax_change_eur": -62.12226943,
+          "annual_net_change_eur": -125.19093057
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 348.8244,
+          "annual_tax_change_eur": -22.9141586,
+          "annual_net_change_eur": -45.9102414
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 370.3356,
+          "annual_tax_change_eur": 16.29395224,
+          "annual_net_change_eur": 33.37044776
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 413.358,
+          "annual_tax_change_eur": 94.71017391,
+          "annual_net_change_eur": 191.93182609
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 520.914,
+          "annual_tax_change_eur": 290.75072809,
+          "annual_net_change_eur": 588.33527191
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 28658.14687417,
+      "annual_net_above_threshold_eur": 28447.72995198,
+      "annual_net_loss_for_one_cent_raise_eur": 210.41692218,
+      "recovery_monthly_gross_eur": 2656.83,
+      "required_monthly_gross_increase_eur": 26.83,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 314.8337082,
+          "annual_tax_change_eur": -104.27678602,
+          "annual_net_change_eur": -210.41692218
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 317.08182,
+          "annual_tax_change_eur": -100.43445013,
+          "annual_net_change_eur": -202.64736987
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 326.1651,
+          "annual_tax_change_eur": -84.9098607,
+          "annual_net_change_eur": -171.2552393
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 337.5192,
+          "annual_tax_change_eur": -65.50412391,
+          "annual_net_change_eur": -132.01507609
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 360.2274,
+          "annual_tax_change_eur": -26.69265032,
+          "annual_net_change_eur": -53.53474968
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 382.9356,
+          "annual_tax_change_eur": 12.11882326,
+          "annual_net_change_eur": 24.94557674
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 428.352,
+          "annual_tax_change_eur": 89.74177042,
+          "annual_net_change_eur": 181.90622958
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 541.893,
+          "annual_tax_change_eur": 283.79913834,
+          "annual_net_change_eur": 574.30786166
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 26263.32601175,
+      "annual_net_above_threshold_eur": 26107.19710778,
+      "annual_net_loss_for_one_cent_raise_eur": 156.12890398,
+      "recovery_monthly_gross_eur": 2244,
+      "required_monthly_gross_increase_eur": 19,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 233.642076,
+          "annual_tax_change_eur": -77.37317202,
+          "annual_net_change_eur": -156.12890398
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 235.3326,
+          "annual_tax_change_eur": -73.34607416,
+          "annual_net_change_eur": -147.98652584
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 242.163,
+          "annual_tax_change_eur": -57.07497166,
+          "annual_net_change_eur": -115.08802834
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 250.701,
+          "annual_tax_change_eur": -36.73609355,
+          "annual_net_change_eur": -73.96490645
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 267.777,
+          "annual_tax_change_eur": 3.94166269,
+          "annual_net_change_eur": 8.28133731
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 284.853,
+          "annual_tax_change_eur": 44.61941893,
+          "annual_net_change_eur": 90.52758107
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 319.005,
+          "annual_tax_change_eur": 125.9749314,
+          "annual_net_change_eur": 255.0200686
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 404.385,
+          "annual_tax_change_eur": 329.36371257,
+          "annual_net_change_eur": 666.25128743
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 27768.48898558,
+      "annual_net_above_threshold_eur": 27598.17751331,
+      "annual_net_loss_for_one_cent_raise_eur": 170.31147227,
+      "recovery_monthly_gross_eur": 2447.9,
+      "required_monthly_gross_increase_eur": 20.9,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 254.853126,
+          "annual_tax_change_eur": -84.40165373,
+          "annual_net_change_eur": -170.31147227
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 256.6476,
+          "annual_tax_change_eur": -80.40900068,
+          "annual_net_change_eur": -162.23859932
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 263.898,
+          "annual_tax_change_eur": -64.27706915,
+          "annual_net_change_eur": -129.62093085
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 272.961,
+          "annual_tax_change_eur": -44.11215474,
+          "annual_net_change_eur": -88.84884526
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 291.087,
+          "annual_tax_change_eur": -3.78232592,
+          "annual_net_change_eur": -7.30467408
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 309.213,
+          "annual_tax_change_eur": 36.5475029,
+          "annual_net_change_eur": 74.2394971
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 345.465,
+          "annual_tax_change_eur": 117.20716054,
+          "annual_net_change_eur": 237.32783946
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 436.095,
+          "annual_tax_change_eur": 318.85630465,
+          "annual_net_change_eur": 645.04869535
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 29253.44264408,
+      "annual_net_above_threshold_eur": 29078.11068585,
+      "annual_net_loss_for_one_cent_raise_eur": 175.33195822,
+      "recovery_monthly_gross_eur": 2651.69,
+      "required_monthly_gross_increase_eur": 21.69,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 262.3616235,
+          "annual_tax_change_eur": -86.88966528,
+          "annual_net_change_eur": -175.33195822
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 264.25485,
+          "annual_tax_change_eur": -82.9297348,
+          "annual_net_change_eur": -167.3251152
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 271.90425,
+          "annual_tax_change_eur": -66.93001569,
+          "annual_net_change_eur": -134.97423431
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 281.466,
+          "annual_tax_change_eur": -46.9303668,
+          "annual_net_change_eur": -94.5356332
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 300.5895,
+          "annual_tax_change_eur": -6.93106902,
+          "annual_net_change_eur": -13.65843098
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 319.713,
+          "annual_tax_change_eur": 33.06822876,
+          "annual_net_change_eur": 67.21877124
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 357.96,
+          "annual_tax_change_eur": 113.06682431,
+          "annual_net_change_eur": 228.97317569
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 453.5775,
+          "annual_tax_change_eur": 313.06331319,
+          "annual_net_change_eur": 633.35918681
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 26998.55982545,
+      "annual_net_above_threshold_eur": 26894.50484333,
+      "annual_net_loss_for_one_cent_raise_eur": 104.05498212,
+      "recovery_monthly_gross_eur": 2237.14,
+      "required_monthly_gross_increase_eur": 12.14,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 155.761784,
+          "annual_tax_change_eur": -51.56680188,
+          "annual_net_change_eur": -104.05498212
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 156.9284,
+          "annual_tax_change_eur": -47.36610215,
+          "annual_net_change_eur": -95.56229785
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 161.642,
+          "annual_tax_change_eur": -30.39357798,
+          "annual_net_change_eur": -61.24842202
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 167.534,
+          "annual_tax_change_eur": -9.17792278,
+          "annual_net_change_eur": -18.35607722
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 179.318,
+          "annual_tax_change_eur": 33.25338762,
+          "annual_net_change_eur": 67.42861238
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 191.102,
+          "annual_tax_change_eur": 75.68469803,
+          "annual_net_change_eur": 153.21330197
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 214.67,
+          "annual_tax_change_eur": 160.54731884,
+          "annual_net_change_eur": 324.78268116
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 273.59,
+          "annual_tax_change_eur": 372.70387087,
+          "annual_net_change_eur": 753.70612913
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 28627.26978844,
+      "annual_net_above_threshold_eur": 28513.75976079,
+      "annual_net_loss_for_one_cent_raise_eur": 113.51002765,
+      "recovery_monthly_gross_eur": 2440.32,
+      "required_monthly_gross_increase_eur": 13.32,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 169.902484,
+          "annual_tax_change_eur": -56.25245635,
+          "annual_net_change_eur": -113.51002765
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 171.1384,
+          "annual_tax_change_eur": -52.07471983,
+          "annual_net_change_eur": -105.06368017
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 176.132,
+          "annual_tax_change_eur": -35.19497631,
+          "annual_net_change_eur": -70.93702369
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 182.374,
+          "annual_tax_change_eur": -14.09529691,
+          "annual_net_change_eur": -28.27870309
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 194.858,
+          "annual_tax_change_eur": 28.10406189,
+          "annual_net_change_eur": 57.03793811
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 207.342,
+          "annual_tax_change_eur": 70.30342068,
+          "annual_net_change_eur": 142.35457932
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 232.31,
+          "annual_tax_change_eur": 154.70213827,
+          "annual_net_change_eur": 312.98786173
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 294.73,
+          "annual_tax_change_eur": 365.69893225,
+          "annual_net_change_eur": 739.57106775
+        }
+      ]
+    },
+    {
+      "region": "outside_vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 30245.60226059,
+      "annual_net_above_threshold_eur": 30128.7452423,
+      "annual_net_loss_for_one_cent_raise_eur": 116.85701829,
+      "recovery_monthly_gross_eur": 2643.78,
+      "required_monthly_gross_increase_eur": 13.78,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 174.908149,
+          "annual_tax_change_eur": -57.91113071,
+          "annual_net_change_eur": -116.85701829
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 176.2099,
+          "annual_tax_change_eur": -53.75520924,
+          "annual_net_change_eur": -108.45469076
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 181.4695,
+          "annual_tax_change_eur": -36.96360733,
+          "annual_net_change_eur": -74.50589267
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 188.044,
+          "annual_tax_change_eur": -15.97410495,
+          "annual_net_change_eur": -32.06989505
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 201.193,
+          "annual_tax_change_eur": 26.00489982,
+          "annual_net_change_eur": 52.80210018
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 214.342,
+          "annual_tax_change_eur": 67.98390458,
+          "annual_net_change_eur": 137.67409542
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 240.64,
+          "annual_tax_change_eur": 151.94191412,
+          "annual_net_change_eur": 307.41808588
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 306.385,
+          "annual_tax_change_eur": 361.83693795,
+          "annual_net_change_eur": 731.77806205
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 25486.47931465,
+      "annual_net_above_threshold_eur": 25278.2763018,
+      "annual_net_loss_for_one_cent_raise_eur": 208.20301285,
+      "recovery_monthly_gross_eur": 2251.53,
+      "required_monthly_gross_increase_eur": 26.53,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 311.522668,
+          "annual_tax_change_eur": -103.17965515,
+          "annual_net_change_eur": -208.20301285
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 313.7668,
+          "annual_tax_change_eur": -99.33734375,
+          "annual_net_change_eur": -200.42945625
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 322.834,
+          "annual_tax_change_eur": -83.81285324,
+          "annual_net_change_eur": -169.02114676
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 334.168,
+          "annual_tax_change_eur": -64.40724011,
+          "annual_net_change_eur": -129.76075989
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 356.836,
+          "annual_tax_change_eur": -25.59601385,
+          "annual_net_change_eur": -51.23998615
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 379.504,
+          "annual_tax_change_eur": 13.21521241,
+          "annual_net_change_eur": 27.28078759
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 424.84,
+          "annual_tax_change_eur": 90.83766493,
+          "annual_net_change_eur": 184.32233507
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 538.18,
+          "annual_tax_change_eur": 284.89379623,
+          "annual_net_change_eur": 576.92620377
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 26864.31741057,
+      "annual_net_above_threshold_eur": 26637.20430666,
+      "annual_net_loss_for_one_cent_raise_eur": 227.11310391,
+      "recovery_monthly_gross_eur": 2456.29,
+      "required_monthly_gross_increase_eur": 29.29,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 339.804068,
+          "annual_tax_change_eur": -112.55096409,
+          "annual_net_change_eur": -227.11310391
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 342.1868,
+          "annual_tax_change_eur": -108.75457911,
+          "annual_net_change_eur": -219.43222089
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 351.814,
+          "annual_tax_change_eur": -93.41564989,
+          "annual_net_change_eur": -188.39835011
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 363.848,
+          "annual_tax_change_eur": -74.24198837,
+          "annual_net_change_eur": -149.60601163
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 387.916,
+          "annual_tax_change_eur": -35.89466533,
+          "annual_net_change_eur": -72.02133467
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 411.984,
+          "annual_tax_change_eur": 2.45265771,
+          "annual_net_change_eur": 5.56334229
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 460.12,
+          "annual_tax_change_eur": 79.14730379,
+          "annual_net_change_eur": 160.73269621
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 580.46,
+          "annual_tax_change_eur": 270.88391899,
+          "annual_net_change_eur": 548.65608101
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 28212.09566426,
+      "annual_net_above_threshold_eur": 27978.28857907,
+      "annual_net_loss_for_one_cent_raise_eur": 233.80708518,
+      "recovery_monthly_gross_eur": 2660.5,
+      "required_monthly_gross_increase_eur": 30.5,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 349.815398,
+          "annual_tax_change_eur": -115.86831282,
+          "annual_net_change_eur": -233.80708518
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 352.3298,
+          "annual_tax_change_eur": -112.11555793,
+          "annual_net_change_eur": -226.21424207
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 362.489,
+          "annual_tax_change_eur": -96.95291194,
+          "annual_net_change_eur": -195.53608806
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 375.188,
+          "annual_tax_change_eur": -77.99960445,
+          "annual_net_change_eur": -157.18839555
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 400.586,
+          "annual_tax_change_eur": -40.09298947,
+          "annual_net_change_eur": -80.49301053
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 425.984,
+          "annual_tax_change_eur": -2.18637449,
+          "annual_net_change_eur": -3.79762551
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 476.78,
+          "annual_tax_change_eur": 73.62685548,
+          "annual_net_change_eur": 149.59314452
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 603.77,
+          "annual_tax_change_eur": 263.15993039,
+          "annual_net_change_eur": 533.07006961
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 25780.57284013,
+      "annual_net_above_threshold_eur": 25593.19939602,
+      "annual_net_loss_for_one_cent_raise_eur": 187.37344411,
+      "recovery_monthly_gross_eur": 2248.46,
+      "required_monthly_gross_increase_eur": 23.46,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 280.3705512,
+          "annual_tax_change_eur": -92.85710709,
+          "annual_net_change_eur": -187.37344411
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 282.40512,
+          "annual_tax_change_eur": -88.94535494,
+          "annual_net_change_eur": -179.45976506
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 290.6256,
+          "annual_tax_change_eur": -73.14029577,
+          "annual_net_change_eur": -147.48530423
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 300.9012,
+          "annual_tax_change_eur": -53.38397181,
+          "annual_net_change_eur": -107.51722819
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 321.4524,
+          "annual_tax_change_eur": -13.87132388,
+          "annual_net_change_eur": -27.58107612
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 342.0036,
+          "annual_tax_change_eur": 25.64132405,
+          "annual_net_change_eur": 52.35507595
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 383.106,
+          "annual_tax_change_eur": 104.6666199,
+          "annual_net_change_eur": 212.2273801
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 485.862,
+          "annual_tax_change_eur": 302.22985955,
+          "annual_net_change_eur": 611.90814045
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 27207.82973171,
+      "annual_net_above_threshold_eur": 27003.43720565,
+      "annual_net_loss_for_one_cent_raise_eur": 204.39252606,
+      "recovery_monthly_gross_eur": 2452.86,
+      "required_monthly_gross_increase_eur": 25.86,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 305.8238112,
+          "annual_tax_change_eur": -101.29128514,
+          "annual_net_change_eur": -204.39252606
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 307.98312,
+          "annual_tax_change_eur": -97.42086677,
+          "annual_net_change_eur": -196.56225323
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 316.7076,
+          "annual_tax_change_eur": -81.78281276,
+          "annual_net_change_eur": -164.92478724
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 327.6132,
+          "annual_tax_change_eur": -62.23524524,
+          "annual_net_change_eur": -125.37795476
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 349.4244,
+          "annual_tax_change_eur": -23.14011021,
+          "annual_net_change_eur": -46.28428979
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 371.2356,
+          "annual_tax_change_eur": 15.95502482,
+          "annual_net_change_eur": 32.80937518
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 414.858,
+          "annual_tax_change_eur": 94.14529488,
+          "annual_net_change_eur": 190.99670512
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 523.914,
+          "annual_tax_change_eur": 289.62097004,
+          "annual_net_change_eur": 586.46502996
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.1,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 28608.95951086,
+      "annual_net_above_threshold_eur": 28398.54240165,
+      "annual_net_loss_for_one_cent_raise_eur": 210.41710921,
+      "recovery_monthly_gross_eur": 2656.89,
+      "required_monthly_gross_increase_eur": 26.89,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 314.8340082,
+          "annual_tax_change_eur": -104.27689899,
+          "annual_net_change_eur": -210.41710921
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 317.11182,
+          "annual_tax_change_eur": -100.44574771,
+          "annual_net_change_eur": -202.66607229
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 326.3151,
+          "annual_tax_change_eur": -84.9663486,
+          "annual_net_change_eur": -171.3487514
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 337.8192,
+          "annual_tax_change_eur": -65.61709971,
+          "annual_net_change_eur": -132.20210029
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 360.8274,
+          "annual_tax_change_eur": -26.91860193,
+          "annual_net_change_eur": -53.90879807
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 383.8356,
+          "annual_tax_change_eur": 11.77989584,
+          "annual_net_change_eur": 24.38450416
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 429.852,
+          "annual_tax_change_eur": 89.1768914,
+          "annual_net_change_eur": 180.9711086
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 544.893,
+          "annual_tax_change_eur": 282.66938029,
+          "annual_net_change_eur": 572.43761971
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 26221.71312835,
+      "annual_net_above_threshold_eur": 26065.58403735,
+      "annual_net_loss_for_one_cent_raise_eur": 156.129091,
+      "recovery_monthly_gross_eur": 2244.04,
+      "required_monthly_gross_increase_eur": 19.04,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 233.642376,
+          "annual_tax_change_eur": -77.373285,
+          "annual_net_change_eur": -156.129091
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 235.3626,
+          "annual_tax_change_eur": -73.35737174,
+          "annual_net_change_eur": -148.00522826
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 242.313,
+          "annual_tax_change_eur": -57.13145957,
+          "annual_net_change_eur": -115.18154043
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 251.001,
+          "annual_tax_change_eur": -36.84906935,
+          "annual_net_change_eur": -74.15193065
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 268.377,
+          "annual_tax_change_eur": 3.71571108,
+          "annual_net_change_eur": 7.90728892
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 285.753,
+          "annual_tax_change_eur": 44.28049151,
+          "annual_net_change_eur": 89.96650849
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 320.505,
+          "annual_tax_change_eur": 125.41005237,
+          "annual_net_change_eur": 254.08494763
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 407.385,
+          "annual_tax_change_eur": 328.23395452,
+          "annual_net_change_eur": 664.38104548
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 27723.09821343,
+      "annual_net_above_threshold_eur": 27552.78655414,
+      "annual_net_loss_for_one_cent_raise_eur": 170.31165929,
+      "recovery_monthly_gross_eur": 2447.95,
+      "required_monthly_gross_increase_eur": 20.95,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 254.853426,
+          "annual_tax_change_eur": -84.40176671,
+          "annual_net_change_eur": -170.31165929
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 256.6776,
+          "annual_tax_change_eur": -80.42029826,
+          "annual_net_change_eur": -162.25730174
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 264.048,
+          "annual_tax_change_eur": -64.33355705,
+          "annual_net_change_eur": -129.71444295
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 273.261,
+          "annual_tax_change_eur": -44.22513054,
+          "annual_net_change_eur": -89.03586946
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 291.687,
+          "annual_tax_change_eur": -4.00827753,
+          "annual_net_change_eur": -7.67872247
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 310.113,
+          "annual_tax_change_eur": 36.20857549,
+          "annual_net_change_eur": 73.67842451
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 346.965,
+          "annual_tax_change_eur": 116.64228152,
+          "annual_net_change_eur": 236.39271848
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 439.095,
+          "annual_tax_change_eur": 317.7265466,
+          "annual_net_change_eur": 643.1784534
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.25,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 29204.25528077,
+      "annual_net_above_threshold_eur": 29028.92313552,
+      "annual_net_loss_for_one_cent_raise_eur": 175.33214525,
+      "recovery_monthly_gross_eur": 2651.74,
+      "required_monthly_gross_increase_eur": 21.74,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 262.3619235,
+          "annual_tax_change_eur": -86.88977825,
+          "annual_net_change_eur": -175.33214525
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 264.28485,
+          "annual_tax_change_eur": -82.94103238,
+          "annual_net_change_eur": -167.34381762
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 272.05425,
+          "annual_tax_change_eur": -66.98650359,
+          "annual_net_change_eur": -135.06774641
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 281.766,
+          "annual_tax_change_eur": -47.0433426,
+          "annual_net_change_eur": -94.7226574
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 301.1895,
+          "annual_tax_change_eur": -7.15702063,
+          "annual_net_change_eur": -14.03247937
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 320.613,
+          "annual_tax_change_eur": 32.72930134,
+          "annual_net_change_eur": 66.65769866
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 359.46,
+          "annual_tax_change_eur": 112.50194528,
+          "annual_net_change_eur": 228.03805472
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 456.5775,
+          "annual_tax_change_eur": 311.93355514,
+          "annual_net_change_eur": 631.48894486
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2225,
+      "annual_net_at_threshold_eur": 26956.94694205,
+      "annual_net_above_threshold_eur": 26852.8917729,
+      "annual_net_loss_for_one_cent_raise_eur": 104.05516915,
+      "recovery_monthly_gross_eur": 2237.17,
+      "required_monthly_gross_increase_eur": 12.17,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 155.762084,
+          "annual_tax_change_eur": -51.56691485,
+          "annual_net_change_eur": -104.05516915
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 156.9584,
+          "annual_tax_change_eur": -47.37739973,
+          "annual_net_change_eur": -95.58100027
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 161.792,
+          "annual_tax_change_eur": -30.45006589,
+          "annual_net_change_eur": -61.34193411
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 167.834,
+          "annual_tax_change_eur": -9.29089859,
+          "annual_net_change_eur": -18.54310141
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 179.918,
+          "annual_tax_change_eur": 33.02743601,
+          "annual_net_change_eur": 67.05456399
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 192.002,
+          "annual_tax_change_eur": 75.34577062,
+          "annual_net_change_eur": 152.65222938
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 216.17,
+          "annual_tax_change_eur": 159.98243982,
+          "annual_net_change_eur": 323.84756018
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 276.59,
+          "annual_tax_change_eur": 371.57411282,
+          "annual_net_change_eur": 751.83588718
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2427,
+      "annual_net_at_threshold_eur": 28581.8790163,
+      "annual_net_above_threshold_eur": 28468.36880162,
+      "annual_net_loss_for_one_cent_raise_eur": 113.51021468,
+      "recovery_monthly_gross_eur": 2440.35,
+      "required_monthly_gross_increase_eur": 13.35,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 169.902784,
+          "annual_tax_change_eur": -56.25256932,
+          "annual_net_change_eur": -113.51021468
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 171.1684,
+          "annual_tax_change_eur": -52.08601741,
+          "annual_net_change_eur": -105.08238259
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 176.282,
+          "annual_tax_change_eur": -35.25146421,
+          "annual_net_change_eur": -71.03053579
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 182.674,
+          "annual_tax_change_eur": -14.20827271,
+          "annual_net_change_eur": -28.46572729
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 195.458,
+          "annual_tax_change_eur": 27.87811028,
+          "annual_net_change_eur": 56.66388972
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 208.242,
+          "annual_tax_change_eur": 69.96449327,
+          "annual_net_change_eur": 141.79350673
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 233.81,
+          "annual_tax_change_eur": 154.13725925,
+          "annual_net_change_eur": 312.05274075
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 297.73,
+          "annual_tax_change_eur": 364.5691742,
+          "annual_net_change_eur": 737.7008258
+        }
+      ]
+    },
+    {
+      "region": "vienna",
+      "employee_core_reduction_share": 0.5,
+      "threshold_monthly_gross_eur": 2630,
+      "annual_net_at_threshold_eur": 30196.41489728,
+      "annual_net_above_threshold_eur": 30079.55769197,
+      "annual_net_loss_for_one_cent_raise_eur": 116.85720531,
+      "recovery_monthly_gross_eur": 2643.81,
+      "required_monthly_gross_increase_eur": 13.81,
+      "steps": [
+        {
+          "monthly_gross_increase_eur": 0.01,
+          "annual_gross_increase_eur": 0.14,
+          "annual_contribution_change_eur": 174.908449,
+          "annual_tax_change_eur": -57.91124369,
+          "annual_net_change_eur": -116.85720531
+        },
+        {
+          "monthly_gross_increase_eur": 1,
+          "annual_gross_increase_eur": 14,
+          "annual_contribution_change_eur": 176.2399,
+          "annual_tax_change_eur": -53.76650682,
+          "annual_net_change_eur": -108.47339318
+        },
+        {
+          "monthly_gross_increase_eur": 5,
+          "annual_gross_increase_eur": 70,
+          "annual_contribution_change_eur": 181.6195,
+          "annual_tax_change_eur": -37.02009524,
+          "annual_net_change_eur": -74.59940476
+        },
+        {
+          "monthly_gross_increase_eur": 10,
+          "annual_gross_increase_eur": 140,
+          "annual_contribution_change_eur": 188.344,
+          "annual_tax_change_eur": -16.08708075,
+          "annual_net_change_eur": -32.25691925
+        },
+        {
+          "monthly_gross_increase_eur": 20,
+          "annual_gross_increase_eur": 280,
+          "annual_contribution_change_eur": 201.793,
+          "annual_tax_change_eur": 25.77894821,
+          "annual_net_change_eur": 52.42805179
+        },
+        {
+          "monthly_gross_increase_eur": 30,
+          "annual_gross_increase_eur": 420,
+          "annual_contribution_change_eur": 215.242,
+          "annual_tax_change_eur": 67.64497717,
+          "annual_net_change_eur": 137.11302283
+        },
+        {
+          "monthly_gross_increase_eur": 50,
+          "annual_gross_increase_eur": 700,
+          "annual_contribution_change_eur": 242.14,
+          "annual_tax_change_eur": 151.37703509,
+          "annual_net_change_eur": 306.48296491
+        },
+        {
+          "monthly_gross_increase_eur": 100,
+          "annual_gross_increase_eur": 1400,
+          "annual_contribution_change_eur": 309.385,
+          "annual_tax_change_eur": 360.7071799,
+          "annual_net_change_eur": 729.9078201
+        }
+      ]
+    }
+  ]
+}

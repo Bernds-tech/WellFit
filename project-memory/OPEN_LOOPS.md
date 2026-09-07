@@ -46,3 +46,7 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 ## WERK-SV-006 continuation
 - Status: PARTIAL
 - Published seven-system employee contribution bridge is available; actual ALV DN, PV/KV policy scope and future funding remain open. Statistical29.600bn is not booked as exact reform cost.
+
+## WERK-SV-007
+- Status: PARTIAL
+- Local2026 ALV notches calculated; complete household marginal burden, statutory2027+ transition and continuous-tariff policy costs open. Actual ALV-DN cash not identified from budget totals.

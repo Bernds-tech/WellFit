@@ -184,3 +184,5 @@ Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehm
 ## Reproduzieren
 
 `node scripts/werk-calculation-contract.mjs --write` erzeugt Bericht und JSON; ohne `--write` wird die bytegleiche Neuberechnung geprüft. `node scripts/werk-calculation-negative-check.mjs` prüft unabhängige Rechenbeispiele und Fehlerfälle. Alle Eingaben sind über SHA-256 gebunden. Das zentrale Freigabegate für eine finanzierte BUD-01-Endrechnung bleibt offen.
+
+Der [ALV-Schwellentest 2026](WERK_SV_ARBEITSANREIZE.md) ergänzt 24 lokale Netto-Schwellenfälle und 192 kleine Bruttoerhöhungen. Die relative Beitragssenkung verkleinert die Sprünge, beseitigt sie bei unveränderter Stufenstruktur aber nicht.

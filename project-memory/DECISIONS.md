@@ -28,3 +28,6 @@
 
 ## WERK-SV-006 — separate statistical reference from exact policy cost
 - Preserve official allocation method and missing/year markers; core29.600bn is a qualified reference. Do not replace canonical broad-reference scenarios before statutory-scope reconciliation.
+
+## WERK-SV-007
+- Keep local threshold diagnosis separate from measured employment effects. A continuous contribution transition is a design candidate, not adopted/financed policy. No automatic overwrite of2026 rules with future rates.

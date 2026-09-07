@@ -30,3 +30,6 @@ States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
 ## WERK-SV-006
 - SV-01 financing needs actual ALV employee receipts after reduced DN rates; ESSOSS assumes equal split. PV/KV contributions require legal-scope bridge.
 - Twelve static reference cases do not replace debt/SV growth paths; existing inputs unchanged.
+
+## WERK-SV-007
+- Work-incentive diagnostic consumes existing2026 payroll+annualassessment unchanged. Future use depends on REV-ALV-DN transition, other tax/benefit updates and exact contribution populations.

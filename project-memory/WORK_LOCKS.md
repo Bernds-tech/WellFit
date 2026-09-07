@@ -134,3 +134,9 @@ No additional locks recorded.
 - Scope: WERK contribution evidence, fiscal contract and reports.
 
 - Verified: 25188b55f422ae204de2a495ae53d11338291607; all three triggered remote workflows succeeded.
+
+## LOCK-WERK-SV-007
+- Status: ACTIVE
+- Task: WERK-SV-007
+- Holder: Codex 2026-09-07
+- Scope: payroll threshold evidence and WERK handoff.
