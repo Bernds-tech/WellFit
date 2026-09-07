@@ -2,7 +2,7 @@
 
 
 ## Current continuation: WERK-SV-006
-Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed (Fiscal, Distribution, Registry, Policy Field, Frontend).
+Status: VERIFIED at 25188b55f422ae204de2a495ae53d11338291607. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; all five relevant local workflow bodies passed (including Distribution and Policy Field). See WERK_SV_006_CI_RECEIPT.json.
 
 Official ESSOSS detail workbooks provide 245 year/system cells (1990–2024, missing markers retained) for seven employee-classified systems. In 2024: PV18049m, KV6865m, ALV4686m =>29600m statistical core; half14800m. Other four2337m; total31937m vs overview31938m, 1m unallocated rounded residual. Overview A38 duplicates2023; contextual2024 inferred and flagged, correct detailyearcolumns retained. Method sheets matter: ALV DN=50% of total is explicitly an assumption due to missing data, public-service pension DN includes retired-person pension-security contributions. Therefore exact policy-eligible contribution cash total remains unknown.
 

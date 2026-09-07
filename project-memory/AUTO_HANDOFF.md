@@ -12,4 +12,4 @@ Before answering project-state questions or proposing/executing work, read Proje
 Then reconcile current GitHub/main/PR/CI and relevant runtime/repository evidence. Chat memory or claims from another session are navigation hints only, never Source of Truth. Do not repeat completed, failed, superseded or owner-deferred work. If Project Memory and current evidence disagree, record/reconcile the contradiction before continuing.
 
 ## WERK-SV-006 continuation, 2026-09-07
-- WERK only; see WERK_SV_HANDOFF.md. Next actual ALV employee receipts and PV/KV statutory-scope bridge; no automatic scenario rebasing or Sites deployment. Remote implementation CI pending.
+- WERK only; see WERK_SV_HANDOFF.md. Next actual ALV employee receipts and PV/KV statutory-scope bridge; no automatic scenario rebasing or Sites deployment. All three triggered remote workflows successful at 25188b55f422ae204de2a495ae53d11338291607; WERK_SV_006_CI_RECEIPT.json.
