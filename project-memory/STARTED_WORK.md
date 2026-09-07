@@ -167,11 +167,11 @@ Canonical register for work that has started but is not yet fully completed.
 - WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. All four triggered remote workflows succeeded at 190e1940446205c4532ecef62c6d6f038a79cd01; WERK_SV_004_CI_RECEIPT.json.
 
 ## WERK-SV-005
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-SV-005
 - Lock: LOCK-WERK-SV-005
 - Base: 35a71c20db0afcb00a9bb703f7f671cf7d3f05e4
 - Scope: contribution-growth and debt-financing durability stress.
 
-- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. Remote CI pending.
+- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.

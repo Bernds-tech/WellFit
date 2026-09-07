@@ -36,3 +36,5 @@ SV-004 extension VERIFIED at 190e1940446205c4532ecef62c6d6f038a79cd01; Fiscal, D
 
 ## WERK-SV-005 extension
 36 growth/durability stress paths supplement the constant nominal debt calculations. Funding remains unproven; see WERK_SV_WACHSTUMSSTRESS.md and WERK_SV_HANDOFF.md.
+
+SV-005 VERIFIED at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; four triggered CI workflows successful; WERK_SV_005_CI_RECEIPT.json.

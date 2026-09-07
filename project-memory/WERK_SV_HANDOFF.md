@@ -1,7 +1,7 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 ## Current continuation: WERK-SV-005
-Status: IMPLEMENTED_NOT_VERIFIED remotely; all five relevant local workflow bodies passed, including 28 growth / 55 SV / 36 assessment / 42 general counterchecks. Remote CI pending.
+Status: VERIFIED at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows (Fiscal, Distribution, Registry, Frontend) succeeded. All five relevant local workflow bodies passed, including 28 growth / 55 SV / 36 assessment / 42 general counterchecks. WERK_SV_005_CI_RECEIPT.json.
 Owner continuation 2026-09-07; progressive relative 50% employee KV/PV/ALV goal unchanged.
 
 Shared debtLinkedRelief engine extended with optional contribution/repayment growth and post-debt horizon; default constant-case output remains identical. 36 stress paths: 0/1/2/3% contribution growth; 1/2.5/4% avoided interest; 0/30% assumed recapture; fixed or 2%-growing funded base repayment; 1/3-year lag. Ten years after debt freedom reviewed. Different-vintage official debt and broad contribution references explicitly synthetic, not an actual calendar start.
