@@ -187,8 +187,10 @@ Canonical register for work that has started but is not yet fully completed.
 - WERK-SV-006 verified at 25188b55f422ae204de2a495ae53d11338291607; all three triggered remote workflows succeeded; five relevant local workflow bodies passed. WERK_SV_006_CI_RECEIPT.json.
 
 ## WERK-SV-007
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-SV-007
 - Lock: LOCK-WERK-SV-007
 - Scope: existing payroll/annual-assessment threshold calculations and fiscal contract.
+
+- Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; all three triggered CI workflows succeeded; five local workflow bodies passed. WERK_SV_007_CI_RECEIPT.json.

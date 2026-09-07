@@ -51,4 +51,4 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 - WERK only; see WERK_SV_HANDOFF.md and WERK_SV_BEITRAGSBASIS.md. Local source/reconciliation and five workflow bodies passed; all three triggered remote workflows successful at 25188b55f422ae204de2a495ae53d11338291607; WERK_SV_006_CI_RECEIPT.json.
 
 ## WERK-SV-007 continuation, 2026-09-07
-- WERK only; read WERK_SV_HANDOFF.md and WERK_SV_ARBEITSANREIZE.md. 24threshold/192grossstep cases; five local workflows passed; remote CI pending.
+- WERK only; read WERK_SV_HANDOFF.md and WERK_SV_ARBEITSANREIZE.md. 24threshold/192grossstep cases; five local workflows passed; all three triggered CI workflows succeeded at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; WERK_SV_007_CI_RECEIPT.json.

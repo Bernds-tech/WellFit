@@ -136,7 +136,9 @@ No additional locks recorded.
 - Verified: 25188b55f422ae204de2a495ae53d11338291607; all three triggered remote workflows succeeded.
 
 ## LOCK-WERK-SV-007
-- Status: ACTIVE
+- Status: RELEASED
 - Task: WERK-SV-007
 - Holder: Codex 2026-09-07
 - Scope: payroll threshold evidence and WERK handoff.
+
+- Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; WERK_SV_007_CI_RECEIPT.json.

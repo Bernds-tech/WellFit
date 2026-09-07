@@ -1,0 +1,61 @@
+{
+  "task": "WERK-SV-007",
+  "checked_at": "2026-09-07",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_commit": "af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a",
+  "verified_tree": "25f2d50d903171d6383bf8f20736216e17222b41",
+  "local_implementation_commit": "ec60d8f411394eca78bb41874f4ee830505cc6be",
+  "status": "VERIFIED",
+  "local_workflow_bodies": [
+    "Fiscal",
+    "Distribution",
+    "Registry",
+    "Policy Field",
+    "Frontend"
+  ],
+  "counterchecks": {
+    "independent_contribution_jump_and_linear_search_cases": 6,
+    "local_gain_cases": 24,
+    "invalid_inputs": 6,
+    "spec_output_corruptions": 5,
+    "previous_contracts_passed": true
+  },
+  "scope": {
+    "rule_year": 2026,
+    "local_threshold_cases": 24,
+    "gross_increment_comparisons": 192,
+    "payroll_and_assessment_rounding_included": false,
+    "household_and_population_effects_verified": false,
+    "actual_alv_employee_receipts_verified": false,
+    "future_payroll_forecast": false,
+    "current_budget_credit_eur": 0,
+    "sites_deployed": false
+  },
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a",
+      "id": 34161421476,
+      "name": "WERK Frontend Check",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34161421476"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a",
+      "id": 34161421478,
+      "name": "WERK Data Contract Registry Check",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34161421478"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a",
+      "id": 34161421474,
+      "name": "WERK Fiscal Data Contract",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34161421474"
+    }
+  ]
+}

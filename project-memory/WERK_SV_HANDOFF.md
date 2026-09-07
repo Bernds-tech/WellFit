@@ -2,7 +2,7 @@
 
 
 ## Current continuation: WERK-SV-007
-Status: IMPLEMENTED_NOT_VERIFIED remotely; five local workflow bodies passed.
+Status: VERIFIED at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five local workflow bodies passed. See WERK_SV_007_CI_RECEIPT.json.
 
 2026 local work-incentive diagnostics reuse existing payroll/annual-assessment kernels: 3 ALV thresholds ×2 regions ×4 core reduction shares =24 cases; 8 gross steps each =192 comparisons. Whole-base rate jumps remain under uniform 50% KV/PV/ALV reduction. Outside Vienna, +0.01 monthly gross (all14 equal salaries, full year) at2225/2427/2630 yields annual net losses208.20/227.11/233.81 EUR without reform;104.05/113.51/116.86 with50% cut. First restoring monthlygross2251.47/2456.22/2660.43, or2237.14/2440.32/2643.78 withcut. Model before payslip/assessment rounding. Recovery is minimum cent from binary search checked against independent linear search. Six independently calculated contribution jumps,24 gainchecks,6 invalidinputs,5 output/spec corruptions passed.
 
