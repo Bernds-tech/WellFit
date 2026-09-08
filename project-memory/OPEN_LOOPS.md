@@ -67,3 +67,6 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 ## WERK-SV-011
 - PARTIAL: official deficit/debt reconciliation and annual funding requirement implemented. Actual policy debt adjustments, genuinely available interest savings and recurring reform effects remain OPEN.
 - Existing10bn net-debt-reduction goal requires a debt-flow check alongside Maastricht balance, without treating temporary liquidity movements as recurring financing.
+
+## WERK-TAX-001 — 2026-09-08
+TAX-001: OPEN cash/finality/refund/cohort comparison, all-in marginal costs, government overlap and recurring additional effect. OPEN ABB headline and office-budget source clarification. Next step is authoritative cash bridge or additional empirical reform evidence; no inferred funding credit.

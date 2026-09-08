@@ -39,3 +39,6 @@
 ## WERK-SV-009
 - Preserve source quartiles in a separate canonical layer, never reinterpret them as monthly payroll frequencies.
 - Calculate sharp conditional bounds on incremental smoothing gross contribution loss; do not book national costs, population effects or empirical tax recapture. The half-cut cost itself remains additional.
+
+## WERK-TAX-001 — 2026-09-08
+TAX-001 replaces misleading ABB recovered-revenue field with an explicitly attributed press headline; pure tax cash remains null. Heterogeneous source stages and administrative budget discrepancies are retained. No average office ROI extrapolation; government overlap is excluded before any recurring funding credit.

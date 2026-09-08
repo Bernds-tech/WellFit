@@ -130,3 +130,6 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Evidence: BMF original PDF+visual/text table23verification;42sourcevalues,336fundingcases,3debtadjustment sensitivities.
 - Countercheck: independent primary-side336identities,6numericanchors,15invalidinputs/8corruptions; five actual localworkflowbodies passed.
 - All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json. No financing credit or Sites deployment.
+
+## WERK-TAX-001 — 2026-09-08
+TAX-001 implementation: original ABB PDF and visual/text source reconciliation;27 conditional break-even cases. Independent countercheck:3 hand thresholds,27 forward cash-timing cases,16 invalid inputs,10 corruptions. Five relevant local workflow bodies passed; initial stale post-debt source hash resolved by regeneration, prior numerical results independently unchanged. Final prose/hash cleanup passed all five local workflow bodies; remote CI pending.

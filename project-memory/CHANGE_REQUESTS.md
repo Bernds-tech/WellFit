@@ -200,3 +200,10 @@
 - Source: owner continuation.
 - Scope: official interest/primary-balance/debt-flow reconciliation and funding bridge for progressive employee relief; R2. Existing branch publication authorized, no Sites deployment.
 - Recovery: revert bounded SV-011 additions; existing canonical debt/payroll engines remain unchanged.
+
+## WERK-CR-TAX-001
+- Date: 2026-09-08
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: ABB2025 source reconciliation, incremental tax-enforcement break-even and measurement gates. R2; existing WERK branch publication authorized, no Sites deployment.
+- Recovery: revert bounded TAX001 additions.

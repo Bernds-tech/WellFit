@@ -185,6 +185,11 @@ Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehm
 
 `node scripts/werk-calculation-contract.mjs --write` erzeugt Bericht und JSON; ohne `--write` wird die bytegleiche Neuberechnung geprüft. `node scripts/werk-calculation-negative-check.mjs` prüft unabhängige Rechenbeispiele und Fehlerfälle. Alle Eingaben sind über SHA-256 gebunden. Das zentrale Freigabegate für eine finanzierte BUD-01-Endrechnung bleibt offen.
 
+
+## Steuervollzug: zusätzliche Einzahlungen und Kostendeckung
+
+[WERK_STEUERVOLLZUG_RECHNUNG.md](WERK_STEUERVOLLZUG_RECHNUNG.md) gleicht ABB2025-Ergebnisstufen ab und rechnet 27 bedingte Kostendeckungsschwellen mit Anlaufkosten, Einbringungsquote und Verzögerung. Die Pressezahl über 154 Mio. Euro ist keine abgestimmte reine Steuer-Cash-Summe. Die bestehende KÖSt-Prozentsensitivität bleibt separat; zusätzliche verifizierte Finanzierung weiterhin 0.
+
 [Beitragsverteilung und Kostengrenzen](WERK_SV_VERTEILUNG_KOSTENGRENZEN.md): 1161 amtliche Quartilswerte 2024, 18 bedingte Zahlungsfall-Obergrenzen und 18 Gegenbeispiele gegen eine Hochrechnung aus Jahresdurchschnitten. Nationale Kosten bleiben offen.
 
 [ALV-Intervallkosten](WERK_SV_INTERVALLKOSTEN.md): 72 bedingte Fälle, neun Cent-Raster und 18 aggregierte Beispieltabellen. Anzahl plus exakte Grundlagensumme identifizieren die Kosten innerhalb eines linearen Abschnitts; amtliche Monatsdaten, Sonderfallabgrenzung und nationale Finanzierung bleiben offen.

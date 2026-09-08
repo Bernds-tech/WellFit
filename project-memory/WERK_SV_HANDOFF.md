@@ -1,6 +1,8 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-011
+Latest financing continuation: WERK-TAX-001; see WERK_TAX_HANDOFF.md for ABB evidence and additional tax-enforcement thresholds. SV numerical results and goals remain unchanged.
+
+## Current SV continuation: WERK-SV-011
 Status: VERIFIED at 6ee07830cbb79bf4060847953c5a24077ef98cdc. Five local workflow bodies passed; final source-year metadata rechecked through new contract/countercheck. All three triggered remote workflows succeeded; WERK_SV_011_CI_RECEIPT.json.
 
 Added official BMF adopted July10,2026 budget PDF (SHA256 55e4e129646b601c37b68aad2c337e55544c0b717d73851d81d708805d416927), visually checked table23/page69 with independent pdftotext extraction:42 cells, six series across2025STAT actual and2026–2031BMF forecasts. Debt-flow source transcription and original hash pinned in CI (not automated PDF table parsing). 2026–2031 deficits109.8bn + adjustments−2.7bn = debt increase107.1bn. 2025 debt identity residual−.1bn and component residual+.1bn retained. 2030 published primary−2.9 vs balance+interest−2.8 retains−.1bn residual.

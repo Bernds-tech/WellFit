@@ -220,3 +220,8 @@ Keep history append-only; supersede rather than delete.
 - Risk: R2
 - Scope: interest-financing and deficit-debt reconciliation.
 - Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json.
+
+## WERK-TAX-001
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Change: WERK-CR-TAX-001
+- Scope: additional enforcement cash and costs; verified financing remains zero.

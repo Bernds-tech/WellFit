@@ -1,0 +1,86 @@
+{
+  "version": "2026-09-08-v1",
+  "status": "conditional_break_even_not_revenue_forecast",
+  "reform_context": "TAX-02: measurement design for additional corporate-tax enforcement; ABB whole-office data are context, not transfer-pricing yield evidence.",
+  "assumptions": {
+    "unit": "EUR million, fixed nominal sensitivity",
+    "annual_incremental_cost_mio": 20,
+    "initial_cost_mio": 10,
+    "cost_scope": "Assumed additional all-in administration, data, litigation and collection cost; neither cost amount empirically verified. Includes no existing ABB cost rebooking.",
+    "assessment_ramp": [
+      0.25,
+      0.75,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "eventual_net_cash_share_cases": [
+      0.5,
+      0.75,
+      1
+    ],
+    "whole_year_collection_lag_cases": [
+      0,
+      1,
+      2
+    ],
+    "horizons_years": [
+      1,
+      5,
+      10
+    ],
+    "discount_rate_pct": 3,
+    "cash_definition": "Actual additional tax payments after refunds and losses, compared with legislated and planned baseline; no fines, existing enforcement, advance-only displacement or social-contribution proceeds. q combines final survival and cash recovery; not measured.",
+    "timing": "Initial cost t0, annual cost and cohort receipts year-end; assessment cohort y pays at y+lag; no opening reform receivables or terminal value."
+  },
+  "government_overlap_exclusions": [
+    {
+      "artifact": "werk-data/government-package-2025-2029.json",
+      "id": "P25-REV-FRAUD",
+      "note": "Existing anti-fraud/exit-tax basket; not a new WERK yield."
+    },
+    {
+      "artifact": "werk-data/government-new-measures-2026-2031.json",
+      "id": "REV-BBG-TAX",
+      "note": "Broad taxes and anti-fraud basket; do not treat entire amount as enforcement or sum overlapping details."
+    },
+    {
+      "artifact": "werk-data/government-new-measures-2026-2031.json",
+      "id": "REV-OPEN-FRAUD3",
+      "note": "Planned third anti-fraud package; uncertainty does not make it additional WERK income."
+    }
+  ],
+  "pilot_measurement_spec": {
+    "decision": "Proposed staged evaluation, not adopted spending authority or a funded reform.",
+    "cohort_fields": [
+      "assessment_year",
+      "tax_type_and_sector",
+      "incremental_intervention_id",
+      "existing_government_measure_ids",
+      "comparison_design_and_baseline_version",
+      "assessment_amount",
+      "final_assessment_amount",
+      "cash_by_payment_year",
+      "refunds_and_reversals_by_year",
+      "overlap_and_timing_displacement",
+      "incremental_all_in_cost_by_year",
+      "legal_finality_status",
+      "cash_reconciliation_status"
+    ],
+    "unit": "Aggregated assessment cohorts; matched cohort cash bridge must avoid counting the same tax liability twice. No individual taxpayer data in public artifacts.",
+    "evaluation": "Pre-specify lawful comparison of eligible case pools (phased rollout or comparable baseline), selection differences and uncertainty. Report assessed/final/cash stages separately, compare net additional cash and cost by year. Repeat evidence over multiple cohorts before recurring funding credit.",
+    "gates": {
+      "attributable_additional_cash_verified": false,
+      "baseline_overlap_removed": false,
+      "refunds_finality_and_displacement_reconciled": false,
+      "incremental_all_in_costs_verified": false,
+      "recurrence_verified": false
+    },
+    "verified_annual_funding_credit_eur": 0
+  }
+}

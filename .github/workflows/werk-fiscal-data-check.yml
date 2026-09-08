@@ -76,6 +76,11 @@ on:
       - 'scripts/werk-alv-cost-bounds-*.mjs'
       - 'scripts/lib/werk-alv-cost-bounds.mjs'
       - 'WERK_SV_VERTEILUNG_KOSTENGRENZEN.md'
+      - 'werk-data/tax-enforcement-*.json'
+      - 'werk-data/sources/bmf-abb-jahresbericht-2025.pdf'
+      - 'scripts/werk-tax-enforcement-*.mjs'
+      - 'scripts/lib/werk-tax-enforcement.mjs'
+      - 'WERK_STEUERVOLLZUG_RECHNUNG.md'
   workflow_dispatch:
 
 permissions:
@@ -245,3 +250,8 @@ jobs:
         run: node scripts/werk-sv-funding-bridge-contract.mjs
       - name: Countercheck primary balance financing debt adjustments and residuals
         run: node scripts/werk-sv-funding-bridge-negative-check.mjs
+
+      - name: Reconcile ABB outcome stages and additional enforcement break-even
+        run: node scripts/werk-tax-enforcement-contract.mjs
+      - name: Countercheck additional cash timing costs and source gates
+        run: node scripts/werk-tax-enforcement-negative-check.mjs

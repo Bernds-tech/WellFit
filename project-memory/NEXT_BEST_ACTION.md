@@ -17,3 +17,6 @@ The intended visual authority is this repository, but the actual product UI/land
 
 ## Safety
 No backend/native rewrite, no blind copy, no production deploy, and no assumption that a graphical concept equals implemented capability.
+
+## WERK-TAX-001 continuation — 2026-09-08
+ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental enforcement break-even cases added. See WERK_TAX_HANDOFF.md and WERK_STEUERVOLLZUG_RECHNUNG.md. Local verification passed; exact-commit remote CI pending. Next evidence: additional collected tax/finality/cost cohorts beyond government baseline, source headline and budget discrepancy reconciliation. No new verified financing.

@@ -46,3 +46,6 @@ DVSV2024 distribution imported: 9 sheets/129 rows/1161 quartile cells. 18 condit
 
 ## WERK-SV-011 — 2026-09-08
 42 official debt-flow values and336 conditional primary/interest/relief funding bridges added. WERK_SV_FINANZIERUNGSBRUECKE.md. No change to WellFit role/acceptance or existing WERK engine inputs.
+
+## WERK-TAX-001 continuation — 2026-09-08
+ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental enforcement break-even cases added. See WERK_TAX_HANDOFF.md and WERK_STEUERVOLLZUG_RECHNUNG.md. Local verification passed; exact-commit remote CI pending. Next evidence: additional collected tax/finality/cost cohorts beyond government baseline, source headline and budget discrepancy reconciliation. No new verified financing.

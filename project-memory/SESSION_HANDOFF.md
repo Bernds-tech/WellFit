@@ -64,3 +64,6 @@ Interval/count/sum engine and explicit special-case exclusions implemented; five
 
 ## WERK-SV-011 — 2026-09-08
 Official debt flow and funding bridge implemented; local checks passed. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json. See WERK_SV_HANDOFF.md; next actual durable fiscal effects and availability of interest savings.
+
+## WERK-TAX-001 continuation — 2026-09-08
+ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental enforcement break-even cases added. See WERK_TAX_HANDOFF.md and WERK_STEUERVOLLZUG_RECHNUNG.md. Local verification passed; exact-commit remote CI pending. Next evidence: additional collected tax/finality/cost cohorts beyond government baseline, source headline and budget discrepancy reconciliation. No new verified financing.

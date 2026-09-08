@@ -8,7 +8,7 @@
     "werk-data/debt-model.json": "0c66de9a551b67607dcb1dc83a7b5d1d1a4b95ac98dbed78296b59adb264719f",
     "werk-data/employee-payroll-withholding-2024.json": "cf1ac8435f3ef6f9f091db2494bf5c5d74940703a1586094e98ac654d2886fe8",
     "werk-data/payroll-annual-assessment-2026.json": "6686f8cea750d3fc9638687bf5bd37c2a830521de97ce120c41c28202b56c18b",
-    "werk-data/reforms.json": "84479531849ae5729cd4ca7159fce7b5ff136a738138d12e92013e35e52da41d"
+    "werk-data/reforms.json": "cb8009625e1888e36cf3ff3cb03f0c501fc61974bbc740e82282f26f44fb0255"
   },
   "source_year": 2024,
   "payroll_rule_year": 2026,

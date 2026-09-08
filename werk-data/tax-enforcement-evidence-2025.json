@@ -1,0 +1,74 @@
+{
+  "version": "2026-09-08-v1",
+  "source_id": "BMF-ABB-REPORT-2025",
+  "year": 2025,
+  "checked_at": "2026-09-08",
+  "url": "https://www.bmf.gv.at/dam/jcr:bb22ebfe-784d-47f5-9e82-23467916e588/Jahresbericht%20ABB%202025.pdf",
+  "original_path": "werk-data/sources/bmf-abb-jahresbericht-2025.pdf",
+  "sha256": "3540d4e819bc2c4fc316a39531aa5083deaba99666b6c926e1b95c1f3d342ca6",
+  "verification": "Printed pages 38–40 visually checked against rendered original and pdftotext; hash and transcription pinned by contract. Not an automated PDF table parser.",
+  "monetary_rows": [
+    {
+      "id": "fines_imposed",
+      "amount_eur": 44925494,
+      "page": 38,
+      "stage": "imposed_not_cash",
+      "label": "Verhängte Finanzstrafen"
+    },
+    {
+      "id": "tax_investigation_results",
+      "amount_eur": 84323122,
+      "page": 38,
+      "stage": "additional_result_not_cash",
+      "label": "Steuerliche Mehrergebnisse der Fahndung"
+    },
+    {
+      "id": "fines_requested_employment",
+      "amount_eur": 20932646,
+      "page": 38,
+      "stage": "requested_not_imposed",
+      "label": "Beantragte Strafen im Beschäftigungsbereich"
+    },
+    {
+      "id": "fines_requested_gambling",
+      "amount_eur": 2111500,
+      "page": 38,
+      "stage": "requested_not_imposed",
+      "label": "Beantragte GSP-Strafen"
+    },
+    {
+      "id": "fines_collected_financial_police",
+      "amount_eur": 1758972,
+      "page": 38,
+      "stage": "collected_subset_not_total_tax_cash",
+      "label": "Eingebrachte Finanzstrafen durch Finanzpolizei"
+    }
+  ],
+  "personnel": {
+    "page": 39,
+    "fte_2025": 884,
+    "scope": "Published personnel stock, not demonstrated annual-average marginal productive staff"
+  },
+  "office_budget": {
+    "page": 40,
+    "appropriation_eur": 79543000,
+    "planned_personnel_eur": 75803000,
+    "planned_operations_eur": 3642000,
+    "planned_investment_eur": 38000,
+    "planned_loans_advances_eur": 60000,
+    "actual_outlays_eur": 78179767,
+    "actual_office_receipts_eur": 7319,
+    "printed_utilization_pct": 98.35,
+    "printed_unused_pct": 1.65,
+    "printed_unused_amount_raw": "1.311.2365",
+    "scope": "ABB administrative detail budget. 7319 office receipts are not total tax receipts credited to ABB; planned cost categories are not actual outlay categories."
+  },
+  "boundaries": {
+    "headline_cash_reconciliation": "open",
+    "row_overlap_reconciliation": "open",
+    "tax_only_cash_total_eur": null,
+    "additional_werk_revenue_eur": null,
+    "source_budget_discrepancy": "open",
+    "note": "Five monetary rows are heterogeneous and may overlap. Their arithmetic sum cannot establish pure tax cash or composition of the press headline. Malformed printed unused amount is retained verbatim; no artificial allocation."
+  }
+}

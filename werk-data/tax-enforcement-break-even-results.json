@@ -1,0 +1,1518 @@
+{
+  "version": "2026-09-08-v1",
+  "status": "conditional_break_even_not_revenue_forecast",
+  "source_hashes": {
+    "werk-data/tax-enforcement-evidence-2025.json": "4d81d788240674a4e7fd2dc3a62df756b5c5317f99977da316ba77f4b8de6238",
+    "werk-data/tax-enforcement-break-even-model.json": "5fd6feaa38bccf8d138a79bc87eb9f488fc6626bb378bf3669bb93d62e5212fd",
+    "werk-data/tax-compliance-model.json": "f32b933169d6d51ca9e2399579ee2296650d9d9831509c5b01e868106f51f6b8",
+    "werk-data/government-package-2025-2029.json": "d937b5b627d1d68e5ee78ae0fa55deb5530d76f81f618edfe7be8a24fa4c35c2",
+    "werk-data/government-new-measures-2026-2031.json": "70189948c04dfa973e6808a5b3595b91c39770e3c5a3bd9378d473baf85a7287"
+  },
+  "source_pdf_sha256": "3540d4e819bc2c4fc316a39531aa5083deaba99666b6c926e1b95c1f3d342ca6",
+  "evidence_reconciliation": {
+    "heterogeneous_row_arithmetic_sum_eur": 154051734,
+    "sum_is_nonoverlapping_cash": false,
+    "actual_office_outlays_eur": 78179767,
+    "appropriation_less_outlays_eur": 1363233,
+    "computed_utilization_pct": 98.28616848748476,
+    "printed_utilization_pct": 98.35,
+    "utilization_residual_percentage_points": -0.063831512515236,
+    "printed_unused_amount_raw": "1.311.2365",
+    "source_budget_discrepancy": "open",
+    "verified_pure_tax_cash_total_eur": null
+  },
+  "government_overlap_exclusions": [
+    {
+      "id": "P25-REV-FRAUD",
+      "artifact": "werk-data/government-package-2025-2029.json",
+      "years": [
+        2025,
+        2026,
+        2027,
+        2028,
+        2029
+      ],
+      "baseline_row": {
+        "id": "P25-REV-FRAUD",
+        "name": "Betrugsbekämpfungspaket inkl. Reform Wegzugsbesteuerung",
+        "status": "not_fully_implemented_at_source_date",
+        "values": [
+          0,
+          270,
+          330,
+          390,
+          450
+        ]
+      },
+      "note": "Existing anti-fraud/exit-tax basket; not a new WERK yield."
+    },
+    {
+      "id": "REV-BBG-TAX",
+      "artifact": "werk-data/government-new-measures-2026-2031.json",
+      "years": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031
+      ],
+      "baseline_row": {
+        "id": "REV-BBG-TAX",
+        "name": "Steuern und Steuerbetrugsbekämpfung",
+        "status": "legislated",
+        "values": [
+          0,
+          937,
+          1827,
+          1728,
+          1513,
+          1203
+        ]
+      },
+      "note": "Broad taxes and anti-fraud basket; do not treat entire amount as enforcement or sum overlapping details."
+    },
+    {
+      "id": "REV-OPEN-FRAUD3",
+      "artifact": "werk-data/government-new-measures-2026-2031.json",
+      "years": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030,
+        2031
+      ],
+      "baseline_row": {
+        "id": "REV-OPEN-FRAUD3",
+        "name": "Betrugsbekämpfung – Drittes Maßnahmenpaket",
+        "status": "planned",
+        "values": [
+          0,
+          0,
+          70,
+          100,
+          100,
+          100
+        ]
+      },
+      "note": "Planned third anti-fraud package; uncertainty does not make it additional WERK income."
+    }
+  ],
+  "cases": [
+    {
+      "horizon_years": 1,
+      "cash_share": 0.5,
+      "lag_years": 0,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0.125,
+      "pv_receipt_factor": 0.12135922330097088,
+      "required_steady_annual_assessment_mio": 240,
+      "required_steady_annual_assessment_npv_mio": 242.39999999999998,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 0.5,
+      "lag_years": 1,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 0.5,
+      "lag_years": 2,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 0.75,
+      "lag_years": 0,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0.1875,
+      "pv_receipt_factor": 0.1820388349514563,
+      "required_steady_annual_assessment_mio": 160,
+      "required_steady_annual_assessment_npv_mio": 161.6,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 0.75,
+      "lag_years": 1,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 0.75,
+      "lag_years": 2,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 1,
+      "lag_years": 0,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0.25,
+      "pv_receipt_factor": 0.24271844660194175,
+      "required_steady_annual_assessment_mio": 120,
+      "required_steady_annual_assessment_npv_mio": 121.19999999999999,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 1,
+      "lag_years": 1,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 1,
+      "cash_share": 1,
+      "lag_years": 2,
+      "total_cost_mio": 30,
+      "pv_cost_mio": 29.41747572815534,
+      "receipt_factor": 0,
+      "pv_receipt_factor": 0,
+      "required_steady_annual_assessment_mio": null,
+      "required_steady_annual_assessment_npv_mio": null,
+      "status": "no_receipts_within_horizon",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.5,
+      "lag_years": 0,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 2,
+      "pv_receipt_factor": 1.807951435052635,
+      "required_steady_annual_assessment_mio": 55,
+      "required_steady_annual_assessment_npv_mio": 56.192960592955835,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.5,
+      "lag_years": 1,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 1.5,
+      "pv_receipt_factor": 1.3365505270490803,
+      "required_steady_annual_assessment_mio": 73.33333333333333,
+      "required_steady_annual_assessment_npv_mio": 76.01219833282066,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.5,
+      "lag_years": 2,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 1,
+      "pv_receipt_factor": 0.8788797425796102,
+      "required_steady_annual_assessment_mio": 110,
+      "required_steady_annual_assessment_npv_mio": 115.59504539915838,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.75,
+      "lag_years": 0,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 3,
+      "pv_receipt_factor": 2.7119271525789523,
+      "required_steady_annual_assessment_mio": 36.666666666666664,
+      "required_steady_annual_assessment_npv_mio": 37.461973728637226,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.75,
+      "lag_years": 1,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 2.25,
+      "pv_receipt_factor": 2.0048257905736206,
+      "required_steady_annual_assessment_mio": 48.888888888888886,
+      "required_steady_annual_assessment_npv_mio": 50.6747988885471,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 0.75,
+      "lag_years": 2,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 1.5,
+      "pv_receipt_factor": 1.3183196138694153,
+      "required_steady_annual_assessment_mio": 73.33333333333333,
+      "required_steady_annual_assessment_npv_mio": 77.06336359943892,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 1,
+      "lag_years": 0,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 4,
+      "pv_receipt_factor": 3.61590287010527,
+      "required_steady_annual_assessment_mio": 27.5,
+      "required_steady_annual_assessment_npv_mio": 28.096480296477917,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 1,
+      "lag_years": 1,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 3,
+      "pv_receipt_factor": 2.6731010540981606,
+      "required_steady_annual_assessment_mio": 36.666666666666664,
+      "required_steady_annual_assessment_npv_mio": 38.00609916641033,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 5,
+      "cash_share": 1,
+      "lag_years": 2,
+      "total_cost_mio": 110,
+      "pv_cost_mio": 101.59414374389067,
+      "receipt_factor": 2,
+      "pv_receipt_factor": 1.7577594851592204,
+      "required_steady_annual_assessment_mio": 55,
+      "required_steady_annual_assessment_npv_mio": 57.79752269957919,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.5,
+      "lag_years": 0,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 4.5,
+      "pv_receipt_factor": 3.783199259843282,
+      "required_steady_annual_assessment_mio": 46.666666666666664,
+      "required_steady_annual_assessment_npv_mio": 47.73844683586611,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 10,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.5,
+      "lag_years": 1,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 4,
+      "pv_receipt_factor": 3.311798351839728,
+      "required_steady_annual_assessment_mio": 52.5,
+      "required_steady_annual_assessment_npv_mio": 54.53353059228068,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.5,
+      "lag_years": 2,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 3.5,
+      "pv_receipt_factor": 2.854127567370258,
+      "required_steady_annual_assessment_mio": 60,
+      "required_steady_annual_assessment_npv_mio": 63.27820059631107,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 40,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.125,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.375,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.5,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.75,
+      "lag_years": 0,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 6.75,
+      "pv_receipt_factor": 5.674798889764924,
+      "required_steady_annual_assessment_mio": 31.11111111111111,
+      "required_steady_annual_assessment_npv_mio": 31.825631223910733,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 10,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.75,
+      "lag_years": 1,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 6,
+      "pv_receipt_factor": 4.967697527759592,
+      "required_steady_annual_assessment_mio": 35,
+      "required_steady_annual_assessment_npv_mio": 36.355687061520456,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 0.75,
+      "lag_years": 2,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 5.25,
+      "pv_receipt_factor": 4.281191351055387,
+      "required_steady_annual_assessment_mio": 40,
+      "required_steady_annual_assessment_npv_mio": 42.18546706420738,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 26.666666666666668,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.1875,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.5625,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 1,
+      "lag_years": 0,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 9,
+      "pv_receipt_factor": 7.566398519686564,
+      "required_steady_annual_assessment_mio": 23.333333333333332,
+      "required_steady_annual_assessment_npv_mio": 23.869223417933053,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 10,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 1,
+      "lag_years": 1,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 8,
+      "pv_receipt_factor": 6.623596703679456,
+      "required_steady_annual_assessment_mio": 26.25,
+      "required_steady_annual_assessment_npv_mio": 27.26676529614034,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 9,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    },
+    {
+      "horizon_years": 10,
+      "cash_share": 1,
+      "lag_years": 2,
+      "total_cost_mio": 210,
+      "pv_cost_mio": 180.60405673551654,
+      "receipt_factor": 7,
+      "pv_receipt_factor": 5.708255134740516,
+      "required_steady_annual_assessment_mio": 30,
+      "required_steady_annual_assessment_npv_mio": 31.639100298155537,
+      "status": "conditional_threshold",
+      "steady_operating_break_even_assessment_mio": 20,
+      "rows": [
+        {
+          "year": 1,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.970873786407767
+        },
+        {
+          "year": 2,
+          "assessment_cohort": null,
+          "cash_per_mio_steady_assessment": 0,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9425959091337544
+        },
+        {
+          "year": 3,
+          "assessment_cohort": 1,
+          "cash_per_mio_steady_assessment": 0.25,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.9151416593531596
+        },
+        {
+          "year": 4,
+          "assessment_cohort": 2,
+          "cash_per_mio_steady_assessment": 0.75,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8884870479156888
+        },
+        {
+          "year": 5,
+          "assessment_cohort": 3,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8626087843841639
+        },
+        {
+          "year": 6,
+          "assessment_cohort": 4,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8374842566836542
+        },
+        {
+          "year": 7,
+          "assessment_cohort": 5,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.8130915113433536
+        },
+        {
+          "year": 8,
+          "assessment_cohort": 6,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7894092343139355
+        },
+        {
+          "year": 9,
+          "assessment_cohort": 7,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7664167323436267
+        },
+        {
+          "year": 10,
+          "assessment_cohort": 8,
+          "cash_per_mio_steady_assessment": 1,
+          "annual_cost_mio": 20,
+          "discount_factor": 0.7440939148967249
+        }
+      ]
+    }
+  ],
+  "verified_annual_funding_credit_eur": 0
+}

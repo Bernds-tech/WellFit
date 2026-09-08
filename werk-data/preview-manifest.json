@@ -1,7 +1,8 @@
 {
-  "version":"2026-09-08-v41",
+  "version":"2026-09-08-v42",
   "current_preview":"werk-v71.html",
   "required":[
+{"group":"Steuervollzug Rechnung","path":"./WERK_STEUERVOLLZUG_RECHNUNG.md"},{"group":"Steuervollzug Rechnung","path":"./werk-data/tax-enforcement-evidence-2025.json"},{"group":"Steuervollzug Rechnung","path":"./werk-data/tax-enforcement-break-even-model.json"},{"group":"Steuervollzug Rechnung","path":"./werk-data/tax-enforcement-break-even-results.json"},
 {"group":"SV Finanzierungsbrücke","path":"./WERK_SV_FINANZIERUNGSBRUECKE.md"},{"group":"SV Finanzierungsbrücke","path":"./werk-data/debt-flow-reconciliation-2026-2031.json"},{"group":"SV Finanzierungsbrücke","path":"./werk-data/employee-sv-funding-bridge-results.json"},
 {"group":"SV Intervallkosten","path":"./WERK_SV_INTERVALLKOSTEN.md"},{"group":"SV Intervallkosten","path":"./werk-data/employee-alv-interval-spec.json"},{"group":"SV Intervallkosten","path":"./werk-data/employee-alv-interval-results.json"},
 {"group":"SV Verteilung und Kostengrenzen","path":"./WERK_SV_VERTEILUNG_KOSTENGRENZEN.md"},{"group":"SV Verteilung und Kostengrenzen","path":"./werk-data/employee-contribution-distribution-2024.json"},{"group":"SV Verteilung und Kostengrenzen","path":"./werk-data/employee-alv-cost-bounds.json"},

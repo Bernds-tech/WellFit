@@ -86,3 +86,6 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - VERIFIED identity: removing all interest from an otherwise unchanged reference budget leaves its primary balance, not automatically a surplus. Published rounding residuals remain visible.
 - CONDITIONAL: historical2024ESSOSS29.6bn held nominally fixed;30%recapture is not national evidence; official debt adjustments cannot automatically survive WERK reforms.
 - NEEDS_VERIFICATION: actual durable primary improvement, available savings, demographic/service costs and exact policy contribution loss.
+
+## WERK-TAX-001 — 2026-09-08
+TAX-001 assumes 20m EUR annual additional all-in cost,10m initial cost,25/75/100% assessment ramp,50/75/100% eventual net cash and0/1/2-year lag;3% discount. All are scenario assumptions, not official cost/yield forecasts. Full assumptions and cohort scope in tax-enforcement-break-even-model.json.
