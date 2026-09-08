@@ -1,0 +1,1524 @@
+{
+  "version": 1,
+  "source_hashes": {
+    "werk-data/employee-alv-transition-model.json": "7f01072cad47d97e565276b3adb5a9f41c18802d61fbdf831318eedfb5250bf1",
+    "werk-data/employee-contribution-distribution-2024.json": "bed503c5ecacbb7d330a6097350b9fc1b062fd031b1e9905d32acd54de54349d",
+    "scripts/lib/werk-alv-transition.mjs": "d9b37101f1b3c8d755ae3021209eed23754e4f557f0dbf3a4191bf99d18687a0",
+    "scripts/lib/werk-alv-cost-bounds.mjs": "b1a255d7d44d7584d480b71d72ab70c92e2b02c13c7155a267a38b1dc09b2da9",
+    "scripts/werk-import-contribution-distribution.py": "0671411f24f7541160ada18fded5d268b904ece9b7c242c2942c5434a85b26dc",
+    "werk-data/sources/dvsv-contribution-distribution-2024.xlsx": "a931d01404b2b7047d3092a2e5da55c6cf74f6e89c72a408d5c6c0912f023dc1"
+  },
+  "status": "conditional_payment_bounds_not_national_cost",
+  "observed_distribution_year": 2024,
+  "payment_rule_years": [
+    2026,
+    2027
+  ],
+  "population_year_bridge": "not_identified_no_2024_to_2026_or_2027_projection",
+  "scope": "Gross incremental ALV smoothing cost; standard cent-valued separate payment records in 1500–3500 EUR scope; no annual net for variable payments.",
+  "national_affected_persons": null,
+  "national_eligible_payment_records": null,
+  "national_annual_gross_cost_eur": null,
+  "national_annual_net_cost_eur": null,
+  "administration_cost_eur": null,
+  "employment_effect_persons": null,
+  "verified_budget_credit_eur": 0,
+  "bounds": [
+    {
+      "schedule_id": "2026",
+      "width_eur": 50,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.980003,
+          "maximum_per_payment_eur": 24.980003,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24980.003,
+          "maximum_per_payment_eur": 24.980003,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 349720.042,
+          "maximum_per_payment_eur": 24.980003,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2026",
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.4900015,
+          "maximum_per_payment_eur": 12.4900015,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12490.0015,
+          "maximum_per_payment_eur": 12.4900015,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 174860.021,
+          "maximum_per_payment_eur": 12.4900015,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2026",
+      "width_eur": 100,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.9825015,
+          "maximum_per_payment_eur": 24.9825015,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24982.5015,
+          "maximum_per_payment_eur": 24.9825015,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 349755.021,
+          "maximum_per_payment_eur": 24.9825015,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2026",
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.49125075,
+          "maximum_per_payment_eur": 12.49125075,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12491.25075,
+          "maximum_per_payment_eur": 12.49125075,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 174877.5105,
+          "maximum_per_payment_eur": 12.49125075,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2026",
+      "width_eur": 150,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.98333433,
+          "maximum_per_payment_eur": 24.98333433,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24983.33433333,
+          "maximum_per_payment_eur": 24.98333433,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 349766.68066667,
+          "maximum_per_payment_eur": 24.98333433,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2026",
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.49166717,
+          "maximum_per_payment_eur": 12.49166717,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12491.66716667,
+          "maximum_per_payment_eur": 12.49166717,
+          "binding_gross_eur": 2630.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 174883.34033333,
+          "maximum_per_payment_eur": 12.49166717,
+          "binding_gross_eur": 2630.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 50,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 25.384922,
+          "maximum_per_payment_eur": 25.384922,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 25384.922,
+          "maximum_per_payment_eur": 25.384922,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 355388.908,
+          "maximum_per_payment_eur": 25.384922,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.692461,
+          "maximum_per_payment_eur": 12.692461,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12692.461,
+          "maximum_per_payment_eur": 12.692461,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 177694.454,
+          "maximum_per_payment_eur": 12.692461,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 100,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 25.387461,
+          "maximum_per_payment_eur": 25.387461,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 25387.461,
+          "maximum_per_payment_eur": 25.387461,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 355424.454,
+          "maximum_per_payment_eur": 25.387461,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.6937305,
+          "maximum_per_payment_eur": 12.6937305,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12693.7305,
+          "maximum_per_payment_eur": 12.6937305,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 177712.227,
+          "maximum_per_payment_eur": 12.6937305,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 150,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 25.38830733,
+          "maximum_per_payment_eur": 25.38830733,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 25388.30733333,
+          "maximum_per_payment_eur": 25.38830733,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 355436.30266667,
+          "maximum_per_payment_eur": 25.38830733,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_existing_provisional",
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.69415367,
+          "maximum_per_payment_eur": 12.69415367,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12694.15366667,
+          "maximum_per_payment_eur": 12.69415367,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 177718.15133333,
+          "maximum_per_payment_eur": 12.69415367,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 50,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.1156759,
+          "maximum_per_payment_eur": 24.1156759,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24115.6759,
+          "maximum_per_payment_eur": 24.1156759,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 337619.4626,
+          "maximum_per_payment_eur": 24.1156759,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.05783795,
+          "maximum_per_payment_eur": 12.05783795,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12057.83795,
+          "maximum_per_payment_eur": 12.05783795,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 168809.7313,
+          "maximum_per_payment_eur": 12.05783795,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 100,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.11808795,
+          "maximum_per_payment_eur": 24.11808795,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24118.08795,
+          "maximum_per_payment_eur": 24.11808795,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 337653.2313,
+          "maximum_per_payment_eur": 24.11808795,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.05904398,
+          "maximum_per_payment_eur": 12.05904398,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12059.043975,
+          "maximum_per_payment_eur": 12.05904398,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 168826.61565,
+          "maximum_per_payment_eur": 12.05904398,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 150,
+      "reduction_share": 0,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 24.11889197,
+          "maximum_per_payment_eur": 24.11889197,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 24118.89196667,
+          "maximum_per_payment_eur": 24.11889197,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 337664.48753333,
+          "maximum_per_payment_eur": 24.11889197,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    },
+    {
+      "schedule_id": "2027_new_provisional",
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "scaled_bounds": [
+        {
+          "payment_records": 1,
+          "lower_eur": 0,
+          "upper_eur": 12.05944598,
+          "maximum_per_payment_eur": 12.05944598,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 1000,
+          "lower_eur": 0,
+          "upper_eur": 12059.44598333,
+          "maximum_per_payment_eur": 12.05944598,
+          "binding_gross_eur": 2539.01
+        },
+        {
+          "payment_records": 14000,
+          "lower_eur": 0,
+          "upper_eur": 168832.24376667,
+          "maximum_per_payment_eur": 12.05944598,
+          "binding_gross_eur": 2539.01
+        }
+      ]
+    }
+  ],
+  "non_identification_examples": [
+    {
+      "threshold_eur": 2225,
+      "width_eur": 50,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 315,
+        "annual_candidate_alv_eur": 159.25,
+        "annual_smoothing_contribution_loss_eur": 155.75,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 183,
+        "annual_candidate_alv_eur": 160.75,
+        "annual_smoothing_contribution_loss_eur": 22.25,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2225,
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 157.5,
+        "annual_candidate_alv_eur": 79.625,
+        "annual_smoothing_contribution_loss_eur": 77.875,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 91.5,
+        "annual_candidate_alv_eur": 80.375,
+        "annual_smoothing_contribution_loss_eur": 11.125,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2225,
+      "width_eur": 100,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 315,
+        "annual_candidate_alv_eur": 81.375,
+        "annual_smoothing_contribution_loss_eur": 233.625,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 183,
+        "annual_candidate_alv_eur": 116.25,
+        "annual_smoothing_contribution_loss_eur": 66.75,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2225,
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 157.5,
+        "annual_candidate_alv_eur": 40.6875,
+        "annual_smoothing_contribution_loss_eur": 116.8125,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 91.5,
+        "annual_candidate_alv_eur": 58.125,
+        "annual_smoothing_contribution_loss_eur": 33.375,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2225,
+      "width_eur": 150,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 315,
+        "annual_candidate_alv_eur": 55.41666667,
+        "annual_smoothing_contribution_loss_eur": 259.58333333,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 183,
+        "annual_candidate_alv_eur": 79.16666667,
+        "annual_smoothing_contribution_loss_eur": 103.83333333,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2225,
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250,
+        2250
+      ],
+      "ordinary_variable_eur": [
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300,
+        2300
+      ],
+      "special_eur": [
+        2250,
+        2250
+      ],
+      "fixed": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 157.5,
+        "annual_candidate_alv_eur": 27.70833333,
+        "annual_smoothing_contribution_loss_eur": 129.79166667,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 31500,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2625,
+        "annual_statutory_alv_eur": 91.5,
+        "annual_candidate_alv_eur": 39.58333333,
+        "annual_smoothing_contribution_loss_eur": 51.91666667,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 50,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 686.56,
+        "annual_candidate_alv_eur": 516.67,
+        "annual_smoothing_contribution_loss_eur": 169.89,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 542.44,
+        "annual_candidate_alv_eur": 518.17,
+        "annual_smoothing_contribution_loss_eur": 24.27,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 343.28,
+        "annual_candidate_alv_eur": 258.335,
+        "annual_smoothing_contribution_loss_eur": 84.945,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 271.22,
+        "annual_candidate_alv_eur": 259.085,
+        "annual_smoothing_contribution_loss_eur": 12.135,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 100,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 686.56,
+        "annual_candidate_alv_eur": 431.725,
+        "annual_smoothing_contribution_loss_eur": 254.835,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 542.44,
+        "annual_candidate_alv_eur": 469.63,
+        "annual_smoothing_contribution_loss_eur": 72.81,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 343.28,
+        "annual_candidate_alv_eur": 215.8625,
+        "annual_smoothing_contribution_loss_eur": 127.4175,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 271.22,
+        "annual_candidate_alv_eur": 234.815,
+        "annual_smoothing_contribution_loss_eur": 36.405,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 150,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 686.56,
+        "annual_candidate_alv_eur": 403.41,
+        "annual_smoothing_contribution_loss_eur": 283.15,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 542.44,
+        "annual_candidate_alv_eur": 429.18,
+        "annual_smoothing_contribution_loss_eur": 113.26,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2427,
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452,
+        2452
+      ],
+      "ordinary_variable_eur": [
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2402,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502,
+        2502
+      ],
+      "special_eur": [
+        2452,
+        2452
+      ],
+      "fixed": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 343.28,
+        "annual_candidate_alv_eur": 201.705,
+        "annual_smoothing_contribution_loss_eur": 141.575,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 34328,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 2860.66666667,
+        "annual_statutory_alv_eur": 271.22,
+        "annual_candidate_alv_eur": 214.59,
+        "annual_smoothing_contribution_loss_eur": 56.63,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 50,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 1096.515,
+        "annual_candidate_alv_eur": 921.62,
+        "annual_smoothing_contribution_loss_eur": 174.895,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 948.03,
+        "annual_candidate_alv_eur": 923.045,
+        "annual_smoothing_contribution_loss_eur": 24.985,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 50,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 548.2575,
+        "annual_candidate_alv_eur": 460.81,
+        "annual_smoothing_contribution_loss_eur": 87.4475,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 474.015,
+        "annual_candidate_alv_eur": 461.5225,
+        "annual_smoothing_contribution_loss_eur": 12.4925,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 100,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 1096.515,
+        "annual_candidate_alv_eur": 834.1725,
+        "annual_smoothing_contribution_loss_eur": 262.3425,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 948.03,
+        "annual_candidate_alv_eur": 873.075,
+        "annual_smoothing_contribution_loss_eur": 74.955,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 100,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 548.2575,
+        "annual_candidate_alv_eur": 417.08625,
+        "annual_smoothing_contribution_loss_eur": 131.17125,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 474.015,
+        "annual_candidate_alv_eur": 436.5375,
+        "annual_smoothing_contribution_loss_eur": 37.4775,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 150,
+      "reduction_share": 0,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 1096.515,
+        "annual_candidate_alv_eur": 805.02333333,
+        "annual_smoothing_contribution_loss_eur": 291.49166667,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 948.03,
+        "annual_candidate_alv_eur": 831.43333333,
+        "annual_smoothing_contribution_loss_eur": 116.59666667,
+        "annual_net_eur": null
+      }
+    },
+    {
+      "threshold_eur": 2630,
+      "width_eur": 150,
+      "reduction_share": 0.5,
+      "ordinary_fixed_eur": [
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655,
+        2655
+      ],
+      "ordinary_variable_eur": [
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2605,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705,
+        2705
+      ],
+      "special_eur": [
+        2655,
+        2655
+      ],
+      "fixed": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 548.2575,
+        "annual_candidate_alv_eur": 402.51166667,
+        "annual_smoothing_contribution_loss_eur": 145.74583333,
+        "annual_net_eur": null
+      },
+      "variable": {
+        "annual_gross_eur": 37170,
+        "insurance_days": 360,
+        "normalized_monthly_income_eur": 3097.5,
+        "annual_statutory_alv_eur": 474.015,
+        "annual_candidate_alv_eur": 415.71666667,
+        "annual_smoothing_contribution_loss_eur": 58.29833333,
+        "annual_net_eur": null
+      }
+    }
+  ]
+}

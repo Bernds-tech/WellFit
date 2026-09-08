@@ -71,3 +71,8 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 ## WERK-SV-008
 - VERIFIED bounded model: 14 equal full-year pay packets; 2026 net rules; three non-overlapping right-side transition widths. Candidate continuity is not enacted law.
 - NEEDS_VERIFICATION: national incidence and costs, final variable 2027 values, complete household net effects and funding. ÖGK primary publication explicitly provisional; no final 2027 net claim.
+
+## WERK-SV-009
+- VERIFIED source:1161 quartile values; year2024, person-level annual income/insurance days×30 including specials, apprentices excluded. Repeated totals agree.
+- INVALIDATED shortcut: same normalized annual income does not identify monthly ALV relief; 18 constructive counterexamples.
+- NEEDS_VERIFICATION: observed eligible assessment counts and future-year bridge. 14000 payments equal1000 persons only in the explicitly conditional14-payment model. No national estimate.

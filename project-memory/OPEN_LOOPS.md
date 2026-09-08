@@ -55,3 +55,8 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 - PARTIAL: continuous 2026 contribution candidates and provisional 2027 cohort amounts are calculated; representative monthly contribution-base frequencies, final 2027+ tax/transition rules, national costs and funding remain open.
 - Actual ALV-DN cash, PV/KV eligible policy scope, household transfers and sustainable debt-linked funding are unchanged open gates.
 - Next: quantify population cost bounds from a suitable official monthly contribution distribution; if unavailable record the missing table precisely rather than manufacture a national estimate.
+
+## WERK-SV-009
+- PARTIAL: official normalized annual-person quartiles now available. They cannot identify monthly ALV reform incidence, proven with18 equal-annual-income examples.
+- Need aggregate counts of ALV-assessed bases by year/month, employment relationship, ordinary vs special payment period, eligible group, applicable rate and fine gross interval. No national count/cost/year bridge assumed.
+- Next use published measure-level administrative counts or contribution-accounting tables if available; otherwise prepare a concrete aggregate data specification without sending third-party requests.

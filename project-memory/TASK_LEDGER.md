@@ -200,3 +200,9 @@ Keep history append-only; supersede rather than delete.
 - R2; unadopted ALV transition candidates and separate provisional 2027 cohort references; source and independent counterchecks required.
 
 - WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; all three exact-commit remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.
+
+## WERK-SV-009
+- Status: IMPLEMENTED_NOT_VERIFIED
+- R2; retrieve official contribution distributions, distinguish observation units and years, calculate only supported population bounds.
+
+- WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. Exact-commit remote CI pending.

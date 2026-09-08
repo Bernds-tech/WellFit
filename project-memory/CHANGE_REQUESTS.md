@@ -179,3 +179,10 @@
 - Source: owner continuation; calculate work incentives and employee relief.
 - Scope: unadopted continuous ALV amount-transition candidates, bounded individual cost/net calculations and provisional 2027 cohort contribution references. R2. Existing branch publication authorized.
 - Recovery: revert bounded SV-008 changes; no deployment or baseline revenue credit.
+
+## WERK-CR-SV-009
+- Date: 2026-09-08
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: official contribution distribution evidence and bounded costing of continuous ALV candidates; R2. Existing branch publication authorized; no Sites deployment.
+- Recovery: revert bounded SV-009 changes.

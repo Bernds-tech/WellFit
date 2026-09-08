@@ -35,3 +35,7 @@
 ## WERK-SV-008
 - Calculate 50/100/150 EUR right-side contribution-amount transitions as unadopted design alternatives. Compare each against the same core-reduction share so smoothing costs are not confused with the separate 50% goal.
 - Keep provisional 2027 existing/new cohorts separate; do not apply 2026 tax to produce asserted 2027 net wages. No verified funding credit.
+
+## WERK-SV-009
+- Preserve source quartiles in a separate canonical layer, never reinterpret them as monthly payroll frequencies.
+- Calculate sharp conditional bounds on incremental smoothing gross contribution loss; do not book national costs, population effects or empirical tax recapture. The half-cut cost itself remains additional.

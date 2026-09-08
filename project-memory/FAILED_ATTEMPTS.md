@@ -22,3 +22,7 @@
 
 ## WERK-SV-008 source retrieval
 - RIS BGBl I 62/2026 ELI and authentic HTML returned unavailable/503 on 2026-09-08. Did not treat draft/secondary material as promulgated law. ÖGK primary Newsletter 8/August 2026 provides provisional contribution references with explicit caveat.
+
+## WERK-SV-009 source retrieval
+- Public DVSVdashboard stayed in loading state; browser console reported WebAssembly MIME-type compile error. No bot/auth/access barrier inferred or bypassed. Official Excel handbook archive provided the usable original contribution tables.
+- Public dashboard package index described a November2025 export, so no2025/2026 data freshness inferred from annual-update claims.

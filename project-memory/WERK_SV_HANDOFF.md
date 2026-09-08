@@ -1,6 +1,20 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-008
+## Current continuation: WERK-SV-009
+Status: IMPLEMENTED_NOT_VERIFIED; five relevant local workflow bodies and independent counterchecks passed; exact-commit CI pending.
+
+Official DVSV handbook2025 chapter1 original XLSX (source archive member Kapitel 1_25.xlsx) provides 2024 tables1.12–1.20:129 rows,1161 quartile values, all/men/women × workers+employees/workers/employees, industry/region/age. Repeated national totals match; source cell ranges and checksum saved. Source normalized annual person income includes specials, divides annual income by insurance days×30; NOT actual monthly pay frequencies. National all-worker/employee p25/median/p75:2444/3501/4845EUR. No2024-to2026population projection.
+
+18 conditional gross ALV smoothing bounds across2026 and provisional2027existing/new schedules, widths50/100/150 and core-cut0/50%; each scaled to1/1000/14000 eligible separate assessed payment records. Worst2026w100 loss24.9825015EUR/payment; for14000records349755.021EUR, or174877.5105EUR additional to half-cut. Zero is possible. These are sharp mathematical bounds in1500–3500EUR standard cent-valued scope, no national counts or net estimate. Do not add three threshold maxima or equate records to persons.
+
+18 equal-annual-income counterexamples:2026threshold2225,w100,nohalfcut, all14payments2250 vs6ordinary2200+6ordinary2300+2special2250; bothannualgross31500/360days→normalized2625; annual smoothing cost233.625 vs66.75EUR. No variable-salary annualnet is produced. Source/bound tests include3,600,018 exhaustive cent payments, independent transcription,17 invalid inputs and12 corruptions across two suites.
+
+Canonical employee-contribution-distribution-2024.json, employee-alv-cost-bounds.json and WERK_SV_VERTEILUNG_KOSTENGRENZEN.md; importer plus bounds library and checks in FISCAL-DATA. Browser dashboard has WASM MIME error; original public workbook obtained from official handbook, no hidden/person data or third-party communication. Public package index isNovember2025, not evidence of2025/2026distribution update.
+
+Next: administrative ALV assessed-base counts by month/employment/ordinary-special/group/rate/fine gross interval. Need exact cost-source specification if unavailable; do not manufacture counts from quartiles. ActualALVDNcash, statutoryscope, demographic/futurefunding and household effects remain open. User relative50% core-contribution goal during funded debt repayment unchanged; no extra funding credit. Existing branch publication authorized; no Sites deployment. Recovery: revert boundedSV009changes.
+
+
+## Previous continuation: WERK-SV-008
 Status: VERIFIED at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five relevant local workflow bodies passed. See WERK_SV_008_CI_RECEIPT.json.
 
 36 unadopted continuous contribution-amount variants (3 widths × 3 thresholds × 2 regions × 2 core-reduction shares), 288 point comparisons. Contributions ramp linearly over 50/100/150 EUR to the right of each threshold, with no higher contribution than the same-share 2026 baseline. Independent endpoint interpolation and existing baseline reconciliation, 360,072 positive local net cent increments, 13 invalid inputs and 9 corruptions. Standard full-year 14 equal payments, no household/rounding/population claim.

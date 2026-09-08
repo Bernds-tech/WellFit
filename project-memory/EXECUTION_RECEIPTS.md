@@ -114,3 +114,9 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Independent endpoint interpolation and baseline comparison; 360,072 positive local cent increments, minimum annual net increase 0.02991863 EUR; 13 invalid-input and 9 corruption cases.
 - Falsifier tested: any local candidate net decline, higher candidate contribution or discrepancy against independent endpoint interpolation would invalidate the claim. National costs cannot be verified without relevant population data.
 - VERIFIED: all five relevant local workflow bodies passed; all three triggered remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3. WERK_SV_008_CI_RECEIPT.json.
+
+## WERK-SV-009 local calculation — 2026-09-08
+- Imported original chapter1 workbook:9 tables/129 rows/1161 quartiles; stored file SHA256 a931d01404b2b7047d3092a2e5da55c6cf74f6e89c72a408d5c6c0912f023dc1.
+- Independent national transcription and repeated totals,7 invalid numbers/6 source-scope corruptions; bounds independently checked over3,600,018 cent-valued payments,10 invalid inputs/6 corruptions.
+- Falsifier: any admissible payment above the bound, incompatible population accepted, source mismatch or inference of equal relief from equal annual income invalidates the model. These paths were checked.
+- All five relevant local workflow bodies passed; exact-commit CI pending; no national financing claim.

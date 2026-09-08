@@ -37,3 +37,7 @@ States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
 ## WERK-SV-008
 - ÖGK Newsletter 8/August 2026 supplies provisional 2027 thresholds and separate existing/new employment rates; recheck official promulgation before using as final rules.
 - Pure ALV transition population costing requires monthly ordinary/special contribution bases and durations, not broad annual gross bands. Extra income tax requires explicit ALV replacement transfers; interest cannot be spent twice.
+
+## WERK-SV-009
+- DVSV2025 handbook chapter1 tables1.12–1.20 describe2024 normalized annual person incomes including specials, not payment-period frequencies.
+- Conditional bounds use eligible separate assessed payment bases in1500–3500EUR, not number of persons or bank transfers. Special payments in the same assessment period must be combined according to the reference rule.

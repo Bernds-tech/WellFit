@@ -58,6 +58,14 @@ on:
       - 'scripts/werk-alv-transition-*.mjs'
       - 'scripts/lib/werk-alv-transition.mjs'
       - 'WERK_SV_STETIGE_BEITRAEGE.md'
+      - 'werk-data/employee-contribution-distribution-*.json'
+      - 'werk-data/employee-alv-cost-bounds.json'
+      - 'werk-data/sources/dvsv-contribution-distribution-*.xlsx'
+      - 'scripts/werk-import-contribution-distribution.py'
+      - 'scripts/werk-contribution-distribution-negative-check.py'
+      - 'scripts/werk-alv-cost-bounds-*.mjs'
+      - 'scripts/lib/werk-alv-cost-bounds.mjs'
+      - 'WERK_SV_VERTEILUNG_KOSTENGRENZEN.md'
   workflow_dispatch:
 
 permissions:
@@ -208,3 +216,12 @@ jobs:
         run: node scripts/werk-alv-transition-contract.mjs
       - name: Countercheck every cent of local transitions and financing boundaries
         run: node scripts/werk-alv-transition-negative-check.mjs
+
+      - name: Reconcile original contribution distribution and observation units
+        run: python3 scripts/werk-import-contribution-distribution.py
+      - name: Countercheck source cells and false population closure
+        run: python3 scripts/werk-contribution-distribution-negative-check.py
+      - name: Recompute conditional ALV cost bounds and non-identification examples
+        run: node scripts/werk-alv-cost-bounds-contract.mjs
+      - name: Countercheck sharp payment bounds and incompatible population units
+        run: node scripts/werk-alv-cost-bounds-negative-check.mjs

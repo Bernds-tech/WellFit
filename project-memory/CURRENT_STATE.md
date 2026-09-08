@@ -37,3 +37,6 @@ Before changing product visuals, inspect current `main`, active visual branches/
 
 ## WERK-SV-008 — 2026-09-08
 Continuous ALV candidates calculated: 36 net variants/288 comparisons and 15 provisional 2027 cohort contribution variants/75 comparisons. Report WERK_SV_STETIGE_BEITRAEGE.md. National costs, implementation and financing remain open. See WERK_SV_HANDOFF.md; technical verification does not adopt the candidate.
+
+## WERK-SV-009 — 2026-09-08
+DVSV2024 distribution imported: 9 sheets/129 rows/1161 quartile cells. 18 conditional cost bounds and18 equal-annual-income non-identification examples. WERK_SV_VERTEILUNG_KOSTENGRENZEN.md; national cost not identified.

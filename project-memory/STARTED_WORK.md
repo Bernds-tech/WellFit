@@ -204,3 +204,13 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: continuous ALV candidate calculations, provisional 2027 cohort references and fiscal integration.
 
 - WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; all three exact-commit remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.
+
+## WERK-SV-009
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-009
+- Lock: LOCK-WERK-SV-009
+- Base: d633a99dd22788715ea4f587235ed8e1d85d4bae
+- Scope: official contribution distribution evidence and bounded population costing.
+
+- WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. Exact-commit remote CI pending.
