@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "checked_on": "2026-09-08",
+  "status": "draft_aggregate_data_specification_not_sent",
+  "task": "WERK-SV-010",
+  "unit": "eligible_separate_payment_records",
+  "reference_for_examples": "conditional_scenario",
+  "standard_scope": "standard_employee_same_rate_and_charge_base_employee_bears_dn",
+  "supported_gross_base_range_eur": [
+    1500,
+    3500
+  ],
+  "interval_endpoints": "inclusive_cent_values",
+  "candidate_status": "unadopted_unfunded_design_candidates",
+  "year_bridge": "No 2024 distribution extrapolation; 2026 observations and provisional 2027 scenarios separate.",
+  "input_rows_required": [
+    "lower_eur",
+    "upper_eur",
+    "count",
+    "base_sum_eur"
+  ],
+  "input_table_required": [
+    "unit",
+    "reference",
+    "scope",
+    "payment_kind",
+    "expected_payment_records",
+    "rows"
+  ],
+  "base_sum_rule": "Exact sum of assessed charged bases, in euro cents, or explicit null. Rounded published sums require a separate uncertainty adapter; no midpoint imputation.",
+  "unknown_count_rule": "Null, suppressed, rounded or missing counts cannot be costed as zero. Keep unresolved outside the executable standard input.",
+  "required_dimensions": [
+    "contribution_year_month",
+    "ordinary_or_special",
+    "employment_group_and_exemption",
+    "2027_existing_or_new_cohort_when_applicable",
+    "rate_assessment_base_interval",
+    "charged_base_interval",
+    "employee_or_employer_bears_dn",
+    "source_correction_vintage"
+  ],
+  "additional_reconciliation_fields": [
+    "payment_record_count",
+    "sum_charged_bases_eur",
+    "assessed_employee_alv_eur",
+    "assessed_employer_alv_eur",
+    "cash_employee_alv_eur_if_separately_measured",
+    "corrections_arrears_refunds_eur",
+    "suppressed_or_unclassified_counts"
+  ],
+  "excluded_standard_cases": [
+    "apprentices",
+    "different_rate_assessment_and_charge_bases_including_altersteilzeit",
+    "employer_bears_employee_share_including_no_cash_or_20_percent_rule",
+    "unpaid_leave_and_other_special_assessments",
+    "mixed_or_unidentified_legal_cohorts",
+    "unreconciled_multiple_employment_or_tariff_block_counts"
+  ],
+  "aggregation_rules": [
+    "Statutory assessment cases, not persons, bank transfers or raw mBGM tariff blocks.",
+    "Combine amounts or split employment records according to applicable assessment rules before binning.",
+    "Ordinary and special assessments remain separate; co-period special amounts must be reconciled.",
+    "Deliver mutually exclusive intervals per legal group and period; deduplicate corrections and reconcile totals.",
+    "Provide only aggregate tables, no names or personal identifiers.",
+    "Assessed contributions and cash receipts are different measures; reconcile collection timing and employer/employee allocation."
+  ],
+  "sources": [
+    {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.908591&portal=oegkdgportal",
+      "title": "ÖGK: Verringerung des AV-Beitrages bei geringem Einkommen",
+      "publication": "DGservice 4/December 2025",
+      "finding": "mBGM tariff blocks are not automatically independent ALV assessments; continuous vs independent employment changes aggregation."
+    },
+    {
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.910372&portal=oegkdgportal",
+      "title": "ÖGK: AV-Beitrag bei geringem Einkommen – Sonderregelungen",
+      "publication": "DGservice 1/March 2026",
+      "finding": "Rate-assessment and charged bases can differ; the legally employee-classified contribution can be borne by employers."
+    },
+    {
+      "url": "https://www.sozialversicherung.at/cdscontent/?contentid=10007.888557",
+      "title": "DVSV Statistisches Handbuch 2025",
+      "finding": "Imported 2024 annual normalized quartiles are not monthly assessment counts."
+    }
+  ],
+  "actual_eligible_payment_records": null,
+  "actual_interval_base_sums_eur": null,
+  "actual_alv_employee_cash_receipts_eur": null,
+  "national_annual_gross_cost_eur": null,
+  "national_annual_net_cost_eur": null,
+  "verified_budget_credit_eur": 0,
+  "research_status": "Focused public parliamentary/social-insurance search did not locate the required comparable period-level count/base-sum table. This is not proof that no administrative table exists."
+}

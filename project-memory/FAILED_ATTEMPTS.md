@@ -26,3 +26,6 @@
 ## WERK-SV-009 source retrieval
 - Public DVSVdashboard stayed in loading state; browser console reported WebAssembly MIME-type compile error. No bot/auth/access barrier inferred or bypassed. Official Excel handbook archive provided the usable original contribution tables.
 - Public dashboard package index described a November2025 export, so no2025/2026 data freshness inferred from annual-update claims.
+
+## WERK-SV-010 — public administrative-table search, 2026-09-08
+- Focused Parliament/SV searches for actual ALV counts and contribution bases did not identify a comparable monthly table. Official ÖGK December2025/March2026 rules clarified scope but contain no national count distribution. Continue from the concrete aggregate specification; do not repeat the dashboard/yearly-quartile route as a monthly population estimate.

@@ -60,6 +60,10 @@ on:
       - 'WERK_SV_STETIGE_BEITRAEGE.md'
       - 'werk-data/employee-contribution-distribution-*.json'
       - 'werk-data/employee-alv-cost-bounds.json'
+      - 'werk-data/employee-alv-interval-*.json'
+      - 'scripts/werk-alv-interval-*.mjs'
+      - 'scripts/lib/werk-alv-interval-cost.mjs'
+      - 'WERK_SV_INTERVALLKOSTEN.md'
       - 'werk-data/sources/dvsv-contribution-distribution-*.xlsx'
       - 'scripts/werk-import-contribution-distribution.py'
       - 'scripts/werk-contribution-distribution-negative-check.py'
@@ -225,3 +229,8 @@ jobs:
         run: node scripts/werk-alv-cost-bounds-contract.mjs
       - name: Countercheck sharp payment bounds and incompatible population units
         run: node scripts/werk-alv-cost-bounds-negative-check.mjs
+
+      - name: Recompute interval costs and aggregate input specification
+        run: node scripts/werk-alv-interval-contract.mjs
+      - name: Countercheck interval boundaries sums and incompatible assessments
+        run: node scripts/werk-alv-interval-negative-check.mjs

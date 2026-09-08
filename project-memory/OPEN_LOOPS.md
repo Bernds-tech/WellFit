@@ -60,3 +60,6 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 - PARTIAL: official normalized annual-person quartiles now available. They cannot identify monthly ALV reform incidence, proven with18 equal-annual-income examples.
 - Need aggregate counts of ALV-assessed bases by year/month, employment relationship, ordinary vs special payment period, eligible group, applicable rate and fine gross interval. No national count/cost/year bridge assumed.
 - Next use published measure-level administrative counts or contribution-accounting tables if available; otherwise prepare a concrete aggregate data specification without sending third-party requests.
+
+## WERK-SV-010 continuation
+- OPEN data: actual period-level assessed-case counts and charged-base sums, rate-assessment base, true payer and source/cash reconciliation. Draft employee-alv-interval-spec.json is not an acquired dataset. Standard interval engine does not close special-case, national-cost or funding gates.

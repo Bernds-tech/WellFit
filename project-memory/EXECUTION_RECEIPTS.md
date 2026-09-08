@@ -120,3 +120,8 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Independent national transcription and repeated totals,7 invalid numbers/6 source-scope corruptions; bounds independently checked over3,600,018 cent-valued payments,10 invalid inputs/6 corruptions.
 - Falsifier: any admissible payment above the bound, incompatible population accepted, source mismatch or inference of equal relief from equal annual income invalidates the model. These paths were checked.
 - VERIFIED: five relevant local workflow bodies passed; all three triggered remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json. No national financing claim.
+
+## WERK-SV-010 — local implementation, 2026-09-08
+- Implementation: interval extrema, affine sums and table reconciliation;72cases/9partitions/18tables; exact rational/outward cent arithmetic.
+- Countercheck: independent contribution endpoint interpolation over3,600,018cent payments;114interval extrema/sums and18aggregate totals;27invalid inputs/8corruptions fail. Five actual localworkflowbodies pass.
+- Remote: publication and exact-commit CI pending. National costs/funding remain open; no request sent or deployment.

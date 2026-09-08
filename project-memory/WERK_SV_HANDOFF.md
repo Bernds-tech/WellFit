@@ -1,6 +1,20 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-009
+## Current continuation: WERK-SV-010
+Status: IMPLEMENTED_NOT_VERIFIED remotely; five local workflow bodies passed. Publication and exact-commit CI pending.
+
+72 conditional interval-cost cases (3 schedules ×3 widths ×2 shares ×4 information profiles),9 complete cent partitions and18 aggregate table examples. New library uses exact rational arithmetic for gross ALV smoothing loss and outward cent bounds. Count+interval provides extrema including interior threshold jumps; count+exact base sum identifies aggregate cost on one affine segment. Sums crossing formula changes remain explicitly unused, bounds conservative. Overlapping bins, inconsistent total counts, unknown counts, incompatible units and special scope fail closed.
+
+2026,w100,1000 standard separately assessed cases in2230–2250EUR: gross loss16687.50–21137.50EUR; with exact base sum2240000EUR loss18912.50EUR. Additional to50% core cut:8343.75–10568.75EUR, or9456.25EUR exact. Synthetic populations, pre-rounding contributions, no annualnet/national estimate. Two2250 cases vs2225+2275 have same4500sum but33.375 vs11.125cost; crossing-band mean imputation invalid.
+
+ÖGK DGservice December2025/March2026 source findings: mBGM tariff blocks do not equal legal assessment counts; continuous versus distinct employment matters. Altersteilzeit can use different rate-assessment and charged bases. Some legally employee-classified contributions are actually employer-borne. Standard engine excludes these; draft aggregate request specifies separate bases/payer/group/period/cohort, counts/sums, assessed versus cash reconciliation, suppression/correction metadata. No request sent. No precise public administrative table found; this is not proof of absence.
+
+Canonical employee-alv-interval-spec/results.json, WERK_SV_INTERVALLKOSTEN.md, separate library/contract/negative checks. In FISCAL-DATA; manifestv40, mainreports/status links updated. Independent endpoint interpolation over3,600,018cent payments,114interval extrema/sums,18aggregate totals;27invalid inputs and8corruptions rejected. All five localworkflowbodies passed.
+
+Next: actual administrative inputs via audited source adapter, or progress on a separate fiscal gap while waiting; avoid repeating broad quartile/dashboard searches or treating more synthetic tests as national data closure. Exact ALV-DN cash, PV/KV legal scope, financing of primary surpluses, actual interest savings, future contribution growth, household effects and special-case payer incidence remain open. User's progressive relative50% core target unchanged; no funding credit or candidate adoption. Existing branch publication authorized; no Sites deployment. Recovery: revert bounded SV010changes.
+
+
+## Previous continuation: WERK-SV-009
 Status: VERIFIED at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five local workflow bodies passed. See WERK_SV_009_CI_RECEIPT.json.
 
 Official DVSV handbook2025 chapter1 original XLSX (source archive member Kapitel 1_25.xlsx) provides 2024 tables1.12–1.20:129 rows,1161 quartile values, all/men/women × workers+employees/workers/employees, industry/region/age. Repeated national totals match; source cell ranges and checksum saved. Source normalized annual person income includes specials, divides annual income by insurance days×30; NOT actual monthly pay frequencies. National all-worker/employee p25/median/p75:2444/3501/4845EUR. No2024-to2026population projection.

@@ -158,3 +158,10 @@ No additional locks recorded.
 - Scope: new contribution-distribution and cost-bound artifacts, fiscal integration and WERK memory; existing branch.
 
 - Released 2026-09-08 after exact-implementation success of all three workflows; WERK_SV_009_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-010
+- Task: WERK-SV-010
+- Status: ACTIVE
+- Risk: R2
+- Holder: Codex WERK continuation 2026-09-08
+- Scope: bounded ALV interval library/data/report/checks and WERK memory; existing branch only.

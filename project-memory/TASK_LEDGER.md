@@ -206,3 +206,11 @@ Keep history append-only; supersede rather than delete.
 - R2; retrieve official contribution distributions, distinguish observation units and years, calculate only supported population bounds.
 
 - WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. All three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.
+
+## WERK-SV-010
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-010
+- Scope: interval-based ALV bounds and exact affine sums, with administrative scope gates.
+
+- Local: five relevant workflow bodies passed; independent interpolation over 3,600,018 cent payments, 114 interval extrema/sums, 18 aggregate reconciliations, 27 invalid inputs and 8 corruptions. Remote CI pending publication.

@@ -214,3 +214,14 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: official contribution distribution evidence and bounded population costing.
 
 - WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. All three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.
+
+## WERK-SV-010
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-010
+- Lock: LOCK-WERK-SV-010
+- Base: 301346d28388deb194629c1f8c58ed5562eb0962
+- Scope: interval/count/sum costing, administrative input specification and fiscal integration.
+- Falsifier: a legal threshold inside a band invalidates mean-only costing, or statutory rate-assessment base differs from the charged base. Check boundaries and reject incompatible units/scope.
+
+- Local: five relevant workflow bodies passed; independent interpolation over 3,600,018 cent payments, 114 interval extrema/sums, 18 aggregate reconciliations, 27 invalid inputs and 8 corruptions. Remote CI pending publication.

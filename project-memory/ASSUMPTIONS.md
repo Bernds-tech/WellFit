@@ -76,3 +76,8 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - VERIFIED source:1161 quartile values; year2024, person-level annual income/insurance days×30 including specials, apprentices excluded. Repeated totals agree.
 - INVALIDATED shortcut: same normalized annual income does not identify monthly ALV relief; 18 constructive counterexamples.
 - NEEDS_VERIFICATION: observed eligible assessment counts and future-year bridge. 14000 payments equal1000 persons only in the explicitly conditional14-payment model. No national estimate.
+
+## WERK-SV-010
+- VERIFIED design boundary: counts alone support interval extrema; sums identify aggregate loss only on an affine segment of the candidate rule. No within-band uniformity assumption.
+- VERIFIED source scope: ÖGK March2026 special rules distinguish rate-assessment and charged bases in Altersteilzeit; employer-bearing cases cannot be employee-net claims. Standard engine must reject these cases.
+- NEEDS_VERIFICATION: actual administrative eligible counts, interval sums and separate ALV-DN receipts. No national estimate or funding credit.
