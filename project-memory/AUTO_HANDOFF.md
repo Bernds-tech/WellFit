@@ -18,4 +18,4 @@ Then reconcile current GitHub/main/PR/CI and relevant runtime/repository evidenc
 - WERK only; read WERK_SV_HANDOFF.md. Next continuous contribution design+financing with2027transition; actual ALV-DN cash remains open. All three triggered CI workflows succeeded at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; WERK_SV_007_CI_RECEIPT.json.
 
 ## WERK-SV-008 continuation — 2026-09-08
-- WERK only; read WERK_SV_HANDOFF.md. Next representative monthly contribution distribution and national cost bounds; final 2027 values/net and actual ALV-DN receipts remain open. Implementation and exact-commit CI pending.
+- WERK only; read WERK_SV_HANDOFF.md. Next representative monthly contribution distribution and national cost bounds; final 2027 values/net and actual ALV-DN receipts remain open. All three triggered CI workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.

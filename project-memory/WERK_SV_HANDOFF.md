@@ -1,7 +1,7 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 ## Current continuation: WERK-SV-008
-Status: IMPLEMENTED_NOT_VERIFIED; all five relevant local workflow bodies and counterchecks passed; exact-commit remote CI pending.
+Status: VERIFIED at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five relevant local workflow bodies passed. See WERK_SV_008_CI_RECEIPT.json.
 
 36 unadopted continuous contribution-amount variants (3 widths × 3 thresholds × 2 regions × 2 core-reduction shares), 288 point comparisons. Contributions ramp linearly over 50/100/150 EUR to the right of each threshold, with no higher contribution than the same-share 2026 baseline. Independent endpoint interpolation and existing baseline reconciliation, 360,072 positive local net cent increments, 13 invalid inputs and 9 corruptions. Standard full-year 14 equal payments, no household/rounding/population claim.
 

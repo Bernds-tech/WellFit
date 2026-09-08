@@ -113,4 +113,4 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - 36 net variants/288 point comparisons; 15 provisional 2027 cohort contribution variants/75 points.
 - Independent endpoint interpolation and baseline comparison; 360,072 positive local cent increments, minimum annual net increase 0.02991863 EUR; 13 invalid-input and 9 corruption cases.
 - Falsifier tested: any local candidate net decline, higher candidate contribution or discrepancy against independent endpoint interpolation would invalidate the claim. National costs cannot be verified without relevant population data.
-- All five relevant local workflow bodies passed; pending exact-commit remote CI, not yet claimed VERIFIED.
+- VERIFIED: all five relevant local workflow bodies passed; all three triggered remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3. WERK_SV_008_CI_RECEIPT.json.

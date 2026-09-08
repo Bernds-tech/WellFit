@@ -145,6 +145,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-SV-008
 - Task: WERK-SV-008
-- Status: IN_PROGRESS
+- Status: RELEASED
 - Holder: Codex 2026-09-08
 - Scope: new ALV transition model/library/report, fiscal integration and WERK memory on existing branch.
+
+- Released 2026-09-08 after exact-implementation success of all three workflows; WERK_SV_008_CI_RECEIPT.json.
