@@ -153,6 +153,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-SV-009
 - Task: WERK-SV-009
-- Status: IN_PROGRESS
+- Status: RELEASED
 - Holder: Codex 2026-09-08
 - Scope: new contribution-distribution and cost-bound artifacts, fiscal integration and WERK memory; existing branch.
+
+- Released 2026-09-08 after exact-implementation success of all three workflows; WERK_SV_009_CI_RECEIPT.json.

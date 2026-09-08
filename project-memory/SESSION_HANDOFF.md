@@ -57,4 +57,4 @@ This branch hosts the separately requested WERK reform project. Read `project-me
 Continuous ALV alternatives and provisional 2027 contribution cohorts implemented. Read WERK_SV_HANDOFF.md. Existing branch publication authorized; no Sites deployment. All three exact-commit CI workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.
 
 ## WERK-SV-009 — 2026-09-08
-Contribution distributions and conditional cost bounds implemented; read WERK_SV_HANDOFF.md. Publication authorized on existing branch; local workflow regression/exact-commit CI pending.
+Contribution distributions and conditional cost bounds implemented; read WERK_SV_HANDOFF.md. Publication authorized on existing branch; all five relevant local workflow bodies and three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.

@@ -119,4 +119,4 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Imported original chapter1 workbook:9 tables/129 rows/1161 quartiles; stored file SHA256 a931d01404b2b7047d3092a2e5da55c6cf74f6e89c72a408d5c6c0912f023dc1.
 - Independent national transcription and repeated totals,7 invalid numbers/6 source-scope corruptions; bounds independently checked over3,600,018 cent-valued payments,10 invalid inputs/6 corruptions.
 - Falsifier: any admissible payment above the bound, incompatible population accepted, source mismatch or inference of equal relief from equal annual income invalidates the model. These paths were checked.
-- All five relevant local workflow bodies passed; exact-commit CI pending; no national financing claim.
+- VERIFIED: five relevant local workflow bodies passed; all three triggered remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json. No national financing claim.

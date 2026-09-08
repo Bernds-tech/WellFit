@@ -1,7 +1,7 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 ## Current continuation: WERK-SV-009
-Status: IMPLEMENTED_NOT_VERIFIED; five relevant local workflow bodies and independent counterchecks passed; exact-commit CI pending.
+Status: VERIFIED at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five local workflow bodies passed. See WERK_SV_009_CI_RECEIPT.json.
 
 Official DVSV handbook2025 chapter1 original XLSX (source archive member Kapitel 1_25.xlsx) provides 2024 tables1.12–1.20:129 rows,1161 quartile values, all/men/women × workers+employees/workers/employees, industry/region/age. Repeated national totals match; source cell ranges and checksum saved. Source normalized annual person income includes specials, divides annual income by insurance days×30; NOT actual monthly pay frequencies. National all-worker/employee p25/median/p75:2444/3501/4845EUR. No2024-to2026population projection.
 

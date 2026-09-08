@@ -202,7 +202,7 @@ Keep history append-only; supersede rather than delete.
 - WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; all three exact-commit remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.
 
 ## WERK-SV-009
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - R2; retrieve official contribution distributions, distinguish observation units and years, calculate only supported population bounds.
 
-- WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. Exact-commit remote CI pending.
+- WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. All three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.
