@@ -193,3 +193,10 @@
 - Source: owner continuation.
 - Scope: interval/count/sum-based ALV candidate costing and precise administrative data specification; R2. Existing WERK branch publication authorized.
 - Recovery: revert bounded SV-010 changes; no Sites deployment or funding activation.
+
+## WERK-CR-SV-011
+- Date: 2026-09-08
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: official interest/primary-balance/debt-flow reconciliation and funding bridge for progressive employee relief; R2. Existing branch publication authorized, no Sites deployment.
+- Recovery: revert bounded SV-011 additions; existing canonical debt/payroll engines remain unchanged.

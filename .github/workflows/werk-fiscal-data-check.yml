@@ -61,6 +61,12 @@ on:
       - 'werk-data/employee-contribution-distribution-*.json'
       - 'werk-data/employee-alv-cost-bounds.json'
       - 'werk-data/employee-alv-interval-*.json'
+      - 'werk-data/debt-flow-reconciliation-2026-2031.json'
+      - 'werk-data/employee-sv-funding-bridge-*.json'
+      - 'werk-data/sources/bmf-budget-beschluss-2027-2028.pdf'
+      - 'scripts/werk-sv-funding-bridge-*.mjs'
+      - 'scripts/lib/werk-sv-funding-bridge.mjs'
+      - 'WERK_SV_FINANZIERUNGSBRUECKE.md'
       - 'scripts/werk-alv-interval-*.mjs'
       - 'scripts/lib/werk-alv-interval-cost.mjs'
       - 'WERK_SV_INTERVALLKOSTEN.md'
@@ -234,3 +240,8 @@ jobs:
         run: node scripts/werk-alv-interval-contract.mjs
       - name: Countercheck interval boundaries sums and incompatible assessments
         run: node scripts/werk-alv-interval-negative-check.mjs
+
+      - name: Reconcile official debt flow and employee relief funding requirements
+        run: node scripts/werk-sv-funding-bridge-contract.mjs
+      - name: Countercheck primary balance financing debt adjustments and residuals
+        run: node scripts/werk-sv-funding-bridge-negative-check.mjs

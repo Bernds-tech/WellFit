@@ -81,3 +81,8 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 - VERIFIED design boundary: counts alone support interval extrema; sums identify aggregate loss only on an affine segment of the candidate rule. No within-band uniformity assumption.
 - VERIFIED source scope: ÖGK March2026 special rules distinguish rate-assessment and charged bases in Altersteilzeit; employer-bearing cases cannot be employee-net claims. Standard engine must reject these cases.
 - NEEDS_VERIFICATION: actual administrative eligible counts, interval sums and separate ALV-DN receipts. No national estimate or funding credit.
+
+## WERK-SV-011
+- VERIFIED identity: removing all interest from an otherwise unchanged reference budget leaves its primary balance, not automatically a surplus. Published rounding residuals remain visible.
+- CONDITIONAL: historical2024ESSOSS29.6bn held nominally fixed;30%recapture is not national evidence; official debt adjustments cannot automatically survive WERK reforms.
+- NEEDS_VERIFICATION: actual durable primary improvement, available savings, demographic/service costs and exact policy contribution loss.

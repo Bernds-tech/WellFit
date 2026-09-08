@@ -125,3 +125,8 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Implementation: interval extrema, affine sums and table reconciliation;72cases/9partitions/18tables; exact rational/outward cent arithmetic.
 - Countercheck: independent contribution endpoint interpolation over3,600,018cent payments;114interval extrema/sums and18aggregate totals;27invalid inputs/8corruptions fail. Five actual localworkflowbodies pass.
 - Remote: All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json. National costs/funding remain open; no request sent or deployment.
+
+## WERK-SV-011 — local implementation, 2026-09-08
+- Evidence: BMF original PDF+visual/text table23verification;42sourcevalues,336fundingcases,3debtadjustment sensitivities.
+- Countercheck: independent primary-side336identities,6numericanchors,15invalidinputs/8corruptions; five actual localworkflowbodies passed.
+- Publication and exact-commit CI pending. No financing credit or Sites deployment.

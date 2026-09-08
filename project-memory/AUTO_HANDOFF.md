@@ -25,3 +25,6 @@ Then reconcile current GitHub/main/PR/CI and relevant runtime/repository evidenc
 
 ## WERK-SV-010 continuation — 2026-09-08
 - WERK only; read WERK_SV_HANDOFF.md. Interval costing is implemented locally; national inputs remain absent. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json.
+
+## WERK-SV-011 continuation — 2026-09-08
+- WERK only. Read WERK_SV_HANDOFF.md. Funding requirements now distinguish primary deficits, interest, relief and debt adjustments. Publication and exact-commit CI pending.

@@ -43,3 +43,6 @@ DVSV2024 distribution imported: 9 sheets/129 rows/1161 quartile cells. 18 condit
 
 ## WERK-SV-010 — 2026-09-08
 72 conditional ALV interval cases,9 cent partitions and18 aggregate examples. Exact sums usable only within affine segments; legal assessment/base/payer gates and draft administrative input specification added. WERK_SV_INTERVALLKOSTEN.md. WERK-only factual addition; no WellFit role or acceptance change.
+
+## WERK-SV-011 — 2026-09-08
+42 official debt-flow values and336 conditional primary/interest/relief funding bridges added. WERK_SV_FINANZIERUNGSBRUECKE.md. No change to WellFit role/acceptance or existing WERK engine inputs.

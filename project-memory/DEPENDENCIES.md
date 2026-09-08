@@ -44,3 +44,7 @@ States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
 
 ## WERK-SV-010 — 2026-09-08
 - National ALV costing depends on legal assessment counts rather than raw tariff blocks/persons; same versus different rate/charged bases and legal/actual employee payer require separate groups. Exact affine sums need unrounded cent sums; otherwise interval uncertainty remains. No source adapter for real data has been accepted.
+
+## WERK-SV-011
+- Employee relief funding now has a source-linked primary/interest/surplus bridge; old conditional models remain unchanged. Debt reduction additionally depends on deficit-debt adjustments and source rounding.
+- Full removal of current-year interest is an extreme accounting comparison, never a forecast of debt freedom in2026–2031.

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "checked_on": "2026-09-08",
+  "status": "official_adopted_policy_forecast_not_werk_effect",
+  "source": {
+    "url": "https://www.bmf.gv.at/dam/jcr:a5d69691-da87-4741-8e82-f4db29cc889b/Strategiebericht_2027-2030_2028-2031_Budgetbericht_2027_2028_Beschluss.pdf",
+    "local_file": "werk-data/sources/bmf-budget-beschluss-2027-2028.pdf",
+    "sha256": "55e4e129646b601c37b68aad2c337e55544c0b717d73851d81d708805d416927",
+    "document_date": "2026-07-10",
+    "table": 23,
+    "printed_page": 69,
+    "pdf_page_index": 68,
+    "unit": "EUR billion",
+    "verification": "Visually checked published table and independent text extraction; CI pins source bytes and numeric transcription, not a PDF parser."
+  },
+  "years": [
+    2025,
+    2026,
+    2027,
+    2028,
+    2029,
+    2030,
+    2031
+  ],
+  "series": {
+    "prior_debt_bn": [
+      395.1,
+      418.1,
+      438.2,
+      457.3,
+      473.4,
+      490.3,
+      507.8
+    ],
+    "deficit_positive_bn": [
+      21.5,
+      22.2,
+      19.1,
+      16.9,
+      16.5,
+      17.1,
+      18.0
+    ],
+    "deficit_debt_adjustment_bn": [
+      1.6,
+      -2.1,
+      0.1,
+      -0.8,
+      0.4,
+      0.3,
+      -0.6
+    ],
+    "statistical_accrual_adjustment_bn": [
+      1.5,
+      2.1,
+      0.6,
+      -0.3,
+      0.9,
+      0.8,
+      -0.1
+    ],
+    "stock_flow_adjustment_bn": [
+      0,
+      -4.2,
+      -0.5,
+      -0.5,
+      -0.5,
+      -0.5,
+      -0.5
+    ],
+    "closing_debt_bn": [
+      418.1,
+      438.2,
+      457.3,
+      473.4,
+      490.3,
+      507.8,
+      525.2
+    ]
+  },
+  "table_sign_rule": "Positive Maastricht-Saldo in table23 represents deficit/debt addition, opposite to signed balance in table22.",
+  "rounding_rule": "Keep published 0.1bn values and expose residuals; never force reconciliation by reallocating rounding.",
+  "reform_adjustments_identified": false,
+  "actual_avoided_interest_bn": null,
+  "verified_budget_credit_bn": 0,
+  "year_status": [
+    "STAT_Ist_2025",
+    "BMF_policy_forecast",
+    "BMF_policy_forecast",
+    "BMF_policy_forecast",
+    "BMF_policy_forecast",
+    "BMF_policy_forecast",
+    "BMF_policy_forecast"
+  ]
+}

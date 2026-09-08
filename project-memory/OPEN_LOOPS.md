@@ -63,3 +63,7 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 
 ## WERK-SV-010 continuation
 - OPEN data: actual period-level assessed-case counts and charged-base sums, rate-assessment base, true payer and source/cash reconciliation. Draft employee-alv-interval-spec.json is not an acquired dataset. Standard interval engine does not close special-case, national-cost or funding gates.
+
+## WERK-SV-011
+- PARTIAL: official deficit/debt reconciliation and annual funding requirement implemented. Actual policy debt adjustments, genuinely available interest savings and recurring reform effects remain OPEN.
+- Existing10bn net-debt-reduction goal requires a debt-flow check alongside Maastricht balance, without treating temporary liquidity movements as recurring financing.

@@ -166,3 +166,10 @@ No additional locks recorded.
 - Holder: Codex WERK continuation 2026-09-08
 - Scope: bounded ALV interval library/data/report/checks and WERK memory; existing branch only.
 - Released: 2026-09-08 after exact-commit CI success; WERK_SV_010_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-011
+- Task: WERK-SV-011
+- Status: ACTIVE
+- Risk: R2
+- Holder: Codex WERK continuation 2026-09-08
+- Scope: bounded official source, funding library/report/checks and WERK memory.

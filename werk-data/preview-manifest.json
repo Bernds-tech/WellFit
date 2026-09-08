@@ -1,7 +1,8 @@
 {
-  "version":"2026-09-08-v40",
+  "version":"2026-09-08-v41",
   "current_preview":"werk-v71.html",
   "required":[
+{"group":"SV Finanzierungsbrücke","path":"./WERK_SV_FINANZIERUNGSBRUECKE.md"},{"group":"SV Finanzierungsbrücke","path":"./werk-data/debt-flow-reconciliation-2026-2031.json"},{"group":"SV Finanzierungsbrücke","path":"./werk-data/employee-sv-funding-bridge-results.json"},
 {"group":"SV Intervallkosten","path":"./WERK_SV_INTERVALLKOSTEN.md"},{"group":"SV Intervallkosten","path":"./werk-data/employee-alv-interval-spec.json"},{"group":"SV Intervallkosten","path":"./werk-data/employee-alv-interval-results.json"},
 {"group":"SV Verteilung und Kostengrenzen","path":"./WERK_SV_VERTEILUNG_KOSTENGRENZEN.md"},{"group":"SV Verteilung und Kostengrenzen","path":"./werk-data/employee-contribution-distribution-2024.json"},{"group":"SV Verteilung und Kostengrenzen","path":"./werk-data/employee-alv-cost-bounds.json"},
 {"group":"SV Stetige Beiträge","path":"./WERK_SV_STETIGE_BEITRAEGE.md"},{"group":"SV Stetige Beiträge","path":"./werk-data/employee-alv-transition-model.json"},{"group":"SV Stetige Beiträge","path":"./werk-data/employee-alv-transition-results.json"},

@@ -1,6 +1,22 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
-## Current continuation: WERK-SV-010
+## Current continuation: WERK-SV-011
+Status: IMPLEMENTED_NOT_VERIFIED remotely. Five local workflow bodies passed; final source-year metadata rechecked through new contract/countercheck. Publication and exact-commit CI pending.
+
+Added official BMF adopted July10,2026 budget PDF (SHA256 55e4e129646b601c37b68aad2c337e55544c0b717d73851d81d708805d416927), visually checked table23/page69 with independent pdftotext extraction:42 cells, six series across2025STAT actual and2026–2031BMF forecasts. Debt-flow source transcription and original hash pinned in CI (not automated PDF table parsing). 2026–2031 deficits109.8bn + adjustments−2.7bn = debt increase107.1bn. 2025 debt identity residual−.1bn and component residual+.1bn retained. 2030 published primary−2.9 vs balance+interest−2.8 retains−.1bn residual.
+
+336 annual conditional funding comparisons:6baselineyears ×4relativecuts(0/10/25/50%) ×2assumedrecapture(0/30%) ×[0/25/50%interest removal with0/10bn surplus targets;100%removal onlyzero surplus]. Fixed historical ESSOSS2024core29.6bn, half14.8bn statistical reference, NOT actual policy cash or forecast. No trajectory/year of debt freedom, growth or service-cost projection.
+
+2026 no saved interest:22.2bn additional primary improvement for zero balance;32.2bn for10bn Maastricht surplus;47bn for10bn surplus+14.8bn referencecut. These are successive total requirements, not additive. Even hypothetical removal of all2031interest15.4bn leaves2.6bn deficit, so referencehalf requires17.4bn additional improvement (12.96bn with merely assumed30%recapture). No automatic interest funding credit.
+
+Separate debt identity: debtchange=−signedbalance+Deficit-Debt Adjustment. Illustrative adjustments−2/0/+2 mean10bn surplus reducesdebt12/10/8bn; requiredsurplusfor10bnnetreduction8/10/12bn. Held official adjustments are explicitly NOT WERK forecasts. Existing debt/payroll engines unchanged.
+
+New canonical debt-flow-reconciliation-2026-2031.json, employee-sv-funding-bridge-results.json, WERK_SV_FINANZIERUNGSBRUECKE.md and separate library/contract/negative checks. FISCAL-DATA, manifestv41, reports/status linked. Independent primary-side identities336cases,6pinned amounts,15invalidinputs/8corruptions inclsourcebytes; five localworkflowbodies passed.
+
+Next: concrete durable additional reform effects and execution evidence, actual avoided-interest availability and reform-related debt/cash bridge. More hypothetical variants do not close these data gates. ActualALVDNcash and broader contribution scope, household effects, growth/demography and preserved benefits remain open. Existing publication authorized; no Sites deployment. Recovery: revert bounded SV011 additions. Progressive relative50% employeeKV/PV/ALV target unchanged; verified extra funding0.
+
+
+## Previous continuation: WERK-SV-010
 Status: VERIFIED at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3. Five local workflow bodies and all three triggered remote workflows passed. See WERK_SV_010_CI_RECEIPT.json.
 
 72 conditional interval-cost cases (3 schedules ×3 widths ×2 shares ×4 information profiles),9 complete cent partitions and18 aggregate table examples. New library uses exact rational arithmetic for gross ALV smoothing loss and outward cent bounds. Count+interval provides extrema including interior threshold jumps; count+exact base sum identifies aggregate cost on one affine segment. Sums crossing formula changes remain explicitly unused, bounds conservative. Overlapping bins, inconsistent total counts, unknown counts, incompatible units and special scope fail closed.

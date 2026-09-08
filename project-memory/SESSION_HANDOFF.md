@@ -61,3 +61,6 @@ Contribution distributions and conditional cost bounds implemented; read WERK_SV
 
 ## WERK-SV-010 — 2026-09-08
 Interval/count/sum engine and explicit special-case exclusions implemented; five local workflow bodies pass. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json. See WERK_SV_HANDOFF.md. Next actual administrative adapter/data, not another annual-quartile extrapolation. No Sites deployment.
+
+## WERK-SV-011 — 2026-09-08
+Official debt flow and funding bridge implemented; local checks passed. Publication and exact-commit CI pending. See WERK_SV_HANDOFF.md; next actual durable fiscal effects and availability of interest savings.
