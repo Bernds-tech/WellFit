@@ -227,11 +227,11 @@ Canonical register for work that has started but is not yet fully completed.
 - Local: five relevant workflow bodies passed; independent interpolation over 3,600,018 cent payments, 114 interval extrema/sums, 18 aggregate reconciliations, 27 invalid inputs and 8 corruptions. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json.
 
 ## WERK-SV-011
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-SV-011
 - Lock: LOCK-WERK-SV-011
 - Base: 4d2205024b1d147392553cfc3b5acb0b52e706fe
 - Scope: six-year interest/primary-balance funding bridge and official deficit-debt adjustments.
 - Falsifier: treating all interest as free while primary deficit persists, adding relief costs twice, or equating Maastricht surplus and debt reduction despite debt adjustments. Independent identities and invalid-input checks required.
-- Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. Remote publication/CI pending.
+- Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json.

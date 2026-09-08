@@ -129,4 +129,4 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 ## WERK-SV-011 — local implementation, 2026-09-08
 - Evidence: BMF original PDF+visual/text table23verification;42sourcevalues,336fundingcases,3debtadjustment sensitivities.
 - Countercheck: independent primary-side336identities,6numericanchors,15invalidinputs/8corruptions; five actual localworkflowbodies passed.
-- Publication and exact-commit CI pending. No financing credit or Sites deployment.
+- All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json. No financing credit or Sites deployment.

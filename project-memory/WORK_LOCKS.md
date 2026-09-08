@@ -169,7 +169,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-SV-011
 - Task: WERK-SV-011
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-08
 - Scope: bounded official source, funding library/report/checks and WERK memory.
+- Released: 2026-09-08 after exact-commit success; WERK_SV_011_CI_RECEIPT.json.

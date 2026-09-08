@@ -216,7 +216,7 @@ Keep history append-only; supersede rather than delete.
 - Local: five relevant workflow bodies passed; independent interpolation over 3,600,018 cent payments, 114 interval extrema/sums, 18 aggregate reconciliations, 27 invalid inputs and 8 corruptions. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json.
 
 ## WERK-SV-011
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Scope: interest-financing and deficit-debt reconciliation.
-- Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. Remote publication/CI pending.
+- Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json.
