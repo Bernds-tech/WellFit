@@ -237,10 +237,12 @@ Canonical register for work that has started but is not yet fully completed.
 - Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json.
 
 ## WERK-TAX-001
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Risk: R2
 - Change: WERK-CR-TAX-001
 - Lock: LOCK-WERK-TAX-001
 - Base: a7f8708b7955af5b485be0b2640e590d98d6bf28
 - Scope: official ABB outcome/cash/cost reconciliation and incremental break-even.
 - Falsifier: summed requests/assessments/fines falsely treated as cash, average office yield extrapolated to marginal reform, or existing government receipts credited twice. Check original, independent hand arithmetic and negative cases.
+
+- Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.

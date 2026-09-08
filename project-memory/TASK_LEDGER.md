@@ -222,6 +222,8 @@ Keep history append-only; supersede rather than delete.
 - Local: five relevant workflow bodies passed; latest source-year clarification rechecked through funding contract and counterchecks. All three triggered remote workflows succeeded at 6ee07830cbb79bf4060847953c5a24077ef98cdc; WERK_SV_011_CI_RECEIPT.json.
 
 ## WERK-TAX-001
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: VERIFIED
 - Change: WERK-CR-TAX-001
 - Scope: additional enforcement cash and costs; verified financing remains zero.
+
+- Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
