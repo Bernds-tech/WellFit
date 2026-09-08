@@ -1,7 +1,7 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
 ## Current continuation: WERK-SV-010
-Status: IMPLEMENTED_NOT_VERIFIED remotely; five local workflow bodies passed. Publication and exact-commit CI pending.
+Status: VERIFIED at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3. Five local workflow bodies and all three triggered remote workflows passed. See WERK_SV_010_CI_RECEIPT.json.
 
 72 conditional interval-cost cases (3 schedules ×3 widths ×2 shares ×4 information profiles),9 complete cent partitions and18 aggregate table examples. New library uses exact rational arithmetic for gross ALV smoothing loss and outward cent bounds. Count+interval provides extrema including interior threshold jumps; count+exact base sum identifies aggregate cost on one affine segment. Sums crossing formula changes remain explicitly unused, bounds conservative. Overlapping bins, inconsistent total counts, unknown counts, incompatible units and special scope fail closed.
 

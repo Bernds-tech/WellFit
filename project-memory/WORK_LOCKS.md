@@ -161,7 +161,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-SV-010
 - Task: WERK-SV-010
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-08
 - Scope: bounded ALV interval library/data/report/checks and WERK memory; existing branch only.
+- Released: 2026-09-08 after exact-commit CI success; WERK_SV_010_CI_RECEIPT.json.

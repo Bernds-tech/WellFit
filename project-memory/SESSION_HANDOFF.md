@@ -60,4 +60,4 @@ Continuous ALV alternatives and provisional 2027 contribution cohorts implemente
 Contribution distributions and conditional cost bounds implemented; read WERK_SV_HANDOFF.md. Publication authorized on existing branch; all five relevant local workflow bodies and three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.
 
 ## WERK-SV-010 — 2026-09-08
-Interval/count/sum engine and explicit special-case exclusions implemented; five local workflow bodies pass. Remote publication/CI pending. See WERK_SV_HANDOFF.md. Next actual administrative adapter/data, not another annual-quartile extrapolation. No Sites deployment.
+Interval/count/sum engine and explicit special-case exclusions implemented; five local workflow bodies pass. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json. See WERK_SV_HANDOFF.md. Next actual administrative adapter/data, not another annual-quartile extrapolation. No Sites deployment.

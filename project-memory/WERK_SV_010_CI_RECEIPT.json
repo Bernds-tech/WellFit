@@ -1,0 +1,65 @@
+{
+  "task": "WERK-SV-010",
+  "checked_at": "2026-09-08",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "implementation_commit": "6a663ffc573dcdb6b175e84c17bfc0d42f848ba3",
+  "verified_tree": "1fd8bf17dc3b9a45e8f05ce1f6cf2f1dbcce218b",
+  "local_implementation_commit": "ef2b889d8ae5f7dac28565fdc9e2de7aa24fb2f7",
+  "status": "VERIFIED",
+  "local_workflow_bodies": [
+    "Fiscal",
+    "Distribution",
+    "Registry",
+    "Policy Field",
+    "Frontend"
+  ],
+  "counterchecks": {
+    "independently_interpolated_cent_payments": 3600018,
+    "interval_extrema_and_sums": 114,
+    "aggregate_tables": 18,
+    "invalid_inputs": 27,
+    "spec_output_corruptions": 8,
+    "previous_contracts_passed": true
+  },
+  "scope": {
+    "interval_cases": 72,
+    "complete_partitions": 9,
+    "aggregate_examples": 18,
+    "actual_administrative_data_acquired": false,
+    "aggregate_data_request_sent": false,
+    "exact_rational_arithmetic_before_payroll_rounding": true,
+    "conditional_1000_payments_2230_to_2250_with_sum_2240000_gross_cost_eur": 18912.5,
+    "conditional_additional_cost_with_half_cut_eur": 9456.25,
+    "national_cost_identified": false,
+    "national_population_count": null,
+    "current_budget_credit_eur": 0,
+    "sites_deployed": false
+  },
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "6a663ffc573dcdb6b175e84c17bfc0d42f848ba3",
+      "id": 34220556487,
+      "name": "WERK Data Contract Registry Check",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34220556487"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "6a663ffc573dcdb6b175e84c17bfc0d42f848ba3",
+      "id": 34220556695,
+      "name": "WERK Frontend Check",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34220556695"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "6a663ffc573dcdb6b175e84c17bfc0d42f848ba3",
+      "id": 34220556675,
+      "name": "WERK Fiscal Data Contract",
+      "status": "completed",
+      "url": "https://github.com/Bernds-tech/WellFit/actions/runs/34220556675"
+    }
+  ]
+}
