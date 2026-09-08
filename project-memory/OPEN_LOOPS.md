@@ -50,3 +50,8 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 ## WERK-SV-007
 - Status: PARTIAL
 - Local2026 ALV notches calculated; complete household marginal burden, statutory2027+ transition and continuous-tariff policy costs open. Actual ALV-DN cash not identified from budget totals.
+
+## WERK-SV-008
+- PARTIAL: continuous 2026 contribution candidates and provisional 2027 cohort amounts are calculated; representative monthly contribution-base frequencies, final 2027+ tax/transition rules, national costs and funding remain open.
+- Actual ALV-DN cash, PV/KV eligible policy scope, household transfers and sustainable debt-linked funding are unchanged open gates.
+- Next: quantify population cost bounds from a suitable official monthly contribution distribution; if unavailable record the missing table precisely rather than manufacture a national estimate.

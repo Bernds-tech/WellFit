@@ -34,3 +34,6 @@ Before changing product visuals, inspect current `main`, active visual branches/
 - Buddy care, daily/weekly missions, adventures/challenges, arenas, mayor/checkpoints and essential settings open as overlays; deeper configuration remains PC-first.
 - Canonical specification: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md` / `WF-CONTRACT-MOBILE-SHELL-001`.
 - Evidence boundary: this is accepted target UX, not proof of graphical implementation, Unity compilation, Android build or real-device behavior.
+
+## WERK-SV-008 — 2026-09-08
+Continuous ALV candidates calculated: 36 net variants/288 comparisons and 15 provisional 2027 cohort contribution variants/75 comparisons. Report WERK_SV_STETIGE_BEITRAEGE.md. National costs, implementation and financing remain open. See WERK_SV_HANDOFF.md; technical verification does not adopt the candidate.

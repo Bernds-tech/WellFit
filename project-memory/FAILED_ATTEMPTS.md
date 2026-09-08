@@ -19,3 +19,6 @@
 - Cause: Scope ownership was not encoded operationally.
 - Decision: Keep repository roles explicit and use accepted bridge tasks for cross-repo work.
 - Do not repeat: Do not implement backend/native functionality in this visual repository by default.
+
+## WERK-SV-008 source retrieval
+- RIS BGBl I 62/2026 ELI and authentic HTML returned unavailable/503 on 2026-09-08. Did not treat draft/secondary material as promulgated law. ÖGK primary Newsletter 8/August 2026 provides provisional contribution references with explicit caveat.

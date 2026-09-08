@@ -108,3 +108,9 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 - Countercheck: 55 numerical/negative cases, including allocation identity, lag, target coverage and protected base repayment; relevant workflow bodies.
 - Falsifier: faster fully reinvested debt path and full relief claimed simultaneously; prospective interest spent early; unknown pure SV aggregate treated as known.
 - Remote CI: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json. Recovery: revert bounded SV-003 changes; no runtime migration.
+
+## WERK-SV-008 local implementation — 2026-09-08
+- 36 net variants/288 point comparisons; 15 provisional 2027 cohort contribution variants/75 points.
+- Independent endpoint interpolation and baseline comparison; 360,072 positive local cent increments, minimum annual net increase 0.02991863 EUR; 13 invalid-input and 9 corruption cases.
+- Falsifier tested: any local candidate net decline, higher candidate contribution or discrepancy against independent endpoint interpolation would invalidate the claim. National costs cannot be verified without relevant population data.
+- All five relevant local workflow bodies passed; pending exact-commit remote CI, not yet claimed VERIFIED.

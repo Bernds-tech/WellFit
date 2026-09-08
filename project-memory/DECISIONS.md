@@ -31,3 +31,7 @@
 
 ## WERK-SV-007
 - Keep local threshold diagnosis separate from measured employment effects. A continuous contribution transition is a design candidate, not adopted/financed policy. No automatic overwrite of2026 rules with future rates.
+
+## WERK-SV-008
+- Calculate 50/100/150 EUR right-side contribution-amount transitions as unadopted design alternatives. Compare each against the same core-reduction share so smoothing costs are not confused with the separate 50% goal.
+- Keep provisional 2027 existing/new cohorts separate; do not apply 2026 tax to produce asserted 2027 net wages. No verified funding credit.

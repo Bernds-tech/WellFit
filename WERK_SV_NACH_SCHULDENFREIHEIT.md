@@ -105,4 +105,6 @@ Keine berechneten AMS-Ansprüche; Leistungen werden nur für die isolierte Sensi
 
 Technische Rechnung vorhanden; **50%-Zieldeckung und Aktivierung bleiben offen**. [Gesamtrechnung](WERK_GESAMTRECHNUNG.md). Reproduzieren mit `python3 scripts/werk-import-employee-withholding.py` und `node scripts/werk-post-debt-sv-contract.mjs`; Generierung jeweils mit `--write`.
 
+[Stetige ALV-Beiträge](WERK_SV_STETIGE_BEITRAEGE.md): 36 unbeschlossene Gestaltungsvarianten mit 288 Standard-Nettovergleichen und 15 vorläufige 2027-Beitragsvarianten. Nationale Zusatzkosten und Gegenfinanzierung bleiben offen.
+
 Der [ALV-Schwellentest 2026](WERK_SV_ARBEITSANREIZE.md) ergänzt 24 lokale Netto-Schwellenfälle und 192 kleine Bruttoerhöhungen. Die relative Beitragssenkung verkleinert die Sprünge, beseitigt sie bei unveränderter Stufenstruktur aber nicht.

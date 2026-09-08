@@ -67,3 +67,7 @@ Do not delete invalid assumptions; preserve them as `INVALIDATED` or `SUPERSEDED
 ## WERK-SV-007
 - VERIFIED: ÖGK2026 whole-base ALV thresholds; 24 local standard-assessment effects.
 - Falsifier checked: uniform50% core cuts do not remove all net-loss notches. Exact actual ALV-DN aggregate and future-law projection remain unverified.
+
+## WERK-SV-008
+- VERIFIED bounded model: 14 equal full-year pay packets; 2026 net rules; three non-overlapping right-side transition widths. Candidate continuity is not enacted law.
+- NEEDS_VERIFICATION: national incidence and costs, final variable 2027 values, complete household net effects and funding. ÖGK primary publication explicitly provisional; no final 2027 net claim.

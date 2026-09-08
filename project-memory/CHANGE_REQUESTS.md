@@ -172,3 +172,10 @@
 - Source: owner continuation, calculate employee contribution and work incentives.
 - Scope: 2026 ALV threshold discontinuities and gross recovery with existing standard annual assessment; R2. Actual aggregate ALV receipts remain unresolved. Existing branch publication authorized.
 - Recovery: revert bounded SV-007 changes.
+
+## WERK-CR-SV-008
+- Date: 2026-09-08
+- Status: ACCEPTED
+- Source: owner continuation; calculate work incentives and employee relief.
+- Scope: unadopted continuous ALV amount-transition candidates, bounded individual cost/net calculations and provisional 2027 cohort contribution references. R2. Existing branch publication authorized.
+- Recovery: revert bounded SV-008 changes; no deployment or baseline revenue credit.

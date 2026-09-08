@@ -194,3 +194,13 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: existing payroll/annual-assessment threshold calculations and fiscal contract.
 
 - Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; all three triggered CI workflows succeeded; five local workflow bodies passed. WERK_SV_007_CI_RECEIPT.json.
+
+## WERK-SV-008
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SV-008
+- Lock: LOCK-WERK-SV-008
+- Base: 52bf305f1193143a7cb38ffc27155393e62429df
+- Scope: continuous ALV candidate calculations, provisional 2027 cohort references and fiscal integration.
+
+- WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; exact-commit remote CI pending.

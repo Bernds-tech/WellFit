@@ -194,3 +194,9 @@ Keep history append-only; supersede rather than delete.
 - Task: calculate ALV threshold net losses, recovery gross and 50%-cut effects with source-backed 2026 rules.
 
 - Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; all three triggered CI workflows succeeded; five local workflow bodies passed. WERK_SV_007_CI_RECEIPT.json.
+
+## WERK-SV-008
+- Status: IMPLEMENTED_NOT_VERIFIED
+- R2; unadopted ALV transition candidates and separate provisional 2027 cohort references; source and independent counterchecks required.
+
+- WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; exact-commit remote CI pending.

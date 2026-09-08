@@ -1,7 +1,21 @@
 # WERK — Arbeitnehmerentlastung mit dem Schuldenabbau
 
+## Current continuation: WERK-SV-008
+Status: IMPLEMENTED_NOT_VERIFIED; all five relevant local workflow bodies and counterchecks passed; exact-commit remote CI pending.
 
-## Current continuation: WERK-SV-007
+36 unadopted continuous contribution-amount variants (3 widths × 3 thresholds × 2 regions × 2 core-reduction shares), 288 point comparisons. Contributions ramp linearly over 50/100/150 EUR to the right of each threshold, with no higher contribution than the same-share 2026 baseline. Independent endpoint interpolation and existing baseline reconciliation, 360,072 positive local net cent increments, 13 invalid inputs and 9 corruptions. Standard full-year 14 equal payments, no household/rounding/population claim.
+
+100 EUR width, outside Vienna, no general cut: monthly gross 2225→2235 gives annual net +57.88 instead of -129.57; 2427→2437 +55.05 instead of -149.42; 2630→2640 +53.49 instead of -157.00. At2235 annual contributions fall280.35, assessed tax rises92.90, employee net rises187.45 EUR. These are incremental smoothing costs, separate from half-cut cost. ALV requires full gross replacement; tax recapture is consolidated fiscal arithmetic, not automatic transfer.
+
+Primary ÖGK2027 newsletter8/August2026 is explicitly provisional pending variable-value promulgation: existing employment thresholds2327/2539/2751 rates0.5/1.5/2.5/2.95; new employment thresholds2327/2539 rates1/2/2.95. 15 contribution-only variants/75 comparisons, not2027net. No baseline REV-ALV-DN double booking. RIS authentic source currently unavailable; existing legal baseline is not overwritten with draft text.
+
+Canonical report WERK_SV_STETIGE_BEITRAEGE.md, employee-alv-transition model/results, independent library and fiscal contract. No accepted tariff choice or funding credit. User's relative50% employeeKV/PV/ALV target during financed debt repayment, benefits preservation and growth/funding gaps remain.
+
+Next: official monthly contribution-base distribution for population costs/bounds, actual ALV-DN cash, PV/KV scope, final2027+ reference and household effects. Broad annual payroll groups cannot identify local monthly transitions. Recovery: revert bounded SV-008 changes. Existing branch publication authorization persists; no Sites deployment.
+
+
+
+## Previous continuation: WERK-SV-007
 Status: VERIFIED at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a. All three triggered remote workflows (Fiscal, Registry, Frontend) succeeded; five local workflow bodies passed. See WERK_SV_007_CI_RECEIPT.json.
 
 2026 local work-incentive diagnostics reuse existing payroll/annual-assessment kernels: 3 ALV thresholds ×2 regions ×4 core reduction shares =24 cases; 8 gross steps each =192 comparisons. Whole-base rate jumps remain under uniform 50% KV/PV/ALV reduction. Outside Vienna, +0.01 monthly gross (all14 equal salaries, full year) at2225/2427/2630 yields annual net losses208.20/227.11/233.81 EUR without reform;104.05/113.51/116.86 with50% cut. First restoring monthlygross2251.47/2456.22/2660.43, or2237.14/2440.32/2643.78 withcut. Model before payslip/assessment rounding. Recovery is minimum cent from binary search checked against independent linear search. Six independently calculated contribution jumps,24 gainchecks,6 invalidinputs,5 output/spec corruptions passed.

@@ -142,3 +142,9 @@ No additional locks recorded.
 - Scope: payroll threshold evidence and WERK handoff.
 
 - Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; WERK_SV_007_CI_RECEIPT.json.
+
+## LOCK-WERK-SV-008
+- Task: WERK-SV-008
+- Status: IN_PROGRESS
+- Holder: Codex 2026-09-08
+- Scope: new ALV transition model/library/report, fiscal integration and WERK memory on existing branch.

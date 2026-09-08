@@ -54,6 +54,10 @@ on:
       - 'scripts/werk-alv-threshold-*.mjs'
       - 'scripts/lib/werk-alv-threshold.mjs'
       - 'WERK_SV_ARBEITSANREIZE.md'
+      - 'werk-data/employee-alv-transition-*.json'
+      - 'scripts/werk-alv-transition-*.mjs'
+      - 'scripts/lib/werk-alv-transition.mjs'
+      - 'WERK_SV_STETIGE_BEITRAEGE.md'
   workflow_dispatch:
 
 permissions:
@@ -199,3 +203,8 @@ jobs:
         run: node scripts/werk-alv-threshold-contract.mjs
       - name: Countercheck contribution jumps and minimum recovery salary
         run: node scripts/werk-alv-threshold-negative-check.mjs
+
+      - name: Recompute continuous ALV design and provisional cohort references
+        run: node scripts/werk-alv-transition-contract.mjs
+      - name: Countercheck every cent of local transitions and financing boundaries
+        run: node scripts/werk-alv-transition-negative-check.mjs

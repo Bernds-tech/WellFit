@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "checked_on": "2026-09-08",
+  "status": "unadopted_unfunded_design_candidates",
+  "rule_year_for_net": 2026,
+  "scope": "Standard employee, twelve running and two equal special payments, whole year constant salary, 1500–3500 EUR/month, no household transfers or payslip/assessment rounding. Contribution-only references for provisional 2027 cohorts.",
+  "transition_widths_eur": [
+    50,
+    100,
+    150
+  ],
+  "employee_core_reduction_shares": [
+    0,
+    0.5
+  ],
+  "regions": [
+    "outside_vienna",
+    "vienna"
+  ],
+  "candidate_rule": "For t < gross < t+w: next_rate*gross/100 minus t*(next_rate-previous_rate)/100*(1-(gross-t)/w). Outside transitions use same-year whole-base schedule. Scale KV/PV/ALV by (1-reduction_share) before comparison.",
+  "sources": [
+    {
+      "id": "oegk_2026",
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.904620&portal=oegkdgportal",
+      "status": "2026_reference",
+      "thresholds": [
+        2225,
+        2427,
+        2630
+      ],
+      "rates": [
+        0,
+        1,
+        2,
+        2.95
+      ]
+    },
+    {
+      "id": "oegk_2027",
+      "url": "https://www.oegk.at/cdscontent/?contentid=10007.912177&portal=oegkdgportal",
+      "publication": "Newsletter 8 / August 2026",
+      "status": "provisional_variable_values_pending_official_promulgation",
+      "existing_on_2026_12_31": {
+        "thresholds": [
+          2327,
+          2539,
+          2751
+        ],
+        "rates": [
+          0.5,
+          1.5,
+          2.5,
+          2.95
+        ]
+      },
+      "new_from_2027_01_01": {
+        "thresholds": [
+          2327,
+          2539
+        ],
+        "rates": [
+          1,
+          2,
+          2.95
+        ]
+      },
+      "monthly_max_base_eur": 7410,
+      "annual_special_max_base_eur": 14820,
+      "scope": "Standard employees; apprentices excluded. No 2027 income tax/net calculation."
+    }
+  ],
+  "aggregate_affected_persons": null,
+  "aggregate_annual_contribution_loss_eur": null,
+  "aggregate_annual_net_fiscal_cost_eur": null,
+  "implementation_cost_eur": null,
+  "employment_effect_persons": null,
+  "verified_budget_credit_eur": 0,
+  "government_baseline_measure": "REV-ALV-DN",
+  "government_baseline_revenue_is_additional_werk_revenue": false,
+  "benefits_preserved": true
+}
