@@ -1,6 +1,6 @@
 # WERK – Förderkonten: Übergabe SUB-001
 
-Stand: 2026-09-09. Status: IMPLEMENTED_NOT_VERIFIED remotely. Existing WERK branch publication authorized; no Sites deployment.
+Stand: 2026-09-09. Status: VERIFIED at 0d47fa44c378438bc2c760df954756d73ff900c0. All 13 triggered remote workflows succeeded; WERK_SUB_001_CI_RECEIPT.json. Existing WERK branch publication authorized; no Sites deployment.
 
 Original BMF CSV retrieved from official August2026 portal, archived losslessly as gzip. Raw bytes 6,798,268; SHA256 eaf7a8436ae3289f3b232f72b3026a2dbbd83e683378d6bf0d3a3959e35235f1. Normalized all 15,802 records in integer EUR cents, 2,577 distinct source-dimension tuples. Full source columns retained via dimension dictionary; record and physical-line references preserved. 730 negative records retained. Annual history2014–2025, BVA2026–2028, separate monthly2025/2026; no missing-to-zero conversion.
 
@@ -14,7 +14,7 @@ Thermal renovation account43.01.02.00-1/7700.400: 2025actual1606.48138307m,2028B
 
 SUB-D2 remains partial at program level; added closed SUB-D2a raw account extraction and open SUB-D2b legal program/commitment/cofinancing mapping. ESVG/TDB/outcome gates stay open. Source import, results, priorities, SUBSIDY-DATA registry, manifestv43, field2 workstate, analysis/status and main calculation report linked. No change to main/debt/SV numerical assumptions or outputs; verified extra funding remains0.
 
-Local evidence: original CSV + 24 independent report UG controls; eight pinned numerical anchors,15 account/year/class reconcilations, annual/monthly duplication check,16 invalid inputs and8 source/output/review corruptions. All five final workflow bodies passed; final missing-annual-class guard rechecked through importer and negative checks. Exact-commit remote CI pending.
+Local evidence: original CSV + 24 independent report UG controls; eight pinned numerical anchors,15 account/year/class reconcilations, annual/monthly duplication check,16 invalid inputs and8 source/output/review corruptions. All five final workflow bodies passed; final missing-annual-class guard rechecked through importer and negative checks. All 13 triggered remote workflows succeeded; exact commit and tree in WERK_SUB_001_CI_RECEIPT.json.
 
 Next: map the20 accounts to legally identified programs and payable commitments, EU/RRF/cofinancing and government baseline before a reform saving; close ESVG2025–2031 series and cross-level duplicates. TAX001 cash/finality attribution remains open. Recovery: revert bounded SUB001 additions.
 

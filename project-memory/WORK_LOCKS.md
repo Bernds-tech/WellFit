@@ -186,6 +186,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-SUB-001
 - Task: WERK-SUB-001
-- Status: ACTIVE
+- Status: RELEASED
 - Holder: Codex WERK continuation 2026-09-09
 - Scope: subsidy data, checks, status, memory and existing WERK branch.
+
+- Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
