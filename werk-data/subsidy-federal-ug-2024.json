@@ -58,7 +58,7 @@
   },
   "coverage":{
     "SUB_D1_federal_ug_level_2024":"closed",
-    "SUB_D2_current_program_csv":"open",
+    "SUB_D2_current_program_csv":"account_level_normalised_program_mapping_open",
     "program_examples":"partial",
     "administration_cost_baseline":"closed_for_2024"
   }

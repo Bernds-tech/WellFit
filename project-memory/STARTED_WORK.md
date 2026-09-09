@@ -246,3 +246,11 @@ Canonical register for work that has started but is not yet fully completed.
 - Falsifier: summed requests/assessments/fines falsely treated as cash, average office yield extrapolated to marginal reform, or existing government receipts credited twice. Check original, independent hand arithmetic and negative cases.
 
 - Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
+
+## WERK-SUB-001
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Change: WERK-CR-SUB-001
+- Base: 4443331cfa0a20c5ec25d8f68193e3415babb9dd
+- Lock: LOCK-WERK-SUB-001
+- Falsifier: annual plus monthly values double counted, administration mixed into funding, missing account interpreted as discontinued program, or baseline reductions credited to WERK. Source reconciliation and negative checks required.

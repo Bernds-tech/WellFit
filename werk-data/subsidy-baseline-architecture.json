@@ -14,7 +14,11 @@
       "dataset_update": "2026-08-18",
       "accounting_view": "Bundeshaushalt / Zahlungs- bzw. Budgetpositionen",
       "use": "Programm- und Voranschlagsstellenreview auf Bundesebene",
-      "not_equal_to": ["gesamtstaatliche Förderung", "ESVG-Fördertransaktionen", "Transparenzdatenbank-Auszahlungen"]
+      "not_equal_to": [
+        "gesamtstaatliche Förderung",
+        "ESVG-Fördertransaktionen",
+        "Transparenzdatenbank-Auszahlungen"
+      ]
     },
     {
       "id": "SUB-ESVG-HISTORY",
@@ -22,10 +26,17 @@
       "authority": "BMF / Statistik Austria VGR",
       "coverage": "bis einschließlich 2025",
       "dataset_update": "2026-01-14",
-      "classes": ["D.3 Subventionen", "D.7 sonstige laufende Transfers", "D.9 Vermögenstransfers"],
+      "classes": [
+        "D.3 Subventionen",
+        "D.7 sonstige laufende Transfers",
+        "D.9 Vermögenstransfers"
+      ],
       "accounting_view": "periodengerechte Volkswirtschaftliche Gesamtrechnung",
       "use": "gesamtstaatliche und internationale Vergleichbarkeit",
-      "not_equal_to": ["direkte BHG-Förderung", "reine Budgetauszahlung"]
+      "not_equal_to": [
+        "direkte BHG-Förderung",
+        "reine Budgetauszahlung"
+      ]
     },
     {
       "id": "SUB-ESVG-FORECAST",
@@ -35,7 +46,10 @@
       "dataset_update": "2026-08-10",
       "accounting_view": "gesamtstaatlicher ESVG-Referenzpfad",
       "use": "SUB-01 Baseline gegen bereits budgetierte Förder-/Transferentwicklung",
-      "not_equal_to": ["Programm-Inventar", "verifizierbares Einsparpotenzial"]
+      "not_equal_to": [
+        "Programm-Inventar",
+        "verifizierbares Einsparpotenzial"
+      ]
     },
     {
       "id": "SUB-TDB",
@@ -44,7 +58,10 @@
       "coverage": "Leistungs-/Förderangebote Bund und Länder; Empfängertransparenz nach TDBG",
       "accounting_view": "Leistung/Förderung nach Transparenzdatenbankgesetz und Empfangszeitpunkt",
       "use": "Programminventar, Überschneidungen, Mehrfachförderungsprüfung, Gebietskörperschaften",
-      "not_equal_to": ["BHG-Förderungsbericht", "ESVG-Transaktionssumme"],
+      "not_equal_to": [
+        "BHG-Förderungsbericht",
+        "ESVG-Transaktionssumme"
+      ],
       "structural_note": "Seit 2026 sind Länder samt ausgelagerten Förderabwicklern zur Einmeldung und Nutzung der TDB verpflichtet; damit verbessert sich die Basis für einen gebietskörperschaftenübergreifenden Programmreview."
     }
   ],
@@ -59,7 +76,9 @@
     },
     "taskforce_planned_total_savings_2026_2029_eur_billion": 1.95,
     "status": "government_baseline_planned",
-    "werk_rule": "Das 7,7-Mrd.-Volumen ist ein Prüf-/Gestaltungsuniversum, kein Einsparpotenzial. Die Regierungsziele sind bereits Baseline; WERK darf nur zusätzliche verifizierte Nettoeffekte jenseits dieses Pfads anrechnen."
+    "werk_rule": "Das 7,7-Mrd.-Volumen ist ein Prüf-/Gestaltungsuniversum, kein Einsparpotenzial. Die Regierungsziele sind bereits Baseline; WERK darf nur zusätzliche verifizierte Nettoeffekte jenseits dieses Pfads anrechnen.",
+    "historical_reference_note": "10,1 Mrd. Euro BVA 2026 und 7,7 Mrd. Euro Gestaltungsvolumen sind historische Angaben der Förder-Taskforce vom 04.03.2026. Die aktuelle CSV weist für die Klassen 06+16 im BVA 2026 9,730198 Mrd. Euro aus. Zeitstands-/Scope-Überleitung offen; Differenz nicht als WERK-Einsparung buchen.",
+    "current_account_source": "werk-data/subsidy-federal-account-results.json"
   },
   "bhg_esvg_reconciliation_examples_2024_eur_billion": [
     {
@@ -174,7 +193,7 @@
     "official_source_catalog": "complete",
     "accounting_reconciliation_rules": "complete",
     "government_savings_baseline": "captured",
-    "federal_program_level_csv_2014_2028": "source_available_not_normalised",
+    "federal_program_level_csv_2014_2028": "account_level_normalised_program_mapping_open",
     "esvg_history_to_2025": "source_available_not_normalised",
     "esvg_forecast_2026_2031": "source_available_not_normalised",
     "cross_level_transparency_program_inventory": "source_available_extraction_open",
@@ -182,11 +201,17 @@
     "gap_sub_01_status": "partially_closed"
   },
   "next_steps": [
-    "Bundesförderungs-CSV auf ein eindeutiges Programm-/Voranschlagsstellen-Schema normalisieren.",
+    "CSV-Konten mit Rechtsgrundlage, Programmen, EU-/RRF-Finanzierung und Bindungen verbinden; Kontenimport und Jahres-/Monatsabgleich sind abgeschlossen.",
     "ESVG D.3/D.7/D.9 historisch und 2026-2031 als eigene Zeitreihen extrahieren.",
     "BHG-zu-ESVG-Bridge maschinell rechnen und Restdifferenz erklären.",
     "TDB-Programme nach Thema und Gebietskörperschaft clustern, um echte Überschneidungen zu identifizieren.",
     "Regierungs-Einsparungspfad 2026-2029 je Programm soweit veröffentlicht zuordnen.",
     "Erst danach WERK-SUB-01-Einsparungsszenarien rechnen."
+  ],
+  "account_level_artifacts": [
+    "subsidy-federal-account-source.json",
+    "subsidy-federal-account-normalized.json",
+    "subsidy-federal-account-results.json",
+    "subsidy-account-review-priorities.json"
   ]
 }

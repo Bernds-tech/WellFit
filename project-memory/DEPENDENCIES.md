@@ -48,3 +48,6 @@ States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
 ## WERK-SV-011
 - Employee relief funding now has a source-linked primary/interest/surplus bridge; old conditional models remain unchanged. Debt reduction additionally depends on deficit-debt adjustments and source rounding.
 - Full removal of current-year interest is an extreme accounting comparison, never a forecast of debt freedom in2026–2031.
+
+## WERK-SUB-001 — 2026-09-09
+Accounts require program and EU/RRF/cofinancing mapping before national savings. Source account absence cannot establish program closure. Older Taskforce2026 10.1bn is a March2026 reference; exact bridge to AugustCSV 9.730198bn remains open.

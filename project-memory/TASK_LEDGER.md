@@ -227,3 +227,8 @@ Keep history append-only; supersede rather than delete.
 - Scope: additional enforcement cash and costs; verified financing remains zero.
 
 - Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
+
+## WERK-SUB-001
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R2
+- Scope: account-level source normalization and subsidy review bridge. No verified extra funding.

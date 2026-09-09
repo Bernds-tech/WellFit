@@ -10,6 +10,12 @@ on:
       - 'werk-data/subsidy-federal-ug-2024.json'
       - 'werk-data/analysis-data-closure-register.json'
       - '.github/workflows/werk-subsidy-data-check.yml'
+      - 'werk-data/subsidy-federal-account-*.json'
+      - 'werk-data/subsidy-account-review-priorities.json'
+      - 'werk-data/sources/bmf-foerderungen-bund-2026-08.csv.gz'
+      - 'scripts/werk-import-federal-subsidies.py'
+      - 'scripts/werk-federal-subsidies-negative-check.py'
+      - 'WERK_FOERDERKONTEN_RECHNUNG.md'
   workflow_dispatch:
 
 permissions:
@@ -35,7 +41,7 @@ jobs:
           const fs=require('fs');
           const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
           const fail=m=>{throw new Error(m)};
-          const eq=(a,b,tol,msg)=>{if(Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
+          const eq=(a,b,tol,msg)=>{if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isFinite(tol)||tol<0||Math.abs(a-b)>tol)fail(`${msg}: ${a} != ${b}`)};
           const arch=read('werk-data/subsidy-baseline-architecture.json');
           const b=read('werk-data/subsidy-esvg-benchmark-2024.json');
           const ug=read('werk-data/subsidy-federal-ug-2024.json');
@@ -74,7 +80,7 @@ jobs:
           eq(ug.published_total_mio,b.bhg_direct_federal_mio.total_federal_funding_outflows,ugTol,'UG layer vs BHG benchmark total');
           if(!(ug.administration_costs_2024_mio>0))fail('2024 administration cost baseline missing');
           if(ug.coverage?.SUB_D1_federal_ug_level_2024!=='closed')fail('SUB-D1 UG-level 2024 should be closed');
-          if(ug.coverage?.SUB_D2_current_program_csv!=='open')fail('SUB-D2 current program CSV must stay open');
+          if(ug.coverage?.SUB_D2_current_program_csv!=='account_level_normalised_program_mapping_open')fail('SUB-D2 accounts are normalised; legal programs remain open');
 
           const prohibited=(arch.prohibited_shortcuts||[]).join(' ');
           for(const token of ['7,7','ESVG','EU-Durchlauf','doppelt','Regierungseinsparungen']){
@@ -82,10 +88,15 @@ jobs:
           }
           if(arch.extraction_status?.gap_sub_01_status!=='partially_closed')fail('SUB-01 must remain partially closed');
           if(b.coverage?.SUB_E_esvg_2024_benchmark!=='closed')fail('2024 ESVG benchmark should be closed');
-          if(b.coverage?.SUB_D_program_level_current_csv!=='open')fail('Current program-level CSV must remain open until raw rows are parsed');
+          if(b.coverage?.SUB_D_program_level_current_csv!=='account_level_normalised_program_mapping_open')fail('Account extraction complete; legal program mapping remains open');
           if(b.coverage?.SUB_E_esvg_2025_2031_series!=='open')fail('2025/2031 ESVG series must remain open until raw rows are parsed');
 
           const gap=(gaps.priority_1_data_gaps||[]).find(x=>x.id==='GAP-SUB-01');
           if(!gap||gap.status!=='teilweise vorhanden')fail('GAP-SUB-01 must remain partial');
           console.log(`Subsidy contract OK: BHG ${b.bhg_direct_federal_mio.total_federal_funding_outflows.toFixed(1)}m; 24 UGs reconcile to ${ugTotal.toFixed(1)}m; ESVG ${s.general_government[3].toFixed(1)}m stays a separate universe; administration costs ${ug.administration_costs_2024_mio.toFixed(1)}m remain separate.`);
           NODE
+
+      - name: Reproduce all federal subsidy source rows and account bridges
+        run: python3 scripts/werk-import-federal-subsidies.py
+      - name: Countercheck periods monetary scope and corrupted sources
+        run: python3 scripts/werk-federal-subsidies-negative-check.py

@@ -1,0 +1,25 @@
+{
+  "version": "2026-09-09-v1",
+  "source": {
+    "authority": "BMF",
+    "url": "https://www.bmf.gv.at/dam/jcr%3Aab38d34e-3ef3-4c11-b90b-26320b7e3073/F%C3%B6rderungen_Bundeshaushalt.csv",
+    "landing_page": "https://www.bmf.gv.at/services/startseite-budget/Bundesbudget_und_oeffentliche_Finanzen/foerderungen.html",
+    "portal_data_stand": "August 2026",
+    "retrieved_at": "2026-09-09",
+    "exact_bookkeeping_cutoff": null
+  },
+  "raw_sha256": "eaf7a8436ae3289f3b232f72b3026a2dbbd83e683378d6bf0d3a3959e35235f1",
+  "raw_size_bytes": 6798268,
+  "compression": "lossless gzip; SHA256 refers to decompressed original bytes",
+  "original_path": "werk-data/sources/bmf-foerderungen-bund-2026-08.csv.gz",
+  "source_unit": "Mio. EUR, verified by independent 2024 report reconciliation",
+  "normalized_unit": "integer EUR cents",
+  "rules": [
+    "Erfolg month16 is annual; BVA month0 is budget. Monatserfolg is a separate flow series and never added to annual totals.",
+    "2025 includes closing month codes13/14. 2026 contains1–8, exact cutoff and full-August completeness unknown.",
+    "06 and16 form funding total;17 administration is separate.",
+    "Negative source entries are retained. No silent zero for missing account-year.",
+    "Budget accounts and program identities are not one-to-one. Source labels, themes and crisis markers do not establish legal continuity or recurring costs.",
+    "Baseline changes are not additional WERK savings; EU passthrough, external administration and ESVG reconciliation remain open."
+  ]
+}

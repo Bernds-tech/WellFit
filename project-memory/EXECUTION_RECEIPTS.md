@@ -133,3 +133,8 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 
 ## WERK-TAX-001 — 2026-09-08
 TAX-001 implementation: original ABB PDF and visual/text source reconciliation;27 conditional break-even cases. Independent countercheck:3 hand thresholds,27 forward cash-timing cases,16 invalid inputs,10 corruptions. Five relevant local workflow bodies passed; initial stale post-debt source hash resolved by regeneration, prior numerical results independently unchanged. Final prose/hash cleanup passed all five local workflow bodies; all four triggered remote workflows passed at abcc4a3c577d52dcc0532f1ecbc05ad833479077; WERK_TAX_001_CI_RECEIPT.json.
+
+## WERK-SUB-001 — 2026-09-09
+SUB001: full BMF CSV and 24 historical UG controls;15,802 rows,2,577 dimensions,1,035 focus account/classes,20 review entries. Independent8 numerical anchors/15 account-year-class sums,16 invalid inputs and8 corruptions passed. All five final local workflow bodies passed; final missing-class guard rechecked. Remote CI pending.
+
+SUB001 final coverage finding: no source class16/17 records in2014–2016. Components and complete06+16 total now remain null, reported-row subtotal separate; three explicit counterchecks added. Focus2024–2028 totals unchanged. No historical zero inferred.

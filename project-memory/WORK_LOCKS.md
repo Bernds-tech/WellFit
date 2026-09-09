@@ -183,3 +183,9 @@ No additional locks recorded.
 - Scope: bounded ABB source, TAX02 model context, new calculator and WERK integration/memory.
 
 - Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
+
+## LOCK-WERK-SUB-001
+- Task: WERK-SUB-001
+- Status: ACTIVE
+- Holder: Codex WERK continuation 2026-09-09
+- Scope: subsidy data, checks, status, memory and existing WERK branch.

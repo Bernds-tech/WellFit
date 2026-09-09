@@ -207,3 +207,10 @@
 - Source: owner continuation.
 - Scope: ABB2025 source reconciliation, incremental tax-enforcement break-even and measurement gates. R2; existing WERK branch publication authorized, no Sites deployment.
 - Recovery: revert bounded TAX001 additions.
+
+## WERK-CR-SUB-001
+- Date: 2026-09-09
+- Status: ACCEPTED
+- Source: owner continuation.
+- Scope: official federal subsidy CSV, account-level history/budgets, annual/monthly reconciliation and review priorities. R2. Existing WERK branch publication authorized; no Sites deployment.
+- Recovery: revert bounded SUB001 changes.

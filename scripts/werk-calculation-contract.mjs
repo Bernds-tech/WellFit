@@ -187,6 +187,11 @@ md+=`\nBei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 un
 ## Steuervollzug: zusätzliche Einzahlungen und Kostendeckung
 
 [WERK_STEUERVOLLZUG_RECHNUNG.md](WERK_STEUERVOLLZUG_RECHNUNG.md) gleicht ABB2025-Ergebnisstufen ab und rechnet 27 bedingte Kostendeckungsschwellen mit Anlaufkosten, Einbringungsquote und Verzögerung. Die Pressezahl über 154 Mio. Euro ist keine abgestimmte reine Steuer-Cash-Summe. Die bestehende KÖSt-Prozentsensitivität bleibt separat; zusätzliche verifizierte Finanzierung weiterhin 0.
+
+
+## Förderkonten: Ist-Auszahlungen und bestehende Budgetansätze
+
+[WERK_FOERDERKONTEN_RECHNUNG.md](WERK_FOERDERKONTEN_RECHNUNG.md) ergänzt 15.802 amtliche Datensätze, getrennte Monats-/Jahresrechnungen, 1.035 Konto/Klassen-Kombinationen 2024–2028 und 20 konkrete Prüfpositionen. Der Rückgang zwischen Ist 2025 und BVA 2028 gehört zur bestehenden Baseline; zusätzliche verifizierte Einsparungen bleiben 0.
 `;
 md = md.slice(0,md.indexOf("\n")+1) + '\nAktuelle Quellenvertiefung: [Arbeitnehmer-Beitragsbasis 2024](WERK_SV_BEITRAGSBASIS.md) trennt sieben ESSOSS-Systeme; 29,600 Mrd. EUR statistische KV/PV/ALV-Referenz mit angenommener ALV-Aufteilung. Keine automatische Umbasierung der folgenden Szenarien und keine Finanzierungsgutschrift.\n' + md.slice(md.indexOf("\n")+1);
 md += "\n[Beitragsverteilung und Kostengrenzen](WERK_SV_VERTEILUNG_KOSTENGRENZEN.md): 1161 amtliche Quartilswerte 2024, 18 bedingte Zahlungsfall-Obergrenzen und 18 Gegenbeispiele gegen eine Hochrechnung aus Jahresdurchschnitten. Nationale Kosten bleiben offen.\n";

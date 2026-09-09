@@ -190,6 +190,11 @@ Bei SUB-01 fehlen programmweise zusätzliche Nettoeffekte; bei PART-01 unternehm
 
 [WERK_STEUERVOLLZUG_RECHNUNG.md](WERK_STEUERVOLLZUG_RECHNUNG.md) gleicht ABB2025-Ergebnisstufen ab und rechnet 27 bedingte Kostendeckungsschwellen mit Anlaufkosten, Einbringungsquote und Verzögerung. Die Pressezahl über 154 Mio. Euro ist keine abgestimmte reine Steuer-Cash-Summe. Die bestehende KÖSt-Prozentsensitivität bleibt separat; zusätzliche verifizierte Finanzierung weiterhin 0.
 
+
+## Förderkonten: Ist-Auszahlungen und bestehende Budgetansätze
+
+[WERK_FOERDERKONTEN_RECHNUNG.md](WERK_FOERDERKONTEN_RECHNUNG.md) ergänzt 15.802 amtliche Datensätze, getrennte Monats-/Jahresrechnungen, 1.035 Konto/Klassen-Kombinationen 2024–2028 und 20 konkrete Prüfpositionen. Der Rückgang zwischen Ist 2025 und BVA 2028 gehört zur bestehenden Baseline; zusätzliche verifizierte Einsparungen bleiben 0.
+
 [Beitragsverteilung und Kostengrenzen](WERK_SV_VERTEILUNG_KOSTENGRENZEN.md): 1161 amtliche Quartilswerte 2024, 18 bedingte Zahlungsfall-Obergrenzen und 18 Gegenbeispiele gegen eine Hochrechnung aus Jahresdurchschnitten. Nationale Kosten bleiben offen.
 
 [ALV-Intervallkosten](WERK_SV_INTERVALLKOSTEN.md): 72 bedingte Fälle, neun Cent-Raster und 18 aggregierte Beispieltabellen. Anzahl plus exakte Grundlagensumme identifizieren die Kosten innerhalb eines linearen Abschnitts; amtliche Monatsdaten, Sonderfallabgrenzung und nationale Finanzierung bleiben offen.

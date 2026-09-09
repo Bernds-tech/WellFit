@@ -42,3 +42,6 @@
 
 ## WERK-TAX-001 — 2026-09-08
 TAX-001 replaces misleading ABB recovered-revenue field with an explicitly attributed press headline; pure tax cash remains null. Heterogeneous source stages and administrative budget discrepancies are retained. No average office ROI extrapolation; government overlap is excluded before any recurring funding credit.
+
+## WERK-SUB-001 — 2026-09-09
+Keep annual and monthly source views separate; include closing months13/14 in2025 reconciliation. Preserve negative rows and null missing years. Rank budget accounts for review, without converting baseline reductions or gross payouts to verified reform savings.

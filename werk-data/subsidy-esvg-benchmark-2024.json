@@ -89,7 +89,7 @@
   "coverage":{
     "SUB_A_source_definitions":"closed",
     "SUB_B_2024_bhg_esvg_tdb_bridge":"materially_advanced",
-    "SUB_D_program_level_current_csv":"open",
+    "SUB_D_program_level_current_csv":"account_level_normalised_program_mapping_open",
     "SUB_E_esvg_2024_benchmark":"closed",
     "SUB_E_esvg_2025_2031_series":"open"
   }

@@ -70,3 +70,6 @@ Rules: `PARTIAL`, `BLOCKED`, `IMPLEMENTED_NOT_VERIFIED` and `RECONCILIATION_REQU
 
 ## WERK-TAX-001 — 2026-09-08
 TAX-001: OPEN cash/finality/refund/cohort comparison, all-in marginal costs, government overlap and recurring additional effect. OPEN ABB headline and office-budget source clarification. Next step is authoritative cash bridge or additional empirical reform evidence; no inferred funding credit.
+
+## WERK-SUB-001 — 2026-09-09
+SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing mapping open. Twenty account review entries are a prioritized evidence request, not adopted cuts. ESVG2025–2031/TDB and outcome effects stay open.
