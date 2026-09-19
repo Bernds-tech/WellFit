@@ -24,11 +24,11 @@ ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental 
 ## WERK-SUB-001 — 2026-09-09
 Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CSV normalized; 2025 annual/monthly and 24 UG2024 controls reconciled. 1,035 account/classes and20 review priorities added. Program/legal/cofinancing/outcome attribution remains open; no extra financing. All five final local workflow bodies passed; final missing-annual-class guard passed importer and negative checks. All 13 triggered remote workflows succeeded at 0d47fa44c378438bc2c760df954756d73ff900c0; WERK_SUB_001_CI_RECEIPT.json.
 
-## WERK autonomous continuation — 2026-09-19
-- Selected action: `WERK-IDEENWERK-E2E-STAGING-SMOKE`
+## WERK autonomous continuation — 2026-09-20
+- Selected action: `WERK-IDEENWERK-REVIEW-PATH-TRANSPARENCY`
 - Status: `EXECUTABLE`
-- Risk: `R2` because only synthetic staging data may be created and must be cleaned up after verification.
-- Why next: the existing website now reads real staging transparency metrics and public clusters. The next missing proof is the full citizen path from public no-login submission through one-time status token, private status lookup and the staging DB worker transitions.
-- Exact next work: create one clearly synthetic IDEENWERK submission through the public Edge API, verify idempotency and Bearer status isolation, observe the `018_staging_db_worker` queue/status transitions and audit events, verify no dead/orphan jobs, then remove the synthetic test rows with the repository cleanup procedure. Do not use real citizen content.
-- Acceptance: public API path works from the configured staging origin; private status cannot be read without the correct token; worker advances the synthetic submission without violating status-machine gates; cleanup returns staging to its prior zero-test-data baseline; relevant CI remains green.
-- Safety: no production deploy, no real citizen data, no product-policy decision, no paid action.
+- Risk: `R2` because it extends existing read contracts/UI only and must remain reversible in staging.
+- Why next: the real precheck transition now assigns and audits a procedural `FAST`/`STANDARD`/`DEEP` review path. The next functional gap is that citizens and transparency views cannot yet see that assignment through the existing API/UI.
+- Exact next work: extend the existing private status contract to return the latest `review_path_assigned` event in a bounded shape, extend existing transparency metrics with aggregate review-depth counts where privacy-safe, and render the current review path in the existing IDEENWERK status/transparency surface. Reuse the current API and UI; no new parallel screen.
+- Acceptance: correct token-protected status returns the latest review path; invalid/missing token still cannot access private status; transparency exposes only aggregates; existing E2E/privacy tests remain green; synthetic staging verification is cleaned back to baseline; no production deploy.
+- Safety: review depth is procedural only. No political merit score, automatic acceptance/rejection, or text-keyword inference of constitutional/security sensitivity is introduced.
