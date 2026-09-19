@@ -113,6 +113,7 @@ jobs:
           node --check scripts/backup.mjs
           node --check scripts/restore-verify.mjs
           node --check scripts/smoke.mjs
+          node --check scripts/staging-edge-e2e.mjs
           node --check scripts/operator-guardrails-smoke.mjs
           node --check scripts/distributed-rate-limit-smoke.mjs
           node --check scripts/seed-synthetic.mjs
