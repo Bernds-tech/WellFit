@@ -78,14 +78,16 @@ jobs:
           CREATE SCHEMA IF NOT EXISTS extensions;
           SQL
 
-          # 001-015 are portable PostgreSQL backend migrations. 016-018 are
-          # Supabase-staging contracts that depend on pg_net/pg_cron and are
+          # 001-015 and 019 are portable PostgreSQL backend migrations. 016-018
+          # are Supabase-staging contracts that depend on pg_net/pg_cron and are
           # verified on the real WERK staging project rather than emulated here.
           test -s sql/016_internal_pg_net.sql
           test -s sql/017_edge_intake_status.sql
           test -s sql/018_staging_db_worker.sql
+          test -s sql/019_cluster_candidate_pair_dedup.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
+          cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
