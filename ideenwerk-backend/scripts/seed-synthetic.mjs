@@ -89,7 +89,7 @@ async function insertBatch(rows) {
   try {
     await client.query('BEGIN');
     const inserted = await client.query(
-      `INSERT INTO submissions(public_id,idempotency_key,original_text,region,topic,current_status)
+      `INSERT INTO submissions(public_id,idempotency_key,original_text,region,topic)
        SELECT * FROM unnest($1::text[],$2::text[],$3::text[],$4::text[],$5::text[]) AS t(public_id,idempotency_key,original_text,region,topic)
        ON CONFLICT(idempotency_key) DO NOTHING
        RETURNING public_id`,
