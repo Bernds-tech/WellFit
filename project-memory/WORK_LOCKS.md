@@ -22,17 +22,19 @@ Prevents two agents/sessions from independently working the same task.
 - Resume from: reconcile PR #2 against current main and cross-repo capability before modifying visual product code
 - Released: not released; stale until deliberately resumed or superseded
 
+## Released/superseded locks
+
 ## LOCK-WERK-IDEENWERK-TRIAGE-001
 - Task: WERK-IDEENWERK-TRIAGE-001
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: WERK autonomous continuation 2026-09-20
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-20 Europe/Vienna
+- Released: 2026-09-20 after CI run 96 succeeded, staging migration `review_path_audit` was applied and synthetic verification was cleaned to baseline.
 - Scope: connect the existing IDEENWERK triage contract to the real staging precheck path and persist a procedural review path/depth without political scoring or acceptance decisions.
-- Recovery: revert the bounded source commit and restore the previous staging function from migration 018; no production deployment is authorized.
-
-## Released/superseded locks
+- Result: FAST/STANDARD/DEEP procedural depth is implemented and `review_path_assigned` is persisted when a submission enters precheck; receipt `WERK_IDEENWERK_TRIAGE_001_RECEIPT.json`.
+- Recovery: restore the previous staging status function from migration 018, drop `ideenwerk_review_depth(text,jsonb)` and remove the runtime marker; no production deployment occurred.
 
 ## LOCK-WFG-MOBILE-UX-001
 - Task: WFG-MOBILE-UX-001
