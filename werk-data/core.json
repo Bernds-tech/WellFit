@@ -1,18 +1,55 @@
 {
-  "version": "2026-09-05-v4",
+  "version": "2026-09-19-v5",
   "brand": "WERK Österreich",
   "tagline": "Erst rechnen. Dann entscheiden.",
   "goal": "Ein schuldenfreies, sicheres, faires und gleichberechtigtes Österreich mit starken Regionen und verbindlicher Verantwortung.",
-  "four_goals": ["Schuldenfrei", "Fair", "Gleichberechtigt", "Sicher"],
+  "four_goals": [
+    "Schuldenfrei",
+    "Fair",
+    "Gleichberechtigt",
+    "Sicher"
+  ],
   "pillars": [
-    {"id": 1, "name": "Solide Staatsfinanzen", "binding": true},
-    {"id": 2, "name": "Fairness", "binding": true},
-    {"id": 3, "name": "Gleichberechtigung", "binding": true},
-    {"id": 4, "name": "Rechtsstaat", "binding": true},
-    {"id": 5, "name": "Sicherheit", "binding": true},
-    {"id": 6, "name": "Regionale Freiheit / Subsidiarität", "binding": true},
-    {"id": 7, "name": "Direkte Bürgerbeteiligung bei qualifizierten Großfragen", "binding": true},
-    {"id": 8, "name": "Wirkung vor Ideologie", "binding": true}
+    {
+      "id": 1,
+      "name": "Solide Staatsfinanzen",
+      "binding": true
+    },
+    {
+      "id": 2,
+      "name": "Fairness",
+      "binding": true
+    },
+    {
+      "id": 3,
+      "name": "Gleichberechtigung",
+      "binding": true
+    },
+    {
+      "id": 4,
+      "name": "Rechtsstaat",
+      "binding": true
+    },
+    {
+      "id": 5,
+      "name": "Sicherheit",
+      "binding": true
+    },
+    {
+      "id": 6,
+      "name": "Regionale Freiheit / Subsidiarität",
+      "binding": true
+    },
+    {
+      "id": 7,
+      "name": "Direkte offene Demokratie / kontinuierliche Bürgerbeteiligung",
+      "binding": true
+    },
+    {
+      "id": 8,
+      "name": "Wirkung vor Ideologie",
+      "binding": true
+    }
   ],
   "state_neutrality": {
     "binding": true,
@@ -104,8 +141,48 @@
     "target_domains": 41,
     "rule": "Jeder Master-Sachbereich muss genau einem der 12 Programm-Leitfelder zugeordnet sein."
   },
-  "decision_model": ["Problem offenlegen", "Optionen rechnen", "Recht und Zuständigkeit prüfen", "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig", "Umsetzen", "KPI messen", "Review"],
+  "decision_model": [
+    "Problem offenlegen",
+    "Optionen rechnen",
+    "Recht und Zuständigkeit prüfen",
+    "Bürger entscheiden, wenn qualifizierte Großfrage und rechtlich zulässig",
+    "Umsetzen",
+    "KPI messen",
+    "Review"
+  ],
   "regional_rule": "Gemeinsam, was gemeinsam sein muss. Regional, was regional besser entschieden wird.",
   "finance_rule": "Wer entscheidet, soll möglichst auch die Finanzierung verantworten.",
-  "partner_rule": "Regionale Programme dürfen den WERK-Kern einschließlich demokratischer Verfassungsordnung, Grundrechten und weltanschaulich neutraler staatlicher Herrschaft ergänzen, aber nicht widersprechen."
+  "partner_rule": "Regionale Programme dürfen den WERK-Kern einschließlich demokratischer Verfassungsordnung, Grundrechten und weltanschaulich neutraler staatlicher Herrschaft ergänzen, aber nicht widersprechen.",
+  "open_democracy": {
+    "status": "strategische Entwicklungsrichtung",
+    "principle": "Bürger können Probleme und Ideen einbringen, Varianten nachvollziehen, Fachwissen und KI-Analysen einsehen, an geeigneten Entscheidungen mitwirken und die Umsetzung kontrollieren.",
+    "ai_role": "WERK-KI analysiert, bündelt, kombiniert, simuliert und schlägt Verbesserungen vor; sie trifft keine endgültige politische Wertentscheidung.",
+    "representative_role": "Gewählte Vertreter holen Experten- und Betroffenenwissen ein, führen es in den transparenten Prüfprozess zurück, verhandeln parlamentarisch, setzen Entscheidungen rechtlich um und vertreten Österreich nach außen.",
+    "process_lanes": [
+      {
+        "id": "FAST",
+        "purpose": "klar abgegrenzte, reversible oder bereits weitgehend geprüfte Fragen"
+      },
+      {
+        "id": "STANDARD",
+        "purpose": "reguläre Reformfragen mit Daten-, Fach- und Wirkungsprüfung"
+      },
+      {
+        "id": "DEEP",
+        "purpose": "Grundrechte, Verfassung, große Systemwirkungen oder schwer reversible Entscheidungen"
+      }
+    ],
+    "loop": [
+      "Problem",
+      "Analyse",
+      "Bürger- und Expertenwissen",
+      "KI-Synthese",
+      "Varianten und Simulation",
+      "Gegenprüfung",
+      "Bürgerentscheidung",
+      "parlamentarische Umsetzung",
+      "Wirkungsmessung",
+      "Verbesserung"
+    ]
+  }
 }
