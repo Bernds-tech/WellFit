@@ -53,7 +53,7 @@ const pool = new Pool({ connectionString: target });
 const requiredTables = [
   'submissions','status_access','structured_proposals','clusters','cluster_members',
   'processing_jobs','audit_events','abuse_signals','moderation_reports','privacy_requests',
-  'operator_review_tasks','retention_runs'
+  'review_tasks','retention_runs'
 ];
 try {
   const q = await pool.query(
