@@ -12,6 +12,7 @@
     "migrate": "node scripts/migrate.mjs",
     "test": "node --test",
     "smoke": "node scripts/smoke.mjs",
+    "smoke:staging": "node scripts/staging-edge-e2e.mjs",
     "guardrails:operator": "node scripts/operator-guardrails-smoke.mjs",
     "guardrails:rate": "node scripts/distributed-rate-limit-smoke.mjs",
     "eval:cluster": "node scripts/evaluate-clustering.mjs",
