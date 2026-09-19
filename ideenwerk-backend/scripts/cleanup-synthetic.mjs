@@ -54,7 +54,7 @@ try {
   const emptyClusters = await client.query(
     `DELETE FROM clusters c
       WHERE NOT EXISTS (SELECT 1 FROM cluster_members cm WHERE cm.cluster_id=c.id)
-        AND NOT EXISTS (SELECT 1 FROM solution_variants sv WHERE sv.cluster_id=c.id)`
+        AND NOT EXISTS (SELECT 1 FROM cluster_variants cv WHERE cv.cluster_id=c.id)`
   );
 
   await client.query('COMMIT');
