@@ -135,9 +135,9 @@ async function handleLexicalDuplicateSearch(job) {
     await client.query('BEGIN');
     if (row.current_status === 'structured') await statusChange(client, row.public_id, 'cluster_review', 'system', null, { method: 'pg_trgm', threshold });
     const candidates = await client.query(
-      `SELECT id,public_id,cluster_id,region,topic,current_status,similarity(original_text,$2) AS sim
+      `SELECT id,public_id,cluster_id,region,topic,current_status,extensions.similarity(original_text,$2) AS sim
          FROM submissions
-        WHERE public_id<>$1 AND similarity(original_text,$2) >= $3
+        WHERE public_id<>$1 AND extensions.similarity(original_text,$2) >= $3
         ORDER BY sim DESC, created_at ASC
         LIMIT 20`,
       [row.public_id, row.original_text, threshold]
@@ -261,13 +261,13 @@ async function handleSemanticClusterReview(job) {
   const row = q.rows[0];
   const candidates = await pool.query(
     `SELECT s.id,s.public_id,s.current_status,f.provider,f.model_version,f.problem_signature,f.solution_signature,f.topic,f.suggested_level,f.region_scope,
-            similarity(f.problem_signature,$2) AS problem_sim,
-            similarity(f.solution_signature,$3) AS solution_sim
+            extensions.similarity(f.problem_signature,$2) AS problem_sim,
+            extensions.similarity(f.solution_signature,$3) AS solution_sim
        FROM proposal_features f JOIN submissions s ON s.id=f.submission_id
       WHERE s.id<>$1
         AND s.current_status NOT IN ('received','privacy_hold','clarification','quarantine','removed')
         AND ($4::text IS NULL OR f.topic=$4 OR f.topic IS NULL)
-      ORDER BY GREATEST(similarity(f.problem_signature,$2), similarity(f.solution_signature,$3)) DESC, s.created_at ASC
+      ORDER BY GREATEST(extensions.similarity(f.problem_signature,$2), extensions.similarity(f.solution_signature,$3)) DESC, s.created_at ASC
       LIMIT 20`,
     [row.id,row.problem_signature,row.solution_signature,row.topic]
   );
