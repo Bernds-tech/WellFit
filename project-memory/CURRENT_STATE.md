@@ -52,3 +52,12 @@ ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental 
 
 ## WERK-SUB-001 — 2026-09-09
 Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CSV normalized; 2025 annual/monthly and 24 UG2024 controls reconciled. 1,035 account/classes and20 review priorities added. Program/legal/cofinancing/outcome attribution remains open; no extra financing. All five final local workflow bodies passed; final missing-annual-class guard passed importer and negative checks. All 13 triggered remote workflows succeeded at 0d47fa44c378438bc2c760df954756d73ff900c0; WERK_SUB_001_CI_RECEIPT.json.
+
+## WERK IDEENWERK runtime — 2026-09-19
+- Source branch: `werk-v49-preview-host`.
+- Supabase staging project `WERK Österreich Staging` is active and healthy; Edge Function `werk-ideenwerk-api` is active, version 2, custom public auth (`verify_jwt=false`).
+- Runtime contracts in staging DB: `schema_contract=017_edge_intake_status`, `worker_contract=018_staging_db_worker`.
+- Current staging data state at verification: 0 submissions, 0 public clusters, 0 variants, 0 open review tasks, 0 active processing jobs.
+- Commit `e5c565b4e3151f9669e1f6536df84a984e80c7d9` connects the existing IDEENWERK surface to live staging transparency metrics and public cluster reads while retaining the existing demo cards only as graceful fallback when the live API is unavailable.
+- GitHub Actions `WERK Frontend Check` run 130 passed on that exact code commit, including JavaScript syntax and the V71 structural/data-contract checks.
+- No production release, paid action or irreversible external change was performed.
