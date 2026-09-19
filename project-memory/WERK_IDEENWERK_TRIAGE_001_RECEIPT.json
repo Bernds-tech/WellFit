@@ -1,0 +1,77 @@
+{
+  "task_id": "WERK-IDEENWERK-TRIAGE-001",
+  "status": "VERIFIED_STAGING",
+  "date": "2026-09-20",
+  "branch": "werk-v49-preview-host",
+  "verified_code_head": "7c8d72ff78c85a1bb766804a73319e17ee088a4b",
+  "implementation": {
+    "triage_module": "ideenwerk-backend/src/lib/triage.js",
+    "review_depth_function": "reviewDepthForRoute",
+    "depths": ["FAST", "STANDARD", "DEEP"],
+    "migration": "ideenwerk-backend/sql/020_review_path_audit.sql",
+    "staging_contract": "020_review_path_audit",
+    "political_merit_scoring": false
+  },
+  "rules": {
+    "fast": [
+      "very likely duplicate route",
+      "explicitly small and reversible standard work"
+    ],
+    "deep": [
+      "rights-sensitive route",
+      "explicit constitutional sensitivity",
+      "explicit security sensitivity",
+      "confirmed annual fiscal magnitude >= 1000000000 EUR"
+    ],
+    "default": "STANDARD when substantive review applies and no confirmed escalation or FAST signal exists",
+    "no_substantive_depth": ["quarantine", "clarification"]
+  },
+  "ci": {
+    "workflow": "IDEENWERK Backend Check",
+    "run_number": 96,
+    "result": "success",
+    "checks": [
+      "syntax",
+      "unit tests including review-depth routing",
+      "portable migrations and idempotency",
+      "operator and rate-limit guardrails",
+      "no-login API/privacy smoke",
+      "retention dry-run",
+      "backup/restore",
+      "clustering goldset",
+      "1000-item queue integration load"
+    ],
+    "note": "An intermediate CI run failed because an existing publicSignals export was accidentally omitted while extending triage.js. The existing API was restored before verification; run 96 passed on the final implementation head."
+  },
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "migration_applied": true,
+    "review_depth_matrix_verified": true,
+    "synthetic_transition_verified": {
+      "from": "cluster_review",
+      "to": "precheck",
+      "audit_event": "review_path_assigned",
+      "triage_queue": "standard_review",
+      "review_depth": "STANDARD",
+      "source": "precheck_default_no_confirmed_risk_signals"
+    },
+    "cleanup_verified": true,
+    "post_cleanup_counts": {
+      "submissions": 0,
+      "jobs_active": 0,
+      "jobs_dead": 0,
+      "cluster_candidates": 0,
+      "clusters": 0,
+      "review_tasks_open": 0,
+      "audit_events": 0
+    }
+  },
+  "security": {
+    "review_depth_rpc_public_execute": false,
+    "allowed_roles": ["service_role", "postgres"],
+    "production_changed": false,
+    "paid_action": false
+  },
+  "rollback": "Restore public.ideenwerk_db_status_change from migration 018 and drop public.ideenwerk_review_depth(text,jsonb); remove review_path_contract runtime marker if rollback is required.",
+  "next_best_action": "Expose the latest assigned review path through the existing private status/transparency contracts and existing IDEENWERK UI, without creating a parallel surface."
+}
