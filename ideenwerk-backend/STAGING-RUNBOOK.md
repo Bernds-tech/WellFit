@@ -1,6 +1,6 @@
 # WERK IDEENWERK – Staging Runbook
 
-Status: **bereit zur Ausführung, noch nicht auf einer eigenen WERK-Testinfrastruktur gelaufen**
+Status: **realer No-Login-Stagingpfad am 20.09.2026 verifiziert** (`Edge API → RPC → pg_cron-Worker → privater Status → Transparenzmetrik → Cleanup`). Die Laststufe mit 1.000 Einreichungen ist im isolierten CI grün; ein gesonderter 1k-Lauf gegen die echte Supabase-Staging-Datenbank bleibt ein eigenes Gate.
 
 ## 1. Grundregel
 
@@ -70,6 +70,18 @@ Der deterministische Fallback ist nur Sicherheits-/Ausfallmodus. Ein produktiver
 - regionale Verzerrung,
 - sensible Grundrechts-/Minderheitenthemen.
 
-## 7. Kein Produktivsignal
+## 7. Reproduzierbarer Edge-E2E-Smoke
+
+Der reale Bürgerpfad kann ohne Produktionsdaten wiederholt geprüft werden:
+
+```bash
+WERK_STAGING_EDGE_URL=https://<projekt>.supabase.co/functions/v1/werk-ideenwerk-api \
+DATABASE_URL=postgres://<staging-db> \
+npm run smoke:staging
+```
+
+Der Test prüft eine synthetische No-Login-Einreichung, den einmaligen Status-Token, den geschützten Statusabruf, die automatische Worker-Fortschreibung bis zu einem stabilen Prüfpunkt, Idempotenz ohne erneute Token-Ausgabe, Ablehnung eines falschen Tokens, die Transparenzmetrik sowie Dead-/Orphan-Job-Gates. Anschließend werden die eigenen synthetischen Datensätze transaktional bereinigt.
+
+## 8. Kein Produktivsignal
 
 Ein grünes Staging bedeutet nicht automatisch öffentliche Freigabe. OIDC/MFA/RBAC, Datenschutz-/Retention-Freigabe, WAF/Bot-Schutz, Penetrationstest, Betreiber-/Impressumsdaten und Produktiv-Backupregeln bleiben separate Gates.
