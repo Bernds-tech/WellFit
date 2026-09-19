@@ -22,6 +22,16 @@ Prevents two agents/sessions from independently working the same task.
 - Resume from: reconcile PR #2 against current main and cross-repo capability before modifying visual product code
 - Released: not released; stale until deliberately resumed or superseded
 
+## LOCK-WERK-IDEENWERK-TRIAGE-001
+- Task: WERK-IDEENWERK-TRIAGE-001
+- Status: ACTIVE
+- Risk: R2
+- Holder: WERK autonomous continuation 2026-09-20
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-20 Europe/Vienna
+- Scope: connect the existing IDEENWERK triage contract to the real staging precheck path and persist a procedural review path/depth without political scoring or acceptance decisions.
+- Recovery: revert the bounded source commit and restore the previous staging function from migration 018; no production deployment is authorized.
+
 ## Released/superseded locks
 
 ## LOCK-WFG-MOBILE-UX-001
@@ -117,7 +127,7 @@ No additional locks recorded.
 - Holder: Codex 2026-09-06
 - Scope: WERK employee assessment and dependent SV calculations/registers only.
 
-- Verified: 190e1940446205c4532ecef62c6d6f038a79cd01; all four triggered workflows succeeded. WERK_SV_004_CI_RECEIPT.json.
+- Verified: 190e1940446205c4532ecef62c6d6f038a79cd01; all four triggered CI workflows succeeded. WERK_SV_004_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-005
 - Status: RELEASED
@@ -125,7 +135,7 @@ No additional locks recorded.
 - Holder: Codex 2026-09-07
 - Scope: WERK debt/SV calculation, source context, reports and contracts.
 
-- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
+- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered CI workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-006
 - Status: RELEASED
@@ -146,7 +156,7 @@ No additional locks recorded.
 ## LOCK-WERK-SV-008
 - Task: WERK-SV-008
 - Status: RELEASED
-- Holder: Codex 2026-09-08
+- Holder: Codex WERK continuation 2026-09-08
 - Scope: new ALV transition model/library/report, fiscal integration and WERK memory on existing branch.
 
 - Released 2026-09-08 after exact-implementation success of all three workflows; WERK_SV_008_CI_RECEIPT.json.
@@ -154,7 +164,7 @@ No additional locks recorded.
 ## LOCK-WERK-SV-009
 - Task: WERK-SV-009
 - Status: RELEASED
-- Holder: Codex 2026-09-08
+- Holder: Codex WERK continuation 2026-09-08
 - Scope: new contribution-distribution and cost-bound artifacts, fiscal integration and WERK memory; existing branch.
 
 - Released 2026-09-08 after exact-implementation success of all three workflows; WERK_SV_009_CI_RECEIPT.json.
