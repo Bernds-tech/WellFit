@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "supervisor": "WERK Stundenkontrolleur",
+  "checked_at": "2026-09-20T22:55:10Z",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "e866c930dda9f50c3620c08c79c442bfed9b1c80",
+  "claim": {
+    "task": "WERK-IDEENWERK-IMPACT-BRIDGE-001",
+    "builder_status": "IMPLEMENTED_NOT_VERIFIED",
+    "functional_head": "f5a38a74caf4daf896124b2f606942d1653e2316",
+    "exact_tested_evidence_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+    "staging_migration": "20260920223436 ideenwerk_impact_bridge"
+  },
+  "independent_evidence": {
+    "github_ci": [
+      {
+        "workflow": "WERK Impact Bridge Check",
+        "run_number": 3,
+        "head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+        "conclusion": "success",
+        "verified_steps": [
+          "syntax_and_canonical_registry_guard",
+          "portable_migrations",
+          "migration_idempotency",
+          "db_mapping_and_stale_negative_guard"
+        ]
+      },
+      {
+        "workflow": "WERK Frontend Check",
+        "run_number": 177,
+        "head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+        "conclusion": "success",
+        "verified_steps": [
+          "javascript_syntax",
+          "json_syntax",
+          "v71_structural_and_policy_contract",
+          "version_regression_guard"
+        ]
+      }
+    ],
+    "staging": {
+      "project": "WERK Österreich Staging",
+      "project_status": "ACTIVE_HEALTHY",
+      "latest_migration": "20260920223436 ideenwerk_impact_bridge",
+      "runtime_contract": "037_ideenwerk_impact_bridge",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_version": 7,
+      "bridge_table_exists": true,
+      "bridge_rows_after_builder_cleanup": 0,
+      "rls_enabled": true,
+      "anon_direct_select": false,
+      "authenticated_direct_select": false,
+      "service_role_direct_select": true,
+      "anon_direct_current_bridge_execute": false,
+      "authenticated_direct_current_bridge_execute": false,
+      "service_role_current_bridge_execute": true,
+      "precheck_trigger_exists": true,
+      "zero_baseline_tables_checked": 14,
+      "zero_baseline_verified": true
+    },
+    "contract_consistency": {
+      "impact_registry_version": "2026-09-21-v1",
+      "reforms_source_version": "2026-09-06-v5",
+      "data_contract_registry_version": "2026-09-07-v17",
+      "runtime_source_versions_match_repository": true,
+      "stale_version_behavior": "revalidation_required_with_empty_mappings",
+      "no_new_effect_columns": true,
+      "existing_v71_status_surface_reused": true,
+      "parallel_calculator_created": false
+    },
+    "security_revalidation_after_schema_change": {
+      "pg_net_data_api_guard_still_configured": true,
+      "pg_net_extension_in_public_warning_still_present": true,
+      "new_security_warns": 0,
+      "security_advisor_info_count": 31,
+      "note": "The additional RLS-with-no-policy INFO item is the new impact-bridge table; direct anon/authenticated grants are revoked, so this is consistent with the fail-closed service-role-only table boundary. The existing pg_net production-hardening WARN remains open."
+    }
+  },
+  "countercheck": {
+    "result": "COUNTERCHECKED_STAGING",
+    "risk": "R3",
+    "falsifiers_checked": [
+      "exact tested head CI failure",
+      "runtime migration absent or mismatched",
+      "source registry version mismatch",
+      "anon/authenticated direct table access",
+      "stale mappings returned as current",
+      "new fiscal effect field or calculation",
+      "parallel IDEENWERK page or calculator",
+      "synthetic residue after verification"
+    ],
+    "not_claimed": [
+      "production acceptance",
+      "complete semantic matching of all citizen ideas",
+      "new fiscal effect correctness",
+      "political recommendation or acceptance/rejection",
+      "IMPACT_BRIDGE_ACCEPTED milestone"
+    ]
+  },
+  "specialist_results": {
+    "integration_hunter": "The previously missing citizen/precheck -> existing reform/calculation artifact edge is now counterchecked in Staging. The next unbuilt component on the path is expert input; no additional missing edge between two already-verified components was found.",
+    "evidence_reaper": "Migration 037 triggered staging/security revalidation. Current runtime, edge, zero-baseline, pg_net request guard and Security Advisor state were refreshed. Older staging/security current-state evidence is now historical for the pre-037 schema.",
+    "orphan_zombie_hunter": "Impact Bridge task/lock/loop/dependency/shared next-action still carry pre-countercheck wording and require memory-only closeout; do not rebuild the feature.",
+    "calculation_integrity_guardian": "No calculation formula, source data or reform contract changed. Impact Bridge only references existing IDs and explicitly carries open gates; no deep recalculation was triggered.",
+    "milestone_closer": "No ACCEPTED/PRODUCTION_CONFIRMED quorum. Impact Bridge is counterchecked in Staging only; no milestone snapshot created."
+  },
+  "remaining_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "scope": "production hardening"
+    },
+    {
+      "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-BOOKKEEPING",
+      "severity": "YELLOW",
+      "status": "BUILDER_RECONCILIATION_REQUIRED",
+      "scope": "project-memory only"
+    }
+  ],
+  "next": "Consume the Impact Bridge COUNTERCHECKED_STAGING result into TASK_LEDGER, STARTED_WORK, WORK_LOCKS, OPEN_LOOPS, DEPENDENCIES, EXECUTION_RECEIPTS master index and NEXT_BEST_ACTION. After that, WERK-EXPERT-001 is the next functional action by catalog priority.",
+  "mutation_boundary": "Audit/governance records only; no product code, runtime, database, edge function or political content was changed by the Supervisor."
+}
