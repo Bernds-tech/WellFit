@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v15",
+  "version": "2026-09-20-v16",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; öffentliche Clusterliste mit serverseitigen Filtern und stabiler Cursor-Pagination umgesetzt; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; öffentliche Clusterliste mit serverseitigen Filtern, stabiler Cursor-Pagination und fail-closed Sichtbarkeit für Cluster und Lösungsvarianten umgesetzt; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -11,6 +11,7 @@
     "Rate Limiting und Abuse Protection auf allen schreibenden Endpunkten",
     "keine KI-Abhängigkeit im synchronen Einreichungspfad",
     "Problemcluster, Lösungsvarianten und Originalideen werden getrennt abgebildet",
+    "quarantined/removed Problemcluster und Lösungsvarianten werden an öffentlichen Clusterendpunkten fail-closed weder ausgegeben noch in öffentliche Variantenanzahlen eingerechnet",
     "FAST/STANDARD/DEEP beschreibt ausschließlich die Prüftiefe des Verfahrens und ist weder politischer Score noch Annahme-/Ablehnungsentscheidung",
     "der Kompetenz-Vorcheck ordnet nur hochspezifische, durch das bestehende Kompetenzinventar belegte Fälle vorläufig zu; unklare Fälle bleiben offen und jede Zuordnung ist weder politische Bewertung noch endgültige Rechtsentscheidung",
     "unklare Kompetenzfälle oder Fälle mit erforderlicher Rechts-/Kompetenzöffnung erzeugen genau einen signalgebundenen Review für legal_reviewer; die menschliche Auflösung ist quellengebunden und stale-safe, überschreibt den automatischen Vorcheck nicht und entscheidet weder über Annahme/Ablehnung noch über politische Wertung der Bürgeridee",
@@ -88,7 +89,7 @@
       "auth": "öffentlich",
       "query": ["limit", "topic", "region", "status", "cursor"],
       "response": ["clusters", "next_cursor"],
-      "notes": "deployed Edge v6: limit ist eine ganze Zahl 1..50 und standardmäßig 12; topic, region und status filtern serverseitig auf exakte öffentliche Werte; quarantined/removed Cluster werden bereits vor Limit/Pagination ausgeschlossen; Sortierung ist stabil nach updated_at DESC, cluster_id DESC; next_cursor ist null am Ende und ansonsten ein opaker, an die aktuelle Filterkombination gebundener Cursor; unbekannte Query-Parameter, nicht öffentliche Statusfilter und Filter/Cursor-Mismatches liefern 400; sort ist noch nicht live"
+      "notes": "deployed Edge v7: limit ist eine ganze Zahl 1..50 und standardmäßig 12; topic, region und status filtern serverseitig auf exakte öffentliche Werte; quarantined/removed Cluster werden bereits vor Limit/Pagination ausgeschlossen; variant_count zählt nur öffentliche Varianten und schließt quarantine/removed Varianten aus; Sortierung ist stabil nach updated_at DESC, cluster_id DESC; next_cursor ist null am Ende und ansonsten ein opaker, an die aktuelle Filterkombination gebundener Cursor; unbekannte Query-Parameter, nicht öffentliche Statusfilter und Filter/Cursor-Mismatches liefern 400; sort ist noch nicht live"
     },
     {
       "method": "GET",
@@ -96,7 +97,7 @@
       "implementation": "staging-live",
       "auth": "öffentlich",
       "response": ["cluster", "variants"],
-      "notes": "deployed Edge v6: cluster enthält cluster_id, title, topic, region_scope, review_status, submission_count, updated_at sowie unverbindliche process_lane_suggestion/reason; variants enthält variant_id, title, summary, review_status, created_at und updated_at; quarantined/removed Cluster liefern 404; Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren; attention_signals, quality_gates, linked_reforms und status_history_public sind noch nicht live"
+      "notes": "deployed Edge v7: cluster enthält cluster_id, title, topic, region_scope, review_status, submission_count, updated_at sowie unverbindliche process_lane_suggestion/reason; variants enthält nur öffentliche Varianten mit variant_id, title, summary, review_status, created_at und updated_at; quarantine/removed Varianten werden serverseitig ausgeschlossen, quarantined/removed Cluster liefern 404; Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren; attention_signals, quality_gates, linked_reforms und status_history_public sind noch nicht live"
     },
     {
       "method": "POST",
@@ -160,7 +161,7 @@
     "idempotency": "POST /submissions und POST /status/{public_id}/clarification akzeptieren Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
     "pagination": "GET /clusters verwendet keyset-basierte Cursor-Pagination mit stabiler Sortierung updated_at DESC, cluster_id DESC; limit 1..50, Standard 12; der opake Cursor ist an topic/region/status gebunden und wird bei Filterwechsel als ungültig abgewiesen",
     "error_format": ["code", "message?"],
-    "request_id": "in der deployten Edge-v6-Fehlerhülle noch nicht durchgängig live",
+    "request_id": "in der deployten Edge-v7-Fehlerhülle noch nicht durchgängig live",
     "security_headers": "Produktiv erzwingen",
     "cors": "nur freigegebene WERK-Origin(s)"
   },
