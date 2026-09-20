@@ -1,0 +1,61 @@
+{
+  "task_id": "WERK-IDEENWERK-REVIEW-PATH-TRANSPARENCY-001",
+  "date": "2026-09-20",
+  "risk": "R2",
+  "status": "VERIFIED_STAGING",
+  "base_commit": "66f4c3e19039f91796a2c0e9862a098ec6545c04",
+  "implementation_commit": "223f29d04ff4c9e9a70550edf4d0cec917b42bd9",
+  "asset_refresh_commit": "6c8975749e7238ba783ecd943cf0cf2000677cb5",
+  "scope": [
+    "Expose the latest audited FAST/STANDARD/DEEP procedural review path through the existing token-protected citizen status.",
+    "Expose privacy-bounded aggregate review-depth metrics through the existing transparency endpoint.",
+    "Render both in the existing IDEENWERK V71 surfaces without a parallel page."
+  ],
+  "database": {
+    "project": "WERK Österreich Staging",
+    "migration": "021_review_path_transparency",
+    "runtime_marker": "review_path_transparency_contract=021_review_path_transparency",
+    "small_sample_rule": "FAST/STANDARD/DEEP bucket counts are null while fewer than five review-path assignments exist; assigned_total remains visible. This is an endpoint privacy guard, not a WERK political principle."
+  },
+  "edge": {
+    "function": "werk-ideenwerk-api",
+    "version": 3,
+    "status": "ACTIVE",
+    "verify_jwt": false,
+    "auth_note": "Public no-login routes remain public; private status continues to enforce the one-time bearer status-token contract in function logic."
+  },
+  "verification": {
+    "github_ci": [
+      {"workflow":"WERK Frontend Check","run":131,"commit":"223f29d04ff4c9e9a70550edf4d0cec917b42bd9","conclusion":"success"},
+      {"workflow":"IDEENWERK Backend Check","run":97,"commit":"223f29d04ff4c9e9a70550edf4d0cec917b42bd9","conclusion":"success"},
+      {"workflow":"WERK Frontend Check","run":132,"commit":"6c8975749e7238ba783ecd943cf0cf2000677cb5","conclusion":"success"}
+    ],
+    "staging_contract_test": {
+      "synthetic_public_id": "IDEA-FEED0000FEED0001",
+      "result": "private status returned review_path.depth=STANDARD, triage_queue=standard_review and matching audit history",
+      "aggregate_result": "assigned_total=1 with distribution_state=suppressed_small_sample and FAST/STANDARD/DEEP bucket counts null",
+      "cleanup": "synthetic submission/audit data removed"
+    },
+    "post_cleanup_counts": {
+      "submissions": 0,
+      "active_jobs": 0,
+      "dead_jobs": 0,
+      "cluster_candidates": 0,
+      "clusters": 0,
+      "variants": 0,
+      "open_reviews": 0,
+      "audit_events": 0
+    }
+  },
+  "security_review": {
+    "new_blocker": false,
+    "unchanged_warning": "Supabase still warns that pg_net is installed in public. It was not moved because that requires a deliberate extension relocation/drop-recreate maintenance step.",
+    "rls_note": "RLS-without-policy findings remain intentional default-deny surfaces for direct anon/authenticated table access."
+  },
+  "production": {
+    "deployed": false,
+    "paid_actions": false,
+    "irreversible_external_changes": false
+  },
+  "recovery": "Revert commits 6c8975749e7238ba783ecd943cf0cf2000677cb5 and 223f29d04ff4c9e9a70550edf4d0cec917b42bd9; restore the previous protected-status function; drop public.ideenwerk_public_review_depth_metrics(); remove runtime marker review_path_transparency_contract; redeploy the prior Edge function version."
+}
