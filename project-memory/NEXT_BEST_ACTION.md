@@ -66,10 +66,21 @@ Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CS
 - Result: migrations `030_existing_measure_check` and `031_existing_measure_review_queue` reuse the existing WERK government/baseline registries to flag only high-specificity possible overlaps during `precheck`. A hit is a bounded review hint, never an acceptance/rejection or political score. Every `possible_overlap` creates exactly one active `existing_measure_overlap` task for `impact_reviewer`; reruns do not duplicate the task. `no_known_overlap` creates no task and explicitly does not claim completeness. The protected citizen status and privacy export carry the check result, and the existing V71 surface shows a citizen-readable notice without a new page. Backend Check #130 and Frontend Check #152 succeeded. Reversible staging verification passed and all synthetic data was removed. See `project-memory/WERK_IDEENWERK_EXISTING_MEASURE_001.md`.
 - Safety retained: original text remains unchanged; operator identity is not exposed; no automatic decision, production deploy, paid action or irreversible external change was introduced.
 
-## WERK autonomous continuation — next slice (current)
+## WERK autonomous continuation — historical next slice
 - Selected action: `WERK-IDEENWERK-EXISTING-MEASURE-REVIEW-RESOLUTION-001`
-- Status: `EXECUTABLE`
+- Status: `SUPERSEDED_BY_VERIFIED_IMPLEMENTATION`
 - Risk: `R2`.
 - Why next: a detected overlap now reaches a real human impact-review task, but the system still lacks a bounded domain-specific resolution contract that distinguishes confirmed baseline overlap, partial overlap and no material overlap without turning that finding into a political decision.
 - Exact next work: reuse the existing role-guarded `review_decisions` infrastructure; define a narrow reason-coded overlap disposition; persist reviewed timestamp/outcome against the existing-measure check; keep the submission in the normal procedural path; expose only citizen-relevant outcome/timing through the protected status/export contracts; never expose operator identity; add migration/idempotency/role/decision guardrails and reversible staging tests.
 - Acceptance: only an active `impact_reviewer` can resolve the task; one terminal disposition per task; audit trail is deterministic; no automatic proposal acceptance/rejection; no original-text mutation; wrong-role and replay paths fail closed; existing status/UI reused; backend/frontend gates green; staging returns to zero synthetic data; no production deploy.
+
+
+## WERK autonomous continuation — current derived action
+- Selected action: `WERK-IDEENWERK-IMPACT-BRIDGE-001`
+- Status: `EXECUTABLE`
+- Risk: `R2`
+- Derived by: WERK closed-loop Connection Sweep, 2026-09-20.
+- Why next: citizen intake, clarification, competence/rechts review, existing-measure review, public clusters and multiple WERK calculation/reform artifacts are already independently verified, but the connection **Bürgeridee/Cluster → relevante bestehende Rechenmodelle/Reformakten → transparenter Wirkungsprüfbedarf** is not yet implemented end-to-end.
+- Exact next work: build a bounded registry/bridge that reuses existing WERK reform/calculation identifiers and data artifacts; map a citizen problem/cluster to candidate affected reform/calculation domains; return links and required/open calculation gates only, without inventing new fiscal effects or political recommendations. Reuse existing IDEENWERK precheck/status/UI surfaces. Add deterministic source/version binding, negative tests, audit trail and reversible staging verification.
+- Do not rebuild: competence review, existing-measure review, privacy, clarification, public cluster listing/detail, FAST/STANDARD/DEEP.
+- Acceptance: no duplicated model, no unsupported numeric claim, explicit provenance to existing WERK data/reform artifacts, stale/version-safe linkage, existing website reused, backend/frontend gates green, staging cleanup complete.
