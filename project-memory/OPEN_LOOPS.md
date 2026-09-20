@@ -82,3 +82,14 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 - Risk: rebuilding calculations inside IDEENWERK would duplicate logic and allow inconsistent fiscal claims.
 - Next: implement `WERK-IDEENWERK-IMPACT-BRIDGE-001` by reusing existing model/reform IDs and exposing provenance/open gates rather than manufacturing new effects.
 - Close when: connection is version-bound, tested, surfaced through existing IDEENWERK, independently counterchecked and no parallel calculation source exists.
+
+## WERK-LOOP-SEC-PGNET-001
+- Status: OPEN
+- Updated: 2026-09-20 19:07 UTC
+- Risk: R3
+- Gap: Supabase Security Advisor reports one current `WARN`: extension `pg_net` is installed in the `public` schema on `WERK Österreich Staging`.
+- Scope boundary: no exploit or data exposure was observed in this run; this is a hardening/advisor finding, not a production incident. The same advisor run reports 30 `INFO` items for RLS-enabled tables with no policies; those remain fail-closed for direct anon/authenticated table access and are not promoted to a defect by this check.
+- Evidence: Supabase Security Advisor observed at `2026-09-20T19:07:17.595Z`; current staging remains `ACTIVE_HEALTHY` and the citizen/review/test tables are at zero baseline.
+- Remediation reference: https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public
+- Next: determine whether `pg_net` is platform-managed/required by current WERK runtime; if movable, relocate it to a non-public extension schema through a tested migration. Do not change staging or production merely to silence the advisor without dependency proof.
+- Close when: a fresh security-advisor run no longer reports the warning, or a documented platform constraint explicitly accepts it for staging while production hardening remains blocked.
