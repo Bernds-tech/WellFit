@@ -46,11 +46,17 @@ Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CS
 - Regression handled: the first CI integration exposed two staging-vs-portable-CI assumptions (staging-only runtime metadata and pgcrypto schema placement). Both were corrected; no production or destructive data action was performed.
 - Safety retained: no hard delete, anonymisation, restriction execution, operator identity disclosure, production release, paid action or political decision was introduced.
 
+## WERK autonomous continuation — 2026-09-20 · citizen status path UX
+- Selected action: `WERK-IDEENWERK-STATUS-PATH-UX-001`
+- Status: `VERIFIED_CODE`
+- Risk: `R1`.
+- Result: the existing protected IDEENWERK status surface now translates all current machine states into citizen-readable labels, highlights the matching existing pipeline stage beyond the former `received`-only case, and shows a deterministic next procedural step. Terminal/moderation states intentionally do not pretend to be normal pipeline progress. The enhancement is loaded inside the existing V71 IDEENWERK module; no parallel page, political score or acceptance/rejection logic was added. Functional head: `eceb478580ce01d9411b875a3b6726d0dc331eac`; WERK Frontend Check #140 succeeded, including JavaScript syntax and V71 structural/policy coverage.
+- Staging retained: no database or Edge mutation was needed. WERK Österreich Staging remained at the zero-data baseline and runtime contract `024_privacy_resolution_transparency` remained active.
+
 ## WERK autonomous continuation — next slice
-- Selected action: `WERK-IDEENWERK-PRIVACY-LIFECYCLE-UI-001`
+- Selected action: `WERK-IDEENWERK-CLARIFICATION-001`
 - Status: `EXECUTABLE`
-- Risk: `R1-R2`.
-- Why next: the backend now records and exposes the full privacy-review lifecycle, but the existing V71 protected IDEENWERK status panel still renders only the raw request state plus creation time/reason. The next smallest functional improvement is to make the already-available lifecycle understandable to the citizen in the existing surface.
-- Exact next work: update only the existing `werk-assets/site-ideenwerk-v2.js` request rendering to localize `received`, `reviewing`, `resolved` and `rejected`, show `review_started_at`/`resolved_at` where present, keep the status-token boundary unchanged, avoid operator identity, bump the existing loader cache key, and run the current frontend gate plus relevant backend contract checks.
-- Acceptance: no parallel page; no new political inference; raw operator identity remains absent; lifecycle labels and timestamps render from the existing protected API; syntax/frontend checks pass; staging API remains clean; no production deploy.
-- Architecture note: do not expose `ideenwerk_operator_transition_privacy_request` through the current public `werk-ideenwerk-api` boundary until a separate authenticated operator trust boundary is defined. The current service-role-only DB guardrail remains the safe boundary.
+- Risk: `R2`.
+- Why next: the canonical status machine already contains `clarification` and the API contract already specifies protected `POST /status/{public_id}/clarification`, but the active Edge API has no such route. This is now the clearest functional gap in the real no-login citizen process.
+- Exact next work: implement the protected clarification intake on the existing status-token boundary; persist citizen clarification without overwriting the immutable original submission; make the clarification available to the existing structuring/review path before allowing `clarification -> structured`; add idempotency/audit coverage, wrong-token denial, and a reversible staging smoke test; expose the answer action only in the existing protected V71 status surface when the current state is `clarification`.
+- Acceptance: no original-text mutation; no new page; clarification content remains private unless separately approved for publication; status-token ownership enforced; deterministic transition/audit trail; worker/review path consumes the clarification; syntax, backend/front-end gates and reversible staging smoke pass; staging returns to zero synthetic data; no production deploy.
