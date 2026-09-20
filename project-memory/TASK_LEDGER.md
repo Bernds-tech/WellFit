@@ -258,3 +258,16 @@ Keep history append-only; supersede rather than delete.
 - Countercheck evidence: WERK Frontend Check #174 succeeded on exact functional governance head `242893c2fcc322424d7b6fb4cc97a0e87ea90a6e`; current pre-audit head `0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca` is one audit-only supervisor-state commit ahead. Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
 - Next step: consume this completion by treating `WERK-IDEENWERK-IMPACT-BRIDGE-001` as the functional next action, subject to higher-priority active security findings such as `CTR-WERK-SEC-PGNET-ACL-001`.
 - Do not repeat: do not create a second WERK task system or allow WellFit finishline/owner files to steer WERK.
+
+## WERK-SEC-PGNET-001
+- Date: 2026-09-20
+- Status: IN_PROGRESS
+- Risk: R3
+- Finding: `CTR-WERK-SEC-PGNET-ACL-001` / `WERK-LOOP-SEC-PGNET-001`.
+- Goal: restore a durable least-privilege boundary around Supabase-managed pg_net on WERK Österreich Staging without breaking the IDEENWERK runtime or fighting platform-managed extension ownership.
+- Starting evidence: pg_net 0.20.4 is owned by `supabase_admin`; Supabase-managed `issue_pg_net_access` can re-grant `net` schema usage after extension DDL; anon/authenticated are NOLOGIN; current WERK application functions contain no `net.http_*` dependency.
+- Action: add migration `036_pg_net_data_api_guard.sql`, PostgREST pre-request denial for anon/authenticated `net` profiles, re-revoke live anon/authenticated net ACLs, and a negative guardrail that rejects wrappers/exposure drift without invoking outbound HTTP.
+- Lock: `LOCK-WERK-SEC-PGNET-001`.
+- Recovery: reset `authenticator` pre-request hook, drop the WERK guard function and restore prior platform-managed grants on staging if the bounded change regresses Data API behavior.
+- Exact next step: green exact-head backend CI, reversible staging migration, fresh ACL/security-advisor/runtime/zero-baseline verification, then independent supervisor countercheck.
+- Do not repeat: do not move/drop/reinstall pg_net merely to silence an advisor warning and never call `net.http_*` as a security test.
