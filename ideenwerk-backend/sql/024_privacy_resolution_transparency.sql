@@ -266,10 +266,19 @@ GRANT EXECUTE ON FUNCTION public.ideenwerk_list_privacy_requests(text,text) TO s
 GRANT EXECUTE ON FUNCTION public.ideenwerk_get_privacy_export(text,text) TO service_role;
 GRANT EXECUTE ON FUNCTION public.ideenwerk_get_private_status(text,text) TO service_role;
 
-INSERT INTO public.ideenwerk_runtime_meta(key,value,updated_at)
-VALUES ('privacy_resolution_transparency_contract','024_privacy_resolution_transparency',now())
-ON CONFLICT (key) DO UPDATE
-SET value=EXCLUDED.value,
-    updated_at=EXCLUDED.updated_at;
+-- The portable CI database intentionally omits staging-only migration 017, which
+-- owns ideenwerk_runtime_meta. Record the runtime marker only where that table
+-- actually exists; the citizen contract itself remains portable PostgreSQL.
+DO $$
+BEGIN
+  IF to_regclass('public.ideenwerk_runtime_meta') IS NOT NULL THEN
+    INSERT INTO public.ideenwerk_runtime_meta(key,value,updated_at)
+    VALUES ('privacy_resolution_transparency_contract','024_privacy_resolution_transparency',now())
+    ON CONFLICT (key) DO UPDATE
+    SET value=EXCLUDED.value,
+        updated_at=EXCLUDED.updated_at;
+  END IF;
+END
+$$;
 
 COMMIT;
