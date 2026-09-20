@@ -11,13 +11,27 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
+## WERK-SEC-PGNET-001
+- Started: 2026-09-20 20:25 UTC
+- Status: IN_PROGRESS
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Finding: `CTR-WERK-SEC-PGNET-ACL-001` / `WERK-LOOP-SEC-PGNET-001`.
+- Work lock: `LOCK-WERK-SEC-PGNET-001`.
+- Scope: restore WERK's least-privilege boundary around Supabase-managed pg_net without moving/dropping the extension or invoking outbound HTTP routines.
+- Evidence before change: pg_net 0.20.4 on WERK Österreich Staging; `net` schema USAGE and routine EXECUTE had been re-granted to anon/authenticated after migration 016; WERK application functions have no direct `net.http_*` dependency; Supabase-managed `issue_pg_net_access` event trigger explains schema-grant drift after extension DDL.
+- Implementation underway: migration `036_pg_net_data_api_guard.sql` re-revokes current anon/authenticated net ACLs and installs a fail-closed PostgREST pre-request guard for `net` profile requests; `pg-net-security-guard-smoke.mjs` tests role, wrapper, profile-denial and live ACL conditions; backend CI covers migration/idempotency and negative guardrail.
+- Safety boundary: no pg_net relocation/reinstall, no `net.http_*` call, no production change, no political or product behavior change.
+- Recovery: reset `authenticator` pre-request setting, drop only `public.werk_api_security_guard()`, and restore prior platform-managed grants if a staging regression requires rollback.
+- Exact next step: obtain green exact-head IDEENWERK Backend Check, apply migration 036 to WERK Österreich Staging, run fresh ACL/advisor/zero-baseline checks, then emit builder claim for independent supervisor countercheck.
+
 ## WERK-IDEENWERK-PRIVACY-001
 - Started: 2026-09-20 Europe/Vienna
 - Closed: 2026-09-20
 - Status: VERIFIED_STAGING
 - Risk: R2
 - Branch: `werk-v49-preview-host`
-- Scope: Status-Token-protected citizen data export and auditable correction, deletion, restriction and cluster-appeal requests on the existing IDEENWERK path.
+- Scope: Status-Token-protected citizen data export and auditable correction, deletion, restriction and cluster-appeal requests on the existing IDEENWERK status-token path.
 - Result: implemented and independently evidenced through the existing receipts/CI/staging verification; deletion remains a review request, never an automatic hard delete.
 - Evidence: `WERK_IDEENWERK_PRIVACY_001_RECEIPT.json`, later privacy-resolution/clarification receipts and current protected API contract.
 - Follow-up: no rebuild. Reopen only on new contradictory evidence or a documented downstream integration dependency.
@@ -109,7 +123,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Scope: close missing regional stock with official workbook and acquire occupation/education supply without inventing a joint distribution.
 - Base: 8f6799f; WERK-LAB-002 is verified and closed.
 - Lock: LOCK-WERK-LAB-003
-- Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local checks passed.
+- Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local contracts passed.
 - Closed: 2026-09-06. Published implementation ece6767e5a4d4362f43c07a0ae7033b509de585a; all 13 CI workflows succeeded. See WERK_LABOUR_003_CI_RECEIPT.json.
 
 ## WERK-LAB-004
@@ -253,7 +267,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Lock: LOCK-WERK-TAX-001
 - Base: a7f8708b7955af5b485be0b2640e590d98d6bf28
 - Scope: official ABB outcome/cash/cost reconciliation and incremental break-even.
-- Falsifier: summed requests/assessments/fines falsely treated as cash, average office yield extrapolated to marginal reform, or existing government receipts credited twice. Check original, independent hand arithmetic and negative cases.
+- Falsifier: summed requests/assessments/fines falsely treated as cash, average office yield extrapolated to marginal reform, or existing government receipts credited twice. Check original, independent hand arithmetic and negative cases required.
 
 - Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
 
