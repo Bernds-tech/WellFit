@@ -36,6 +36,9 @@ test('public cluster contract matches the staging Edge response envelope', async
   assert.match(edgeSource, /if \(filters\.region\) query = query\.eq\('region_scope', filters\.region\);/);
   assert.match(edgeSource, /if \(filters\.status\) query = query\.eq\('review_status', filters\.status\);/);
   assert.match(edgeSource, /decodeClusterCursor\(cursorRaw, filters\)/);
+  assert.match(edgeSource, /INVALID_CLUSTER_QUERY/);
+  assert.match(edgeSource, /INVALID_CURSOR/);
+  assert.match(edgeSource, /Number\.isInteger\(limitNumber\).*limitNumber < 1.*limitNumber > 50/s);
 
   assert.equal(detail.implementation, 'staging-live');
   assert.deepEqual(detail.response, ['cluster', 'variants']);
