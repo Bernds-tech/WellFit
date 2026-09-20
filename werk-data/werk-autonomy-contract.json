@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-20-v3",
+  "version": "2026-09-20-v4",
   "name": "WERK autonomous closed-loop contract",
   "task_system_rule": "No competing task system. Existing Project Memory registers remain canonical.",
   "canonical_order": [
@@ -72,7 +72,8 @@
     "project-memory/WORK_LOCKS.md",
     "project-memory/DEPENDENCIES.md",
     "project-memory/OPEN_LOOPS.md",
-    "project-memory/NEXT_BEST_ACTION.md"
+    "project-memory/NEXT_BEST_ACTION.md",
+    "builder claim/task evidence for supervisor consumption"
   ],
   "stop_rule": "Do not invent work. If no safe executable work exists, record the blocker/evidence gap and stop.",
   "werk_control_sources": {
@@ -90,5 +91,13 @@
   "agent_coordination": "project-memory/WERK_AGENT_COORDINATION.md",
   "system_graph": "werk-data/werk-system-graph.json",
   "specialist_rule": "Specialist automations audit/reconcile only. Ordinary implementation belongs to the Builder.",
-  "system_graph_rule": "Connection Sweep must consult the graph; downstream evidence is reconsidered when upstream source/calculation/runtime contracts materially change."
+  "system_graph_rule": "Connection Sweep must consult the graph; downstream evidence is reconsidered when upstream source/calculation/runtime contracts materially change.",
+  "write_authority": {
+    "WERK_SUPERVISOR_STATE": "supervisor",
+    "WERK_EVIDENCE_FRESHNESS": "evidence_reaper via supervisor",
+    "WERK_FINISHLINE_STATE": "finishline navigator / milestone closer",
+    "WERK_NEXT_BEST_ACTIONS": "finishline navigator",
+    "WERK_OWNER_ACTION_INBOX": "owner action manager (navigator may reconcile only when finishline evidence changes)",
+    "product_implementation": "builder"
+  }
 }
