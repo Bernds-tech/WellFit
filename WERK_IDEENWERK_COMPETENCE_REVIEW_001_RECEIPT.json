@@ -1,0 +1,114 @@
+{
+  "receipt_id": "WERK-IDEENWERK-COMPETENCE-REVIEW-001",
+  "date": "2026-09-20",
+  "scope": "Signalgebundene menschliche Zuständigkeitsprüfung im bestehenden IDEENWERK-Precheck",
+  "source_branch": "werk-v49-preview-host",
+  "implementation_head_before_receipt": "b035e48e5139ef59cca58af5093f870cb364136a",
+  "source_changes": [
+    "ideenwerk-backend/sql/035_competence_review_queue.sql",
+    "ideenwerk-backend/scripts/competence-review-resolution-smoke.mjs",
+    ".github/workflows/ideenwerk-backend-check.yml",
+    "werk-data/ideenwerk-api-contract.json",
+    "werk-assets/site-ideenwerk-clarification.js",
+    "werk-assets/site-v71-loader.js"
+  ],
+  "runtime_contract": "035_competence_review_queue",
+  "api_contract": "2026-09-20-v13",
+  "behavior": {
+    "review_trigger": [
+      "competence_precheck.result_code=unclassified",
+      "competence_precheck.legal_change_required=true"
+    ],
+    "required_role": "legal_reviewer",
+    "review_type": "competence_precheck",
+    "priority": 80,
+    "allowed_resolution_codes": [
+      "COMPETENCE_CLASSIFIED",
+      "COMPETENCE_CORRECTED",
+      "LEGAL_CHANGE_REQUIRED_CONFIRMED",
+      "COMPETENCE_UNRESOLVED"
+    ],
+    "safety_boundary": "Die Zuständigkeitsprüfung klassifiziert ausschließlich Rechts-/Verfahrenszuständigkeit. Sie verändert weder Originaltext noch automatische Evidenz, nimmt keine Bürgeridee an oder ab und vergibt keinen politischen Score.",
+    "stale_signal_rule": "Eine Auflösung ist nur für den exakt gebundenen Kompetenz-Signalstand aktuell. Materielle Änderungen an Inventar-, Quellen-, Klassifikator- oder Kompetenzdaten supersedieren einen offenen älteren Review; alte abgeschlossene Auflösungen werden im aktuellen Bürgerstatus nicht mehr ausgegeben.",
+    "deduplication_rule": "Ein identischer Signalstand eröffnet weder einen zweiten aktiven Review noch einen neuen Review nach bereits abgeschlossener Auflösung."
+  },
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "migration_applied": true,
+    "recorded_migration_name": "competence_review_queue",
+    "edge_function_change_required": false,
+    "edge_reason": "Die bestehenden stabilen Status-/Export-RPC-Namen bleiben erhalten; Migration 035 erweitert ihre Rückgabe serverseitig.",
+    "reversible_test": "PASS",
+    "tested": [
+      "unclassified erzeugt genau einen offenen legal_reviewer-Task",
+      "gültige COMPETENCE_CLASSIFIED-Auflösung wird signalgebunden gespeichert",
+      "geschützter Status zeigt nur die bounded Auflösung ohne Operator-ID oder interne rationale",
+      "Datenschutzexport enthält dieselbe bounded Auflösung",
+      "Originaltext bleibt unverändert",
+      "identischer Precheck-Lauf öffnet keinen neuen Review",
+      "geänderte inventory_version erzeugt genau einen neuen aktiven Review",
+      "alte Auflösung verschwindet nach Signaländerung aus dem aktuellen geschützten Status",
+      "RLS ist auf der Binding-Tabelle aktiv; anon/authenticated haben kein direktes SELECT"
+    ],
+    "post_test_counts": {
+      "submissions": 0,
+      "processing_jobs": 0,
+      "review_tasks": 0,
+      "review_decisions": 0,
+      "audit_events": 0,
+      "competence_prechecks": 0,
+      "competence_review_bindings": 0,
+      "existing_measure_checks": 0,
+      "existing_measure_review_bindings": 0,
+      "privacy_requests": 0,
+      "citizen_clarifications": 0,
+      "citizen_clarification_prompts": 0
+    }
+  },
+  "ci": {
+    "backend": {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 144,
+      "head_sha": "523adddce820078fa6f5e3590d5050b23a803913",
+      "conclusion": "success",
+      "coverage": [
+        "JavaScript syntax",
+        "unit tests",
+        "migration 035 plus idempotency",
+        "competence human-review resolution guardrail",
+        "existing operator/privacy/clarification/competence/existing-measure guardrails",
+        "distributed rate limit",
+        "API/worker smoke",
+        "retention",
+        "backup/restore verification",
+        "clustering diagnostic",
+        "1000-item queue integration"
+      ]
+    },
+    "frontend": {
+      "workflow": "WERK Frontend Check",
+      "latest_run_number_before_receipt": 159,
+      "head_sha": "b035e48e5139ef59cca58af5093f870cb364136a",
+      "conclusion": "success"
+    }
+  },
+  "citizen_ui": {
+    "surface": "bestehende V71 IDEENWERK-Statusansicht",
+    "new_parallel_surface": false,
+    "shows": [
+      "menschliche Zuständigkeitsauflösung",
+      "aufgelöste Ebene und Kompetenzklasse soweit vorhanden",
+      "geprüfte Quellenanker",
+      "Rechtsänderungs-/Kompetenzöffnungs-Hinweis",
+      "Abschlusszeitpunkt",
+      "ausdrückliche Grenze: keine Annahme oder Ablehnung der Bürgeridee"
+    ],
+    "does_not_show": [
+      "Operator-Identität",
+      "interne rationale"
+    ]
+  },
+  "remaining_quality_gap": "Der Datenbank-/RPC-/CI-/V71-Pfad ist geprüft. Die neue menschliche Kompetenzauflösung wurde in diesem Lauf noch nicht als eigener automatisierter HTTP-E2E über die deployte Edge-v5-Route mit synthetischer Operator-Entscheidung ausgeführt.",
+  "production_release": false,
+  "irreversible_external_change": false
+}
