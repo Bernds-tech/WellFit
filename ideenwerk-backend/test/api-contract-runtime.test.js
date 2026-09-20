@@ -35,7 +35,7 @@ test('public cluster contract matches the staging Edge response envelope', async
   assert.match(edgeSource, /variants:variants\|\|\[\]/);
 
   assert.match(contract.http_rules.pagination, /limit/i);
-  assert.doesNotMatch(contract.http_rules.pagination, /cursor-basiert/i);
+  assert.match(contract.http_rules.pagination, /cursor.*noch nicht live/i);
 });
 
 test('cluster contract does not advertise extensions absent from Edge v5', async () => {
