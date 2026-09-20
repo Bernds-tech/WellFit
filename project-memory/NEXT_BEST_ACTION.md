@@ -24,11 +24,18 @@ ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental 
 ## WERK-SUB-001 — 2026-09-09
 Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CSV normalized; 2025 annual/monthly and 24 UG2024 controls reconciled. 1,035 account/classes and20 review priorities added. Program/legal/cofinancing/outcome attribution remains open; no extra financing. All five final local workflow bodies passed; final missing-annual-class guard passed importer and negative checks. All 13 triggered remote workflows succeeded at 0d47fa44c378438bc2c760df954756d73ff900c0; WERK_SUB_001_CI_RECEIPT.json.
 
-## WERK autonomous continuation — 2026-09-20
+## WERK autonomous continuation — 2026-09-20 · review-path transparency
 - Selected action: `WERK-IDEENWERK-REVIEW-PATH-TRANSPARENCY`
+- Status: `VERIFIED_STAGING`
+- Risk: `R2`.
+- Result: protected citizen status now returns the latest audited FAST/STANDARD/DEEP procedural review path; public transparency returns aggregate review-depth metrics with small-sample bucket suppression; the existing V71 IDEENWERK surfaces render both without a parallel page. Migration `021_review_path_transparency` is active in WERK Österreich Staging; Edge function `werk-ideenwerk-api` is active at version 3. Backend Check #97 and Frontend Checks #131/#132 succeeded. Synthetic verification was cleaned to the zero-data staging baseline. See `WERK_IDEENWERK_REVIEW_PATH_TRANSPARENCY_001_RECEIPT.json`.
+- Safety retained: review depth is procedural only; no political merit score, automatic acceptance/rejection or new political inference was introduced.
+
+## WERK autonomous continuation — next slice
+- Selected action: `WERK-IDEENWERK-PRIVACY-RIGHTS-001`
 - Status: `EXECUTABLE`
-- Risk: `R2` because it extends existing read contracts/UI only and must remain reversible in staging.
-- Why next: the real precheck transition now assigns and audits a procedural `FAST`/`STANDARD`/`DEEP` review path. The next functional gap is that citizens and transparency views cannot yet see that assignment through the existing API/UI.
-- Exact next work: extend the existing private status contract to return the latest `review_path_assigned` event in a bounded shape, extend existing transparency metrics with aggregate review-depth counts where privacy-safe, and render the current review path in the existing IDEENWERK status/transparency surface. Reuse the current API and UI; no new parallel screen.
-- Acceptance: correct token-protected status returns the latest review path; invalid/missing token still cannot access private status; transparency exposes only aggregates; existing E2E/privacy tests remain green; synthetic staging verification is cleaned back to baseline; no production deploy.
-- Safety: review depth is procedural only. No political merit score, automatic acceptance/rejection, or text-keyword inference of constitutional/security sensitivity is introduced.
+- Risk: `R2` because it extends the existing status-token boundary and records reversible requests; it must not perform irreversible deletion automatically.
+- Why next: the published no-login privacy contract promises export, correction, deletion, restriction and cluster-appeal rights, and the database already has `privacy_requests`, but the real staging Edge API still lacks the protected privacy export/request/list routes. This is now a larger functional citizen gap than adding another concept layer.
+- Exact next work: reuse the existing hashed status-token authorization; implement token-protected private export plus create/list privacy requests using the existing `privacy_requests` table and audit log; keep deletion/restriction as reviewable requests rather than automatic destructive actions; expose the request status inside the existing IDEENWERK citizen-status surface; add E2E assertions and clean synthetic data back to baseline.
+- Acceptance: correct token can export only its own submission data and create/list only its own privacy requests; invalid/missing token is denied; request types are strictly bounded to the existing contract; every request is auditable; no raw token is persisted; no request automatically deletes data; CI and reversible staging verification pass; no production deploy.
+- Safety: no new login, identity profile or public personal-data exposure; no irreversible privacy action without the existing review path and explicit later operator/legal handling.
