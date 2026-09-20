@@ -1,42 +1,44 @@
 {
-  "version": "2026-09-20-v3",
+  "version": "2026-09-20-v4",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-20T19:12:42Z",
-  "last_checked_head": "664113c8f6f8aad922bf5cd0477271417ca79e97",
+  "last_check_at": "2026-09-20T20:10:23Z",
+  "last_checked_head": "0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca",
+  "last_checked_functional_governance_head": "242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
+  "last_audit_write_chain_before_state": "379ac026c43f50dfcebbe489e6dadf4396b4d7ad",
   "last_checked_edge_version": 7,
   "last_checked_migration": "20260920130959 competence_review_queue",
   "overall_status": "YELLOW",
   "active_findings": [
     {
-      "id": "CTR-WERK-GOV-001",
+      "id": "CTR-WERK-SEC-PGNET-ACL-001",
+      "related_loop": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
-      "kind": "governance_drift",
-      "summary": "WERK-specific control plane remains partly unreconciled: shared NEXT_BEST_ACTION still selects a WellFit action and TASK_LEDGER lacks WERK-GOV-001. The earlier evidence-freshness write-ownership ambiguity is resolved by WERK_AUTOMATION_ROLES, and WERK_EVIDENCE_FRESHNESS is now populated from observed evidence.",
-      "first_observed_at": "2026-09-20T19:07:30.943580Z",
-      "last_observed_at": "2026-09-20T19:12:42Z",
+      "kind": "security_access_control_drift",
+      "summary": "Live WERK Staging ACLs contradict migration 016's intended pg_net lockdown: schema net currently grants USAGE to PUBLIC/anon/authenticated and multiple pg_net routines carry PUBLIC EXECUTE. No external exploit path or data exposure was proven, so the finding remains YELLOW rather than ROT.",
+      "first_observed_at": "2026-09-20T20:10:23Z",
+      "last_observed_at": "2026-09-20T20:10:23Z",
       "status": "RECONCILIATION_REQUIRED"
-    },
+    }
+  ],
+  "resolved_since_previous_check": [
     {
-      "id": "WERK-LOOP-SEC-PGNET-001",
-      "severity": "YELLOW",
-      "kind": "security_hardening",
-      "summary": "Supabase Security Advisor still reports pg_net installed in public schema on WERK Österreich Staging. Migration 016 explicitly revokes PUBLIC/anon/authenticated access to schema net and its functions, so no new access-control regression was observed; hardening/advisor closure remains open.",
-      "first_observed_at": "2026-09-20T19:07:17.595Z",
-      "last_observed_at": "2026-09-20T19:12:42Z",
-      "status": "OPEN"
+      "id": "CTR-WERK-GOV-001",
+      "result": "RESOLVED_COUNTERCHECKED",
+      "summary": "WERK-specific control plane is now independently counterchecked: WERK-first shared selector, WERK-GOV-001 registered and COUNTERCHECKED, explicit evidence/finishline/supervisor write authority, and green WERK Frontend Check #174 on exact functional governance head."
     }
   ],
   "last_verified_successes": [
     {
-      "kind": "governance_mesh_ci",
-      "head": "cdd02b7e883c3ecb1cafacda9475bdfa2163d783",
+      "kind": "governance_control_plane_countercheck",
+      "task": "WERK-GOV-001",
+      "head": "242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
       "workflow": "WERK Frontend Check",
-      "run_number": 173,
+      "run_number": 174,
       "conclusion": "success",
-      "scope": "WERK automation role registry, agent coordination contract and system graph binding"
+      "result": "COUNTERCHECKED"
     },
     {
       "kind": "backend_contract_ci",
@@ -48,21 +50,22 @@
     },
     {
       "kind": "staging_runtime",
-      "observed_at": "2026-09-20T19:12:42Z",
+      "observed_at": "2026-09-20T20:10:23Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
       "latest_migration": "20260920130959 competence_review_queue",
       "zero_baseline_tables_checked": 13,
       "zero_baseline_verified": true
-    },
-    {
-      "kind": "governance_role_reconciliation",
-      "head": "664113c8f6f8aad922bf5cd0477271417ca79e97",
-      "result": "PARTIAL_IMPROVEMENT",
-      "scope": "Evidence Reaper now has explicit WERK_EVIDENCE_FRESHNESS write authority; generic NEXT_BEST_ACTION and WERK-GOV-001 ledger registration remain open."
     }
   ],
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T191242Z.json",
-  "note": "Keine Produkt-/Runtime-/politische Mutation. Supervisor-Auditwrites erzeugen nach dem geprüften Head zusätzliche Repository-Commits; last_checked_head bezeichnet deshalb bewusst den zuletzt unabhängig geprüften Pre-Audit-Head. Calculation Integrity Guardian did not trigger a deep recalculation because the audited delta contains no calculation/data/reform contract changes. No milestone met closure quorum."
+  "specialist_results": {
+    "integration_hunter": "No new missing connection beyond the already open citizen/cluster -> WERK calculation/reform Impact Bridge.",
+    "evidence_reaper": "Superseded the prior pg_net current-state inference with stronger live ACL evidence; staging/runtime and advisor evidence refreshed within the 24h TTL.",
+    "orphan_zombie_hunter": "WERK-GOV-001 was reconciled from IN_PROGRESS to COUNTERCHECKED and the derived selector was updated; active security finding now correctly overrides feature work.",
+    "calculation_integrity_guardian": "No calculation, source-data or reform-contract delta in the audited functional range; no deep recalculation triggered.",
+    "milestone_closer": "No finishline gate newly satisfies full ACCEPTED/PRODUCTION_CONFIRMED quorum."
+  },
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json",
+  "note": "No product, runtime or political mutation was performed by the supervisor. Audit writes updated only WERK governance/audit memory. The next Builder priority is the new pg_net ACL security reconciliation; the Impact Bridge remains queued behind the active YELLOW finding."
 }
