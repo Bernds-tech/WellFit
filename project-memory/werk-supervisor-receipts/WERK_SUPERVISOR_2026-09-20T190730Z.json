@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "receipt_id": "WERK-SUPERVISOR-2026-09-20T190730Z",
+  "observed_at": "2026-09-20T19:07:30.943580Z",
+  "branch": "werk-v49-preview-host",
+  "checked_head": "2ed53f8a83bd01a2681cf95d3c71904bf2509427",
+  "status": "COUNTERCHECKED_WITH_YELLOW_FINDINGS",
+  "verified": {
+    "exact_head_frontend_ci": {
+      "workflow": "WERK Frontend Check",
+      "run_number": 171,
+      "conclusion": "success",
+      "head_sha": "2ed53f8a83bd01a2681cf95d3c71904bf2509427"
+    },
+    "latest_backend_contract_ci": {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 144,
+      "conclusion": "success",
+      "head_sha": "523adddce820078fa6f5e3590d5050b23a803913",
+      "scope": "migration 035 competence review contract and dependent IDEENWERK checks"
+    },
+    "staging": {
+      "project": "WERK Österreich Staging",
+      "project_status": "ACTIVE_HEALTHY",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_status": "ACTIVE",
+      "edge_version": 7,
+      "latest_migration": "20260920130959 competence_review_queue",
+      "runtime_contract": "035_competence_review_queue",
+      "zero_baseline": {
+        "submissions": 0,
+        "processing_jobs": 0,
+        "review_tasks": 0,
+        "reviews": 0,
+        "privacy_requests": 0,
+        "clarification_prompts": 0,
+        "competence_review_bindings": 0,
+        "existing_measure_review_bindings": 0,
+        "supports": 0
+      }
+    },
+    "security_advisor": {
+      "observed_at": "2026-09-20T19:07:17.595Z",
+      "warn_count": 1,
+      "warn": "pg_net extension installed in public schema",
+      "info_rls_no_policy_count": 30,
+      "classification": "WARN tracked as hardening loop; RLS-no-policy INFO remains consistent with fail-closed direct-table posture in this run"
+    }
+  },
+  "yellow_findings": [
+    "CTR-WERK-GOV-001: WERK-specific control plane is not yet fully reconciled because NEXT_BEST_ACTION.md still selects a WellFit action, TASK_LEDGER lacks WERK-GOV-001, and evidence-freshness write ownership is inconsistent.",
+    "WERK-LOOP-SEC-PGNET-001: Supabase Security Advisor warns that pg_net is installed in public schema."
+  ],
+  "red_findings": [],
+  "runtime_mutation": false,
+  "product_mutation": false,
+  "political_mutation": false,
+  "note": "This immutable receipt is supplementary audit evidence. Canonical supervisor state and audit registers were updated in the same control pass."
+}
