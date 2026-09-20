@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'ideenwerk-backend/**'
+      - 'werk-data/ideenwerk-api-contract.json'
       - '.github/workflows/ideenwerk-backend-check.yml'
   workflow_dispatch:
 
