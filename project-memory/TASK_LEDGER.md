@@ -234,3 +234,14 @@ Keep history append-only; supersede rather than delete.
 - Scope: account-level source normalization and subsidy review bridge. No verified extra funding.
 
 - Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
+
+
+## WERK-AUTONOMY-LOOP-001
+- Date: 2026-09-20
+- Status: VERIFIED_CODE
+- Risk: R1
+- Goal: turn autonomous builder + independent supervisor into one closed documented WERK execution loop without creating a competing task system.
+- Action: added `project-memory/WERK_AUTONOMY_PROTOCOL.md` and `werk-data/werk-autonomy-contract.json`; builder/supervisor schedules now reconcile existing Project Memory, verified receipts, dependencies, locks, open loops and next action before proceeding.
+- Reconciliation result: stale WERK privacy Started Work/lock closed; outdated existing-measure next action superseded; first connection-sweep gap recorded as `WERK-DEP-IDEENWERK-IMPACT-001` / `WERK-LOOP-IMPACT-BRIDGE-001`.
+- Next step: builder implements the derived citizen/cluster → existing reform/calculation impact bridge; supervisor independently counterchecks the claim and feeds the next cycle.
+- Do not repeat: do not create a second WERK TODO/roadmap ledger; extend the existing Project Memory registers.
