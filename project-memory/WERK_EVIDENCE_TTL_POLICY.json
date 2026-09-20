@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "immutable_commit": {
+      "ttl_hours": null,
+      "revalidate_on": [
+        "referenced_commit_missing_or_superseded"
+      ]
+    },
+    "ci_exact_head": {
+      "ttl_hours": null,
+      "revalidate_on": [
+        "head_changed",
+        "workflow_contract_changed"
+      ]
+    },
+    "staging_runtime": {
+      "ttl_hours": 24,
+      "revalidate_on": [
+        "edge_deploy",
+        "migration_change",
+        "runtime_config_change"
+      ]
+    },
+    "supabase_advisors": {
+      "ttl_hours": 24,
+      "revalidate_on": [
+        "schema_or_policy_change",
+        "edge_deploy",
+        "before_security_acceptance"
+      ]
+    },
+    "public_source_data": {
+      "ttl_hours": 168,
+      "revalidate_on": [
+        "new_official_release",
+        "source_revision",
+        "before_publishing_current_claim"
+      ]
+    },
+    "legal_basis": {
+      "ttl_hours": null,
+      "revalidate_on": [
+        "law_change",
+        "court_decision",
+        "official_guidance_change",
+        "before_legal_acceptance"
+      ]
+    },
+    "calculation_result": {
+      "ttl_hours": null,
+      "revalidate_on": [
+        "input_data_changed",
+        "formula_changed",
+        "source_contract_changed"
+      ]
+    },
+    "external_owner_acceptance": {
+      "ttl_hours": null,
+      "revalidate_on": [
+        "target_changed",
+        "scope_changed",
+        "owner_withdraws_or_supersedes"
+      ]
+    }
+  },
+  "rule": "Abgelaufene oder invalidierte mutable Evidence darf keinen neuen ACCEPTED/PRODUCTION_CONFIRMED-Claim tragen. Reproduzierbare immutable Evidence bleibt gültig, bis ein definierter Trigger sie invalidiert."
+}
