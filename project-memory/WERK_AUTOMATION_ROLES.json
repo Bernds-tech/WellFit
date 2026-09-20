@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-20",
+  "project": "WERK Österreich",
+  "principle": "One shared memory, separated responsibilities, no competing task systems.",
+  "roles": {
+    "builder": {
+      "purpose": "Implementiert die nächste sichere, finishline-relevante Arbeit.",
+      "mutation_scope": [
+        "repository",
+        "reversible_staging"
+      ],
+      "forbidden": [
+        "self_acceptance",
+        "production_without_owner",
+        "political_value_decisions"
+      ],
+      "reads": [
+        "WERK_FINISHLINE_STATE",
+        "WERK_SUPERVISOR_STATE",
+        "WERK_EVIDENCE_FRESHNESS",
+        "EXECUTION_RECEIPTS",
+        "CONTRADICTIONS",
+        "OPEN_LOOPS",
+        "STARTED_WORK",
+        "WORK_LOCKS",
+        "DEPENDENCIES",
+        "TASK_LEDGER",
+        "WERK_NEXT_BEST_ACTIONS",
+        "WERK_SYSTEM_GRAPH"
+      ],
+      "writes": [
+        "TASK_LEDGER",
+        "STARTED_WORK",
+        "WORK_LOCKS",
+        "DEPENDENCIES",
+        "OPEN_LOOPS",
+        "NEXT_BEST_ACTION",
+        "WERK_FINISHLINE_STATE",
+        "WERK_EVIDENCE_FRESHNESS",
+        "WERK_SYSTEM_GRAPH"
+      ],
+      "output": "builder_claim"
+    },
+    "supervisor": {
+      "purpose": "Unabhängige Gegenprüfung von Claims und aktuellem Systemzustand.",
+      "mutation_scope": [
+        "audit_memory_only"
+      ],
+      "forbidden": [
+        "product_fix",
+        "runtime_fix",
+        "political_value_decisions"
+      ],
+      "writes": [
+        "WERK_SUPERVISOR_STATE",
+        "EXECUTION_RECEIPTS",
+        "CONTRADICTIONS",
+        "OPEN_LOOPS",
+        "FAILED_ATTEMPTS"
+      ]
+    },
+    "finishline_navigator": {
+      "purpose": "Prüft Gesamtweg, Gate-Reihenfolge und strategische technische Priorisierung.",
+      "mutation_scope": [
+        "governance_memory_only"
+      ],
+      "writes": [
+        "WERK_FINISHLINE_STATE",
+        "WERK_NEXT_BEST_ACTIONS",
+        "DEPENDENCIES",
+        "OPEN_LOOPS",
+        "NEXT_BEST_ACTION",
+        "WERK_OWNER_ACTION_INBOX",
+        "WERK_DEFERRED_OWNER_ACTIONS"
+      ]
+    },
+    "owner_action_manager": {
+      "purpose": "Isoliert echte Owner-/externe Aktionen und verhindert unnötige Rückfragen.",
+      "mutation_scope": [
+        "owner_governance_only"
+      ],
+      "writes": [
+        "WERK_OWNER_ACTION_INBOX",
+        "WERK_DEFERRED_OWNER_ACTIONS"
+      ]
+    },
+    "integration_hunter": {
+      "purpose": "Findet fehlende Verbindungen zwischen bereits vorhandenen oder verifizierten Bausteinen.",
+      "mutation_scope": [
+        "governance_memory_and_system_graph_only"
+      ],
+      "writes": [
+        "DEPENDENCIES",
+        "OPEN_LOOPS",
+        "WERK_SYSTEM_GRAPH"
+      ],
+      "rule": "Never create a parallel feature when an existing component can be connected."
+    },
+    "evidence_reaper": {
+      "purpose": "Prüft Evidence-TTL, Invalidierungstrigger und stale current-state claims.",
+      "mutation_scope": [
+        "evidence_and_governance_memory_only"
+      ],
+      "writes": [
+        "WERK_EVIDENCE_FRESHNESS",
+        "CONTRADICTIONS",
+        "OPEN_LOOPS"
+      ],
+      "rule": "Stale evidence invalidates current reliance, not historical truth."
+    },
+    "orphan_zombie_hunter": {
+      "purpose": "Findet erledigte Arbeit, die noch offen/locked ist, und offene Arbeit ohne Owner/Next Step/Evidence.",
+      "mutation_scope": [
+        "governance_memory_only"
+      ],
+      "writes": [
+        "STARTED_WORK",
+        "WORK_LOCKS",
+        "OPEN_LOOPS",
+        "DEPENDENCIES",
+        "TASK_LEDGER",
+        "NEXT_BEST_ACTION"
+      ],
+      "rule": "Reconcile, do not delete history."
+    },
+    "calculation_integrity_guardian": {
+      "purpose": "Prüft Rechenintegrität, Doppelzählungen, Datenstände, Baseline-/Szenario-Trennung und Cross-Model-Konsistenz.",
+      "mutation_scope": [
+        "calculation_audit_memory_only"
+      ],
+      "writes": [
+        "CONTRADICTIONS",
+        "OPEN_LOOPS",
+        "WERK_EVIDENCE_FRESHNESS"
+      ],
+      "forbidden": [
+        "adopt_policy_option",
+        "change_formula_without_builder_task"
+      ],
+      "rule": "No new political weighting; detect mathematical/data-contract inconsistencies only."
+    },
+    "milestone_closer": {
+      "purpose": "Schließt definierte Meilensteine nur bei vollständigem Quorum und erzeugt immutable snapshots.",
+      "mutation_scope": [
+        "milestone_and_governance_memory_only"
+      ],
+      "writes": [
+        "WERK_FINISHLINE_STATE",
+        "project-memory/werk-milestones",
+        "EXECUTION_RECEIPTS"
+      ],
+      "rule": "Never overwrite a milestone snapshot and never infer external acceptance from repository evidence."
+    }
+  },
+  "collision_rules": [
+    "A specialist agent never implements product code.",
+    "Only the Builder performs ordinary product implementation.",
+    "The Supervisor never repairs what it audits.",
+    "Existing Task/Loop/Dependency IDs are updated instead of duplicated.",
+    "If two roles could write the same governance fact, latest stronger evidence wins and contradiction is recorded before overwrite.",
+    "Political or normative choices remain human decisions."
+  ]
+}
