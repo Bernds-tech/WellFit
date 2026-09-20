@@ -1,0 +1,104 @@
+{
+  "task_id": "WERK-IDEENWERK-PRIVACY-001",
+  "status": "VERIFIED_STAGING",
+  "risk": "R2",
+  "date": "2026-09-20",
+  "branch": "werk-v49-preview-host",
+  "implementation": {
+    "backend_commit": "b5dec3838a32c16b06bfa8bd7e26bc35173c0f89",
+    "frontend_snapshot_commit": "1dc99d806da1a116a8bcec51136d996f80145b4a",
+    "e2e_reliability_fix_commit": "512c2bb893f0d30cfed4ed1480ec8931b304c9ce",
+    "migration": "20260920010826 privacy_citizen_access",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 4,
+    "edge_deployment_hash": "533c42546d826340df9f9c249cda593ca87090e1741b120dd3c42717ea1a9ef5"
+  },
+  "citizen_contract": {
+    "authentication": "existing one-time status token; server stores hash only",
+    "private_export": true,
+    "privacy_request_types": [
+      "correction",
+      "deletion",
+      "restriction",
+      "cluster_appeal"
+    ],
+    "privacy_request_list": true,
+    "protected_status_request_summaries": true,
+    "automatic_hard_delete": false,
+    "parallel_ui_created": false
+  },
+  "live_staging_evidence": {
+    "edge_health_http": 200,
+    "private_export_http": 200,
+    "wrong_token_export_http": 403,
+    "correction_request_http": 201,
+    "identical_open_request_replay_http": 200,
+    "replay_reused_same_request_id": true,
+    "privacy_export_audited": true,
+    "neutral_submission_final_status": "precheck",
+    "neutral_submission_data_state": "active",
+    "neutral_submission_review_depth": "STANDARD",
+    "neutral_submission_triage_queue": "standard_review",
+    "neutral_submission_worker_jobs_done": 5,
+    "neutral_submission_dead_jobs": 0
+  },
+  "reliability_finding": {
+    "issue": "The staging E2E formerly embedded a numeric timestamp/run id in the citizen text. The conservative phone-number PII detector could classify that synthetic text as contact data and route the test to privacy_hold.",
+    "fix": "The citizen-text fixture is now stable and PII-neutral; run identifiers remain outside the PII-scanned citizen text.",
+    "verification": "A fresh neutral synthetic submission progressed received -> structured -> cluster_review -> precheck and received the audited STANDARD/standard_review path."
+  },
+  "ci": {
+    "frontend": {
+      "workflow": "WERK Frontend Check",
+      "run_number": 136,
+      "run_id": 35480866073,
+      "head_sha": "1dc99d806da1a116a8bcec51136d996f80145b4a",
+      "conclusion": "success"
+    },
+    "backend": {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 99,
+      "run_id": 35480943788,
+      "head_sha": "512c2bb893f0d30cfed4ed1480ec8931b304c9ce",
+      "conclusion": "success",
+      "notable_steps": [
+        "syntax check",
+        "unit tests",
+        "migration idempotency",
+        "operator/cluster guardrails",
+        "distributed rate-limit guardrail",
+        "no-login API/privacy smoke test",
+        "retention dry-run",
+        "backup and isolated restore verification",
+        "clustering goldset diagnostic",
+        "1000-item queue integration load"
+      ]
+    }
+  },
+  "cleanup": {
+    "submissions": 0,
+    "active_jobs": 0,
+    "dead_jobs": 0,
+    "cluster_candidates": 0,
+    "clusters": 0,
+    "variants": 0,
+    "open_reviews": 0,
+    "audit_events": 0,
+    "privacy_requests": 0
+  },
+  "safety": {
+    "production_release": false,
+    "paid_action": false,
+    "irreversible_external_change": false,
+    "political_scoring_added": false,
+    "political_acceptance_decision_added": false,
+    "note": "Deletion remains an auditable review request. Operator/legal resolution is a separate future step."
+  },
+  "recovery": [
+    "Revert the repository commits for the privacy slice.",
+    "Restore the prior Edge function source/version if staging rollback is required.",
+    "Restore the private-status RPC definition from migration 021 and remove the migration-022 privacy RPCs/runtime marker only through an explicit reversible staging rollback migration.",
+    "No production rollback is required because no production change occurred."
+  ],
+  "next_best_action": "Implement a bounded operator-side privacy request resolution workflow with reason-coded decisions and audit events, while keeping destructive execution separate and explicitly gated."
+}
