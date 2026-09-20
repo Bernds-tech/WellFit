@@ -157,3 +157,17 @@ Die Finishline wird nicht aus Prozenten oder Chatgefühl abgeleitet. Sie ergibt 
 
 ### Owner-Aktionen
 Normale Coding-, Analyse-, CI-, Staging-, Rechen- und Dokumentationsarbeit darf nie als Owner-Aktion ausgelagert werden. Owner-Aktionen werden erst READY_NOW, wenn alle automatisierbaren Voraussetzungen erfüllt sind.
+
+
+## Spezialagenten-Netz
+
+Die Rollen und erlaubten Writes stehen verbindlich in `project-memory/WERK_AUTOMATION_ROLES.json`; die Kollisionsregeln in `project-memory/WERK_AGENT_COORDINATION.md`.
+
+Zusätzliche Kontrollen:
+- Integration Hunter: fehlende Verbindungen und Systemgraph.
+- Evidence Reaper: Evidence-TTL/Freshness.
+- Orphan & Zombie Hunter: hängende/veraltete Tasks, Locks, Loops und Dependencies.
+- Calculation Integrity Guardian: Doppelzählung, Baseline-/Szenario-Trennung, Datenstände und Cross-Model-Konsistenz.
+- Milestone Closer: formaler Gate-/Snapshot-Abschluss.
+
+Alle Rollen verwenden denselben `werk-data/werk-system-graph.json`. Spezialagenten bauen keine Produktfeatures; sie erzeugen oder reconciliieren nur vorhandene Governance-/Auditinformationen.
