@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated": "2026-09-20",
   "project": "WERK Österreich",
   "principle": "One shared memory, separated responsibilities, no competing task systems.",
@@ -36,9 +36,8 @@
         "DEPENDENCIES",
         "OPEN_LOOPS",
         "NEXT_BEST_ACTION",
-        "WERK_FINISHLINE_STATE",
-        "WERK_EVIDENCE_FRESHNESS",
-        "WERK_SYSTEM_GRAPH"
+        "WERK_SYSTEM_GRAPH",
+        "builder_claim_or_task_evidence"
       ],
       "output": "builder_claim"
     },
@@ -160,5 +159,30 @@
     "Existing Task/Loop/Dependency IDs are updated instead of duplicated.",
     "If two roles could write the same governance fact, latest stronger evidence wins and contradiction is recorded before overwrite.",
     "Political or normative choices remain human decisions."
-  ]
+  ],
+  "authority": {
+    "evidence_freshness": {
+      "authoritative_writer": "evidence_reaper_via_supervisor",
+      "builder_role": "may produce evidence claims/receipts inputs but must not mark mutable evidence current",
+      "navigator_role": "read-only for freshness; may consume current/stale state"
+    },
+    "finishline_state": {
+      "authoritative_writer": "finishline_navigator_or_milestone_closer",
+      "builder_role": "may propose gate progress in task/claim but must not self-accept or raise ACCEPTED/PRODUCTION_CONFIRMED"
+    },
+    "supervisor_state": {
+      "authoritative_writer": "supervisor"
+    },
+    "next_best_action_catalog": {
+      "authoritative_writer": "finishline_navigator",
+      "builder_role": "consumer"
+    },
+    "system_graph": {
+      "authoritative_writers": [
+        "builder_for_new_real_component_edges",
+        "integration_hunter_for_reconciliation"
+      ],
+      "conflict_rule": "contradiction first, then strongest current evidence"
+    }
+  }
 }
