@@ -249,12 +249,12 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-GOV-001
 - Date: 2026-09-20
-- Status: IN_PROGRESS
+- Status: COUNTERCHECKED
 - Risk: R3
 - Goal: Reconcile the WERK-specific autonomous control plane so WERK is not steered by historical WellFit selectors or ambiguous evidence ownership.
 - Starting finding: independent WERK Supervisor recorded `CTR-WERK-GOV-001` after the first closed-loop audit.
 - Scope: WERK-specific Finishline, Next-Best-Actions, Supervisor State, Evidence TTL/Freshness, Owner Actions, automation roles, system graph and shared selector routing only.
-- Completed so far: WERK-specific Finishline/Action/Evidence/Milestone/Owner files exist; automation roles and system graph exist; Builder/Supervisor/Navigator/Owner Manager are active.
-- Current reconciliation: shared `NEXT_BEST_ACTION.md` is routed to WERK's current Impact Bridge; evidence-freshness ownership is being made single-authority; historical WellFit content is retained but not authoritative for WERK automation.
-- Exact next step: independent Supervisor countercheck; on success mark this task COUNTERCHECKED and remove `CTR-WERK-GOV-001` from active findings.
+- Result: shared `NEXT_BEST_ACTION.md` is WERK-first; historical WellFit selector content is explicitly non-authoritative for WERK; WERK-GOV-001 is registered; evidence-freshness/finishline/supervisor write authority is explicit in `WERK_AUTOMATION_ROLES.json` schema v2 and `werk-autonomy-contract.json` v4.
+- Countercheck evidence: WERK Frontend Check #174 succeeded on exact functional governance head `242893c2fcc322424d7b6fb4cc97a0e87ea90a6e`; current pre-audit head `0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca` is one audit-only supervisor-state commit ahead. Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
+- Next step: consume this completion by treating `WERK-IDEENWERK-IMPACT-BRIDGE-001` as the functional next action, subject to higher-priority active security findings such as `CTR-WERK-SEC-PGNET-ACL-001`.
 - Do not repeat: do not create a second WERK task system or allow WellFit finishline/owner files to steer WERK.
