@@ -6,6 +6,11 @@
     "reforms": "2026-09-06-v5",
     "data_contract_registry": "2026-09-07-v17"
   },
+  "ui_binding": {
+    "surface": "existing V71 protected citizen status",
+    "script": "werk-assets/site-ideenwerk-v2.js",
+    "parallel_page": false
+  },
   "rules": [
     "Candidate mapping is a research/review pointer, not a political score, acceptance or rejection.",
     "No mapping may contain a newly calculated fiscal effect, saving, cost or forecast.",
