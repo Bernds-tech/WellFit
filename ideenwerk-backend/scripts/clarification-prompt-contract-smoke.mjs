@@ -40,7 +40,7 @@ try {
 
   await pool.query(
     `INSERT INTO review_decisions(decision_id,task_id,operator_id,action,reason_code,payload)
-     VALUES($1,$2,$3,'request_clarification','NEEDS_CLARIFICATION',jsonb_build_object('question',$4))`,
+     VALUES($1,$2,$3,'request_clarification','NEEDS_CLARIFICATION',jsonb_build_object('question',$4::text))`,
     [decisionId,task.rows[0].id,operatorId,question]
   );
 
