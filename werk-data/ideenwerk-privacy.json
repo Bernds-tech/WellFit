@@ -1,5 +1,5 @@
 {
-  "version":"2026-09-02-v1",
+  "version":"2026-09-20-v2",
   "title":"WERK IDEENWERK – Datenschutz ohne Login",
   "principle":"Für das Einbringen einer Idee ist kein Konto notwendig. Datenschutzrechte und private Nachverfolgung werden über einen unguessbaren Status-Token ermöglicht; dieser wird serverseitig nur gehasht gespeichert.",
   "data_minimisation":[
@@ -10,11 +10,11 @@
     "IP-/Netzwerkdaten dürfen nur für eng begrenzten Missbrauchsschutz verarbeitet werden; konkrete Speicherfristen werden erst nach Datenschutz-/Rechtsprüfung festgelegt und nicht vorab erfunden."
   ],
   "citizen_rights_without_account":[
-    {"id":"export","label":"Meine gespeicherten Daten ansehen/exportieren","auth":"Status-Token","backend":"direkter privater Export bzw. Anfrage"},
-    {"id":"correction","label":"Korrektur oder Klarstellung verlangen","auth":"Status-Token","backend":"Privacy-/Review-Anfrage"},
-    {"id":"deletion","label":"Löschung verlangen","auth":"Status-Token","backend":"Anfrage mit Rechts-/Aufbewahrungsprüfung; keine automatische irreversible Löschung ohne Prüfung"},
-    {"id":"restriction","label":"Öffentliche Anzeige einschränken lassen","auth":"Status-Token","backend":"sofortiger/prüfbarer Privacy-Hold je Fall"},
-    {"id":"cluster_appeal","label":"Falsche Cluster-/Variantenzuordnung melden","auth":"Status-Token oder öffentlicher Meldeweg","backend":"Appeal-Workflow"}
+    {"id":"export","label":"Meine gespeicherten Daten ansehen/exportieren","auth":"Status-Token","backend":"im WERK-Staging als direkter privater Export aktiv; Zugriff wird auditiert"},
+    {"id":"correction","label":"Korrektur oder Klarstellung verlangen","auth":"Status-Token","backend":"im WERK-Staging als prüfbare Privacy-/Review-Anfrage aktiv"},
+    {"id":"deletion","label":"Löschung verlangen","auth":"Status-Token","backend":"im WERK-Staging als Anfrage mit Rechts-/Aufbewahrungsprüfung aktiv; keine automatische irreversible Löschung"},
+    {"id":"restriction","label":"Öffentliche Anzeige einschränken lassen","auth":"Status-Token","backend":"im WERK-Staging als prüfbare Privacy-Anfrage aktiv"},
+    {"id":"cluster_appeal","label":"Falsche Cluster-/Variantenzuordnung melden","auth":"Status-Token","backend":"im WERK-Staging als prüfbarer Appeal-Vorgang aktiv"}
   ],
   "retention_policy_status":"noch rechtlich festzulegen",
   "retention_rule":"Es werden keine endgültigen Speicherfristen behauptet, bevor Rechtsgrundlage, Betreiber, Zweck, öffentliches Archivinteresse und Löschkonzept geprüft sind. Technische Logs, Missbrauchssignale und private Statuszugänge erhalten getrennte Fristen.",
@@ -23,10 +23,10 @@
     "Verzeichnis der Datenkategorien und Verarbeitungszwecke",
     "Aufbewahrungs-/Löschfristen je Datenkategorie",
     "Auftragsverarbeiter und Hostingstandorte dokumentiert",
-    "Privacy-Request-Workflow getestet",
+    "Privacy-Request-Workflow inklusive reason-coded Auflösung getestet",
     "PII-Redaktion und versehentliche Veröffentlichung getestet",
     "Backup-Lösch-/Wiederherstellungslogik geklärt",
     "Missbrauchsschutz so gestaltet, dass keine unnötige dauerhafte Identitätsprofilbildung entsteht"
   ],
-  "prototype_notice":"Die öffentliche V64/Vorschau speichert IDEENWERK-Demoideen weiterhin nur lokal im Browser. Das Backend-Scaffold verarbeitet noch keine realen Bürgerdaten."
+  "prototype_notice":"Die bestehende V71-Oberfläche nutzt die isolierte WERK-Staging-Datenbank. Einreichung, geschützter Status, privater Datenexport und prüfbare Datenschutzanfragen sind dort technisch aktiv. Das ist keine Produktivfreigabe; reale öffentliche Bürgerdaten sollen erst nach Abschluss der Release- und Datenschutzgates verarbeitet werden."
 }
