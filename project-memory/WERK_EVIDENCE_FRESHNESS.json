@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20T21:40:52Z",
+  "updated": "2026-09-20T22:55:10Z",
   "entries": [
     {
       "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
@@ -28,7 +28,7 @@
       "target": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
       "observed_at": "2026-09-20T20:42:12Z",
       "status": "CURRENT_FOR_PGNET_FUNCTIONAL_SCOPE",
-      "evidence": "IDEENWERK Backend Check #161 attempt 2 completed successfully on the exact pg_net functional head. The job includes syntax, 34 unit tests, migration apply/idempotency, operator/privacy/clarification/competence/existing-measure guardrails, distributed rate limiting, pg_net Data API guardrail, no-login API/privacy smoke, retention dry-run, backup/restore, clustering diagnostic and unchanged 1,000-item queue integration.",
+      "evidence": "IDEENWERK Backend Check #161 attempt 2 completed successfully on the exact pg_net functional head. The job includes syntax, unit tests, migration apply/idempotency, API/privacy/review guardrails, pg_net Data API guardrail, backup/restore, clustering diagnostic and unchanged queue integration.",
       "expires_at": null,
       "revalidate_on": ["pg_net_functional_head_changed", "backend_workflow_contract_changed"]
     },
@@ -37,8 +37,8 @@
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T21:40:52Z",
-      "status": "CURRENT",
-      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration is 20260920203116 pg_net_data_api_guard; 13 relevant IDEENWERK citizen/review/privacy/cluster tables independently checked at zero synthetic baseline.",
+      "status": "HISTORICAL_VALID_PRE_IMPACT_BRIDGE_SCHEMA",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration was 20260920203116 pg_net_data_api_guard; zero synthetic baseline was verified. Migration 037 later changed the schema, so this entry is no longer current-state evidence.",
       "expires_at": "2026-09-21T21:40:52Z",
       "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
@@ -47,8 +47,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / pg_net Data API boundary",
       "observed_at": "2026-09-20T21:40:52Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
-      "evidence": "authenticator has pgrst.db_pre_request=public.werk_api_security_guard; anon/authenticated/service_role can execute the guard; independent transient guard invocation blocks anon Accept-Profile net with WERK_INTERNAL_SCHEMA while public profile is allowed; anon/authenticated are NOLOGIN roles; WERK-owned public net.http_* wrapper count is zero. Direct net schema/function ACLs remain Supabase-managed and permissive, so no durable direct-ACL revocation is claimed.",
+      "status": "HISTORICAL_VALID_PRE_IMPACT_BRIDGE_SCHEMA",
+      "evidence": "The bounded pg_net Data-API request boundary was counterchecked. Migration 037 later changed the schema and triggered revalidation; a newer entry carries current reliance.",
       "expires_at": "2026-09-21T21:40:52Z",
       "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
     },
@@ -57,10 +57,60 @@
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T21:40:52Z",
-      "status": "CURRENT_WITH_PLATFORM_WARNING",
-      "evidence": "Security Advisor reports one WARN: extension_in_public for pg_net, plus 30 INFO rls_enabled_no_policy notices. The pg_net warning remains a production-hardening limitation; current staging Data-API boundary is separately counterchecked and no external exploit or data exposure was observed.",
+      "status": "HISTORICAL_VALID_PRE_IMPACT_BRIDGE_SCHEMA",
+      "evidence": "Security Advisor reported pg_net extension_in_public plus 30 INFO RLS-without-policy notices. Migration 037 later changed the schema, so a fresh advisor result supersedes this only for current-state reliance.",
       "expires_at": "2026-09-21T21:40:52Z",
-      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "before_security_acceptance"]
+      "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-CI-IMPACT-BRIDGE-20260920",
+      "type": "ci_exact_head",
+      "target": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+      "observed_at": "2026-09-20T22:43:07Z",
+      "status": "CURRENT_FOR_IMPACT_BRIDGE_FUNCTIONAL_SCOPE",
+      "evidence": "WERK Impact Bridge Check #3 and WERK Frontend Check #177 both succeeded on the exact final tested evidence head. Contract CI covers canonical registry parity, portable migration, idempotency and DB mapping/stale-negative guardrails; Frontend covers JS/JSON and V71 structural/policy contracts.",
+      "expires_at": null,
+      "revalidate_on": ["impact_bridge_functional_head_changed", "workflow_contract_changed", "source_registry_version_changed"]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260920T225510Z",
+      "type": "staging_runtime",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-20T22:55:10Z",
+      "status": "CURRENT",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920223436 ideenwerk_impact_bridge; runtime contract 037_ideenwerk_impact_bridge present; 14 citizen/review/privacy/impact tables checked at zero synthetic baseline.",
+      "expires_at": "2026-09-21T22:55:10Z",
+      "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
+    },
+    {
+      "id": "WERK-EV-IMPACT-BRIDGE-STAGING-20260920T225510Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK Impact Bridge",
+      "observed_at": "2026-09-20T22:55:10Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING",
+      "evidence": "Impact bridge table exists with RLS enabled; anon/authenticated have no SELECT; service_role has SELECT; anon/authenticated cannot execute ideenwerk_current_impact_bridge while service_role can; precheck trigger exists; live functions preserve version/source fail-closed behavior; no cost/saving/revenue/effect columns exist; repository source versions match runtime contract.",
+      "expires_at": "2026-09-21T22:55:10Z",
+      "revalidate_on": ["schema_or_policy_change", "impact_registry_version_changed", "source_registry_version_changed", "before_impact_bridge_acceptance"]
+    },
+    {
+      "id": "WERK-EV-PGNET-BOUNDARY-20260920T225510Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / pg_net Data API boundary",
+      "observed_at": "2026-09-20T22:55:10Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
+      "evidence": "After migration 037, authenticator still has pgrst.db_pre_request=public.werk_api_security_guard and the live guard still rejects anon/authenticated requests selecting the net profile. The schema change did not invalidate the bounded request-boundary countercheck.",
+      "expires_at": "2026-09-21T22:55:10Z",
+      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-SECURITY-20260920T225510Z",
+      "type": "supabase_advisors",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-20T22:55:10Z",
+      "status": "CURRENT_WITH_PLATFORM_WARNING",
+      "evidence": "Security Advisor reports the same single WARN extension_in_public for pg_net and 31 INFO RLS-enabled-with-no-policy notices. The additional INFO is the new impact-bridge table, whose direct anon/authenticated grants are revoked; no new Security Advisor WARN was introduced by migration 037.",
+      "expires_at": "2026-09-21T22:55:10Z",
+      "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
     }
   ],
   "rule": "Nur tatsächlich beobachtete Evidence eintragen. Mutable Evidence folgt WERK_EVIDENCE_TTL_POLICY; historische Erfolge bleiben erhalten, auch wenn aktuelle Reliance revalidiert werden muss. Bei Widerspruch ersetzt stärkere aktuelle Live-Evidence nicht die Historie, sondern entzieht nur der älteren Current-State-Aussage ihre Gültigkeit."
