@@ -11,6 +11,17 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Active/stale locks
 
+## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001
+- Task: WERK-IDEENWERK-IMPACT-BRIDGE-001
+- Status: ACTIVE
+- Phase: BUILDER_CLAIM_READY_AWAITING_SUPERVISOR
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-20 22:31 UTC
+- Builder implementation complete: functional head `f5a38a74caf4daf896124b2f606942d1653e2316`; Staging migration `20260920223436 ideenwerk_impact_bridge`; zero baseline restored.
+- Release: only after independent Supervisor countercheck or a concrete contradiction.
+
 ## LOCK-WFG-VIS-001
 - Task: WFG-VIS-001
 - Status: STALE

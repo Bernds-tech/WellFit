@@ -11,6 +11,18 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
+## WERK-IDEENWERK-IMPACT-BRIDGE-001
+- Started: 2026-09-20 22:31 UTC
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001`
+- Scope: version-bound citizen/precheck → existing WERK reform/calculation reference bridge; no new fiscal calculation or political recommendation.
+- Implemented: canonical registry; migration 037; protected status/privacy export; stale/no-match negative path; existing V71 status rendering; dedicated CI.
+- Staging: `20260920223436 ideenwerk_impact_bridge` active. Synthetic SV case mapped only to `SV-01` / `FISCAL-DATA` / `WERK-SV-010|011`; protected status matched; forced stale version returned `revalidation_required` with empty mappings; zero baseline restored.
+- CI: WERK Impact Bridge Check #2 and WERK Frontend Check #176 succeeded on functional head `f5a38a74caf4daf896124b2f606942d1653e2316`.
+- Next: independent WERK Supervisor countercheck. Do not rebuild or advance the finishline gate.
+
 ## WERK-IDEENWERK-PRIVACY-001
 - Started: 2026-09-20 Europe/Vienna
 - Closed: 2026-09-20

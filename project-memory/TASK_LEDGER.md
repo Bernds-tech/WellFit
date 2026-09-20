@@ -269,3 +269,15 @@ Keep history append-only; supersede rather than delete.
 - Boundary: This closes only the bounded staging Data-API request-boundary scope. Hosted Supabase still restores direct `net` schema/routine grants and Security Advisor still reports `extension_in_public`; those are tracked separately under `WERK-LOOP-SEC-PGNET-001` and still block production hardening acceptance.
 - Next step: proceed to `WERK-IDEENWERK-IMPACT-BRIDGE-001`; reopen this task only on new adverse evidence or a separately scoped production-hardening dependency.
 - Do not repeat: no direct outbound `net.http_*` security test and no move/drop/reinstall of the managed extension merely to silence the advisor.
+
+## WERK-IDEENWERK-IMPACT-BRIDGE-001
+- Date: 2026-09-20
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Goal: connect IDEENWERK citizen problems to existing WERK reform/calculation artifacts through a deterministic version-bound reference bridge without duplicating calculations.
+- Result: five canonical mapping families reference only existing reform/data-contract/gate IDs; migration 037 runs at precheck, protected status/export expose current provenance, stale versions fail closed, no-match is non-complete, and V71 reuses the existing status surface.
+- CI: WERK Impact Bridge Check #2 + WERK Frontend Check #176 green on `f5a38a74caf4daf896124b2f606942d1653e2316`.
+- Staging: `20260920223436 ideenwerk_impact_bridge` active; candidate/status/stale checks passed; synthetic rows returned to zero baseline.
+- Boundary: no new effect, saving, cost, forecast, political score or automatic acceptance/rejection.
+- Dependency: `WERK-DEP-IDEENWERK-IMPACT-001`; loop remains open pending countercheck.
+- Next: Supervisor countercheck; Builder must not self-verify.

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "project": "WERK Österreich",
   "purpose": "Maschinenlesbarer Abhängigkeits- und Wirkpfadgraph für Connection Sweep, Impact Bridge und Drift-Ausbreitung.",
   "node_states": [
@@ -65,7 +65,11 @@
       "id": "IDEENWERK-IMPACT",
       "type": "integration",
       "label": "Bürgeridee → WERK Rechen-/Reformmodelle",
-      "state": "IN_PROGRESS"
+      "state": "IN_PROGRESS",
+      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
+      "implementation": "ideenwerk-backend/sql/037_ideenwerk_impact_bridge.sql",
+      "registry": "werk-data/ideenwerk-impact-bridge.json",
+      "staging_migration": "20260920223436 ideenwerk_impact_bridge"
     },
     {
       "id": "EXPERT-INPUT",
@@ -175,19 +179,22 @@
       "from": "REFORM-REGISTER",
       "to": "IDEENWERK-IMPACT",
       "relation": "candidate_mapping_input",
-      "state": "IN_PROGRESS"
+      "state": "IN_PROGRESS",
+      "builder_state": "STAGING_LINK_IMPLEMENTED_AWAITING_COUNTERCHECK"
     },
     {
       "from": "CALC-WERK",
       "to": "IDEENWERK-IMPACT",
       "relation": "impact_model_input",
-      "state": "IN_PROGRESS"
+      "state": "IN_PROGRESS",
+      "builder_state": "STAGING_LINK_IMPLEMENTED_AWAITING_COUNTERCHECK"
     },
     {
       "from": "IDEENWERK-INTAKE",
       "to": "IDEENWERK-IMPACT",
       "relation": "requires_mapping",
-      "state": "IN_PROGRESS"
+      "state": "IN_PROGRESS",
+      "builder_state": "STAGING_LINK_IMPLEMENTED_AWAITING_COUNTERCHECK"
     },
     {
       "from": "IDEENWERK-IMPACT",

@@ -55,9 +55,10 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 
 ## WERK-DEP-IDEENWERK-IMPACT-001
 - From: IDEENWERK citizen precheck / problem cluster.
-- Requires: current verified competence/legal path, existing-measure path, reform identifiers and existing WERK calculation/data artifacts.
+- Requires: verified competence/legal path, existing-measure path, reform identifiers and existing WERK calculation/data artifacts.
 - Type: cross-component integration.
-- Status: ACTIVE
-- Updated: 2026-09-20.
-- Rule: IDEENWERK must reference and reuse existing WERK calculation/reform artifacts instead of creating parallel calculations. A link may expose applicable model/reform IDs, provenance and open gates; it must not convert conditional/illustrative calculations into verified fiscal effects.
-- Close when: a version-bound end-to-end bridge maps citizen/cluster cases to existing model/reform candidates, survives negative/stale tests, is visible through the existing process and is independently counterchecked.
+- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Updated: 2026-09-20 22:36 UTC.
+- Rule: reuse existing WERK calculation/reform artifacts; expose model/reform IDs, provenance and open gates without converting conditional calculations into verified effects.
+- Builder evidence: registry, migration 037, head `f5a38a74caf4daf896124b2f606942d1653e2316`, Impact Bridge Check #2, Frontend #176, Staging migration `20260920223436 ideenwerk_impact_bridge`, reversible verification and zero baseline.
+- Close when: independent Supervisor accepts end-to-end bridge and stale/negative safeguards.

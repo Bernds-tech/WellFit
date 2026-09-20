@@ -76,12 +76,12 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 
 ## WERK-LOOP-IMPACT-BRIDGE-001
-- Status: OPEN
-- Updated: 2026-09-20
-- Gap: IDEENWERK can already intake, classify, clarify, competence-check and compare citizen ideas with known measures, while WERK already owns verified calculation/reform artifacts; the citizen-process-to-calculation/reform connection is not yet an end-to-end verified system path.
-- Risk: rebuilding calculations inside IDEENWERK would duplicate logic and allow inconsistent fiscal claims.
-- Next: implement `WERK-IDEENWERK-IMPACT-BRIDGE-001` by reusing existing model/reform IDs and exposing provenance/open gates rather than manufacturing new effects.
-- Close when: connection is version-bound, tested, surfaced through existing IDEENWERK, independently counterchecked and no parallel calculation source exists.
+- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Updated: 2026-09-20 22:36 UTC
+- Builder result: registry + migration 037 map high-specificity citizen signals only to existing reform/data-contract/gate IDs; protected status/export and V71 expose current provenance; stale versions fail closed; no-match is non-complete.
+- Evidence claim: head `f5a38a74caf4daf896124b2f606942d1653e2316`; Impact Bridge Check #2 and Frontend #176 green; Staging migration `20260920223436 ideenwerk_impact_bridge`; reversible candidate/status/stale verification and zero baseline.
+- Boundary: no parallel calculator, new fiscal effect or political recommendation/decision.
+- Next: independent Supervisor countercheck; close only after independent acceptance.
 
 ## WERK-LOOP-SEC-PGNET-001
 - Status: OPEN_NONBLOCKING_PRODUCTION_HARDENING

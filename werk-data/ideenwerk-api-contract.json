@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v16",
+  "version": "2026-09-21-v17",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; öffentliche Clusterliste mit serverseitigen Filtern, stabiler Cursor-Pagination und fail-closed Sichtbarkeit für Cluster und Lösungsvarianten umgesetzt; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; öffentliche Clusterliste mit serverseitigen Filtern, stabiler Cursor-Pagination und fail-closed Sichtbarkeit für Cluster und Lösungsvarianten umgesetzt; versiongebundener IDEENWERK-Impact-Bridge zu bestehenden WERK-Reform-/Rechenartefakten staging-live; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -20,7 +20,8 @@
     "eine menschliche Überschneidungsauflösung gilt nur für den exakt geprüften Baseline-/Classifier-Signalstand; identische Wiederholungen eröffnen keinen neuen Review, geänderte Referenz- oder Classifier-Versionen machen die alte Auflösung für den aktuellen Status unwirksam und eröffnen genau einen neuen Review",
     "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus",
     "Klarstellungsfragen entstehen aus dem bestehenden menschlichen Review-Modell; es gibt dafür keinen ungeschützten öffentlichen Operator-Endpunkt",
-    "ein Endpunkt wird nur mit Feldern und Query-Parametern als staging-live dokumentiert, die die tatsächlich deployte Staging-Laufzeit liefert; geplante Erweiterungen werden nicht als bereits verfügbar ausgewiesen"
+    "ein Endpunkt wird nur mit Feldern und Query-Parametern als staging-live dokumentiert, die die tatsächlich deployte Staging-Laufzeit liefert; geplante Erweiterungen werden nicht als bereits verfügbar ausgewiesen",
+    "der Impact-Bridge verknüpft nur hochspezifische Problemsignale mit bereits existierenden WERK-Reform- und Daten-/Rechenvertrags-IDs; er erzeugt keine neue Wirkungszahl, keinen politischen Score und keine Annahme/Ablehnung; bei Versionsdrift wird die alte Zuordnung fail-closed nur als revalidation_required ausgegeben und no_known_mapping ist kein Vollständigkeitsnachweis"
   ],
   "endpoints": [
     {
@@ -28,8 +29,18 @@
       "path": "/submissions",
       "implementation": "staging-live",
       "auth": "keine Anmeldung; Abuse-Schutz",
-      "request": ["text", "region?", "topic?", "consent_public_anonymous"],
-      "response": ["public_id", "status_token_once", "status_url", "status=received"],
+      "request": [
+        "text",
+        "region?",
+        "topic?",
+        "consent_public_anonymous"
+      ],
+      "response": [
+        "public_id",
+        "status_token_once",
+        "status_url",
+        "status=received"
+      ],
       "notes": "status_token wird nur einmal im Klartext ausgegeben; serverseitig nur Hash speichern"
     },
     {
@@ -37,7 +48,13 @@
       "path": "/submissions/{public_id}",
       "implementation": "scaffolded",
       "auth": "öffentlich",
-      "response": ["public_id", "public_text", "topic", "region", "status"],
+      "response": [
+        "public_id",
+        "public_text",
+        "topic",
+        "region",
+        "status"
+      ],
       "notes": "nur moderierte öffentliche Fassung; public_text ist vor Freigabe leer"
     },
     {
@@ -45,24 +62,59 @@
       "path": "/status/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["public_id", "original_text", "current_status", "review_path?", "competence_precheck?", "competence_review?", "existing_measure_check?", "existing_measure_review?", "clarification_prompt?", "privacy_requests", "clarifications", "history"],
-      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; competence_precheck enthält nach Eintritt in precheck result_code, inventory_item_id, current_class, suggested_level, source_ids, confidence, legal_change_required, classifier_version und checked_at; unklare Fälle bleiben unclassified; competence_review enthält nur die zum aktuellen Kompetenz-Signalstand passende abgeschlossene menschliche Zuständigkeitsprüfung mit resolution_code, resolved_level, resolved_class, source_ids, legal_change_required und resolved_at; Operator-Identität und interne rationale werden nicht ausgegeben, nach materieller Änderung des Kompetenzsignals wird die ältere Auflösung nicht als aktuell präsentiert; existing_measure_check enthält nach Eintritt in precheck result_code=possible_overlap|no_known_overlap, matched_refs, reference_versions, confidence, requires_human_review, classifier_version und checked_at; possible_overlap ist nur ein Review-Hinweis und erzeugt einen deduplizierten internen Impact-Review-Task, no_known_overlap ist kein Vollständigkeitsnachweis; existing_measure_review enthält nur dann eine abgeschlossene menschliche Prüfung, wenn deren gebundener Baseline-/Classifier-Signalstand mit dem aktuellen existing_measure_check übereinstimmt, und dann ausschließlich resolution_code=BASELINE_OVERLAP_CONFIRMED|BASELINE_OVERLAP_PARTIAL|NO_MATERIAL_OVERLAP, resolved_at und die Verfahrensgrenze; nach materieller Referenz-/Classifier-Änderung wird eine ältere Auflösung nicht als aktuelles Ergebnis ausgegeben und genau ein neuer Review eröffnet; Operator-Identität und interne rationale werden nicht als existing_measure_review ausgegeben; clarification_prompt enthält bei offener Rückfrage prompt_id, question, reason_code, status und Zeitpunkte; alle privaten Felder gehören ausschließlich zur token-authentifizierten eigenen Einreichung"
+      "response": [
+        "public_id",
+        "original_text",
+        "current_status",
+        "review_path?",
+        "competence_precheck?",
+        "competence_review?",
+        "existing_measure_check?",
+        "existing_measure_review?",
+        "clarification_prompt?",
+        "privacy_requests",
+        "clarifications",
+        "history",
+        "impact_bridge_check?"
+      ],
+      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; competence_precheck enthält nach Eintritt in precheck result_code, inventory_item_id, current_class, suggested_level, source_ids, confidence, legal_change_required, classifier_version und checked_at; unklare Fälle bleiben unclassified; competence_review enthält nur die zum aktuellen Kompetenz-Signalstand passende abgeschlossene menschliche Zuständigkeitsprüfung mit resolution_code, resolved_level, resolved_class, source_ids, legal_change_required und resolved_at; Operator-Identität und interne rationale werden nicht ausgegeben, nach materieller Änderung des Kompetenzsignals wird die ältere Auflösung nicht als aktuell präsentiert; existing_measure_check enthält nach Eintritt in precheck result_code=possible_overlap|no_known_overlap, matched_refs, reference_versions, confidence, requires_human_review, classifier_version und checked_at; possible_overlap ist nur ein Review-Hinweis und erzeugt einen deduplizierten internen Impact-Review-Task, no_known_overlap ist kein Vollständigkeitsnachweis; existing_measure_review enthält nur dann eine abgeschlossene menschliche Prüfung, wenn deren gebundener Baseline-/Classifier-Signalstand mit dem aktuellen existing_measure_check übereinstimmt, und dann ausschließlich resolution_code=BASELINE_OVERLAP_CONFIRMED|BASELINE_OVERLAP_PARTIAL|NO_MATERIAL_OVERLAP, resolved_at und die Verfahrensgrenze; nach materieller Referenz-/Classifier-Änderung wird eine ältere Auflösung nicht als aktuelles Ergebnis ausgegeben und genau ein neuer Review eröffnet; Operator-Identität und interne rationale werden nicht als existing_measure_review ausgegeben; clarification_prompt enthält bei offener Rückfrage prompt_id, question, reason_code, status und Zeitpunkte; alle privaten Felder gehören ausschließlich zur token-authentifizierten eigenen Einreichung; impact_bridge_check enthält candidate_mapping mit bestehenden reform_ids/data_contract_ids/gate_refs und Registry-/Source-Versionen, no_known_mapping ohne Vollständigkeitsbehauptung oder bei Versionsdrift revalidation_required ohne alte Mappings; keine neue Wirkungszahl oder politische Entscheidung"
     },
     {
       "method": "GET",
       "path": "/privacy/export/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["submission", "structured_proposal", "competence_precheck", "competence_review", "existing_measure_check", "existing_measure_review", "cluster_memberships", "audit_history", "privacy_requests", "clarification_prompts", "citizen_clarifications"],
-      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Kompetenz-Vorcheck und nur die zum aktuellen Kompetenz-Signalstand passende bounded menschliche Zuständigkeitsauflösung, bestehende-Maßnahmen-Abgleich und nur die zum aktuellen Baseline-Signalstand passende bounded menschliche Überschneidungsauflösung sowie gespeicherte Rückfragen und Antworten sind enthalten; Token-/Abuse-Hashes, Operator-Identitäten und interne Review-Begründungen werden nicht als competence_review oder existing_measure_review ausgegeben; Exportzugriff wird auditiert"
+      "response": [
+        "submission",
+        "structured_proposal",
+        "competence_precheck",
+        "competence_review",
+        "existing_measure_check",
+        "existing_measure_review",
+        "cluster_memberships",
+        "audit_history",
+        "privacy_requests",
+        "clarification_prompts",
+        "citizen_clarifications",
+        "impact_bridge_check"
+      ],
+      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Kompetenz-Vorcheck und nur die zum aktuellen Kompetenz-Signalstand passende bounded menschliche Zuständigkeitsauflösung, bestehende-Maßnahmen-Abgleich und nur die zum aktuellen Baseline-Signalstand passende bounded menschliche Überschneidungsauflösung sowie gespeicherte Rückfragen und Antworten sind enthalten; Token-/Abuse-Hashes, Operator-Identitäten und interne Review-Begründungen werden nicht als competence_review oder existing_measure_review ausgegeben; Exportzugriff wird auditiert; der aktuelle stale-safe Impact-Bridge-Bezug wird als Provenienzinformation exportiert, ohne neue Wirkungszahl oder politische Bewertung"
     },
     {
       "method": "POST",
       "path": "/privacy/requests/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "request": ["request_type: export|correction|deletion|restriction|cluster_appeal", "details?"],
-      "response": ["request_id", "request_type", "status", "replayed"],
+      "request": [
+        "request_type: export|correction|deletion|restriction|cluster_appeal",
+        "details?"
+      ],
+      "response": [
+        "request_id",
+        "request_type",
+        "status",
+        "replayed"
+      ],
       "notes": "identische offene Wiederholungen werden dedupliziert; Löschwunsch wird als prüfbarer Vorgang geführt und löscht nicht automatisch"
     },
     {
@@ -70,7 +122,9 @@
       "path": "/privacy/requests/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["requests"],
+      "response": [
+        "requests"
+      ],
       "notes": "liefert nur Datenschutzvorgänge zur token-authentifizierten eigenen Einreichung"
     },
     {
@@ -78,8 +132,16 @@
       "path": "/status/{public_id}/clarification",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "request": ["text"],
-      "response": ["accepted", "replayed", "clarification_id", "status", "next"],
+      "request": [
+        "text"
+      ],
+      "response": [
+        "accepted",
+        "replayed",
+        "clarification_id",
+        "status",
+        "next"
+      ],
       "notes": "nur zur eigenen Einreichung; Idempotency-Key wird unterstützt; der Originaltext bleibt unverändert; offensichtliche Kontakt-/PII-Daten werden vor Speicherung abgewiesen; eine Antwort wird mit der aktuell offenen auditierbaren Klarstellungsfrage verknüpft und schließt diese; akzeptierte Klarstellungen gehen in die bestehende Strukturierungs- und Prüfstrecke zurück"
     },
     {
@@ -87,8 +149,17 @@
       "path": "/clusters",
       "implementation": "staging-live",
       "auth": "öffentlich",
-      "query": ["limit", "topic", "region", "status", "cursor"],
-      "response": ["clusters", "next_cursor"],
+      "query": [
+        "limit",
+        "topic",
+        "region",
+        "status",
+        "cursor"
+      ],
+      "response": [
+        "clusters",
+        "next_cursor"
+      ],
       "notes": "deployed Edge v7: limit ist eine ganze Zahl 1..50 und standardmäßig 12; topic, region und status filtern serverseitig auf exakte öffentliche Werte; quarantined/removed Cluster werden bereits vor Limit/Pagination ausgeschlossen; variant_count zählt nur öffentliche Varianten und schließt quarantine/removed Varianten aus; Sortierung ist stabil nach updated_at DESC, cluster_id DESC; next_cursor ist null am Ende und ansonsten ein opaker, an die aktuelle Filterkombination gebundener Cursor; unbekannte Query-Parameter, nicht öffentliche Statusfilter und Filter/Cursor-Mismatches liefern 400; sort ist noch nicht live"
     },
     {
@@ -96,7 +167,10 @@
       "path": "/clusters/{cluster_id}",
       "implementation": "staging-live",
       "auth": "öffentlich",
-      "response": ["cluster", "variants"],
+      "response": [
+        "cluster",
+        "variants"
+      ],
       "notes": "deployed Edge v7: cluster enthält cluster_id, title, topic, region_scope, review_status, submission_count, updated_at sowie unverbindliche process_lane_suggestion/reason; variants enthält nur öffentliche Varianten mit variant_id, title, summary, review_status, created_at und updated_at; quarantine/removed Varianten werden serverseitig ausgeschlossen, quarantined/removed Cluster liefern 404; Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren; attention_signals, quality_gates, linked_reforms und status_history_public sind noch nicht live"
     },
     {
@@ -104,8 +178,13 @@
       "path": "/clusters/{cluster_id}/reactions",
       "implementation": "planned",
       "auth": "keine Anmeldung; Abuse-Schutz",
-      "request": ["reaction_type", "variant_id?"],
-      "response": ["accepted"],
+      "request": [
+        "reaction_type",
+        "variant_id?"
+      ],
+      "response": [
+        "accepted"
+      ],
       "notes": "unverbindliches Interesse; nicht als verifizierte Unterstützung zählen"
     },
     {
@@ -113,8 +192,12 @@
       "path": "/clusters/{cluster_id}/variants/{variant_id}/support",
       "implementation": "planned",
       "auth": "verifizierte Identität erforderlich",
-      "request": ["support=true"],
-      "response": ["counted_once"],
+      "request": [
+        "support=true"
+      ],
+      "response": [
+        "counted_once"
+      ],
       "notes": "verifizierte Unterstützung gilt für eine konkrete Lösungsvariante; keine amtliche Stimme"
     },
     {
@@ -122,8 +205,15 @@
       "path": "/moderation/report",
       "implementation": "scaffolded",
       "auth": "keine Anmeldung; Abuse-Schutz",
-      "request": ["target_type", "target_id", "reason", "details?"],
-      "response": ["report_id"]
+      "request": [
+        "target_type",
+        "target_id",
+        "reason",
+        "details?"
+      ],
+      "response": [
+        "report_id"
+      ]
     },
     {
       "method": "GET",
@@ -146,21 +236,86 @@
     }
   ],
   "internal_jobs": [
-    {"name":"pii_scan","implementation":"scaffolded","input":"submission_id","output":"pii_flags/publication_hold"},
-    {"name":"structure_submission","implementation":"scaffolded","input":"submission_id","output":"structured_proposal","failure":"retry/fallback; Einreichung bleibt erhalten"},
-    {"name":"lexical_duplicate_search","implementation":"scaffolded","input":"submission_id","output":"near-duplicate candidate/cluster"},
-    {"name":"semantic_feature_extract","implementation":"scaffolded-provider-neutral","input":"structured_proposal","output":"problem_signature + solution_signature"},
-    {"name":"semantic_cluster_review","implementation":"scaffolded","input":"semantic features","output":"same solution | solution variant | overlap | separate"},
-    {"name":"competence_precheck","implementation":"staging-live","input":"structured_proposal + immutable submission context","output":"conservative competence_precheck + suggested_level when previously empty + audited source references","failure":"unknown/ambiguous cases remain unclassified and are routed exactly once to signal-bound legal review"},
-    {"name":"competence_review_resolution","implementation":"staging-live","input":"authorized legal_reviewer decision on competence_precheck task bound to exact competence signal","output":"source-backed bounded resolution COMPETENCE_CLASSIFIED | COMPETENCE_CORRECTED | LEGAL_CHANGE_REQUIRED_CONFIRMED | COMPETENCE_UNRESOLVED; audited without changing original text or proposal decision","failure":"wrong action/reason, missing rationale/sources, inactive/wrong-role operator, inactive signal or stale evidence binding is rejected server-side; a material inventory/classifier/evidence revision supersedes any active older task and requires exactly one fresh review"},
-    {"name":"existing_measure_check","implementation":"staging-live","input":"structured_proposal + immutable submission context + existing WERK baseline registries","output":"bounded existing_measure_check with reference IDs, dataset versions and audited review hint; possible_overlap creates exactly one active existing_measure_overlap review task for impact_reviewer","failure":"no high-specificity match returns no_known_overlap without claiming completeness; repeated identical signals do not duplicate or reopen already resolved human review"},
-    {"name":"existing_measure_review_resolution","implementation":"staging-live","input":"authorized impact_reviewer decision on existing_measure_overlap task bound to exact existing-measure signal","output":"exactly one reason-coded resolution for that signal: BASELINE_OVERLAP_CONFIRMED | BASELINE_OVERLAP_PARTIAL | NO_MATERIAL_OVERLAP; audited without automatic proposal decision","failure":"wrong action/reason, missing rationale, inactive/wrong-role operator, inactive signal or stale evidence binding is rejected server-side; a material baseline/classifier revision supersedes any active older task and requires exactly one fresh review"},
-    {"name":"queue_router","implementation":"partial","input":"competence ambiguity/legal-opening signal, existing-measure overlap signal plus future signals/gates","output":"competence_precheck is routed to legal_reviewer when human legal review is required; existing_measure_overlap is routed to impact_reviewer; broader review-queue routing remains open"}
+    {
+      "name": "pii_scan",
+      "implementation": "scaffolded",
+      "input": "submission_id",
+      "output": "pii_flags/publication_hold"
+    },
+    {
+      "name": "structure_submission",
+      "implementation": "scaffolded",
+      "input": "submission_id",
+      "output": "structured_proposal",
+      "failure": "retry/fallback; Einreichung bleibt erhalten"
+    },
+    {
+      "name": "lexical_duplicate_search",
+      "implementation": "scaffolded",
+      "input": "submission_id",
+      "output": "near-duplicate candidate/cluster"
+    },
+    {
+      "name": "semantic_feature_extract",
+      "implementation": "scaffolded-provider-neutral",
+      "input": "structured_proposal",
+      "output": "problem_signature + solution_signature"
+    },
+    {
+      "name": "semantic_cluster_review",
+      "implementation": "scaffolded",
+      "input": "semantic features",
+      "output": "same solution | solution variant | overlap | separate"
+    },
+    {
+      "name": "competence_precheck",
+      "implementation": "staging-live",
+      "input": "structured_proposal + immutable submission context",
+      "output": "conservative competence_precheck + suggested_level when previously empty + audited source references",
+      "failure": "unknown/ambiguous cases remain unclassified and are routed exactly once to signal-bound legal review"
+    },
+    {
+      "name": "competence_review_resolution",
+      "implementation": "staging-live",
+      "input": "authorized legal_reviewer decision on competence_precheck task bound to exact competence signal",
+      "output": "source-backed bounded resolution COMPETENCE_CLASSIFIED | COMPETENCE_CORRECTED | LEGAL_CHANGE_REQUIRED_CONFIRMED | COMPETENCE_UNRESOLVED; audited without changing original text or proposal decision",
+      "failure": "wrong action/reason, missing rationale/sources, inactive/wrong-role operator, inactive signal or stale evidence binding is rejected server-side; a material inventory/classifier/evidence revision supersedes any active older task and requires exactly one fresh review"
+    },
+    {
+      "name": "existing_measure_check",
+      "implementation": "staging-live",
+      "input": "structured_proposal + immutable submission context + existing WERK baseline registries",
+      "output": "bounded existing_measure_check with reference IDs, dataset versions and audited review hint; possible_overlap creates exactly one active existing_measure_overlap review task for impact_reviewer",
+      "failure": "no high-specificity match returns no_known_overlap without claiming completeness; repeated identical signals do not duplicate or reopen already resolved human review"
+    },
+    {
+      "name": "existing_measure_review_resolution",
+      "implementation": "staging-live",
+      "input": "authorized impact_reviewer decision on existing_measure_overlap task bound to exact existing-measure signal",
+      "output": "exactly one reason-coded resolution for that signal: BASELINE_OVERLAP_CONFIRMED | BASELINE_OVERLAP_PARTIAL | NO_MATERIAL_OVERLAP; audited without automatic proposal decision",
+      "failure": "wrong action/reason, missing rationale, inactive/wrong-role operator, inactive signal or stale evidence binding is rejected server-side; a material baseline/classifier revision supersedes any active older task and requires exactly one fresh review"
+    },
+    {
+      "name": "queue_router",
+      "implementation": "partial",
+      "input": "competence ambiguity/legal-opening signal, existing-measure overlap signal plus future signals/gates",
+      "output": "competence_precheck is routed to legal_reviewer when human legal review is required; existing_measure_overlap is routed to impact_reviewer; broader review-queue routing remains open"
+    },
+    {
+      "name": "impact_bridge_check",
+      "implementation": "staging-live",
+      "input": "structured_proposal + immutable submission context + canonical WERK reform/data-contract registries",
+      "output": "version-bound candidate reform/data-contract/gate references only, or no_known_mapping",
+      "failure": "registry/source version drift returns revalidation_required with no stale mappings; no match never claims completeness; no new fiscal effect or political decision"
+    }
   ],
   "http_rules": {
     "idempotency": "POST /submissions und POST /status/{public_id}/clarification akzeptieren Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
     "pagination": "GET /clusters verwendet keyset-basierte Cursor-Pagination mit stabiler Sortierung updated_at DESC, cluster_id DESC; limit 1..50, Standard 12; der opake Cursor ist an topic/region/status gebunden und wird bei Filterwechsel als ungültig abgewiesen",
-    "error_format": ["code", "message?"],
+    "error_format": [
+      "code",
+      "message?"
+    ],
     "request_id": "in der deployten Edge-v7-Fehlerhülle noch nicht durchgängig live",
     "security_headers": "Produktiv erzwingen",
     "cors": "nur freigegebene WERK-Origin(s)"
