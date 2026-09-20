@@ -1,0 +1,105 @@
+{
+  "receipt_id": "WERK-IDEENWERK-CLARIFICATION-HTTP-E2E-001",
+  "date": "2026-09-20",
+  "status": "VERIFIED_STAGING_HTTP",
+  "risk": "R1",
+  "source_branch": "werk-v49-preview-host",
+  "implementation_commit": "694742cfb17caf2f0b778d89256a5fb4253fe5b5",
+  "api_contract_alignment_commit": "f6e804788495aec48e83b3d9197135453ac6a4ac",
+  "scope": [
+    "extend the existing staging-edge E2E instead of creating a parallel test path",
+    "exercise the deployed POST /status/{public_id}/clarification route through real HTTP",
+    "prove wrong-token denial on the deployed Edge boundary",
+    "prove Idempotency-Key replay returns the same clarification id without duplication",
+    "prove the existing worker continues from clarification through cluster review back to precheck",
+    "prove protected status exposes the private clarification and refreshed STANDARD review path",
+    "prove privacy export includes the private clarification",
+    "prove submissions.original_text remains unchanged",
+    "prove synthetic staging data and temporary HTTP response material are removed after verification"
+  ],
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "project_ref": "jwomaoxefgnhsgiebaqy",
+    "clarification_contract": "025_citizen_clarification",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 5,
+    "production_changed": false
+  },
+  "http_evidence": {
+    "health_status": 200,
+    "submission_create_status": 201,
+    "wrong_clarification_token_status": 403,
+    "wrong_clarification_token_code": "STATUS_ACCESS_DENIED",
+    "clarification_create_status": 201,
+    "clarification_create_accepted": true,
+    "clarification_create_replayed": false,
+    "clarification_next": "semantic_cluster_review",
+    "clarification_replay_status": 200,
+    "clarification_replay_replayed": true,
+    "same_clarification_id_on_replay": true,
+    "protected_status_status": 200,
+    "protected_status_contains_one_clarification": true,
+    "protected_status_review_depth": "STANDARD",
+    "protected_status_triage_queue": "standard_review",
+    "privacy_export_status": 200,
+    "privacy_export_contains_clarification": true,
+    "original_text_immutable": true
+  },
+  "worker_evidence": {
+    "final_status": "precheck",
+    "active_jobs": 0,
+    "dead_jobs": 0,
+    "done_jobs": 6,
+    "clarifications": 1,
+    "clarification_received_audit_events": 1
+  },
+  "cleanup": {
+    "submissions": 0,
+    "active_jobs": 0,
+    "dead_jobs": 0,
+    "open_reviews": 0,
+    "audit_events": 0,
+    "privacy_requests": 0,
+    "citizen_clarifications": 0,
+    "synthetic_submission_residue": 0,
+    "synthetic_clarification_residue": 0,
+    "temporary_pg_net_response_residue": 0
+  },
+  "ci": {
+    "backend_check": 108,
+    "backend_result": "success",
+    "backend_commit": "694742cfb17caf2f0b778d89256a5fb4253fe5b5",
+    "backend_checks_include": [
+      "syntax including the extended staging-edge E2E",
+      "unit tests",
+      "migration and idempotency",
+      "operator/cluster/privacy guardrails",
+      "citizen clarification contract guardrail",
+      "distributed rate limit",
+      "no-login API/privacy smoke",
+      "retention dry-run",
+      "backup/restore",
+      "clustering diagnostic",
+      "1000-item queue integration"
+    ]
+  },
+  "contract_correction": {
+    "issue": "werk-data/ideenwerk-api-contract.json still marked the clarification endpoint as planned and documented the old answers/new_status shape although Edge v5 already served the route.",
+    "fix": "API contract v6 now marks the route staging-live, documents text + Idempotency-Key semantics, actual response fields, protected status clarifications and privacy-export citizen_clarifications.",
+    "fixed_in": "f6e804788495aec48e83b3d9197135453ac6a4ac"
+  },
+  "safety": [
+    "the clarification-state checkpoint was applied only to the synthetic staging submission and explicitly audited as STAGING_E2E_CLARIFICATION_SETUP",
+    "no production release",
+    "no paid action",
+    "no irreversible external change",
+    "no political merit score or automatic political decision",
+    "temporary pg_net responses containing the one-time synthetic status token were deleted after the run"
+  ],
+  "next_smallest_action": {
+    "id": "WERK-IDEENWERK-CLARIFICATION-PROMPT-001",
+    "risk": "R2",
+    "goal": "Close the other half of the clarification loop: persist an auditable clarification request/question with reason code, expose that question only through the existing protected citizen status, and let the existing V71 clarification control show exactly what needs clarification. Keep operator authentication/authorization on the existing guarded operator boundary; do not expose a weak public operator endpoint."
+  },
+  "supersedes_next_best_action_entry": "WERK-IDEENWERK-CLARIFICATION-HTTP-E2E-001 is completed by this VERIFIED_STAGING_HTTP receipt."
+}
