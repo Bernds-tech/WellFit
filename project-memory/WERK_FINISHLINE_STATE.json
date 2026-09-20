@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "project": "WERK Österreich",
   "branch": "werk-v49-preview-host",
   "finishline_definition": "WERK ist technisch finishline-ready, wenn die politische Grundordnung dokumentiert, die 12 Leitfelder und priorisierten Reformakten konsistent modelliert, IDEENWERK und Direkte offene Demokratie end-to-end geprüft, Bürgerideen mit bestehenden Rechen-/Reformmodellen verbunden, Experten-/KI-Synthese und Wirkungsprüfung nachvollziehbar, verifizierte Beteiligung/Abstimmung rechtlich-technisch abgegrenzt, Wirkungsmessung rückgekoppelt und Website/Runtime/Security/Datenschutz produktionsbereit sind. Politische Entscheidungen bleiben bei Menschen.",
@@ -9,7 +9,7 @@
       "state": "PARTIAL",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "WERK-Kern und Direkte offene Demokratie sind modelliert; WERK-spezifische autonome Governance wird gerade gehärtet und benötigt Supervisor-Gegencheck."
+      "notes": "Der WERK-spezifische autonome Steuerkreis ist unabhängig COUNTERCHECKED; eine vollständige Governance-/Produktionsakzeptanz des gesamten politischen Systems wird daraus nicht abgeleitet."
     },
     "policy_fields": {
       "state": "VERIFIED",
@@ -42,10 +42,10 @@
       "notes": "FAST/STANDARD/DEEP und Bürgerprozess sind angelegt; vollständiger Entscheidungs-/Wirkungskreislauf noch nicht geschlossen."
     },
     "impact_bridge": {
-      "state": "IN_PROGRESS",
+      "state": "COUNTERCHECKED_STAGING",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "Nächste Kernintegration: Bürgeridee/Cluster auf bestehende WERK-Rechenmodelle/Reformakten mappen, ohne Parallelrechnung."
+      "notes": "Der versionierte Bürgeridee/Precheck → bestehende WERK-Reform-/Rechenartefakt-Pfad ist in Staging unabhängig gegengeprüft: keine Parallelrechnung, keine neue Wirkungszahl, stale Zuordnungen fail-closed. Production-/Gesamt-ACCEPTED wird daraus nicht abgeleitet."
     },
     "expert_process": {
       "state": "TODO",
@@ -93,7 +93,7 @@
       "state": "PARTIAL",
       "risk": "R4",
       "required_for_finishline": true,
-      "notes": "Status-Token, RLS, Privacy-Workflows und fail-closed Sichtbarkeit vorhanden; Hardening/Advisor-/Produktionsabnahme offen."
+      "notes": "Status-Token, RLS, Privacy-Workflows und fail-closed Sichtbarkeit vorhanden; der pg_net Data-API-Staging-Rand ist gegengeprüft, aber das Hosted-Supabase-extension_in_public-Thema bleibt für Production-Hardening offen."
     },
     "production_readiness": {
       "state": "BLOCKED",
