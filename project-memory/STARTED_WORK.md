@@ -13,14 +13,14 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-IDEENWERK-PRIVACY-001
 - Started: 2026-09-20 Europe/Vienna
-- Status: IN_PROGRESS
+- Closed: 2026-09-20
+- Status: VERIFIED_STAGING
 - Risk: R2
 - Branch: `werk-v49-preview-host`
-- Lock: `LOCK-WERK-IDEENWERK-PRIVACY-001`
-- Scope: add Status-Token-protected citizen data export and auditable correction, deletion, restriction and cluster-appeal requests to the existing IDEENWERK API and status UI; staging only.
-- Guardrails: reuse the existing no-login status-token trust boundary; deletion is a review request only, never an automatic hard delete; no production release, paid action, political scoring or parallel interface.
-- Starting evidence: source head `c577a225739187ea25fd2d645aa369cd36201fc9`; WERK Österreich Staging active with edge function v3 and zero submissions/jobs/clusters/reviews/audit/privacy-request rows at task start.
-- Exact next step: implement migration/API contracts and existing-status-UI controls, then run syntax/CI plus reversible staging E2E and cleanup.
+- Scope: Status-Token-protected citizen data export and auditable correction, deletion, restriction and cluster-appeal requests on the existing IDEENWERK path.
+- Result: implemented and independently evidenced through the existing receipts/CI/staging verification; deletion remains a review request, never an automatic hard delete.
+- Evidence: `WERK_IDEENWERK_PRIVACY_001_RECEIPT.json`, later privacy-resolution/clarification receipts and current protected API contract.
+- Follow-up: no rebuild. Reopen only on new contradictory evidence or a documented downstream integration dependency.
 
 ## WFG-AVATAR-PUPPET-001
 - Started: 2026-08-28
