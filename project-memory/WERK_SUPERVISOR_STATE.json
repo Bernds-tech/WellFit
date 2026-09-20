@@ -1,36 +1,71 @@
 {
-  "version": "2026-09-20-v4",
+  "version": "2026-09-20-v5",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-20T20:10:23Z",
-  "last_checked_head": "0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca",
-  "last_checked_functional_governance_head": "242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
-  "last_audit_write_chain_before_state": "379ac026c43f50dfcebbe489e6dadf4396b4d7ad",
+  "last_check_at": "2026-09-20T21:40:52Z",
+  "last_checked_head": "6b46f2b9a0516b3f117e1e2ba6183e1ce4801858",
+  "last_checked_functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
   "last_checked_edge_version": 7,
-  "last_checked_migration": "20260920130959 competence_review_queue",
+  "last_checked_migration": "20260920203116 pg_net_data_api_guard",
   "overall_status": "YELLOW",
   "active_findings": [
     {
-      "id": "CTR-WERK-SEC-PGNET-ACL-001",
-      "related_loop": "WERK-LOOP-SEC-PGNET-001",
+      "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
-      "kind": "security_access_control_drift",
-      "summary": "Live WERK Staging ACLs contradict migration 016's intended pg_net lockdown: schema net currently grants USAGE to PUBLIC/anon/authenticated and multiple pg_net routines carry PUBLIC EXECUTE. No external exploit path or data exposure was proven, so the finding remains YELLOW rather than ROT.",
-      "first_observed_at": "2026-09-20T20:10:23Z",
-      "last_observed_at": "2026-09-20T20:10:23Z",
+      "kind": "production_hardening_limit",
+      "summary": "The WERK staging Data-API boundary around pg_net is independently counterchecked, but Hosted Supabase still manages permissive direct net ACLs and Security Advisor still reports extension_in_public. This no longer blocks reversible staging feature work, but production security acceptance remains open.",
+      "first_observed_at": "2026-09-20T19:07:17.595Z",
+      "last_observed_at": "2026-09-20T21:40:52Z",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK"
+    },
+    {
+      "id": "WERK-PGNET-CLOSEOUT-BOOKKEEPING",
+      "severity": "YELLOW",
+      "kind": "orphan_zombie_reconciliation",
+      "summary": "pg_net implementation is now COUNTERCHECKED for its bounded staging claim, but TASK_LEDGER, STARTED_WORK, WORK_LOCKS, OPEN_LOOPS, CONTRADICTIONS and the master EXECUTION_RECEIPTS index still carry pre-countercheck wording. A memory-only closeout must be consumed before ordinary feature implementation.",
+      "first_observed_at": "2026-09-20T21:40:52Z",
+      "last_observed_at": "2026-09-20T21:40:52Z",
+      "status": "BUILDER_RECONCILIATION_REQUIRED"
+    },
+    {
+      "id": "WERK-PGNET-MIGRATION-ID-DRIFT",
+      "severity": "YELLOW",
+      "kind": "documentation_drift",
+      "summary": "Builder claim records migration 20260920203049 pg_net_data_api_guard, while live supabase_migrations truth is 20260920203116 pg_net_data_api_guard. Same migration name/content is present; receipt identifier must be corrected.",
+      "first_observed_at": "2026-09-20T21:40:52Z",
+      "last_observed_at": "2026-09-20T21:40:52Z",
       "status": "RECONCILIATION_REQUIRED"
     }
   ],
   "resolved_since_previous_check": [
     {
-      "id": "CTR-WERK-GOV-001",
-      "result": "RESOLVED_COUNTERCHECKED",
-      "summary": "WERK-specific control plane is now independently counterchecked: WERK-first shared selector, WERK-GOV-001 registered and COUNTERCHECKED, explicit evidence/finishline/supervisor write authority, and green WERK Frontend Check #174 on exact functional governance head."
+      "id": "CTR-WERK-SEC-PGNET-ACL-001",
+      "result": "RESOLVED_COUNTERCHECKED_STAGING_BOUNDARY",
+      "summary": "Migration 036 replaces the stale assumption of durable direct-ACL revocation with the enforceable Hosted-Supabase-compatible boundary: anon/authenticated NOLOGIN request roles, no WERK pg_net wrappers and PostgREST pre-request denial of profile net. Direct platform-managed ACLs and extension_in_public remain an explicit production-hardening limitation rather than an unacknowledged contradiction."
     }
   ],
   "last_verified_successes": [
+    {
+      "kind": "pg_net_staging_boundary_countercheck",
+      "task": "WERK-SEC-PGNET-001",
+      "head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 161,
+      "conclusion": "success",
+      "result": "COUNTERCHECKED_STAGING_BOUNDARY"
+    },
+    {
+      "kind": "staging_runtime",
+      "observed_at": "2026-09-20T21:40:52Z",
+      "project_status": "ACTIVE_HEALTHY",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_version": 7,
+      "latest_migration": "20260920203116 pg_net_data_api_guard",
+      "zero_baseline_tables_checked": 13,
+      "zero_baseline_verified": true
+    },
     {
       "kind": "governance_control_plane_countercheck",
       "task": "WERK-GOV-001",
@@ -39,33 +74,15 @@
       "run_number": 174,
       "conclusion": "success",
       "result": "COUNTERCHECKED"
-    },
-    {
-      "kind": "backend_contract_ci",
-      "head": "523adddce820078fa6f5e3590d5050b23a803913",
-      "workflow": "IDEENWERK Backend Check",
-      "run_number": 144,
-      "conclusion": "success",
-      "scope": "migration 035 competence review contract and dependent IDEENWERK checks"
-    },
-    {
-      "kind": "staging_runtime",
-      "observed_at": "2026-09-20T20:10:23Z",
-      "project_status": "ACTIVE_HEALTHY",
-      "edge_function": "werk-ideenwerk-api",
-      "edge_version": 7,
-      "latest_migration": "20260920130959 competence_review_queue",
-      "zero_baseline_tables_checked": 13,
-      "zero_baseline_verified": true
     }
   ],
   "specialist_results": {
     "integration_hunter": "No new missing connection beyond the already open citizen/cluster -> WERK calculation/reform Impact Bridge.",
-    "evidence_reaper": "Superseded the prior pg_net current-state inference with stronger live ACL evidence; staging/runtime and advisor evidence refreshed within the 24h TTL.",
-    "orphan_zombie_hunter": "WERK-GOV-001 was reconciled from IN_PROGRESS to COUNTERCHECKED and the derived selector was updated; active security finding now correctly overrides feature work.",
+    "evidence_reaper": "Migration 036 invalidated the prior staging-current receipt; current CI, runtime, advisor and pg_net boundary evidence were refreshed. Live migration identifier corrects the Builder receipt from 20260920203049 to 20260920203116.",
+    "orphan_zombie_hunter": "WERK-SEC-PGNET-001 is counterchecked for staging but its task/started/lock/loop/master-receipt bookkeeping is stale; next Builder step is memory-only closeout, not more pg_net implementation.",
     "calculation_integrity_guardian": "No calculation, source-data or reform-contract delta in the audited functional range; no deep recalculation triggered.",
     "milestone_closer": "No finishline gate newly satisfies full ACCEPTED/PRODUCTION_CONFIRMED quorum."
   },
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json",
-  "note": "No product, runtime or political mutation was performed by the supervisor. Audit writes updated only WERK governance/audit memory. The next Builder priority is the new pg_net ACL security reconciliation; the Impact Bridge remains queued behind the active YELLOW finding."
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T214052Z.json",
+  "note": "No product, runtime or political mutation was performed. The next action is a bounded Project-Memory closeout of WERK-SEC-PGNET-001; immediately afterward WERK-IDEENWERK-IMPACT-BRIDGE-001 becomes the functional next action."
 }
