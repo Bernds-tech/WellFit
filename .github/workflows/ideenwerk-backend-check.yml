@@ -79,7 +79,7 @@ jobs:
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
 
-          # 001-015, 019, 023-025 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023-027 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -92,12 +92,16 @@ jobs:
           test -s sql/023_privacy_operator_resolution.sql
           test -s sql/024_privacy_resolution_transparency.sql
           test -s sql/025_citizen_clarification.sql
+          test -s sql/026_clarification_prompt.sql
+          test -s sql/027_clarification_prompt_visibility.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
           cp sql/023_privacy_operator_resolution.sql /tmp/ideenwerk-ci-sql/
           cp sql/024_privacy_resolution_transparency.sql /tmp/ideenwerk-ci-sql/
           cp sql/025_citizen_clarification.sql /tmp/ideenwerk-ci-sql/
+          cp sql/026_clarification_prompt.sql /tmp/ideenwerk-ci-sql/
+          cp sql/027_clarification_prompt_visibility.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -127,6 +131,7 @@ jobs:
           node --check scripts/operator-guardrails-smoke.mjs
           node --check scripts/privacy-resolution-transparency-smoke.mjs
           node --check scripts/clarification-contract-smoke.mjs
+          node --check scripts/clarification-prompt-contract-smoke.mjs
           node --check scripts/distributed-rate-limit-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
@@ -150,6 +155,9 @@ jobs:
 
       - name: Citizen clarification contract guardrail
         run: node scripts/clarification-contract-smoke.mjs
+
+      - name: Clarification prompt contract guardrail
+        run: node scripts/clarification-prompt-contract-smoke.mjs
 
       - name: Distributed rate-limit DB guardrail
         run: npm run guardrails:rate
