@@ -132,3 +132,28 @@ Eine fehlende Verbindung wird als Dependency oder Open Loop dokumentiert, nicht 
 ## Stop-Regel
 
 Wenn der Builder keinen neuen sicheren Schritt findet, darf er nicht künstlich Arbeit erzeugen. Er dokumentiert den Blocker bzw. die fehlende Evidence. Der Supervisor prüft den Zustand weiter.
+
+
+## WERK-spezifische Steuerquellen
+
+Für WERK dürfen die historisch vorhandenen WellFit-generischen Steuerdateien nicht als WERK-Finishline interpretiert werden. Der WERK-Kreislauf verwendet zusätzlich und vorrangig:
+
+- `project-memory/WERK_FINISHLINE_STATE.json` — maschinenlesbarer WERK-Endzustand und Gate-Status.
+- `project-memory/WERK_NEXT_BEST_ACTIONS.json` — priorisierter WERK-Aktionskatalog.
+- `project-memory/WERK_EVIDENCE_TTL_POLICY.json` — Gültigkeits-/Invalidierungsregeln für mutable Evidence.
+- `project-memory/WERK_EVIDENCE_FRESHNESS.json` — tatsächlich beobachtete aktuelle Evidence.
+- `project-memory/WERK_MILESTONE_POLICY.json` — unveränderliche WERK-Meilenstein-Snapshots.
+- `project-memory/WERK_OWNER_ACTION_INBOX.md` — ausschließlich echte Owner-/externe Freigaben.
+- `project-memory/WERK_DEFERRED_OWNER_ACTIONS.md` — ausdrücklich auf später verschobene Owner-Aktionen.
+
+### Ableitung der nächsten Aktion
+`WERK_NEXT_BEST_ACTIONS.json` ersetzt nicht Task Ledger, Loops oder Dependencies. Es ist ein maschinenlesbarer Auswahlkatalog. Eine Aktion ist nur ausführbar, wenn Supervisor-State, Receipts, Locks, Dependencies und Finishline-Gates sie erlauben.
+
+### Evidence Freshness
+Vor Reliance auf mutable Staging-, Runtime-, Provider-, Rechts- oder amtliche Daten-Evidence muss die passende TTL-/Invalidierungsregel geprüft werden. Abgelaufene Evidence macht den zugrunde liegenden historischen Erfolg nicht falsch, darf aber keinen neuen Current-State-Claim tragen.
+
+### Finishline-Navigation
+Die Finishline wird nicht aus Prozenten oder Chatgefühl abgeleitet. Sie ergibt sich aus den Gates in `WERK_FINISHLINE_STATE.json`. Neue Arbeit muss mindestens einem offenen Gate oder einer dokumentierten Cross-Component-Dependency dienen.
+
+### Owner-Aktionen
+Normale Coding-, Analyse-, CI-, Staging-, Rechen- und Dokumentationsarbeit darf nie als Owner-Aktion ausgelagert werden. Owner-Aktionen werden erst READY_NOW, wenn alle automatisierbaren Voraussetzungen erfüllt sind.
