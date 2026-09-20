@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-20-v2",
+  "version": "2026-09-20-v3",
   "name": "WERK autonomous closed-loop contract",
   "task_system_rule": "No competing task system. Existing Project Memory registers remain canonical.",
   "canonical_order": [
@@ -85,5 +85,10 @@
     "deferred_owner_actions": "project-memory/WERK_DEFERRED_OWNER_ACTIONS.md"
   },
   "evidence_rule": "Mutable evidence must satisfy WERK_EVIDENCE_TTL_POLICY before supporting a current-state or acceptance claim. Immutable evidence is invalidated only by listed triggers.",
-  "finishline_rule": "New work must close or connect a gate in WERK_FINISHLINE_STATE, resolve a supervisor finding, continue locked work, or close a documented dependency/open loop."
+  "finishline_rule": "New work must close or connect a gate in WERK_FINISHLINE_STATE, resolve a supervisor finding, continue locked work, or close a documented dependency/open loop.",
+  "automation_roles": "project-memory/WERK_AUTOMATION_ROLES.json",
+  "agent_coordination": "project-memory/WERK_AGENT_COORDINATION.md",
+  "system_graph": "werk-data/werk-system-graph.json",
+  "specialist_rule": "Specialist automations audit/reconcile only. Ordinary implementation belongs to the Builder.",
+  "system_graph_rule": "Connection Sweep must consult the graph; downstream evidence is reconsidered when upstream source/calculation/runtime contracts materially change."
 }
