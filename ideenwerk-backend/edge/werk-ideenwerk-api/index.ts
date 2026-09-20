@@ -177,7 +177,6 @@ Deno.serve(async (req: Request) => {
       return json(data,200,origin);
     }
 
-
     if (req.method === 'GET' && path === '/clusters') {
       if (!(await takeRateLimit(req,'edge_clusters',120,60))) return json({code:'RATE_LIMITED'},429,origin);
       const url = new URL(req.url);
@@ -206,18 +205,20 @@ Deno.serve(async (req: Request) => {
 
     if (req.method === 'GET' && path === '/transparency/metrics') {
       if (!(await takeRateLimit(req,'edge_metrics',120,60))) return json({code:'RATE_LIMITED'},429,origin);
-      const [s,c,v,t] = await Promise.all([
+      const [s,c,v,t,r] = await Promise.all([
         supabase.from('submissions').select('id',{count:'exact',head:true}),
         supabase.from('clusters').select('id',{count:'exact',head:true}),
         supabase.from('cluster_variants').select('id',{count:'exact',head:true}),
-        supabase.from('review_tasks').select('id',{count:'exact',head:true}).in('status',['open','assigned'])
+        supabase.from('review_tasks').select('id',{count:'exact',head:true}).in('status',['open','assigned']),
+        supabase.rpc('ideenwerk_public_review_depth_metrics')
       ]);
-      for (const x of [s,c,v,t]) if (x.error) throw x.error;
+      for (const x of [s,c,v,t,r]) if (x.error) throw x.error;
       return json({
         submissions_total:s.count||0,
         problem_clusters_total:c.count||0,
         variants_total:v.count||0,
         open_review_tasks:t.count||0,
+        review_depth:r.data||null,
         mode:'staging'
       },200,origin);
     }

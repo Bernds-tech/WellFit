@@ -128,7 +128,7 @@ async function cleanup() {
 try {
   const created = await jsonResponse(await fetch(`${base}/submissions`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json', 'idempotency-key': idempotencyKey },
+    headers: { 'content-type':'application/json', 'idempotency-key': idempotencyKey },
     body: JSON.stringify(payload)
   }));
   assert(created.response.status === 201, 'submission create must return 201', created.data);
@@ -142,17 +142,19 @@ try {
 
   const deadline = Date.now() + timeoutMs;
   let finalStatus = firstStatus.data;
-  while (Date.now() < deadline && ['received', 'structured', 'cluster_review'].includes(finalStatus?.current_status)) {
+  while (Date.now() < deadline && ['received','structured','cluster_review'].includes(finalStatus?.current_status)) {
     await new Promise(resolve => setTimeout(resolve, intervalMs));
     const polled = await fetchStatus(token);
     assert(polled.response.status === 200, 'private status polling failed', polled.data);
     finalStatus = polled.data;
   }
-  assert(!['received', 'structured', 'cluster_review'].includes(finalStatus?.current_status), 'staging worker did not advance submission to a stable checkpoint before timeout', finalStatus);
+  assert(!['received','structured','cluster_review'].includes(finalStatus?.current_status), 'staging worker did not advance submission to a stable checkpoint before timeout', finalStatus);
+  assert(finalStatus?.review_path?.depth === 'STANDARD', 'protected status must expose the assigned STANDARD review path for the neutral synthetic case', finalStatus);
+  assert(['standard_review','high_attention','quality_low_attention','existing_measure_review'].includes(finalStatus?.review_path?.triage_queue), 'protected status review path must expose an expected triage queue', finalStatus);
 
   const replay = await jsonResponse(await fetch(`${base}/submissions`, {
     method: 'POST',
-    headers: { 'content-type': 'application/json', 'idempotency-key': idempotencyKey },
+    headers: { 'content-type':'application/json', 'idempotency-key': idempotencyKey },
     body: JSON.stringify(payload)
   }));
   assert(replay.response.status === 200, 'idempotent replay must return 200', replay.data);
@@ -165,6 +167,14 @@ try {
   const metrics = await jsonResponse(await fetch(`${base}/transparency/metrics`));
   assert(metrics.response.status === 200, 'transparency metrics endpoint failed', metrics.data);
   assert(Number(metrics.data?.submissions_total) >= 1, 'transparency metrics did not observe the synthetic submission', metrics.data);
+  assert(Number(metrics.data?.review_depth?.assigned_total) >= 1, 'review-depth aggregate did not observe the synthetic assignment', metrics.data);
+  assert(['suppressed_small_sample','published'].includes(metrics.data?.review_depth?.distribution_state), 'review-depth aggregate has invalid publication state', metrics.data);
+  if (metrics.data.review_depth.distribution_state === 'suppressed_small_sample') {
+    assert(metrics.data.review_depth.fast === null && metrics.data.review_depth.standard === null && metrics.data.review_depth.deep === null, 'small review-depth sample must suppress bucket counts', metrics.data);
+  } else {
+    const sum = Number(metrics.data.review_depth.fast) + Number(metrics.data.review_depth.standard) + Number(metrics.data.review_depth.deep);
+    assert(sum === Number(metrics.data.review_depth.assigned_total), 'published review-depth buckets must reconcile to assigned_total', metrics.data);
+  }
 
   const db = await pool.query(
     `WITH target AS (
@@ -178,8 +188,8 @@ try {
        (SELECT count(*)::int FROM review_tasks rt
           WHERE rt.status IN ('open','assigned')
             AND rt.subject_type='cluster_candidate'
-            AND NOT EXISTS (SELECT 1 FROM cluster_candidates cc WHERE cc.id::text=rt.subject_id)) AS orphan_review_tasks`
-    , [publicId]
+            AND NOT EXISTS (SELECT 1 FROM cluster_candidates cc WHERE cc.id::text=rt.subject_id)) AS orphan_review_tasks`,
+    [publicId]
   );
   const checks = db.rows[0];
   assert(checks?.dead_jobs === 0, 'dead jobs found after staging E2E', checks);
@@ -191,13 +201,14 @@ try {
   publicId = null;
 
   console.log(JSON.stringify({
-    ok: true,
-    run_id: runId,
-    final_status: finalStatus.current_status,
-    history_events: Array.isArray(finalStatus.history) ? finalStatus.history.length : null,
-    done_jobs: checks.done_jobs,
-    metrics_seen: metrics.data,
-    cleanup: cleanupResult
+    ok:true,
+    run_id:runId,
+    final_status:finalStatus.current_status,
+    review_path:finalStatus.review_path,
+    history_events:Array.isArray(finalStatus.history)?finalStatus.history.length:null,
+    done_jobs:checks.done_jobs,
+    metrics_seen:metrics.data,
+    cleanup:cleanupResult
   }));
 } catch (error) {
   console.error('[staging-e2e] FAIL', error.message, error.detail || '');
