@@ -1,0 +1,411 @@
+name: WERK impact bridge build once
+
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths:
+      - '.github/workflows/werk-impact-bridge-build-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: werk-v49-preview-host
+          fetch-depth: 0
+      - name: Build bounded impact bridge
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          registry = {
+            "version":"2026-09-21-v1",
+            "name":"WERK IDEENWERK Impact Bridge",
+            "purpose":"Version-bound runtime index that links citizen problem signals only to existing WERK reform and calculation/data-contract artifacts. It contains no fiscal effect calculation and makes no political recommendation.",
+            "source_versions":{"reforms":"2026-09-06-v5","data_contract_registry":"2026-09-07-v17"},
+            "rules":[
+              "Candidate mapping is a research/review pointer, not a political score, acceptance or rejection.",
+              "No mapping may contain a newly calculated fiscal effect, saving, cost or forecast.",
+              "A no-known-mapping result is not proof that no relevant WERK artifact exists.",
+              "Runtime mappings must match this registry version and source versions; stale mappings require revalidation.",
+              "Referenced reform IDs and data-contract IDs remain authoritative in their existing registries."
+            ],
+            "mappings":[
+              {"map_id":"IMPACT-FISCAL-DEBT","label":"Budget, Defizit, Schulden und Zinsen","reform_ids":["DEBT-01","DEBT-02","BUD-01","BUD-02"],"data_contract_ids":["FISCAL-DATA"],"gate_refs":["GAP-FISC-01","GAP-FISC-02","GAP-BASE-01"],"artifact_refs":["werk-data/budget-baseline-2026-2031.json","werk-data/calculation-results-2026.json","werk-data/debt-flow-reconciliation-2026-2031.json"]},
+              {"map_id":"IMPACT-SUBSIDY","label":"Förderungen und Subventionen","reform_ids":["SUB-01"],"data_contract_ids":["SUBSIDY-DATA"],"gate_refs":["GAP-SUB-01","WERK-SUB-001"],"artifact_refs":["werk-data/subsidy-federal-account-results.json","werk-data/subsidy-account-review-priorities.json"]},
+              {"map_id":"IMPACT-SV-EMPLOYEE","label":"Arbeitnehmer-Sozialversicherung und ALV","reform_ids":["SV-01"],"data_contract_ids":["FISCAL-DATA"],"gate_refs":["WERK-SV-010","WERK-SV-011"],"artifact_refs":["werk-data/post-debt-employee-sv-model.json","werk-data/post-debt-employee-sv-results.json","werk-data/employee-alv-interval-results.json","werk-data/employee-sv-funding-bridge-results.json"]},
+              {"map_id":"IMPACT-TAX-CORPORATE","label":"Körperschaftsteuer und Unternehmensbesteuerung","reform_ids":["TAX-01"],"data_contract_ids":["TAX-DATA","BASELINE-LEGAL"],"gate_refs":["GAP-TAX-01"],"artifact_refs":["werk-data/tax-baseline-2022-2025.json","werk-data/government-measure-legal-status.json"]},
+              {"map_id":"IMPACT-TAX-ENFORCEMENT","label":"Gewinnverlagerung, Verrechnungspreise und Steuervollzug","reform_ids":["TAX-02"],"data_contract_ids":["TAX-DATA","FISCAL-DATA"],"gate_refs":["WERK-TAX-001"],"artifact_refs":["werk-data/tax-enforcement-evidence-2025.json","werk-data/tax-enforcement-break-even-results.json"]}
+            ]
+          }
+          Path('werk-data/ideenwerk-impact-bridge.json').write_text(json.dumps(registry,ensure_ascii=False,indent=2)+'\n')
+
+          migration = r'''BEGIN;
+
+-- WERK IDEENWERK migration 037: version-bound Impact Bridge.
+-- This bridge only links citizen problem signals to existing WERK reform/data-contract
+-- artifacts. It MUST NOT calculate a new fiscal effect, politically rank an idea,
+-- accept/reject a proposal, or claim that an unmatched idea has no relevant artifact.
+-- Canonical registry: werk-data/ideenwerk-impact-bridge.json version 2026-09-21-v1.
+-- IMPACT_BRIDGE_RUNTIME_MAP {"map_id":"IMPACT-FISCAL-DEBT","reform_ids":["DEBT-01","DEBT-02","BUD-01","BUD-02"],"data_contract_ids":["FISCAL-DATA"],"gate_refs":["GAP-FISC-01","GAP-FISC-02","GAP-BASE-01"]}
+-- IMPACT_BRIDGE_RUNTIME_MAP {"map_id":"IMPACT-SUBSIDY","reform_ids":["SUB-01"],"data_contract_ids":["SUBSIDY-DATA"],"gate_refs":["GAP-SUB-01","WERK-SUB-001"]}
+-- IMPACT_BRIDGE_RUNTIME_MAP {"map_id":"IMPACT-SV-EMPLOYEE","reform_ids":["SV-01"],"data_contract_ids":["FISCAL-DATA"],"gate_refs":["WERK-SV-010","WERK-SV-011"]}
+-- IMPACT_BRIDGE_RUNTIME_MAP {"map_id":"IMPACT-TAX-CORPORATE","reform_ids":["TAX-01"],"data_contract_ids":["TAX-DATA","BASELINE-LEGAL"],"gate_refs":["GAP-TAX-01"]}
+-- IMPACT_BRIDGE_RUNTIME_MAP {"map_id":"IMPACT-TAX-ENFORCEMENT","reform_ids":["TAX-02"],"data_contract_ids":["TAX-DATA","FISCAL-DATA"],"gate_refs":["WERK-TAX-001"]}
+
+CREATE TABLE IF NOT EXISTS public.ideenwerk_impact_bridge_checks (
+  submission_id uuid PRIMARY KEY REFERENCES public.submissions(id) ON DELETE CASCADE,
+  result_code text NOT NULL CHECK (result_code IN ('candidate_mapping','no_known_mapping')),
+  mappings jsonb NOT NULL DEFAULT '[]'::jsonb CHECK (jsonb_typeof(mappings)='array'),
+  registry_version text NOT NULL,
+  source_versions jsonb NOT NULL CHECK (jsonb_typeof(source_versions)='object'),
+  classifier_version text NOT NULL,
+  match_rule text NOT NULL,
+  checked_at timestamptz NOT NULL DEFAULT now(),
+  CHECK (
+    (result_code='candidate_mapping' AND jsonb_array_length(mappings)>0)
+    OR (result_code='no_known_mapping' AND jsonb_array_length(mappings)=0)
+  )
+);
+
+ALTER TABLE public.ideenwerk_impact_bridge_checks ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON TABLE public.ideenwerk_impact_bridge_checks FROM PUBLIC,anon,authenticated;
+GRANT SELECT,INSERT,UPDATE,DELETE ON TABLE public.ideenwerk_impact_bridge_checks TO service_role;
+
+CREATE INDEX IF NOT EXISTS ideenwerk_impact_bridge_checks_result_idx
+  ON public.ideenwerk_impact_bridge_checks(result_code,registry_version,checked_at);
+
+CREATE OR REPLACE FUNCTION public.ideenwerk_run_impact_bridge_check(p_public_id text)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public, extensions
+AS $$
+DECLARE
+  v_sub public.submissions%ROWTYPE;
+  v_structured public.structured_proposals%ROWTYPE;
+  v_text text;
+  v_mappings jsonb := '[]'::jsonb;
+  v_rule_parts text[] := ARRAY[]::text[];
+  v_result text := 'no_known_mapping';
+  v_registry_version constant text := '2026-09-21-v1';
+  v_sources constant jsonb := '{"reforms":"2026-09-06-v5","data_contract_registry":"2026-09-07-v17"}'::jsonb;
+  v_out jsonb;
+BEGIN
+  SELECT s.* INTO v_sub FROM public.submissions s WHERE s.public_id=p_public_id LIMIT 1;
+  IF NOT FOUND THEN RETURN NULL; END IF;
+  SELECT sp.* INTO v_structured FROM public.structured_proposals sp WHERE sp.submission_id=v_sub.id LIMIT 1;
+
+  v_text := lower(coalesce(v_sub.topic,'') || ' ' || coalesce(v_sub.original_text,'') || ' ' || coalesce(v_structured.problem,'') || ' ' || coalesce(v_structured.proposal,''));
+
+  IF v_text ~ '(schulden|staatsverschuld|budgetdefizit|maastricht.defizit|primärsaldo|primaersaldo|zinsausgab|schuldentilg|refinanzier)' THEN
+    v_mappings := v_mappings || jsonb_build_array(jsonb_build_object(
+      'map_id','IMPACT-FISCAL-DEBT','reform_ids',jsonb_build_array('DEBT-01','DEBT-02','BUD-01','BUD-02'),
+      'data_contract_ids',jsonb_build_array('FISCAL-DATA'),'gate_refs',jsonb_build_array('GAP-FISC-01','GAP-FISC-02','GAP-BASE-01')));
+    v_rule_parts := array_append(v_rule_parts,'fiscal_debt_signal');
+  END IF;
+
+  IF v_text ~ '(förderung|foerderung|förderungen|foerderungen|subvention|förderabbau|foerderabbau|förderprogramm|foerderprogramm)' THEN
+    v_mappings := v_mappings || jsonb_build_array(jsonb_build_object(
+      'map_id','IMPACT-SUBSIDY','reform_ids',jsonb_build_array('SUB-01'),
+      'data_contract_ids',jsonb_build_array('SUBSIDY-DATA'),'gate_refs',jsonb_build_array('GAP-SUB-01','WERK-SUB-001')));
+    v_rule_parts := array_append(v_rule_parts,'subsidy_signal');
+  END IF;
+
+  IF v_text ~ '(arbeitslosenversicherung|\malv\M|sozialversicherung|dienstnehmerbeitrag|krankenversicherungsbeitrag|pensionsversicherungsbeitrag|arbeitnehmerbeitrag)' THEN
+    v_mappings := v_mappings || jsonb_build_array(jsonb_build_object(
+      'map_id','IMPACT-SV-EMPLOYEE','reform_ids',jsonb_build_array('SV-01'),
+      'data_contract_ids',jsonb_build_array('FISCAL-DATA'),'gate_refs',jsonb_build_array('WERK-SV-010','WERK-SV-011')));
+    v_rule_parts := array_append(v_rule_parts,'employee_sv_signal');
+  END IF;
+
+  IF v_text ~ '(körperschaftsteuer|koerperschaftsteuer|\mköst\M|\mkoest\M|unternehmenssteuer)' THEN
+    v_mappings := v_mappings || jsonb_build_array(jsonb_build_object(
+      'map_id','IMPACT-TAX-CORPORATE','reform_ids',jsonb_build_array('TAX-01'),
+      'data_contract_ids',jsonb_build_array('TAX-DATA','BASELINE-LEGAL'),'gate_refs',jsonb_build_array('GAP-TAX-01')));
+    v_rule_parts := array_append(v_rule_parts,'corporate_tax_signal');
+  END IF;
+
+  IF v_text ~ '(gewinnverlager|verrechnungspreis|lizenzmodell|mindestbesteuer|steuervollzug)' THEN
+    v_mappings := v_mappings || jsonb_build_array(jsonb_build_object(
+      'map_id','IMPACT-TAX-ENFORCEMENT','reform_ids',jsonb_build_array('TAX-02'),
+      'data_contract_ids',jsonb_build_array('TAX-DATA','FISCAL-DATA'),'gate_refs',jsonb_build_array('WERK-TAX-001')));
+    v_rule_parts := array_append(v_rule_parts,'tax_enforcement_signal');
+  END IF;
+
+  IF jsonb_array_length(v_mappings)>0 THEN v_result := 'candidate_mapping'; END IF;
+
+  INSERT INTO public.ideenwerk_impact_bridge_checks(
+    submission_id,result_code,mappings,registry_version,source_versions,classifier_version,match_rule,checked_at
+  ) VALUES(
+    v_sub.id,v_result,v_mappings,v_registry_version,v_sources,'impact-bridge-v1',
+    CASE WHEN cardinality(v_rule_parts)=0 THEN 'no_high_specificity_mapping' ELSE array_to_string(v_rule_parts,'+') END,now()
+  )
+  ON CONFLICT(submission_id) DO UPDATE SET
+    result_code=excluded.result_code,mappings=excluded.mappings,registry_version=excluded.registry_version,
+    source_versions=excluded.source_versions,classifier_version=excluded.classifier_version,
+    match_rule=excluded.match_rule,checked_at=now();
+
+  INSERT INTO public.audit_events(event_id,subject_type,subject_id,event_type,actor_type,reason_code,payload)
+  VALUES(
+    'EVT-' || upper(encode(extensions.gen_random_bytes(10),'hex')),
+    'submission',v_sub.public_id,'impact_bridge_check_completed','system','IMPACT_BRIDGE_CHECK',
+    jsonb_build_object(
+      'result_code',v_result,'mappings',v_mappings,'registry_version',v_registry_version,
+      'source_versions',v_sources,'classifier_version','impact-bridge-v1',
+      'match_rule',CASE WHEN cardinality(v_rule_parts)=0 THEN 'no_high_specificity_mapping' ELSE array_to_string(v_rule_parts,'+') END,
+      'boundary','existing_werk_artifact_links_only_no_new_effect_or_political_decision'
+    )
+  );
+
+  SELECT public.ideenwerk_current_impact_bridge(v_sub.id) INTO v_out;
+  RETURN v_out;
+END;
+$$;
+
+REVOKE ALL ON FUNCTION public.ideenwerk_run_impact_bridge_check(text) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.ideenwerk_run_impact_bridge_check(text) TO service_role;
+
+CREATE OR REPLACE FUNCTION public.ideenwerk_current_impact_bridge(p_submission_id uuid)
+RETURNS jsonb
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+  SELECT CASE
+    WHEN c.registry_version='2026-09-21-v1'
+     AND c.source_versions='{"reforms":"2026-09-06-v5","data_contract_registry":"2026-09-07-v17"}'::jsonb
+    THEN jsonb_build_object(
+      'result_code',c.result_code,'mappings',c.mappings,'registry_version',c.registry_version,
+      'source_versions',c.source_versions,'classifier_version',c.classifier_version,
+      'match_rule',c.match_rule,'checked_at',c.checked_at,
+      'boundary','Verknüpft nur bestehende WERK-Reform- und Rechenartefakte; keine neue Wirkungszahl und keine politische Entscheidung.'
+    )
+    ELSE jsonb_build_object(
+      'result_code','revalidation_required','mappings','[]'::jsonb,
+      'registry_version',c.registry_version,
+      'current_registry_version','2026-09-21-v1','checked_at',c.checked_at,
+      'boundary','Veraltete Zuordnung wird nicht als aktueller Wirkungsbezug ausgegeben; erneute Prüfung erforderlich.'
+    )
+  END
+  FROM public.ideenwerk_impact_bridge_checks c WHERE c.submission_id=p_submission_id;
+$$;
+
+REVOKE ALL ON FUNCTION public.ideenwerk_current_impact_bridge(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.ideenwerk_current_impact_bridge(uuid) TO service_role;
+
+CREATE OR REPLACE FUNCTION public.ideenwerk_impact_bridge_on_precheck()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+BEGIN
+  IF NEW.current_status='precheck' AND OLD.current_status IS DISTINCT FROM NEW.current_status THEN
+    PERFORM public.ideenwerk_run_impact_bridge_check(NEW.public_id);
+  END IF;
+  RETURN NEW;
+END;
+$$;
+REVOKE ALL ON FUNCTION public.ideenwerk_impact_bridge_on_precheck() FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.ideenwerk_impact_bridge_on_precheck() TO service_role;
+
+DROP TRIGGER IF EXISTS trg_ideenwerk_impact_bridge ON public.submissions;
+CREATE TRIGGER trg_ideenwerk_impact_bridge
+AFTER UPDATE OF current_status ON public.submissions
+FOR EACH ROW EXECUTE FUNCTION public.ideenwerk_impact_bridge_on_precheck();
+
+DO $$
+DECLARE r record;
+BEGIN
+  FOR r IN SELECT public_id FROM public.submissions WHERE current_status='precheck' LOOP
+    PERFORM public.ideenwerk_run_impact_bridge_check(r.public_id);
+  END LOOP;
+END;
+$$;
+
+-- Preserve the v13 protected contracts and add only the impact-bridge overlay.
+DO $$
+BEGIN
+  IF to_regprocedure('public.ideenwerk_get_private_status_v13(text,text)') IS NULL THEN
+    EXECUTE 'ALTER FUNCTION public.ideenwerk_get_private_status(text,text) RENAME TO ideenwerk_get_private_status_v13';
+  END IF;
+  IF to_regprocedure('public.ideenwerk_get_privacy_export_v13(text,text)') IS NULL THEN
+    EXECUTE 'ALTER FUNCTION public.ideenwerk_get_privacy_export(text,text) RENAME TO ideenwerk_get_privacy_export_v13';
+  END IF;
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION public.ideenwerk_get_private_status(p_public_id text,p_token_hash text)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE v_base jsonb; v_submission_id uuid; v_bridge jsonb;
+BEGIN
+  v_base := public.ideenwerk_get_private_status_v13(p_public_id,p_token_hash);
+  IF v_base IS NULL THEN RETURN NULL; END IF;
+  SELECT s.id INTO v_submission_id FROM public.submissions s WHERE s.public_id=p_public_id LIMIT 1;
+  SELECT public.ideenwerk_current_impact_bridge(v_submission_id) INTO v_bridge;
+  RETURN v_base || jsonb_build_object('impact_bridge_check',v_bridge);
+END;
+$$;
+REVOKE ALL ON FUNCTION public.ideenwerk_get_private_status(text,text) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.ideenwerk_get_private_status(text,text) TO service_role;
+
+CREATE OR REPLACE FUNCTION public.ideenwerk_get_privacy_export(p_public_id text,p_token_hash text)
+RETURNS jsonb
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+DECLARE v_base jsonb; v_submission_id uuid; v_bridge jsonb;
+BEGIN
+  v_base := public.ideenwerk_get_privacy_export_v13(p_public_id,p_token_hash);
+  IF v_base IS NULL THEN RETURN NULL; END IF;
+  SELECT s.id INTO v_submission_id FROM public.submissions s WHERE s.public_id=p_public_id LIMIT 1;
+  SELECT public.ideenwerk_current_impact_bridge(v_submission_id) INTO v_bridge;
+  RETURN v_base || jsonb_build_object('impact_bridge_check',v_bridge);
+END;
+$$;
+REVOKE ALL ON FUNCTION public.ideenwerk_get_privacy_export(text,text) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.ideenwerk_get_privacy_export(text,text) TO service_role;
+
+DO $$
+BEGIN
+  IF to_regclass('public.ideenwerk_runtime_meta') IS NOT NULL THEN
+    INSERT INTO public.ideenwerk_runtime_meta(key,value,updated_at)
+    VALUES('impact_bridge_contract','037_ideenwerk_impact_bridge',now())
+    ON CONFLICT(key) DO UPDATE SET value=excluded.value,updated_at=excluded.updated_at;
+  END IF;
+END;
+$$;
+
+COMMIT;
+'''
+          Path('ideenwerk-backend/sql/037_ideenwerk_impact_bridge.sql').write_text(migration)
+
+          smoke = r'''import pg from 'pg';
+import assert from 'node:assert/strict';
+const { Client } = pg;
+const connectionString=process.env.DATABASE_URL;
+if(!connectionString) throw new Error('DATABASE_URL is required');
+const client=new Client({connectionString});
+await client.connect();
+const ids=['IDEA-C0FFEE0000000037','IDEA-C0FFEE0000000038'];
+try{
+  await client.query('BEGIN');
+  const access=await client.query(`SELECT has_table_privilege('anon','public.ideenwerk_impact_bridge_checks','SELECT') AS anon_select,has_table_privilege('authenticated','public.ideenwerk_impact_bridge_checks','SELECT') AS auth_select,has_function_privilege('anon','public.ideenwerk_run_impact_bridge_check(text)','EXECUTE') AS anon_exec,has_function_privilege('authenticated','public.ideenwerk_run_impact_bridge_check(text)','EXECUTE') AS auth_exec`);
+  assert.equal(access.rows[0].anon_select,false); assert.equal(access.rows[0].auth_select,false); assert.equal(access.rows[0].anon_exec,false); assert.equal(access.rows[0].auth_exec,false);
+
+  const hit=await client.query(`INSERT INTO submissions(public_id,idempotency_key,original_text,region,topic,current_status) VALUES($1,$2,$3,'Österreich','Soziales & Arbeit','cluster_review') RETURNING id`,[ids[0],'ci-impact-bridge-hit','Die Arbeitnehmerbeiträge zur Sozialversicherung und Arbeitslosenversicherung sollen sinken, aber nur wenn die Finanzierung belastbar ist.']);
+  await client.query(`INSERT INTO structured_proposals(submission_id,problem,proposal,topic,region,open_questions,citizen_confirmed) VALUES($1,'Hohe Arbeitnehmerbeiträge','Sozialversicherungsbeiträge prüfen','Soziales & Arbeit','Österreich','[]'::jsonb,false)`,[hit.rows[0].id]);
+  await client.query(`UPDATE submissions SET current_status='precheck',updated_at=now() WHERE id=$1`,[hit.rows[0].id]);
+  const row=await client.query(`SELECT result_code,mappings,registry_version,source_versions,classifier_version,match_rule FROM ideenwerk_impact_bridge_checks WHERE submission_id=$1`,[hit.rows[0].id]);
+  assert.equal(row.rowCount,1); assert.equal(row.rows[0].result_code,'candidate_mapping'); assert.equal(row.rows[0].registry_version,'2026-09-21-v1'); assert.equal(row.rows[0].classifier_version,'impact-bridge-v1');
+  const sv=row.rows[0].mappings.find(x=>x.map_id==='IMPACT-SV-EMPLOYEE'); assert.ok(sv); assert.deepEqual(sv.reform_ids,['SV-01']); assert.ok(sv.data_contract_ids.includes('FISCAL-DATA')); assert.ok(!Object.hasOwn(sv,'effect')); assert.ok(!Object.hasOwn(sv,'amount'));
+  const current=await client.query(`SELECT public.ideenwerk_current_impact_bridge($1::uuid) AS bridge`,[hit.rows[0].id]); assert.equal(current.rows[0].bridge.result_code,'candidate_mapping'); assert.equal(current.rows[0].bridge.registry_version,'2026-09-21-v1');
+  const audit=await client.query(`SELECT payload FROM audit_events WHERE subject_type='submission' AND subject_id=$1 AND event_type='impact_bridge_check_completed' ORDER BY created_at DESC LIMIT 1`,[ids[0]]); assert.equal(audit.rowCount,1); assert.equal(audit.rows[0].payload.boundary,'existing_werk_artifact_links_only_no_new_effect_or_political_decision');
+  await client.query(`UPDATE ideenwerk_impact_bridge_checks SET registry_version='stale-test' WHERE submission_id=$1`,[hit.rows[0].id]);
+  const stale=await client.query(`SELECT public.ideenwerk_current_impact_bridge($1::uuid) AS bridge`,[hit.rows[0].id]); assert.equal(stale.rows[0].bridge.result_code,'revalidation_required'); assert.deepEqual(stale.rows[0].bridge.mappings,[]);
+
+  const none=await client.query(`INSERT INTO submissions(public_id,idempotency_key,original_text,region,topic,current_status) VALUES($1,$2,$3,'Österreich','Sonstiges','cluster_review') RETURNING id`,[ids[1],'ci-impact-bridge-none','Auf öffentlichen Plätzen sollen mehr Trinkbrunnen stehen.']);
+  await client.query(`INSERT INTO structured_proposals(submission_id,problem,proposal,topic,region,open_questions,citizen_confirmed) VALUES($1,'Trinkwasser unterwegs','Mehr Trinkbrunnen','Sonstiges','Österreich','[]'::jsonb,false)`,[none.rows[0].id]);
+  await client.query(`UPDATE submissions SET current_status='precheck',updated_at=now() WHERE id=$1`,[none.rows[0].id]);
+  const noneRow=await client.query(`SELECT result_code,mappings,match_rule FROM ideenwerk_impact_bridge_checks WHERE submission_id=$1`,[none.rows[0].id]); assert.equal(noneRow.rows[0].result_code,'no_known_mapping'); assert.deepEqual(noneRow.rows[0].mappings,[]); assert.equal(noneRow.rows[0].match_rule,'no_high_specificity_mapping');
+  await client.query('ROLLBACK'); console.log('impact bridge DB smoke: PASS');
+}catch(error){await client.query('ROLLBACK').catch(()=>{});throw error;}finally{await client.end();}
+'''
+          Path('ideenwerk-backend/scripts/impact-bridge-smoke.mjs').write_text(smoke)
+
+          contract = r'''import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+const root=path.resolve(process.cwd(),'..');
+const bridge=JSON.parse(fs.readFileSync(path.join(root,'werk-data/ideenwerk-impact-bridge.json'),'utf8'));
+const reforms=JSON.parse(fs.readFileSync(path.join(root,'werk-data/reforms.json'),'utf8'));
+const contracts=JSON.parse(fs.readFileSync(path.join(root,'werk-data/data-contract-registry.json'),'utf8'));
+assert.equal(bridge.version,'2026-09-21-v1');
+assert.equal(bridge.source_versions.reforms,reforms.version);
+assert.equal(bridge.source_versions.data_contract_registry,contracts.version);
+const reformIds=new Set(reforms.reforms.map(x=>x.id));
+const contractIds=new Set(contracts.contracts.map(x=>x.id));
+const mapIds=new Set();
+for(const map of bridge.mappings){
+  assert.match(map.map_id,/^IMPACT-[A-Z0-9-]+$/); assert.ok(!mapIds.has(map.map_id)); mapIds.add(map.map_id);
+  assert.ok(map.reform_ids.length>0); for(const id of map.reform_ids) assert.ok(reformIds.has(id),`unknown reform ${id}`);
+  assert.ok(map.data_contract_ids.length>0); for(const id of map.data_contract_ids) assert.ok(contractIds.has(id),`unknown data contract ${id}`);
+  assert.ok(map.gate_refs.length>0); for(const ref of map.artifact_refs){assert.ok(fs.existsSync(path.join(root,ref)),`missing artifact ${ref}`);}
+  const encoded=JSON.stringify(map).toLowerCase();
+  for(const forbidden of ['verified_effect','annual_saving_eur','effect_eur','calculated_cost_eur','political_score','acceptance_decision']) assert.ok(!encoded.includes(forbidden),`forbidden field ${forbidden}`);
+}
+const sql=fs.readFileSync(path.join(process.cwd(),'sql/037_ideenwerk_impact_bridge.sql'),'utf8');
+const runtime=[...sql.matchAll(/^-- IMPACT_BRIDGE_RUNTIME_MAP (\{.*\})$/gm)].map(m=>JSON.parse(m[1]));
+assert.equal(runtime.length,bridge.mappings.length,'runtime map count drift');
+for(const r of runtime){const c=bridge.mappings.find(x=>x.map_id===r.map_id);assert.ok(c,`runtime map not canonical ${r.map_id}`);assert.deepEqual(r.reform_ids,c.reform_ids);assert.deepEqual(r.data_contract_ids,c.data_contract_ids);assert.deepEqual(r.gate_refs,c.gate_refs);}
+assert.match(sql,/no_new_effect_or_political_decision/); assert.match(sql,/revalidation_required/); assert.match(sql,/no_known_mapping/);
+console.log(`impact bridge contract: PASS (${bridge.mappings.length} version-bound maps)`);
+'''
+          Path('ideenwerk-backend/scripts/impact-bridge-contract.mjs').write_text(contract)
+
+          # Add CI coverage for migration + canonical registry + DB negative/stale checks.
+          wf=Path('.github/workflows/ideenwerk-backend-check.yml')
+          text=wf.read_text()
+          text=text.replace("      - 'werk-data/ideenwerk-api-contract.json'\n", "      - 'werk-data/ideenwerk-api-contract.json'\n      - 'werk-data/ideenwerk-impact-bridge.json'\n")
+          text=text.replace("          test -s sql/036_pg_net_data_api_guard.sql\n", "          test -s sql/036_pg_net_data_api_guard.sql\n          test -s sql/037_ideenwerk_impact_bridge.sql\n")
+          text=text.replace("          cp sql/036_pg_net_data_api_guard.sql /tmp/ideenwerk-ci-sql/\n", "          cp sql/036_pg_net_data_api_guard.sql /tmp/ideenwerk-ci-sql/\n          cp sql/037_ideenwerk_impact_bridge.sql /tmp/ideenwerk-ci-sql/\n")
+          text=text.replace("          node --check scripts/pg-net-security-guard-smoke.mjs\n", "          node --check scripts/pg-net-security-guard-smoke.mjs\n          node --check scripts/impact-bridge-contract.mjs\n          node --check scripts/impact-bridge-smoke.mjs\n")
+          text=text.replace("      - name: pg_net Data API security guardrail\n        run: npm run guardrails:pg-net\n", "      - name: pg_net Data API security guardrail\n        run: npm run guardrails:pg-net\n\n      - name: IDEENWERK impact bridge canonical-registry guardrail\n        run: node scripts/impact-bridge-contract.mjs\n\n      - name: IDEENWERK impact bridge DB/stale guardrail\n        run: node scripts/impact-bridge-smoke.mjs\n")
+          wf.write_text(text)
+
+          # Reuse the existing V71 protected status surface. Missing bridge data stays silent.
+          ui=Path('werk-assets/site-ideenwerk-v2.js')
+          text=ui.read_text()
+          anchor="function downloadJson(id,data){"
+          helper="""function impactBridgeHTML(bridge){if(!bridge||typeof bridge!=='object')return'';if(bridge.result_code==='revalidation_required')return `<div class=\"iwNotice\"><b>WERK-Wirkungsbezug wird neu geprüft.</b> Eine frühere Zuordnung ist wegen einer Versionsänderung nicht mehr aktuell und wird deshalb nicht als geltender Bezug angezeigt.</div>`;if(bridge.result_code==='no_known_mapping')return `<div class=\"iwHint\"><b>WERK-Wirkungsbrücke:</b> Der automatische Vorcheck hat noch keinen hochspezifischen Bezug zu einer vorhandenen WERK-Reform/Rechnung gefunden. Das ist kein Beweis, dass kein Bezug existiert.</div>`;const maps=Array.isArray(bridge.mappings)?bridge.mappings:[];if(!maps.length)return'';return `<div class=\"iwRules\" style=\"margin-top:18px\"><div class=\"ey\">WERK-Wirkungsbrücke</div><h3>Vorhandene Reformen und Rechnungen werden wiederverwendet.</h3><p class=\"iwHint\">Diese Zuordnung erzeugt keine neue Wirkungszahl und keine politische Bewertung. Sie zeigt nur, welche bestehenden WERK-Prüfartefakte für diese Idee relevant sein können.</p><div class=\"iwLocalList\">${maps.map(m=>`<div class=\"iwLocalItem\"><b>${esc((m.reform_ids||[]).join(' · ')||m.map_id)}</b><small>Datenverträge: ${esc((m.data_contract_ids||[]).join(' · ')||'offen')} · offene Prüfgates: ${esc((m.gate_refs||[]).join(' · ')||'keine registriert')}</small></div>`).join('')}</div></div>`}\n"""
+          if 'function impactBridgeHTML(' not in text:
+            text=text.replace(anchor,helper+anchor)
+          old="privacyRequests=Array.isArray(s.privacy_requests)?s.privacy_requests:[];box.innerHTML=`"
+          new="privacyRequests=Array.isArray(s.privacy_requests)?s.privacy_requests:[],impactBridge=s.impact_bridge_check&&typeof s.impact_bridge_check==='object'?s.impact_bridge_check:null;box.innerHTML=`"
+          if old not in text: raise SystemExit('V71 status binding anchor missing')
+          text=text.replace(old,new,1)
+          old2="Sie steuert nur den Umfang des Verfahrens und ist weder politische Bewertung noch Annahme/Ablehnung.</div>${pipelineHTML"
+          new2="Sie steuert nur den Umfang des Verfahrens und ist weder politische Bewertung noch Annahme/Ablehnung.</div>${impactBridgeHTML(impactBridge)}${pipelineHTML"
+          if old2 not in text: raise SystemExit('V71 status render anchor missing')
+          text=text.replace(old2,new2,1)
+          ui.write_text(text)
+
+          # Acquire bounded active work and lock; reuse canonical task/loop/dependency IDs.
+          p=Path('project-memory/STARTED_WORK.md'); text=p.read_text()
+          entry='''## WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Started: 2026-09-20 22:24 UTC\n- Status: IN_PROGRESS\n- Risk: R3\n- Branch: `werk-v49-preview-host`\n- Lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001`\n- Scope: version-bound bridge from citizen submission/precheck to existing WERK reform IDs and data/calculation contracts; no new fiscal calculation or political recommendation.\n- Dependencies: `WERK-DEP-IDEENWERK-IMPACT-001`; existing competence/existing-measure paths are inputs and must not be rebuilt.\n- Implementation slice: canonical `werk-data/ideenwerk-impact-bridge.json`, migration 037 runtime mapping/status/export overlay, stale-safe negative guardrails, existing V71 status rendering.\n- Exact next step: obtain exact-head backend/frontend CI; if green, apply migration 037 reversibly to WERK Österreich Staging, verify protected status and cleanup, then produce Builder claim for independent Supervisor countercheck.\n\n'''
+          if '## WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in text:
+            text=text.replace('## Active work\n\n','## Active work\n\n'+entry,1); p.write_text(text)
+
+          p=Path('project-memory/WORK_LOCKS.md'); text=p.read_text()
+          lock='''## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Task: WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Status: ACTIVE\n- Risk: R3\n- Holder: WERK autonomous builder\n- Branch: `werk-v49-preview-host`\n- Acquired: 2026-09-20 22:24 UTC\n- Scope: bounded Impact Bridge registry/runtime mapping/status integration and reversible Staging verification only.\n- Excludes: new fiscal calculations, AI synthesis, political scoring/acceptance, production release, identity/voting.\n- Release: only after Builder claim is recorded; independent acceptance remains Supervisor-owned.\n\n'''
+          if '## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in text:
+            text=text.replace('## Active/stale locks\n\n','## Active/stale locks\n\n'+lock,1); p.write_text(text)
+
+          p=Path('project-memory/TASK_LEDGER.md'); text=p.read_text()
+          if '## WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in text:
+            text += '''\n\n## WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Date: 2026-09-20\n- Status: IN_PROGRESS\n- Risk: R3\n- Goal: Connect IDEENWERK citizen problems to existing WERK reform/calculation artifacts through a deterministic version-bound reference bridge without duplicating calculations.\n- Starting state: citizen intake/clarification/competence/existing-measure paths and WERK reform/calculation artifacts already exist, but their end-to-end impact-reference connection is unverified.\n- Current slice: canonical Impact Bridge registry, portable migration 037, private status/export overlay, stale/version negative path, V71 reuse and backend/frontend CI.\n- Boundary: candidate references only; no new numeric effect, political score, automatic acceptance/rejection or claim that no mapping means no relevant artifact.\n- Dependency: `WERK-DEP-IDEENWERK-IMPACT-001`; open loop `WERK-LOOP-IMPACT-BRIDGE-001`.\n- Next: exact-head CI -> reversible Staging migration/verification -> Builder claim -> independent Supervisor countercheck.\n'''; p.write_text(text)
+          PY
+
+          git diff --check
+          git status --short
+      - name: Commit and push bounded implementation
+        shell: bash
+        run: |
+          git config user.name 'werk-autonomous-builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add werk-data/ideenwerk-impact-bridge.json ideenwerk-backend/sql/037_ideenwerk_impact_bridge.sql ideenwerk-backend/scripts/impact-bridge-smoke.mjs ideenwerk-backend/scripts/impact-bridge-contract.mjs .github/workflows/ideenwerk-backend-check.yml werk-assets/site-ideenwerk-v2.js project-memory/STARTED_WORK.md project-memory/WORK_LOCKS.md project-memory/TASK_LEDGER.md
+          git diff --cached --check
+          git commit -m 'feat: connect IDEENWERK to existing WERK impact artifacts'
+          git push origin HEAD:werk-v49-preview-host
