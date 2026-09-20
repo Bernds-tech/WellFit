@@ -3,7 +3,7 @@
 Status: `IMPLEMENTED_NOT_VERIFIED`  
 Risk: `R3`  
 Functional product head: `f5a38a74caf4daf896124b2f606942d1653e2316`  
-Current reconciliation lineage: `78fc91833603c16700c337b28e6878282b175e26`  
+Exact final tested evidence head: `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`  
 Staging migration: `20260920223436 ideenwerk_impact_bridge`
 
 ## Claim
@@ -18,12 +18,14 @@ The Builder implemented the previously missing connection `citizen idea/precheck
 - `ideenwerk-backend/scripts/impact-bridge-smoke.mjs`: denies anon/authenticated direct access, proves SV candidate mapping, proves no new amount/effect field, forces stale-version revalidation and proves non-complete no-match behavior.
 - `werk-assets/site-ideenwerk-v2.js`: reuses the existing V71 protected status surface; no parallel page.
 - `werk-data/ideenwerk-api-contract.json` v17 documents the field only after the Staging runtime was proven live.
+- `werk-data/ideenwerk-impact-bridge.json` binds the proven Staging migration, stale negative-path result and restored zero baseline as Builder evidence, explicitly pending independent Supervisor countercheck.
 
 ## CI evidence
 
 - WERK Impact Bridge Check #2 on exact functional head `f5a38a74caf4daf896124b2f606942d1653e2316`: **SUCCESS**. Portable migration, idempotency, canonical registry parity and DB stale/negative smoke passed.
 - WERK Frontend Check #176 on exact functional head `f5a38a74caf4daf896124b2f606942d1653e2316`: **SUCCESS**, including V71 structural/policy and JS/JSON checks.
-- A fresh final-head check is required after temporary reconciliation helpers are removed; this claim is not a Supervisor receipt.
+- After all temporary reconciliation helpers were removed and Staging evidence was bound into the canonical registry, exact final evidence head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be` passed **WERK Frontend Check #177** and **WERK Impact Bridge Check #3**. The latter passed portable migration, migration idempotency, canonical registry parity and DB mapping/stale-negative guardrails.
+- This Builder claim file is documentation only and therefore may sit on a later documentation commit; `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be` is the exact tested repository state to countercheck.
 
 ## Reversible Staging evidence
 
@@ -39,4 +41,4 @@ WERK Österreich Staging migration `20260920223436 ideenwerk_impact_bridge` appl
 
 ## Required next actor
 
-WERK Supervisor: independently countercheck exact code/CI/Staging evidence, then either record `COUNTERCHECKED`/receipt and release the dependency/lock or record a concrete contradiction/open follow-up.
+WERK Supervisor: independently countercheck exact tested head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`, its green Frontend #177 / Impact Bridge #3 evidence and the Staging evidence above, then either record `COUNTERCHECKED`/receipt and release the dependency/lock or record a concrete contradiction/open follow-up.
