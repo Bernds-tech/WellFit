@@ -1,0 +1,15 @@
+{
+  "version": "2026-09-20-v1",
+  "supervisor": "WERK Stundenkontrolleur",
+  "branch": "werk-v49-preview-host",
+  "staging": "WERK Österreich Staging",
+  "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
+  "last_check_at": null,
+  "last_checked_head": null,
+  "last_checked_edge_version": null,
+  "last_checked_migration": null,
+  "overall_status": "INITIALIZED",
+  "active_findings": [],
+  "last_verified_successes": [],
+  "note": "Der Supervisor aktualisiert nur dieses Audit-Gedächtnis und die kanonischen Project-Memory-Auditregister; keine Produkt-/Runtime-Mutation."
+}
