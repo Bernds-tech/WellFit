@@ -79,7 +79,7 @@ jobs:
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
 
-          # 001-015, 019, 023-031 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023-032 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -98,6 +98,7 @@ jobs:
           test -s sql/029_competence_precheck.sql
           test -s sql/030_existing_measure_check.sql
           test -s sql/031_existing_measure_review_queue.sql
+          test -s sql/032_existing_measure_review_resolution.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
@@ -110,6 +111,7 @@ jobs:
           cp sql/029_competence_precheck.sql /tmp/ideenwerk-ci-sql/
           cp sql/030_existing_measure_check.sql /tmp/ideenwerk-ci-sql/
           cp sql/031_existing_measure_review_queue.sql /tmp/ideenwerk-ci-sql/
+          cp sql/032_existing_measure_review_resolution.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -145,6 +147,7 @@ jobs:
           node --check scripts/competence-precheck-smoke.mjs
           node --check scripts/existing-measure-check-smoke.mjs
           node --check scripts/existing-measure-review-queue-smoke.mjs
+          node --check scripts/existing-measure-review-resolution-smoke.mjs
           node --check scripts/distributed-rate-limit-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
@@ -180,6 +183,9 @@ jobs:
 
       - name: Existing measure human-review routing guardrail
         run: node scripts/existing-measure-review-queue-smoke.mjs
+
+      - name: Existing measure review resolution guardrail
+        run: node scripts/existing-measure-review-resolution-smoke.mjs
 
       - name: Distributed rate-limit DB guardrail
         run: npm run guardrails:rate
