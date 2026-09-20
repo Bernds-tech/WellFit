@@ -85,7 +85,7 @@ jobs:
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
 
-          # 001-015, 019, 023-034 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023-035 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -107,6 +107,7 @@ jobs:
           test -s sql/032_existing_measure_review_resolution.sql
           test -s sql/033_existing_measure_review_signal_binding.sql
           test -s sql/034_existing_measure_review_signal_trigger.sql
+          test -s sql/035_competence_review_queue.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
@@ -122,6 +123,7 @@ jobs:
           cp sql/032_existing_measure_review_resolution.sql /tmp/ideenwerk-ci-sql/
           cp sql/033_existing_measure_review_signal_binding.sql /tmp/ideenwerk-ci-sql/
           cp sql/034_existing_measure_review_signal_trigger.sql /tmp/ideenwerk-ci-sql/
+          cp sql/035_competence_review_queue.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -155,6 +157,7 @@ jobs:
           node --check scripts/clarification-contract-smoke.mjs
           node --check scripts/clarification-prompt-contract-smoke.mjs
           node --check scripts/competence-precheck-smoke.mjs
+          node --check scripts/competence-review-resolution-smoke.mjs
           node --check scripts/existing-measure-check-smoke.mjs
           node --check scripts/existing-measure-review-queue-smoke.mjs
           node --check scripts/existing-measure-review-resolution-smoke.mjs
@@ -187,6 +190,9 @@ jobs:
 
       - name: Competence precheck contract guardrail
         run: node scripts/competence-precheck-smoke.mjs
+
+      - name: Competence human-review resolution guardrail
+        run: node scripts/competence-review-resolution-smoke.mjs
 
       - name: Existing measure precheck contract guardrail
         run: node scripts/existing-measure-check-smoke.mjs
