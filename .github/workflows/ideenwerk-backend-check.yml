@@ -133,6 +133,7 @@ jobs:
           node --check scripts/smoke.mjs
           node --check scripts/staging-edge-e2e.mjs
           node --check scripts/staging-clarification-prompt-e2e.mjs
+          node --check scripts/staging-competence-precheck-e2e.mjs
           node --check scripts/operator-guardrails-smoke.mjs
           node --check scripts/privacy-resolution-transparency-smoke.mjs
           node --check scripts/clarification-contract-smoke.mjs
