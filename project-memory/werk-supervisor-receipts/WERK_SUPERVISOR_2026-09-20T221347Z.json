@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-20T22:13:47Z",
+  "project": "WERK Österreich",
+  "branch": "werk-v49-preview-host",
+  "checked_head": "3cf8c684b3ad798a7118a1b352e3136383a6cd57",
+  "previous_checked_head": "6b46f2b9a0516b3f117e1e2ba6183e1ce4801858",
+  "functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+  "overall_status": "YELLOW",
+  "delta_summary": {
+    "commits_since_previous_checked_head": 4,
+    "changed_files": [
+      "project-memory/NEXT_BEST_ACTION.md",
+      "project-memory/WERK_EVIDENCE_FRESHNESS.json",
+      "project-memory/WERK_SUPERVISOR_STATE.json",
+      "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T214052Z.json"
+    ],
+    "classification": "AUDIT_GOVERNANCE_ONLY",
+    "new_product_or_runtime_change": false
+  },
+  "independent_evidence": {
+    "project_status": "ACTIVE_HEALTHY",
+    "edge_function": {
+      "name": "werk-ideenwerk-api",
+      "status": "ACTIVE",
+      "version": 7
+    },
+    "latest_migration": "20260920203116 pg_net_data_api_guard",
+    "zero_baseline": {
+      "tables_checked": 13,
+      "verified": true
+    },
+    "pg_net_boundary": {
+      "authenticator_role_setting": "pgrst.db_pre_request=public.werk_api_security_guard",
+      "guard_exists": true,
+      "guard_exec_anon": true,
+      "guard_exec_authenticated": true,
+      "guard_exec_service_role": true,
+      "anon_can_login": false,
+      "authenticated_can_login": false,
+      "unsafe_public_pgnet_wrappers": 0,
+      "platform_managed_net_usage_public": true,
+      "platform_managed_net_usage_anon": true,
+      "platform_managed_net_usage_authenticated": true
+    },
+    "security_advisor": {
+      "warn_count": 1,
+      "warning": "extension_in_public: pg_net",
+      "info_rls_enabled_no_policy_count": 30,
+      "material_change_from_previous_check": false
+    },
+    "ci": {
+      "functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 161,
+      "conclusion": "success",
+      "revalidation_required": false
+    }
+  },
+  "active_findings": [
+    "WERK-LOOP-SEC-PGNET-001",
+    "WERK-PGNET-CLOSEOUT-BOOKKEEPING",
+    "WERK-PGNET-MIGRATION-ID-DRIFT"
+  ],
+  "specialist_results": {
+    "integration_hunter": "No new missing integration beyond WERK-LOOP-IMPACT-BRIDGE-001.",
+    "evidence_reaper": "Current staging/security mutable evidence remains within TTL and was independently spot-checked; no invalidation trigger observed.",
+    "orphan_zombie_hunter": "The previously identified pg_net closeout bookkeeping remains unresolved; no new orphan/zombie finding.",
+    "calculation_integrity_guardian": "Not triggered: no calculation, source-data or reform-contract delta since the prior functional check.",
+    "milestone_closer": "No gate newly satisfies ACCEPTED/PRODUCTION_CONFIRMED quorum."
+  },
+  "owner_actions": {
+    "ready_now": [],
+    "deferred": [],
+    "note": "Owner inbox remains NOT_READY/BLOCKED only; no owner notification required."
+  },
+  "next_action": "WERK-SEC-PGNET-001-CLOSEOUT remains the bounded Project-Memory action; afterward WERK-IDEENWERK-IMPACT-BRIDGE-001.",
+  "mutation_boundary": "Supervisor changed audit/governance memory only; no product, runtime, database, edge, security policy or political mutation."
+}
