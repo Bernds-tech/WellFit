@@ -187,7 +187,7 @@ async function publicClusterList(limit: number, filters: ClusterFilters, cursor:
   if (ids.length) {
     const [{data:members,error:me},{data:variants,error:ve}] = await Promise.all([
       supabase.from('cluster_members').select('cluster_id').in('cluster_id',ids),
-      supabase.from('cluster_variants').select('cluster_id').in('cluster_id',ids)
+      supabase.from('cluster_variants').select('cluster_id').in('cluster_id',ids).neq('review_status','quarantine').neq('review_status','removed')
     ]);
     if (me) throw me; if (ve) throw ve;
     for (const m of members || []) memberCounts.set(m.cluster_id,(memberCounts.get(m.cluster_id)||0)+1);
@@ -386,7 +386,7 @@ Deno.serve(async (req: Request) => {
       if (error) throw error;
       if (!cluster || ['quarantine','removed'].includes(cluster.review_status)) return json({code:'NOT_FOUND'},404,origin);
       const [{data:variants,error:ve},{count:submissionCount,error:ce}] = await Promise.all([
-        supabase.from('cluster_variants').select('variant_id,title,summary,review_status,created_at,updated_at').eq('cluster_id',cluster.id).order('created_at',{ascending:true}),
+        supabase.from('cluster_variants').select('variant_id,title,summary,review_status,created_at,updated_at').eq('cluster_id',cluster.id).neq('review_status','quarantine').neq('review_status','removed').order('created_at',{ascending:true}),
         supabase.from('cluster_members').select('submission_id',{count:'exact',head:true}).eq('cluster_id',cluster.id)
       ]);
       if (ve) throw ve; if (ce) throw ce;
