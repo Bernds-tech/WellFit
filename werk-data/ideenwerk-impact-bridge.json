@@ -11,6 +11,17 @@
     "script": "werk-assets/site-ideenwerk-v2.js",
     "parallel_page": false
   },
+  "staging_evidence": {
+    "migration": "20260920223436 ideenwerk_impact_bridge",
+    "project": "WERK Österreich Staging",
+    "synthetic_candidate": "IMPACT-SV-EMPLOYEE -> SV-01 -> FISCAL-DATA -> WERK-SV-010/WERK-SV-011",
+    "protected_status_match": true,
+    "stale_version_result": "revalidation_required",
+    "stale_mapping_count": 0,
+    "zero_baseline_restored": true,
+    "builder_claim": "project-memory/WERK_IDEENWERK_IMPACT_BRIDGE_001_BUILDER_CLAIM.md",
+    "acceptance": "builder_evidence_only_pending_independent_supervisor_countercheck"
+  },
   "rules": [
     "Candidate mapping is a research/review pointer, not a political score, acceptance or rejection.",
     "No mapping may contain a newly calculated fiscal effect, saving, cost or forecast.",
