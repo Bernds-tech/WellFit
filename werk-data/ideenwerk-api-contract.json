@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v6",
+  "version": "2026-09-20-v7",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege und Bürger-Klarstellung implementiert; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage und Bürger-Klarstellung implementiert; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -12,7 +12,8 @@
     "keine KI-Abhängigkeit im synchronen Einreichungspfad",
     "Problemcluster, Lösungsvarianten und Originalideen werden getrennt abgebildet",
     "FAST/STANDARD/DEEP beschreibt ausschließlich die Prüftiefe des Verfahrens und ist weder politischer Score noch Annahme-/Ablehnungsentscheidung",
-    "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus"
+    "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus",
+    "Klarstellungsfragen entstehen aus dem bestehenden menschlichen Review-Modell; es gibt dafür keinen ungeschützten öffentlichen Operator-Endpunkt"
   ],
   "endpoints": [
     {
@@ -37,16 +38,16 @@
       "path": "/status/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["public_id", "original_text", "current_status", "review_path?", "privacy_requests", "clarifications", "history"],
-      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; privacy_requests und clarifications enthalten ausschließlich Daten zur token-authentifizierten eigenen Einreichung"
+      "response": ["public_id", "original_text", "current_status", "review_path?", "clarification_prompt?", "privacy_requests", "clarifications", "history"],
+      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; clarification_prompt enthält bei offener Rückfrage prompt_id, question, reason_code, status und Zeitpunkte; Operator-Identität wird nicht ausgegeben; alle privaten Felder gehören ausschließlich zur token-authentifizierten eigenen Einreichung"
     },
     {
       "method": "GET",
       "path": "/privacy/export/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["submission", "structured_proposal", "cluster_memberships", "audit_history", "privacy_requests", "citizen_clarifications"],
-      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Token-/Abuse-Hashes werden nicht ausgegeben; Exportzugriff wird auditiert"
+      "response": ["submission", "structured_proposal", "cluster_memberships", "audit_history", "privacy_requests", "clarification_prompts", "citizen_clarifications"],
+      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; gespeicherte Rückfragen und Antworten sind enthalten; Token-/Abuse-Hashes sowie Operator-Identitäten werden nicht ausgegeben; Exportzugriff wird auditiert"
     },
     {
       "method": "POST",
@@ -72,7 +73,7 @@
       "auth": "Bearer Status-Token",
       "request": ["text"],
       "response": ["accepted", "replayed", "clarification_id", "status", "next"],
-      "notes": "nur zur eigenen Einreichung; Idempotency-Key wird unterstützt; der Originaltext bleibt unverändert; offensichtliche Kontakt-/PII-Daten werden vor Speicherung abgewiesen; akzeptierte Klarstellungen gehen in die bestehende Strukturierungs- und Prüfstrecke zurück"
+      "notes": "nur zur eigenen Einreichung; Idempotency-Key wird unterstützt; der Originaltext bleibt unverändert; offensichtliche Kontakt-/PII-Daten werden vor Speicherung abgewiesen; eine Antwort wird mit der aktuell offenen auditierbaren Klarstellungsfrage verknüpft und schließt diese; akzeptierte Klarstellungen gehen in die bestehende Strukturierungs- und Prüfstrecke zurück"
     },
     {
       "method": "GET",
