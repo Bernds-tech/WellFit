@@ -1,0 +1,71 @@
+{
+  "version": "2026-09-20-v1",
+  "name": "WERK autonomous closed-loop contract",
+  "task_system_rule": "No competing task system. Existing Project Memory registers remain canonical.",
+  "canonical_order": [
+    "project-memory/WERK_SUPERVISOR_STATE.json",
+    "project-memory/CONTRADICTIONS.md",
+    "project-memory/EXECUTION_RECEIPTS.md",
+    "project-memory/OPEN_LOOPS.md",
+    "project-memory/STARTED_WORK.md",
+    "project-memory/WORK_LOCKS.md",
+    "project-memory/DEPENDENCIES.md",
+    "project-memory/TASK_LEDGER.md",
+    "project-memory/NEXT_BEST_ACTION.md"
+  ],
+  "builder_priority": [
+    "RED contradiction/security/data-integrity finding",
+    "blocking YELLOW supervisor finding",
+    "started work with valid lock",
+    "missing integration between already verified components",
+    "dependency whose prerequisites are now satisfied",
+    "reconciled NEXT_BEST_ACTION",
+    "new bounded extension"
+  ],
+  "verified_work_rule": "Current VERIFIED/COUNTERCHECKED work is not rebuilt unless new evidence invalidates it or a documented integration dependency requires extension.",
+  "connection_sweep": [
+    "data_source -> calculation_model",
+    "calculation_model -> reform_record",
+    "reform_record -> IDEENWERK",
+    "citizen_idea -> competence_and_law",
+    "citizen_idea -> existing_measure_check",
+    "citizen_idea -> impact_and_calculation_models",
+    "expert_input -> AI_synthesis",
+    "AI_synthesis -> variants",
+    "variants -> citizen_information",
+    "citizen_decision -> parliamentary_path",
+    "implementation -> KPI_measurement",
+    "KPI_measurement -> improvement_proposal",
+    "backend_API -> website",
+    "website_claim -> runtime_evidence"
+  ],
+  "cycle": [
+    "builder_preflight",
+    "select_work",
+    "connection_sweep",
+    "implement_or_analyse",
+    "test_and_collect_evidence",
+    "update_existing_project_memory",
+    "builder_claim",
+    "independent_supervisor_check",
+    "receipt_or_finding",
+    "recalculate_dependencies_and_next_action",
+    "next_builder_cycle"
+  ],
+  "supervisor_writes": [
+    "project-memory/WERK_SUPERVISOR_STATE.json",
+    "project-memory/EXECUTION_RECEIPTS.md",
+    "project-memory/CONTRADICTIONS.md",
+    "project-memory/OPEN_LOOPS.md",
+    "project-memory/FAILED_ATTEMPTS.md"
+  ],
+  "builder_must_update": [
+    "project-memory/TASK_LEDGER.md",
+    "project-memory/STARTED_WORK.md",
+    "project-memory/WORK_LOCKS.md",
+    "project-memory/DEPENDENCIES.md",
+    "project-memory/OPEN_LOOPS.md",
+    "project-memory/NEXT_BEST_ACTION.md"
+  ],
+  "stop_rule": "Do not invent work. If no safe executable work exists, record the blocker/evidence gap and stop."
+}
