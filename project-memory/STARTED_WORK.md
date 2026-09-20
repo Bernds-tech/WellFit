@@ -11,18 +11,6 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WERK-IDEENWERK-IMPACT-BRIDGE-001
-- Started: 2026-09-20 22:31 UTC
-- Status: IMPLEMENTED_NOT_VERIFIED
-- Risk: R3
-- Branch: `werk-v49-preview-host`
-- Lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001`
-- Scope: version-bound citizen/precheck → existing WERK reform/calculation reference bridge; no new fiscal calculation or political recommendation.
-- Implemented: canonical registry; migration 037; protected status/privacy export; stale/no-match negative path; existing V71 status rendering; dedicated CI.
-- Staging: `20260920223436 ideenwerk_impact_bridge` active. Synthetic SV case mapped only to `SV-01` / `FISCAL-DATA` / `WERK-SV-010|011`; protected status matched; forced stale version returned `revalidation_required` with empty mappings; zero baseline restored.
-- CI: WERK Impact Bridge Check #2 and WERK Frontend Check #176 succeeded on functional head `f5a38a74caf4daf896124b2f606942d1653e2316`.
-- Next: independent WERK Supervisor countercheck. Do not rebuild or advance the finishline gate.
-
 ## WERK-IDEENWERK-PRIVACY-001
 - Started: 2026-09-20 Europe/Vienna
 - Closed: 2026-09-20
@@ -65,6 +53,20 @@ Canonical register for work that has started but is not yet fully completed.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
 ## Closed / superseded work
+
+### WERK-IDEENWERK-IMPACT-BRIDGE-001 — counterchecked staging bridge
+- Started: 2026-09-20 22:31 UTC
+- Closed: 2026-09-21 01:19 Europe/Vienna
+- Status: COUNTERCHECKED_STAGING
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: version-bound citizen/precheck → existing WERK reform/calculation reference bridge; no new fiscal calculation or political recommendation.
+- Result: canonical registry + migration 037 + protected status/privacy export + V71 status reuse are independently counterchecked on Staging; stale source/registry versions fail closed and no-match remains explicitly non-complete.
+- Exact evidence: functional evidence head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded; Staging migration `20260920223436 ideenwerk_impact_bridge`; zero synthetic baseline restored.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
+- Work lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001` released in the same closeout.
+- Boundary: no new fiscal effect, saving, cost, forecast, political score or automatic decision was created; production acceptance is not implied.
+- Next: do not rebuild. After receipt-index reconciliation, the next functional catalog action is `WERK-EXPERT-001`.
 
 ### WERK-SEC-PGNET-001 — counterchecked staging boundary
 - Status: COUNTERCHECKED_STAGING_BOUNDARY
