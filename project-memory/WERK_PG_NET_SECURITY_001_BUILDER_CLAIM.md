@@ -1,5 +1,8 @@
 # WERK-SEC-PGNET-001 — Builder Claim
 
+> **Supervisor correction:** the live Supabase migration identifier is `20260920203116 pg_net_data_api_guard`. The independently counterchecked claim is limited to the Hosted-Supabase Data-API request boundary; provider-managed direct `net` ACLs and `extension_in_public` remain outside this closed staging scope.
+
+
 Stand: 2026-09-20 20:43 UTC
 
 Status: `IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK`
@@ -33,7 +36,7 @@ WERK now has a platform-compatible public/user Data-API boundary around Hosted-S
 
 ## Staging evidence produced by Builder
 
-Migration: `20260920203049 pg_net_data_api_guard` applied successfully on WERK Österreich Staging.
+Migration: `20260920203116 pg_net_data_api_guard` applied successfully on WERK Österreich Staging.
 
 Observed after apply:
 

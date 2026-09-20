@@ -11,20 +11,6 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## Active work
 
-## WERK-SEC-PGNET-001
-- Started: 2026-09-20 20:25 UTC
-- Status: IN_PROGRESS
-- Risk: R3
-- Branch: `werk-v49-preview-host`
-- Finding: `CTR-WERK-SEC-PGNET-ACL-001` / `WERK-LOOP-SEC-PGNET-001`.
-- Work lock: `LOCK-WERK-SEC-PGNET-001`.
-- Scope: restore WERK's least-privilege boundary around Supabase-managed pg_net without moving/dropping the extension or invoking outbound HTTP routines.
-- Evidence before change: pg_net 0.20.4 on WERK Österreich Staging; `net` schema USAGE and routine EXECUTE had been re-granted to anon/authenticated after migration 016; WERK application functions have no direct `net.http_*` dependency; Supabase-managed `issue_pg_net_access` event trigger explains schema-grant drift after extension DDL.
-- Implementation underway: migration `036_pg_net_data_api_guard.sql` re-revokes current anon/authenticated net ACLs and installs a fail-closed PostgREST pre-request guard for `net` profile requests; `pg-net-security-guard-smoke.mjs` tests role, wrapper, profile-denial and live ACL conditions; backend CI covers migration/idempotency and negative guardrail.
-- Safety boundary: no pg_net relocation/reinstall, no `net.http_*` call, no production change, no political or product behavior change.
-- Recovery: reset `authenticator` pre-request setting, drop only `public.werk_api_security_guard()`, and restore prior platform-managed grants if a staging regression requires rollback.
-- Exact next step: obtain green exact-head IDEENWERK Backend Check, apply migration 036 to WERK Österreich Staging, run fresh ACL/advisor/zero-baseline checks, then emit builder claim for independent supervisor countercheck.
-
 ## WERK-IDEENWERK-PRIVACY-001
 - Started: 2026-09-20 Europe/Vienna
 - Closed: 2026-09-20
@@ -67,6 +53,12 @@ Canonical register for work that has started but is not yet fully completed.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
 ## Closed / superseded work
+
+### WERK-SEC-PGNET-001 — counterchecked staging boundary
+- Status: COUNTERCHECKED_STAGING_BOUNDARY
+- Closed from active work: 2026-09-20 22:13 UTC.
+- Independent evidence: supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; live migration `20260920203116 pg_net_data_api_guard`; Backend Check #161 attempt 2 success; staging healthy/zero synthetic baseline.
+- Residual production hardening remains in `WERK-LOOP-SEC-PGNET-001`; it is not active builder work for ordinary Staging feature continuation.
 
 ## WFG-AVATAR-ATTN-001
 - Started: 2026-08-26

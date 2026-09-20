@@ -11,18 +11,6 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Active/stale locks
 
-## LOCK-WERK-SEC-PGNET-001
-- Task: WERK-SEC-PGNET-001
-- Status: ACTIVE
-- Risk: R3
-- Holder: WERK autonomous builder 2026-09-20
-- Branch: `werk-v49-preview-host`
-- Acquired: 2026-09-20 20:25 UTC
-- Scope: bounded IDEENWERK/Supabase staging hardening for `CTR-WERK-SEC-PGNET-ACL-001`; repository migration, negative guardrail, reversible WERK staging apply and evidence only.
-- Boundary: no `net.http_*` invocation, no pg_net drop/reinstall/move, no production change, no unrelated Data API or policy change.
-- Resume from: migration `036_pg_net_data_api_guard.sql`, guardrail `pg-net-security-guard-smoke.mjs`, exact-head backend CI, then reversible staging apply and independent supervisor recheck.
-- Release condition: builder postflight recorded and independent supervisor has enough current evidence to countercheck/close or precisely narrow the finding.
-
 ## LOCK-WFG-VIS-001
 - Task: WFG-VIS-001
 - Status: STALE
@@ -47,6 +35,12 @@ Prevents two agents/sessions from independently working the same task.
 - Receipt: `WERK_IDEENWERK_PRIVACY_001_RECEIPT.json`.
 
 ## Released/superseded locks
+
+### LOCK-WERK-SEC-PGNET-001
+- Status: RELEASED
+- Released: 2026-09-20 22:13 UTC
+- Reason: independent supervisor countercheck satisfied the bounded staging Data-API boundary scope.
+- Residual `extension_in_public` / hosted direct-ACL concern remains an open production-hardening loop, not a lock on Impact Bridge feature work.
 
 ## LOCK-WERK-IDEENWERK-TRIAGE-001
 - Task: WERK-IDEENWERK-TRIAGE-001

@@ -261,13 +261,11 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-SEC-PGNET-001
 - Date: 2026-09-20
-- Status: IN_PROGRESS
+- Status: COUNTERCHECKED_STAGING_BOUNDARY
 - Risk: R3
-- Finding: `CTR-WERK-SEC-PGNET-ACL-001` / `WERK-LOOP-SEC-PGNET-001`.
-- Goal: restore a durable least-privilege boundary around Supabase-managed pg_net on WERK Österreich Staging without breaking the IDEENWERK runtime or fighting platform-managed extension ownership.
-- Starting evidence: pg_net 0.20.4 is owned by `supabase_admin`; Supabase-managed `issue_pg_net_access` can re-grant `net` schema usage after extension DDL; anon/authenticated are NOLOGIN; current WERK application functions contain no `net.http_*` dependency.
-- Action: add migration `036_pg_net_data_api_guard.sql`, PostgREST pre-request denial for anon/authenticated `net` profiles, re-revoke live anon/authenticated net ACLs, and a negative guardrail that rejects wrappers/exposure drift without invoking outbound HTTP.
-- Lock: `LOCK-WERK-SEC-PGNET-001`.
-- Recovery: reset `authenticator` pre-request hook, drop the WERK guard function and restore prior platform-managed grants on staging if the bounded change regresses Data API behavior.
-- Exact next step: green exact-head backend CI, reversible staging migration, fresh ACL/security-advisor/runtime/zero-baseline verification, then independent supervisor countercheck.
-- Do not repeat: do not move/drop/reinstall pg_net merely to silence an advisor warning and never call `net.http_*` as a security test.
+- Goal: Harden the WERK Staging Data-API request boundary around hosted Supabase `pg_net` without unsafe extension surgery.
+- Result: Migration `036_pg_net_data_api_guard` is live on WERK Österreich Staging as `20260920203116 pg_net_data_api_guard`. The enforceable Hosted-Supabase boundary is independently counterchecked: `anon`/`authenticated` are `NOLOGIN`, no WERK-owned public wrapper exposes `net.http_*`, and `pgrst.db_pre_request=public.werk_api_security_guard` blocks Data-API requests that try to select the `net` profile while normal `public` requests continue to work.
+- Evidence: functional head `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`; IDEENWERK Backend Check #161 attempt 2 succeeded including the unchanged 1,000-item queue benchmark; supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; staging remained `ACTIVE_HEALTHY`, Edge version 7, synthetic citizen/review/privacy/cluster tables returned to zero baseline.
+- Boundary: This closes only the bounded staging Data-API request-boundary scope. Hosted Supabase still restores direct `net` schema/routine grants and Security Advisor still reports `extension_in_public`; those are tracked separately under `WERK-LOOP-SEC-PGNET-001` and still block production hardening acceptance.
+- Next step: proceed to `WERK-IDEENWERK-IMPACT-BRIDGE-001`; reopen this task only on new adverse evidence or a separately scoped production-hardening dependency.
+- Do not repeat: no direct outbound `net.http_*` security test and no move/drop/reinstall of the managed extension merely to silence the advisor.

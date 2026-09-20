@@ -152,3 +152,14 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
 - Negative/security countercheck: governance completion does not imply security acceptance. The same audit discovered `CTR-WERK-SEC-PGNET-ACL-001`: live pg_net ACLs contradict migration 016's intended revoke. That security finding remains open and takes priority over feature work.
 - Falsifier: a current WERK selector led by WellFit, missing WERK task registration, ambiguous write authority, or an unverified functional governance head would invalidate this countercheck; none is present in the audited functional scope.
+
+
+## WERK-SEC-PGNET-001 — independent staging-boundary countercheck
+- Status: COUNTERCHECKED
+- Risk: R3
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`.
+- Functional head: `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`.
+- CI: IDEENWERK Backend Check #161 attempt 2 succeeded, including the unchanged 1,000-item queue benchmark.
+- Runtime: WERK Österreich Staging `ACTIVE_HEALTHY`, Edge version 7, live migration `20260920203116 pg_net_data_api_guard`, zero synthetic baseline.
+- Verified scope: Hosted-Supabase-compatible Data-API request boundary (`NOLOGIN` request roles, no WERK public `net.http_*` wrapper, PostgREST pre-request guard blocks `net` profile).
+- Not proven: durable revocation of provider-managed direct `net` ACLs, relocation of the extension out of `public`, or production security acceptance. Those remain in `WERK-LOOP-SEC-PGNET-001`.

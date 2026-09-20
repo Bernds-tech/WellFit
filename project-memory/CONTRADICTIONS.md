@@ -110,18 +110,13 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 - Safety: this resolves governance steering only. It does not accept any product, security, legal, identity or production gate.
 
 ## CTR-WERK-SEC-PGNET-ACL-001
-- Date: 2026-09-20
-- Updated: 2026-09-20 20:10 UTC
-- Related task/change: WERK-LOOP-SEC-PGNET-001 / migration `016_internal_pg_net`
+- Severity: YELLOW
+- Status: RESOLVED_FOR_BOUNDED_STAGING_SCOPE
+- Detected: 2026-09-20 21:40 UTC
+- Resolved: 2026-09-20 22:13 UTC
 - Risk: R3
-- Source A: `ideenwerk-backend/sql/016_internal_pg_net.sql`.
-- Claim A: migration 016 explicitly revokes `USAGE ON SCHEMA net` and `EXECUTE ON ALL FUNCTIONS IN SCHEMA net` from `PUBLIC`, `anon`, and `authenticated` so pg_net remains server-side only.
-- Source B: live WERK Österreich Staging catalog/ACL state.
-- Claim B: schema `net` currently grants USAGE to PUBLIC, anon and authenticated; live `net.http_get`, `net.http_post`, `net.http_delete` and several worker functions show PUBLIC EXECUTE ACL. `has_schema_privilege` and `has_function_privilege` confirm those DB-role privileges.
-- Additional current evidence: enabled Supabase-managed event trigger `issue_pg_net_access` calls `extensions.grant_pg_net_access()`, whose definition grants schema `net` USAGE to anon/authenticated/service_role after matching pg_net DDL. Current pg_net version is `0.20.4`. The exact later DDL/re-grant event that undid migration 016 has not yet been established.
-- Stronger/current evidence: live staging ACL/catalog state observed 2026-09-20 20:10 UTC supersedes the prior inference that the historical migration text still described current privileges.
-- Status: RECONCILIATION_REQUIRED
-- Severity: YELLOW. No external API exploit path or data exposure was proven in this run, so this is not promoted to ROT solely from database grants. The intended least-privilege boundary is nevertheless not true in live staging.
-- Resolution/action: Builder should prepare a bounded, tested hardening migration or platform-compatible alternative that restores the intended least-privilege boundary and survives pg_net extension DDL/update behavior. Supervisor must then re-run live schema/function ACL checks plus Security Advisor. Do not execute `net.http_*` merely to test reachability.
-- Evidence: live Supabase SQL catalog checks; Security Advisor observation 2026-09-20T20:10:23Z; `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
-- Falsification question: a fresh live catalog state showing no PUBLIC/anon/authenticated schema usage or function execution privileges, plus a documented durable mechanism preventing re-grant, would resolve the access-control contradiction; the separate extension-in-public advisor warning may remain as its own hardening item until closed.
+- Original contradiction: migration source attempted durable direct ACL revocation on the hosted `net` schema/routines, while Supabase restored those managed grants in the live staging state.
+- Resolution: the builder claim is narrowed to the enforceable Hosted-Supabase request boundary, not durable direct ACL ownership. Independent countercheck confirmed `anon`/`authenticated` are `NOLOGIN`, there is no WERK-owned public wrapper to `net.http_*`, and PostgREST invokes `public.werk_api_security_guard`, which rejects Data-API requests selecting the `net` profile while allowing normal `public` requests.
+- Evidence: supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; live migration `20260920203116 pg_net_data_api_guard`; Backend Check #161 attempt 2 success; staging healthy/zero synthetic baseline.
+- Residual limitation: Supabase-managed direct grants plus `extension_in_public` remain under `WERK-LOOP-SEC-PGNET-001` and are not claimed as production-hardened.
+- Reopen trigger: new evidence that the PostgREST guard can be bypassed by the WERK Data API, a new WERK wrapper exposes `net.http_*`, staging roles gain LOGIN capability, or production hardening requires a stronger provider-supported boundary.
