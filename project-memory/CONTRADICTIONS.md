@@ -96,16 +96,32 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 
 ## CTR-WERK-GOV-001
 - Date: 2026-09-20
-- Updated: 2026-09-20 19:07 UTC
+- Updated: 2026-09-20 20:10 UTC
 - Related task/change: WERK-GOV-001 / autonomous control plane
 - Risk: R3
-- Source A: `werk-data/werk-autonomy-contract.json` v2 and `project-memory/WERK_NEXT_BEST_ACTIONS.json`.
-- Claim A: WERK-specific control sources must steer the autonomous WERK loop; priority 1 is `NBA-WERK-GOVERNANCE-RECONCILE` / task `WERK-GOV-001`; historical WellFit-generic control text must not steer WERK.
-- Source B: `project-memory/NEXT_BEST_ACTION.md` and `project-memory/TASK_LEDGER.md` on checked head `2ed53f8a83bd01a2681cf95d3c71904bf2509427`.
-- Claim B: `NEXT_BEST_ACTION.md` still selects `WF-VISUAL-CANONICAL-INVENTORY` as the top executable action, and `TASK_LEDGER.md` has no `WERK-GOV-001` entry.
-- Additional drift: `WERK_EVIDENCE_FRESHNESS.json` says Supervisor and Builder maintain observed evidence, while the machine contract's `supervisor_writes` / `builder_must_update` lists do not include that registry; it therefore remains initialized but empty after real runtime evidence exists.
-- Stronger/current evidence: exact branch files plus successful WERK Frontend Check #171 on exact head `2ed53f8a83bd01a2681cf95d3c71904bf2509427`.
+- Source A: `werk-data/werk-autonomy-contract.json` and `project-memory/WERK_NEXT_BEST_ACTIONS.json`.
+- Original Claim A: WERK-specific control sources must steer the autonomous WERK loop; priority 1 was `NBA-WERK-GOVERNANCE-RECONCILE` / task `WERK-GOV-001`; historical WellFit-generic control text must not steer WERK.
+- Original Source B: shared `project-memory/NEXT_BEST_ACTION.md`, `TASK_LEDGER.md`, and evidence-write ownership before reconciliation.
+- Original Claim B: shared selector still led with a WellFit action, WERK-GOV-001 was absent from the ledger and evidence-freshness ownership was ambiguous.
+- Stronger/current evidence: shared `NEXT_BEST_ACTION.md` now leads with WERK and selects `WERK-IDEENWERK-IMPACT-BRIDGE-001`; `TASK_LEDGER.md` contains `WERK-GOV-001`; `WERK_AUTOMATION_ROLES.json` schema v2 and `werk-autonomy-contract.json` v4 explicitly separate Builder, Supervisor, Evidence Reaper and Finishline authority. WERK Frontend Check #174 succeeded on exact functional governance head `242893c2fcc322424d7b6fb4cc97a0e87ea90a6e`. Current pre-audit head `0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca` is exactly one audit-only commit ahead and changes only `WERK_SUPERVISOR_STATE.json`.
+- Status: RESOLVED
+- Resolution/action: independent supervisor countercheck passed for the control-plane reconciliation. Any residual `IN_PROGRESS` or `EXECUTABLE_AFTER_GOVERNANCE_RECONCILIATION` wording is now stale bookkeeping and must be consumed by the Orphan/Zombie reconciliation path rather than reopening the original control-plane contradiction.
+- Evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`; WERK Frontend Check #174.
+- Safety: this resolves governance steering only. It does not accept any product, security, legal, identity or production gate.
+
+## CTR-WERK-SEC-PGNET-ACL-001
+- Date: 2026-09-20
+- Updated: 2026-09-20 20:10 UTC
+- Related task/change: WERK-LOOP-SEC-PGNET-001 / migration `016_internal_pg_net`
+- Risk: R3
+- Source A: `ideenwerk-backend/sql/016_internal_pg_net.sql`.
+- Claim A: migration 016 explicitly revokes `USAGE ON SCHEMA net` and `EXECUTE ON ALL FUNCTIONS IN SCHEMA net` from `PUBLIC`, `anon`, and `authenticated` so pg_net remains server-side only.
+- Source B: live WERK Österreich Staging catalog/ACL state.
+- Claim B: schema `net` currently grants USAGE to PUBLIC, anon and authenticated; live `net.http_get`, `net.http_post`, `net.http_delete` and several worker functions show PUBLIC EXECUTE ACL. `has_schema_privilege` and `has_function_privilege` confirm those DB-role privileges.
+- Additional current evidence: enabled Supabase-managed event trigger `issue_pg_net_access` calls `extensions.grant_pg_net_access()`, whose definition grants schema `net` USAGE to anon/authenticated/service_role after matching pg_net DDL. Current pg_net version is `0.20.4`. The exact later DDL/re-grant event that undid migration 016 has not yet been established.
+- Stronger/current evidence: live staging ACL/catalog state observed 2026-09-20 20:10 UTC supersedes the prior inference that the historical migration text still described current privileges.
 - Status: RECONCILIATION_REQUIRED
-- Resolution/action: Builder must register/continue `WERK-GOV-001` in the canonical task/start/lock registers as applicable, make the shared `NEXT_BEST_ACTION.md` WERK-safe without deleting historical WellFit history, and make evidence-freshness write ownership explicit in the machine contract before treating governance_core as counterchecked.
-- Safety: this finding does not invalidate the current automation prompt, which already gives WERK-specific controls precedence; it prevents the repository memory itself from being treated as fully reconciled.
-- Falsification question: a current exact-head state where the WERK governance task is canonically registered, the selected next action is WERK-safe, and evidence-freshness write ownership is unambiguous resolves this contradiction.
+- Severity: YELLOW. No external API exploit path or data exposure was proven in this run, so this is not promoted to ROT solely from database grants. The intended least-privilege boundary is nevertheless not true in live staging.
+- Resolution/action: Builder should prepare a bounded, tested hardening migration or platform-compatible alternative that restores the intended least-privilege boundary and survives pg_net extension DDL/update behavior. Supervisor must then re-run live schema/function ACL checks plus Security Advisor. Do not execute `net.http_*` merely to test reachability.
+- Evidence: live Supabase SQL catalog checks; Security Advisor observation 2026-09-20T20:10:23Z; `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
+- Falsification question: a fresh live catalog state showing no PUBLIC/anon/authenticated schema usage or function execution privileges, plus a documented durable mechanism preventing re-grant, would resolve the access-control contradiction; the separate extension-in-public advisor warning may remain as its own hardening item until closed.
