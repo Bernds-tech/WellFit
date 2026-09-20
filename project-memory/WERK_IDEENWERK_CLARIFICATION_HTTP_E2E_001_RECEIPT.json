@@ -69,6 +69,9 @@
     "backend_check": 108,
     "backend_result": "success",
     "backend_commit": "694742cfb17caf2f0b778d89256a5fb4253fe5b5",
+    "frontend_check": 142,
+    "frontend_result": "success",
+    "frontend_commit": "f6e804788495aec48e83b3d9197135453ac6a4ac",
     "backend_checks_include": [
       "syntax including the extended staging-edge E2E",
       "unit tests",
