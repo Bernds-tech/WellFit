@@ -73,3 +73,12 @@ TAX-001: OPEN cash/finality/refund/cohort comparison, all-in marginal costs, gov
 
 ## WERK-SUB-001 — 2026-09-09
 SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing mapping open. Twenty account review entries are a prioritized evidence request, not adopted cuts. ESVG2025–2031/TDB and outcome effects stay open.
+
+
+## WERK-LOOP-IMPACT-BRIDGE-001
+- Status: OPEN
+- Updated: 2026-09-20
+- Gap: IDEENWERK can already intake, classify, clarify, competence-check and compare citizen ideas with known measures, while WERK already owns verified calculation/reform artifacts; the citizen-process-to-calculation/reform connection is not yet an end-to-end verified system path.
+- Risk: rebuilding calculations inside IDEENWERK would duplicate logic and allow inconsistent fiscal claims.
+- Next: implement `WERK-IDEENWERK-IMPACT-BRIDGE-001` by reusing existing model/reform IDs and exposing provenance/open gates rather than manufacturing new effects.
+- Close when: connection is version-bound, tested, surfaced through existing IDEENWERK, independently counterchecked and no parallel calculation source exists.
