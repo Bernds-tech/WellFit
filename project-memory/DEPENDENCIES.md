@@ -57,8 +57,10 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - From: IDEENWERK citizen precheck / problem cluster.
 - Requires: verified competence/legal path, existing-measure path, reform identifiers and existing WERK calculation/data artifacts.
 - Type: cross-component integration.
-- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
-- Updated: 2026-09-20 22:36 UTC.
+- Status: SATISFIED
+- Updated: 2026-09-21 01:19 Europe/Vienna.
 - Rule: reuse existing WERK calculation/reform artifacts; expose model/reform IDs, provenance and open gates without converting conditional calculations into verified effects.
-- Builder evidence: registry, migration 037, head `f5a38a74caf4daf896124b2f606942d1653e2316`, Impact Bridge Check #2, Frontend #176, Staging migration `20260920223436 ideenwerk_impact_bridge`, reversible verification and zero baseline.
-- Close when: independent Supervisor accepts end-to-end bridge and stale/negative safeguards.
+- Counterchecked result: exact tested functional head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded; live Staging migration `20260920223436 ideenwerk_impact_bridge`; version/source mismatch paths fail closed; direct bridge access remains service-role-only; zero synthetic baseline restored.
+- Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`; WERK_SUPERVISOR_STATE v7 records `COUNTERCHECKED_STAGING`.
+- Boundary: satisfaction proves the bounded Staging reference bridge only; it does not create or verify new fiscal effects and does not imply production acceptance.
+- Downstream: `WERK-EXPERT-001` can become the next functional Builder task after the remaining memory-only Impact Bridge closeout entries are reconciled; `WERK-AI-SYNTH-001` still depends on both Impact Bridge and Expert Process.
