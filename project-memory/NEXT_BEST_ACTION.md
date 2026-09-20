@@ -53,10 +53,23 @@ Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CS
 - Result: the existing protected IDEENWERK status surface now translates all current machine states into citizen-readable labels, highlights the matching existing pipeline stage beyond the former `received`-only case, and shows a deterministic next procedural step. Terminal/moderation states intentionally do not pretend to be normal pipeline progress. The enhancement is loaded inside the existing V71 IDEENWERK module; no parallel page, political score or acceptance/rejection logic was added. Functional head: `eceb478580ce01d9411b875a3b6726d0dc331eac`; WERK Frontend Check #140 succeeded, including JavaScript syntax and V71 structural/policy coverage.
 - Staging retained: no database or Edge mutation was needed. WERK Österreich Staging remained at the zero-data baseline and runtime contract `024_privacy_resolution_transparency` remained active.
 
-## WERK autonomous continuation — next slice
+## WERK autonomous continuation — historical next slice
 - Selected action: `WERK-IDEENWERK-CLARIFICATION-001`
+- Status: `SUPERSEDED_BY_VERIFIED_IMPLEMENTATION`
+- Risk: `R2`.
+- Note: this former next action was implemented and verified in subsequent WERK runs; it remains here only as historical context. See later IDEENWERK handoffs/receipts rather than treating this section as current work.
+
+## WERK autonomous continuation — 2026-09-20 · existing-measure check + human routing
+- Selected action: `WERK-IDEENWERK-EXISTING-MEASURE-001`
+- Status: `VERIFIED_STAGING`
+- Risk: `R2`.
+- Result: migrations `030_existing_measure_check` and `031_existing_measure_review_queue` reuse the existing WERK government/baseline registries to flag only high-specificity possible overlaps during `precheck`. A hit is a bounded review hint, never an acceptance/rejection or political score. Every `possible_overlap` creates exactly one active `existing_measure_overlap` task for `impact_reviewer`; reruns do not duplicate the task. `no_known_overlap` creates no task and explicitly does not claim completeness. The protected citizen status and privacy export carry the check result, and the existing V71 surface shows a citizen-readable notice without a new page. Backend Check #130 and Frontend Check #152 succeeded. Reversible staging verification passed and all synthetic data was removed. See `project-memory/WERK_IDEENWERK_EXISTING_MEASURE_001.md`.
+- Safety retained: original text remains unchanged; operator identity is not exposed; no automatic decision, production deploy, paid action or irreversible external change was introduced.
+
+## WERK autonomous continuation — next slice (current)
+- Selected action: `WERK-IDEENWERK-EXISTING-MEASURE-REVIEW-RESOLUTION-001`
 - Status: `EXECUTABLE`
 - Risk: `R2`.
-- Why next: the canonical status machine already contains `clarification` and the API contract already specifies protected `POST /status/{public_id}/clarification`, but the active Edge API has no such route. This is now the clearest functional gap in the real no-login citizen process.
-- Exact next work: implement the protected clarification intake on the existing status-token boundary; persist citizen clarification without overwriting the immutable original submission; make the clarification available to the existing structuring/review path before allowing `clarification -> structured`; add idempotency/audit coverage, wrong-token denial, and a reversible staging smoke test; expose the answer action only in the existing protected V71 status surface when the current state is `clarification`.
-- Acceptance: no original-text mutation; no new page; clarification content remains private unless separately approved for publication; status-token ownership enforced; deterministic transition/audit trail; worker/review path consumes the clarification; syntax, backend/front-end gates and reversible staging smoke pass; staging returns to zero synthetic data; no production deploy.
+- Why next: a detected overlap now reaches a real human impact-review task, but the system still lacks a bounded domain-specific resolution contract that distinguishes confirmed baseline overlap, partial overlap and no material overlap without turning that finding into a political decision.
+- Exact next work: reuse the existing role-guarded `review_decisions` infrastructure; define a narrow reason-coded overlap disposition; persist reviewed timestamp/outcome against the existing-measure check; keep the submission in the normal procedural path; expose only citizen-relevant outcome/timing through the protected status/export contracts; never expose operator identity; add migration/idempotency/role/decision guardrails and reversible staging tests.
+- Acceptance: only an active `impact_reviewer` can resolve the task; one terminal disposition per task; audit trail is deterministic; no automatic proposal acceptance/rejection; no original-text mutation; wrong-role and replay paths fail closed; existing status/UI reused; backend/frontend gates green; staging returns to zero synthetic data; no production deploy.
