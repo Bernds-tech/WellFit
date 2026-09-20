@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-20",
+  "project": "WERK Österreich",
+  "purpose": "Maschinenlesbarer Abhängigkeits- und Wirkpfadgraph für Connection Sweep, Impact Bridge und Drift-Ausbreitung.",
+  "node_states": [
+    "VERIFIED",
+    "COUNTERCHECKED",
+    "PARTIAL",
+    "IN_PROGRESS",
+    "TODO",
+    "BLOCKED",
+    "STALE"
+  ],
+  "nodes": [
+    {
+      "id": "SRC-OFFICIAL",
+      "type": "source_layer",
+      "label": "Amtliche Primärquellen",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "DATA-WERK",
+      "type": "data_layer",
+      "label": "WERK Datenverträge / normalisierte Daten",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "CALC-WERK",
+      "type": "calculation_layer",
+      "label": "WERK Rechenmodelle",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "REFORM-REGISTER",
+      "type": "reform_layer",
+      "label": "WERK Reformakten",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "IDEENWERK-INTAKE",
+      "type": "citizen_process",
+      "label": "Bürger-Ideeneingabe",
+      "state": "VERIFIED"
+    },
+    {
+      "id": "IDEENWERK-CLARIFICATION",
+      "type": "citizen_process",
+      "label": "Rückfrage/Klarstellung",
+      "state": "VERIFIED"
+    },
+    {
+      "id": "IDEENWERK-COMPETENCE",
+      "type": "review_process",
+      "label": "Kompetenz-/Rechtsvorcheck",
+      "state": "VERIFIED"
+    },
+    {
+      "id": "IDEENWERK-EXISTING",
+      "type": "review_process",
+      "label": "Bestehende-Maßnahmen-Abgleich",
+      "state": "VERIFIED"
+    },
+    {
+      "id": "IDEENWERK-IMPACT",
+      "type": "integration",
+      "label": "Bürgeridee → WERK Rechen-/Reformmodelle",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "id": "EXPERT-INPUT",
+      "type": "knowledge_process",
+      "label": "Experten-/Betroffenenwissen",
+      "state": "TODO"
+    },
+    {
+      "id": "AI-SYNTHESIS",
+      "type": "ai_process",
+      "label": "KI-Synthese und Varianten",
+      "state": "TODO"
+    },
+    {
+      "id": "PUBLIC-VARIANTS",
+      "type": "citizen_information",
+      "label": "Öffentliche Lösungsvarianten",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "VERIFIED-SUPPORT",
+      "type": "participation",
+      "label": "Verifizierte Unterstützung",
+      "state": "TODO"
+    },
+    {
+      "id": "WERK-VOTE",
+      "type": "participation",
+      "label": "WERK VOTE",
+      "state": "BLOCKED"
+    },
+    {
+      "id": "PARLIAMENTARY-PATH",
+      "type": "implementation",
+      "label": "Parlamentarischer/mandatarischer Umsetzungspfad",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "KPI-MEASUREMENT",
+      "type": "impact",
+      "label": "KPI / Soll-Ist-Wirkungsmessung",
+      "state": "TODO"
+    },
+    {
+      "id": "IMPROVEMENT-LOOP",
+      "type": "feedback",
+      "label": "Wirkung → Verbesserung",
+      "state": "TODO"
+    },
+    {
+      "id": "API-IDEENWERK",
+      "type": "api",
+      "label": "IDEENWERK API",
+      "state": "VERIFIED"
+    },
+    {
+      "id": "WEB-V71",
+      "type": "ui",
+      "label": "Bestehende WERK V71 Website",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "id": "STAGING-RUNTIME",
+      "type": "runtime",
+      "label": "WERK Österreich Staging",
+      "state": "VERIFIED"
+    }
+  ],
+  "edges": [
+    {
+      "from": "SRC-OFFICIAL",
+      "to": "DATA-WERK",
+      "relation": "feeds",
+      "state": "PARTIAL"
+    },
+    {
+      "from": "DATA-WERK",
+      "to": "CALC-WERK",
+      "relation": "feeds",
+      "state": "PARTIAL"
+    },
+    {
+      "from": "CALC-WERK",
+      "to": "REFORM-REGISTER",
+      "relation": "quantifies",
+      "state": "PARTIAL"
+    },
+    {
+      "from": "IDEENWERK-INTAKE",
+      "to": "IDEENWERK-CLARIFICATION",
+      "relation": "may_require",
+      "state": "VERIFIED"
+    },
+    {
+      "from": "IDEENWERK-INTAKE",
+      "to": "IDEENWERK-COMPETENCE",
+      "relation": "prechecked_by",
+      "state": "VERIFIED"
+    },
+    {
+      "from": "IDEENWERK-INTAKE",
+      "to": "IDEENWERK-EXISTING",
+      "relation": "compared_with",
+      "state": "VERIFIED"
+    },
+    {
+      "from": "REFORM-REGISTER",
+      "to": "IDEENWERK-IMPACT",
+      "relation": "candidate_mapping_input",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "from": "CALC-WERK",
+      "to": "IDEENWERK-IMPACT",
+      "relation": "impact_model_input",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "from": "IDEENWERK-INTAKE",
+      "to": "IDEENWERK-IMPACT",
+      "relation": "requires_mapping",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "from": "IDEENWERK-IMPACT",
+      "to": "AI-SYNTHESIS",
+      "relation": "supplies_constraints",
+      "state": "TODO"
+    },
+    {
+      "from": "EXPERT-INPUT",
+      "to": "AI-SYNTHESIS",
+      "relation": "supplies_evidence",
+      "state": "TODO"
+    },
+    {
+      "from": "AI-SYNTHESIS",
+      "to": "PUBLIC-VARIANTS",
+      "relation": "produces",
+      "state": "TODO"
+    },
+    {
+      "from": "PUBLIC-VARIANTS",
+      "to": "VERIFIED-SUPPORT",
+      "relation": "may_receive",
+      "state": "TODO"
+    },
+    {
+      "from": "VERIFIED-SUPPORT",
+      "to": "WERK-VOTE",
+      "relation": "identity_foundation_for",
+      "state": "BLOCKED"
+    },
+    {
+      "from": "WERK-VOTE",
+      "to": "PARLIAMENTARY-PATH",
+      "relation": "informs",
+      "state": "BLOCKED"
+    },
+    {
+      "from": "PARLIAMENTARY-PATH",
+      "to": "KPI-MEASUREMENT",
+      "relation": "creates_implementation_for",
+      "state": "TODO"
+    },
+    {
+      "from": "KPI-MEASUREMENT",
+      "to": "IMPROVEMENT-LOOP",
+      "relation": "feeds",
+      "state": "TODO"
+    },
+    {
+      "from": "IMPROVEMENT-LOOP",
+      "to": "AI-SYNTHESIS",
+      "relation": "feedback",
+      "state": "TODO"
+    },
+    {
+      "from": "API-IDEENWERK",
+      "to": "WEB-V71",
+      "relation": "serves",
+      "state": "VERIFIED"
+    },
+    {
+      "from": "API-IDEENWERK",
+      "to": "STAGING-RUNTIME",
+      "relation": "deployed_to",
+      "state": "VERIFIED"
+    }
+  ],
+  "propagation_rule": "When a node's source contract, calculation contract, runtime or accepted evidence materially changes, downstream nodes connected by feeds/quantifies/candidate_mapping_input/impact_model_input/serves/deployed_to must be checked for stale evidence before relying on prior current-state claims.",
+  "connection_hunter_rule": "Prefer documenting and closing missing edges between existing nodes over adding new nodes."
+}
