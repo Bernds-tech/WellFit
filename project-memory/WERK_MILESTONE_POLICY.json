@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "directory": "project-memory/werk-milestones",
+  "required_fields": [
+    "schema_version",
+    "milestone",
+    "snapshot_date",
+    "snapshot_head",
+    "state",
+    "evidence",
+    "open_followups"
+  ],
+  "milestones": [
+    "WERK_GOVERNANCE_ACCEPTED",
+    "TWELVE_POLICY_FIELDS_ACCEPTED",
+    "CALCULATION_BASELINE_ACCEPTED",
+    "IDEENWERK_STAGING_ACCEPTED",
+    "OPEN_DEMOCRACY_ACCEPTED",
+    "IMPACT_BRIDGE_ACCEPTED",
+    "EXPERT_PROCESS_ACCEPTED",
+    "AI_SYNTHESIS_ACCEPTED",
+    "VERIFIED_SUPPORT_ACCEPTED",
+    "WERK_VOTE_ACCEPTED",
+    "IMPACT_MEASUREMENT_ACCEPTED",
+    "WERK_PRODUCTION_CONFIRMED"
+  ],
+  "rule": "Beim ersten ACCEPTED/PRODUCTION_CONFIRMED eines Meilensteins neuen unveränderlichen Snapshot erzeugen. Historische Snapshots nie überschreiben; spätere Invalidierung separat dokumentieren."
+}
