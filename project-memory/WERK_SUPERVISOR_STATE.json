@@ -1,11 +1,11 @@
 {
-  "version": "2026-09-20-v2",
+  "version": "2026-09-20-v3",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-20T19:07:30.943580Z",
-  "last_checked_head": "2ed53f8a83bd01a2681cf95d3c71904bf2509427",
+  "last_check_at": "2026-09-20T19:12:42Z",
+  "last_checked_head": "664113c8f6f8aad922bf5cd0477271417ca79e97",
   "last_checked_edge_version": 7,
   "last_checked_migration": "20260920130959 competence_review_queue",
   "overall_status": "YELLOW",
@@ -14,26 +14,29 @@
       "id": "CTR-WERK-GOV-001",
       "severity": "YELLOW",
       "kind": "governance_drift",
-      "summary": "WERK-specific control plane is not fully reconciled: shared NEXT_BEST_ACTION still selects a WellFit action, TASK_LEDGER lacks WERK-GOV-001, and evidence-freshness write ownership is inconsistent.",
+      "summary": "WERK-specific control plane remains partly unreconciled: shared NEXT_BEST_ACTION still selects a WellFit action and TASK_LEDGER lacks WERK-GOV-001. The earlier evidence-freshness write-ownership ambiguity is resolved by WERK_AUTOMATION_ROLES, and WERK_EVIDENCE_FRESHNESS is now populated from observed evidence.",
       "first_observed_at": "2026-09-20T19:07:30.943580Z",
+      "last_observed_at": "2026-09-20T19:12:42Z",
       "status": "RECONCILIATION_REQUIRED"
     },
     {
       "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
       "kind": "security_hardening",
-      "summary": "Supabase Security Advisor reports pg_net installed in public schema on WERK Österreich Staging.",
+      "summary": "Supabase Security Advisor still reports pg_net installed in public schema on WERK Österreich Staging. Migration 016 explicitly revokes PUBLIC/anon/authenticated access to schema net and its functions, so no new access-control regression was observed; hardening/advisor closure remains open.",
       "first_observed_at": "2026-09-20T19:07:17.595Z",
+      "last_observed_at": "2026-09-20T19:12:42Z",
       "status": "OPEN"
     }
   ],
   "last_verified_successes": [
     {
-      "kind": "ci_exact_head",
-      "head": "2ed53f8a83bd01a2681cf95d3c71904bf2509427",
+      "kind": "governance_mesh_ci",
+      "head": "cdd02b7e883c3ecb1cafacda9475bdfa2163d783",
       "workflow": "WERK Frontend Check",
-      "run_number": 171,
-      "conclusion": "success"
+      "run_number": 173,
+      "conclusion": "success",
+      "scope": "WERK automation role registry, agent coordination contract and system graph binding"
     },
     {
       "kind": "backend_contract_ci",
@@ -45,13 +48,21 @@
     },
     {
       "kind": "staging_runtime",
+      "observed_at": "2026-09-20T19:12:42Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
       "latest_migration": "20260920130959 competence_review_queue",
+      "zero_baseline_tables_checked": 13,
       "zero_baseline_verified": true
+    },
+    {
+      "kind": "governance_role_reconciliation",
+      "head": "664113c8f6f8aad922bf5cd0477271417ca79e97",
+      "result": "PARTIAL_IMPROVEMENT",
+      "scope": "Evidence Reaper now has explicit WERK_EVIDENCE_FRESHNESS write authority; generic NEXT_BEST_ACTION and WERK-GOV-001 ledger registration remain open."
     }
   ],
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T190730Z.json",
-  "note": "Keine Produkt-/Runtime-/politische Mutation. Supervisor-Auditwrites erzeugen nach dem geprüften Head zusätzliche Repository-Commits; last_checked_head bezeichnet deshalb bewusst den zuletzt unabhängig geprüften Pre-Audit-Head."
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T191242Z.json",
+  "note": "Keine Produkt-/Runtime-/politische Mutation. Supervisor-Auditwrites erzeugen nach dem geprüften Head zusätzliche Repository-Commits; last_checked_head bezeichnet deshalb bewusst den zuletzt unabhängig geprüften Pre-Audit-Head. Calculation Integrity Guardian did not trigger a deep recalculation because the audited delta contains no calculation/data/reform contract changes. No milestone met closure quorum."
 }
