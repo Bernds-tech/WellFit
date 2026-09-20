@@ -44,10 +44,23 @@ async function jsonResponse(response) {
 }
 
 async function fetchStatus(authToken) {
-  const result = await jsonResponse(await fetch(`${base}/status/${publicId}`, {
+  return jsonResponse(await fetch(`${base}/status/${publicId}`, {
     headers: { authorization: `Bearer ${authToken}` }
   }));
-  return result;
+}
+
+async function privacyGet(path, authToken=token) {
+  return jsonResponse(await fetch(`${base}${path}/${publicId}`, {
+    headers: { authorization: `Bearer ${authToken}` }
+  }));
+}
+
+async function createPrivacyRequest(requestType, details) {
+  return jsonResponse(await fetch(`${base}/privacy/requests/${publicId}`, {
+    method: 'POST',
+    headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
+    body: JSON.stringify({ request_type: requestType, details })
+  }));
 }
 
 async function cleanup() {
@@ -151,6 +164,36 @@ try {
   assert(!['received','structured','cluster_review'].includes(finalStatus?.current_status), 'staging worker did not advance submission to a stable checkpoint before timeout', finalStatus);
   assert(finalStatus?.review_path?.depth === 'STANDARD', 'protected status must expose the assigned STANDARD review path for the neutral synthetic case', finalStatus);
   assert(['standard_review','high_attention','quality_low_attention','existing_measure_review'].includes(finalStatus?.review_path?.triage_queue), 'protected status review path must expose an expected triage queue', finalStatus);
+  assert(Array.isArray(finalStatus?.privacy_requests) && finalStatus.privacy_requests.length === 0, 'fresh protected status must expose an empty privacy request list', finalStatus);
+
+  const exportResult = await privacyGet('/privacy/export');
+  assert(exportResult.response.status === 200, 'privacy export must accept the issued token', exportResult.data);
+  assert(exportResult.data?.submission?.public_id === publicId, 'privacy export public_id mismatch', exportResult.data);
+  assert(!JSON.stringify(exportResult.data).includes('token_hash'), 'privacy export must never expose token hashes', exportResult.data);
+
+  const deniedExport = await privacyGet('/privacy/export','definitely-wrong-token');
+  assert(deniedExport.response.status === 403 && deniedExport.data?.code === 'STATUS_ACCESS_DENIED', 'wrong token must be denied for privacy export', deniedExport.data);
+
+  const correction = await createPrivacyRequest('correction', `Synthetische Korrekturanfrage ${runId}`);
+  assert(correction.response.status === 201, 'privacy correction request must return 201', correction.data);
+  assert(correction.data?.request_id && correction.data?.status === 'received' && correction.data?.replayed === false, 'privacy correction request contract failed', correction.data);
+
+  const correctionReplay = await createPrivacyRequest('correction', `Synthetische Korrekturanfrage ${runId}`);
+  assert(correctionReplay.response.status === 200, 'identical open privacy request replay must return 200', correctionReplay.data);
+  assert(correctionReplay.data?.replayed === true && correctionReplay.data?.request_id === correction.data.request_id, 'privacy request replay must reuse the same request id', correctionReplay.data);
+
+  const deletion = await createPrivacyRequest('deletion', `Synthetischer Löschwunsch ${runId}; nur Workflowtest, keine automatische Löschung.`);
+  assert(deletion.response.status === 201 && deletion.data?.request_id, 'privacy deletion request must be accepted as a review request', deletion.data);
+
+  const requestList = await privacyGet('/privacy/requests');
+  assert(requestList.response.status === 200, 'privacy request list failed', requestList.data);
+  assert(Array.isArray(requestList.data?.requests) && requestList.data.requests.length === 2, 'privacy request list must contain exactly the correction and deletion test requests', requestList.data);
+
+  const statusAfterPrivacy = await fetchStatus(token);
+  assert(statusAfterPrivacy.response.status === 200, 'status after privacy requests failed', statusAfterPrivacy.data);
+  assert(Array.isArray(statusAfterPrivacy.data?.privacy_requests) && statusAfterPrivacy.data.privacy_requests.length === 2, 'protected status must expose privacy request summaries', statusAfterPrivacy.data);
+  assert(statusAfterPrivacy.data?.data_state !== 'erased', 'deletion request must not automatically erase citizen data', statusAfterPrivacy.data);
+  assert(statusAfterPrivacy.data?.original_text === payload.text, 'deletion request must not mutate original text before review', statusAfterPrivacy.data);
 
   const replay = await jsonResponse(await fetch(`${base}/submissions`, {
     method: 'POST',
@@ -185,6 +228,8 @@ try {
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status='dead') AS dead_jobs,
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status IN ('queued','running')) AS active_jobs,
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status='done') AS done_jobs,
+       (SELECT count(*)::int FROM privacy_requests pr JOIN target t ON pr.submission_id=t.id) AS privacy_requests,
+       (SELECT count(*)::int FROM audit_events e JOIN target t ON e.subject_id=t.public_id WHERE e.subject_type='submission' AND e.event_type='privacy_export_generated') AS privacy_exports_audited,
        (SELECT count(*)::int FROM review_tasks rt
           WHERE rt.status IN ('open','assigned')
             AND rt.subject_type='cluster_candidate'
@@ -196,6 +241,8 @@ try {
   assert(checks?.active_jobs === 0, 'queued/running jobs remain after staging E2E', checks);
   assert(checks?.orphan_review_tasks === 0, 'orphan review tasks found after staging E2E', checks);
   assert(Number(checks?.done_jobs) > 0, 'worker produced no completed jobs', checks);
+  assert(Number(checks?.privacy_requests) === 2, 'database must contain exactly two synthetic privacy requests before cleanup', checks);
+  assert(Number(checks?.privacy_exports_audited) >= 1, 'privacy export must create an audit event', checks);
 
   const cleanupResult = await cleanup();
   publicId = null;
@@ -205,7 +252,9 @@ try {
     run_id:runId,
     final_status:finalStatus.current_status,
     review_path:finalStatus.review_path,
-    history_events:Array.isArray(finalStatus.history)?finalStatus.history.length:null,
+    privacy_requests:checks.privacy_requests,
+    privacy_exports_audited:checks.privacy_exports_audited,
+    history_events:Array.isArray(statusAfterPrivacy.data?.history)?statusAfterPrivacy.data.history.length:null,
     done_jobs:checks.done_jobs,
     metrics_seen:metrics.data,
     cleanup:cleanupResult

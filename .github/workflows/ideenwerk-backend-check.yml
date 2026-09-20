@@ -79,13 +79,15 @@ jobs:
           SQL
 
           # 001-015 and 019 are portable PostgreSQL backend migrations. 016-018
-          # and 020 are Supabase-staging contracts that depend on the real
+          # and 020-022 are Supabase-staging contracts that depend on the real
           # staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
           test -s sql/017_edge_intake_status.sql
           test -s sql/018_staging_db_worker.sql
           test -s sql/019_cluster_candidate_pair_dedup.sql
           test -s sql/020_review_path_audit.sql
+          test -s sql/021_review_path_transparency.sql
+          test -s sql/022_privacy_citizen_access.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/

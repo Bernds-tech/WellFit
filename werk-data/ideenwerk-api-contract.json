@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v4",
+  "version": "2026-09-20-v5",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; öffentliche Cluster-/Transparenz-Lesewege und geschützter Prüftiefenstatus implementiert; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz und token-geschützte Datenschutzwege implementiert; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -11,7 +11,8 @@
     "Rate Limiting und Abuse Protection auf allen schreibenden Endpunkten",
     "keine KI-Abhängigkeit im synchronen Einreichungspfad",
     "Problemcluster, Lösungsvarianten und Originalideen werden getrennt abgebildet",
-    "FAST/STANDARD/DEEP beschreibt ausschließlich die Prüftiefe des Verfahrens und ist weder politischer Score noch Annahme-/Ablehnungsentscheidung"
+    "FAST/STANDARD/DEEP beschreibt ausschließlich die Prüftiefe des Verfahrens und ist weder politischer Score noch Annahme-/Ablehnungsentscheidung",
+    "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus"
   ],
   "endpoints": [
     {
@@ -36,32 +37,33 @@
       "path": "/status/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["public_id", "original_text", "current_status", "review_path?", "history"],
-      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; nur für die eigene Einreichung"
+      "response": ["public_id", "original_text", "current_status", "review_path?", "privacy_requests", "history"],
+      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; privacy_requests enthält nur Zusammenfassungen zur eigenen Einreichung"
     },
     {
       "method": "GET",
       "path": "/privacy/export/{public_id}",
-      "implementation": "scaffolded",
+      "implementation": "staging-live",
       "auth": "Bearer Status-Token",
       "response": ["submission", "structured_proposal", "cluster_memberships", "audit_history", "privacy_requests"],
-      "notes": "privater Datenexport zur eigenen Einreichung"
+      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Token-/Abuse-Hashes werden nicht ausgegeben; Exportzugriff wird auditiert"
     },
     {
       "method": "POST",
       "path": "/privacy/requests/{public_id}",
-      "implementation": "scaffolded",
+      "implementation": "staging-live",
       "auth": "Bearer Status-Token",
       "request": ["request_type: export|correction|deletion|restriction|cluster_appeal", "details?"],
-      "response": ["request_id", "status"],
-      "notes": "Löschwunsch wird als prüfbarer Vorgang geführt; keine blinde sofortige irreversible Löschung"
+      "response": ["request_id", "request_type", "status", "replayed"],
+      "notes": "identische offene Wiederholungen werden dedupliziert; Löschwunsch wird als prüfbarer Vorgang geführt und löscht nicht automatisch"
     },
     {
       "method": "GET",
       "path": "/privacy/requests/{public_id}",
-      "implementation": "scaffolded",
+      "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["requests"]
+      "response": ["requests"],
+      "notes": "liefert nur Datenschutzvorgänge zur token-authentifizierten eigenen Einreichung"
     },
     {
       "method": "POST",
@@ -145,7 +147,7 @@
     {"name":"queue_router","implementation":"planned","input":"signals + gates","output":"review_queue"}
   ],
   "http_rules": {
-    "idempotency": "POST /submissions akzeptiert Idempotency-Key, um Doppelanlage bei Wiederholung zu vermeiden",
+    "idempotency": "POST /submissions akzeptiert Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
     "pagination": "cursor-basiert für Cluster-/Listenendpunkte",
     "error_format": ["code", "message", "request_id"],
     "security_headers": "Produktiv erzwingen",

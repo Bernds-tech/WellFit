@@ -12,6 +12,7 @@ const supabase = createClient(SUPABASE_URL, SECRET_KEY, {
 
 const ALLOWED_ORIGINS = new Set(['https://raw.githack.com']);
 const encoder = new TextEncoder();
+const PRIVACY_REQUEST_TYPES = new Set(['export','correction','deletion','restriction','cluster_appeal']);
 
 function corsHeaders(origin: string | null) {
   const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : '';
@@ -46,6 +47,16 @@ function randomToken() {
 
 async function sha256Hex(value: string) {
   return bytesToHex(new Uint8Array(await crypto.subtle.digest('SHA-256', encoder.encode(value))));
+}
+
+function bearerToken(req: Request) {
+  const auth = req.headers.get('authorization') || '';
+  return auth.startsWith('Bearer ') ? auth.slice(7).trim() : '';
+}
+
+async function statusTokenHash(req: Request) {
+  const token = bearerToken(req);
+  return token ? await sha256Hex(token) : null;
 }
 
 async function abuseSubjectHash(req: Request) {
@@ -167,14 +178,61 @@ Deno.serve(async (req: Request) => {
     const statusMatch = path.match(/^\/status\/(IDEA-[A-F0-9]{16})$/);
     if (req.method === 'GET' && statusMatch) {
       if (!(await takeRateLimit(req,'edge_status',60,60))) return json({code:'RATE_LIMITED'},429,origin);
-      const auth = req.headers.get('authorization') || '';
-      const token = auth.startsWith('Bearer ') ? auth.slice(7).trim() : '';
-      if (!token) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
-      const tokenHash = await sha256Hex(token);
+      const tokenHash = await statusTokenHash(req);
+      if (!tokenHash) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
       const { data, error } = await supabase.rpc('ideenwerk_get_private_status', { p_public_id: statusMatch[1], p_token_hash: tokenHash });
       if (error) throw error;
       if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
       return json(data,200,origin);
+    }
+
+    const privacyExportMatch = path.match(/^\/privacy\/export\/(IDEA-[A-F0-9]{16})$/);
+    if (req.method === 'GET' && privacyExportMatch) {
+      if (!(await takeRateLimit(req,'edge_privacy_export',30,60))) return json({code:'RATE_LIMITED'},429,origin);
+      const tokenHash = await statusTokenHash(req);
+      if (!tokenHash) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
+      const { data, error } = await supabase.rpc('ideenwerk_get_privacy_export', { p_public_id: privacyExportMatch[1], p_token_hash: tokenHash });
+      if (error) throw error;
+      if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
+      return json(data,200,origin);
+    }
+
+    const privacyRequestsMatch = path.match(/^\/privacy\/requests\/(IDEA-[A-F0-9]{16})$/);
+    if (req.method === 'GET' && privacyRequestsMatch) {
+      if (!(await takeRateLimit(req,'edge_privacy_list',30,60))) return json({code:'RATE_LIMITED'},429,origin);
+      const tokenHash = await statusTokenHash(req);
+      if (!tokenHash) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
+      const { data, error } = await supabase.rpc('ideenwerk_list_privacy_requests', { p_public_id: privacyRequestsMatch[1], p_token_hash: tokenHash });
+      if (error) throw error;
+      if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
+      return json(data,200,origin);
+    }
+
+    if (req.method === 'POST' && privacyRequestsMatch) {
+      if (!(await takeRateLimit(req,'edge_privacy_request',20,60))) return json({code:'RATE_LIMITED'},429,origin);
+      const tokenHash = await statusTokenHash(req);
+      if (!tokenHash) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
+      let body: any;
+      try { body = await req.json(); } catch { return json({code:'INVALID_JSON'},400,origin); }
+      const requestType = typeof body?.request_type === 'string' ? body.request_type.trim() : '';
+      const details = typeof body?.details === 'string' ? body.details.trim() : null;
+      if (!PRIVACY_REQUEST_TYPES.has(requestType) || (details && details.length > 3000)) {
+        return json({code:'INVALID_PRIVACY_REQUEST',message:'Datenschutzanfrage ist ungültig.'},400,origin);
+      }
+      const { data, error } = await supabase.rpc('ideenwerk_create_privacy_request', {
+        p_public_id: privacyRequestsMatch[1],
+        p_token_hash: tokenHash,
+        p_request_type: requestType,
+        p_details: details
+      });
+      if (error) throw error;
+      if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
+      return json({
+        ...data,
+        note: requestType === 'deletion'
+          ? 'Der Löschwunsch wurde als prüfbarer Vorgang erfasst. Es erfolgt keine automatische irreversible Löschung.'
+          : 'Die Datenschutzanfrage wurde erfasst und bleibt über den privaten Status nachvollziehbar.'
+      },data.replayed?200:201,origin);
     }
 
     if (req.method === 'GET' && path === '/clusters') {
