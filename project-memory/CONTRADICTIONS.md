@@ -93,3 +93,19 @@ Statuses: `OPEN`, `RECONCILIATION_REQUIRED`, `RESOLVED`, `SUPERSEDED`.
 Never resolve a contradiction by deleting the older record. Preserve the stale claim and record why it was superseded.
 ## WERK-TAX-001 — 2026-09-08
 TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridged to pure nonoverlapping tax cash. ABB report page40 printed98.35% and malformed1.311.2365 do not reconcile with79,543,000 less78,179,767. Correct source interpretation is implemented; no source correction or actual cash inference claimed.
+
+## CTR-WERK-GOV-001
+- Date: 2026-09-20
+- Updated: 2026-09-20 19:07 UTC
+- Related task/change: WERK-GOV-001 / autonomous control plane
+- Risk: R3
+- Source A: `werk-data/werk-autonomy-contract.json` v2 and `project-memory/WERK_NEXT_BEST_ACTIONS.json`.
+- Claim A: WERK-specific control sources must steer the autonomous WERK loop; priority 1 is `NBA-WERK-GOVERNANCE-RECONCILE` / task `WERK-GOV-001`; historical WellFit-generic control text must not steer WERK.
+- Source B: `project-memory/NEXT_BEST_ACTION.md` and `project-memory/TASK_LEDGER.md` on checked head `2ed53f8a83bd01a2681cf95d3c71904bf2509427`.
+- Claim B: `NEXT_BEST_ACTION.md` still selects `WF-VISUAL-CANONICAL-INVENTORY` as the top executable action, and `TASK_LEDGER.md` has no `WERK-GOV-001` entry.
+- Additional drift: `WERK_EVIDENCE_FRESHNESS.json` says Supervisor and Builder maintain observed evidence, while the machine contract's `supervisor_writes` / `builder_must_update` lists do not include that registry; it therefore remains initialized but empty after real runtime evidence exists.
+- Stronger/current evidence: exact branch files plus successful WERK Frontend Check #171 on exact head `2ed53f8a83bd01a2681cf95d3c71904bf2509427`.
+- Status: RECONCILIATION_REQUIRED
+- Resolution/action: Builder must register/continue `WERK-GOV-001` in the canonical task/start/lock registers as applicable, make the shared `NEXT_BEST_ACTION.md` WERK-safe without deleting historical WellFit history, and make evidence-freshness write ownership explicit in the machine contract before treating governance_core as counterchecked.
+- Safety: this finding does not invalidate the current automation prompt, which already gives WERK-specific controls precedence; it prevents the repository memory itself from being treated as fully reconciled.
+- Falsification question: a current exact-head state where the WERK governance task is canonically registered, the selected next action is WERK-safe, and evidence-freshness write ownership is unambiguous resolves this contradiction.
