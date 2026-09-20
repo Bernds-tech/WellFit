@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v13",
+  "version": "2026-09-20-v14",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck mit signalgebundener menschlicher Zuständigkeitsprüfung sowie bestehende-Maßnahmen-Abgleich mit signalgebundener reason-codierter menschlicher Überschneidungsprüfung implementiert; öffentlicher Clustervertrag gegen die tatsächlich deployte Edge-v5-Laufzeit abgeglichen; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -18,7 +18,8 @@
     "die menschliche Überschneidungsprüfung klassifiziert ausschließlich den Baseline-Bezug als bestätigt, teilweise oder nicht materiell; sie verändert weder den Originaltext noch den automatischen Treffer und entscheidet nicht über Annahme oder Ablehnung der Bürgeridee",
     "eine menschliche Überschneidungsauflösung gilt nur für den exakt geprüften Baseline-/Classifier-Signalstand; identische Wiederholungen eröffnen keinen neuen Review, geänderte Referenz- oder Classifier-Versionen machen die alte Auflösung für den aktuellen Status unwirksam und eröffnen genau einen neuen Review",
     "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus",
-    "Klarstellungsfragen entstehen aus dem bestehenden menschlichen Review-Modell; es gibt dafür keinen ungeschützten öffentlichen Operator-Endpunkt"
+    "Klarstellungsfragen entstehen aus dem bestehenden menschlichen Review-Modell; es gibt dafür keinen ungeschützten öffentlichen Operator-Endpunkt",
+    "ein Endpunkt wird nur mit Feldern und Query-Parametern als staging-live dokumentiert, die die tatsächlich deployte Staging-Laufzeit liefert; geplante Erweiterungen werden nicht als bereits verfügbar ausgewiesen"
   ],
   "endpoints": [
     {
@@ -85,16 +86,17 @@
       "path": "/clusters",
       "implementation": "staging-live",
       "auth": "öffentlich",
-      "query": ["topic", "region", "status", "sort"],
-      "response": ["problem_clusters", "pagination"]
+      "query": ["limit"],
+      "response": ["clusters"],
+      "notes": "deployed Edge v5: limit ist auf 1..50 begrenzt und standardmäßig 12; clusters enthält cluster_id, title, topic, region_scope, review_status, submission_count, variant_count, updated_at, process_lane_suggestion und process_lane_reason; quarantined/removed Cluster werden nicht ausgegeben; topic/region/status/sort/cursor sind noch nicht live"
     },
     {
       "method": "GET",
       "path": "/clusters/{cluster_id}",
       "implementation": "staging-live",
       "auth": "öffentlich",
-      "response": ["problem_cluster", "solution_variants", "attention_signals", "quality_gates", "linked_reforms", "status_history_public"],
-      "notes": "Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren"
+      "response": ["cluster", "variants"],
+      "notes": "deployed Edge v5: cluster enthält cluster_id, title, topic, region_scope, review_status, submission_count, updated_at sowie unverbindliche process_lane_suggestion/reason; variants enthält variant_id, title, summary, review_status, created_at und updated_at; quarantined/removed Cluster liefern 404; Gesamtgröße des Problemclusters ist nicht als Zustimmung zu einer Variante zu interpretieren; attention_signals, quality_gates, linked_reforms und status_history_public sind noch nicht live"
     },
     {
       "method": "POST",
@@ -156,8 +158,9 @@
   ],
   "http_rules": {
     "idempotency": "POST /submissions und POST /status/{public_id}/clarification akzeptieren Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
-    "pagination": "cursor-basiert für Cluster-/Listenendpunkte",
-    "error_format": ["code", "message", "request_id"],
+    "pagination": "deployed Edge v5 nutzt für GET /clusters derzeit nur ein begrenztes limit (1..50, Standard 12); cursor-basierte Pagination ist noch nicht live",
+    "error_format": ["code", "message?"],
+    "request_id": "in der deployten Edge-v5-Fehlerhülle noch nicht durchgängig live",
     "security_headers": "Produktiv erzwingen",
     "cors": "nur freigegebene WERK-Origin(s)"
   },
