@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-20T19:12:42Z",
+  "role": "WERK Stundenkontrolleur",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "664113c8f6f8aad922bf5cd0477271417ca79e97",
+  "governance_mesh_head": "cdd02b7e883c3ecb1cafacda9475bdfa2163d783",
+  "result": "COUNTERCHECKED_WITH_YELLOW_FINDINGS",
+  "overall_status": "YELLOW",
+  "evidence": {
+    "governance_mesh_ci": {
+      "workflow": "WERK Frontend Check",
+      "run_number": 173,
+      "head": "cdd02b7e883c3ecb1cafacda9475bdfa2163d783",
+      "conclusion": "success"
+    },
+    "post_mesh_commits": {
+      "count": 4,
+      "scope": [
+        "project-memory/OPEN_LOOPS.md",
+        "project-memory/WERK_AUTONOMY_PROTOCOL.md",
+        "project-memory/WERK_SUPERVISOR_STATE.json",
+        "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T190730Z.json"
+      ],
+      "product_or_runtime_files_changed": false
+    },
+    "staging": {
+      "project": "WERK Österreich Staging",
+      "status": "ACTIVE_HEALTHY",
+      "werk_ideenwerk_api_version": 7,
+      "latest_migration": "20260920130959 competence_review_queue",
+      "zero_baseline_tables_checked": 13,
+      "zero_baseline_verified": true
+    },
+    "security_advisor": {
+      "status": "WARN",
+      "finding": "extension_in_public",
+      "extension": "pg_net",
+      "note": "Migration 016 intentionally creates pg_net and revokes PUBLIC/anon/authenticated access to schema net and its functions. The advisor warning therefore remains a hardening finding, not a newly observed access-control regression."
+    },
+    "governance_reconciliation": {
+      "evidence_freshness_write_ownership": "RESOLVED_BY_WERK_AUTOMATION_ROLES",
+      "shared_next_best_action_drift": "OPEN",
+      "werk_gov_001_task_ledger_registration": "MISSING"
+    },
+    "specialists": {
+      "integration_hunter": "No new integration gap beyond the already tracked IDEENWERK impact bridge and graph TODO/BLOCKED edges.",
+      "evidence_reaper": "Fresh staging/advisor/CI observations collected and freshness registry populated.",
+      "orphan_zombie_hunter": "Existing governance reconciliation finding persists; no new synthetic residue found.",
+      "calculation_integrity_guardian": "No deep recalculation triggered because no calculation/data/reform contract changed in the audited delta.",
+      "milestone_closer": "No finishline gate newly meets closure quorum."
+    }
+  },
+  "findings": [
+    "CTR-WERK-GOV-001",
+    "WERK-LOOP-SEC-PGNET-001"
+  ],
+  "mutation_boundary": "Audit/governance memory only; no product, runtime, database, Edge or political mutation."
+}
