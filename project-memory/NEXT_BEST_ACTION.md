@@ -3,49 +3,46 @@
 This file is a derived selector, not a historical source of truth. Historical execution remains in `TASK_LEDGER.md`, `EXECUTION_RECEIPTS.md`, `OPEN_LOOPS.md`, `DEPENDENCIES.md` and receipts.
 
 - Project: `WERK Österreich`
-- Selected action: `WERK-SEC-PGNET-001`
-- Source finding: `CTR-WERK-SEC-PGNET-ACL-001`
-- Open loop: `WERK-LOOP-SEC-PGNET-001`
-- Status: `IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK`
-- Risk: `R3`
+- Selected action: `WERK-SEC-PGNET-001-CLOSEOUT`
+- Related task: `WERK-SEC-PGNET-001`
+- Status: `RECONCILIATION_REQUIRED_BEFORE_FEATURE_WORK`
+- Risk: `R2` bookkeeping / `R3` production-hardening boundary
 - Gate: `security_privacy`
-- Title: pg_net Data-API-Grenze auf WERK Staging absichern und unabhängig gegenprüfen
+- Title: pg_net-Staging-Gegencheck konsumieren, stale Task/Lock schließen und dann Impact Bridge starten
 
-## Current result
-Der Builder hat die blockierende GELB-Lücke bounded gehärtet, ohne die Supabase-verwaltete Extension zu verschieben, zu droppen oder externe `net.http_*`-Aufrufe auszuführen:
+## Independent supervisor result
+The bounded staging security implementation is independently counterchecked for its actual claim scope:
 
-1. Migration `036_pg_net_data_api_guard.sql` ist auf WERK Österreich Staging als `20260920203049 pg_net_data_api_guard` aktiv.
-2. PostgREST führt `public.werk_api_security_guard()` als `pgrst.db_pre_request` aus.
-3. `anon` und `authenticated` werden für `Accept-Profile: net` bzw. `Content-Profile: net` fail-closed mit 403 blockiert; normales `public`-Profil bleibt erlaubt.
-4. Es existiert kein WERK-eigener, für `anon`/`authenticated` ausführbarer Wrapper auf `net.http_*`/pg_net-Routinen.
-5. `service_role` wird vom öffentlichen/userseitigen Profil-Guard nicht blockiert.
-6. Direkte `net`-ACLs bleiben auf Hosted Supabase teilweise platform-managed durch `supabase_admin`; WERK behauptet deshalb ausdrücklich nicht, diese Managed Grants dauerhaft widerrufen zu haben.
-7. Der Security Advisor meldet weiterhin `extension_in_public` für pg_net. Das ist nicht durch blindes Drop/Reinstall/Move zu kaschieren und bleibt für den Supervisor als Plattform-/Produktions-Hardening-Grenze sichtbar.
-8. Reversible Rollback-Probe für Guard-Funktion und `pgrst.db_pre_request` wurde transaktional durchgeführt; der Staging-Zustand blieb danach intakt.
-9. IDEENWERK Edge Function blieb Version 7 aktiv und die relevanten synthetischen Tabellen wurden mit Zero-Baseline verifiziert.
-
-## CI status
-IDEENWERK Backend Check #161 ist auf exact functional head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4` final **SUCCESS**. Attempt 1 bestand den pg_net-spezifischen Guardrail und alle vorgelagerten Backend-Prüfungen, lief aber im unveränderten 1.000-Item-Queue-Benchmark in das bestehende 120-s-Limit. Der fehlgeschlagene Job wurde einmal unverändert als Attempt 2 neu ausgeführt; Attempt 2 bestand einschließlich Queue-Integration. Keine Benchmark-Schwelle und kein Testumfang wurden gelockert.
-
-Der Builder-Claim ist in `project-memory/WERK_PG_NET_SECURITY_001_BUILDER_CLAIM.md` finalisiert. Der aktuelle Branch-Head enthält danach nur Builder-Claim-/Governance-Nachführung; der funktionale Sicherheits-Head bleibt oben genannt.
+1. Functional security head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4` has IDEENWERK Backend Check #161 final `SUCCESS` on attempt 2; the pg_net guardrail and unchanged 1,000-item queue integration both passed.
+2. WERK Österreich Staging is `ACTIVE_HEALTHY`; `werk-ideenwerk-api` remains ACTIVE version 7.
+3. Live migration truth is `20260920203116 pg_net_data_api_guard` — not the `20260920203049` timestamp written in the Builder claim. Same migration name/content, but the receipt timestamp must be corrected to live truth.
+4. `authenticator` currently has `pgrst.db_pre_request=public.werk_api_security_guard`.
+5. Independent transient guard verification blocks an `anon` request context selecting profile `net` with `WERK_INTERNAL_SCHEMA`, while profile `public` remains allowed.
+6. `anon` and `authenticated` are NOLOGIN roles; the guard is executable by anon/authenticated/service_role; no WERK-owned public function wrapping `net.http_*` exists.
+7. Hosted Supabase still owns/restores direct `net` schema/function ACLs, including PUBLIC/anon/authenticated schema usage and PUBLIC execute on pg_net routines. WERK therefore does not claim durable direct-ACL revocation.
+8. Security Advisor still reports `extension_in_public` for pg_net. This remains a non-blocking staging / blocking production-hardening limitation; no extension move/drop/reinstall is authorized merely to silence the advisor.
+9. The 13 checked IDEENWERK citizen/review/privacy/cluster tables are at zero synthetic baseline.
+10. No outbound `net.http_*` call was executed by the supervisor.
 
 ## Exact next work
-1. **Keine weitere Builder-Änderung an pg_net vor unabhängiger Gegenprüfung.** Der Builder hat seinen bounded Scope vollständig abgearbeitet.
-2. Supervisor muss unabhängig prüfen: aktuelle Managed-ACL-Grenze, PostgREST-Profilblock, final grünen Backend Check #161, Security Advisor, Edge/Migration-State, Zero-Baseline, Rollback-Evidence und WERK-Evidence-TTL.
-3. Bei erfolgreichem Countercheck: Finding/Loop/Lock sauber schließen bzw. die verbleibende Hosted-Supabase-Plattformgrenze präzise als Produktions-Hardening-Limit weiterführen.
-4. Danach funktionale Next-Best-Action aktivieren: `WERK-IDEENWERK-IMPACT-BRIDGE-001`.
+Before ordinary feature work, perform one bounded Project-Memory reconciliation only:
 
-## Safety
-- `net.http_get`, `net.http_post`, `net.http_delete` oder andere externe pg_net-Aufrufe nicht zur Reachability-Prüfung ausführen.
-- `pg_net` nicht blind verschieben, droppen oder deaktivieren, nur um den Advisor zu beruhigen.
-- Keine Production-, kostenpflichtige, irreversible oder politische Aktion.
-- Builder setzt keinen `ACCEPTED`-/`COUNTERCHECKED`-Status selbst.
+1. Correct the Builder claim / receipts to live migration id `20260920203116`.
+2. Mark `WERK-SEC-PGNET-001` `COUNTERCHECKED` for the bounded **staging Data-API boundary**; do not claim production security acceptance.
+3. Release `LOCK-WERK-SEC-PGNET-001` and remove stale `IN_PROGRESS` / `IMPLEMENTED_NOT_VERIFIED` wording from Started Work / Task Ledger / current selector.
+4. Resolve `CTR-WERK-SEC-PGNET-ACL-001` by documenting that migration 036 supersedes the old direct-ACL assumption with the enforceable Hosted-Supabase-compatible boundary: NOLOGIN request roles + no WERK pg_net wrapper + PostgREST pre-request denial of profile `net`.
+5. Keep `WERK-LOOP-SEC-PGNET-001` open only as a **non-blocking production-hardening limitation** while `extension_in_public` and Supabase-managed direct ACLs remain.
+6. Append the independent countercheck receipt to `EXECUTION_RECEIPTS.md` and consume the security task completion.
+7. Immediately after this memory-only closeout, select `WERK-IDEENWERK-IMPACT-BRIDGE-001` / `NBA-WERK-IMPACT-BRIDGE` as the next functional Builder action.
 
-## Completed prerequisite
-`WERK-GOV-001` ist unabhängig `COUNTERCHECKED`; `CTR-WERK-GOV-001` ist aufgelöst. WERK wird nicht mehr vom historischen WellFit-Selector gesteuert.
+## Do not repeat
+- Do not rebuild or further mutate pg_net staging merely because the advisor warning remains.
+- Do not call `net.http_*` as a security test.
+- Do not move/drop/reinstall a Supabase-managed extension without a separately justified platform-safe plan.
+- Do not treat the staging countercheck as `ACCEPTED` or `PRODUCTION_CONFIRMED` security.
 
-## Queued after this finding
-- `WERK-IDEENWERK-IMPACT-BRIDGE-001` / `NBA-WERK-IMPACT-BRIDGE`: Bürgerideen/Cluster mit bestehenden WERK-Rechenmodellen und Reformakten verbinden, ohne Parallelrechnung oder erfundene Wirkungszahlen.
+## Queued functional action
+`WERK-IDEENWERK-IMPACT-BRIDGE-001`: connect citizen ideas/clusters to existing WERK calculation and reform artifacts with version-bound provenance and open calculation gates, without parallel calculations or invented fiscal effects.
 
 ## Selection sources
-`WERK_SUPERVISOR_STATE.json`, `CONTRADICTIONS.md`, `OPEN_LOOPS.md`, `DEPENDENCIES.md`, `TASK_LEDGER.md`, `EXECUTION_RECEIPTS.md`, `WERK_NEXT_BEST_ACTIONS.json`, `WERK_FINISHLINE_STATE.json` and `werk-data/werk-system-graph.json`.
+`WERK_SUPERVISOR_STATE.json`, `WERK_EVIDENCE_FRESHNESS.json`, `CONTRADICTIONS.md`, `OPEN_LOOPS.md`, `STARTED_WORK.md`, `WORK_LOCKS.md`, `DEPENDENCIES.md`, `TASK_LEDGER.md`, `EXECUTION_RECEIPTS.md`, `WERK_NEXT_BEST_ACTIONS.json`, `WERK_FINISHLINE_STATE.json` and `werk-data/werk-system-graph.json`.
