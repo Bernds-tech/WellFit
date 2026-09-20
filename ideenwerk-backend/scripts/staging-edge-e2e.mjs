@@ -19,7 +19,7 @@ if (!databaseUrl) {
 const runId = `STAGING-E2E-${new Date().toISOString().replace(/[-:.TZ]/g, '')}-${Math.random().toString(16).slice(2, 10)}`;
 const idempotencyKey = `staging-e2e:${runId}`;
 const payload = {
-  text: `Synthetischer WERK-Staging-E2E-Test ${runId}: Verwaltungsabläufe sollen transparent, nachvollziehbar und ohne personenbezogene Daten verbessert werden.`,
+  text: 'Synthetischer WERK-Staging-Test: Verwaltungsabläufe sollen transparent, nachvollziehbar und ohne personenbezogene Daten verbessert werden.',
   region: 'Niederösterreich',
   topic: 'Verwaltung',
   consent_public_anonymous: false
