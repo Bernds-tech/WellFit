@@ -1,15 +1,57 @@
 {
-  "version": "2026-09-20-v1",
+  "version": "2026-09-20-v2",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": null,
-  "last_checked_head": null,
-  "last_checked_edge_version": null,
-  "last_checked_migration": null,
-  "overall_status": "INITIALIZED",
-  "active_findings": [],
-  "last_verified_successes": [],
-  "note": "Der Supervisor aktualisiert nur dieses Audit-Gedächtnis und die kanonischen Project-Memory-Auditregister; keine Produkt-/Runtime-Mutation."
+  "last_check_at": "2026-09-20T19:07:30.943580Z",
+  "last_checked_head": "2ed53f8a83bd01a2681cf95d3c71904bf2509427",
+  "last_checked_edge_version": 7,
+  "last_checked_migration": "20260920130959 competence_review_queue",
+  "overall_status": "YELLOW",
+  "active_findings": [
+    {
+      "id": "CTR-WERK-GOV-001",
+      "severity": "YELLOW",
+      "kind": "governance_drift",
+      "summary": "WERK-specific control plane is not fully reconciled: shared NEXT_BEST_ACTION still selects a WellFit action, TASK_LEDGER lacks WERK-GOV-001, and evidence-freshness write ownership is inconsistent.",
+      "first_observed_at": "2026-09-20T19:07:30.943580Z",
+      "status": "RECONCILIATION_REQUIRED"
+    },
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "kind": "security_hardening",
+      "summary": "Supabase Security Advisor reports pg_net installed in public schema on WERK Österreich Staging.",
+      "first_observed_at": "2026-09-20T19:07:17.595Z",
+      "status": "OPEN"
+    }
+  ],
+  "last_verified_successes": [
+    {
+      "kind": "ci_exact_head",
+      "head": "2ed53f8a83bd01a2681cf95d3c71904bf2509427",
+      "workflow": "WERK Frontend Check",
+      "run_number": 171,
+      "conclusion": "success"
+    },
+    {
+      "kind": "backend_contract_ci",
+      "head": "523adddce820078fa6f5e3590d5050b23a803913",
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 144,
+      "conclusion": "success",
+      "scope": "migration 035 competence review contract and dependent IDEENWERK checks"
+    },
+    {
+      "kind": "staging_runtime",
+      "project_status": "ACTIVE_HEALTHY",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_version": 7,
+      "latest_migration": "20260920130959 competence_review_queue",
+      "zero_baseline_verified": true
+    }
+  ],
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T190730Z.json",
+  "note": "Keine Produkt-/Runtime-/politische Mutation. Supervisor-Auditwrites erzeugen nach dem geprüften Head zusätzliche Repository-Commits; last_checked_head bezeichnet deshalb bewusst den zuletzt unabhängig geprüften Pre-Audit-Head."
 }
