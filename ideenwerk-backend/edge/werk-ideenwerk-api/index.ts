@@ -98,6 +98,12 @@ function laneSuggestion(topic: string | null, title: string | null, reviewStatus
   return { process_lane_suggestion:'STANDARD', process_lane_reason:'Reguläre Fach-, Wirkungs- und Bürgerprüfung.' };
 }
 
+async function privateClarifications(publicId: string, tokenHash: string) {
+  const { data, error } = await supabase.rpc('ideenwerk_list_clarifications', { p_public_id: publicId, p_token_hash: tokenHash });
+  if (error) throw error;
+  return Array.isArray(data?.clarifications) ? data.clarifications : [];
+}
+
 async function publicClusterList(limit: number) {
   const { data: clusters, error } = await supabase
     .from('clusters')
@@ -175,6 +181,34 @@ Deno.serve(async (req: Request) => {
       return json({public_id:data.public_id,status:data.status,replayed:false,status_token_once:statusToken,status_url:`/status/${data.public_id}`,note:'Status-Token sicher speichern. Er wird serverseitig nur gehasht gespeichert.'},201,origin);
     }
 
+    const clarificationMatch = path.match(/^\/status\/(IDEA-[A-F0-9]{16})\/clarification$/);
+    if (req.method === 'POST' && clarificationMatch) {
+      if (!(await takeRateLimit(req,'edge_clarification',20,60))) return json({code:'RATE_LIMITED'},429,origin);
+      const tokenHash = await statusTokenHash(req);
+      if (!tokenHash) return json({code:'STATUS_TOKEN_REQUIRED'},401,origin);
+      let body: any;
+      try { body = await req.json(); } catch { return json({code:'INVALID_JSON'},400,origin); }
+      const text = typeof body?.text === 'string' ? body.text.trim() : '';
+      const idempotencyKey = (req.headers.get('idempotency-key') || '').trim() || null;
+      if (text.length < 5 || text.length > 3000 || (idempotencyKey && idempotencyKey.length>200)) {
+        return json({code:'INVALID_CLARIFICATION',message:'Klarstellung ist unvollständig oder ungültig.'},400,origin);
+      }
+      const { data, error } = await supabase.rpc('ideenwerk_submit_clarification', {
+        p_public_id: clarificationMatch[1],
+        p_token_hash: tokenHash,
+        p_response_text: text,
+        p_idempotency_key: idempotencyKey
+      });
+      if (error) throw error;
+      if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
+      if (data.accepted === false) {
+        const code = data.code || 'CLARIFICATION_REJECTED';
+        const status = code === 'CLARIFICATION_PII_DETECTED' || code === 'INVALID_CLARIFICATION' || code === 'INVALID_IDEMPOTENCY_KEY' ? 400 : 409;
+        return json({code,current_status:data.current_status||null,message:code==='CLARIFICATION_PII_DETECTED'?'Bitte entferne E-Mail-Adressen oder Telefonnummern aus der Klarstellung.':'Die Klarstellung kann im aktuellen Verfahrenszustand nicht übernommen werden.'},status,origin);
+      }
+      return json({...data,note:'Der Originaltext bleibt unverändert. Die private Klarstellung wurde in die bestehende Strukturierungs- und Prüfstrecke übernommen.'},data.replayed?200:201,origin);
+    }
+
     const statusMatch = path.match(/^\/status\/(IDEA-[A-F0-9]{16})$/);
     if (req.method === 'GET' && statusMatch) {
       if (!(await takeRateLimit(req,'edge_status',60,60))) return json({code:'RATE_LIMITED'},429,origin);
@@ -183,7 +217,8 @@ Deno.serve(async (req: Request) => {
       const { data, error } = await supabase.rpc('ideenwerk_get_private_status', { p_public_id: statusMatch[1], p_token_hash: tokenHash });
       if (error) throw error;
       if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
-      return json(data,200,origin);
+      const clarifications = await privateClarifications(statusMatch[1],tokenHash);
+      return json({...data,clarifications},200,origin);
     }
 
     const privacyExportMatch = path.match(/^\/privacy\/export\/(IDEA-[A-F0-9]{16})$/);
@@ -194,7 +229,8 @@ Deno.serve(async (req: Request) => {
       const { data, error } = await supabase.rpc('ideenwerk_get_privacy_export', { p_public_id: privacyExportMatch[1], p_token_hash: tokenHash });
       if (error) throw error;
       if (!data) return json({code:'STATUS_ACCESS_DENIED'},403,origin);
-      return json(data,200,origin);
+      const clarifications = await privateClarifications(privacyExportMatch[1],tokenHash);
+      return json({...data,citizen_clarifications:clarifications},200,origin);
     }
 
     const privacyRequestsMatch = path.match(/^\/privacy\/requests\/(IDEA-[A-F0-9]{16})$/);
