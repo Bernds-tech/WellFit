@@ -1,3 +1,34 @@
+# WERK Next Best Action
+
+- Project: `WERK Österreich`
+- Selected action: `WERK-IDEENWERK-IMPACT-BRIDGE-001`
+- Catalog entry: `NBA-WERK-IMPACT-BRIDGE`
+- Status: `EXECUTABLE_AFTER_GOVERNANCE_RECONCILIATION`
+- Risk: `R3`
+- Gate: `impact_bridge`
+- Title: Bürgerideen mit bestehenden WERK-Rechenmodellen und Reformakten verbinden
+
+## Why this is next
+Der WERK Connection Sweep hat bestätigt: Bürger-Intake, Klarstellung, Kompetenz-/Rechtsvorcheck, Existing-Measure-Prüfung, öffentliche Cluster sowie mehrere WERK-Rechen-/Reformartefakte existieren bereits. Die fehlende zentrale Verbindung ist der versionierte, nachvollziehbare Pfad Bürgeridee/Cluster → bestehende WERK-Rechenmodelle/Reformakten → offene Wirkungsprüfungen.
+
+## Exact work
+1. Bestehende Reform- und Rechen-IDs inventarisieren und einen kleinen versionierten Mapping-Vertrag definieren.
+2. IDEENWERK-Problem/Cluster auf Kandidaten vorhandener Modelle/Reformakten abbilden.
+3. Nur Provenienz, anwendbare Modelle und offene/geschlossene Rechengates ausgeben; keine neuen oder ungesicherten Wirkungszahlen erfinden.
+4. Bestehende Status-/API-/Website-Pfade wiederverwenden.
+5. Negative/stale/version-mismatch Tests hinzufügen und reversible Staging-Abnahme durchführen.
+6. Danach Supervisor-Gegenprüfung und Connection-Sweep aktualisieren.
+
+## Do not rebuild
+Kompetenzreview, Existing-Measure-Review, Privacy, Clarification, öffentliche Cluster und FAST/STANDARD/DEEP sind bereits vorhandene Bausteine und werden nur konsumiert.
+
+## Selection source
+`project-memory/WERK_NEXT_BEST_ACTIONS.json`, `project-memory/WERK_FINISHLINE_STATE.json`, `project-memory/WERK_SUPERVISOR_STATE.json`, Receipts, Dependencies und Open Loops.
+
+---
+
+## Historical WellFit selector (not authoritative for WERK automation)
+
 # WellFit Next Best Action
 
 - Selected action: `WF-VISUAL-CANONICAL-INVENTORY`
