@@ -11,21 +11,22 @@ const publicId = `IDEA-${suffix}`;
 const piiPublicId = `IDEA-${crypto.randomBytes(8).toString('hex').toUpperCase()}`;
 const token = `clarification-ci-${crypto.randomBytes(16).toString('hex')}`;
 const tokenHash = hash(token);
+const piiTokenHash = hash(`${token}-pii`);
 const original = 'Eine bestehende Regel soll verständlicher und einfacher überprüfbar werden.';
 const clarification = 'Gemeint ist ausschließlich der digitale Antrag; die fachliche Entscheidung bleibt unverändert.';
 
-async function seed(id) {
+async function seed(id, accessHash) {
   const q = await pool.query(
     `INSERT INTO submissions(public_id,original_text,region,topic,current_status)
      VALUES($1,$2,'Österreich','Verwaltung','clarification') RETURNING id`,
     [id,original]
   );
-  await pool.query(`INSERT INTO status_access(submission_id,token_hash) VALUES($1,$2)`,[q.rows[0].id,tokenHash]);
+  await pool.query(`INSERT INTO status_access(submission_id,token_hash) VALUES($1,$2)`,[q.rows[0].id,accessHash]);
   return q.rows[0].id;
 }
 
 try {
-  const submissionId = await seed(publicId);
+  const submissionId = await seed(publicId,tokenHash);
 
   const denied = await pool.query(
     `SELECT ideenwerk_submit_clarification($1,$2,$3,$4) AS result`,
@@ -73,10 +74,10 @@ try {
   const listed = await pool.query(`SELECT ideenwerk_list_clarifications($1,$2) AS result`,[publicId,tokenHash]);
   assert(listed.rows[0].result?.clarifications?.length === 1,'private clarification list missing response');
 
-  const piiSubmissionId = await seed(piiPublicId);
+  const piiSubmissionId = await seed(piiPublicId,piiTokenHash);
   const pii = await pool.query(
     `SELECT ideenwerk_submit_clarification($1,$2,$3,$4) AS result`,
-    [piiPublicId,tokenHash,'Bitte dazu test@example.com kontaktieren.','ci-pii']
+    [piiPublicId,piiTokenHash,'Bitte dazu test@example.com kontaktieren.','ci-pii']
   );
   assert(pii.rows[0].result?.accepted === false && pii.rows[0].result?.code === 'CLARIFICATION_PII_DETECTED','PII guard did not reject contact data');
   const piiState = await pool.query(`SELECT current_status FROM submissions WHERE id=$1`,[piiSubmissionId]);
