@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20T20:10:23Z",
+  "updated": "2026-09-20T21:40:52Z",
   "entries": [
     {
       "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
@@ -10,52 +10,57 @@
       "status": "HISTORICAL_VALID",
       "evidence": "WERK Frontend Check #173 completed successfully on the exact governance-mesh head. A newer functional governance head exists, so this receipt remains historical rather than current-head evidence.",
       "expires_at": null,
-      "revalidate_on": [
-        "head_changed",
-        "workflow_contract_changed"
-      ]
+      "revalidate_on": ["head_changed", "workflow_contract_changed"]
     },
     {
       "id": "WERK-EV-CI-GOVERNANCE-RECONCILIATION-20260920",
       "type": "ci_exact_head",
       "target": "242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
       "observed_at": "2026-09-20T19:16:53Z",
-      "status": "CURRENT_FOR_FUNCTIONAL_GOVERNANCE_SCOPE",
-      "evidence": "WERK Frontend Check #174 completed successfully on exact functional governance head 242893c2fcc322424d7b6fb4cc97a0e87ea90a6e. Current branch head 0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca is one audit-only commit ahead and changes only WERK_SUPERVISOR_STATE.json.",
+      "status": "HISTORICAL_VALID_FOR_GOVERNANCE_SCOPE",
+      "evidence": "WERK Frontend Check #174 completed successfully on exact functional governance head 242893c2fcc322424d7b6fb4cc97a0e87ea90a6e. Later branch work changed pg_net security and Project Memory, so this remains scoped governance evidence only.",
       "expires_at": null,
-      "revalidate_on": [
-        "functional_head_changed",
-        "workflow_contract_changed"
-      ]
+      "revalidate_on": ["functional_governance_changed", "workflow_contract_changed"]
     },
     {
-      "id": "WERK-EV-STAGING-20260920T201023Z",
+      "id": "WERK-EV-CI-PGNET-20260920",
+      "type": "ci_exact_head",
+      "target": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+      "observed_at": "2026-09-20T20:42:12Z",
+      "status": "CURRENT_FOR_PGNET_FUNCTIONAL_SCOPE",
+      "evidence": "IDEENWERK Backend Check #161 attempt 2 completed successfully on the exact pg_net functional head. The job includes syntax, 34 unit tests, migration apply/idempotency, operator/privacy/clarification/competence/existing-measure guardrails, distributed rate limiting, pg_net Data API guardrail, no-login API/privacy smoke, retention dry-run, backup/restore, clustering diagnostic and unchanged 1,000-item queue integration.",
+      "expires_at": null,
+      "revalidate_on": ["pg_net_functional_head_changed", "backend_workflow_contract_changed"]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260920T214052Z",
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
-      "observed_at": "2026-09-20T20:10:23Z",
+      "observed_at": "2026-09-20T21:40:52Z",
       "status": "CURRENT",
-      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920130959 competence_review_queue; 13 relevant IDEENWERK operational/content tables checked at zero synthetic baseline.",
-      "expires_at": "2026-09-21T20:10:23Z",
-      "revalidate_on": [
-        "edge_deploy",
-        "migration_change",
-        "runtime_config_change"
-      ]
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration is 20260920203116 pg_net_data_api_guard; 13 relevant IDEENWERK citizen/review/privacy/cluster tables independently checked at zero synthetic baseline.",
+      "expires_at": "2026-09-21T21:40:52Z",
+      "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
     {
-      "id": "WERK-EV-SUPABASE-SECURITY-20260920T201023Z",
+      "id": "WERK-EV-PGNET-BOUNDARY-20260920T214052Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / pg_net Data API boundary",
+      "observed_at": "2026-09-20T21:40:52Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
+      "evidence": "authenticator has pgrst.db_pre_request=public.werk_api_security_guard; anon/authenticated/service_role can execute the guard; independent transient guard invocation blocks anon Accept-Profile net with WERK_INTERNAL_SCHEMA while public profile is allowed; anon/authenticated are NOLOGIN roles; WERK-owned public net.http_* wrapper count is zero. Direct net schema/function ACLs remain Supabase-managed and permissive, so no durable direct-ACL revocation is claimed.",
+      "expires_at": "2026-09-21T21:40:52Z",
+      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-SECURITY-20260920T214052Z",
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
-      "observed_at": "2026-09-20T20:10:23Z",
-      "status": "CURRENT_WITH_WARNING_AND_ACL_DRIFT",
-      "evidence": "Security Advisor still reports extension_in_public for pg_net. Stronger live ACL evidence now shows schema net USAGE for PUBLIC/anon/authenticated and PUBLIC EXECUTE on pg_net routines, contradicting migration 016's intended lockdown. No external API exploit path was proven in this audit; do not infer public exploitability from DB grants alone.",
-      "expires_at": "2026-09-21T20:10:23Z",
-      "revalidate_on": [
-        "schema_or_policy_change",
-        "pg_net_extension_ddl_or_update",
-        "edge_deploy",
-        "before_security_acceptance"
-      ]
+      "observed_at": "2026-09-20T21:40:52Z",
+      "status": "CURRENT_WITH_PLATFORM_WARNING",
+      "evidence": "Security Advisor reports one WARN: extension_in_public for pg_net, plus 30 INFO rls_enabled_no_policy notices. The pg_net warning remains a production-hardening limitation; current staging Data-API boundary is separately counterchecked and no external exploit or data exposure was observed.",
+      "expires_at": "2026-09-21T21:40:52Z",
+      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "before_security_acceptance"]
     }
   ],
   "rule": "Nur tatsächlich beobachtete Evidence eintragen. Mutable Evidence folgt WERK_EVIDENCE_TTL_POLICY; historische Erfolge bleiben erhalten, auch wenn aktuelle Reliance revalidiert werden muss. Bei Widerspruch ersetzt stärkere aktuelle Live-Evidence nicht die Historie, sondern entzieht nur der älteren Current-State-Aussage ihre Gültigkeit."
