@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v10",
+  "version": "2026-09-20-v11",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck sowie bestehende-Maßnahmen-Abgleich mit menschlicher Überschneidungsprüfung implementiert; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege, auditierbare Rückfrage, Bürger-Klarstellung, konservativer Kompetenz-Vorcheck sowie bestehende-Maßnahmen-Abgleich mit reason-codierter menschlicher Überschneidungsprüfung implementiert; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -14,6 +14,7 @@
     "FAST/STANDARD/DEEP beschreibt ausschließlich die Prüftiefe des Verfahrens und ist weder politischer Score noch Annahme-/Ablehnungsentscheidung",
     "der Kompetenz-Vorcheck ordnet nur hochspezifische, durch das bestehende Kompetenzinventar belegte Fälle vorläufig zu; unklare Fälle bleiben offen und jede Zuordnung ist weder politische Bewertung noch endgültige Rechtsentscheidung",
     "der Abgleich mit bestehenden Maßnahmen verwendet nur hochspezifische Treffer aus den bestehenden WERK-Baseline-Registern; ein Treffer eröffnet einen deduplizierten menschlichen Impact-Review und löst weder Annahme noch Ablehnung aus; kein Treffer beweist ausdrücklich nicht, dass keine bestehende oder geplante Maßnahme existiert",
+    "die menschliche Überschneidungsprüfung klassifiziert ausschließlich den Baseline-Bezug als bestätigt, teilweise oder nicht materiell; sie verändert weder den Originaltext noch den automatischen Treffer und entscheidet nicht über Annahme oder Ablehnung der Bürgeridee",
     "ein Löschwunsch eröffnet einen prüfbaren Datenschutzvorgang und löst keine automatische irreversible Löschung aus",
     "Klarstellungsfragen entstehen aus dem bestehenden menschlichen Review-Modell; es gibt dafür keinen ungeschützten öffentlichen Operator-Endpunkt"
   ],
@@ -40,16 +41,16 @@
       "path": "/status/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["public_id", "original_text", "current_status", "review_path?", "competence_precheck?", "existing_measure_check?", "clarification_prompt?", "privacy_requests", "clarifications", "history"],
-      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; competence_precheck enthält nach Eintritt in precheck result_code, inventory_item_id, current_class, suggested_level, source_ids, confidence, legal_change_required, classifier_version und checked_at; unklare Fälle bleiben unclassified; existing_measure_check enthält nach Eintritt in precheck result_code=possible_overlap|no_known_overlap, matched_refs, reference_versions, confidence, requires_human_review, classifier_version und checked_at; possible_overlap ist nur ein Review-Hinweis und erzeugt einen deduplizierten internen Impact-Review-Task, no_known_overlap ist kein Vollständigkeitsnachweis; clarification_prompt enthält bei offener Rückfrage prompt_id, question, reason_code, status und Zeitpunkte; Operator-Identität wird nicht ausgegeben; alle privaten Felder gehören ausschließlich zur token-authentifizierten eigenen Einreichung"
+      "response": ["public_id", "original_text", "current_status", "review_path?", "competence_precheck?", "existing_measure_check?", "existing_measure_review?", "clarification_prompt?", "privacy_requests", "clarifications", "history"],
+      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; competence_precheck enthält nach Eintritt in precheck result_code, inventory_item_id, current_class, suggested_level, source_ids, confidence, legal_change_required, classifier_version und checked_at; unklare Fälle bleiben unclassified; existing_measure_check enthält nach Eintritt in precheck result_code=possible_overlap|no_known_overlap, matched_refs, reference_versions, confidence, requires_human_review, classifier_version und checked_at; possible_overlap ist nur ein Review-Hinweis und erzeugt einen deduplizierten internen Impact-Review-Task, no_known_overlap ist kein Vollständigkeitsnachweis; existing_measure_review enthält nach abgeschlossener menschlicher Prüfung ausschließlich resolution_code=BASELINE_OVERLAP_CONFIRMED|BASELINE_OVERLAP_PARTIAL|NO_MATERIAL_OVERLAP, resolved_at und die Verfahrensgrenze; Operator-Identität und interne rationale werden nicht ausgegeben; clarification_prompt enthält bei offener Rückfrage prompt_id, question, reason_code, status und Zeitpunkte; alle privaten Felder gehören ausschließlich zur token-authentifizierten eigenen Einreichung"
     },
     {
       "method": "GET",
       "path": "/privacy/export/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["submission", "structured_proposal", "competence_precheck", "existing_measure_check", "cluster_memberships", "audit_history", "privacy_requests", "clarification_prompts", "citizen_clarifications"],
-      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Kompetenz-Vorcheck, bestehende-Maßnahmen-Abgleich, gespeicherte Rückfragen und Antworten sind enthalten; Token-/Abuse-Hashes sowie Operator-Identitäten werden nicht ausgegeben; Exportzugriff wird auditiert"
+      "response": ["submission", "structured_proposal", "competence_precheck", "existing_measure_check", "existing_measure_review", "cluster_memberships", "audit_history", "privacy_requests", "clarification_prompts", "citizen_clarifications"],
+      "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Kompetenz-Vorcheck, bestehende-Maßnahmen-Abgleich, bounded menschliche Überschneidungsauflösung, gespeicherte Rückfragen und Antworten sind enthalten; Token-/Abuse-Hashes, Operator-Identitäten und interne Review-Begründungen werden nicht als existing_measure_review ausgegeben; Exportzugriff wird auditiert"
     },
     {
       "method": "POST",
@@ -147,6 +148,7 @@
     {"name":"semantic_cluster_review","implementation":"scaffolded","input":"semantic features","output":"same solution | solution variant | overlap | separate"},
     {"name":"competence_precheck","implementation":"staging-live","input":"structured_proposal + immutable submission context","output":"conservative competence_precheck + suggested_level when previously empty + audited source references","failure":"unknown/ambiguous cases remain unclassified for human/legal review"},
     {"name":"existing_measure_check","implementation":"staging-live","input":"structured_proposal + immutable submission context + existing WERK baseline registries","output":"bounded existing_measure_check with reference IDs, dataset versions and audited review hint; possible_overlap creates exactly one active existing_measure_overlap review task for impact_reviewer","failure":"no high-specificity match returns no_known_overlap without claiming completeness; repeated checks do not duplicate active human-review tasks"},
+    {"name":"existing_measure_review_resolution","implementation":"staging-live","input":"authorized impact_reviewer decision on existing_measure_overlap task","output":"exactly one reason-coded resolution: BASELINE_OVERLAP_CONFIRMED | BASELINE_OVERLAP_PARTIAL | NO_MATERIAL_OVERLAP; audited without automatic proposal decision","failure":"wrong action/reason, missing rationale, inactive/wrong-role operator or inactive signal is rejected server-side"},
     {"name":"queue_router","implementation":"partial","input":"existing-measure overlap signal plus future signals/gates","output":"existing_measure_overlap is routed to impact_reviewer; broader review-queue routing remains open"}
   ],
   "http_rules": {
