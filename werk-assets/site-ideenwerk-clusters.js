@@ -46,7 +46,8 @@ function buildQuery(cursor=null){
 function clusterCard(c){
   const meta=[c.region_scope,statusLabel(c.review_status),laneLabel(c.process_lane_suggestion)].filter(Boolean).map(esc).join(' · ');
   const count=Number.isFinite(Number(c.submission_count))?Number(c.submission_count):0;
-  return `<article class="iwCluster" data-live-cluster="${esc(c.cluster_id||'')}"><span class="iwBadge">${esc(c.topic||'Thema offen')}</span><h4>${esc(c.title||'Unbenannter Themenraum')}</h4><small>${meta}</small><div class="iwHint">${count} zugeordnete Einreichung${count===1?'':'en'} · aktualisiert ${esc(c.updated_at?new Intl.DateTimeFormat('de-AT',{dateStyle:'medium'}).format(new Date(c.updated_at)):'–')}</div></article>`;
+  const updated=c.updated_at?new Intl.DateTimeFormat('de-AT',{dateStyle:'medium'}).format(new Date(c.updated_at)):'–';
+  return `<article class="iwCluster" data-live-cluster="${esc(c.cluster_id||'')}"><span class="iwBadge">${esc(c.topic||'Thema offen')}</span><h4>${esc(c.title||'Unbenannter Themenraum')}</h4><small>${meta}</small><div class="iwHint">${count} zugeordnete Einreichung${count===1?'':'en'} · aktualisiert ${esc(updated)}</div></article>`;
 }
 
 function setBusy(button,busy){
@@ -56,7 +57,6 @@ function setBusy(button,busy){
 }
 
 async function loadClusters(reset){
-  if(state.loading)return;
   const grid=document.getElementById('iwPublicClusterGrid');
   const more=document.getElementById('iwPublicClusterMore');
   const note=document.getElementById('iwPublicClusterNote');
