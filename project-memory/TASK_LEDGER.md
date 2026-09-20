@@ -245,3 +245,16 @@ Keep history append-only; supersede rather than delete.
 - Reconciliation result: stale WERK privacy Started Work/lock closed; outdated existing-measure next action superseded; first connection-sweep gap recorded as `WERK-DEP-IDEENWERK-IMPACT-001` / `WERK-LOOP-IMPACT-BRIDGE-001`.
 - Next step: builder implements the derived citizen/cluster → existing reform/calculation impact bridge; supervisor independently counterchecks the claim and feeds the next cycle.
 - Do not repeat: do not create a second WERK TODO/roadmap ledger; extend the existing Project Memory registers.
+
+
+## WERK-GOV-001
+- Date: 2026-09-20
+- Status: IN_PROGRESS
+- Risk: R3
+- Goal: Reconcile the WERK-specific autonomous control plane so WERK is not steered by historical WellFit selectors or ambiguous evidence ownership.
+- Starting finding: independent WERK Supervisor recorded `CTR-WERK-GOV-001` after the first closed-loop audit.
+- Scope: WERK-specific Finishline, Next-Best-Actions, Supervisor State, Evidence TTL/Freshness, Owner Actions, automation roles, system graph and shared selector routing only.
+- Completed so far: WERK-specific Finishline/Action/Evidence/Milestone/Owner files exist; automation roles and system graph exist; Builder/Supervisor/Navigator/Owner Manager are active.
+- Current reconciliation: shared `NEXT_BEST_ACTION.md` is routed to WERK's current Impact Bridge; evidence-freshness ownership is being made single-authority; historical WellFit content is retained but not authoritative for WERK automation.
+- Exact next step: independent Supervisor countercheck; on success mark this task COUNTERCHECKED and remove `CTR-WERK-GOV-001` from active findings.
+- Do not repeat: do not create a second WERK task system or allow WellFit finishline/owner files to steer WERK.
