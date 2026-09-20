@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Reconcile staged Impact Bridge claim
         run: |
-          python scripts/werk-impact-bridge-reconcile-once.py
+          python scripts/werk-impact-bridge-reconcile-v2.py
           git diff --check
           git config user.name 'werk-autonomous-builder'
           git config user.email 'actions@users.noreply.github.com'
