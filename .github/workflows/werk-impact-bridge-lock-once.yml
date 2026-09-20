@@ -1,0 +1,45 @@
+name: WERK impact bridge lock once
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths: ['.github/workflows/werk-impact-bridge-lock-once.yml']
+permissions:
+  contents: write
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: werk-v49-preview-host
+          fetch-depth: 0
+      - name: Acquire canonical task and lock
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('project-memory/STARTED_WORK.md')
+          t=p.read_text()
+          e="## WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Started: 2026-09-20 22:31 UTC\n- Status: IN_PROGRESS\n- Risk: R3\n- Branch: `werk-v49-preview-host`\n- Lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001`\n- Scope: version-bound citizen/cluster → existing WERK reform/calculation reference bridge; no new fiscal calculation or political recommendation.\n- Dependency: `WERK-DEP-IDEENWERK-IMPACT-001`; open loop `WERK-LOOP-IMPACT-BRIDGE-001`.\n- Exact next step: implement canonical registry + migration 037 + stale/negative checks + existing V71 status reuse, then exact-head CI and reversible Staging verification.\n\n"
+          if '## WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in t:
+              t=t.replace('## Active work\n\n','## Active work\n\n'+e,1)
+              p.write_text(t)
+          p=Path('project-memory/WORK_LOCKS.md')
+          t=p.read_text()
+          e="## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Task: WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Status: ACTIVE\n- Risk: R3\n- Holder: WERK autonomous builder\n- Branch: `werk-v49-preview-host`\n- Acquired: 2026-09-20 22:31 UTC\n- Scope: bounded Impact Bridge registry/runtime/status integration and reversible Staging verification only.\n- Excludes: new fiscal calculations, AI synthesis, political scoring/acceptance, production, identity/voting.\n- Release: after Builder claim is recorded; independent acceptance remains Supervisor-owned.\n\n"
+          if '## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in t:
+              t=t.replace('## Active/stale locks\n\n','## Active/stale locks\n\n'+e,1)
+              p.write_text(t)
+          p=Path('project-memory/TASK_LEDGER.md')
+          t=p.read_text()
+          e="\n\n## WERK-IDEENWERK-IMPACT-BRIDGE-001\n- Date: 2026-09-20\n- Status: IN_PROGRESS\n- Risk: R3\n- Goal: connect IDEENWERK citizen problems to existing WERK reform/calculation artifacts through a deterministic version-bound reference bridge without duplicating calculations.\n- Boundary: candidate references only; no new numeric effect, political score, automatic acceptance/rejection, or completeness claim from no-match.\n- Dependency: `WERK-DEP-IDEENWERK-IMPACT-001`; open loop `WERK-LOOP-IMPACT-BRIDGE-001`.\n- Next: repository implementation → exact-head CI → reversible Staging verification → Builder claim → independent Supervisor countercheck.\n"
+          if '## WERK-IDEENWERK-IMPACT-BRIDGE-001\n' not in t:
+              p.write_text(t.rstrip()+e+'\n')
+          PY
+          git diff --check
+          git config user.name 'werk-autonomous-builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add project-memory/STARTED_WORK.md project-memory/WORK_LOCKS.md project-memory/TASK_LEDGER.md
+          git diff --cached --quiet && exit 0
+          git commit -m 'chore: lock WERK impact bridge implementation'
+          git push origin HEAD:werk-v49-preview-host
