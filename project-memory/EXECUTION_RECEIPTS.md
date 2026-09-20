@@ -138,3 +138,17 @@ TAX-001 implementation: original ABB PDF and visual/text source reconciliation;2
 SUB001: full BMF CSV and 24 historical UG controls;15,802 rows,2,577 dimensions,1,035 focus account/classes,20 review entries. Independent8 numerical anchors/15 account-year-class sums,16 invalid inputs and8 corruptions passed. All five final local workflow bodies passed; final missing-class guard rechecked. All 13 triggered remote workflows succeeded at 0d47fa44c378438bc2c760df954756d73ff900c0; WERK_SUB_001_CI_RECEIPT.json.
 
 SUB001 final coverage finding: no source class16/17 records in2014–2016. Components and complete06+16 total now remain null, reported-row subtotal separate; three explicit counterchecks added. Focus2024–2028 totals unchanged. No historical zero inferred.
+
+## RECEIPT-WERK-GOV-001-20260920-2010
+- Task: WERK-GOV-001
+- Finished: 2026-09-20 20:10 UTC
+- Branch: `werk-v49-preview-host`
+- Risk: R3
+- Preflight checked: WERK autonomy protocol, role/coordination contracts, finishline, supervisor state, evidence TTL/freshness, owner/deferred actions, system graph, contradictions, receipts, loops, locks, dependencies, task ledger, WERK action catalog, shared next action, exact Git branch/CI and live WERK Staging state.
+- Exact functional governance evidence: commit `242893c2fcc322424d7b6fb4cc97a0e87ea90a6e`; WERK Frontend Check #174 completed successfully.
+- Scope-diff countercheck: pre-audit branch head `0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca` is exactly one commit ahead of the functional governance head and modifies only `project-memory/WERK_SUPERVISOR_STATE.json`.
+- Governance result: shared selector is WERK-first; WERK-GOV-001 is registered; historical WellFit selector content is non-authoritative for WERK; write authority for Supervisor, Evidence Reaper, Finishline Navigator and Builder is explicit.
+- Result status: COUNTERCHECKED.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T201023Z.json`.
+- Negative/security countercheck: governance completion does not imply security acceptance. The same audit discovered `CTR-WERK-SEC-PGNET-ACL-001`: live pg_net ACLs contradict migration 016's intended revoke. That security finding remains open and takes priority over feature work.
+- Falsifier: a current WERK selector led by WellFit, missing WERK task registration, ambiguous write authority, or an unverified functional governance head would invalidate this countercheck; none is present in the audited functional scope.
