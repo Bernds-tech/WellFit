@@ -32,6 +32,7 @@ test('public cluster contract matches the staging Edge response envelope', async
   assert.match(edgeSource, /return \{ clusters: publicClusters, next_cursor: nextCursor \};/);
   assert.match(edgeSource, /\.order\('updated_at',\{ascending:false\}\)\s*\.order\('cluster_id',\{ascending:false\}\)\s*\.limit\(limit \+ 1\)/s);
   assert.match(edgeSource, /\.neq\('review_status','quarantine'\)\s*\.neq\('review_status','removed'\)/s);
+  assert.match(edgeSource, /from\('cluster_variants'\)\.select\('cluster_id'\)\.in\('cluster_id',ids\)\.neq\('review_status','quarantine'\)\.neq\('review_status','removed'\)/);
   assert.match(edgeSource, /if \(filters\.topic\) query = query\.eq\('topic', filters\.topic\);/);
   assert.match(edgeSource, /if \(filters\.region\) query = query\.eq\('region_scope', filters\.region\);/);
   assert.match(edgeSource, /if \(filters\.status\) query = query\.eq\('review_status', filters\.status\);/);
@@ -44,6 +45,7 @@ test('public cluster contract matches the staging Edge response envelope', async
   assert.deepEqual(detail.response, ['cluster', 'variants']);
   assert.match(edgeSource, /return json\(\{\s*cluster:\{/s);
   assert.match(edgeSource, /variants:variants\|\|\[\]/);
+  assert.match(edgeSource, /from\('cluster_variants'\)\.select\('variant_id,title,summary,review_status,created_at,updated_at'\)\.eq\('cluster_id',cluster\.id\)\.neq\('review_status','quarantine'\)\.neq\('review_status','removed'\)\.order\('created_at',\{ascending:true\}\)/);
 
   assert.match(contract.http_rules.pagination, /cursor/i);
   assert.match(contract.http_rules.pagination, /updated_at/i);
@@ -59,6 +61,9 @@ test('cluster contract advertises only live public list extensions', async () =>
   for (const supportedQuery of ['topic', 'region', 'status', 'cursor']) {
     assert.ok(list.query.includes(supportedQuery), `live cluster query parameter missing: ${supportedQuery}`);
   }
+
+  assert.match(String(list.notes || ''), /Varianten.*quarantine|quarantined.*Varianten|Varianten.*removed/i, 'list contract must document hidden variants in variant_count');
+  assert.match(String(detail.notes || ''), /Varianten.*quarantine|quarantined.*Varianten|Varianten.*removed/i, 'detail contract must document hidden variants');
 
   for (const unsupportedField of ['problem_cluster', 'solution_variants', 'attention_signals', 'quality_gates', 'linked_reforms', 'status_history_public']) {
     assert.ok(!detail.response.includes(unsupportedField), `non-live cluster detail field advertised: ${unsupportedField}`);
