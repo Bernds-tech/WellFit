@@ -12,7 +12,21 @@ const supabase = createClient(SUPABASE_URL, SECRET_KEY, {
 
 const ALLOWED_ORIGINS = new Set(['https://raw.githack.com']);
 const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 const PRIVACY_REQUEST_TYPES = new Set(['export','correction','deletion','restriction','cluster_appeal']);
+const CLUSTER_CURSOR_VERSION = 1;
+
+type ClusterFilters = {
+  topic: string | null;
+  region: string | null;
+  status: string | null;
+};
+
+type ClusterCursor = ClusterFilters & {
+  v: number;
+  updated_at: string;
+  cluster_id: string;
+};
 
 function corsHeaders(origin: string | null) {
   const allow = origin && ALLOWED_ORIGINS.has(origin) ? origin : '';
@@ -98,21 +112,76 @@ function laneSuggestion(topic: string | null, title: string | null, reviewStatus
   return { process_lane_suggestion:'STANDARD', process_lane_reason:'Reguläre Fach-, Wirkungs- und Bürgerprüfung.' };
 }
 
+function encodeClusterCursor(cursor: ClusterCursor) {
+  const bytes = encoder.encode(JSON.stringify(cursor));
+  let binary = '';
+  for (const byte of bytes) binary += String.fromCharCode(byte);
+  return btoa(binary).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+}
+
+function decodeClusterCursor(value: string, filters: ClusterFilters): ClusterCursor | null {
+  try {
+    if (!value || value.length > 1000 || !/^[A-Za-z0-9_-]+$/.test(value)) return null;
+    const normalized = value.replace(/-/g,'+').replace(/_/g,'/');
+    const padded = normalized + '='.repeat((4 - normalized.length % 4) % 4);
+    const binary = atob(padded);
+    const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+    const parsed = JSON.parse(decoder.decode(bytes));
+    if (!parsed || parsed.v !== CLUSTER_CURSOR_VERSION) return null;
+    if (!/^CLU-[A-F0-9]{16}$/.test(parsed.cluster_id || '')) return null;
+    if (!parsed.updated_at || !Number.isFinite(Date.parse(parsed.updated_at))) return null;
+    for (const key of ['topic','region','status'] as const) {
+      if (parsed[key] !== null && (typeof parsed[key] !== 'string' || parsed[key].length > 120)) return null;
+      if (parsed[key] !== filters[key]) return null;
+    }
+    return {
+      v: CLUSTER_CURSOR_VERSION,
+      updated_at: new Date(parsed.updated_at).toISOString(),
+      cluster_id: parsed.cluster_id,
+      topic: parsed.topic,
+      region: parsed.region,
+      status: parsed.status
+    };
+  } catch {
+    return null;
+  }
+}
+
+function clusterFilterValue(url: URL, name: 'topic' | 'region' | 'status') {
+  if (!url.searchParams.has(name)) return { value: null, valid: true };
+  const value = String(url.searchParams.get(name) || '').trim();
+  return { value: value || null, valid: value.length > 0 && value.length <= 120 };
+}
+
 async function privateClarifications(publicId: string, tokenHash: string) {
   const { data, error } = await supabase.rpc('ideenwerk_list_clarifications', { p_public_id: publicId, p_token_hash: tokenHash });
   if (error) throw error;
   return Array.isArray(data?.clarifications) ? data.clarifications : [];
 }
 
-async function publicClusterList(limit: number) {
-  const { data: clusters, error } = await supabase
+async function publicClusterList(limit: number, filters: ClusterFilters, cursor: ClusterCursor | null) {
+  let query = supabase
     .from('clusters')
     .select('id,cluster_id,title,topic,region_scope,review_status,created_at,updated_at')
+    .neq('review_status','quarantine')
+    .neq('review_status','removed');
+
+  if (filters.topic) query = query.eq('topic', filters.topic);
+  if (filters.region) query = query.eq('region_scope', filters.region);
+  if (filters.status) query = query.eq('review_status', filters.status);
+  if (cursor) {
+    query = query.or(`updated_at.lt.${cursor.updated_at},and(updated_at.eq.${cursor.updated_at},cluster_id.lt.${cursor.cluster_id})`);
+  }
+
+  const { data: clusters, error } = await query
     .order('updated_at',{ascending:false})
-    .limit(Math.min(50, Math.max(limit, 1)));
+    .order('cluster_id',{ascending:false})
+    .limit(limit + 1);
   if (error) throw error;
-  const visible = (clusters || []).filter((c:any) => !['quarantine','removed'].includes(c.review_status));
-  const ids = visible.map((c:any)=>c.id);
+
+  const rows = clusters || [];
+  const page = rows.slice(0, limit);
+  const ids = page.map((c:any)=>c.id);
   const memberCounts = new Map<string,number>();
   const variantCounts = new Map<string,number>();
   if (ids.length) {
@@ -124,12 +193,24 @@ async function publicClusterList(limit: number) {
     for (const m of members || []) memberCounts.set(m.cluster_id,(memberCounts.get(m.cluster_id)||0)+1);
     for (const v of variants || []) variantCounts.set(v.cluster_id,(variantCounts.get(v.cluster_id)||0)+1);
   }
-  return visible.map((c:any)=>({
+
+  const publicClusters = page.map((c:any)=>({
     cluster_id:c.cluster_id,title:c.title,topic:c.topic,region_scope:c.region_scope,
     review_status:c.review_status,submission_count:memberCounts.get(c.id)||0,
     variant_count:variantCounts.get(c.id)||0,updated_at:c.updated_at,
     ...laneSuggestion(c.topic,c.title,c.review_status)
   }));
+  const last = rows.length > limit ? page[page.length - 1] : null;
+  const nextCursor = last ? encodeClusterCursor({
+    v: CLUSTER_CURSOR_VERSION,
+    updated_at: new Date(last.updated_at).toISOString(),
+    cluster_id: last.cluster_id,
+    topic: filters.topic,
+    region: filters.region,
+    status: filters.status
+  }) : null;
+
+  return { clusters: publicClusters, next_cursor: nextCursor };
 }
 
 Deno.serve(async (req: Request) => {
@@ -274,8 +355,26 @@ Deno.serve(async (req: Request) => {
     if (req.method === 'GET' && path === '/clusters') {
       if (!(await takeRateLimit(req,'edge_clusters',120,60))) return json({code:'RATE_LIMITED'},429,origin);
       const url = new URL(req.url);
-      const limit = Math.min(50, Math.max(1, Number(url.searchParams.get('limit') || 12) || 12));
-      return json({clusters:await publicClusterList(limit)},200,origin);
+      const allowed = new Set(['limit','topic','region','status','cursor']);
+      for (const key of url.searchParams.keys()) {
+        if (!allowed.has(key)) return json({code:'INVALID_CLUSTER_QUERY',message:`Unbekannter Query-Parameter: ${key}`},400,origin);
+      }
+      const limitRaw = url.searchParams.get('limit');
+      const limitNumber = limitRaw === null ? 12 : Number(limitRaw);
+      if (!Number.isInteger(limitNumber) || limitNumber < 1 || limitNumber > 50) {
+        return json({code:'INVALID_CLUSTER_QUERY',message:'limit muss eine ganze Zahl zwischen 1 und 50 sein.'},400,origin);
+      }
+      const topic = clusterFilterValue(url,'topic');
+      const region = clusterFilterValue(url,'region');
+      const status = clusterFilterValue(url,'status');
+      if (!topic.valid || !region.valid || !status.valid || ['quarantine','removed'].includes(status.value || '')) {
+        return json({code:'INVALID_CLUSTER_QUERY',message:'Cluster-Filter sind ungültig oder nicht öffentlich.'},400,origin);
+      }
+      const filters: ClusterFilters = { topic: topic.value, region: region.value, status: status.value };
+      const cursorRaw = url.searchParams.get('cursor');
+      const cursor = cursorRaw ? decodeClusterCursor(cursorRaw, filters) : null;
+      if (cursorRaw && !cursor) return json({code:'INVALID_CURSOR',message:'Cursor ist ungültig oder passt nicht zu den Filtern.'},400,origin);
+      return json(await publicClusterList(limitNumber, filters, cursor),200,origin);
     }
 
     const clusterMatch = path.match(/^\/clusters\/(CLU-[A-F0-9]{16})$/);
