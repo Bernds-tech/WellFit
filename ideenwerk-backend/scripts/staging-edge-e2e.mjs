@@ -18,15 +18,18 @@ if (!databaseUrl) {
 
 const runId = `STAGING-E2E-${new Date().toISOString().replace(/[-:.TZ]/g, '')}-${Math.random().toString(16).slice(2, 10)}`;
 const idempotencyKey = `staging-e2e:${runId}`;
+const clarificationIdempotencyKey = `staging-e2e:clarification:${runId}`;
 const payload = {
   text: 'Synthetischer WERK-Staging-Test: Verwaltungsabläufe sollen transparent, nachvollziehbar und ohne personenbezogene Daten verbessert werden.',
   region: 'Niederösterreich',
   topic: 'Verwaltung',
   consent_public_anonymous: false
 };
+const clarificationText = 'Bitte ergänzen: Die Idee betrifft nur standardisierte Verwaltungsabläufe und soll ohne personenbezogene Daten geprüft werden.';
 const pool = new Pool({ connectionString: databaseUrl });
 let publicId = null;
 let token = null;
+let clarificationId = null;
 
 function assert(condition, message, detail) {
   if (!condition) {
@@ -61,6 +64,81 @@ async function createPrivacyRequest(requestType, details) {
     headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
     body: JSON.stringify({ request_type: requestType, details })
   }));
+}
+
+async function submitClarification(authToken, text=clarificationText, key=clarificationIdempotencyKey) {
+  return jsonResponse(await fetch(`${base}/status/${publicId}/clarification`, {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${authToken}`,
+      'content-type': 'application/json',
+      'idempotency-key': key
+    },
+    body: JSON.stringify({ text })
+  }));
+}
+
+async function prepareClarificationCheckpoint() {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    const target = await client.query(
+      `SELECT id,public_id,current_status,original_text
+         FROM submissions
+        WHERE public_id=$1
+        FOR UPDATE`,
+      [publicId]
+    );
+    assert(target.rowCount === 1, 'synthetic submission missing before clarification checkpoint', { publicId });
+    const row = target.rows[0];
+    const active = await client.query(
+      `SELECT count(*)::int AS count
+         FROM processing_jobs
+        WHERE subject_type='submission'
+          AND subject_id=$1
+          AND status IN ('queued','running')`,
+      [publicId]
+    );
+    assert(active.rows[0]?.count === 0, 'cannot prepare clarification checkpoint while worker jobs are active', active.rows[0]);
+    assert(row.original_text === payload.text, 'original text changed before clarification checkpoint', row);
+
+    if (row.current_status !== 'clarification') {
+      await client.query(
+        `UPDATE submissions
+            SET current_status='clarification',updated_at=now()
+          WHERE id=$1`,
+        [row.id]
+      );
+      await client.query(
+        `INSERT INTO audit_events(event_id,subject_type,subject_id,event_type,actor_type,reason_code,payload)
+         VALUES(
+           'EVT-E2E-'||upper(substr(md5(random()::text||clock_timestamp()::text),1,20)),
+           'submission',$1,'staging_test_checkpoint','system','STAGING_E2E_CLARIFICATION_SETUP',
+           $2::jsonb
+         )`,
+        [publicId, JSON.stringify({ from: row.current_status, to: 'clarification', run_id: runId })]
+      );
+    }
+    await client.query('COMMIT');
+    return { from: row.current_status, to: 'clarification' };
+  } catch (error) {
+    await client.query('ROLLBACK');
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+async function pollUntilStable(startData) {
+  const deadline = Date.now() + timeoutMs;
+  let current = startData;
+  while (Date.now() < deadline && ['received','structured','cluster_review','clarification'].includes(current?.current_status)) {
+    await new Promise(resolve => setTimeout(resolve, intervalMs));
+    const polled = await fetchStatus(token);
+    assert(polled.response.status === 200, 'private status polling failed', polled.data);
+    current = polled.data;
+  }
+  return current;
 }
 
 async function cleanup() {
@@ -138,6 +216,21 @@ async function cleanup() {
   }
 }
 
+async function assertNoSyntheticResidue(cleanedPublicId, cleanedClarificationId) {
+  const residue = await pool.query(
+    `SELECT
+       (SELECT count(*)::int FROM submissions WHERE idempotency_key=$1 OR public_id=$2) AS submissions,
+       (SELECT count(*)::int FROM processing_jobs WHERE subject_id=$2) AS jobs,
+       (SELECT count(*)::int FROM audit_events WHERE subject_type='submission' AND subject_id=$2) AS audit,
+       (SELECT count(*)::int FROM citizen_clarifications WHERE clarification_id=$3) AS clarifications`,
+    [idempotencyKey, cleanedPublicId, cleanedClarificationId]
+  );
+  const row = residue.rows[0];
+  assert(row?.submissions === 0 && row?.jobs === 0 && row?.audit === 0 && row?.clarifications === 0,
+    'synthetic staging residue remains after cleanup', row);
+  return row;
+}
+
 try {
   const created = await jsonResponse(await fetch(`${base}/submissions`, {
     method: 'POST',
@@ -153,15 +246,8 @@ try {
   assert(firstStatus.response.status === 200, 'private status must accept issued token', firstStatus.data);
   assert(firstStatus.data?.public_id === publicId, 'private status public_id mismatch', firstStatus.data);
 
-  const deadline = Date.now() + timeoutMs;
-  let finalStatus = firstStatus.data;
-  while (Date.now() < deadline && ['received','structured','cluster_review'].includes(finalStatus?.current_status)) {
-    await new Promise(resolve => setTimeout(resolve, intervalMs));
-    const polled = await fetchStatus(token);
-    assert(polled.response.status === 200, 'private status polling failed', polled.data);
-    finalStatus = polled.data;
-  }
-  assert(!['received','structured','cluster_review'].includes(finalStatus?.current_status), 'staging worker did not advance submission to a stable checkpoint before timeout', finalStatus);
+  let finalStatus = await pollUntilStable(firstStatus.data);
+  assert(!['received','structured','cluster_review','clarification'].includes(finalStatus?.current_status), 'staging worker did not advance submission to a stable checkpoint before timeout', finalStatus);
   assert(finalStatus?.review_path?.depth === 'STANDARD', 'protected status must expose the assigned STANDARD review path for the neutral synthetic case', finalStatus);
   assert(['standard_review','high_attention','quality_low_attention','existing_measure_review'].includes(finalStatus?.review_path?.triage_queue), 'protected status review path must expose an expected triage queue', finalStatus);
   assert(Array.isArray(finalStatus?.privacy_requests) && finalStatus.privacy_requests.length === 0, 'fresh protected status must expose an empty privacy request list', finalStatus);
@@ -195,6 +281,65 @@ try {
   assert(statusAfterPrivacy.data?.data_state !== 'erased', 'deletion request must not automatically erase citizen data', statusAfterPrivacy.data);
   assert(statusAfterPrivacy.data?.original_text === payload.text, 'deletion request must not mutate original text before review', statusAfterPrivacy.data);
 
+  const clarificationCheckpoint = await prepareClarificationCheckpoint();
+  assert(clarificationCheckpoint.to === 'clarification', 'failed to prepare synthetic clarification checkpoint', clarificationCheckpoint);
+
+  const deniedClarification = await submitClarification('definitely-wrong-token');
+  assert(
+    deniedClarification.response.status === 403 && deniedClarification.data?.code === 'STATUS_ACCESS_DENIED',
+    'wrong token must be denied for deployed clarification route',
+    deniedClarification.data
+  );
+
+  const clarification = await submitClarification(token);
+  assert(clarification.response.status === 201, 'deployed clarification route must return 201 for a new clarification', clarification.data);
+  assert(
+    clarification.data?.accepted === true &&
+      clarification.data?.replayed === false &&
+      clarification.data?.clarification_id &&
+      clarification.data?.status === 'cluster_review' &&
+      clarification.data?.next === 'semantic_cluster_review',
+    'deployed clarification route contract failed',
+    clarification.data
+  );
+  clarificationId = clarification.data.clarification_id;
+
+  const clarificationReplay = await submitClarification(token);
+  assert(clarificationReplay.response.status === 200, 'clarification replay must return 200', clarificationReplay.data);
+  assert(
+    clarificationReplay.data?.accepted === true &&
+      clarificationReplay.data?.replayed === true &&
+      clarificationReplay.data?.clarification_id === clarificationId,
+    'clarification replay must reuse the same clarification id',
+    clarificationReplay.data
+  );
+
+  const statusAfterClarification = await fetchStatus(token);
+  assert(statusAfterClarification.response.status === 200, 'status after clarification failed', statusAfterClarification.data);
+  assert(
+    Array.isArray(statusAfterClarification.data?.clarifications) &&
+      statusAfterClarification.data.clarifications.length === 1 &&
+      statusAfterClarification.data.clarifications[0]?.clarification_id === clarificationId &&
+      statusAfterClarification.data.clarifications[0]?.response_text === clarificationText,
+    'protected status must expose exactly the submitted clarification',
+    statusAfterClarification.data
+  );
+  assert(statusAfterClarification.data?.original_text === payload.text, 'clarification must not mutate original text', statusAfterClarification.data);
+
+  finalStatus = await pollUntilStable(statusAfterClarification.data);
+  assert(!['clarification','structured','cluster_review'].includes(finalStatus?.current_status), 'staging worker did not continue after clarification before timeout', finalStatus);
+  assert(finalStatus?.review_path?.depth === 'STANDARD', 'clarified neutral case must return to STANDARD review path', finalStatus);
+
+  const exportAfterClarification = await privacyGet('/privacy/export');
+  assert(exportAfterClarification.response.status === 200, 'privacy export after clarification failed', exportAfterClarification.data);
+  assert(
+    Array.isArray(exportAfterClarification.data?.citizen_clarifications) &&
+      exportAfterClarification.data.citizen_clarifications.length === 1 &&
+      exportAfterClarification.data.citizen_clarifications[0]?.clarification_id === clarificationId,
+    'privacy export must include the citizen clarification',
+    exportAfterClarification.data
+  );
+
   const replay = await jsonResponse(await fetch(`${base}/submissions`, {
     method: 'POST',
     headers: { 'content-type':'application/json', 'idempotency-key': idempotencyKey },
@@ -221,15 +366,18 @@ try {
 
   const db = await pool.query(
     `WITH target AS (
-       SELECT id,public_id,current_status FROM submissions WHERE public_id=$1
+       SELECT id,public_id,current_status,original_text FROM submissions WHERE public_id=$1
      )
      SELECT
        (SELECT current_status FROM target) AS current_status,
+       (SELECT original_text FROM target) AS original_text,
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status='dead') AS dead_jobs,
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status IN ('queued','running')) AS active_jobs,
        (SELECT count(*)::int FROM processing_jobs j JOIN target t ON j.subject_id=t.public_id WHERE j.status='done') AS done_jobs,
        (SELECT count(*)::int FROM privacy_requests pr JOIN target t ON pr.submission_id=t.id) AS privacy_requests,
+       (SELECT count(*)::int FROM citizen_clarifications c JOIN target t ON c.submission_id=t.id) AS clarifications,
        (SELECT count(*)::int FROM audit_events e JOIN target t ON e.subject_id=t.public_id WHERE e.subject_type='submission' AND e.event_type='privacy_export_generated') AS privacy_exports_audited,
+       (SELECT count(*)::int FROM audit_events e JOIN target t ON e.subject_id=t.public_id WHERE e.subject_type='submission' AND e.event_type='clarification_received') AS clarification_events,
        (SELECT count(*)::int FROM review_tasks rt
           WHERE rt.status IN ('open','assigned')
             AND rt.subject_type='cluster_candidate'
@@ -242,9 +390,15 @@ try {
   assert(checks?.orphan_review_tasks === 0, 'orphan review tasks found after staging E2E', checks);
   assert(Number(checks?.done_jobs) > 0, 'worker produced no completed jobs', checks);
   assert(Number(checks?.privacy_requests) === 2, 'database must contain exactly two synthetic privacy requests before cleanup', checks);
-  assert(Number(checks?.privacy_exports_audited) >= 1, 'privacy export must create an audit event', checks);
+  assert(Number(checks?.clarifications) === 1, 'database must contain exactly one synthetic clarification before cleanup', checks);
+  assert(Number(checks?.privacy_exports_audited) >= 2, 'both privacy exports must create audit events', checks);
+  assert(Number(checks?.clarification_events) === 1, 'clarification must create exactly one clarification_received audit event', checks);
+  assert(checks?.original_text === payload.text, 'database original_text must remain immutable after clarification', checks);
 
+  const cleanedPublicId = publicId;
+  const cleanedClarificationId = clarificationId;
   const cleanupResult = await cleanup();
+  const residue = await assertNoSyntheticResidue(cleanedPublicId, cleanedClarificationId);
   publicId = null;
 
   console.log(JSON.stringify({
@@ -252,12 +406,21 @@ try {
     run_id:runId,
     final_status:finalStatus.current_status,
     review_path:finalStatus.review_path,
+    clarification:{
+      clarification_id:cleanedClarificationId,
+      replayed:clarificationReplay.data?.replayed === true,
+      wrong_token_denied:deniedClarification.response.status === 403,
+      worker_continued:true,
+      original_text_immutable:true,
+      exported:true
+    },
     privacy_requests:checks.privacy_requests,
     privacy_exports_audited:checks.privacy_exports_audited,
-    history_events:Array.isArray(statusAfterPrivacy.data?.history)?statusAfterPrivacy.data.history.length:null,
+    history_events:Array.isArray(finalStatus?.history)?finalStatus.history.length:null,
     done_jobs:checks.done_jobs,
     metrics_seen:metrics.data,
-    cleanup:cleanupResult
+    cleanup:cleanupResult,
+    residue
   }));
 } catch (error) {
   console.error('[staging-e2e] FAIL', error.message, error.detail || '');
