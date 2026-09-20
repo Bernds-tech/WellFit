@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-20",
+  "project": "WERK Österreich",
+  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang. VERIFIED/COUNTERCHECKED-Arbeit nicht erneut bauen.",
+  "actions": [
+    {
+      "id": "NBA-WERK-GOVERNANCE-RECONCILE",
+      "priority": 1,
+      "task": "WERK-GOV-001",
+      "gate": "governance_core",
+      "title": "WERK-spezifische Steuerdateien vollständig reconciliieren",
+      "requires_owner": false,
+      "parallel_safe": false,
+      "prerequisites": [],
+      "done_states": [
+        "VERIFIED",
+        "COUNTERCHECKED"
+      ],
+      "instruction": "Alte WellFit-zentrierte generische Project-Memory-Dateien dürfen WERK nicht steuern. WERK_AUTONOMY_PROTOCOL muss ausschließlich WERK-spezifische Finishline/Action/Evidence/Owner-Dateien priorisieren und Drift sichtbar machen."
+    },
+    {
+      "id": "NBA-WERK-IMPACT-BRIDGE",
+      "priority": 5,
+      "task": "WERK-IDEENWERK-IMPACT-BRIDGE-001",
+      "gate": "impact_bridge",
+      "title": "Bürgerideen mit bestehenden WERK-Rechenmodellen/Reformakten verbinden",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": [
+        "ideenwerk_staging",
+        "calculations",
+        "reform_register"
+      ],
+      "done_states": [
+        "VERIFIED",
+        "COUNTERCHECKED"
+      ],
+      "instruction": "Bestehende Modell-/Reform-IDs, Provenienz und offene Gates referenzieren. Keine Parallelrechnung und keine bedingten Szenarien als verifizierte Wirkung ausgeben."
+    },
+    {
+      "id": "NBA-WERK-EXPERT-PROCESS",
+      "priority": 10,
+      "task": "WERK-EXPERT-001",
+      "gate": "expert_process",
+      "title": "Experten- und Betroffeneninput auditierbar in IDEENWERK integrieren",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": [
+        "ideenwerk_staging"
+      ],
+      "done_states": [
+        "VERIFIED",
+        "COUNTERCHECKED"
+      ],
+      "instruction": "Strukturierter Input mit Quelle, Rolle, Interessenkonflikt/Bezug, Gegenposition und Auditspur; kein Expertenveto und keine politische Entscheidung."
+    },
+    {
+      "id": "NBA-WERK-AI-SYNTHESIS",
+      "priority": 15,
+      "task": "WERK-AI-SYNTH-001",
+      "gate": "ai_synthesis",
+      "title": "KI-Synthese aus Bürgerideen, Experteninput und WERK-Modellen bauen",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": [
+        "impact_bridge",
+        "expert_process"
+      ],
+      "done_states": [
+        "VERIFIED",
+        "COUNTERCHECKED"
+      ],
+      "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung."
+    },
+    {
+      "id": "NBA-WERK-IMPACT-MEASUREMENT",
+      "priority": 20,
+      "task": "WERK-IMPACT-001",
+      "gate": "impact_measurement",
+      "title": "Soll/Ist-Wirkungsmessung und Rückkopplung bauen",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": [
+        "impact_bridge"
+      ],
+      "done_states": [
+        "VERIFIED",
+        "COUNTERCHECKED"
+      ],
+      "instruction": "Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden; daraus Verbesserungsvorschläge erzeugen, nicht automatisch beschließen."
+    },
+    {
+      "id": "NBA-WERK-VERIFIED-SUPPORT",
+      "priority": 40,
+      "task": "WERK-ID-001",
+      "gate": "verified_support",
+      "title": "Verifizierte Unterstützung 1 Mensch = 1 Unterstützung konzipieren und absichern",
+      "requires_owner": true,
+      "parallel_safe": false,
+      "owner_action_id": "WERK-OWNER-ID-001",
+      "prerequisites": [
+        "security_privacy"
+      ],
+      "done_states": [
+        "ACCEPTED"
+      ],
+      "instruction": "Erst nach Auswahl eines rechts-/datenschutzkonformen Identitätsansatzes. Keine geheime Stimme mit Support verwechseln."
+    },
+    {
+      "id": "NBA-WERK-VOTE",
+      "priority": 50,
+      "task": "WERK-VOTE-001",
+      "gate": "werk_vote",
+      "title": "WERK VOTE rechtlich und technisch abgrenzen",
+      "requires_owner": true,
+      "parallel_safe": false,
+      "owner_action_id": "WERK-OWNER-VOTE-001",
+      "prerequisites": [
+        "verified_support",
+        "security_privacy"
+      ],
+      "done_states": [
+        "ACCEPTED"
+      ],
+      "instruction": "Geheime Abstimmung, Identitätstrennung, Auditierbarkeit, Rechtsgrundlage und Angriffsmodell separat schließen. Keine amtliche Wahlfunktion behaupten."
+    },
+    {
+      "id": "NBA-WERK-PRODUCTION",
+      "priority": 90,
+      "task": "WERK-PROD-001",
+      "gate": "production_readiness",
+      "title": "WERK produktionsbereit machen",
+      "requires_owner": true,
+      "parallel_safe": false,
+      "owner_action_id": "WERK-OWNER-PROD-001",
+      "prerequisites": [
+        "website",
+        "security_privacy",
+        "open_democracy"
+      ],
+      "done_states": [
+        "PRODUCTION_CONFIRMED"
+      ],
+      "instruction": "Erst nach vollständiger Sicherheits-/Datenschutz-/Rechts-/Runtime-Abnahme und ausdrücklicher Owner-Freigabe."
+    }
+  ]
+}
