@@ -1,0 +1,63 @@
+{
+  "receipt_id": "WERK_IDEENWERK_PRIVACY_RESOLUTION_TRANSPARENCY_001_RECEIPT",
+  "task_id": "WERK-IDEENWERK-PRIVACY-RESOLUTION-TRANSPARENCY-001",
+  "verified_at": "2026-09-20T02:20:42Z",
+  "risk": "R2",
+  "status": "VERIFIED_STAGING",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "functional_head": "473c5f02541b737c61bad80116b901c8060fa5d1",
+  "migration": {
+    "file": "ideenwerk-backend/sql/024_privacy_resolution_transparency.sql",
+    "staging_name": "privacy_resolution_transparency",
+    "staging_version": "20260920021444",
+    "runtime_marker": "024_privacy_resolution_transparency"
+  },
+  "result": {
+    "citizen_private_status_exposes_review_started_at": true,
+    "citizen_privacy_list_exposes_review_started_at": true,
+    "citizen_privacy_export_exposes_review_started_at": true,
+    "citizen_surfaces_expose_resolved_at": true,
+    "citizen_surfaces_expose_decision_reason_code": true,
+    "assigned_operator_id_exposed": false,
+    "wrong_status_token_authorized": false,
+    "destructive_execution_added": false
+  },
+  "staging_verification": {
+    "method": "reversible SQL transaction with synthetic submission, status token, legal reviewer and correction request",
+    "transitions": ["received->reviewing", "reviewing->resolved"],
+    "result": "PASS",
+    "rolled_back": true,
+    "baseline_after_test": {
+      "submissions": 0,
+      "processing_jobs": 0,
+      "cluster_candidates": 0,
+      "clusters": 0,
+      "cluster_variants": 0,
+      "review_tasks": 0,
+      "audit_events": 0,
+      "privacy_requests": 0
+    }
+  },
+  "ci": {
+    "workflow": "IDEENWERK Backend Check",
+    "run_number": 105,
+    "run_id": 35483656806,
+    "head_sha": "473c5f02541b737c61bad80116b901c8060fa5d1",
+    "conclusion": "success",
+    "new_guardrail": "Privacy resolution citizen transparency guardrail",
+    "queue_integration_count": 1000
+  },
+  "regressions_found_and_fixed": [
+    "Initial CI integration exposed that the portable CI database intentionally lacks staging-only ideenwerk_runtime_meta; migration 024 now records its runtime marker only when that table exists.",
+    "CI bootstrap now installs pgcrypto in the extensions schema to mirror the Supabase staging layout used by extensions.gen_random_bytes."
+  ],
+  "safety": {
+    "production_deployed": false,
+    "paid_action": false,
+    "irreversible_external_change": false,
+    "hard_delete_or_anonymization": false,
+    "political_scoring_or_decision": false
+  },
+  "next_recommended_slice": "Render received/reviewing/resolved/rejected with localized lifecycle timestamps in the existing V71 protected IDEENWERK status panel, then run the existing frontend gate and cache-bust the current loader. Do not create a parallel page or expose operator identity."
+}
