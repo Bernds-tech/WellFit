@@ -1,6 +1,48 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20",
-  "entries": [],
-  "rule": "Supervisor und Builder pflegen nur tatsächlich beobachtete Evidence ein. Keine erfundenen timestamps oder target states. Leere Liste bedeutet: Freshness-System initialisiert, konkrete Evidenzen müssen aus Receipts/Runtime schrittweise registriert werden."
+  "updated": "2026-09-20T19:12:42Z",
+  "entries": [
+    {
+      "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
+      "type": "ci_exact_head",
+      "target": "cdd02b7e883c3ecb1cafacda9475bdfa2163d783",
+      "observed_at": "2026-09-20T19:10:55Z",
+      "status": "CURRENT",
+      "evidence": "WERK Frontend Check #173 completed successfully on the exact governance-mesh head.",
+      "expires_at": null,
+      "revalidate_on": [
+        "head_changed",
+        "workflow_contract_changed"
+      ]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260920T191242Z",
+      "type": "staging_runtime",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-20T19:12:42Z",
+      "status": "CURRENT",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920130959 competence_review_queue; 13 relevant IDEENWERK operational/content tables checked at zero baseline.",
+      "expires_at": "2026-09-21T19:12:42Z",
+      "revalidate_on": [
+        "edge_deploy",
+        "migration_change",
+        "runtime_config_change"
+      ]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-ADVISOR-20260920T191242Z",
+      "type": "supabase_advisors",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-20T19:12:42Z",
+      "status": "CURRENT_WITH_WARNING",
+      "evidence": "Security Advisor still reports extension_in_public for pg_net. Migration 016 revokes PUBLIC/anon/authenticated usage of schema net and execution of its functions, so this remains an explicit hardening warning rather than proof of public execution access.",
+      "expires_at": "2026-09-21T19:12:42Z",
+      "revalidate_on": [
+        "schema_or_policy_change",
+        "edge_deploy",
+        "before_security_acceptance"
+      ]
+    }
+  ],
+  "rule": "Supervisor und Builder pflegen nur tatsächlich beobachtete Evidence ein. Keine erfundenen timestamps oder target states. Mutable Evidence folgt WERK_EVIDENCE_TTL_POLICY; historische Erfolge bleiben erhalten, auch wenn aktuelle Reliance revalidiert werden muss."
 }
