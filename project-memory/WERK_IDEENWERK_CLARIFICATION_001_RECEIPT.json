@@ -1,0 +1,93 @@
+{
+  "receipt_id": "WERK-IDEENWERK-CLARIFICATION-001",
+  "date": "2026-09-20",
+  "status": "VERIFIED_STAGING",
+  "risk": "R2",
+  "source_branch": "werk-v49-preview-host",
+  "implementation_commit": "3df36ec151110f9cbc503266c693d33a6395ea45",
+  "verification_fix_commit": "ed51caaefee7c6f8a2c71ad1d18659c19bd5bb73",
+  "scope": [
+    "protected POST /status/{public_id}/clarification on the existing status-token boundary",
+    "private citizen clarification persistence without mutating submissions.original_text",
+    "idempotent replay and wrong-token denial",
+    "server-side contact-data guard before clarification persistence",
+    "audited clarification -> structured -> cluster_review re-entry",
+    "reuse of the existing semantic_cluster_review worker path",
+    "protected status/privacy export inclusion of private clarifications",
+    "clarification answer control inside the existing V71 IDEENWERK status surface only"
+  ],
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "project_ref": "jwomaoxefgnhsgiebaqy",
+    "migration": "025_citizen_clarification",
+    "runtime_contract": "025_citizen_clarification",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 5,
+    "production_changed": false
+  },
+  "implementation_evidence": {
+    "original_text_immutable": true,
+    "private_clarification_stored": true,
+    "derived_structured_proposal_consumes_clarification": true,
+    "proposal_features_provider": "deterministic_clarification",
+    "proposal_features_model": "clarification-v1-sql",
+    "semantic_cluster_review_enqueued": true,
+    "existing_worker_advanced_to_precheck": true,
+    "review_path_after_worker": "STANDARD",
+    "wrong_token_denied": true,
+    "idempotent_replay_after_workflow_advance": true,
+    "contact_data_rejected_before_storage": true,
+    "anon_authenticated_direct_table_read_revoked": true,
+    "service_role_only_rpc_execute": true
+  },
+  "ci": {
+    "frontend_check": 141,
+    "frontend_result": "success",
+    "backend_check": 107,
+    "backend_result": "success",
+    "backend_checks_include": [
+      "syntax",
+      "unit tests",
+      "migration and idempotency",
+      "operator/privacy guardrails",
+      "citizen clarification contract guardrail",
+      "distributed rate limit",
+      "no-login API/privacy smoke",
+      "retention dry-run",
+      "backup/restore",
+      "clustering diagnostic",
+      "1000-item queue integration"
+    ]
+  },
+  "regression_found_and_fixed": {
+    "issue": "The first clarification CI fixture reused the same globally unique status token hash for two synthetic submissions.",
+    "effect": "Backend Check #106 failed only at the new clarification guardrail.",
+    "fix": "Use a distinct token hash for the PII-negative-path synthetic submission.",
+    "fixed_in": "ed51caaefee7c6f8a2c71ad1d18659c19bd5bb73"
+  },
+  "cleanup": {
+    "submissions": 0,
+    "active_jobs": 0,
+    "dead_jobs": 0,
+    "cluster_candidates": 0,
+    "clusters": 0,
+    "open_reviews": 0,
+    "audit_events": 0,
+    "privacy_requests": 0,
+    "citizen_clarifications": 0
+  },
+  "safety": [
+    "no production release",
+    "no paid action",
+    "no irreversible external change",
+    "no political merit score",
+    "no automatic political acceptance or rejection",
+    "no publication of private clarification content"
+  ],
+  "next_smallest_action": {
+    "id": "WERK-IDEENWERK-CLARIFICATION-HTTP-E2E-001",
+    "risk": "R1",
+    "goal": "Extend the existing reversible staging-edge E2E so it exercises the deployed HTTP clarification endpoint itself, including wrong-token, idempotent replay, worker continuation and zero-residue cleanup, rather than relying on the DB/RPC staging countercheck alone."
+  },
+  "supersedes_next_best_action_entry": "The prior EXECUTABLE WERK-IDEENWERK-CLARIFICATION-001 entry is completed by this VERIFIED_STAGING receipt."
+}
