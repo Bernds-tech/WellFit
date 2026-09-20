@@ -24,14 +24,15 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-IDEENWERK-PRIVACY-001
 - Task: WERK-IDEENWERK-PRIVACY-001
-- Status: ACTIVE
+- Status: RELEASED
 - Risk: R2
 - Holder: WERK autonomous continuation 2026-09-20
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-20 Europe/Vienna
-- Scope: protected no-login citizen privacy access on the existing IDEENWERK status-token path: data export plus auditable correction, deletion, restriction and cluster-appeal requests; existing status UI and reversible staging migration/API/tests only.
-- Guardrail: no hard deletion, no production release, no paid action, no political scoring and no parallel citizen UI.
-- Resume from: branch head c577a225739187ea25fd2d645aa369cd36201fc9 and WERK Österreich Staging baseline with zero citizen records.
+- Released: 2026-09-20 after verified staging implementation and subsequent privacy/clarification counterchecks.
+- Scope: protected no-login citizen privacy access on the existing IDEENWERK status-token path.
+- Result: completed; no rebuild unless new evidence invalidates the verified contract.
+- Receipt: `WERK_IDEENWERK_PRIVACY_001_RECEIPT.json`.
 
 ## Released/superseded locks
 
