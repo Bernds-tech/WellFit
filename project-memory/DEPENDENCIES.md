@@ -51,3 +51,13 @@ States: `ACTIVE`, `SATISFIED`, `BLOCKED`, `SUPERSEDED`.
 
 ## WERK-SUB-001 — 2026-09-09
 Accounts require program and EU/RRF/cofinancing mapping before national savings. Source account absence cannot establish program closure. Older Taskforce2026 10.1bn is a March2026 reference; exact bridge to AugustCSV 9.730198bn remains open.
+
+
+## WERK-DEP-IDEENWERK-IMPACT-001
+- From: IDEENWERK citizen precheck / problem cluster.
+- Requires: current verified competence/legal path, existing-measure path, reform identifiers and existing WERK calculation/data artifacts.
+- Type: cross-component integration.
+- Status: ACTIVE
+- Updated: 2026-09-20.
+- Rule: IDEENWERK must reference and reuse existing WERK calculation/reform artifacts instead of creating parallel calculations. A link may expose applicable model/reform IDs, provenance and open gates; it must not convert conditional/illustrative calculations into verified fiscal effects.
+- Close when: a version-bound end-to-end bridge maps citizen/cluster cases to existing model/reform candidates, survives negative/stale tests, is visible through the existing process and is independently counterchecked.
