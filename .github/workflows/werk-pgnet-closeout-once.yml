@@ -1,0 +1,132 @@
+name: WERK pg_net closeout once
+
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths:
+      - '.github/workflows/werk-pgnet-closeout-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: werk-v49-preview-host
+          fetch-depth: 0
+      - name: Reconcile pg_net countercheck into project memory
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          def replace_section(path, heading, replacement):
+              p = Path(path)
+              text = p.read_text()
+              pat = rf'(?ms)^## {re.escape(heading)}\n.*?(?=^## |\Z)'
+              out, n = re.subn(pat, replacement.rstrip() + '\n\n', text, count=1)
+              if n != 1:
+                  raise SystemExit(f'{path}: expected one section {heading!r}, found {n}')
+              p.write_text(out)
+
+          replace_section('project-memory/TASK_LEDGER.md', 'WERK-SEC-PGNET-001', '''## WERK-SEC-PGNET-001
+          - Date: 2026-09-20
+          - Status: COUNTERCHECKED_STAGING_BOUNDARY
+          - Risk: R3
+          - Goal: Harden the WERK Staging Data-API request boundary around hosted Supabase `pg_net` without unsafe extension surgery.
+          - Result: Migration `036_pg_net_data_api_guard` is live on WERK Österreich Staging as `20260920203116 pg_net_data_api_guard`. The enforceable Hosted-Supabase boundary is independently counterchecked: `anon`/`authenticated` are `NOLOGIN`, no WERK-owned public wrapper exposes `net.http_*`, and `pgrst.db_pre_request=public.werk_api_security_guard` blocks Data-API requests that try to select the `net` profile while normal `public` requests continue to work.
+          - Evidence: functional head `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`; IDEENWERK Backend Check #161 attempt 2 succeeded including the unchanged 1,000-item queue benchmark; supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; staging remained `ACTIVE_HEALTHY`, Edge version 7, synthetic citizen/review/privacy/cluster tables returned to zero baseline.
+          - Boundary: This closes only the bounded staging Data-API request-boundary scope. Hosted Supabase still restores direct `net` schema/routine grants and Security Advisor still reports `extension_in_public`; those are tracked separately under `WERK-LOOP-SEC-PGNET-001` and still block production hardening acceptance.
+          - Next step: proceed to `WERK-IDEENWERK-IMPACT-BRIDGE-001`; reopen this task only on new adverse evidence or a separately scoped production-hardening dependency.
+          - Do not repeat: no direct outbound `net.http_*` security test and no move/drop/reinstall of the managed extension merely to silence the advisor.''')
+
+          # STARTED_WORK: remove active scope and record closed/counterchecked history.
+          p = Path('project-memory/STARTED_WORK.md')
+          text = p.read_text()
+          pat = r'(?ms)^## WERK-SEC-PGNET-001\n.*?(?=^## |\Z)'
+          text, n = re.subn(pat, '', text, count=1)
+          if n != 1:
+              raise SystemExit(f'STARTED_WORK: expected one active pg_net section, found {n}')
+          marker = '## Closed / superseded work\n'
+          if marker not in text:
+              raise SystemExit('STARTED_WORK: closed-work marker missing')
+          closed = '''\n### WERK-SEC-PGNET-001 — counterchecked staging boundary\n- Status: COUNTERCHECKED_STAGING_BOUNDARY\n- Closed from active work: 2026-09-20 22:13 UTC.\n- Independent evidence: supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; live migration `20260920203116 pg_net_data_api_guard`; Backend Check #161 attempt 2 success; staging healthy/zero synthetic baseline.\n- Residual production hardening remains in `WERK-LOOP-SEC-PGNET-001`; it is not active builder work for ordinary Staging feature continuation.\n'''
+          text = text.replace(marker, marker + closed, 1)
+          p.write_text(text)
+
+          # WORK_LOCKS: release active lock and preserve history.
+          p = Path('project-memory/WORK_LOCKS.md')
+          text = p.read_text()
+          pat = r'(?ms)^## LOCK-WERK-SEC-PGNET-001\n.*?(?=^## |\Z)'
+          text, n = re.subn(pat, '', text, count=1)
+          if n != 1:
+              raise SystemExit(f'WORK_LOCKS: expected one active pg_net lock, found {n}')
+          marker = '## Released/superseded locks\n'
+          if marker not in text:
+              raise SystemExit('WORK_LOCKS: released-lock marker missing')
+          released = '''\n### LOCK-WERK-SEC-PGNET-001\n- Status: RELEASED\n- Released: 2026-09-20 22:13 UTC\n- Reason: independent supervisor countercheck satisfied the bounded staging Data-API boundary scope.\n- Residual `extension_in_public` / hosted direct-ACL concern remains an open production-hardening loop, not a lock on Impact Bridge feature work.\n'''
+          text = text.replace(marker, marker + released, 1)
+          p.write_text(text)
+
+          replace_section('project-memory/OPEN_LOOPS.md', 'WERK-LOOP-SEC-PGNET-001', '''## WERK-LOOP-SEC-PGNET-001
+          - Status: OPEN_NONBLOCKING_PRODUCTION_HARDENING
+          - Updated: 2026-09-20 22:13 UTC
+          - Risk: R3
+          - Counterchecked staging boundary: migration `20260920203116 pg_net_data_api_guard` is live; PostgREST uses `pgrst.db_pre_request=public.werk_api_security_guard`; `anon`/`authenticated` are `NOLOGIN`; no WERK-owned public wrapper exposes `net.http_*`; transient Data-API selection of the `net` profile is blocked; staging remained healthy and synthetic records were cleaned to zero baseline.
+          - Remaining gap: hosted Supabase restores direct `net` schema/routine ACLs and Security Advisor still reports `extension_in_public`. No exploit or data exposure was observed, but this prevents treating the extension placement/ACL state as production-hardened.
+          - Scope boundary: this residual gap no longer blocks ordinary reversible WERK Staging feature work because the bounded request boundary was independently counterchecked. It still blocks any production-security acceptance that depends on `pg_net` being moved or durably ACL-revoked.
+          - Evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`, functional head `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`, Backend Check #161 attempt 2.
+          - Next: keep the platform-safe production hardening question visible; re-evaluate if Supabase provides a supported extension-placement/privilege route or before production readiness. Do not reopen the closed staging task solely because the advisor warning persists.
+          - Close when: a fresh advisor no longer reports the warning, or a platform-supported production-safe resolution/explicit constraint is documented and independently accepted for the production threat model.''')
+
+          replace_section('project-memory/CONTRADICTIONS.md', 'CTR-WERK-SEC-PGNET-ACL-001', '''## CTR-WERK-SEC-PGNET-ACL-001
+          - Severity: YELLOW
+          - Status: RESOLVED_FOR_BOUNDED_STAGING_SCOPE
+          - Detected: 2026-09-20 21:40 UTC
+          - Resolved: 2026-09-20 22:13 UTC
+          - Risk: R3
+          - Original contradiction: migration source attempted durable direct ACL revocation on the hosted `net` schema/routines, while Supabase restored those managed grants in the live staging state.
+          - Resolution: the builder claim is narrowed to the enforceable Hosted-Supabase request boundary, not durable direct ACL ownership. Independent countercheck confirmed `anon`/`authenticated` are `NOLOGIN`, there is no WERK-owned public wrapper to `net.http_*`, and PostgREST invokes `public.werk_api_security_guard`, which rejects Data-API requests selecting the `net` profile while allowing normal `public` requests.
+          - Evidence: supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; live migration `20260920203116 pg_net_data_api_guard`; Backend Check #161 attempt 2 success; staging healthy/zero synthetic baseline.
+          - Residual limitation: Supabase-managed direct grants plus `extension_in_public` remain under `WERK-LOOP-SEC-PGNET-001` and are not claimed as production-hardened.
+          - Reopen trigger: new evidence that the PostgREST guard can be bypassed by the WERK Data API, a new WERK wrapper exposes `net.http_*`, staging roles gain LOGIN capability, or production hardening requires a stronger provider-supported boundary.''')
+
+          # Append independent receipt to master index.
+          p = Path('project-memory/EXECUTION_RECEIPTS.md')
+          text = p.read_text()
+          marker = '## WERK-SEC-PGNET-001 — independent staging-boundary countercheck'
+          if marker not in text:
+              text += '''\n\n## WERK-SEC-PGNET-001 — independent staging-boundary countercheck\n- Status: COUNTERCHECKED\n- Risk: R3\n- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`.\n- Functional head: `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`.\n- CI: IDEENWERK Backend Check #161 attempt 2 succeeded, including the unchanged 1,000-item queue benchmark.\n- Runtime: WERK Österreich Staging `ACTIVE_HEALTHY`, Edge version 7, live migration `20260920203116 pg_net_data_api_guard`, zero synthetic baseline.\n- Verified scope: Hosted-Supabase-compatible Data-API request boundary (`NOLOGIN` request roles, no WERK public `net.http_*` wrapper, PostgREST pre-request guard blocks `net` profile).\n- Not proven: durable revocation of provider-managed direct `net` ACLs, relocation of the extension out of `public`, or production security acceptance. Those remain in `WERK-LOOP-SEC-PGNET-001`.\n'''
+              p.write_text(text)
+
+          # Correct the historical builder claim's live migration identifier and add explicit correction note.
+          p = Path('project-memory/WERK_PG_NET_SECURITY_001_BUILDER_CLAIM.md')
+          text = p.read_text()
+          text = text.replace('20260920203049', '20260920203116')
+          note = '> **Supervisor correction:** the live Supabase migration identifier is `20260920203116 pg_net_data_api_guard`. The independently counterchecked claim is limited to the Hosted-Supabase Data-API request boundary; provider-managed direct `net` ACLs and `extension_in_public` remain outside this closed staging scope.\n\n'
+          if 'Supervisor correction:' not in text:
+              lines = text.splitlines(True)
+              if lines and lines[0].startswith('#'):
+                  text = lines[0] + '\n' + note + ''.join(lines[1:])
+              else:
+                  text = note + text
+          p.write_text(text)
+
+          # Switch shared selector to the actual next functional slice.
+          p = Path('project-memory/NEXT_BEST_ACTION.md')
+          p.write_text('''# WERK Next Best Action\n\n- Project: `WERK Österreich`\n- Selected action: `WERK-IDEENWERK-IMPACT-BRIDGE-001`\n- Catalog entry: `NBA-WERK-IMPACT-BRIDGE`\n- Status: `EXECUTABLE`\n- Risk: `R3`\n- Gate: `impact_bridge`\n- Title: Bürgerideen mit bestehenden WERK-Rechenmodellen und Reformakten verbinden\n\n## Why this is next\nThe independently counterchecked pg_net staging boundary has been consumed and its active lock is released. The Connection Sweep now returns to the highest-value missing integration: citizen intake/clarification/competence/existing-measure paths are already verified, and WERK already owns calculation/reform artifacts, but the version-bound bridge between them is not yet end-to-end verified.\n\n## Exact work\n1. Reuse existing WERK reform/calculation identifiers and data artifacts; do not create a second calculation source.\n2. Map a citizen submission/problem cluster to candidate affected reform/calculation domains through deterministic, version-bound rules.\n3. Expose only applicable model/reform IDs, provenance and open/closed calculation gates; never manufacture a fiscal effect or political recommendation.\n4. Reuse existing IDEENWERK status/API/V71 surfaces rather than creating a parallel page.\n5. Add negative/stale/version-mismatch tests and an audit trail.\n6. Perform reversible staging verification and restore the zero synthetic baseline.\n7. Produce a Builder claim for independent Supervisor countercheck.\n\n## Do not rebuild\nCompetence review, existing-measure review, privacy, clarification, public cluster listing/detail and FAST/STANDARD/DEEP are already existing components and are consumers/inputs only.\n\n## Acceptance boundary\nNo duplicated calculation model; no unsupported numeric claim; explicit provenance to existing WERK artifacts; stale/version-safe linkage; existing website reused; backend/frontend gates green; staging cleanup complete; independent countercheck still required before any finishline upgrade.\n''')
+          PY
+      - name: Commit reconciliation
+        shell: bash
+        run: |
+          git config user.name 'werk-autonomous-builder'
+          git config user.email 'actions@users.noreply.github.com'
+          git add project-memory/TASK_LEDGER.md project-memory/STARTED_WORK.md project-memory/WORK_LOCKS.md project-memory/OPEN_LOOPS.md project-memory/CONTRADICTIONS.md project-memory/EXECUTION_RECEIPTS.md project-memory/WERK_PG_NET_SECURITY_001_BUILDER_CLAIM.md project-memory/NEXT_BEST_ACTION.md
+          git diff --cached --check
+          git diff --cached --quiet && exit 0
+          git commit -m 'reconcile: consume pg_net staging countercheck'
+          git push origin HEAD:werk-v49-preview-host
