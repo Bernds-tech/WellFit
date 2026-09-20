@@ -1,117 +1,37 @@
 # WERK Next Best Action
 
+This file is a derived selector, not a historical source of truth. Historical execution remains in `TASK_LEDGER.md`, `EXECUTION_RECEIPTS.md`, `OPEN_LOOPS.md`, `DEPENDENCIES.md` and receipts.
+
 - Project: `WERK Österreich`
-- Selected action: `WERK-IDEENWERK-IMPACT-BRIDGE-001`
-- Catalog entry: `NBA-WERK-IMPACT-BRIDGE`
-- Status: `EXECUTABLE_AFTER_GOVERNANCE_RECONCILIATION`
-- Risk: `R3`
-- Gate: `impact_bridge`
-- Title: Bürgerideen mit bestehenden WERK-Rechenmodellen und Reformakten verbinden
-
-## Why this is next
-Der WERK Connection Sweep hat bestätigt: Bürger-Intake, Klarstellung, Kompetenz-/Rechtsvorcheck, Existing-Measure-Prüfung, öffentliche Cluster sowie mehrere WERK-Rechen-/Reformartefakte existieren bereits. Die fehlende zentrale Verbindung ist der versionierte, nachvollziehbare Pfad Bürgeridee/Cluster → bestehende WERK-Rechenmodelle/Reformakten → offene Wirkungsprüfungen.
-
-## Exact work
-1. Bestehende Reform- und Rechen-IDs inventarisieren und einen kleinen versionierten Mapping-Vertrag definieren.
-2. IDEENWERK-Problem/Cluster auf Kandidaten vorhandener Modelle/Reformakten abbilden.
-3. Nur Provenienz, anwendbare Modelle und offene/geschlossene Rechengates ausgeben; keine neuen oder ungesicherten Wirkungszahlen erfinden.
-4. Bestehende Status-/API-/Website-Pfade wiederverwenden.
-5. Negative/stale/version-mismatch Tests hinzufügen und reversible Staging-Abnahme durchführen.
-6. Danach Supervisor-Gegenprüfung und Connection-Sweep aktualisieren.
-
-## Do not rebuild
-Kompetenzreview, Existing-Measure-Review, Privacy, Clarification, öffentliche Cluster und FAST/STANDARD/DEEP sind bereits vorhandene Bausteine und werden nur konsumiert.
-
-## Selection source
-`project-memory/WERK_NEXT_BEST_ACTIONS.json`, `project-memory/WERK_FINISHLINE_STATE.json`, `project-memory/WERK_SUPERVISOR_STATE.json`, Receipts, Dependencies und Open Loops.
-
----
-
-## Historical WellFit selector (not authoritative for WERK automation)
-
-# WellFit Next Best Action
-
-- Selected action: `WF-VISUAL-CANONICAL-INVENTORY`
+- Selected action: `WERK-SEC-PGNET-ACL-001`
+- Source: `CTR-WERK-SEC-PGNET-ACL-001` / `WERK-LOOP-SEC-PGNET-001`
 - Status: `EXECUTABLE`
 - Risk: `R3`
-- Title: Aktuelle Landing/UI-Quelle inventarisieren und ersten Migrationskandidaten festlegen
+- Gate: `security_privacy`
+- Title: pg_net Least-Privilege auf WERK Staging dauerhaft wiederherstellen
 
 ## Why this is next
-The intended visual authority is this repository, but the actual product UI/landing code still lives primarily in `Bernds-tech/WellFit-now`. Moving code before identifying the canonical graphical version would create duplicates and future convergence debt.
+Der unabhängige Supervisor hat live bestätigt, dass die aktuelle Staging-ACL nicht mehr der Absicht von Migration `016_internal_pg_net` entspricht: Schema `net` gewährt derzeit PUBLIC, `anon` und `authenticated` USAGE, während mehrere pg_net-Routinen PUBLIC EXECUTE tragen. Das ist ein neuer blockierender GELB-Sicherheitsbefund und hat nach WERK-Prioritätsregel Vorrang vor neuer Feature-Arbeit. Es wurde kein externer Exploit oder Datenabfluss nachgewiesen; deshalb ist dies kein ROT-Incident.
 
 ## Exact work
-1. Inventory current landing/UI paths in WellFit-now and the newer graphical design/reference work.
-2. Classify each relevant surface as `KEEP`, `REPLACE`, `MIGRATE_LATER` or `OBSOLETE`.
-3. Map each UI claim to current backend/native capability evidence.
-4. Propose the first small migration unit in `CONVERGENCE_LEDGER.json`; do not move code yet.
-5. Keep WellFit-now and WellFit-Buddy product ownership untouched until the migration entry is reviewed.
+1. Alle tatsächlichen WERK-Abhängigkeiten von `pg_net` und Schema `net` bestimmen; keine angenommene Nutzung erfinden.
+2. Supabase-verwaltetes Event-Trigger-Verhalten `issue_pg_net_access` / `extensions.grant_pg_net_access()` berücksichtigen und klären, wie Privilegien nach Extension-DDL/Updates dauerhaft least-privilege bleiben.
+3. Eine bounded, reversible Hardening-Migration bzw. platform-kompatible Lösung bauen, die PUBLIC/`anon`/`authenticated` nicht mehr unnötig auf `net` zugreifen lässt und erforderliche interne Serverpfade nicht beschädigt.
+4. Negative Tests für Privilege-Regression und relevante IDEENWERK-Backendpfade ergänzen.
+5. Nur reversible Staging-Abnahme durchführen. Keine Production-Mutation.
+6. Danach unabhängiger Supervisor-Gegencheck: Live-Schema-/Funktions-ACLs, relevante Backend-CI, Security Advisor, Edge-/Migration-State und synthetische Zero-Baseline.
 
 ## Safety
-No backend/native rewrite, no blind copy, no production deploy, and no assumption that a graphical concept equals implemented capability.
+- `net.http_get`, `net.http_post`, `net.http_delete` oder andere externe pg_net-Aufrufe nicht zur bloßen Reachability-Prüfung ausführen.
+- `pg_net` nicht blind verschieben, droppen oder deaktivieren, nur um den Advisor zu beruhigen.
+- Keine Production-, kostenpflichtige, irreversible oder politische Aktion.
+- Erst aktuelle Live-ACL-Evidence darf den Security-Befund schließen.
 
-## WERK-TAX-001 continuation — 2026-09-08
-ABB2025 source and outcome-stage reconciliation plus 27 conditional incremental enforcement break-even cases added. See WERK_TAX_HANDOFF.md and WERK_STEUERVOLLZUG_RECHNUNG.md. All five relevant local workflow bodies and all four triggered remote workflows passed at abcc4a3c577d52dcc0532f1ecbc05ad833479077; WERK_TAX_001_CI_RECEIPT.json. Next evidence: additional collected tax/finality/cost cohorts beyond government baseline, source headline and budget discrepancy reconciliation. No new verified financing.
+## Completed prerequisite
+`WERK-GOV-001` ist unabhängig `COUNTERCHECKED`; `CTR-WERK-GOV-001` ist aufgelöst. WERK wird nicht mehr vom historischen WellFit-Selector gesteuert.
 
-## WERK-SUB-001 — 2026-09-09
-Current continuation: WERK_SUBSIDY_HANDOFF.md. Official 15,802-record subsidy CSV normalized; 2025 annual/monthly and 24 UG2024 controls reconciled. 1,035 account/classes and20 review priorities added. Program/legal/cofinancing/outcome attribution remains open; no extra financing. All five final local workflow bodies passed; final missing-annual-class guard passed importer and negative checks. All 13 triggered remote workflows succeeded at 0d47fa44c378438bc2c760df954756d73ff900c0; WERK_SUB_001_CI_RECEIPT.json.
+## Queued after this finding
+- `WERK-IDEENWERK-IMPACT-BRIDGE-001` / `NBA-WERK-IMPACT-BRIDGE`: Bürgerideen/Cluster mit bestehenden WERK-Rechenmodellen und Reformakten verbinden, ohne Parallelrechnung oder erfundene Wirkungszahlen.
 
-## WERK autonomous continuation — 2026-09-20 · review-path transparency
-- Selected action: `WERK-IDEENWERK-REVIEW-PATH-TRANSPARENCY`
-- Status: `VERIFIED_STAGING`
-- Risk: `R2`.
-- Result: protected citizen status now returns the latest audited FAST/STANDARD/DEEP procedural review path; public transparency returns aggregate review-depth metrics with small-sample bucket suppression; the existing V71 IDEENWERK surfaces render both without a parallel page. Migration `021_review_path_transparency` is active in WERK Österreich Staging; Edge function `werk-ideenwerk-api` is active at version 3. Backend Check #97 and Frontend Checks #131/#132 succeeded. Synthetic verification was cleaned to the zero-data staging baseline. See `WERK_IDEENWERK_REVIEW_PATH_TRANSPARENCY_001_RECEIPT.json`.
-- Safety retained: review depth is procedural only; no political merit score, automatic acceptance/rejection or new political inference was introduced.
-
-## WERK autonomous continuation — 2026-09-20 · no-login privacy rights
-- Selected action: `WERK-IDEENWERK-PRIVACY-001`
-- Status: `VERIFIED_STAGING`
-- Risk: `R2`.
-- Result: the existing hashed status-token boundary now protects private data export and create/list flows for correction, deletion, restriction and cluster-appeal requests. The existing V71 protected status view exposes these rights without a new page. Deletion is an auditable review request only and never performs automatic hard deletion. Migration `022_privacy_citizen_access` is active in WERK Österreich Staging and `werk-ideenwerk-api` is active at Edge version 4. Frontend Check #136 and IDEENWERK Backend Check #99 succeeded. Real HTTPS staging checks proved export, wrong-token denial, correction intake and replay deduplication. A PII-fixture regression was found and fixed: numeric run timestamps inside the synthetic citizen text could look like phone numbers; the PII-neutral fixture now progresses to `precheck` with audited `STANDARD / standard_review`. Synthetic records were cleaned back to the zero-data staging baseline. See `WERK_IDEENWERK_PRIVACY_001_RECEIPT.json`.
-- Safety retained: no production release, paid action, irreversible external change, political score or automatic acceptance/rejection was introduced.
-
-## WERK autonomous continuation — 2026-09-20 · privacy resolution + citizen transparency
-- Selected action: `WERK-IDEENWERK-PRIVACY-RESOLUTION-TRANSPARENCY-001`
-- Status: `VERIFIED_STAGING`
-- Risk: `R2`.
-- Result: migration `023_privacy_operator_resolution` provides the bounded, role-guarded and reason-coded operator workflow `received -> reviewing -> resolved/rejected` without destructive execution. Migration `024_privacy_resolution_transparency` now returns `review_started_at`, `resolved_at` and the recorded decision reason through the existing protected citizen status/list/export contracts, while operator identity remains private. The reversible staging contract test passed and staging returned to the zero-data baseline. IDEENWERK Backend Check #105 succeeded on functional head `473c5f02541b737c61bad80116b901c8060fa5d1`, including migration/idempotency, operator/privacy guardrails, the new citizen-transparency guardrail, backup/restore, clustering diagnostic and 1,000-item queue integration. See `WERK_IDEENWERK_PRIVACY_RESOLUTION_TRANSPARENCY_001_RECEIPT.json`.
-- Regression handled: the first CI integration exposed two staging-vs-portable-CI assumptions (staging-only runtime metadata and pgcrypto schema placement). Both were corrected; no production or destructive data action was performed.
-- Safety retained: no hard delete, anonymisation, restriction execution, operator identity disclosure, production release, paid action or political decision was introduced.
-
-## WERK autonomous continuation — 2026-09-20 · citizen status path UX
-- Selected action: `WERK-IDEENWERK-STATUS-PATH-UX-001`
-- Status: `VERIFIED_CODE`
-- Risk: `R1`.
-- Result: the existing protected IDEENWERK status surface now translates all current machine states into citizen-readable labels, highlights the matching existing pipeline stage beyond the former `received`-only case, and shows a deterministic next procedural step. Terminal/moderation states intentionally do not pretend to be normal pipeline progress. The enhancement is loaded inside the existing V71 IDEENWERK module; no parallel page, political score or acceptance/rejection logic was added. Functional head: `eceb478580ce01d9411b875a3b6726d0dc331eac`; WERK Frontend Check #140 succeeded, including JavaScript syntax and V71 structural/policy coverage.
-- Staging retained: no database or Edge mutation was needed. WERK Österreich Staging remained at the zero-data baseline and runtime contract `024_privacy_resolution_transparency` remained active.
-
-## WERK autonomous continuation — historical next slice
-- Selected action: `WERK-IDEENWERK-CLARIFICATION-001`
-- Status: `SUPERSEDED_BY_VERIFIED_IMPLEMENTATION`
-- Risk: `R2`.
-- Note: this former next action was implemented and verified in subsequent WERK runs; it remains here only as historical context. See later IDEENWERK handoffs/receipts rather than treating this section as current work.
-
-## WERK autonomous continuation — 2026-09-20 · existing-measure check + human routing
-- Selected action: `WERK-IDEENWERK-EXISTING-MEASURE-001`
-- Status: `VERIFIED_STAGING`
-- Risk: `R2`.
-- Result: migrations `030_existing_measure_check` and `031_existing_measure_review_queue` reuse the existing WERK government/baseline registries to flag only high-specificity possible overlaps during `precheck`. A hit is a bounded review hint, never an acceptance/rejection or political score. Every `possible_overlap` creates exactly one active `existing_measure_overlap` task for `impact_reviewer`; reruns do not duplicate the task. `no_known_overlap` creates no task and explicitly does not claim completeness. The protected citizen status and privacy export carry the check result, and the existing V71 surface shows a citizen-readable notice without a new page. Backend Check #130 and Frontend Check #152 succeeded. Reversible staging verification passed and all synthetic data was removed. See `project-memory/WERK_IDEENWERK_EXISTING_MEASURE_001.md`.
-- Safety retained: original text remains unchanged; operator identity is not exposed; no automatic decision, production deploy, paid action or irreversible external change was introduced.
-
-## WERK autonomous continuation — historical next slice
-- Selected action: `WERK-IDEENWERK-EXISTING-MEASURE-REVIEW-RESOLUTION-001`
-- Status: `SUPERSEDED_BY_VERIFIED_IMPLEMENTATION`
-- Risk: `R2`.
-- Why next: a detected overlap now reaches a real human impact-review task, but the system still lacks a bounded domain-specific resolution contract that distinguishes confirmed baseline overlap, partial overlap and no material overlap without turning that finding into a political decision.
-- Exact next work: reuse the existing role-guarded `review_decisions` infrastructure; define a narrow reason-coded overlap disposition; persist reviewed timestamp/outcome against the existing-measure check; keep the submission in the normal procedural path; expose only citizen-relevant outcome/timing through the protected status/export contracts; never expose operator identity; add migration/idempotency/role/decision guardrails and reversible staging tests.
-- Acceptance: only an active `impact_reviewer` can resolve the task; one terminal disposition per task; audit trail is deterministic; no automatic proposal acceptance/rejection; no original-text mutation; wrong-role and replay paths fail closed; existing status/UI reused; backend/frontend gates green; staging returns to zero synthetic data; no production deploy.
-
-
-## WERK autonomous continuation — current derived action
-- Selected action: `WERK-IDEENWERK-IMPACT-BRIDGE-001`
-- Status: `EXECUTABLE`
-- Risk: `R2`
-- Derived by: WERK closed-loop Connection Sweep, 2026-09-20.
-- Why next: citizen intake, clarification, competence/rechts review, existing-measure review, public clusters and multiple WERK calculation/reform artifacts are already independently verified, but the connection **Bürgeridee/Cluster → relevante bestehende Rechenmodelle/Reformakten → transparenter Wirkungsprüfbedarf** is not yet implemented end-to-end.
-- Exact next work: build a bounded registry/bridge that reuses existing WERK reform/calculation identifiers and data artifacts; map a citizen problem/cluster to candidate affected reform/calculation domains; return links and required/open calculation gates only, without inventing new fiscal effects or political recommendations. Reuse existing IDEENWERK precheck/status/UI surfaces. Add deterministic source/version binding, negative tests, audit trail and reversible staging verification.
-- Do not rebuild: competence review, existing-measure review, privacy, clarification, public cluster listing/detail, FAST/STANDARD/DEEP.
-- Acceptance: no duplicated model, no unsupported numeric claim, explicit provenance to existing WERK data/reform artifacts, stale/version-safe linkage, existing website reused, backend/frontend gates green, staging cleanup complete.
+## Selection sources
+`WERK_SUPERVISOR_STATE.json`, `CONTRADICTIONS.md`, `OPEN_LOOPS.md`, `DEPENDENCIES.md`, `TASK_LEDGER.md`, `EXECUTION_RECEIPTS.md`, `WERK_NEXT_BEST_ACTIONS.json`, `WERK_FINISHLINE_STATE.json` and `werk-data/werk-system-graph.json`.
