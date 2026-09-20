@@ -79,7 +79,7 @@ jobs:
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
 
-          # 001-015, 019, 023-027 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023-028 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -94,6 +94,7 @@ jobs:
           test -s sql/025_citizen_clarification.sql
           test -s sql/026_clarification_prompt.sql
           test -s sql/027_clarification_prompt_visibility.sql
+          test -s sql/028_fk_covering_indexes.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
@@ -102,6 +103,7 @@ jobs:
           cp sql/025_citizen_clarification.sql /tmp/ideenwerk-ci-sql/
           cp sql/026_clarification_prompt.sql /tmp/ideenwerk-ci-sql/
           cp sql/027_clarification_prompt_visibility.sql /tmp/ideenwerk-ci-sql/
+          cp sql/028_fk_covering_indexes.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -128,6 +130,7 @@ jobs:
           node --check scripts/restore-verify.mjs
           node --check scripts/smoke.mjs
           node --check scripts/staging-edge-e2e.mjs
+          node --check scripts/staging-clarification-prompt-e2e.mjs
           node --check scripts/operator-guardrails-smoke.mjs
           node --check scripts/privacy-resolution-transparency-smoke.mjs
           node --check scripts/clarification-contract-smoke.mjs
