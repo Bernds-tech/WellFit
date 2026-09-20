@@ -78,7 +78,7 @@ jobs:
           CREATE SCHEMA IF NOT EXISTS extensions;
           SQL
 
-          # 001-015, 019 and 023 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023 and 024 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -89,10 +89,12 @@ jobs:
           test -s sql/021_review_path_transparency.sql
           test -s sql/022_privacy_citizen_access.sql
           test -s sql/023_privacy_operator_resolution.sql
+          test -s sql/024_privacy_resolution_transparency.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
           cp sql/023_privacy_operator_resolution.sql /tmp/ideenwerk-ci-sql/
+          cp sql/024_privacy_resolution_transparency.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -120,6 +122,7 @@ jobs:
           node --check scripts/smoke.mjs
           node --check scripts/staging-edge-e2e.mjs
           node --check scripts/operator-guardrails-smoke.mjs
+          node --check scripts/privacy-resolution-transparency-smoke.mjs
           node --check scripts/distributed-rate-limit-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
@@ -137,6 +140,9 @@ jobs:
 
       - name: Operator/cluster/privacy DB guardrails
         run: npm run guardrails:operator
+
+      - name: Privacy resolution citizen transparency guardrail
+        run: node scripts/privacy-resolution-transparency-smoke.mjs
 
       - name: Distributed rate-limit DB guardrail
         run: npm run guardrails:rate
