@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v1",
+  "version": "2026-09-20-v2",
   "name": "WERK Stundenkontrolleur",
-  "mode": "read-only independent supervisor",
+  "mode": "independent supervisor; product/runtime read-only; audit-memory write allowed",
   "cadence": "hourly",
   "purpose": "Unabhängige Kontrolle des autonomen WERK-Builders und des realen Staging-Zustands. Der Supervisor repariert nicht selbst.",
   "sources": {
@@ -12,7 +12,7 @@
   },
   "invariants": [
     "Keine Produktionsfreigabe durch den Supervisor.",
-    "Keine Datei-, Datenbank-, Edge-, PR- oder Runtime-Änderung durch den Supervisor.",
+    "Keine Produktcode-, Datenbank-, Edge-, PR-, Runtime- oder politischen Inhaltsänderungen durch den Supervisor; ausschließlich kanonische Supervisor-Auditdateien dürfen fortgeschrieben werden.",
     "Quarantine/removed Cluster und Varianten dürfen öffentlich weder erscheinen noch mitgezählt werden.",
     "Dokumentierter API-Vertrag darf keine Funktion als live ausweisen, die die deployte Runtime nicht liefert.",
     "Keine politischen Wertentscheidungen oder Änderungen der WERK-Grundprinzipien.",
@@ -97,5 +97,19 @@
     "YELLOW": "Drift, Testrest, veralteter Nachweis, Queue-/Review-Stau oder fehlender Gegencheck.",
     "INFO": "Relevante Zustandsänderung ohne akuten Fehler."
   },
-  "notification_rule": "Nur neue oder wesentlich veränderte RED/YELLOW-Befunde melden; RED sofort. Bei unverändert gesundem Zustand keine Benachrichtigung."
+  "notification_rule": "Nur neue oder wesentlich veränderte RED/YELLOW-Befunde melden; RED sofort. Bei unverändert gesundem Zustand keine Benachrichtigung.",
+  "recording": {
+    "state_file": "project-memory/WERK_SUPERVISOR_STATE.json",
+    "verified_success": "project-memory/EXECUTION_RECEIPTS.md",
+    "contradiction": "project-memory/CONTRADICTIONS.md",
+    "open_issue": "project-memory/OPEN_LOOPS.md",
+    "failed_path": "project-memory/FAILED_ATTEMPTS.md",
+    "rules": [
+      "Builder-Erfolgsmeldungen sind Claims, keine Evidence.",
+      "Nur unabhängig bestätigte Claims erhalten ein VERIFIED/COUNTERCHECKED-Receipt.",
+      "Nicht bestätigte Claims werden als Widerspruch oder offener Mangel protokolliert.",
+      "Unverändert gesunde Stundenläufe aktualisieren nur den maschinenlesbaren Supervisor-Zustand und erzeugen keinen Chat-Lärm.",
+      "Audit-Protokollierung darf niemals Produktfreigabe, politische Annahme oder irreversible Aktion auslösen."
+    ]
+  }
 }
