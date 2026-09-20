@@ -74,23 +74,19 @@ FOR EACH ROW EXECUTE FUNCTION public.ideenwerk_enqueue_existing_measure_review()
 
 -- Reconcile any rows that already existed when this migration was installed.
 DO $$
-DECLARE r public.ideenwerk_existing_measure_checks%ROWTYPE;
+DECLARE r record;
 BEGIN
   FOR r IN
-    SELECT * FROM public.ideenwerk_existing_measure_checks
-     WHERE result_code='possible_overlap' AND requires_human_review=true
-  LOOP
-    PERFORM public.ideenwerk_enqueue_existing_measure_review()
+    SELECT em.submission_id,s.public_id,em.matched_refs
       FROM public.ideenwerk_existing_measure_checks em
-     WHERE false;
-    -- The trigger function cannot be called as an ordinary function with NEW.
-    -- Perform the same bounded idempotent enqueue explicitly for migration-time rows.
+      JOIN public.submissions s ON s.id=em.submission_id
+     WHERE em.result_code='possible_overlap' AND em.requires_human_review=true
+  LOOP
     INSERT INTO public.review_tasks(task_id,subject_type,subject_id,review_type,required_role,status,priority)
-    SELECT
+    VALUES(
       'TASK-' || upper(encode(extensions.gen_random_bytes(10),'hex')),
-      'submission',s.public_id,'existing_measure_overlap','impact_reviewer','open',75
-      FROM public.submissions s
-     WHERE s.id=r.submission_id
+      'submission',r.public_id,'existing_measure_overlap','impact_reviewer','open',75
+    )
     ON CONFLICT DO NOTHING;
   END LOOP;
 END;
