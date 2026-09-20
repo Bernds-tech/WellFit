@@ -1,0 +1,126 @@
+{
+  "receipt_version": 1,
+  "task_id": "WERK-IDEENWERK-EXISTING-MEASURE-001",
+  "date": "2026-09-20",
+  "status": "VERIFIED_STAGING",
+  "risk": "R2",
+  "repository": "Bernds-tech/WellFit",
+  "branch": "werk-v49-preview-host",
+  "functional_head_before_receipt": "effe5f7991111c660eca0e5b03c846baaae2f5a9",
+  "migrations": [
+    "030_existing_measure_check",
+    "031_existing_measure_review_queue"
+  ],
+  "reference_datasets": {
+    "current-government-measures-register": "2026-09-03-v2",
+    "implementation-overlap": "2026-09-03-v3",
+    "government-measure-legal-status": "2026-09-05-v3",
+    "government-reference-measures": "2026-09-03-v1"
+  },
+  "behavior": {
+    "classifier": "high-specificity bounded existing-measure baseline lookup",
+    "possible_overlap": "review hint only; creates one active existing_measure_overlap task for impact_reviewer at priority 75",
+    "no_known_overlap": "no hit in bounded WERK reference set; explicitly not a completeness claim",
+    "replay": "classifier replay does not duplicate the active human review task or enqueue audit",
+    "citizen_status": "token-protected existing_measure_check returned through existing private status contract",
+    "privacy_export": "existing_measure_check included in private export",
+    "frontend": "existing V71 protected status surface renders possible-overlap/no-hit explanation; no parallel page",
+    "automatic_decision": false,
+    "political_score": false,
+    "original_text_mutation": false
+  },
+  "staging_verification": {
+    "project": "WERK Österreich Staging",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version_unchanged": 5,
+    "overlap_fixture": {
+      "result_code": "possible_overlap",
+      "matched_ref_ids": [
+        "GOV-REFORMPARTNERSHIP-ADMIN",
+        "GOV-DADEX",
+        "ADM-01"
+      ],
+      "confidence": 0.96,
+      "requires_human_review": true,
+      "review_task": {
+        "review_type": "existing_measure_overlap",
+        "required_role": "impact_reviewer",
+        "status": "open",
+        "priority": 75,
+        "assigned_operator_id": null,
+        "review_decisions": 0
+      },
+      "replay_active_tasks": 1,
+      "replay_enqueue_audits": 1,
+      "submission_status_after_check": "precheck"
+    },
+    "no_overlap_fixture": {
+      "result_code": "no_known_overlap",
+      "requires_human_review": false,
+      "review_tasks": 0
+    },
+    "protected_status_wrong_token_denied": true,
+    "private_export_verified": true,
+    "runtime_contracts": {
+      "existing_measure_check_contract": "030_existing_measure_check",
+      "existing_measure_review_queue_contract": "031_existing_measure_review_queue"
+    },
+    "cleanup_final_counts": {
+      "submissions": 0,
+      "processing_jobs": 0,
+      "review_tasks": 0,
+      "review_decisions": 0,
+      "audit_events": 0,
+      "privacy_requests": 0,
+      "clarifications": 0,
+      "clarification_prompts": 0,
+      "competence_prechecks": 0,
+      "existing_measure_checks": 0,
+      "clusters": 0
+    }
+  },
+  "quality_gates": {
+    "backend": {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 130,
+      "run_id": 35507339556,
+      "head_sha": "e4e4b07c2b301d604cc324022f3676673b8d110c",
+      "conclusion": "success",
+      "coverage": [
+        "syntax",
+        "unit tests",
+        "migration apply and idempotency through 031",
+        "operator/privacy/clarification/competence guardrails",
+        "existing-measure check guardrail",
+        "existing-measure human-review routing guardrail",
+        "distributed rate-limit guardrail",
+        "no-login API/privacy smoke",
+        "retention dry-run",
+        "backup/restore verification",
+        "clustering diagnostic",
+        "1000-item queue integration load"
+      ]
+    },
+    "frontend": {
+      "workflow": "WERK Frontend Check",
+      "run_number": 152,
+      "run_id": 35507441523,
+      "head_sha": "d6bb32a769b92bee56b002faf0722ff84003b8cd",
+      "conclusion": "success"
+    }
+  },
+  "http_e2e": {
+    "reusable_test_extended": "ideenwerk-backend/scripts/staging-competence-precheck-e2e.mjs",
+    "asserts_existing_measure_status_and_export": true,
+    "executed_in_this_runtime": false,
+    "reason": "current automation tool runtime has no outbound network/database-secret path for the deployed Edge HTTP smoke; staging DB/RPC contracts were verified independently"
+  },
+  "safety": {
+    "production_release": false,
+    "paid_action": false,
+    "irreversible_external_change": false,
+    "automatic_accept_or_reject": false,
+    "operator_identity_exposed": false
+  },
+  "next": "WERK-IDEENWERK-EXISTING-MEASURE-REVIEW-RESOLUTION-001"
+}
