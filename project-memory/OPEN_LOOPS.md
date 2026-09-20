@@ -76,12 +76,14 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 
 ## WERK-LOOP-IMPACT-BRIDGE-001
-- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
-- Updated: 2026-09-20 22:36 UTC
-- Builder result: registry + migration 037 map high-specificity citizen signals only to existing reform/data-contract/gate IDs; protected status/export and V71 expose current provenance; stale versions fail closed; no-match is non-complete.
-- Evidence claim: head `f5a38a74caf4daf896124b2f606942d1653e2316`; Impact Bridge Check #2 and Frontend #176 green; Staging migration `20260920223436 ideenwerk_impact_bridge`; reversible candidate/status/stale verification and zero baseline.
-- Boundary: no parallel calculator, new fiscal effect or political recommendation/decision.
-- Next: independent Supervisor countercheck; close only after independent acceptance.
+- Status: CLOSED_COUNTERCHECKED_STAGING
+- Updated: 2026-09-21 01:19 Europe/Vienna
+- Result: the bounded, version-bound citizen/precheck → existing WERK reform/calculation reference bridge is independently `COUNTERCHECKED_STAGING`.
+- Exact evidence: functional head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded; live migration `20260920223436 ideenwerk_impact_bridge`; runtime contract `037_ideenwerk_impact_bridge`; direct bridge access service-role-only; stale version/source mismatch returns `revalidation_required`; zero synthetic baseline restored.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
+- Boundary: no parallel calculator, new fiscal effect, political score, recommendation or automatic acceptance/rejection was introduced. Production/overall ACCEPTED is not implied.
+- Reopen trigger: contradictory runtime/CI evidence, source/registry version change invalidating the current link, a bypass of the fail-closed stale path, or a downstream integration dependency requiring a bounded extension.
+- Downstream: after the remaining stale task/start/lock/receipt-index bookkeeping is consumed, proceed to `WERK-EXPERT-001`; do not rebuild the Impact Bridge.
 
 ## WERK-LOOP-SEC-PGNET-001
 - Status: OPEN_NONBLOCKING_PRODUCTION_HARDENING
