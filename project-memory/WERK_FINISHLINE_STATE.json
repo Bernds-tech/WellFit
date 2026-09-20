@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-20",
+  "project": "WERK Österreich",
+  "branch": "werk-v49-preview-host",
+  "finishline_definition": "WERK ist technisch finishline-ready, wenn die politische Grundordnung dokumentiert, die 12 Leitfelder und priorisierten Reformakten konsistent modelliert, IDEENWERK und Direkte offene Demokratie end-to-end geprüft, Bürgerideen mit bestehenden Rechen-/Reformmodellen verbunden, Experten-/KI-Synthese und Wirkungsprüfung nachvollziehbar, verifizierte Beteiligung/Abstimmung rechtlich-technisch abgegrenzt, Wirkungsmessung rückgekoppelt und Website/Runtime/Security/Datenschutz produktionsbereit sind. Politische Entscheidungen bleiben bei Menschen.",
+  "gates": {
+    "governance_core": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "WERK-Kern und Direkte offene Demokratie sind modelliert; WERK-spezifische autonome Governance wird gerade gehärtet und benötigt Supervisor-Gegencheck."
+    },
+    "policy_fields": {
+      "state": "VERIFIED",
+      "risk": "R2",
+      "required_for_finishline": true,
+      "notes": "12 Leitfelder und 41 Sachbereiche sind strukturiert; fachliche Detailreife variiert je Leitfeld."
+    },
+    "calculations": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "Zahlreiche reproduzierbare Finanz-/SV-/Arbeits-/Förder-/Steuermodelle existieren; vollständige 1/5/10-Jahres-Gesamtrechnung aller Reformen ist offen."
+    },
+    "reform_register": {
+      "state": "PARTIAL",
+      "risk": "R2",
+      "required_for_finishline": true,
+      "notes": "Mehrere Reformakten sind vorhanden; Wirkung/Kosten/Finanzierung sind nicht bei allen geschlossen."
+    },
+    "ideenwerk_staging": {
+      "state": "VERIFIED_STAGING",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "No-Login-Intake, Status, Privacy, Clarification, Review-Pfade, Kompetenz- und Existing-Measure-Prüfung sowie öffentliche Cluster laufen im Staging."
+    },
+    "open_democracy": {
+      "state": "IN_PROGRESS",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "FAST/STANDARD/DEEP und Bürgerprozess sind angelegt; vollständiger Entscheidungs-/Wirkungskreislauf noch nicht geschlossen."
+    },
+    "impact_bridge": {
+      "state": "IN_PROGRESS",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "Nächste Kernintegration: Bürgeridee/Cluster auf bestehende WERK-Rechenmodelle/Reformakten mappen, ohne Parallelrechnung."
+    },
+    "expert_process": {
+      "state": "TODO",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "Transparenter Experten-/Betroffeneninput muss als strukturierter, auditierbarer Bestandteil des Prozesses gebaut werden."
+    },
+    "ai_synthesis": {
+      "state": "TODO",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "KI soll bestehende Bürgerideen/Expertenwissen/Rechenmodelle zu Varianten synthetisieren; noch kein vollständiger produktiver Pfad."
+    },
+    "verified_support": {
+      "state": "TODO",
+      "risk": "R4",
+      "required_for_finishline": true,
+      "notes": "1 Mensch = 1 verifizierte Unterstützung ist noch nicht implementiert; Identitäts-/Datenschutzkonzept erforderlich."
+    },
+    "werk_vote": {
+      "state": "BLOCKED",
+      "risk": "R4",
+      "required_for_finishline": true,
+      "notes": "Echte politische Abstimmung benötigt Identitäts-, Geheimhaltungs-, Rechts- und Sicherheitskonzept; darf nicht aus Staging-Ideen abgeleitet werden."
+    },
+    "parliamentary_path": {
+      "state": "PARTIAL",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "Prozessmodell vorhanden; rechtlich/organisatorisch vollständige Umsetzung und Mandatar-Transparenz noch offen."
+    },
+    "impact_measurement": {
+      "state": "TODO",
+      "risk": "R3",
+      "required_for_finishline": true,
+      "notes": "Soll/Ist-KPI-Rückkopplung von umgesetzten Reformen zurück in KI/Bürgerprozess ist konzeptionell definiert, technisch offen."
+    },
+    "website": {
+      "state": "IN_PROGRESS",
+      "risk": "R2",
+      "required_for_finishline": true,
+      "notes": "V71 mit Leitfeldern, Transparenz, IDEENWERK und Live-Themenräumen vorhanden; weitere Integration statt Parallelseiten."
+    },
+    "security_privacy": {
+      "state": "PARTIAL",
+      "risk": "R4",
+      "required_for_finishline": true,
+      "notes": "Status-Token, RLS, Privacy-Workflows und fail-closed Sichtbarkeit vorhanden; Hardening/Advisor-/Produktionsabnahme offen."
+    },
+    "production_readiness": {
+      "state": "BLOCKED",
+      "risk": "R4",
+      "required_for_finishline": true,
+      "notes": "Nur Staging; keine Produktionsfreigabe."
+    }
+  },
+  "accepted_states": [
+    "ACCEPTED",
+    "PRODUCTION_CONFIRMED"
+  ],
+  "completion_rule": "Kein Gate wird durch Code allein ACCEPTED. Externe/rechtliche/identitätsbezogene Gates brauchen targetgebundene unabhängige Evidence. Unfertige Gates bleiben explizit offen."
+}
