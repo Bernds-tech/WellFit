@@ -1,7 +1,8 @@
 (()=>{
 const API='https://jwomaoxefgnhsgiebaqy.supabase.co/functions/v1/werk-ideenwerk-api';
+const HIDDEN_STATUSES=new Set(['quarantine','removed']);
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const state={cursor:null,topic:'',region:'',loading:false,seq:0};
+const state={cursor:null,topic:'',region:'',loading:false,seq:0,detailSeq:0};
 
 function optionValues(id){
   const el=document.getElementById(id);
@@ -43,17 +44,73 @@ function buildQuery(cursor=null){
   return `${API}/clusters?${q.toString()}`;
 }
 
+function detailPanelId(clusterId){
+  return `iwClusterDetail-${String(clusterId||'').replace(/[^A-Za-z0-9_-]/g,'')}`;
+}
+
 function clusterCard(c){
+  const clusterId=String(c.cluster_id||'');
   const meta=[c.region_scope,statusLabel(c.review_status),laneLabel(c.process_lane_suggestion)].filter(Boolean).map(esc).join(' · ');
   const count=Number.isFinite(Number(c.submission_count))?Number(c.submission_count):0;
   const updated=c.updated_at?new Intl.DateTimeFormat('de-AT',{dateStyle:'medium'}).format(new Date(c.updated_at)):'–';
-  return `<article class="iwCluster" data-live-cluster="${esc(c.cluster_id||'')}"><span class="iwBadge">${esc(c.topic||'Thema offen')}</span><h4>${esc(c.title||'Unbenannter Themenraum')}</h4><small>${meta}</small><div class="iwHint">${count} zugeordnete Einreichung${count===1?'':'en'} · aktualisiert ${esc(updated)}</div></article>`;
+  const panelId=detailPanelId(clusterId);
+  return `<article class="iwCluster" data-live-cluster="${esc(clusterId)}"><span class="iwBadge">${esc(c.topic||'Thema offen')}</span><h4>${esc(c.title||'Unbenannter Themenraum')}</h4><small>${meta}</small><div class="iwHint">${count} zugeordnete Einreichung${count===1?'':'en'} · aktualisiert ${esc(updated)}</div><div class="iwActions"><button class="iwBtn" type="button" data-cluster-detail="${esc(clusterId)}" aria-expanded="false" aria-controls="${esc(panelId)}">Details & Lösungsvarianten</button></div><div id="${esc(panelId)}" data-cluster-detail-panel="${esc(clusterId)}" hidden></div></article>`;
+}
+
+function variantCard(v){
+  const summary=String(v?.summary||'').trim();
+  const updated=v?.updated_at?new Intl.DateTimeFormat('de-AT',{dateStyle:'medium'}).format(new Date(v.updated_at)):'–';
+  return `<div class="iwNotice"><strong>${esc(v?.title||'Unbenannte Lösungsvariante')}</strong>${summary?`<div>${esc(summary)}</div>`:''}<div class="iwHint">${esc(statusLabel(v?.review_status))} · aktualisiert ${esc(updated)}</div></div>`;
+}
+
+function renderClusterDetail(data){
+  const cluster=data?.cluster||{};
+  const variants=(Array.isArray(data?.variants)?data.variants:[]).filter(v=>!HIDDEN_STATUSES.has(String(v?.review_status||'')));
+  const laneReason=String(cluster.process_lane_reason||'').trim();
+  const variantsHtml=variants.length
+    ? variants.map(variantCard).join('')
+    : '<div class="iwNotice">Für diesen öffentlichen Problemraum ist derzeit noch keine öffentliche Lösungsvariante ausgewiesen.</div>';
+  return `<div class="iwNotice"><strong>Problemraum · ${esc(cluster.title||'Details')}</strong><div class="iwHint">${esc(cluster.region_scope||'Region offen')} · ${esc(statusLabel(cluster.review_status))} · ${esc(laneLabel(cluster.process_lane_suggestion))}</div>${laneReason?`<div class="iwHint">Prüfpfad: ${esc(laneReason)}</div>`:''}<div class="iwHint">Die Gesamtzahl der Einreichungen beschreibt den Problemraum und ist keine Zustimmung zu einer bestimmten Lösungsvariante.</div></div><div class="iwHint"><strong>Öffentliche Lösungsvarianten</strong></div>${variantsHtml}`;
 }
 
 function setBusy(button,busy){
   if(!button)return;
   button.disabled=busy;
   button.setAttribute('aria-busy',busy?'true':'false');
+}
+
+async function toggleClusterDetail(button){
+  const clusterId=String(button?.dataset?.clusterDetail||'');
+  const panel=clusterId?document.querySelector(`[data-cluster-detail-panel="${clusterId}"]`):null;
+  if(!panel)return;
+  const expanded=button.getAttribute('aria-expanded')==='true';
+  if(expanded){
+    button.setAttribute('aria-expanded','false');
+    button.textContent='Details & Lösungsvarianten';
+    panel.hidden=true;
+    return;
+  }
+
+  const requestId=String(++state.detailSeq);
+  panel.dataset.requestId=requestId;
+  panel.hidden=false;
+  panel.innerHTML='<div class="iwNotice">Details und öffentliche Lösungsvarianten werden geladen …</div>';
+  button.setAttribute('aria-expanded','true');
+  button.textContent='Details schließen';
+  setBusy(button,true);
+  try{
+    const data=await fetchJSON(`${API}/clusters/${encodeURIComponent(clusterId)}`);
+    if(!panel.isConnected||panel.dataset.requestId!==requestId)return;
+    panel.innerHTML=renderClusterDetail(data);
+  }catch(e){
+    if(!panel.isConnected||panel.dataset.requestId!==requestId)return;
+    panel.innerHTML=e?.status===404
+      ? '<div class="iwNotice">Dieser Themenraum ist nicht mehr öffentlich verfügbar. Verdeckte Prüf- und Quarantänefälle werden nicht angezeigt.</div>'
+      : `<div class="iwNotice">Die Details konnten gerade nicht geladen werden${e?.code?` · ${esc(e.code)}`:''}.</div>`;
+    console.error('WERK IDEENWERK cluster detail',e);
+  }finally{
+    if(panel.isConnected&&panel.dataset.requestId===requestId)setBusy(button,false);
+  }
 }
 
 async function loadClusters(reset){
@@ -131,6 +188,11 @@ function mount(){
   const note=document.createElement('div');note.className='iwHint';note.id='iwPublicClusterNote';note.textContent='Live-Register wird geladen.';
   actions.insertAdjacentElement('afterend',note);
 
+  grid.addEventListener('click',event=>{
+    const target=event.target;
+    const button=target instanceof Element?target.closest('[data-cluster-detail]'):null;
+    if(button instanceof HTMLButtonElement)toggleClusterDetail(button);
+  });
   topic.select.addEventListener('change',()=>{state.topic=topic.select.value;loadClusters(true)});
   region.select.addEventListener('change',()=>{state.region=region.select.value;loadClusters(true)});
   refresh.addEventListener('click',()=>loadClusters(true));
