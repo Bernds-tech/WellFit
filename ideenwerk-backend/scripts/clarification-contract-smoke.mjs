@@ -85,6 +85,21 @@ try {
 
   console.log('clarification contract OK: token boundary, immutable original, private persistence, idempotency, PII guard and semantic re-entry verified');
 } finally {
+  // processing_jobs/audit_events/review_tasks reference the public ID textually rather
+  // than through an ON DELETE CASCADE foreign key. Remove those synthetic artefacts
+  // before deleting the submission so staging/CI smoke runs cannot leave orphan rows.
+  await pool.query(
+    `DELETE FROM processing_jobs WHERE subject_type='submission' AND subject_id IN ($1,$2)`,
+    [publicId,piiPublicId]
+  ).catch(()=>{});
+  await pool.query(
+    `DELETE FROM review_tasks WHERE subject_type='submission' AND subject_id IN ($1,$2)`,
+    [publicId,piiPublicId]
+  ).catch(()=>{});
+  await pool.query(
+    `DELETE FROM audit_events WHERE subject_type='submission' AND subject_id IN ($1,$2)`,
+    [publicId,piiPublicId]
+  ).catch(()=>{});
   await pool.query(`DELETE FROM submissions WHERE public_id IN ($1,$2)`,[publicId,piiPublicId]).catch(()=>{});
   await pool.end();
 }
