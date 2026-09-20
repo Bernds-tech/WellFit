@@ -25,13 +25,15 @@ Der Builder hat die blockierende GELB-Lücke bounded gehärtet, ohne die Supabas
 9. IDEENWERK Edge Function blieb Version 7 aktiv und die relevanten synthetischen Tabellen wurden mit Zero-Baseline verifiziert.
 
 ## CI status
-Der pg_net-spezifische Guardrail, Migration/Idempotenz, Unit Tests, API/Privacy Smoke, Backup/Restore und die übrigen Backend-Guardrails bestanden auf exact head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4`. Der erste Gesamt-Backend-Lauf #161 scheiterte ausschließlich am bestehenden 1.000-Item-Queue-Benchmark durch 120-s-Timeout; der fehlgeschlagene Job wurde einmal unverändert neu gestartet. Keine Benchmark-Schwelle wurde gelockert.
+IDEENWERK Backend Check #161 ist auf exact functional head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4` final **SUCCESS**. Attempt 1 bestand den pg_net-spezifischen Guardrail und alle vorgelagerten Backend-Prüfungen, lief aber im unveränderten 1.000-Item-Queue-Benchmark in das bestehende 120-s-Limit. Der fehlgeschlagene Job wurde einmal unverändert als Attempt 2 neu ausgeführt; Attempt 2 bestand einschließlich Queue-Integration. Keine Benchmark-Schwelle und kein Testumfang wurden gelockert.
+
+Der Builder-Claim ist in `project-memory/WERK_PG_NET_SECURITY_001_BUILDER_CLAIM.md` finalisiert. Der aktuelle Branch-Head enthält danach nur Builder-Claim-/Governance-Nachführung; der funktionale Sicherheits-Head bleibt oben genannt.
 
 ## Exact next work
-1. Re-run-Ergebnis von IDEENWERK Backend Check #161 konsumieren.
-2. Bei grünem Re-run Builder-Claim mit exact head, Staging-Migration, negativen Guardrails, Zero-Baseline und Rollback-Evidence finalisieren.
-3. Danach unabhängiger Supervisor-Gegencheck: aktuelle Managed-ACL-Grenze, PostgREST-Profilblock, Backend-CI, Security Advisor, Edge/Migration-State, Zero-Baseline und WERK-Evidence-TTL.
-4. Erst wenn das blockierende GELB geschlossen oder präzise als akzeptierte Plattformgrenze klassifiziert ist, zur funktionalen Next-Best-Action wechseln.
+1. **Keine weitere Builder-Änderung an pg_net vor unabhängiger Gegenprüfung.** Der Builder hat seinen bounded Scope vollständig abgearbeitet.
+2. Supervisor muss unabhängig prüfen: aktuelle Managed-ACL-Grenze, PostgREST-Profilblock, final grünen Backend Check #161, Security Advisor, Edge/Migration-State, Zero-Baseline, Rollback-Evidence und WERK-Evidence-TTL.
+3. Bei erfolgreichem Countercheck: Finding/Loop/Lock sauber schließen bzw. die verbleibende Hosted-Supabase-Plattformgrenze präzise als Produktions-Hardening-Limit weiterführen.
+4. Danach funktionale Next-Best-Action aktivieren: `WERK-IDEENWERK-IMPACT-BRIDGE-001`.
 
 ## Safety
 - `net.http_get`, `net.http_post`, `net.http_delete` oder andere externe pg_net-Aufrufe nicht zur Reachability-Prüfung ausführen.
