@@ -1,6 +1,6 @@
 # WERK-SEC-PGNET-001 — Builder Claim
 
-Stand: 2026-09-20 20:42 UTC
+Stand: 2026-09-20 20:43 UTC
 
 Status: `IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK`
 Risk: `R3`
@@ -60,9 +60,10 @@ After rollback, the guard function and pre-request setting were still present, p
 
 ## CI evidence
 
-IDEENWERK Backend Check #161, attempt 1, exact head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4`:
+IDEENWERK Backend Check #161, exact functional head `4d79bf4fab4ec3448033f77919bd32c18ab6a7a4`, final result: **SUCCESS**.
 
-Passed before the final load step:
+Attempt 1 passed the pg_net-specific guardrail and all preceding backend checks but hit the unchanged 120-second budget in the existing 1,000-item queue benchmark. The Builder did not relax the threshold. The failed job was rerun unchanged as attempt 2; attempt 2 completed successfully, including:
+
 - syntax and 34 unit tests;
 - migration apply and migration idempotency;
 - operator/privacy/clarification/competence/existing-measure guardrails;
@@ -71,9 +72,10 @@ Passed before the final load step:
 - no-login API/privacy smoke;
 - retention dry-run;
 - backup and isolated restore verification;
-- clustering diagnostic.
+- clustering diagnostic;
+- unchanged 1,000-item queue integration load.
 
-Attempt 1 failed only at the unchanged 1,000-item queue integration benchmark after the existing 120-second timeout with work still queued. The Builder did not relax the threshold or hide the failure. One unchanged failed-job rerun was started; this claim must be updated/consumed with its final result before an independent countercheck treats full backend CI as green.
+No CI acceptance threshold or test scope was weakened to obtain the green result.
 
 ## Explicit non-claims
 
@@ -87,7 +89,7 @@ Attempt 1 failed only at the unchanged 1,000-item queue integration benchmark af
 
 Supervisor must independently verify:
 
-1. exact functional head and backend CI outcome;
+1. exact functional head and Backend Check #161 final success;
 2. staging migration 036 and current PostgREST hook;
 3. anon/authenticated net-profile fail-closed behavior;
 4. absence of WERK-owned pg_net exposure paths;
