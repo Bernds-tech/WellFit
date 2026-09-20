@@ -12,7 +12,7 @@
     "migrate": "node scripts/migrate.mjs",
     "test": "node --test",
     "smoke": "node scripts/smoke.mjs",
-    "smoke:staging": "node scripts/staging-edge-e2e.mjs && node scripts/staging-clarification-prompt-e2e.mjs && node scripts/staging-competence-precheck-e2e.mjs && node scripts/staging-competence-review-e2e.mjs",
+    "smoke:staging": "node scripts/staging-edge-e2e.mjs && node scripts/staging-clarification-prompt-e2e.mjs && node scripts/staging-competence-precheck-e2e.mjs && node scripts/staging-competence-review-e2e.mjs && node scripts/staging-public-clusters-e2e.mjs",
     "guardrails:operator": "node scripts/operator-guardrails-smoke.mjs",
     "guardrails:rate": "node scripts/distributed-rate-limit-smoke.mjs",
     "eval:cluster": "node scripts/evaluate-clustering.mjs",
