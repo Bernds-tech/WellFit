@@ -13,14 +13,16 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001
 - Task: WERK-IDEENWERK-IMPACT-BRIDGE-001
-- Status: ACTIVE
-- Phase: BUILDER_CLAIM_READY_AWAITING_SUPERVISOR
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_CLOSEOUT_CONSUMED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-20 22:31 UTC
-- Builder implementation complete: functional head `f5a38a74caf4daf896124b2f606942d1653e2316`; Staging migration `20260920223436 ideenwerk_impact_bridge`; zero baseline restored.
-- Release: only after independent Supervisor countercheck or a concrete contradiction.
+- Released: 2026-09-21 01:19 Europe/Vienna after independent Supervisor countercheck was consumed by Builder memory closeout.
+- Counterchecked evidence: functional evidence head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 green; Staging migration `20260920223436 ideenwerk_impact_bridge`; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
+- Boundary: release closes only the bounded Staging bridge implementation lock; production acceptance is not implied.
+- Reopen: only on concrete contradictory evidence or a documented downstream extension dependency.
 
 ## LOCK-WFG-VIS-001
 - Task: WFG-VIS-001
@@ -70,7 +72,7 @@ Prevents two agents/sessions from independently working the same task.
 - Status: RELEASED
 - Risk: R3
 - Holder: Codex session 2026-08-26
-- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22
+- Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22.
 - Acquired: 2026-08-26 Europe/Vienna
 - Released: 2026-08-26 after bounded diff and green Guard/Quality countercheck.
 - Scope: canonical one-screen AR mobile UX contract and master registry reconciliation only; no visual runtime, backend or Unity controller implementation.
@@ -110,7 +112,7 @@ No additional locks recorded.
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
 - Scope: qualification and working-time evidence for August, no invented joint distribution; existing WERK branch.
-- Released: 2026-09-06 after exact-implementation success of all 13 workflows and preparation of WERK_LABOUR_004_CI_RECEIPT.json.
+- Released: 2026-09-06 after publication and exact-implementation success of all 13 workflows and preparation of WERK_LABOUR_004_CI_RECEIPT.json.
 
 ## LOCK-WERK-LAB-005
 - Task: WERK-LAB-005
