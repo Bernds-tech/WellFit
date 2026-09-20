@@ -74,6 +74,9 @@ jobs:
             IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='service_role') THEN
               CREATE ROLE service_role NOLOGIN;
             END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='authenticator') THEN
+              CREATE ROLE authenticator NOLOGIN;
+            END IF;
             -- Supabase exposes a postgres role and some portable migrations grant
             -- tightly scoped helper execution to it. The postgres image uses the
             -- custom CI superuser `werk`, so mirror that role name explicitly.
@@ -86,7 +89,7 @@ jobs:
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
 
-          # 001-015, 019, 023-035 are portable PostgreSQL backend migrations.
+          # 001-015, 019, 023-036 are portable PostgreSQL backend migrations.
           # 016-018 and 020-022 are Supabase-staging contracts that depend on the
           # real staging runtime and are verified there rather than emulated here.
           test -s sql/016_internal_pg_net.sql
@@ -109,6 +112,7 @@ jobs:
           test -s sql/033_existing_measure_review_signal_binding.sql
           test -s sql/034_existing_measure_review_signal_trigger.sql
           test -s sql/035_competence_review_queue.sql
+          test -s sql/036_pg_net_data_api_guard.sql
           mkdir -p /tmp/ideenwerk-ci-sql
           cp sql/0{01..15}_*.sql /tmp/ideenwerk-ci-sql/
           cp sql/019_cluster_candidate_pair_dedup.sql /tmp/ideenwerk-ci-sql/
@@ -125,6 +129,7 @@ jobs:
           cp sql/033_existing_measure_review_signal_binding.sql /tmp/ideenwerk-ci-sql/
           cp sql/034_existing_measure_review_signal_trigger.sql /tmp/ideenwerk-ci-sql/
           cp sql/035_competence_review_queue.sql /tmp/ideenwerk-ci-sql/
+          cp sql/036_pg_net_data_api_guard.sql /tmp/ideenwerk-ci-sql/
 
           # src/app.js currently uses this readiness marker for the portable
           # backend. Generate it only inside the disposable CI database; this
@@ -164,6 +169,7 @@ jobs:
           node --check scripts/existing-measure-review-queue-smoke.mjs
           node --check scripts/existing-measure-review-resolution-smoke.mjs
           node --check scripts/distributed-rate-limit-smoke.mjs
+          node --check scripts/pg-net-security-guard-smoke.mjs
           node --check scripts/seed-synthetic.mjs
           node --check scripts/benchmark-queue.mjs
           node --check scripts/cleanup-synthetic.mjs
@@ -207,6 +213,9 @@ jobs:
 
       - name: Distributed rate-limit DB guardrail
         run: npm run guardrails:rate
+
+      - name: pg_net Data API security guardrail
+        run: npm run guardrails:pg-net
 
       - name: Start API and worker
         run: |
