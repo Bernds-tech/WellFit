@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-20T21:40:52Z",
+  "supervisor": "WERK Stundenkontrolleur",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "6b46f2b9a0516b3f117e1e2ba6183e1ce4801858",
+  "functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+  "overall_status": "YELLOW",
+  "verified": [
+    {
+      "id": "WERK-SEC-PGNET-001",
+      "result": "COUNTERCHECKED_STAGING_BOUNDARY",
+      "evidence": [
+        "IDEENWERK Backend Check #161 final SUCCESS on attempt 2 for exact functional head 4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+        "CI job independently shows pg_net Data API security guardrail success plus unchanged queue integration, backup/restore and API/privacy checks",
+        "WERK Österreich Staging ACTIVE_HEALTHY",
+        "werk-ideenwerk-api ACTIVE version 7",
+        "live latest migration 20260920203116 pg_net_data_api_guard",
+        "authenticator pgrst.db_pre_request=public.werk_api_security_guard",
+        "independent transient guard invocation: anon net profile blocked with WERK_INTERNAL_SCHEMA; anon public profile allowed",
+        "anon/authenticated are NOLOGIN roles",
+        "zero WERK-owned public net.http_* wrappers",
+        "13 checked IDEENWERK citizen/review/privacy/cluster tables at zero synthetic baseline"
+      ],
+      "boundary": "Countercheck is limited to the staging Data-API boundary. Hosted Supabase-managed direct net ACLs remain permissive and Security Advisor still reports extension_in_public; production security is not accepted."
+    }
+  ],
+  "claim_corrections": [
+    {
+      "id": "WERK-PGNET-MIGRATION-ID-DRIFT",
+      "builder_claim": "20260920203049 pg_net_data_api_guard",
+      "live_evidence": "20260920203116 pg_net_data_api_guard",
+      "assessment": "documentation drift only: same migration name and stored SQL content are present, but the builder receipt timestamp is not the live migration identifier and must be corrected"
+    }
+  ],
+  "remaining_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "kind": "production_hardening_limit",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Security Advisor still reports extension_in_public for pg_net and Hosted Supabase retains direct net ACL management. The staging Data-API boundary is counterchecked, so this no longer blocks the Impact Bridge; it still blocks final production security acceptance unless separately resolved or explicitly accepted with platform evidence."
+    },
+    {
+      "id": "WERK-PGNET-CLOSEOUT-BOOKKEEPING",
+      "severity": "YELLOW",
+      "kind": "orphan_zombie_reconciliation",
+      "status": "BUILDER_RECONCILIATION_REQUIRED",
+      "summary": "TASK_LEDGER/STARTED_WORK/WORK_LOCKS/OPEN_LOOPS/CONTRADICTIONS/EXECUTION_RECEIPTS still reflect the pre-countercheck pg_net state. The next Builder action must be memory-only closeout before feature implementation."
+    }
+  ],
+  "specialist_checks": {
+    "integration_hunter": "No new connection gap beyond existing WERK-LOOP-IMPACT-BRIDGE-001 / WERK-DEP-IDEENWERK-IMPACT-001.",
+    "evidence_reaper": "Prior staging evidence was invalidated by migration 036 and refreshed. Current CI/staging/security evidence is within TTL. Builder migration-id claim corrected to live truth 20260920203116.",
+    "orphan_zombie_hunter": "pg_net implementation is independently counterchecked but task/started/lock/current loop/master receipt registers still carry pre-countercheck state; memory-only reconciliation is required next.",
+    "calculation_integrity_guardian": "No calculation, source-data or reform-contract files changed in the audited functional range; no deep recalculation triggered.",
+    "milestone_closer": "No finishline gate newly satisfies full ACCEPTED/PRODUCTION_CONFIRMED quorum."
+  },
+  "runtime_mutations": "none; only read-only catalog/advisor checks and transient session-local guard invocation were used",
+  "product_mutations": "none",
+  "political_mutations": "none",
+  "next": "memory-only pg_net closeout reconciliation, then WERK-IDEENWERK-IMPACT-BRIDGE-001"
+}
