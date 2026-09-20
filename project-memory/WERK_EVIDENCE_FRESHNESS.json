@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-20",
+  "entries": [],
+  "rule": "Supervisor und Builder pflegen nur tatsächlich beobachtete Evidence ein. Keine erfundenen timestamps oder target states. Leere Liste bedeutet: Freshness-System initialisiert, konkrete Evidenzen müssen aus Receipts/Runtime schrittweise registriert werden."
+}
