@@ -1,0 +1,101 @@
+{
+  "version": "2026-09-20-v1",
+  "name": "WERK Stundenkontrolleur",
+  "mode": "read-only independent supervisor",
+  "cadence": "hourly",
+  "purpose": "Unabhängige Kontrolle des autonomen WERK-Builders und des realen Staging-Zustands. Der Supervisor repariert nicht selbst.",
+  "sources": {
+    "repository": "Bernds-tech/WellFit",
+    "primary_branch": "werk-v49-preview-host",
+    "staging": "Supabase: WERK Österreich Staging",
+    "edge_function": "werk-ideenwerk-api"
+  },
+  "invariants": [
+    "Keine Produktionsfreigabe durch den Supervisor.",
+    "Keine Datei-, Datenbank-, Edge-, PR- oder Runtime-Änderung durch den Supervisor.",
+    "Quarantine/removed Cluster und Varianten dürfen öffentlich weder erscheinen noch mitgezählt werden.",
+    "Dokumentierter API-Vertrag darf keine Funktion als live ausweisen, die die deployte Runtime nicht liefert.",
+    "Keine politischen Wertentscheidungen oder Änderungen der WERK-Grundprinzipien.",
+    "Synthetische E2E-/TEST-Artefakte dürfen nach abgeschlossenem Test nicht als öffentliche Bürgerinhalte verbleiben.",
+    "Stale competence/existing-measure Reviews dürfen nicht als aktuelles Ergebnis erscheinen.",
+    "Bürger-Originaltexte dürfen durch Review-, Clarification- oder Precheck-Prozesse nicht überschrieben werden."
+  ],
+  "checks": [
+    {
+      "id": "repo_scope",
+      "severity_on_failure": "YELLOW",
+      "check": "Branch-/Scope-Drift und unerwartete Änderungen"
+    },
+    {
+      "id": "ci_frontend",
+      "severity_on_failure": "YELLOW",
+      "check": "WERK Frontend CI auf aktuellem relevanten Stand"
+    },
+    {
+      "id": "ci_backend",
+      "severity_on_failure": "YELLOW",
+      "check": "IDEENWERK Backend CI auf aktuellem relevanten Stand"
+    },
+    {
+      "id": "staging_health",
+      "severity_on_failure": "RED",
+      "check": "Supabase-Projekt und Edge Function aktiv"
+    },
+    {
+      "id": "contract_runtime",
+      "severity_on_failure": "RED",
+      "check": "API-Vertrag gegen deployte Runtime konsistent"
+    },
+    {
+      "id": "migration_drift",
+      "severity_on_failure": "YELLOW",
+      "check": "Migrations-/Runtime-Vertrag konsistent"
+    },
+    {
+      "id": "queue_health",
+      "severity_on_failure": "YELLOW",
+      "check": "queued/running/retry/dead, Alter und Stau"
+    },
+    {
+      "id": "review_health",
+      "severity_on_failure": "YELLOW",
+      "check": "offene Reviews, stale bindings, festhängende Entscheidungen"
+    },
+    {
+      "id": "synthetic_residue",
+      "severity_on_failure": "YELLOW",
+      "check": "keine E2E-/TEST-/SYNTHETIC-Reste im öffentlichen Staging"
+    },
+    {
+      "id": "public_visibility",
+      "severity_on_failure": "RED",
+      "check": "fail-closed Sichtbarkeit öffentlicher Cluster/Varianten"
+    },
+    {
+      "id": "privacy_integrity",
+      "severity_on_failure": "RED",
+      "check": "Status-Token, Export, Privacy, Clarification konsistent"
+    },
+    {
+      "id": "backup_restore_security",
+      "severity_on_failure": "YELLOW",
+      "check": "Backup/Restore/Security-/Advisor-Befunde"
+    },
+    {
+      "id": "calculation_contracts",
+      "severity_on_failure": "RED",
+      "check": "zentrale WERK-Daten-/Rechenverträge ohne widersprüchliche Claims"
+    },
+    {
+      "id": "builder_evidence",
+      "severity_on_failure": "YELLOW",
+      "check": "Builder-Änderungen besitzen passenden CI-/Runtime-/Staging-Nachweis"
+    }
+  ],
+  "severity": {
+    "RED": "Sicherheits-, Datenintegritäts-, Sichtbarkeits-, Runtime-Ausfall oder widersprüchlicher politischer/Rechenvertrag.",
+    "YELLOW": "Drift, Testrest, veralteter Nachweis, Queue-/Review-Stau oder fehlender Gegencheck.",
+    "INFO": "Relevante Zustandsänderung ohne akuten Fehler."
+  },
+  "notification_rule": "Nur neue oder wesentlich veränderte RED/YELLOW-Befunde melden; RED sofort. Bei unverändert gesundem Zustand keine Benachrichtigung."
+}
