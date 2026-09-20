@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-20T20:10:23Z",
+  "supervisor": "WERK Stundenkontrolleur",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "0b4ced1086a0b6b46ea16e9f12bc3e3d38997aca",
+  "functional_governance_head": "242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
+  "overall_status": "YELLOW",
+  "verified": [
+    {
+      "id": "WERK-GOV-001",
+      "result": "COUNTERCHECKED",
+      "evidence": [
+        "shared NEXT_BEST_ACTION is WERK-first and selects WERK-IDEENWERK-IMPACT-BRIDGE-001",
+        "TASK_LEDGER contains WERK-GOV-001",
+        "WERK_AUTOMATION_ROLES schema v2 makes evidence-freshness and finishline authority explicit",
+        "werk-autonomy-contract v4 mirrors the write-authority split",
+        "WERK Frontend Check #174 succeeded on exact functional governance head 242893c2fcc322424d7b6fb4cc97a0e87ea90a6e",
+        "current branch head is exactly one audit-only commit ahead of that functional head and changes only project-memory/WERK_SUPERVISOR_STATE.json"
+      ],
+      "boundary": "This countercheck verifies the WERK control-plane reconciliation; it does not accept product, security, legal, identity or production gates."
+    },
+    {
+      "id": "WERK-STAGING-CURRENT-20260920T201023Z",
+      "result": "VERIFIED_CURRENT_STATE",
+      "evidence": [
+        "Supabase project WERK Österreich Staging ACTIVE_HEALTHY",
+        "werk-ideenwerk-api ACTIVE version 7",
+        "latest migration 20260920130959 competence_review_queue",
+        "13 relevant IDEENWERK citizen/review/privacy/cluster tables at zero-row synthetic baseline"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CTR-WERK-SEC-PGNET-ACL-001",
+      "severity": "YELLOW",
+      "kind": "security_access_control_drift",
+      "status": "RECONCILIATION_REQUIRED",
+      "summary": "Live staging ACLs contradict migration 016's intended pg_net lockdown. Schema net currently grants USAGE to PUBLIC, anon and authenticated, and pg_net routines such as http_get/http_post/http_delete show PUBLIC EXECUTE. External exploitability through the current API was not proven, so this is not classified RED in this run.",
+      "evidence": [
+        "Migration 016 explicitly REVOKE USAGE ON SCHEMA net FROM PUBLIC, anon, authenticated and REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA net from the same roles.",
+        "Live pg_namespace.nspacl for net includes =U, anon=U and authenticated=U.",
+        "Live pg_proc ACLs for net.http_get/http_post/http_delete and worker functions include =X (PUBLIC execute).",
+        "Supabase-managed enabled event trigger issue_pg_net_access calls extensions.grant_pg_net_access(), whose definition grants schema net USAGE to anon/authenticated/service_role after pg_net DDL; exact re-grant timing is not established.",
+        "pg_net is version 0.20.4 and Security Advisor continues to report extension_in_public."
+      ],
+      "required_follow_up": "Builder must create a bounded tested hardening migration or documented platform-compatible alternative that restores intended least privilege and survives pg_net extension DDL/update behavior; supervisor must re-run live ACL and advisor checks afterward. Do not execute net.http_* as part of verification."
+    }
+  ],
+  "specialist_checks": {
+    "integration_hunter": "No new connection gap beyond existing WERK-LOOP-IMPACT-BRIDGE-001 / WERK-DEP-IDEENWERK-IMPACT-001.",
+    "evidence_reaper": "Previous pg_net freshness statement claiming no access-control regression is superseded by stronger live ACL evidence; current staging/runtime evidence remains within 24h TTL.",
+    "orphan_zombie_hunter": "WERK-GOV-001 countercheck prerequisite is satisfied; any residual IN_PROGRESS/EXECUTABLE_AFTER_GOVERNANCE_RECONCILIATION wording must be reconciled to avoid stale governance state.",
+    "calculation_integrity_guardian": "No calculation/data/reform contract delta in the audited commit range; deep recalculation not triggered.",
+    "milestone_closer": "No finishline milestone newly meets full acceptance quorum."
+  },
+  "runtime_mutations": "none",
+  "product_mutations": "none",
+  "political_mutations": "none"
+}
