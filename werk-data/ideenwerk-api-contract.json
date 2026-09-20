@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-20-v5",
+  "version": "2026-09-20-v6",
   "title": "WERK IDEENWERK – API-Vertrag",
-  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz und token-geschützte Datenschutzwege implementiert; Produktivfreigabe offen",
+  "status": "Staging-API aktiv; Bürgerstatus, Prüftiefen-Transparenz, token-geschützte Datenschutzwege und Bürger-Klarstellung implementiert; Produktivfreigabe offen",
   "base_path": "/api/ideenwerk/v1",
   "principles": [
     "Einreichen ohne Konto",
@@ -37,15 +37,15 @@
       "path": "/status/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["public_id", "original_text", "current_status", "review_path?", "privacy_requests", "history"],
-      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; privacy_requests enthält nur Zusammenfassungen zur eigenen Einreichung"
+      "response": ["public_id", "original_text", "current_status", "review_path?", "privacy_requests", "clarifications", "history"],
+      "notes": "kein Benutzerkonto nötig; review_path enthält nach Zuweisung depth=FAST|STANDARD|DEEP, triage_queue, source und assigned_at; privacy_requests und clarifications enthalten ausschließlich Daten zur token-authentifizierten eigenen Einreichung"
     },
     {
       "method": "GET",
       "path": "/privacy/export/{public_id}",
       "implementation": "staging-live",
       "auth": "Bearer Status-Token",
-      "response": ["submission", "structured_proposal", "cluster_memberships", "audit_history", "privacy_requests"],
+      "response": ["submission", "structured_proposal", "cluster_memberships", "audit_history", "privacy_requests", "citizen_clarifications"],
       "notes": "privater Datenexport ausschließlich zur eigenen Einreichung; Token-/Abuse-Hashes werden nicht ausgegeben; Exportzugriff wird auditiert"
     },
     {
@@ -68,11 +68,11 @@
     {
       "method": "POST",
       "path": "/status/{public_id}/clarification",
-      "implementation": "planned",
-      "auth": "Status-Token",
-      "request": ["answers"],
-      "response": ["accepted", "new_status"],
-      "notes": "nur zur eigenen Einreichung"
+      "implementation": "staging-live",
+      "auth": "Bearer Status-Token",
+      "request": ["text"],
+      "response": ["accepted", "replayed", "clarification_id", "status", "next"],
+      "notes": "nur zur eigenen Einreichung; Idempotency-Key wird unterstützt; der Originaltext bleibt unverändert; offensichtliche Kontakt-/PII-Daten werden vor Speicherung abgewiesen; akzeptierte Klarstellungen gehen in die bestehende Strukturierungs- und Prüfstrecke zurück"
     },
     {
       "method": "GET",
@@ -147,7 +147,7 @@
     {"name":"queue_router","implementation":"planned","input":"signals + gates","output":"review_queue"}
   ],
   "http_rules": {
-    "idempotency": "POST /submissions akzeptiert Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
+    "idempotency": "POST /submissions und POST /status/{public_id}/clarification akzeptieren Idempotency-Key; identische offene Privacy-Requests werden serverseitig dedupliziert",
     "pagination": "cursor-basiert für Cluster-/Listenendpunkte",
     "error_format": ["code", "message", "request_id"],
     "security_headers": "Produktiv erzwingen",
