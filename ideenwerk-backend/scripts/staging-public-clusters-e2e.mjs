@@ -19,6 +19,7 @@ const runId = `CLUSTER-HTTP-E2E-${new Date().toISOString().replace(/[-:.TZ]/g, '
 const topic = `E2E-${runId}`;
 const prefix = randomBytes(6).toString('hex').toUpperCase();
 const clusterId = n => `CLU-${prefix}${n.toString(16).toUpperCase().padStart(4, '0')}`;
+const variantId = n => `VAR-${prefix}${n.toString(16).toUpperCase().padStart(4, '0')}`;
 const now = Date.now();
 const fixtures = [
   { id: clusterId(1), title: `${runId} A`, region: 'Bund', status: 'clustered', updated: new Date(now - 60_000) },
@@ -26,6 +27,10 @@ const fixtures = [
   { id: clusterId(3), title: `${runId} C`, region: 'Wien', status: 'clustered', updated: new Date(now - 180_000) },
   { id: clusterId(4), title: `${runId} D`, region: 'Österreich', status: 'implemented_elsewhere', updated: new Date(now - 240_000) },
   { id: clusterId(5), title: `${runId} HIDDEN`, region: 'Bund', status: 'quarantine', updated: new Date(now) }
+];
+const variants = [
+  { id: variantId(1), cluster: fixtures[0].id, title: `${runId} PUBLIC VARIANT`, status: 'approved' },
+  { id: variantId(2), cluster: fixtures[0].id, title: `${runId} HIDDEN VARIANT`, status: 'quarantine' }
 ];
 
 const pool = new Pool({ connectionString: databaseUrl });
@@ -64,6 +69,13 @@ async function seed() {
         [row.id, row.title, topic, row.region, row.status, row.updated]
       );
     }
+    for (const row of variants) {
+      await client.query(
+        `INSERT INTO cluster_variants (cluster_id,variant_id,title,summary,review_status)
+         SELECT id,$2,$3,$4,$5 FROM clusters WHERE cluster_id=$1`,
+        [row.cluster, row.id, row.title, `${row.title} summary`, row.status]
+      );
+    }
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK');
@@ -85,8 +97,19 @@ try {
   assert(Array.isArray(page1.data?.clusters) && page1.data.clusters.length === 2, 'first page must contain two visible clusters', page1.data);
   assert(page1.data.clusters[0]?.cluster_id === fixtures[0].id, 'hidden newest cluster must not consume public page capacity', page1.data);
   assert(page1.data.clusters[1]?.cluster_id === fixtures[1].id, 'stable updated_at order mismatch on first page', page1.data);
+  assert(page1.data.clusters[0]?.variant_count === 1, 'public list variant_count must exclude quarantined/removed variants', page1.data.clusters[0]);
   assert(typeof page1.data?.next_cursor === 'string' && page1.data.next_cursor.length > 10, 'first page must issue an opaque cursor', page1.data);
   assert(!page1.data.clusters.some(row => row.cluster_id === fixtures[4].id), 'quarantined cluster must never be exposed', page1.data);
+
+  const detail = await jsonResponse(await fetch(url(`/clusters/${fixtures[0].id}`)));
+  assert(detail.response.status === 200, 'public cluster detail must return 200', detail.data);
+  assert(detail.data?.cluster?.cluster_id === fixtures[0].id, 'cluster detail id mismatch', detail.data);
+  assert(Array.isArray(detail.data?.variants) && detail.data.variants.length === 1, 'cluster detail must expose only public variants', detail.data);
+  assert(detail.data.variants[0]?.variant_id === variants[0].id, 'cluster detail returned wrong public variant', detail.data);
+  assert(!detail.data.variants.some(row => row.variant_id === variants[1].id || ['quarantine','removed'].includes(row.review_status)), 'cluster detail leaked a hidden variant', detail.data);
+
+  const hiddenDetail = await jsonResponse(await fetch(url(`/clusters/${fixtures[4].id}`)));
+  assert(hiddenDetail.response.status === 404 && hiddenDetail.data?.code === 'NOT_FOUND', 'quarantined cluster detail must fail closed with 404', hiddenDetail.data);
 
   const page2 = await jsonResponse(await fetch(url('/clusters', { limit: 2, topic, cursor: page1.data.next_cursor })));
   assert(page2.response.status === 200, 'second cluster page must return 200', page2.data);
@@ -117,13 +140,16 @@ try {
     region_filter: region.data.clusters.map(row => row.cluster_id),
     status_filter: status.data.clusters.map(row => row.cluster_id),
     cursor_filter_binding: 'PASS',
-    hidden_visibility: 'PASS'
+    hidden_cluster_visibility: 'PASS',
+    hidden_variant_visibility: 'PASS'
   }, null, 2));
 } finally {
   try {
     await cleanup();
     const residue = await pool.query('SELECT count(*)::int AS count FROM clusters WHERE cluster_id = ANY($1::text[])', [fixtures.map(row => row.id)]);
     assert(residue.rows[0]?.count === 0, 'synthetic cluster HTTP E2E residue remains after cleanup', residue.rows[0]);
+    const variantResidue = await pool.query('SELECT count(*)::int AS count FROM cluster_variants WHERE variant_id = ANY($1::text[])', [variants.map(row => row.id)]);
+    assert(variantResidue.rows[0]?.count === 0, 'synthetic variant HTTP E2E residue remains after cleanup', variantResidue.rows[0]);
   } finally {
     await pool.end();
   }
