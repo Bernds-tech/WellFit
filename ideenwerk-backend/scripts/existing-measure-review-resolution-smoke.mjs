@@ -55,8 +55,8 @@ try {
   assert.equal(task.rows[0].required_role,'impact_reviewer');
 
   const operator = await client.query(`
-    INSERT INTO operators(external_subject_hash,display_name,status)
-    VALUES($1,'CI Impact Reviewer','active') RETURNING id
+    INSERT INTO operators(external_subject_hash,display_name,active)
+    VALUES($1,'CI Impact Reviewer',true) RETURNING id
   `,[operatorHash]);
   const operatorId = operator.rows[0].id;
   await client.query(`INSERT INTO operator_roles(operator_id,role) VALUES($1,'impact_reviewer')`,[operatorId]);
