@@ -190,3 +190,30 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Canonical closeout: Task Ledger=`COUNTERCHECKED_STAGING`, Started Work closed, expert lock released, expert loop closed, expert dependency satisfied, System Graph expert node/edge counterchecked, Evidence Freshness revalidated and Finishline `expert_process=COUNTERCHECKED_STAGING`.
 - Boundary: expert/affected-party input remains advisory, source/role/relation/provenance-bound and auditable; no expert veto, political score, automatic acceptance/rejection or overall production acceptance is implied.
 - Result: canonical expert closeout is complete. `WERK-AI-SYNTH-001` is the next executable functional action. Do not rebuild Expert Input or Impact Bridge.
+
+## RECEIPT-WERK-AI-SYNTH-001-20260921
+- Task: `WERK-AI-SYNTH-001`
+- Status: `COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED`
+- Risk: R3
+- Functional evidence head: `982fa7301bf13b2e2cf40be14e1f588874e77e4f`.
+- CI evidence: WERK AI Synthesis Check #3 and WERK Data Contract Registry Check #61 succeeded on the exact functional head; IDEENWERK Backend Check #176 succeeded on predecessor `4d3f63df43db446cd24c3c98304b1282acf61d9c`; later WERK Frontend checks remain green with no intervening AI implementation drift.
+- Live staging evidence: migrations `20260921042608 ideenwerk_ai_synthesis` and `20260921042728 ai_synthesis_trigger_privileges`; RLS enabled; anon/authenticated direct SELECT and record/trigger execution denied; service_role SELECT/INSERT allowed; zero synthesis rows.
+- Counterchecked semantics: current Impact Bridge + citizen-visible Expert Input references are snapshot-bound; stale source snapshot returns revalidation-required; 2–5 variants required; ranking/recommendation/accept-reject/political-decision fields and numeric fiscal-effect prose are fail-closed; source refs must match current refs.
+- Provider boundary: adapter/runner default to provider disabled/fail closed. No external model, secret, paid call or live AI-generated political variant is accepted by this receipt. `WERK-DEP-AI-PROVIDER-001` remains BLOCKED.
+- Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Canonical closeout: Task Ledger counterchecked for bounded provider-disabled scope; Started Work closed; AI implementation lock released; AI loop closed; expert/impact prerequisites remain satisfied; Finishline `ai_synthesis=PARTIAL` because live provider generation is not target-verified.
+- Result: bounded Staging implementation is counterchecked and must not be rebuilt. This is not overall ACCEPTED or Production.
+
+## RECEIPT-WERK-IMPACT-001-20260921-PARTIAL
+- Task: `WERK-IMPACT-001`
+- Status: `PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED`
+- Risk: R3
+- Functional evidence head: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
+- CI evidence: WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded; migration `20260921043357 werk_impact_measurement` is live.
+- Independently verified sub-scope: all four impact tables have RLS and fail closed for anon/authenticated direct SELECT; tested write/snapshot RPCs deny anon/authenticated; service_role transport plus `impact_reviewer` authorisation is enforced; plans/implementation evidence/observations/reviews are append-only; observations require source reference and valid period; snapshot keeps baseline/forecast, observed KPI, arithmetic deviation, attribution hypothesis and review-only improvement hypothesis distinct. All impact tables are zero-row.
+- Counterevidence / contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The live plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` as length-checked text without validating that the tuple exists and is current in the authoritative Impact Bridge/reform/model source. The table has no FK for those identifiers and current smoke coverage does not prove rejection of unknown/stale tuples.
+- Classification: YELLOW missing/unproven integration/provenance guard, not RED data corruption, because no invalid persisted plan exists and all impact tables are empty.
+- Calculation Integrity Guardian: baseline-vs-scenario/observation separation is sound; arithmetic deviation is not converted into causality; no automatic effect/double counting was found. Cross-model integrity remains incomplete until authoritative source binding is runtime-enforced.
+- Performance note: five INFO-level unindexed foreign keys on the new impact tables are visible for scale/production hardening; they are not the current correctness blocker.
+- Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Next: keep `WERK-IMPACT-001` open and its lock active. Reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched tuple, add negative CI/smoke coverage, rerun exact-head checks, then require fresh independent Staging countercheck. No parallel registry/calculator, formula change or political change.
