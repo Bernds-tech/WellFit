@@ -1,11 +1,13 @@
 {
-  "version": "2026-09-21-v13",
+  "version": "2026-09-21-v14",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T05:44:27Z",
-  "last_checked_head": "5bdc2fb2e2f87bb46850b792621086646389b55a",
+  "last_check_at": "2026-09-21T06:02:31Z",
+  "last_checked_head": "d7baa32242a0c6f3ec50870fb3aa682ae929dc46",
+  "last_functional_pre_audit_head": "5bdc2fb2e2f87bb46850b792621086646389b55a",
+  "post_check_state_commit_expected": true,
   "last_checked_functional_impact_bridge_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
   "last_checked_functional_security_head": "4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66",
   "last_checked_functional_expert_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
@@ -16,10 +18,12 @@
   "overall_status": "YELLOW",
   "delta_since_previous_check": {
     "base": "faa37a8acefe5a74deed1b7b5df65777a97bff56",
-    "head": "5bdc2fb2e2f87bb46850b792621086646389b55a",
-    "classification": "MATERIAL_PRODUCT_AND_STAGING_DELTA",
+    "functional_head": "5bdc2fb2e2f87bb46850b792621086646389b55a",
+    "reconciled_control_head": "d7baa32242a0c6f3ec50870fb3aa682ae929dc46",
+    "classification": "MATERIAL_PRODUCT_AND_STAGING_DELTA_RECONCILED",
     "product_or_runtime_delta": true,
-    "summary": "Bounded AI synthesis and impact-measurement contracts were added and staged. AI bounded contract counterchecks cleanly with provider disabled. Impact measurement has a new source-binding integrity gap: its live plan recorder stores map/reform/model/source-version identifiers without validating them against the authoritative WERK source chain."
+    "supervisor_scope_diff": "The 14 commits from functional pre-audit head 5bdc2fb... through reconciled control head d7baa322... modify only Project Memory control/audit files plus werk-data/werk-system-graph.json; no product runtime, database migration, Edge function or political content implementation was changed by the Supervisor.",
+    "summary": "Bounded AI synthesis and impact-measurement contracts were added and staged before this audit. AI bounded contract counterchecks cleanly with provider disabled. Impact measurement has a new source-binding integrity gap: its live plan recorder stores map/reform/model/source-version identifiers without validating them against the authoritative WERK source chain. Canonical task/started-work/lock/loop/dependency/receipt/freshness/finishline/selector/system-graph records were reconciled in this run."
   },
   "active_findings": [
     {
@@ -30,7 +34,7 @@
       "first_observed_at": "2026-09-21T05:44:27Z",
       "last_observed_at": "2026-09-21T05:44:27Z",
       "status": "RECONCILIATION_REQUIRED",
-      "next_step": "Harden the existing WERK-IMPACT-001 source binding against the authoritative Impact Bridge/reform/model/source-version chain and add negative CI for unknown/stale refs. No parallel registry or calculator."
+      "next_step": "Harden the existing WERK-IMPACT-001 source binding against the authoritative Impact Bridge/reform/model/source-version chain and add negative CI for unknown/stale/mismatched refs. No parallel registry or calculator."
     },
     {
       "id": "WERK-LOOP-SEC-PGNET-001",
@@ -46,7 +50,7 @@
     {
       "id": "WERK-AI-SYNTH-001-BOUNDED-STAGING",
       "result": "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
-      "evidence": "Exact functional head 982fa7301bf13b2e2cf40be14e1f588874e77e4f: WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; IDEENWERK Backend Check #176 succeeded on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c. Live migrations 040/041, RLS/ACL/fail-closed source-snapshot semantics and zero synthesis rows independently confirmed. External provider remains disabled and is not accepted by this result."
+      "evidence": "Exact functional head 982fa7301bf13b2e2cf40be14e1f588874e77e4f: WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; IDEENWERK Backend Check #176 succeeded on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c. Live migrations 040/041, RLS/ACL/fail-closed source-snapshot semantics and zero synthesis rows independently confirmed. External provider remains disabled and is not accepted by this result. Task Ledger, Started Work, Work Lock, Open Loop, Dependencies, central Execution Receipts, Finishline, Freshness, selector and System Graph now consume the result."
     }
   ],
   "last_verified_successes": [
@@ -60,10 +64,7 @@
         {"name": "IDEENWERK Backend Check", "run_number": 176, "head": "4d3f63df43db446cd24c3c98304b1282acf61d9c", "conclusion": "success"},
         {"name": "WERK Frontend Check", "run_number": 191, "head": "7d4889c4070f26b11e66ff1ccb4a9470303bbda8", "conclusion": "success"}
       ],
-      "staging_migrations": [
-        "20260921042608 ideenwerk_ai_synthesis",
-        "20260921042728 ai_synthesis_trigger_privileges"
-      ],
+      "staging_migrations": ["20260921042608 ideenwerk_ai_synthesis", "20260921042728 ai_synthesis_trigger_privileges"],
       "result": "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED"
     },
     {
@@ -116,9 +117,9 @@
     }
   ],
   "specialist_results": {
-    "integration_hunter": "Impact Bridge + Expert Input -> AI Synthesis is proven for the bounded source-snapshot contract. IDEENWERK-Impact -> KPI-Measurement is not fully proven: the measurement-plan recorder does not validate its map/reform/model/source-version tuple against the authoritative source chain. Existing WERK-LOOP-IMPACT-001 must carry the gap; no parallel task/registry is needed.",
-    "evidence_reaper": "Migrations 040/041/042 invalidate the prior 03:26:40Z mutable staging/advisor/security evidence for current reliance. Historical success remains historical; fresh 05:44Z live evidence is now authoritative for current-state claims.",
-    "orphan_zombie_hunter": "The bounded AI staging implementation is independently counterchecked and should no longer remain IMPLEMENTED_NOT_VERIFIED under an ACTIVE lock solely awaiting countercheck. Provider activation remains a separate BLOCKED dependency. WERK-IMPACT-001 remains legitimately open because the new source-binding contradiction requires Builder correction.",
+    "integration_hunter": "Impact Bridge + Expert Input -> AI Synthesis is proven for the bounded source-snapshot contract. IDEENWERK-Impact -> KPI-Measurement is not fully proven: the measurement-plan recorder does not validate its map/reform/model/source-version tuple against the authoritative source chain. The existing WERK-LOOP-IMPACT-001 carries the gap; no parallel task/registry was created. The System Graph now marks this edge YELLOW/in-progress and blocks downstream Improvement -> AI consumption until reconciliation.",
+    "evidence_reaper": "Migrations 040/041/042 invalidated the prior 03:26:40Z mutable staging/advisor/security evidence for current reliance. Historical success remains historical; WERK_EVIDENCE_FRESHNESS now makes the 05:44Z live runtime/security entries authoritative for current-state reliance.",
+    "orphan_zombie_hunter": "The bounded AI staging implementation is independently counterchecked and is no longer IMPLEMENTED_NOT_VERIFIED or ACTIVE-locked: Task Ledger/Started Work/Lock/Loop/Dependency/receipt/selector/graph were reconciled. Provider activation remains a separate BLOCKED dependency. WERK-IMPACT-001 remains legitimately active because source-binding correction is required. No synthetic residue, active failed/dead jobs or active review backlog was found.",
     "calculation_integrity_guardian": "Triggered by the new impact-measurement contract. Baseline/target/observation separation and no-causality semantics are sound; no double counting was found. Cross-model integrity is incomplete because authoritative map/reform/model/source-version binding is not runtime-enforced.",
     "milestone_closer": "No gate newly reached ACCEPTED or PRODUCTION_CONFIRMED; no immutable milestone snapshot was created."
   },
@@ -127,5 +128,6 @@
   "next_functional_action_state": "YELLOW_RECONCILIATION_REQUIRED",
   "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json",
   "last_receipt_commit": "5fe8d149f86a2bd408a99f0b5c1ba5f61b2a2c4f",
+  "canonical_receipt_index_reconciled_through_head": "d7baa32242a0c6f3ec50870fb3aa682ae929dc46",
   "note": "No product, runtime, database, Edge, paid, production or political mutation was performed by the Supervisor. WERK remains YELLOW for the new Impact Measurement source-binding integration gap plus the pre-existing Hosted Supabase pg_net production-hardening finding."
 }
