@@ -54,16 +54,18 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-IMPACT-001
 - Started: 2026-09-21 06:33 Europe/Vienna
-- Status: RECONCILIATION_REQUIRED
+- Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R3
 - Branch: `werk-v49-preview-host`
-- Scope: source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
-- Verified so far: migration 042 is live; exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f` passed WERK Impact Measurement Check #1 and Data Contract Registry #62; RLS/ACL, reviewer gate, append-only evidence, valid observation periods/source requirements and no-causality semantics are independently confirmed; all impact tables are zero-row.
-- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The measurement-plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` without validating that the tuple is current in the authoritative Impact Bridge/reform/model source chain.
-- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE in `RECONCILIATION_REQUIRED_SOURCE_BINDING` phase.
-- Open loop: `WERK-LOOP-IMPACT-001` remains open.
-- Exact next step: reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched tuples, add negative CI/smoke coverage, then rerun exact-head checks and independent Staging countercheck. No parallel registry/calculator, formula change or political change.
-- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Scope: authoritative source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
+- Implemented now: migration 043 validates the complete measurement-plan source tuple against the compiled current canonical Impact Bridge registry view before persistence/replay acceptance. Unknown/stale/mismatched tuples fail closed; no parallel registry/calculator was introduced.
+- Builder evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 and WERK Data Contract Registry Check #63 succeeded; Staging migration `20260921062817 werk_impact_authoritative_source_binding` is live; valid current binding plus four negative source-binding classes were verified; impact tables remained at zero rows.
+- Existing semantic boundary retained: baseline/forecast is not observed fact; observation is not causal attribution; arithmetic deviation is not policy effect; improvement remains review-only hypothesis.
+- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` is not Builder-resolved; independent Supervisor countercheck is required.
+- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE in `IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK` phase.
+- Open loop: `WERK-LOOP-IMPACT-001` remains open awaiting countercheck.
+- Exact next step: Supervisor independently verifies the current runtime/CI/negative paths and either closes or rejects the source-binding reconciliation. No downstream feedback work before that.
+- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
 
 ## Closed / superseded work
 

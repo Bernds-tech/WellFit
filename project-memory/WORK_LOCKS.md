@@ -28,16 +28,17 @@ Prevents two agents/sessions from independently working the same task.
 ## LOCK-WERK-IMPACT-001
 - Task: WERK-IMPACT-001
 - Status: ACTIVE
-- Phase: RECONCILIATION_REQUIRED_SOURCE_BINDING
+- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 06:33 Europe/Vienna
 - Scope: source-bound measurement plan, implementation evidence, KPI observation and review-only attribution/improvement feedback contract on Staging.
-- Verified evidence: functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 live; RLS/ACL, reviewer gate, append-only evidence, zero baseline and no-causality semantics independently verified.
-- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` — the live plan recorder currently stores map/reform/model/source-version identifiers without validating the tuple against the authoritative WERK Impact Bridge/reform/model source. No invalid rows exist because the tables are empty.
-- Boundary: no real-world implementation/effect claim, automatic causality or political change. Five INFO-level unindexed FKs remain a nonblocking scale/production-hardening follow-up.
-- Release condition: Builder reuses the existing authoritative source chain, fails closed on unknown/stale/mismatched tuples, adds negative CI, and a fresh independent Supervisor countercheck confirms the corrected bounded Staging scope.
+- Builder implementation evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; Data Contract Registry Check #63 SUCCESS; migration `20260921062817 werk_impact_authoritative_source_binding` live; canonical valid tuple accepted; unknown map, reform mismatch, artifact mismatch and stale source token rejected; zero impact rows retained.
+- Source authority: existing `werk-data/ideenwerk-impact-bridge.json`; migration 043 is a compiled fail-closed validator view, not a second registry/calculator.
+- Boundary: no real-world implementation/effect claim, automatic causality, political change, provider activation or production action. Known pg_net extension placement remains separate production hardening.
+- Release condition: independent Supervisor countercheck confirms exact-head CI, live migration 043, source-binding negatives and staging/security baseline, and reconciles `CTR-WERK-IMPACT-SOURCE-BINDING-001`.
+- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001

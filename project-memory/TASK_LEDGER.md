@@ -311,14 +311,16 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-IMPACT-001
 - Date: 2026-09-21
-- Status: RECONCILIATION_REQUIRED
+- Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R3
 - Goal: source-bind forecast/baseline, real implementation evidence, KPI observations, arithmetic deviation, attribution hypotheses and review-only improvement hypotheses without inferring causality automatically.
-- Verified scope: measurement plan, implementation-event, observation and review contracts are live on Staging; RLS/ACL, impact_reviewer gate, append-only evidence, observation source requirement, valid periods, baseline/target/observation separation, arithmetic deviation and no-causality/review-only semantics are independently confirmed. All impact tables are zero-row.
-- Functional evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded; migration `20260921043357 werk_impact_measurement` is live.
-- Contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The live measurement-plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` as length-checked text but does not validate the tuple against the current authoritative Impact Bridge/reform/model source. CI does not currently prove rejection of unknown/stale tuples.
-- Data-integrity state: no invalid row is observed because plans/implementations/observations/reviews are all zero-row; therefore current classification is YELLOW reconciliation required, not a RED data-corruption event.
-- Performance note: five INFO-level unindexed foreign keys on new impact tables remain a separate nonblocking scale/production-hardening follow-up.
-- Open loop/lock: `WERK-LOOP-IMPACT-001` remains open and `LOCK-WERK-IMPACT-001` remains ACTIVE in source-binding reconciliation phase.
-- Exact next step: reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched map/reform/model/source-version tuples, add negative CI/smoke cases, then rerun exact-head checks and independent Staging countercheck. No parallel registry/calculator, no formula change and no political change.
-- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Previously verified scope: migration 042, RLS/ACL, impact_reviewer gate, append-only evidence, observation source/period guards, baseline/target/observation separation, arithmetic deviation and no-causality/review-only semantics.
+- Builder reconciliation result: migration 043 compiles the existing canonical `werk-data/ideenwerk-impact-bridge.json` into a fail-closed runtime validator; `werk_record_impact_measurement_plan` rejects unknown impact maps, map/reform mismatches, map/artifact mismatches and stale/unknown canonical source-version tokens before persistence or replay acceptance. No second registry or calculator was created.
+- Functional evidence: exact head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; WERK Data Contract Registry Check #63 SUCCESS.
+- Staging evidence: migration `20260921062817 werk_impact_authoritative_source_binding` applied; valid `IMPACT-SV-EMPLOYEE / SV-01 / werk-data/employee-sv-funding-bridge-results.json` binding returned `current_authoritative_registry_tuple`; unknown map, reform mismatch, artifact mismatch and stale source version each failed closed; impact plans/implementations/observations/reviews remained zero-row.
+- Security boundary: fresh Security Advisor produced no new WARN from this change; the existing `pg_net extension_in_public` WARN remains a separate production-hardening loop.
+- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` remains pending independent Supervisor reconciliation; Builder does not self-resolve it.
+- Open loop/lock: `WERK-LOOP-IMPACT-001` remains open awaiting countercheck and `LOCK-WERK-IMPACT-001` remains ACTIVE.
+- Exact next step: independent Supervisor countercheck of exact-head CI, live migration 043, fail-closed source tuple behavior and zero-baseline/security boundaries. Only after that may `WERK-DEP-IMPACT-FEEDBACK-001` advance.
+- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
+- Do not repeat: do not rebuild Impact Bridge, create a parallel source registry, alter formulas, infer causal effect, activate an AI provider or start downstream feedback integration before the independent countercheck.

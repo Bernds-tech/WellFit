@@ -91,6 +91,8 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Requires: independently counterchecked `WERK-IMPACT-001`, a bounded consumption contract that keeps attribution/improvement hypotheses distinct from facts, and—only for real model regeneration—an approved active AI provider boundary.
 - Type: cross-component feedback integration.
 - Status: ACTIVE
-- Updated: 2026-09-21 07:44 Europe/Vienna.
-- Current state: impact measurement/review storage is staged, but `WERK-IMPACT-001` is `RECONCILIATION_REQUIRED` because the measurement-plan recorder does not yet validate the current authoritative impact-map/reform/model/source-version tuple (`CTR-WERK-IMPACT-SOURCE-BINDING-001`). AI consumption of impact-review hypotheses remains unwired.
-- Rule: first close authoritative Impact Bridge/reform/model source binding fail-closed and independently countercheck it. Only then may a KPI deviation or reviewer hypothesis inform a future synthesis, always with provenance and uncertainty and never as an automatic policy change or causal fact.
+- Updated: 2026-09-21 Europe/Vienna.
+- Current state: Builder implemented the missing authoritative source binding on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb` using migration 043 and the existing canonical Impact Bridge registry. WERK Impact Measurement Check #6 and Data Contract Registry Check #63 are green; Staging migration `20260921062817 werk_impact_authoritative_source_binding` is live; valid current tuple accepted and unknown/stale/mismatched tuples fail closed. Independent Supervisor countercheck is still required before the upstream task can be treated as counterchecked.
+- Rule: do not wire improvement-review hypotheses into AI until Supervisor closes the impact source-binding reconciliation. Once allowed, hypotheses remain provenance-bound and uncertainty-bearing and are never promoted to causal fact or automatic policy change.
+- Provider boundary: no provider activation is required merely to define a future consumption contract; real external regeneration remains separately blocked under `WERK-DEP-AI-PROVIDER-001`.
+- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.

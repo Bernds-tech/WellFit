@@ -121,13 +121,14 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-001
 - Related: `WERK-IMPACT-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `CTR-WERK-IMPACT-SOURCE-BINDING-001`.
-- Status: OPEN_RECONCILIATION_REQUIRED
-- Updated: 2026-09-21 07:44 Europe/Vienna
+- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
+- Updated: 2026-09-21 Europe/Vienna
 - Risk: R3
-- Verified scope: exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration `20260921043357 werk_impact_measurement` is live; RLS/ACL, impact_reviewer gate, append-only evidence, source-required observations, valid periods, baseline/target/observation separation, arithmetic-not-causality semantics and review-only improvement hypotheses are independently confirmed. Impact tables remain zero-row.
-- New gap: the measurement-plan recorder does **not** validate `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` against the current authoritative Impact Bridge/reform/model source. Those fields are currently length-checked text plus payload/idempotency data; only `created_by` is a foreign key. The static contract test checks one known mapping but does not prove runtime rejection of unknown/stale tuples.
-- Consequence: `IDEENWERK-IMPACT → KPI-MEASUREMENT` remains GELB/unproven. No invalid persisted plan exists because the live tables are empty.
-- Required next step: reuse the existing Impact Bridge/reform/model source of truth and fail closed on unknown/stale/mismatched map/reform/model/source-version tuples; extend CI/smoke with negative unknown/stale cases. No parallel registry/calculator and no formula/political change.
-- Performance note: five INFO-level unindexed foreign keys remain visible for scale/production hardening but are not the current correctness blocker.
-- Close when: exact-head CI and a fresh independent Staging countercheck prove authoritative source binding plus the already-verified bounded semantics; then Builder consumes closeout. Only after that should `WERK-DEP-IMPACT-FEEDBACK-001` advance.
-- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Builder result: the previously observed authoritative source-binding gap is implemented on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`. Migration 043 reuses the existing canonical Impact Bridge registry and makes measurement-plan creation fail closed for unknown impact maps, map/reform mismatch, map/artifact mismatch and stale/unknown canonical source-version tokens.
+- CI: WERK Impact Measurement Check #6 SUCCESS and WERK Data Contract Registry Check #63 SUCCESS on the exact functional head.
+- Staging: migration `20260921062817 werk_impact_authoritative_source_binding` live; current valid tuple accepted with `current_authoritative_registry_tuple`; all four negative source-binding classes rejected; measurement-plan/implementation/observation/review tables remain zero-row.
+- Security: fresh advisor introduced no new WARN; the unchanged `pg_net extension_in_public` WARN remains a separate production-hardening issue.
+- Boundary: no second registry/calculator, formula change, causal effect claim, political decision, provider activation or production action.
+- Required next step: independent Supervisor countercheck. Builder does not close this loop or resolve the contradiction itself.
+- Close when: Supervisor confirms exact-head CI plus live fail-closed staging behavior and reconciles `CTR-WERK-IMPACT-SOURCE-BINDING-001`; only then may `WERK-DEP-IMPACT-FEEDBACK-001` advance.
+- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.

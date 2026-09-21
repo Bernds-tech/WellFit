@@ -1,7 +1,7 @@
 {
   "version": "2026-09-21-v2",
   "name": "WERK impact measurement and feedback contract",
-  "status": "source-binding-hardening-implemented-awaiting-exact-head-ci-and-staging-countercheck",
+  "status": "implemented-staging-awaiting-independent-countercheck",
   "purpose": "Version-bind a WERK reform/impact-map baseline, a real implementation event, KPI observations and review-only improvement hypotheses without converting correlation into causation or automatically adopting a policy change.",
   "prerequisites": {
     "impact_bridge": "COUNTERCHECKED_STAGING",
@@ -105,24 +105,26 @@
     "staging_project": "WERK Österreich Staging",
     "staging_project_id": "jwomaoxefgnhsgiebaqy",
     "base_staging_migration": "20260921043357 werk_impact_measurement",
-    "source_binding_staging_migration": null,
-    "schema_verified": false,
+    "source_binding_staging_migration": "20260921062817 werk_impact_authoritative_source_binding",
+    "schema_verified": true,
     "rls_enabled": true,
     "anon_authenticated_direct_access": false,
     "zero_baseline": {
       "measurement_plans": 0,
       "observations": 0,
-      "reviews": 0
+      "reviews": 0,
+      "implementation_events": 0
     },
-    "security_advisor_new_warns": null,
+    "security_advisor_new_warns": 0,
     "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item",
     "production": false,
-    "synthetic_records_allowed_only_in_rollback_tests": true
+    "synthetic_records_allowed_only_in_rollback_tests": true,
+    "security_advisor_observed_at": "2026-09-21T06:29:11Z"
   },
   "ci_evidence": {
-    "functional_head": null,
-    "werk_impact_measurement_check_run": null,
-    "werk_impact_measurement_check": "pending exact-head verification",
+    "functional_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
+    "werk_impact_measurement_check_run": 6,
+    "werk_impact_measurement_check": "success",
     "tests": [
       "canonical Impact Bridge runtime parity guard",
       "migration idempotency",
@@ -139,7 +141,9 @@
       "causal attribution remains not established",
       "review-only improvement hypothesis",
       "append-only update/delete denial"
-    ]
+    ],
+    "data_contract_registry_check_run": 63,
+    "data_contract_registry_check": "success"
   },
-  "acceptance_boundary": "Builder code establishes a candidate authoritative source-binding hardening only. Exact-head CI, reversible Staging application and independent Supervisor countercheck are still required before COUNTERCHECKED_STAGING. No real reform implementation or observed causal policy effect is claimed."
+  "acceptance_boundary": "Builder evidence proves authoritative source-binding hardening on Staging only. Independent Supervisor countercheck remains required before COUNTERCHECKED_STAGING; no real reform implementation, observed causal policy effect, provider activation or Production claim is made."
 }
