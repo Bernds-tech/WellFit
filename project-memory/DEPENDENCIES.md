@@ -123,3 +123,14 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Builder evidence: exact head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`, Verified Support Core #4 + Backend #194 green, migration 047 live, ACL/RLS/negative/replay/privacy probe passed, zero cleanup.
 - Boundary: does not satisfy owner-selected identity provider, legal/privacy approval, public endpoint/counting, WERK VOTE or Production.
 - Unblocks after independent countercheck: Owner Action Manager may evaluate `WERK-OWNER-ID-001` readiness; no activation is automatic.
+
+## WERK-DEP-PARLIAMENTARY-RUNTIME-001
+- From: future approved WERK citizen-decision artifact.
+- Requires: independently counterchecked `WERK-PARLIAMENTARY-TRACE-001` plus internal evidence-bound trace runtime.
+- Type: decision-to-implementation trace integration.
+- Status: IMPLEMENTED_AWAITING_SUPERVISOR
+- Updated: 2026-09-21
+- Builder evidence: exact head `b34cc1f4f9e107bcbb46e82ea68975652eab2152`; Parliamentary Trace Runtime #2 + Backend #197 green; migration 048 live; service-role-only ACL; state-machine/negative/replay tests; zero cleanup.
+- Boundary: no WERK VOTE activation, no live parliament connector, no legal-effect claim, no actor score, no Production.
+- Unblocks after independent countercheck: bounded parliamentary-path technical gate may advance; real decision-source and external institutional integration remain separately gated.
+
