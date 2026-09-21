@@ -11,6 +11,32 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Active/stale locks
 
+## LOCK-WERK-AI-SYNTH-001
+- Task: WERK-AI-SYNTH-001
+- Status: ACTIVE
+- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 06:26 Europe/Vienna
+- Scope: bounded source-bound synthesis contract, provider adapter, status/V71 projection and reversible Staging verification. External model provider remains disabled.
+- Evidence head: `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; migrations 040/041 are live and synthesis table is zero-row.
+- Boundary: no provider activation, paid action, ranking/recommendation, automatic accept/reject or new fiscal effect.
+- Release condition: independent Supervisor countercheck plus canonical closeout. Until then continue/reconcile this task; do not restart or expand it.
+
+## LOCK-WERK-IMPACT-001
+- Task: WERK-IMPACT-001
+- Status: ACTIVE
+- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 06:33 Europe/Vienna
+- Scope: source-bound measurement plan, implementation evidence, KPI observation and review-only attribution/improvement feedback contract on Staging.
+- Evidence head: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 is live and measurement tables are zero-row.
+- Boundary: no real-world implementation/effect claim, automatic causality or political change. Five INFO-level unindexed FKs remain a nonblocking scale/production-hardening follow-up.
+- Release condition: independent Supervisor countercheck plus canonical closeout.
+
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
 - Status: RELEASED
