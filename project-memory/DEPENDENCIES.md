@@ -112,3 +112,14 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Unblocks: safe reliance on measurement snapshots as current input only after independent countercheck.
 
 - Independent satisfaction: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+
+
+## WERK-DEP-VERIFIED-SUPPORT-CORE-001
+- From: future `WERK-ID-001` activation.
+- Requires: independently COUNTERCHECKED `WERK-ID-ARCH-001` plus provider-neutral internal verified-support core.
+- Type: identity/support technical foundation.
+- Status: IMPLEMENTED_AWAITING_SUPERVISOR
+- Updated: 2026-09-21
+- Builder evidence: exact head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`, Verified Support Core #4 + Backend #194 green, migration 047 live, ACL/RLS/negative/replay/privacy probe passed, zero cleanup.
+- Boundary: does not satisfy owner-selected identity provider, legal/privacy approval, public endpoint/counting, WERK VOTE or Production.
+- Unblocks after independent countercheck: Owner Action Manager may evaluate `WERK-OWNER-ID-001` readiness; no activation is automatic.
