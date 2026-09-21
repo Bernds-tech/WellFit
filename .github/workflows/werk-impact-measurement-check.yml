@@ -8,6 +8,7 @@ on:
       - 'werk-data/ideenwerk-impact-measurement.json'
       - 'werk-data/ideenwerk-impact-bridge.json'
       - 'ideenwerk-backend/sql/042_werk_impact_measurement.sql'
+      - 'ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql'
       - 'ideenwerk-backend/scripts/impact-measurement-*.mjs'
       - '.github/workflows/werk-impact-measurement-check.yml'
   workflow_dispatch:
@@ -77,6 +78,7 @@ jobs:
           test -s /tmp/ideenwerk-impact-measurement-ci/040_ideenwerk_ai_synthesis.sql
           test -s /tmp/ideenwerk-impact-measurement-ci/041_ai_synthesis_trigger_privileges.sql
           test -s /tmp/ideenwerk-impact-measurement-ci/042_werk_impact_measurement.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/043_werk_impact_authoritative_source_binding.sql
       - name: Syntax and contract guard
         run: |
           node --check scripts/impact-measurement-contract.mjs
@@ -86,5 +88,5 @@ jobs:
         run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
       - name: Migration idempotency
         run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
-      - name: Forecast, implementation, observation, attribution and append-only guardrails
+      - name: Authoritative source binding, forecast, implementation, observation, attribution and append-only guardrails
         run: node scripts/impact-measurement-smoke.mjs
