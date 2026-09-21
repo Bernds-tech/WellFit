@@ -42,7 +42,6 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Work lock released: `XLOCK-WF-MIG-002-20260826`.
 - Falsification question: a complete compile-ready project at the exact source commit or an already accepted destination runtime on another exact revision would invalidate this reconciliation.
 
-
 ## RECEIPT-WFG-MOBILE-UX-20260826
 - Task: WFG-MOBILE-UX-001 / WF-CONTRACT-MOBILE-SHELL-001
 - Started: 2026-08-26 Europe/Vienna
@@ -51,10 +50,10 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22
 - Risk: R3
 - Preflight checked: mandatory WellFit and WellFit-Buddy memory, current V9 master/contracts/dependencies/integration gates, current Unity destination/editor blocker and prior mobile/Buddy decisions.
-- Prior attempts found: existing mobile routes and incomplete Unity scaffold; no accepted one-screen AR shell contract or exact cross-repository runtime implementation.
+- Prior attempts found: existing mobile routes and incomplete Unity scaffold; no accepted cross-repository one-screen AR shell contract or exact implementation exists.
 - Dependency result: product decision can be specified now; runtime work remains split by domain and Unity controller work remains blocked until editor resolution/clean compile.
 - Evidence classes: owner product decision, current repository/project-memory state and bounded contract diff.
-- Changes made: canonical UX spec, change/decision/task continuity and new contract/dependency/integration records.
+- Changes made: canonical UX specification and registered its graphical, technical/server and Buddy-domain responsibilities.
 - Negative-path countercheck: preserve server authority; do not claim compile/build/device runtime; do not create a second dashboard navigation model.
 - Recovery: revert/discard only this specification branch.
 - Checks: Project Memory Guard and Quality passed on PR #22; Status required regeneration after the intentional ledger changes.
@@ -82,6 +81,7 @@ Append-only audit trail proving the mandatory preflight and countercheck were pe
 - Falsification question: a transform-composition visual regression, a qualifying avatar not being detected, or a canonical/Sites surface using different source would require immediate adjustment/reconciliation.
 
 A receipt is required for meaningful code/config/infra/governance work. A receipt must not contain secrets or protected evidence values.
+
 ## WERK-CALC-001 local execution — 2026-09-06
 - Implementation: reproducible budget/cost/debt/hours/payroll calculation with source hashes.
 - Countercheck: all 13 WERK workflow bodies locally; changed fiscal/registry checks rerun; 42 numerical/negative cases; official BMF table 22 rechecked.
@@ -153,7 +153,6 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Negative/security countercheck: governance completion does not imply security acceptance. The same audit discovered `CTR-WERK-SEC-PGNET-ACL-001`: live pg_net ACLs contradict migration 016's intended revoke. That security finding remains open and takes priority over feature work.
 - Falsifier: a current WERK selector led by WellFit, missing WERK task registration, ambiguous write authority, or an unverified functional governance head would invalidate this countercheck; none is present in the audited functional scope.
 
-
 ## WERK-SEC-PGNET-001 — independent staging-boundary countercheck
 - Status: COUNTERCHECKED
 - Risk: R3
@@ -177,3 +176,17 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Freshness check: current Staging evidence remains within the 24-hour TTL; a fresh read-only check on 2026-09-21 confirmed WERK Österreich Staging `ACTIVE_HEALTHY`, latest migration still `20260920223436 ideenwerk_impact_bridge`, Edge API version 7, and the fourteen checked synthetic tables at zero rows. Security Advisor still reports the same single `extension_in_public` WARN for `pg_net` plus 31 INFO RLS-without-policy notices; no new WARN was introduced.
 - Boundary: no new fiscal effect, saving, cost, forecast, political score, recommendation or automatic acceptance/rejection is accepted by this receipt. Production/overall `ACCEPTED` is not implied.
 - Result: canonical receipt-index reconciliation complete. Do not rebuild the Impact Bridge. By catalog priority, the next functional action is `WERK-EXPERT-001` / `NBA-WERK-EXPERT-PROCESS`.
+
+## RECEIPT-WERK-EXPERT-001-20260921
+- Task: `WERK-EXPERT-001`
+- Status: `COUNTERCHECKED_STAGING`
+- Risk: R3
+- Functional evidence head: `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`.
+- CI evidence: WERK Expert Input Check #4 and WERK Data Contract Registry Check #59 succeeded on the exact functional head; WERK Frontend Check #182 succeeded on follow-up head `133b6cd859a5c1cd097aa708c044c40d03db7880`.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`; closeout/freshness reconciliation receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T032640Z.json`.
+- Scope-diff countercheck: changes after the expert functional head through pre-audit closeout head `48cc7fb6cd4b30517de80f04e73f03e00b78fcf7` are governance/claim/system-graph/audit records only; no expert product/runtime/database/Edge implementation file changed.
+- Fresh Staging revalidation after migrations 038/039: WERK Österreich Staging `ACTIVE_HEALTHY`; `werk-ideenwerk-api` ACTIVE version 7; latest migration `20260921013039 expert_input_operator_index`; expert table RLS enabled; anon/authenticated direct SELECT denied; service_role SELECT/INSERT allowed; Impact Bridge boundary and PostgREST `public.werk_api_security_guard` remain intact; fifteen checked tables are at zero rows.
+- Security Advisor: unchanged single WARN `extension_in_public` for `pg_net`; no new WARN. This remains a production-hardening limit and does not block reversible Staging feature work.
+- Canonical closeout: Task Ledger=`COUNTERCHECKED_STAGING`, Started Work closed, expert lock released, expert loop closed, expert dependency satisfied, System Graph expert node/edge counterchecked, Evidence Freshness revalidated and Finishline `expert_process=COUNTERCHECKED_STAGING`.
+- Boundary: expert/affected-party input remains advisory, source/role/relation/provenance-bound and auditable; no expert veto, political score, automatic acceptance/rejection or overall production acceptance is implied.
+- Result: canonical expert closeout is complete. `WERK-AI-SYNTH-001` is the next executable functional action. Do not rebuild Expert Input or Impact Bridge.
