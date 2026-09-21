@@ -393,3 +393,20 @@ Keep history append-only; supersede rather than delete.
 - Result: state machine, evidence fields and descriptive outcome codes are contract-bound without political scoring or motive inference.
 - Evidence: `werk-data/parliamentary-path-contract.json`; WERK Parliamentary Trace Check #2 success; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
 - Boundary: no live parliamentary integration and no claim that a WERK platform decision itself is enacted law.
+
+
+## WERK-ID-CORE-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Risk: R4
+- Goal: establish a provider-neutral, data-minimised internal core for future 1 person = 1 verified support without activating identity, public counting or voting.
+- Architecture prerequisite: `WERK-ID-ARCH-001` is independently COUNTERCHECKED.
+- Implementation: migration 047 reuses `public.supports`, adds a private verification-receipt store, scoped pseudonym binding, idempotency and service-role-only internal RPCs.
+- Exact functional head: `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`.
+- Exact-head CI: WERK Verified Support Core Check #4 SUCCESS; IDEENWERK Backend Check #194 SUCCESS.
+- Staging: `verified_support_core` applied; runtime marker `047_verified_support_core_disabled`.
+- Runtime probe: synthetic receipt/support succeeded once; exact replay deduplicated; scope mismatch failed closed; audit payload omitted scope pseudonym/provider assertion hash; cleanup returned identity receipts/supports/audits to zero.
+- Security boundary: RLS enabled; anon/authenticated receipt SELECT=false and RPC EXECUTE=false; service_role access only.
+- Activation remains blocked: no identity provider, no real identity, no public endpoint, no counting, no vote, no Production.
+- Exact next step: independent Supervisor countercheck. Only after that may the Owner Action Manager decide whether `WERK-OWNER-ID-001` is READY_NOW.
+- Builder claim: `project-memory/werk-builder-claims/WERK_VERIFIED_SUPPORT_CORE_2026-09-21T2034Z.json`.
