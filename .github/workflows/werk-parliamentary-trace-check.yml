@@ -1,0 +1,19 @@
+name: WERK Parliamentary Trace Check
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths:
+      - 'werk-data/parliamentary-path-contract.json'
+      - 'scripts/werk-parliamentary-path-contract.mjs'
+      - '.github/workflows/werk-parliamentary-trace-check.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node --check scripts/werk-parliamentary-path-contract.mjs
+      - run: node scripts/werk-parliamentary-path-contract.mjs
