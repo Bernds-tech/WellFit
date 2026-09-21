@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "task": "WERK-IMPACT-FEEDBACK-001",
+  "role": "builder",
+  "claimed_at": "2026-09-21T08:49:33Z",
+  "status": "IMPLEMENTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK",
+  "risk": "R3",
+  "functional_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
+  "branch": "werk-v49-preview-host",
+  "implementation": {
+    "migration": "ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql",
+    "staging_migration": "20260921084055 ideenwerk_impact_feedback",
+    "contract": "werk-data/ideenwerk-impact-feedback.json",
+    "connection": "IMPROVEMENT-LOOP -> AI-SYNTHESIS",
+    "summary": "Reuses current werk_impact_reviews as bounded source-bound synthesis feedback. At most 12 reviews matching the submission's current Impact Bridge map/reform are exposed after authoritative map/reform/artifact/source-version validation. Reviews require an improvement hypothesis, explicit uncertainty and provenance; eligible impact_review IDs are snapshot-bound and stale feedback fails closed. No parallel calculator or feedback store was created."
+  },
+  "exact_head_ci": [
+    {"workflow":"WERK Impact Feedback Check","run_number":1,"conclusion":"success"},
+    {"workflow":"WERK AI Synthesis Check","run_number":5,"conclusion":"success"},
+    {"workflow":"WERK Data Contract Registry Check","run_number":64,"conclusion":"success"},
+    {"workflow":"WERK Frontend Check","run_number":194,"conclusion":"success"},
+    {"workflow":"IDEENWERK Backend Check","run_number":185,"conclusion":"success"}
+  ],
+  "fresh_staging_observation": {
+    "project_status": "ACTIVE_HEALTHY",
+    "migration_044_present": true,
+    "feedback_acl": {
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_role_execute": true
+    },
+    "rollback_only_probe": {
+      "current_empty_feedback_before_review": "pass",
+      "current_source_bound_review_in_feedback_context": "pass",
+      "epistemic_status_review_hypothesis_not_fact_or_causal_effect": "pass",
+      "v2_snapshot_contains_current_review": "pass",
+      "contract_only_synthesis_with_current_review_ref": "pass",
+      "non_current_review_ref_rejected": "AI_SYNTHESIS_SOURCE_REF_NOT_CURRENT",
+      "stale_impact_bridge_feedback_revalidation": "pass",
+      "stale_current_synthesis_revalidation": "pass",
+      "transaction_rolled_back": true
+    },
+    "zero_baseline_after_probe": {
+      "submissions": 0,
+      "ai_syntheses": 0,
+      "impact_plans": 0,
+      "impact_implementation_events": 0,
+      "impact_observations": 0,
+      "impact_reviews": 0
+    },
+    "security_advisor_observed_at": "2026-09-21T08:49:33.977Z",
+    "security_warn_count": 1,
+    "security_warn": "extension_in_public: pg_net",
+    "new_warn_from_feedback_migration": false,
+    "rls_enabled_no_policy_info_count": 37
+  },
+  "safety_boundaries": [
+    "impact review hypotheses are not causal facts",
+    "no political ranking or recommendation",
+    "no automatic accept/reject or policy change",
+    "no manufactured numeric/fiscal effect",
+    "external synthesis provider remains disabled",
+    "no paid call or secret change",
+    "no production action"
+  ],
+  "open_limits": [
+    "Independent Supervisor countercheck is still required before lock/task/loop/dependency closeout.",
+    "Hosted Supabase pg_net extension_in_public remains a separate production-hardening warning.",
+    "External AI provider activation remains separately blocked and is not part of this claim."
+  ],
+  "requested_supervisor_checks": [
+    "bind countercheck to functional head 6d95b394d0869fb91562f6a84a13502469ef7869",
+    "verify all five exact-head workflow successes",
+    "verify migration 20260921084055 is active on WERK Österreich Staging",
+    "repeat or independently inspect ACL/current/stale/rollback probes",
+    "verify zero synthetic baseline and fresh Security Advisor result",
+    "only then reconcile WERK-IMPACT-FEEDBACK-001 task/lock/loop/dependency/system graph"
+  ]
+}
