@@ -42,6 +42,11 @@
       "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-TEXT-DRIFT-001",
       "result": "RESOLVED",
       "evidence": "Current canonical Impact Bridge Task/Started Work/Open Loop/Dependency records no longer carry the prior pending receipt-index/memory-closeout wording."
+    },
+    {
+      "id": "WERK-NEXT-ACTION-DONE-STATE-DRIFT-001",
+      "result": "RESOLVED_IN_RUN",
+      "evidence": "WERK_NEXT_BEST_ACTIONS schema v2 now treats TASK_LEDGER COUNTERCHECKED_STAGING as a completed task state and explicitly prevents completed tasks from being reselected merely because a broader Finishline gate remains PARTIAL."
     }
   ],
   "last_verified_successes": [
@@ -66,6 +71,11 @@
       "checked_pre_audit_head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
       "result": "CANONICAL_CLOSEOUT_COMPLETE",
       "details": "No active expert builder work or lock; expert loop closed; dependency satisfied; system graph counterchecked; master receipt, Freshness and Finishline reconciled."
+    },
+    {
+      "kind": "next_action_catalog_reconciliation",
+      "result": "CATALOG_ALIGNED_WITH_COUNTERCHECKED_STAGING",
+      "details": "Completed-task states now include COUNTERCHECKED_STAGING and task completion is explicitly independent of broader gate PARTIAL state; WERK-AI-SYNTH-001 is therefore deterministically the next executable functional action."
     },
     {
       "kind": "staging_runtime_refresh_after_expert_migrations",
@@ -107,6 +117,6 @@
   "next_functional_action": "WERK-AI-SYNTH-001",
   "next_functional_action_state": "EXECUTABLE",
   "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T032640Z.json",
-  "last_receipt_commit": "f00b69f3015b779c0499b514edf56de2a31baec0",
+  "last_receipt_commit": "8c6d97b45e78640b79104c5eac1d22ead0c81945",
   "note": "No product, runtime, database, Edge, paid, production or political mutation was performed by the Supervisor. Audit/governance writes occur after last_checked_head by design. WERK remains YELLOW only because the Hosted Supabase pg_net extension_in_public production-hardening finding remains open."
 }
