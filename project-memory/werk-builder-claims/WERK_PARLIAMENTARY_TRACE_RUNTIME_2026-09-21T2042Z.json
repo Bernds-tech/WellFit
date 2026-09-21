@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task": "WERK-PARLIAMENTARY-RUNTIME-001",
+  "status": "IMPLEMENTED_STAGING_AWAITING_SUPERVISOR",
+  "risk": "R3",
+  "branch": "werk-v49-preview-host",
+  "functional_head": "b34cc1f4f9e107bcbb46e82ea68975652eab2152",
+  "exact_head_ci": [
+    {
+      "workflow": "WERK Parliamentary Trace Runtime Check",
+      "run_number": 2,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 197,
+      "conclusion": "success"
+    }
+  ],
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "migration_version": "20260921204112",
+    "migration_name": "parliamentary_trace_runtime",
+    "runtime_marker": "048_parliamentary_trace_internal_disabled",
+    "public_endpoint": false,
+    "live_parliamentary_connector": false,
+    "synthetic_probe": {
+      "complete_path_to_impact_measurement": true,
+      "event_count": 8,
+      "replay_idempotent": true,
+      "stale_state_fail_closed": true,
+      "missing_reason_or_evidence_fail_closed": true,
+      "cleanup": {
+        "traces": 0,
+        "events": 0
+      }
+    }
+  },
+  "security": {
+    "rls": true,
+    "anon_select": false,
+    "authenticated_select": false,
+    "service_role_select": true,
+    "anon_create_rpc": false,
+    "authenticated_create_rpc": false,
+    "service_role_create_rpc": true,
+    "new_security_warns": 0,
+    "known_pg_net_warn_unchanged": true
+  },
+  "boundaries": [
+    "No live parliamentary integration",
+    "No claim that a WERK decision is enacted law",
+    "No politician/party score or motive inference",
+    "No public endpoint",
+    "No WERK VOTE activation",
+    "No Production action",
+    "Existing impact measurement is referenced rather than duplicated"
+  ],
+  "supervisor_falsifiers": [
+    "anon/authenticated can read trace data or execute trace RPCs",
+    "invalid state transitions succeed",
+    "formal outcome can advance without required evidence/outcome",
+    "implementation or impact link can advance without required references",
+    "synthetic staging rows remain",
+    "runtime marker/migration differs from repository contract",
+    "trace semantics imply law enactment or political actor scoring"
+  ]
+}
