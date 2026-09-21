@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "role": "independent_supervisor",
+  "checked_at": "2026-09-21T18:16:00Z",
+  "branch": "werk-v49-preview-host",
+  "observed_head": "f8e96665c8ba60227bf3c7a341a27cdd046d8a70",
+  "functional_task": "WERK-IMPACT-FEEDBACK-001",
+  "functional_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
+  "result": "PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED",
+  "classification": "YELLOW",
+  "exact_head_ci": [
+    {"workflow":"WERK Impact Feedback Check","run_number":1,"conclusion":"success"},
+    {"workflow":"WERK AI Synthesis Check","run_number":5,"conclusion":"success"},
+    {"workflow":"WERK Data Contract Registry Check","run_number":64,"conclusion":"success"},
+    {"workflow":"WERK Frontend Check","run_number":194,"conclusion":"success"},
+    {"workflow":"IDEENWERK Backend Check","run_number":185,"conclusion":"success"}
+  ],
+  "scope_drift_check": {
+    "functional_to_current_head": "11 commits ahead",
+    "functional_files_changed_after_functional_head": false,
+    "post_functional_delta": "governance, claims and system-graph only",
+    "current_control_head_ci_runs": 0
+  },
+  "runtime": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "latest_migration": "20260921084055 ideenwerk_impact_feedback",
+    "feedback_function_acl": "service_role_only",
+    "authenticator_pre_request": "public.werk_api_security_guard",
+    "zero_baseline": {
+      "submissions": 0,
+      "ai_syntheses": 0,
+      "impact_plans": 0,
+      "impact_implementation_events": 0,
+      "impact_observations": 0,
+      "impact_reviews": 0
+    },
+    "queues": {
+      "processing_jobs_total": 0,
+      "processing_jobs_active": 0,
+      "processing_jobs_failed_or_dead": 0,
+      "processing_jobs_stale_locked": 0,
+      "review_tasks_total": 0,
+      "review_tasks_active": 0,
+      "review_tasks_stale": 0
+    },
+    "security_advisor": {
+      "warn_count": 1,
+      "warning": "extension_in_public: pg_net",
+      "rls_enabled_no_policy_info_count": 37,
+      "new_warn_from_migration_044": false
+    },
+    "performance_advisor": {
+      "unindexed_foreign_keys": 5,
+      "severity": "INFO",
+      "note": "Unchanged low-volume schema hygiene; no persisted impact rows exist."
+    }
+  },
+  "verified_claims": [
+    "Migration 044 is live on the named WERK staging project.",
+    "The five claimed workflows succeeded on the exact functional head.",
+    "Feedback/source-snapshot/record RPC execution is denied to anon/authenticated and granted to service_role.",
+    "Migration 044 keeps review hypotheses bounded as non-causal/non-political source material and keeps the external provider disabled.",
+    "Fresh runtime remains zero-baseline with no queue or review backlog.",
+    "Backend Check #185 includes database backup plus isolated restore verification and succeeded on the exact functional head."
+  ],
+  "findings": [
+    {
+      "id": "CTR-WERK-IMPACT-FEEDBACK-SELECTION-001",
+      "severity": "YELLOW",
+      "kind": "integration_selection_window",
+      "status": "OPEN_RECONCILIATION_REQUIRED",
+      "summary": "ideenwerk_ai_feedback_context selects the globally newest 50 qualifying impact reviews before testing map/reform relevance to the current submission. More than 50 newer unrelated reviews can therefore hide an older relevant current review. The builder's broad 'up to 12 current matching reviews' claim is not fully established.",
+      "current_runtime_effect": "No false persisted/current result observed because impact reviews are zero-row.",
+      "required_resolution": "Move current submission map/reform relevance filtering before the bounded candidate limit, then rerun exact-head CI and staging rollback/current/stale probes."
+    },
+    {
+      "id": "CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001",
+      "severity": "YELLOW",
+      "kind": "read_side_evidence_freshness",
+      "status": "OPEN_RECONCILIATION_REQUIRED",
+      "summary": "werk_impact_measurement_snapshot returns the stored source_version without invoking werk_impact_validate_source_binding. A source-registry/version change after plan creation can therefore leave the read snapshot looking current until separately revalidated.",
+      "current_runtime_effect": "No stale persisted plan exists because impact measurement tables are zero-row.",
+      "required_resolution": "Make the read/snapshot path explicitly revalidate or return revalidation_required for stale authoritative source bindings before any current-state acceptance reliance."
+    },
+    {
+      "id": "WERK-CTRL-HEAD-CI-001",
+      "severity": "YELLOW",
+      "kind": "missing_exact_head_countercheck",
+      "status": "OPEN_NONBLOCKING_FOR_CURRENT_RUNTIME",
+      "summary": "Current governance/control head f8e96665c8ba60227bf3c7a341a27cdd046d8a70 has zero workflow runs; functional head evidence remains exact-head green."
+    },
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "kind": "production_hardening_limit",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Fresh Security Advisor still reports the single pg_net extension_in_public warning; no new security WARN appeared."
+    }
+  ],
+  "specialists": {
+    "integration_hunter": "The KPI/measurement -> improvement -> AI feedback edge exists, but selection relevance is applied after a global LIMIT 50, so the edge is not fully counterchecked.",
+    "evidence_reaper": "Migration 044 invalidates pre-044 mutable runtime/security reliance. Fresh project, migration, edge, ACL, zero-baseline, queue and advisor reads were collected. Historical observations remain historical.",
+    "orphan_zombie_hunter": "No zombie closeout: WERK-IMPACT-FEEDBACK-001 correctly remains open with an active bounded scope because independent countercheck found an unresolved functional gap.",
+    "calculation_integrity_guardian": "Migration 044 changes feedback/source-context semantics, not fiscal formulas, numeric inputs, debt/interest arithmetic, units, populations or baseline/scenario math. No new calculation contradiction was found.",
+    "milestone_closer": "No gate reaches ACCEPTED or PRODUCTION_CONFIRMED; no immutable milestone snapshot is permitted."
+  },
+  "owner_action_state": "No READY_NOW owner action.",
+  "next_action": "Keep WERK-IMPACT-FEEDBACK-001 as the bounded active work item; correct relevance-before-limit selection and independently countercheck it. Keep the read-side impact snapshot freshness gap open before acceptance. Do not start a parallel task system or rebuild already counterchecked components.",
+  "product_runtime_political_mutation_by_supervisor": false
+}
