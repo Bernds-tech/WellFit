@@ -403,3 +403,16 @@ Canonical register for work that has started but is not yet fully completed.
 - Completed so far: exact-head CI green; migration 047 applied to WERK Staging; ACL/RLS and synthetic positive/replay/negative/privacy probe passed; synthetic data cleaned to zero.
 - Still open: independent Supervisor countercheck and subsequent Owner Action Manager readiness reconciliation.
 - Exact next step: Supervisor checks repository/runtime/ACL/negative semantics and cleanup independently.
+
+## WERK-PARLIAMENTARY-RUNTIME-001
+- Started: 2026-09-21 Europe/Vienna
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Lock: `LOCK-WERK-PARLIAMENTARY-RUNTIME-001`
+- Scope: internal parliamentary evidence trace only; no external connector or political-effect claim.
+- Functional head: `b34cc1f4f9e107bcbb46e82ea68975652eab2152`
+- Completed: dedicated + full backend CI green; migration 048 live; ACL/RLS/state-machine/replay/negative/cleanup probe passed.
+- Still open: independent Supervisor countercheck.
+- Exact next step: Supervisor validates exact head, migration, boundaries, negative paths and zero cleanup.
+
