@@ -1,0 +1,103 @@
+{
+  "claim_version": "1.0",
+  "claim_id": "WERK-BUILDER-CLAIM-PARLIAMENTARY-INTEGRITY-20260921T2130Z",
+  "task_id": "WERK-PARLIAMENTARY-RUNTIME-001",
+  "branch": "werk-v49-preview-host",
+  "staging": "WERK Österreich Staging",
+  "status": "IMPLEMENTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK",
+  "functional_head": "dfee17eb42f7bc90167f866307b09fdf907d13be",
+  "trigger_findings": [
+    "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001",
+    "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001"
+  ],
+  "implemented": {
+    "migration": "049_parliamentary_trace_integrity_hardening.sql",
+    "direct_table_write_boundary": "service_role SELECT retained; INSERT/UPDATE/DELETE revoked on werk_parliamentary_traces and werk_parliamentary_trace_events; writes remain behind bounded SECURITY DEFINER RPCs",
+    "replay_race_boundary": "UNIQUE(source_decision_id, source_decision_version) plus INSERT ... ON CONFLICT DO NOTHING replay handling",
+    "parallel_system_created": false,
+    "system_graph_changed": false
+  },
+  "exact_head_ci": [
+    {
+      "workflow": "WERK Parliamentary Trace Runtime Check",
+      "run_number": 6,
+      "run_id": 35657295045,
+      "head": "dfee17eb42f7bc90167f866307b09fdf907d13be",
+      "conclusion": "success",
+      "coverage": [
+        "migration idempotency",
+        "RPC-only write ACL",
+        "direct service_role INSERT/UPDATE/DELETE denial",
+        "normal create/replay/conflict semantics",
+        "two-client concurrent same decision/version replay regression",
+        "state/evidence negative paths"
+      ]
+    },
+    {
+      "workflow": "WERK Data Contract Registry Check",
+      "run_number": 88,
+      "run_id": 35657295042,
+      "head": "dfee17eb42f7bc90167f866307b09fdf907d13be",
+      "conclusion": "success"
+    }
+  ],
+  "staging_evidence": {
+    "project_status": "ACTIVE_HEALTHY",
+    "migration_version": "20260921212809",
+    "migration_name": "parliamentary_trace_integrity_hardening",
+    "pre_migration_duplicate_groups": 0,
+    "post_migration": {
+      "unique_index_present": true,
+      "runtime_marker": "049_parliamentary_trace_integrity_hardened",
+      "service_role_trace_select": true,
+      "service_role_trace_insert": false,
+      "service_role_trace_update": false,
+      "service_role_trace_delete": false,
+      "service_role_event_select": true,
+      "service_role_event_insert": false,
+      "service_role_event_update": false,
+      "service_role_event_delete": false,
+      "anon_trace_insert": false,
+      "authenticated_trace_insert": false,
+      "service_role_create_rpc_execute": true
+    },
+    "runtime_probe": {
+      "first_create_replayed": false,
+      "same_input_replay_replayed": true,
+      "same_trace_id_on_replay": true,
+      "different_hash_same_decision_version": "WERK_TRACE_DECISION_VERSION_CONFLICT",
+      "true_concurrency": "covered by exact-head CI smoke, not claimed from the sequential live Staging probe",
+      "cleanup_trace_rows": 0,
+      "cleanup_event_rows": 0
+    },
+    "security_advisor_observed_at": "2026-09-21T21:29:23.019Z",
+    "new_warn_from_change": false,
+    "known_existing_warn": "extension_in_public: pg_net"
+  },
+  "boundaries": [
+    "Staging only",
+    "no Production action",
+    "no live parliamentary connector",
+    "no public parliamentary publication",
+    "no law/legal-effect claim",
+    "no political ranking, actor scoring or motive inference",
+    "no WERK VOTE activation",
+    "no paid or irreversible action",
+    "Builder does not close Supervisor findings or promote Finishline/Evidence state"
+  ],
+  "open_limits": [
+    "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001 remains open until independent Supervisor countercheck",
+    "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001 remains open until independent Supervisor countercheck",
+    "CTR-WERK-ID-CORE-FUTURE-VERIFIED-AT-001 remains lower-priority open work and was not modified in this slice",
+    "pg_net extension_in_public remains separate Production hardening"
+  ],
+  "next_action": "Independent Supervisor countercheck of functional head dfee17eb42f7bc90167f866307b09fdf907d13be, exact-head CI, migration 049 and fresh Staging evidence before releasing the parliamentary lock or moving to the identity YELLOW.",
+  "forbidden_self_promotions": [
+    "WERK_SUPERVISOR_STATE",
+    "WERK_EVIDENCE_FRESHNESS",
+    "WERK_FINISHLINE_STATE",
+    "WERK_NEXT_BEST_ACTIONS",
+    "ACCEPTED",
+    "PRODUCTION_CONFIRMED"
+  ]
+}
