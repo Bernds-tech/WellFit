@@ -1,128 +1,161 @@
 {
-  "version": "2026-09-21-v16",
+  "version": "2026-09-21-v17",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T07:21:52Z",
-  "last_checked_head": "06259fa91e29494f4e39a089fc09cbba952f71d3",
-  "last_functional_pre_audit_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
+  "last_check_at": "2026-09-21T18:16:00Z",
+  "last_checked_head": "1d9e26c6ddd4824e363aa1cdd0f92ef19b36214a",
+  "last_functional_pre_audit_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
   "post_check_state_commit_expected": true,
   "last_checked_functional_impact_bridge_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
   "last_checked_functional_security_head": "4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66",
   "last_checked_functional_expert_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
   "last_checked_functional_ai_synthesis_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
   "last_checked_functional_impact_measurement_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
+  "last_checked_functional_impact_feedback_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
   "last_checked_edge_version": 7,
-  "last_checked_migration": "20260921062817 werk_impact_authoritative_source_binding",
+  "last_checked_migration": "20260921084055 ideenwerk_impact_feedback",
   "overall_status": "YELLOW",
   "delta_since_previous_check": {
-    "base": "b74eeacf8ac5439f01bba1c12330c990a316835c",
-    "checked_head": "06259fa91e29494f4e39a089fc09cbba952f71d3",
-    "classification": "IMPACT_SOURCE_BINDING_FIXED_AND_COUNTERCHECKED_STAGING",
+    "base": "06259fa91e29494f4e39a089fc09cbba952f71d3",
+    "checked_head_before_supervisor_reconciliation": "f8e96665c8ba60227bf3c7a341a27cdd046d8a70",
+    "reconciled_head_before_state_commit": "1d9e26c6ddd4824e363aa1cdd0f92ef19b36214a",
+    "classification": "IMPACT_FEEDBACK_EXACT_CI_VERIFIED_BUT_FUNCTIONAL_RECONCILIATION_REQUIRED",
     "product_or_runtime_delta": true,
-    "scope_diff": "WERK-IMPACT-001 received migration 043 and its authoritative source-binding contract. The implementation compiles the existing Impact Bridge/reform/artifact/source-version tuple into a fail-closed validator used before impact-plan persistence. Follow-up commits only reconcile governance/evidence and rollback-smoke documentation.",
-    "summary": "The former impact source-binding contradiction is independently resolved on staging: exact functional head CI is green, migration 043 is live, validator ACL and positive/negative probes pass, and zero-baseline remains clean. Remaining YELLOW findings are the pre-existing pg_net production-hardening warning and the governance/control exact-head CI gap."
+    "scope_diff": "Migration 044 and the impact-review feedback extension were added on exact functional head 6d95b394d0869fb91562f6a84a13502469ef7869; later branch commits changed governance/claims/system graph only. Independent inspection found a relevance-selection defect and a separate impact-snapshot read-freshness gap.",
+    "summary": "Correction to prior uncertainty: migration 044 has five successful exact-head workflows and is live on WERK staging. It is not promoted to COUNTERCHECKED_STAGING because the implementation applies a global LIMIT 50 before current-submission map/reform relevance. The existing measurement snapshot also does not revalidate stored source binding on read."
   },
   "active_findings": [
+    {
+      "id": "CTR-WERK-IMPACT-FEEDBACK-SELECTION-001",
+      "severity": "YELLOW",
+      "kind": "integration_selection_window",
+      "status": "RECONCILIATION_REQUIRED",
+      "first_observed_at": "2026-09-21T18:16:00Z",
+      "last_observed_at": "2026-09-21T18:16:00Z",
+      "summary": "ideenwerk_ai_feedback_context selects the globally newest 50 qualifying reviews before checking current-submission impact_map_id/reform_id relevance. More than 50 newer unrelated reviews can hide an older relevant current review.",
+      "next_step": "Fix relevance-before-limit under existing WERK-IMPACT-FEEDBACK-001, add a >50 unrelated review regression test, push a new functional head, rerun exact-head CI and fresh staging current/stale/rollback probes."
+    },
+    {
+      "id": "CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001",
+      "severity": "YELLOW",
+      "kind": "read_side_evidence_freshness",
+      "status": "RECONCILIATION_REQUIRED",
+      "first_observed_at": "2026-09-21T18:16:00Z",
+      "last_observed_at": "2026-09-21T18:16:00Z",
+      "summary": "werk_impact_measurement_snapshot returns stored source_version without calling werk_impact_validate_source_binding. A source-registry/version change after persistence can therefore require revalidation even while the snapshot remains readable.",
+      "next_step": "Make the read/snapshot path fail closed or return revalidation_required for stale authoritative tuples before any current-state/acceptance reliance. Preserve historical snapshots as historical evidence."
+    },
     {
       "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
       "kind": "production_hardening_limit",
-      "summary": "The bounded WERK staging Data-API boundary around pg_net remains counterchecked, while fresh Supabase Security Advisor still reports exactly one WARN: extension_in_public for pg_net. Reversible staging work may continue; production security acceptance remains open.",
+      "summary": "Fresh Supabase Security Advisor still reports exactly one WARN: extension_in_public for pg_net. The bounded staging request guard remains in place; no new security WARN appeared.",
       "first_observed_at": "2026-09-20T19:07:17.595Z",
-      "last_observed_at": "2026-09-21T07:21:52Z",
+      "last_observed_at": "2026-09-21T18:13:37.073Z",
       "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK"
     },
     {
       "id": "WERK-CTRL-HEAD-CI-001",
       "severity": "YELLOW",
       "kind": "missing_exact_head_countercheck",
-      "summary": "Observed control/evidence head 06259fa91e29494f4e39a089fc09cbba952f71d3 has zero GitHub Actions workflow runs. The functional impact-source-binding head is exact-head green, but current governance/control state is not itself exact-head CI-counterchecked.",
+      "summary": "The observed pre-supervisor governance/control head f8e96665c8ba60227bf3c7a341a27cdd046d8a70 had zero workflow runs. Functional head 6d95b394d0869fb91562f6a84a13502469ef7869 is exact-head green; later supervisor commits are governance/audit-only.",
       "first_observed_at": "2026-09-21T06:13:27Z",
-      "last_observed_at": "2026-09-21T07:21:52Z",
-      "status": "OPEN_NONBLOCKING_FOR_CURRENT_RUNTIME",
-      "next_step": "Require a successful relevant governance/frontend check on this or a later control-equivalent head before claiming current-head governance CI. Do not rebuild product/runtime to close this bookkeeping evidence gap."
+      "last_observed_at": "2026-09-21T18:16:00Z",
+      "status": "OPEN_NONBLOCKING_FOR_CURRENT_RUNTIME"
     }
   ],
-  "resolved_since_previous_check": [
+  "resolved_or_corrected_since_previous_check": [
     {
-      "id": "CTR-WERK-IMPACT-SOURCE-BINDING-001",
-      "severity": "YELLOW",
-      "resolved_at": "2026-09-21T07:21:52Z",
-      "result": "COUNTERCHECKED_STAGING",
-      "evidence": "Functional head ceea9a8bce350529114258049a93ba1057dacbeb exact-head CI WERK Impact Measurement Check #6 and WERK Data Contract Registry Check #63 both succeeded; live staging migration 20260921062817 is active; validator positive/negative probes and ACL passed; impact tables remained empty."
+      "id": "WERK-IMPACT-FEEDBACK-CI-UNKNOWN-CLAIM",
+      "corrected_at": "2026-09-21T18:16:00Z",
+      "result": "EXACT_FUNCTIONAL_HEAD_CI_CONFIRMED",
+      "evidence": "GitHub Actions independently returned five successful runs on exact head 6d95b394d0869fb91562f6a84a13502469ef7869: Impact Feedback #1, AI Synthesis #5, Data Contract Registry #64, Frontend #194 and IDEENWERK Backend #185."
     }
   ],
   "last_verified_successes": [
     {
-      "kind": "impact_source_binding_countercheck",
-      "task": "WERK-IMPACT-001",
-      "head": "ceea9a8bce350529114258049a93ba1057dacbeb",
+      "kind": "impact_feedback_exact_head_ci",
+      "task": "WERK-IMPACT-FEEDBACK-001",
+      "head": "6d95b394d0869fb91562f6a84a13502469ef7869",
       "workflows": [
-        {"name": "WERK Impact Measurement Check", "run_number": 6, "conclusion": "success"},
-        {"name": "WERK Data Contract Registry Check", "run_number": 63, "conclusion": "success"}
+        {"name":"WERK Impact Feedback Check","run_number":1,"conclusion":"success"},
+        {"name":"WERK AI Synthesis Check","run_number":5,"conclusion":"success"},
+        {"name":"WERK Data Contract Registry Check","run_number":64,"conclusion":"success"},
+        {"name":"WERK Frontend Check","run_number":194,"conclusion":"success"},
+        {"name":"IDEENWERK Backend Check","run_number":185,"conclusion":"success"}
       ],
-      "staging_migration": "20260921062817 werk_impact_authoritative_source_binding",
-      "source_binding_contract": "043_werk_impact_authoritative_source_binding",
-      "verified_scope": "Authoritative map/reform/artifact/source-version binding is enforced fail-closed before impact-plan persistence; anon/authenticated cannot execute validator or recorder; service_role can; valid current tuple passes and unknown map, wrong reform, wrong artifact and stale source token fail closed.",
-      "result": "COUNTERCHECKED_STAGING"
-    },
-    {
-      "kind": "ai_synthesis_bounded_staging_countercheck",
-      "task": "WERK-AI-SYNTH-001",
-      "head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
-      "workflows": [
-        {"name": "WERK AI Synthesis Check", "run_number": 3, "conclusion": "success"},
-        {"name": "WERK Data Contract Registry Check", "run_number": 61, "conclusion": "success"},
-        {"name": "IDEENWERK Backend Check", "run_number": 176, "head": "4d3f63df43db446cd24c3c98304b1282acf61d9c", "conclusion": "success"},
-        {"name": "WERK Frontend Check", "run_number": 191, "head": "7d4889c4070f26b11e66ff1ccb4a9470303bbda8", "conclusion": "success"}
-      ],
-      "staging_migrations": ["20260921042608 ideenwerk_ai_synthesis", "20260921042728 ai_synthesis_trigger_privileges"],
-      "result": "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED"
+      "result": "VERIFIED_EXACT_HEAD_CI_ONLY_NOT_FULL_FUNCTIONAL_COUNTERCHECK"
     },
     {
       "kind": "staging_runtime_refresh",
-      "observed_at": "2026-09-21T07:21:52Z",
+      "observed_at": "2026-09-21T18:16:00Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
-      "latest_migration": "20260921062817 werk_impact_authoritative_source_binding",
+      "latest_migration": "20260921084055 ideenwerk_impact_feedback",
       "critical_zero_baseline_verified": true,
       "submissions": 0,
-      "active_jobs": 0,
-      "dead_or_failed_jobs": 0,
-      "active_review_tasks": 0,
       "ai_synthesis_rows": 0,
-      "impact_bridge_rows": 0,
-      "expert_input_rows": 0,
       "impact_plan_rows": 0,
       "impact_implementation_rows": 0,
       "impact_observation_rows": 0,
-      "impact_review_rows": 0
+      "impact_review_rows": 0,
+      "processing_jobs_total": 0,
+      "active_jobs": 0,
+      "failed_or_dead_jobs": 0,
+      "stale_locked_jobs": 0,
+      "review_tasks_total": 0,
+      "active_review_tasks": 0,
+      "stale_review_tasks": 0
+    },
+    {
+      "kind": "access_boundary_revalidation",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "result": "PASS_WITH_FEEDBACK_LOGIC_GAP",
+      "details": "AI synthesis, expert input, impact bridge and impact measurement tables retain RLS; anon/authenticated SELECT is false; service_role SELECT/INSERT is true. Feedback/source-snapshot/record RPCs are service-role-only. authenticator still carries pgrst.db_pre_request=public.werk_api_security_guard."
+    },
+    {
+      "kind": "backup_restore_ci",
+      "head": "6d95b394d0869fb91562f6a84a13502469ef7869",
+      "workflow": "IDEENWERK Backend Check #185",
+      "result": "SUCCESS",
+      "details": "The exact workflow contract includes database backup, isolated restore database creation and restore verification; the exact-head workflow succeeded."
     },
     {
       "kind": "supabase_security_advisor_refresh",
-      "observed_at": "2026-09-21T07:21:52Z",
+      "observed_at": "2026-09-21T18:13:37.073Z",
       "warn_count": 1,
       "warning": "extension_in_public: pg_net",
       "rls_enabled_no_policy_info_count": 37,
       "new_warn_since_prior": false,
       "result": "UNCHANGED_PLATFORM_WARNING"
+    },
+    {
+      "kind": "supabase_performance_advisor_refresh",
+      "observed_at": "2026-09-21T18:15:25.286Z",
+      "unindexed_foreign_keys": 5,
+      "result": "INFO_UNCHANGED_LOW_VOLUME_SCHEMA_HYGIENE"
     }
   ],
   "specialist_results": {
-    "integration_hunter": "The existing IDEENWERK impact source -> KPI measurement binding gap is now independently counterchecked on staging. No duplicate component or parallel registry was introduced. The existing KPI/measurement -> improvement feedback path remains the next functional integration gap under WERK-IMPACT-FEEDBACK-001.",
-    "evidence_reaper": "Migration 043 invalidated prior mutable current-state staging/security reliance. Fresh post-043 reads revalidated ACTIVE_HEALTHY, Edge v7, migration 043, validator/recorder ACL, zero critical rows and the unchanged single pg_net WARN. Earlier evidence remains historical only.",
-    "orphan_zombie_hunter": "WERK-IMPACT-001 is technically COUNTERCHECKED_STAGING. Builder-owned ledger/lock/open-loop/dependency/selector entries that still say awaiting countercheck are now stale bookkeeping and must consume this receipt rather than trigger a rebuild.",
-    "calculation_integrity_guardian": "Triggered because the impact source contract changed to v2. Migration 043 changes source-binding integrity only: no fiscal formula, numeric input, reform formula, unit/population/year semantics, causal-attribution rule or savings/debt arithmetic changed. Baseline/forecast/observation/causality separation remains intact; persisted impact rows are zero; no new double-counting or cross-model contradiction found.",
-    "milestone_closer": "No Finishline gate newly reached ACCEPTED or PRODUCTION_CONFIRMED; COUNTERCHECKED_STAGING is insufficient for an immutable milestone snapshot."
+    "integration_hunter": "The existing IMPROVEMENT-LOOP -> AI-SYNTHESIS edge is implemented and runtime-present, but not fully counterchecked because current-submission relevance is applied only after a global LIMIT 50 candidate truncation. Existing system-graph node/edge was reconciled rather than creating a parallel component.",
+    "evidence_reaper": "Migration 044 invalidated pre-044 mutable runtime/security reliance. Fresh project, migration, Edge v7, RLS/ACL, zero-baseline, queues, pre-request guard and Security Advisor evidence were collected. WERK_EVIDENCE_FRESHNESS was updated; prior mutable entries remain historical. A separate read-side source-freshness gap was recorded for werk_impact_measurement_snapshot.",
+    "orphan_zombie_hunter": "No zombie closeout was created: WERK-IMPACT-FEEDBACK-001 correctly remains active because the independent countercheck found a real bounded defect. NEXT_BEST_ACTION was reconciled to RECONCILIATION_REQUIRED instead of starting another task.",
+    "calculation_integrity_guardian": "Triggered only at source/context-contract level. Migration 044 changes feedback selection/source-snapshot semantics but no numeric formula, fiscal input, data year, population, unit, debt definition, interest arithmetic, baseline/scenario math or transfer/cost boundary. No new calculation contradiction or double-counting was found.",
+    "milestone_closer": "No Finishline gate newly satisfies ACCEPTED or PRODUCTION_CONFIRMED quorum. No milestone snapshot created."
   },
-  "owner_action_state": "No READY_NOW owner action. Existing provider, identity and voting owner gates remain not-ready/blocked; production remains gated.",
+  "owner_action_state": "No READY_NOW owner action. Provider, identity, voting and production owner gates remain NOT_READY/BLOCKED_UNTIL_GATES.",
   "next_functional_action": "WERK-IMPACT-FEEDBACK-001",
-  "next_functional_action_state": "EXECUTABLE_AFTER_CANONICAL_CLOSEOUT",
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json",
-  "last_receipt_commit": "808cef8d0bbf9b035d81ada59194e0b550893db9",
-  "canonical_receipt_index_reconciled_through_head": "d7baa32242a0c6f3ec50870fb3aa682ae929dc46",
-  "note": "No product, paid, production or political mutation was performed by the Supervisor. WERK remains YELLOW only for the pre-existing Hosted Supabase pg_net production-hardening finding and the control-head exact-CI evidence gap. WERK-IMPACT-001 itself is independently COUNTERCHECKED_STAGING; canonical bookkeeping must consume this receipt and must not rebuild the implementation."
+  "next_functional_action_state": "RECONCILIATION_REQUIRED",
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json",
+  "last_receipt_commit": "736baadb982390af46be4202da93d36e91a831a3",
+  "reconciliation_commits": [
+    "72e2820cfc16b708fa344f8d3356c7ff02a6172f",
+    "e35dd0924ddf8897439011f4b4e5e15390d4dec2",
+    "f841f7651aa94790e920c057fef0714399531e2f",
+    "1d9e26c6ddd4824e363aa1cdd0f92ef19b36214a"
+  ],
+  "note": "No product, runtime, production, paid-provider or political mutation was performed by the Supervisor. WERK remains YELLOW. Migration 044 is exact-head CI verified and live, but its feedback selection semantics require reconciliation before full COUNTERCHECKED_STAGING. The read-side impact snapshot source-freshness gap also remains open."
 }
