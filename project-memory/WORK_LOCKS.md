@@ -333,3 +333,23 @@ No additional locks recorded.
 - Release condition: exact-head CI plus independent countercheck.
 
 - Released: 2026-09-21 via `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
+
+## LOCK-WERK-VOTE-ARCH-001
+- Task: WERK-VOTE-ARCH-001
+- Status: RELEASED
+- Risk: R4
+- Holder: bounded WERK architecture pass
+- Branch: `werk-v49-preview-host`
+- Reconciliation note: repository-only contract work completed without external mutation; no competing same-scope work found.
+- Released: 2026-09-21 after independent countercheck `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
+
+
+## LOCK-WERK-PARLIAMENTARY-TRACE-001
+- Task: WERK-PARLIAMENTARY-TRACE-001
+- Status: RELEASED
+- Risk: R3
+- Holder: bounded WERK architecture pass
+- Branch: `werk-v49-preview-host`
+- Reconciliation note: repository-only contract work completed without external mutation; no competing same-scope work found.
+- Released: 2026-09-21 after independent countercheck `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
