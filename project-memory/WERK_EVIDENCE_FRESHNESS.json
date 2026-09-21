@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-21T05:44:27Z",
+  "updated": "2026-09-21T18:16:00Z",
   "entries": [
     {
       "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
@@ -207,8 +207,8 @@
       "type": "ci_exact_head",
       "target": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
-      "evidence": "WERK AI Synthesis Check #3 and WERK Data Contract Registry Check #61 succeeded on the exact functional head; Backend Check #176 succeeded on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c. Independent Supervisor re-read RLS/ACL, source-snapshot, stale-revalidation, provenance, anti-ranking/anti-decision/anti-new-fiscal-effect guards. External provider remains disabled.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_IMPACT_FEEDBACK_CONTRACT",
+      "evidence": "WERK AI Synthesis Check #3 and WERK Data Contract Registry Check #61 succeeded on the exact functional head. Migration 044 later changed the synthesis source-snapshot contract by adding impact-review feedback, so this evidence remains historical for the pre-feedback AI contract.",
       "expires_at": null,
       "revalidate_on": ["ai_synthesis_functional_head_changed", "ai_synthesis_contract_changed", "workflow_contract_changed", "provider_activation"]
     },
@@ -217,8 +217,8 @@
       "type": "ci_exact_head",
       "target": "f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED_SOURCE_BINDING",
-      "evidence": "WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded. RLS/ACL, reviewer gate, append-only evidence, valid observation period/source requirements and no-causality semantics are verified. Current claim cannot advance to counterchecked staging because the plan recorder does not validate impact_map_id/reform_id/model_or_artifact_ref/source_version against the authoritative current WERK source chain; see CTR-WERK-IMPACT-SOURCE-BINDING-001.",
+      "status": "HISTORICAL_VALID_PRE_SOURCE_BINDING_HARDENING",
+      "evidence": "WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded. Migration 043 later closed the write-side authoritative source binding gap. This older exact-head evidence remains historical.",
       "expires_at": null,
       "revalidate_on": ["impact_measurement_functional_head_changed", "source_binding_contract_changed", "workflow_contract_changed"]
     },
@@ -227,8 +227,8 @@
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT",
-      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260921043357 werk_impact_measurement; runtime meta contains contracts 037/038/040/041/042; 20 checked citizen/review/privacy/AI/impact tables are at zero rows; active jobs=0, failed/dead jobs=0, active review tasks=0.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_MIGRATIONS_043_044",
+      "evidence": "Project was ACTIVE_HEALTHY with migration 042 and zero baseline at observation time. Migrations 043 and 044 later changed schema/contracts and triggered fresh runtime revalidation.",
       "expires_at": "2026-09-22T05:44:27Z",
       "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
@@ -237,8 +237,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / IDEENWERK AI Synthesis",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
-      "evidence": "ideenwerk_ai_syntheses RLS enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true; anon/authenticated record-RPC and append-only-trigger execution=false; zero rows. Provider is not activated by this evidence.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_IMPACT_FEEDBACK_SCHEMA",
+      "evidence": "AI synthesis RLS/ACL was current before migration 044. Migration 044 changed the source-snapshot contract and required revalidation; a fresh 18:16Z entry carries current reliance.",
       "expires_at": "2026-09-22T05:44:27Z",
       "revalidate_on": ["schema_or_policy_change", "ai_synthesis_contract_change", "provider_activation", "before_ai_synthesis_acceptance"]
     },
@@ -247,8 +247,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / IDEENWERK Impact Bridge",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING",
-      "evidence": "After migrations 040/041/042, Impact Bridge RLS remains enabled; anon/authenticated SELECT=false; service_role SELECT=true; zero rows. The bridge remains the authoritative reference path for current mapping/source-version checks.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_IMPACT_FEEDBACK_SCHEMA_REVALIDATION",
+      "evidence": "Impact Bridge remained intact after migrations 040/041/042. Migration 044 triggered schema-bound revalidation; a fresh 18:16Z entry carries current reliance.",
       "expires_at": "2026-09-22T05:44:27Z",
       "revalidate_on": ["schema_or_policy_change", "impact_registry_version_changed", "source_registry_version_changed", "before_impact_bridge_acceptance"]
     },
@@ -257,8 +257,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / IDEENWERK Expert Input",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING",
-      "evidence": "After migrations 040/041/042, expert-input RLS remains enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true; zero rows. No expert-boundary regression was found.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_IMPACT_FEEDBACK_SCHEMA_REVALIDATION",
+      "evidence": "Expert Input boundary was current before migration 044. Migration 044 triggered schema-bound revalidation; a fresh 18:16Z entry carries current reliance.",
       "expires_at": "2026-09-22T05:44:27Z",
       "revalidate_on": ["schema_or_policy_change", "expert_contract_change", "before_expert_acceptance"]
     },
@@ -267,8 +267,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / pg_net Data API boundary",
       "observed_at": "2026-09-21T05:44:27Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
-      "evidence": "After migrations 040/041/042, authenticator still has pgrst.db_pre_request=public.werk_api_security_guard. Hosted Supabase's extension placement remains a separate production-hardening warning.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_IMPACT_FEEDBACK_SCHEMA_REVALIDATION",
+      "evidence": "After migrations 040/041/042, authenticator used pgrst.db_pre_request=public.werk_api_security_guard. Migration 044 triggered another schema-bound revalidation; the 18:16Z check carries current reliance.",
       "expires_at": "2026-09-22T05:44:27Z",
       "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
     },
@@ -277,9 +277,109 @@
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-21T05:44:22.531Z",
-      "status": "CURRENT_WITH_PLATFORM_WARNING",
-      "evidence": "Fresh Security Advisor reports exactly one WARN: pg_net extension_in_public, plus 37 INFO RLS-enabled-with-no-policy findings. Five new INFO findings correspond to new AI/impact tables using intentionally fail-closed direct/RPC boundaries. No new WARN appeared.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_MIGRATIONS_043_044",
+      "evidence": "Security Advisor reported exactly one WARN: pg_net extension_in_public, plus 37 INFO RLS-enabled-with-no-policy findings. Later schema changes triggered a fresh advisor read; historical result remains valid for its observation time.",
       "expires_at": "2026-09-22T05:44:22Z",
+      "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-CI-IMPACT-MEASUREMENT-043-20260921",
+      "type": "ci_exact_head",
+      "target": "ceea9a8bce350529114258049a93ba1057dacbeb",
+      "observed_at": "2026-09-21T07:21:52Z",
+      "status": "CURRENT_FOR_WRITE_SIDE_AUTHORITATIVE_SOURCE_BINDING_SCOPE",
+      "evidence": "WERK Impact Measurement Check #6 and WERK Data Contract Registry Check #63 succeeded on the exact functional head. Migration 043 validates map/reform/artifact/source-version before plan persistence. Independent 18:16Z read-side inspection found that werk_impact_measurement_snapshot itself does not revalidate later source-version drift; therefore this evidence must not be stretched into a read-side freshness claim.",
+      "expires_at": null,
+      "revalidate_on": ["impact_measurement_functional_head_changed", "source_binding_contract_changed", "workflow_contract_changed"]
+    },
+    {
+      "id": "WERK-EV-CI-IMPACT-FEEDBACK-20260921",
+      "type": "ci_exact_head",
+      "target": "6d95b394d0869fb91562f6a84a13502469ef7869",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED_SELECTION_WINDOW",
+      "evidence": "Independent GitHub Actions lookup confirms WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 all succeeded on the exact functional head. Exact migration inspection nevertheless found that global LIMIT 50 is applied before current submission map/reform relevance, leaving CTR-WERK-IMPACT-FEEDBACK-SELECTION-001 open.",
+      "expires_at": null,
+      "revalidate_on": ["impact_feedback_functional_head_changed", "impact_feedback_contract_changed", "workflow_contract_changed"]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260921T181600Z",
+      "type": "staging_runtime",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "CURRENT",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260921084055 ideenwerk_impact_feedback; submissions, AI syntheses and all four impact-measurement tables checked at zero rows; processing jobs/review tasks have zero total/active/failed/dead/stale rows.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
+    },
+    {
+      "id": "WERK-EV-IMPACT-FEEDBACK-STAGING-20260921T181600Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IMPROVEMENT-LOOP -> AI-SYNTHESIS",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED_SELECTION_WINDOW",
+      "evidence": "Migration 044 is live. ideenwerk_ai_feedback_context, ideenwerk_ai_synthesis_source_snapshot and ideenwerk_record_ai_synthesis are service-role-only; anon/authenticated execution is absent. Zero baseline is intact. The bounded edge is not promoted to COUNTERCHECKED_STAGING because relevance is evaluated only after a global LIMIT 50 candidate truncation.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["schema_or_policy_change", "impact_feedback_contract_change", "source_registry_version_changed", "before_feedback_acceptance"]
+    },
+    {
+      "id": "WERK-EV-AI-STAGING-20260921T181600Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK AI Synthesis",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "CURRENT_WITH_FEEDBACK_SELECTION_GAP_PROVIDER_DISABLED",
+      "evidence": "ideenwerk_ai_syntheses RLS enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true; synthesis RPCs are service-role-only. Provider remains disabled. Core anti-ranking/anti-decision boundaries remain current, while the new feedback selection edge is separately marked reconciliation-required.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["schema_or_policy_change", "ai_synthesis_contract_change", "provider_activation", "before_ai_synthesis_acceptance"]
+    },
+    {
+      "id": "WERK-EV-IMPACT-BRIDGE-REVALIDATION-20260921T181600Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK Impact Bridge",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING",
+      "evidence": "After migration 044, ideenwerk_impact_bridge_checks RLS remains enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true; zero rows. No Impact Bridge direct-access regression was found.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["schema_or_policy_change", "impact_registry_version_changed", "source_registry_version_changed", "before_impact_bridge_acceptance"]
+    },
+    {
+      "id": "WERK-EV-EXPERT-STAGING-20260921T181600Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK Expert Input",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING",
+      "evidence": "After migration 044, ideenwerk_expert_inputs RLS remains enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true; no expert-boundary regression was found.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["schema_or_policy_change", "expert_contract_change", "before_expert_acceptance"]
+    },
+    {
+      "id": "WERK-EV-PGNET-BOUNDARY-20260921T181600Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / pg_net Data API boundary",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY_WITH_PLATFORM_WARNING",
+      "evidence": "After migration 044, authenticator still has pgrst.db_pre_request=public.werk_api_security_guard. Fresh Security Advisor still reports the hosted pg_net extension placement warning; no new WARN appeared.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-IMPACT-SNAPSHOT-FRESHNESS-20260921T181600Z",
+      "type": "staging_runtime",
+      "target": "public.werk_impact_measurement_snapshot(text)",
+      "observed_at": "2026-09-21T18:16:00Z",
+      "status": "REVALIDATION_REQUIRED_READ_SIDE_SOURCE_FRESHNESS",
+      "evidence": "Fresh live function definition reads a persisted plan and returns its stored impact_map_id/reform_id/model_or_artifact_ref/source_version but does not invoke werk_impact_validate_source_binding. No stale plan currently exists because all impact-measurement tables are zero-row. Current-state reliance after a future source-registry/version change must therefore fail closed or explicitly revalidate before acceptance.",
+      "expires_at": "2026-09-22T18:16:00Z",
+      "revalidate_on": ["source_registry_version_changed", "source_binding_contract_changed", "before_impact_measurement_acceptance"]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-SECURITY-20260921T181337Z",
+      "type": "supabase_advisors",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T18:13:37.073Z",
+      "status": "CURRENT_WITH_PLATFORM_WARNING",
+      "evidence": "Fresh Security Advisor reports exactly one WARN: pg_net extension_in_public, plus 37 INFO RLS-enabled-with-no-policy findings. No new WARN attributable to migration 044 appeared.",
+      "expires_at": "2026-09-22T18:13:37Z",
       "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
     }
   ],
