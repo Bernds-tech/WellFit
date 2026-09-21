@@ -1,12 +1,13 @@
 {
   "schema_version": 2,
-  "updated": "2026-09-21T03:26:40Z",
+  "updated": "2026-09-21T05:44:27Z",
   "project": "WERK Österreich",
-  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites nach WERK_FINISHLINE_STATE/DEPENDENCIES erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. Ein bereits im TASK_LEDGER als VERIFIED, COUNTERCHECKED, COUNTERCHECKED_STAGING, ACCEPTED oder PRODUCTION_CONFIRMED abgeschlossener Task wird nicht erneut gewählt, auch wenn sein übergeordnetes Finishline-Gate wegen weiterer Teilbereiche noch PARTIAL bleibt. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang.",
+  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites nach WERK_FINISHLINE_STATE/DEPENDENCIES erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. Ein bereits im TASK_LEDGER als VERIFIED, COUNTERCHECKED, COUNTERCHECKED_STAGING, COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED, ACCEPTED oder PRODUCTION_CONFIRMED abgeschlossener Task wird nicht erneut gewählt, auch wenn sein übergeordnetes Finishline-Gate wegen weiterer Teilbereiche noch PARTIAL bleibt. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang.",
   "completed_task_states": [
     "VERIFIED",
     "COUNTERCHECKED",
     "COUNTERCHECKED_STAGING",
+    "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
     "ACCEPTED",
     "PRODUCTION_CONFIRMED"
   ],
@@ -56,8 +57,8 @@
       "requires_owner": false,
       "parallel_safe": true,
       "prerequisites": ["impact_bridge", "expert_process"],
-      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
-      "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung."
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING", "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED"],
+      "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung. Der bounded provider-disabled staging contract gilt mit COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED als abgeschlossen; Provider-Aktivierung bleibt separate Dependency."
     },
     {
       "id": "NBA-WERK-IMPACT-MEASUREMENT",
@@ -69,7 +70,7 @@
       "parallel_safe": true,
       "prerequisites": ["impact_bridge"],
       "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
-      "instruction": "Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden; daraus Verbesserungsvorschläge erzeugen, nicht automatisch beschließen."
+      "instruction": "Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden; daraus Verbesserungsvorschläge erzeugen, nicht automatisch beschließen. Aktuell hat die autoritative Impact-Bridge/Reform/Modell/Source-Version-Bindung Vorrang und muss fail-closed gegen unknown/stale/mismatch abgesichert werden."
     },
     {
       "id": "NBA-WERK-VERIFIED-SUPPORT",
