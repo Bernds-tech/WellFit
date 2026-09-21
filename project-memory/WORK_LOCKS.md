@@ -309,8 +309,8 @@ No additional locks recorded.
 
 ## LOCK-WERK-AI-PROVIDER-EVAL-001
 - Task: WERK-AI-PROVIDER-EVAL-001
-- Status: ACTIVE
-- Phase: IMPLEMENTED_AWAITING_CI_AND_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_CLOSEOUT
 - Risk: R3
 - Holder: WERK autonomous builder
 - Branch: `werk-v49-preview-host`
@@ -319,13 +319,17 @@ No additional locks recorded.
 - Release condition: exact-head CI plus independent countercheck.
 
 
+- Released: 2026-09-21 via `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
 ## LOCK-WERK-ID-ARCH-001
 - Task: WERK-ID-ARCH-001
-- Status: ACTIVE
-- Phase: IMPLEMENTED_AWAITING_CI_AND_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_CLOSEOUT
 - Risk: R4
 - Holder: WERK autonomous builder
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 Europe/Vienna
 - Scope: bounded contract/CI work only; no external activation.
 - Release condition: exact-head CI plus independent countercheck.
+
+- Released: 2026-09-21 via `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
