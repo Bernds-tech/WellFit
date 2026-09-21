@@ -1,0 +1,97 @@
+{
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T205000Z",
+  "checked_at": "2026-09-21T20:50:00Z",
+  "checked_branch_head": "d8147e036df87e1ae34bd0d2c863b1c71554914a",
+  "result": "RED_PARLIAMENTARY_TRACE_DATA_INTEGRITY_CONTRACT_BREACH",
+  "overall_status": "RED",
+  "scopes": [
+    {
+      "task": "WERK-ID-CORE-001",
+      "risk": "R4",
+      "state": "RECONCILIATION_REQUIRED_YELLOW",
+      "functional_head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
+      "exact_head_ci": [
+        "WERK Verified Support Core Check #4 SUCCESS",
+        "IDEENWERK Backend Check #194 SUCCESS"
+      ],
+      "runtime": {
+        "migration": "20260921203233 verified_support_core",
+        "marker": "047_verified_support_core_disabled",
+        "revalidated_after_migration_048": true,
+        "rls_present": true,
+        "anon_authenticated_direct_access": false,
+        "service_role_rpc_only": true,
+        "receipt_rows": 0,
+        "verified_support_rows": 0,
+        "verified_support_audit_rows": 0
+      },
+      "finding": {
+        "id": "CTR-WERK-ID-CORE-FUTURE-VERIFIED-AT-001",
+        "severity": "YELLOW",
+        "summary": "The live and repository definition of werk_record_identity_verification_receipt rejects NULL verified_at and expires_at<=verified_at, but does not reject a verified_at in the future. werk_record_verified_support checks expiry/revocation/scope but not verified_at<=now(). A future-dated receipt could therefore satisfy the current internal recorder contract. Public endpoint/counting/provider activation remain disabled and no rows exist, so no current public integrity loss was observed.",
+        "required_reconciliation": "Keep the existing WERK-ID-CORE-001 lock/loop/dependency open; fail closed for future verification timestamps and add a negative regression before independent countercheck. Do not create a parallel identity/support task."
+      }
+    },
+    {
+      "task": "WERK-PARLIAMENTARY-RUNTIME-001",
+      "risk": "R3",
+      "state": "RECONCILIATION_REQUIRED_RED",
+      "functional_head": "b34cc1f4f9e107bcbb46e82ea68975652eab2152",
+      "exact_head_ci": [
+        "WERK Parliamentary Trace Runtime Check #2 SUCCESS",
+        "IDEENWERK Backend Check #197 SUCCESS"
+      ],
+      "runtime": {
+        "migration": "20260921204112 parliamentary_trace_runtime",
+        "marker": "048_parliamentary_trace_internal_disabled",
+        "rls_present": true,
+        "anon_authenticated_direct_access": false,
+        "service_role_rpc_only_for_public_roles": true,
+        "trace_rows": 0,
+        "event_rows": 0
+      },
+      "findings": [
+        {
+          "id": "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001",
+          "severity": "RED",
+          "summary": "The contract claims an append-only evidence trace and evidence-required transitions, but the live trace tables have no user triggers enforcing append-only/state-machine writes. service_role has UPDATE/DELETE privileges at runtime, and the trace table is explicitly writable, so an internal service-role write can change current_state/outcome fields or rewrite/delete event history without passing werk_advance_parliamentary_trace and its evidence checks. This breaches the stated data-integrity contract even though the tables are currently empty and external/public integration is disabled.",
+          "required_reconciliation": "Keep the existing parliamentary runtime lock/loop open and harden the existing tables/path so state changes and event history cannot bypass the controlled evidence transition path. No parallel trace system."
+        },
+        {
+          "id": "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001",
+          "severity": "YELLOW",
+          "summary": "werk_create_parliamentary_trace implements SELECT-then-INSERT replay by source_decision_id/source_decision_version, but the live table has no UNIQUE constraint/index for that source tuple. Concurrent creates can therefore produce duplicate traces despite sequential replay tests passing.",
+          "required_reconciliation": "Add a database-level uniqueness/race-safe replay guard to the existing trace table/path and a concurrent regression test before countercheck."
+        }
+      ]
+    }
+  ],
+  "fresh_runtime_countercheck": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "latest_migration": "20260921204112 parliamentary_trace_runtime",
+    "processing_jobs_total": 0,
+    "active_jobs": 0,
+    "failed_or_dead_jobs": 0,
+    "stale_locked_jobs": 0,
+    "review_tasks_total": 0,
+    "active_review_tasks": 0,
+    "stale_review_tasks": 0,
+    "authenticator_pre_request_guard": "public.werk_api_security_guard",
+    "security_advisor_warn_count": 1,
+    "security_advisor_warn": "extension_in_public: pg_net",
+    "security_advisor_rls_no_policy_info_count": 40,
+    "performance_unindexed_foreign_keys": 5
+  },
+  "specialist_results": {
+    "integration_hunter": "No parallel KPI/measurement system was introduced; parliamentary runtime references the existing impact-measurement path. Its system-graph/current-state promotion must remain withheld while the data-integrity findings are open.",
+    "evidence_reaper": "Migration 048 invalidated pre-048 mutable staging/advisor reliance. Fresh migration markers, Edge v7, RLS/ACL, zero-baseline, queue/review, pre-request-guard and advisor evidence were collected after 048. Historical pre-048 evidence remains historically valid only.",
+    "orphan_zombie_hunter": "Both WERK-ID-CORE-001 and WERK-PARLIAMENTARY-RUNTIME-001 have active scopes/locks and explicit next steps, so neither is a zombie. They must remain open rather than be falsely closed from Builder claims.",
+    "calculation_integrity_guardian": "Not triggered: migrations 047/048 do not change fiscal formulas, source data, data years, populations, units, debt definitions, interest arithmetic, baseline/scenario separation or transfer/cost boundaries.",
+    "milestone_closer": "No gate meets ACCEPTED/PRODUCTION_CONFIRMED quorum. No milestone snapshot created."
+  },
+  "owner_action_state": "NO_READY_NOW_ACTION; identity/provider/legal/privacy and vote/production decisions remain blocked, and the new integrity findings prevent promotion.",
+  "product_runtime_changes_by_supervisor": false
+}
