@@ -1,0 +1,30 @@
+{
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T203000Z",
+  "checked_at": "2026-09-21T20:30:00Z",
+  "result": "COUNTERCHECKED_VOTE_ARCH_AND_PARLIAMENTARY_TRACE",
+  "scopes": [
+    {
+      "task": "WERK-VOTE-ARCH-001",
+      "state": "COUNTERCHECKED",
+      "functional_head": "cc358c4451d2eac5fae12754565652a72b9ccdb9",
+      "ci": [
+        "WERK Vote Architecture Check #1 SUCCESS",
+        "WERK Data Contract Registry Check #80 SUCCESS"
+      ],
+      "boundary": "Architecture only; no election/vote active, no quorum/threshold/franchise/binding/revote rule selected, no official election claim."
+    },
+    {
+      "task": "WERK-PARLIAMENTARY-TRACE-001",
+      "state": "COUNTERCHECKED",
+      "functional_head": "14ccefd7b29ee3c264d9aa891b06b6829e3c15dd",
+      "ci": [
+        "WERK Parliamentary Trace Check #2 SUCCESS",
+        "WERK Data Contract Registry Check #83 SUCCESS"
+      ],
+      "boundary": "Trace contract only; no live parliamentary integration, actor ranking, motive inference or claim that a WERK platform decision is enacted law."
+    }
+  ],
+  "falsification": [
+    "Any activation flag, selected cryptographic scheme, selected political voting rule, actor scoring field, live parliamentary connector or platform-decision-as-law claim reopens the relevant scope."
+  ]
+}
