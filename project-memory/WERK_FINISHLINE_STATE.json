@@ -51,13 +51,13 @@
       "state": "COUNTERCHECKED_STAGING",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "Strukturierter Experten-/Betroffeneninput ist in Staging unabhängig gegengeprüft. Migrationen 038/039, Rollen-/RLS-Grenzen, Quellen-/Rollen-/Bezugsoffenlegung, Auditspur, append-only Schutz und geschützte Bürgertransparenz sind belegt; Input bleibt beratend ohne Expertenveto, politischen Score oder automatische Annahme/Ablehnung. Evidence: project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json plus Freshness-Revalidation 2026-09-21T03:26:40Z. Kein ACCEPTED/PRODUCTION_CONFIRMED-Claim."
+      "notes": "Strukturierter Experten-/Betroffeneninput ist in Staging unabhängig gegengeprüft. Migrationen 038/039, Rollen-/RLS-Grenzen, Quellen-/Rollen-/Bezugsoffenlegung, Auditspur, append-only Schutz und geschützte Bürgertransparenz sind belegt; Input bleibt beratend ohne Expertenveto, politischen Score oder automatische Annahme/Ablehnung. Kein ACCEPTED/PRODUCTION_CONFIRMED-Claim."
     },
     "ai_synthesis": {
-      "state": "TODO",
+      "state": "PARTIAL",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "KI soll bestehende Bürgerideen, Impact-Bridge-Referenzen und counterchecked Expertenwissen zu nachvollziehbaren Varianten synthetisieren. Die fachlichen Staging-Prerequisites Impact Bridge und Expertenprozess sind nun counterchecked; Implementierung bleibt offen."
+      "notes": "Der bounded source-bound Staging-Vertrag für 2–5 nachvollziehbare Varianten ist unabhängig gegengeprüft: aktuelle Impact-Bridge-/Expert-Referenzen, Snapshot-Hash/Revalidation, Provenienz, Unsicherheit, Anti-Ranking/Anti-Entscheidungs- und Anti-neue-Fiskalwirkung-Grenzen sind belegt. Der externe Provider bleibt bewusst disabled; daher existiert noch keine targetgebundene echte KI-Generierung und kein ACCEPTED/Production-Claim."
     },
     "verified_support": {
       "state": "TODO",
@@ -78,10 +78,10 @@
       "notes": "Prozessmodell vorhanden; rechtlich/organisatorisch vollständige Umsetzung und Mandatar-Transparenz noch offen."
     },
     "impact_measurement": {
-      "state": "TODO",
+      "state": "IN_PROGRESS",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "Soll/Ist-KPI-Rückkopplung von umgesetzten Reformen zurück in KI/Bürgerprozess ist konzeptionell definiert, technisch offen."
+      "notes": "Staging-Migration 042 trennt Baseline/Soll, Implementierungsbeleg, Beobachtung, arithmetische Abweichung, Attributionshypothese und review-only Verbesserung. RLS/ACL, Append-only und Null-Baseline sind unabhängig belegt. GELB offen: der Plan-Recorder erzwingt derzeit nicht, dass impact_map_id/reform_id/model_or_artifact_ref/source_version tatsächlich dem aktuellen autoritativen Impact-Bridge-/Reform-/Modellstand entsprechen. Vor Counterchecked-Staging muss diese vorhandene Verbindung fail-closed gehärtet und negativ getestet werden."
     },
     "website": {
       "state": "IN_PROGRESS",
