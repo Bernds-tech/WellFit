@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "task_id": "WERK-EXPERT-001",
+  "claim": "IMPLEMENTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK",
+  "risk": "R3",
+  "branch": "werk-v49-preview-host",
+  "functional_evidence_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+  "implemented": {
+    "machine_contract": "werk-data/ideenwerk-expert-input.json",
+    "database_contract": "ideenwerk-backend/sql/038_ideenwerk_expert_input.sql",
+    "performance_hardening": "ideenwerk-backend/sql/039_expert_input_operator_index.sql",
+    "db_smoke": "ideenwerk-backend/scripts/expert-input-smoke.mjs",
+    "policy_guard": "ideenwerk-backend/scripts/expert-input-contract.mjs",
+    "citizen_ui": "werk-assets/site-ideenwerk-expert.js",
+    "existing_loader": "werk-assets/site-v71-loader.js",
+    "ci_workflow": ".github/workflows/werk-expert-input-check.yml"
+  },
+  "contract": {
+    "contributor_types": [
+      "subject_matter_expert",
+      "affected_person",
+      "practitioner",
+      "researcher",
+      "institution",
+      "other"
+    ],
+    "source_binding_required": true,
+    "relationship_disclosure_required_when_material": true,
+    "optional_counterposition_requires_own_source": true,
+    "append_only": true,
+    "write_role": "impact_reviewer",
+    "citizen_projection_private_fields_excluded": true,
+    "aggregate_transparency_content_free": true
+  },
+  "ci": [
+    {
+      "workflow": "WERK Expert Input Check",
+      "run_number": 4,
+      "conclusion": "success",
+      "head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5"
+    },
+    {
+      "workflow": "WERK Data Contract Registry Check",
+      "run_number": 59,
+      "conclusion": "success",
+      "head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5"
+    }
+  ],
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "migrations": [
+      "20260921012806 ideenwerk_expert_input",
+      "20260921013039 expert_input_operator_index"
+    ],
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "edge_deployment_changed": false,
+    "reversible_checks": {
+      "idempotent_replay": "pass",
+      "wrong_role_fail_closed": "pass",
+      "append_only_mutation_guard": "pass",
+      "citizen_safe_status_projection": "pass",
+      "aggregate_only_transparency": "pass"
+    },
+    "fixture_cleanup": {
+      "submissions": 0,
+      "expert_inputs": 0,
+      "fixture_operators": 0,
+      "fixture_audit_events": 0
+    }
+  },
+  "advisor_followup": {
+    "security": "No new expert-specific WARN/ERROR. Expert table appears as RLS-enabled/no-policy INFO, consistent with direct-access fail-closed architecture. Existing pg_net extension_in_public WARN remains a separate production-hardening loop.",
+    "performance": "Migration 038 initially exposed one unindexed operator FK; migration 039 added the covering index. Fresh advisor no longer reports unindexed_foreign_keys for expert input."
+  },
+  "negative_boundaries": [
+    "no expert veto",
+    "no political merit score or ranking",
+    "no automatic acceptance or rejection",
+    "no review-depth override",
+    "no mutation of original citizen text",
+    "no manufactured fiscal or impact effect",
+    "no operator identity in citizen projection",
+    "no production deployment"
+  ],
+  "open_boundaries": [
+    "Independent Supervisor countercheck is required before expert_process gate advancement.",
+    "No live browser/visual acceptance is claimed; citizen protected-status data contract plus frontend code/CI are verified only by Builder evidence.",
+    "Aggregate transparency RPC is service-role-only in this slice; public metrics endpoint exposure is not claimed.",
+    "Existing hosted pg_net extension warning remains separate production hardening."
+  ],
+  "next_step": "Independent Supervisor counterchecks exact functional head and live Staging evidence; only after canonical closeout may WERK-AI-SYNTH-001 become executable."
+}
