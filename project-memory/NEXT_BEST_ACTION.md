@@ -3,27 +3,31 @@
 - Project: `WERK Österreich`
 - Selected action: `WERK-IMPACT-FEEDBACK-001`
 - Catalog entry: `NBA-WERK-IMPACT-FEEDBACK`
-- Status: `IN_PROGRESS`
+- Status: `AWAITING_INDEPENDENT_COUNTERCHECK`
 - Risk: `R3`
 - Gate: `impact_measurement`
 - Title: Gegengeprüfte Wirkungsreviews kontrolliert in den KI-Kontext zurückführen
 
-## Why this action is selected
-`WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING` and its Builder-owned closeout is consumed: the exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb` passed WERK Impact Measurement Check #6 and Data Contract Registry Check #63; migration `20260921062817 werk_impact_authoritative_source_binding` is live; source binding fails closed for unknown/stale/mismatched tuples; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json` closes the upstream source-binding contradiction.
+## Builder result now awaiting Supervisor
+The bounded feedback integration is implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`.
 
-The Connection Sweep therefore exposes the next missing edge: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS`. Existing impact reviews already carry attribution/improvement hypotheses, alternative explanations, uncertainties and source refs, but the current AI source snapshot/provider context does not yet consume them.
+Exact-head GitHub Actions are green:
+- WERK Impact Feedback Check #1 — success.
+- WERK AI Synthesis Check #5 — success.
+- WERK Data Contract Registry Check #64 — success.
+- WERK Frontend Check #194 — success.
+- IDEENWERK Backend Check #185 — success.
 
-## Exact work
-1. Reuse `werk_impact_reviews`, current Impact Bridge mappings and `werk_impact_validate_source_binding`; create no parallel calculator or feedback store.
-2. Expose at most 12 current reviews whose measurement plan map/reform matches the submission's current Impact Bridge and whose full source tuple still validates.
-3. Require an improvement hypothesis, explicit uncertainty and provenance refs before a review is eligible as feedback context.
-4. Add eligible `impact_review` IDs to the existing AI synthesis source snapshot; new/stale feedback must change/invalidate the snapshot fail-closed.
-5. Permit `impact_review` source refs only when present in that current snapshot.
-6. Preserve all existing anti-ranking, anti-recommendation, anti-accept/reject and anti-new-numeric-effect guards.
-7. Run exact-head Impact Feedback + AI Synthesis CI; then apply/reversibly probe migration 044 only on WERK Österreich Staging, restore zero synthetic baseline and produce a Builder claim for independent Supervisor countercheck.
+WERK Österreich Staging is `ACTIVE_HEALTHY` and migration `20260921084055 ideenwerk_impact_feedback` is active. A fresh rollback-only live probe verified: anon/authenticated cannot execute `ideenwerk_ai_feedback_context`; service_role can; a current source-bound impact review with improvement hypothesis, uncertainty and provenance enters the v2 synthesis snapshot; an unknown/non-current impact-review reference is rejected; stale Impact-Bridge registry state makes feedback and current synthesis fail closed as `revalidation_required`; rollback restores zero synthetic baseline. Fresh Security Advisor still reports the pre-existing single `pg_net extension_in_public` WARN and no new WARN attributable to this migration.
 
-## Safety boundary
-Impact observations, attribution hypotheses and improvement hypotheses remain review material, not causal fact. This task performs no political ranking, automatic policy change, production action, paid/external provider activation, credential change or real-world implementation claim.
+## Implemented connection
+`IMPROVEMENT-LOOP` → `AI-SYNTHESIS` now consumes at most 12 current reviews whose map/reform matches the submission's current Impact Bridge and whose authoritative map/reform/artifact/source-version tuple validates. Reviews require a nonempty improvement hypothesis, explicit uncertainty and provenance. Eligible `impact_review` IDs are included in the existing AI source snapshot; stale/new feedback changes or invalidates that snapshot fail-closed. No parallel feedback store or calculator was introduced.
 
-## Known separate YELLOW items
-Hosted Supabase still reports `pg_net extension_in_public`, which remains nonblocking for ordinary reversible Staging work but blocks production-security acceptance. Exact-head control/governance CI evidence remains a separate evidence concern and should be refreshed by the triggered workflows on the implementation head rather than by rebuilding runtime work.
+## Safety boundary retained
+Impact observations, attribution hypotheses and improvement hypotheses remain review material, never causal fact. Existing anti-ranking, anti-recommendation, anti-accept/reject and anti-new-numeric-effect guards remain in force. The external synthesis provider remains disabled; no paid/external call, secret change, live political AI generation, production action or automatic political change occurred.
+
+## Exact next step
+Independent Supervisor must countercheck functional head `6d95b394d0869fb91562f6a84a13502469ef7869`, exact-head CI, migration 044, ACL/current/stale live probes, zero-baseline and fresh advisor result. Until that receipt exists, keep `LOCK-WERK-IMPACT-FEEDBACK-001`, the task, loop and dependency open and do not start the next functional slice.
+
+## Known separate YELLOW item
+Hosted Supabase still reports `pg_net extension_in_public`. It remains nonblocking for reversible Staging feature work but blocks production-security acceptance.
