@@ -2,10 +2,17 @@
 
 Diese Datei enthält ausschließlich Aktionen, die wirklich Bernd/Owner, externe Rechts-/Providerstellen oder geschützte Freigaben benötigen. Der Builder darf normale Coding-, Analyse-, CI-, Staging- und Dokumentationsarbeit nicht hierher verschieben.
 
+## WERK-OWNER-AI-PROVIDER-001 — KI-Provider für echte Varianten
+- Status: NOT_READY
+- Gate: ai_synthesis
+- Trigger: Erst wenn `WERK-AI-PROVIDER-EVAL-001` ein konkretes vergleichbares Provider-/Datenschutz-/Kostenpaket mit Secret-Grenze und target-bound Verify-Plan vorlegt.
+- Owner decision needed: Auswahl/Freigabe eines konkreten Providers, Kostenrahmens und zulässigen Datenflusses.
+- Boundary: Vor READY_NOW keine Secrets, keine kostenpflichtige Aktivierung und keine externe Verarbeitung realer Bürger-/Expertendaten.
+
 ## WERK-OWNER-ID-001 — Identitätsmodell für verifizierte Unterstützung
 - Status: NOT_READY
 - Gate: verified_support
-- Trigger: Erst wenn die technische Bürger-/Privacy-Basis und ein konkreter Identitätsansatz vergleichbar ausgearbeitet sind.
+- Trigger: Erst wenn `WERK-ID-ARCH-001` mindestens zwei realistische Identitäts-/Verifikationsmodelle samt Threat Model, Datenminimierung, Recovery, Kosten und offenen Rechts-/Datenschutzfragen vergleichbar ausgearbeitet hat.
 - Owner decision needed: Auswahl/Freigabe des Zielmodells und gegebenenfalls externer Anbieter/Rechtsprüfung.
 - Boundary: Support ist keine geheime amtliche Stimme.
 
