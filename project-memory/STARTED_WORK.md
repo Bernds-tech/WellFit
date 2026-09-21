@@ -52,7 +52,34 @@ Canonical register for work that has started but is not yet fully completed.
 - Exact next step: inventory and classify current visual variants before further graphical implementation, then produce current exact-head CI/browser evidence for the selected baseline.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
+## WERK-IMPACT-001
+- Started: 2026-09-21 06:33 Europe/Vienna
+- Status: RECONCILIATION_REQUIRED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
+- Verified so far: migration 042 is live; exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f` passed WERK Impact Measurement Check #1 and Data Contract Registry #62; RLS/ACL, reviewer gate, append-only evidence, valid observation periods/source requirements and no-causality semantics are independently confirmed; all impact tables are zero-row.
+- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The measurement-plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` without validating that the tuple is current in the authoritative Impact Bridge/reform/model source chain.
+- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE in `RECONCILIATION_REQUIRED_SOURCE_BINDING` phase.
+- Open loop: `WERK-LOOP-IMPACT-001` remains open.
+- Exact next step: reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched tuples, add negative CI/smoke coverage, then rerun exact-head checks and independent Staging countercheck. No parallel registry/calculator, formula change or political change.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+
 ## Closed / superseded work
+
+### WERK-AI-SYNTH-001 — bounded staging synthesis contract counterchecked
+- Started: 2026-09-21 06:26 Europe/Vienna
+- Closed: 2026-09-21 07:44 Europe/Vienna
+- Status: COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: bounded source-bound multi-variant AI synthesis contract/provider adapter/status/V71 integration; no political ranking, automatic decision or manufactured fiscal effect.
+- Result: migrations 040/041 are live; exact functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f` passed WERK AI Synthesis Check #3 and Data Contract Registry #61; Backend Check #176 passed on predecessor `4d3f63df43db446cd24c3c98304b1282acf61d9c`; RLS/ACL/source-snapshot/stale-revalidation/provenance/anti-ranking/anti-decision/anti-new-fiscal-effect boundaries were independently counterchecked; synthesis table is zero-row.
+- Provider boundary: external provider remains disabled. No live AI-generated political variants, credential or paid provider is active; `WERK-DEP-AI-PROVIDER-001` remains BLOCKED.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Work lock: `LOCK-WERK-AI-SYNTH-001` released; `WERK-LOOP-AI-SYNTH-001` closed for this bounded Staging scope.
+- Boundary: overall `ai_synthesis` is not ACCEPTED/Production because target-bound provider generation remains unverified.
+- Next: do not rebuild. A later provider activation is separately governed and requires target-bound verification.
 
 ### WERK-IDEENWERK-IMPACT-BRIDGE-001 — counterchecked staging bridge
 - Started: 2026-09-20 22:31 UTC
@@ -300,27 +327,3 @@ Canonical register for work that has started but is not yet fully completed.
 - Falsifier: annual plus monthly values double counted, administration mixed into funding, missing account interpreted as discontinued program, or baseline reductions credited to WERK. Source reconciliation and negative checks required.
 
 - Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
-
-## WERK-AI-SYNTH-001
-- Started: 2026-09-21 06:26 Europe/Vienna
-- Status: IMPLEMENTED_NOT_VERIFIED
-- Risk: R3
-- Branch: `werk-v49-preview-host`
-- Scope: bounded source-bound multi-variant AI synthesis contract/provider adapter/status/V71 integration; no political ranking, automatic decision or manufactured fiscal effect.
-- Completed so far: migrations 040/041 are live on Staging; exact functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f` passed WERK AI Synthesis Check #3 and Data Contract Registry #61; synthesis table is at zero rows after verification.
-- Provider boundary: `SYNTHESIS_PROVIDER=disabled`; no live external model or fallback policy generator is active.
-- Work lock: `LOCK-WERK-AI-SYNTH-001` remains ACTIVE until independent Supervisor countercheck and canonical closeout.
-- Open loop: `WERK-LOOP-AI-SYNTH-001`.
-- Exact next step: independent countercheck of the bounded Staging contract and current runtime/security boundary. Do not activate a paid/external provider in this task.
-
-## WERK-IMPACT-001
-- Started: 2026-09-21 06:33 Europe/Vienna
-- Status: IMPLEMENTED_NOT_VERIFIED
-- Risk: R3
-- Branch: `werk-v49-preview-host`
-- Scope: source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
-- Completed so far: migration 042 is live; exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f` passed WERK Impact Measurement Check #1 and Data Contract Registry #62; measurement/observation/review tables remain at zero baseline.
-- Fresh operational note: Security Advisor shows no impact-specific WARN; Performance Advisor shows five INFO-level unindexed foreign keys on the new impact tables, a nonblocking scale/production-hardening follow-up.
-- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE until independent Supervisor countercheck and canonical closeout.
-- Open loop: `WERK-LOOP-IMPACT-001`.
-- Exact next step: independent countercheck; no causal effect or real-world reform implementation may be inferred from the staged contract.
