@@ -298,25 +298,27 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-AI-SYNTH-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED
 - Risk: R3
 - Goal: connect current citizen context, counterchecked Impact Bridge references and counterchecked Expert Input into bounded multi-variant synthesis with provenance and uncertainty, without political ranking or automatic decision.
-- Result: source-bound synthesis schema, provider adapter, runner and protected status/V71 projection are implemented on Staging. The external provider remains deliberately disabled, so no live AI-generated political variants are claimed.
+- Result: source-bound synthesis schema, provider adapter, runner and protected status/V71 projection are implemented on Staging and independently counterchecked for the bounded provider-disabled scope.
 - Functional evidence: exact head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and WERK Data Contract Registry Check #61 succeeded; IDEENWERK Backend Check #176 succeeded on predecessor functional head `4d3f63df43db446cd24c3c98304b1282acf61d9c`.
-- Staging: migrations `20260921042608 ideenwerk_ai_synthesis` and `20260921042728 ai_synthesis_trigger_privileges` are live; `ideenwerk_ai_syntheses` remains at zero rows; fresh Security Advisor has no AI-specific WARN and only the known `pg_net extension_in_public` WARN persists.
-- Boundary: no ranking/recommendation, automatic accept/reject, new fiscal effect or fallback policy generator. Real provider activation requires an approved endpoint/secret/cost boundary plus target-bound verification.
-- Open loop/lock: `WERK-LOOP-AI-SYNTH-001`; `LOCK-WERK-AI-SYNTH-001`.
-- Next: independent Supervisor countercheck. Builder must not mark this task COUNTERCHECKED, ACCEPTED or PRODUCTION_CONFIRMED.
+- Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`; live migrations 040/041; RLS/ACL/source-snapshot/stale-revalidation/provenance/anti-ranking/anti-decision/anti-new-fiscal-effect boundaries confirmed; zero synthesis rows.
+- Provider boundary: external provider remains deliberately disabled. `WERK-DEP-AI-PROVIDER-001` stays BLOCKED until endpoint/provider, secret handling, privacy/cost boundary and target-bound verification exist.
+- Loop/lock: `WERK-LOOP-AI-SYNTH-001` is closed for the bounded Staging scope; `LOCK-WERK-AI-SYNTH-001` is released.
+- Boundary: no live AI-generated political variants, paid provider, automatic accept/reject, political ranking, new fiscal effect, overall ACCEPTED or Production claim.
+- Next: do not rebuild the bounded contract. A later provider activation is separately governed and must be independently target-verified.
 
 ## WERK-IMPACT-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: RECONCILIATION_REQUIRED
 - Risk: R3
 - Goal: source-bind forecast/baseline, real implementation evidence, KPI observations, arithmetic deviation, attribution hypotheses and review-only improvement hypotheses without inferring causality automatically.
-- Result: measurement plan, implementation-event, observation and review contracts are implemented on Staging and remain append-only/fail-closed for direct citizen roles.
-- Functional evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded.
-- Staging: migration `20260921043357 werk_impact_measurement` is live; plans/observations/reviews are all at zero rows after verification; fresh Security Advisor reports no impact-measurement-specific WARN.
-- Performance note: fresh Supabase Performance Advisor reports five INFO-level unindexed foreign keys on the new impact tables. This does not invalidate functional correctness, but remains a scale/production-hardening follow-up.
-- Boundary: no real-world reform implementation, observed policy effect, causal attribution or automatic political change is claimed.
-- Open loop/lock: `WERK-LOOP-IMPACT-001`; `LOCK-WERK-IMPACT-001`.
-- Next: independent Supervisor countercheck; then close/reconcile only the bounded Staging scope supported by evidence.
+- Verified scope: measurement plan, implementation-event, observation and review contracts are live on Staging; RLS/ACL, impact_reviewer gate, append-only evidence, observation source requirement, valid periods, baseline/target/observation separation, arithmetic deviation and no-causality/review-only semantics are independently confirmed. All impact tables are zero-row.
+- Functional evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded; migration `20260921043357 werk_impact_measurement` is live.
+- Contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The live measurement-plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` as length-checked text but does not validate the tuple against the current authoritative Impact Bridge/reform/model source. CI does not currently prove rejection of unknown/stale tuples.
+- Data-integrity state: no invalid row is observed because plans/implementations/observations/reviews are all zero-row; therefore current classification is YELLOW reconciliation required, not a RED data-corruption event.
+- Performance note: five INFO-level unindexed foreign keys on new impact tables remain a separate nonblocking scale/production-hardening follow-up.
+- Open loop/lock: `WERK-LOOP-IMPACT-001` remains open and `LOCK-WERK-IMPACT-001` remains ACTIVE in source-binding reconciliation phase.
+- Exact next step: reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched map/reform/model/source-version tuples, add negative CI/smoke cases, then rerun exact-head checks and independent Staging countercheck. No parallel registry/calculator, no formula change and no political change.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
