@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-21T00:27:03Z",
+  "updated": "2026-09-21T03:26:40Z",
   "entries": [
     {
       "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
@@ -77,8 +77,8 @@
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "HISTORICAL_VALID_SUPERSEDED_BY_20260921_REFRESH",
-      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920223436 ideenwerk_impact_bridge; runtime contract 037_ideenwerk_impact_bridge present; 14 citizen/review/privacy/impact tables checked at zero synthetic baseline. A later read-only refresh confirmed the same runtime/migration/zero-baseline state.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_LATER_SCHEMA",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920223436 ideenwerk_impact_bridge; 14 citizen/review/privacy/impact tables checked at zero synthetic baseline. Expert migrations 038/039 later changed the schema and triggered a new runtime revalidation.",
       "expires_at": "2026-09-21T22:55:10Z",
       "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
@@ -87,8 +87,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / IDEENWERK Impact Bridge",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING",
-      "evidence": "Impact bridge table exists with RLS enabled; anon/authenticated have no SELECT; service_role has SELECT; anon/authenticated cannot execute ideenwerk_current_impact_bridge while service_role can; precheck trigger exists; live functions preserve version/source fail-closed behavior; no cost/saving/revenue/effect columns exist; repository source versions match runtime contract.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_EXPERT_SCHEMA_REVALIDATION",
+      "evidence": "Impact bridge table/RLS/grants and fail-closed version behavior were independently counterchecked. Expert migrations 038/039 later changed the schema, so a post-expert revalidation now carries current reliance.",
       "expires_at": "2026-09-21T22:55:10Z",
       "revalidate_on": ["schema_or_policy_change", "impact_registry_version_changed", "source_registry_version_changed", "before_impact_bridge_acceptance"]
     },
@@ -97,8 +97,8 @@
       "type": "staging_security_boundary",
       "target": "WERK Österreich Staging / pg_net Data API boundary",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
-      "evidence": "After migration 037, authenticator still has pgrst.db_pre_request=public.werk_api_security_guard and the live guard still rejects anon/authenticated requests selecting the net profile. The schema change did not invalidate the bounded request-boundary countercheck.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_EXPERT_SCHEMA_REVALIDATION",
+      "evidence": "The postgREST request boundary was counterchecked after migration 037. Expert migrations 038/039 later triggered another schema-bound revalidation; the newer entry carries current reliance.",
       "expires_at": "2026-09-21T22:55:10Z",
       "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
     },
@@ -107,8 +107,8 @@
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "HISTORICAL_VALID_SUPERSEDED_BY_20260921_REFRESH",
-      "evidence": "Security Advisor reported the same single WARN extension_in_public for pg_net and 31 INFO RLS-enabled-with-no-policy notices. A later read-only advisor refresh observed the same warning count and INFO count.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_LATER_SCHEMA",
+      "evidence": "Security Advisor reported the same single WARN extension_in_public for pg_net and 31 INFO RLS-enabled-with-no-policy notices. Later schema changes require a fresh advisor result for current-state reliance.",
       "expires_at": "2026-09-21T22:55:10Z",
       "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
     },
@@ -117,8 +117,8 @@
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-21T00:27:03Z",
-      "status": "CURRENT",
-      "evidence": "Project ACTIVE_HEALTHY; latest migration remains 20260920223436 ideenwerk_impact_bridge; werk-ideenwerk-api remains ACTIVE version 7; 14 checked citizen/review/privacy/impact tables are at zero rows. No product/runtime/schema mutation occurred during this Supervisor run.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_EXPERT_SCHEMA",
+      "evidence": "Project ACTIVE_HEALTHY with migration 037 and 14 zero-baseline tables. Migrations 038/039 later changed schema and invalidated this entry for current-state reliance without changing the historical observation.",
       "expires_at": "2026-09-22T00:27:03Z",
       "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
@@ -127,9 +127,79 @@
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-21T00:27:03Z",
-      "status": "CURRENT_WITH_PLATFORM_WARNING",
-      "evidence": "Fresh Security Advisor result reports one WARN: pg_net extension_in_public, plus 31 INFO RLS-enabled-with-no-policy notices. The warning set is materially unchanged; no new Security Advisor WARN appeared.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_EXPERT_SCHEMA",
+      "evidence": "Security Advisor reported one WARN: pg_net extension_in_public, plus 31 INFO RLS-enabled-with-no-policy notices. Expert schema changes later triggered a fresh advisor check.",
       "expires_at": "2026-09-22T00:27:03Z",
+      "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-CI-EXPERT-20260921",
+      "type": "ci_exact_head",
+      "target": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+      "observed_at": "2026-09-21T01:28:00Z",
+      "status": "CURRENT_FOR_EXPERT_FUNCTIONAL_SCOPE",
+      "evidence": "WERK Expert Input Check #4 and WERK Data Contract Registry Check #59 succeeded on the exact expert functional head. The subsequent branch delta to the current closeout head contains governance/claim/system-graph changes only and no expert DB/API/UI/runtime implementation change.",
+      "expires_at": null,
+      "revalidate_on": ["expert_functional_head_changed", "expert_contract_changed", "workflow_contract_changed"]
+    },
+    {
+      "id": "WERK-EV-CI-EXPERT-FRONTEND-20260921",
+      "type": "ci_exact_head",
+      "target": "133b6cd859a5c1cd097aa708c044c40d03db7880",
+      "observed_at": "2026-09-21T02:01:00Z",
+      "status": "CURRENT_FOR_EXPERT_FRONTEND_SCOPE",
+      "evidence": "WERK Frontend Check #182 succeeded on the expert frontend/governance follow-up head. Later closeout changes are governance-only.",
+      "expires_at": null,
+      "revalidate_on": ["expert_frontend_changed", "workflow_contract_changed"]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260921T032640Z",
+      "type": "staging_runtime",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T03:26:40Z",
+      "status": "CURRENT",
+      "evidence": "Fresh read-only revalidation: project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260921013039 expert_input_operator_index after 038_ideenwerk_expert_input; 15 checked IDEENWERK/review/privacy/impact/expert tables are at zero rows; no product/runtime mutation performed by Supervisor.",
+      "expires_at": "2026-09-22T03:26:40Z",
+      "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
+    },
+    {
+      "id": "WERK-EV-EXPERT-STAGING-20260921T032640Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK Expert Input",
+      "observed_at": "2026-09-21T03:26:40Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING",
+      "evidence": "ideenwerk_expert_inputs has RLS enabled; anon/authenticated SELECT=false; service_role SELECT/INSERT=true. The expert input path is independently bound to source/role/relationship disclosure and advisory-only semantics from the prior receipt. Zero-baseline is clean after staging verification.",
+      "expires_at": "2026-09-22T03:26:40Z",
+      "revalidate_on": ["schema_or_policy_change", "expert_contract_change", "before_expert_acceptance"]
+    },
+    {
+      "id": "WERK-EV-IMPACT-BRIDGE-REVALIDATION-20260921T032640Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / IDEENWERK Impact Bridge",
+      "observed_at": "2026-09-21T03:26:40Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING",
+      "evidence": "Post-expert-schema revalidation confirms RLS remains enabled; anon/authenticated SELECT=false; service_role SELECT=true. No new calculation/effect fields or parallel calculation path were introduced by the inspected expert/closeout delta.",
+      "expires_at": "2026-09-22T03:26:40Z",
+      "revalidate_on": ["schema_or_policy_change", "impact_registry_version_changed", "source_registry_version_changed", "before_impact_bridge_acceptance"]
+    },
+    {
+      "id": "WERK-EV-PGNET-BOUNDARY-20260921T032640Z",
+      "type": "staging_security_boundary",
+      "target": "WERK Österreich Staging / pg_net Data API boundary",
+      "observed_at": "2026-09-21T03:26:40Z",
+      "status": "CURRENT_COUNTERCHECKED_STAGING_BOUNDARY",
+      "evidence": "After migrations 038/039, authenticator still uses pgrst.db_pre_request=public.werk_api_security_guard. The bounded Data API guard remains current; Hosted Supabase's extension placement remains a separate production-hardening warning.",
+      "expires_at": "2026-09-22T03:26:40Z",
+      "revalidate_on": ["schema_or_policy_change", "pg_net_extension_ddl_or_update", "postgrest_config_change", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-SECURITY-20260921T032640Z",
+      "type": "supabase_advisors",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T03:26:40Z",
+      "status": "CURRENT_WITH_PLATFORM_WARNING",
+      "evidence": "Fresh Security Advisor result reports exactly one WARN: pg_net extension_in_public. The remaining findings are INFO-level RLS-without-policy notices, including the intentionally direct-blocked expert table. No new Security Advisor WARN appeared.",
+      "expires_at": "2026-09-22T03:26:40Z",
       "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
     }
   ],
