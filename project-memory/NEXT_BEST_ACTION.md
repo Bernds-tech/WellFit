@@ -33,5 +33,11 @@ The independent Supervisor countercheck completed the bounded `WERK-AI-SYNTH-001
 - Do not move to another feature while the impact source-binding contradiction is open.
 - Existing `WERK-DEP-IMPACT-FEEDBACK-001` remains downstream work after `WERK-IMPACT-001` is counterchecked; do not wire improvement hypotheses into AI while their authoritative source binding is unresolved.
 
+## Strategic sequence after this reconciliation
+1. `WERK-IMPACT-FEEDBACK-001`: close the already documented `IMPROVEMENT-LOOP → AI-SYNTHESIS` connection with a bounded, source-bound consumption contract. Reviewed improvement hypotheses remain hypotheses; they are never promoted to facts or automatic policy changes.
+2. `WERK-AI-PROVIDER-EVAL-001`: prepare a concrete provider/privacy/cost/secret/verification package without activating a provider. This closes the preparation gap behind `WERK-DEP-AI-PROVIDER-001`.
+3. `WERK-ID-ARCH-001`: prepare comparable identity/verification architectures and a threat model so `WERK-OWNER-ID-001` can eventually become READY_NOW instead of asking the Owner to choose without a technical decision package.
+4. Only after the respective preparation evidence exists may `WERK-OWNER-AI-PROVIDER-001` or `WERK-OWNER-ID-001` become READY_NOW. WERK VOTE remains later behind verified support and its separate legal/privacy/security boundary.
+
 ## Known separate hardening item
 Hosted Supabase still reports `pg_net extension_in_public`. The existing Data-API request boundary remains counterchecked for Staging. This warning continues to block production-security acceptance but does not replace or supersede the current `WERK-IMPACT-001` reconciliation.
