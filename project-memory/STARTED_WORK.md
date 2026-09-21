@@ -218,7 +218,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Base: 35a71c20db0afcb00a9bb703f7f671cf7d3f05e4
 - Scope: contribution-growth and debt-financing durability stress.
 
-- WERK-SV-005: five relevant workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
+- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
 
 ## WERK-SV-006
 - Status: VERIFIED
@@ -300,3 +300,27 @@ Canonical register for work that has started but is not yet fully completed.
 - Falsifier: annual plus monthly values double counted, administration mixed into funding, missing account interpreted as discontinued program, or baseline reductions credited to WERK. Source reconciliation and negative checks required.
 
 - Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
+
+## WERK-AI-SYNTH-001
+- Started: 2026-09-21 06:26 Europe/Vienna
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: bounded source-bound multi-variant AI synthesis contract/provider adapter/status/V71 integration; no political ranking, automatic decision or manufactured fiscal effect.
+- Completed so far: migrations 040/041 are live on Staging; exact functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f` passed WERK AI Synthesis Check #3 and Data Contract Registry #61; synthesis table is at zero rows after verification.
+- Provider boundary: `SYNTHESIS_PROVIDER=disabled`; no live external model or fallback policy generator is active.
+- Work lock: `LOCK-WERK-AI-SYNTH-001` remains ACTIVE until independent Supervisor countercheck and canonical closeout.
+- Open loop: `WERK-LOOP-AI-SYNTH-001`.
+- Exact next step: independent countercheck of the bounded Staging contract and current runtime/security boundary. Do not activate a paid/external provider in this task.
+
+## WERK-IMPACT-001
+- Started: 2026-09-21 06:33 Europe/Vienna
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
+- Completed so far: migration 042 is live; exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f` passed WERK Impact Measurement Check #1 and Data Contract Registry #62; measurement/observation/review tables remain at zero baseline.
+- Fresh operational note: Security Advisor shows no impact-specific WARN; Performance Advisor shows five INFO-level unindexed foreign keys on the new impact tables, a nonblocking scale/production-hardening follow-up.
+- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE until independent Supervisor countercheck and canonical closeout.
+- Open loop: `WERK-LOOP-IMPACT-001`.
+- Exact next step: independent countercheck; no causal effect or real-world reform implementation may be inferred from the staged contract.
