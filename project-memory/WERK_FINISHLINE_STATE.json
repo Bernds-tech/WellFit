@@ -48,16 +48,16 @@
       "notes": "Der versionierte Bürgeridee/Precheck → bestehende WERK-Reform-/Rechenartefakt-Pfad ist in Staging unabhängig gegengeprüft: keine Parallelrechnung, keine neue Wirkungszahl, stale Zuordnungen fail-closed. Production-/Gesamt-ACCEPTED wird daraus nicht abgeleitet."
     },
     "expert_process": {
-      "state": "TODO",
+      "state": "COUNTERCHECKED_STAGING",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "Transparenter Experten-/Betroffeneninput muss als strukturierter, auditierbarer Bestandteil des Prozesses gebaut werden."
+      "notes": "Strukturierter Experten-/Betroffeneninput ist in Staging unabhängig gegengeprüft. Migrationen 038/039, Rollen-/RLS-Grenzen, Quellen-/Rollen-/Bezugsoffenlegung, Auditspur, append-only Schutz und geschützte Bürgertransparenz sind belegt; Input bleibt beratend ohne Expertenveto, politischen Score oder automatische Annahme/Ablehnung. Evidence: project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json plus Freshness-Revalidation 2026-09-21T03:26:40Z. Kein ACCEPTED/PRODUCTION_CONFIRMED-Claim."
     },
     "ai_synthesis": {
       "state": "TODO",
       "risk": "R3",
       "required_for_finishline": true,
-      "notes": "KI soll bestehende Bürgerideen/Expertenwissen/Rechenmodelle zu Varianten synthetisieren; noch kein vollständiger produktiver Pfad."
+      "notes": "KI soll bestehende Bürgerideen, Impact-Bridge-Referenzen und counterchecked Expertenwissen zu nachvollziehbaren Varianten synthetisieren. Die fachlichen Staging-Prerequisites Impact Bridge und Expertenprozess sind nun counterchecked; Implementierung bleibt offen."
     },
     "verified_support": {
       "state": "TODO",
