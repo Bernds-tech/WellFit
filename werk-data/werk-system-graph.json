@@ -14,342 +14,63 @@
     "STALE"
   ],
   "nodes": [
+    {"id":"SRC-OFFICIAL","type":"source_layer","label":"Amtliche Primärquellen","state":"PARTIAL"},
+    {"id":"DATA-WERK","type":"data_layer","label":"WERK Datenverträge / normalisierte Daten","state":"PARTIAL"},
+    {"id":"CALC-WERK","type":"calculation_layer","label":"WERK Rechenmodelle","state":"PARTIAL"},
+    {"id":"REFORM-REGISTER","type":"reform_layer","label":"WERK Reformakten","state":"PARTIAL"},
+    {"id":"IDEENWERK-INTAKE","type":"citizen_process","label":"Bürger-Ideeneingabe","state":"VERIFIED"},
+    {"id":"IDEENWERK-CLARIFICATION","type":"citizen_process","label":"Rückfrage/Klarstellung","state":"VERIFIED"},
+    {"id":"IDEENWERK-COMPETENCE","type":"review_process","label":"Kompetenz-/Rechtsvorcheck","state":"VERIFIED"},
+    {"id":"IDEENWERK-EXISTING","type":"review_process","label":"Bestehende-Maßnahmen-Abgleich","state":"VERIFIED"},
     {
-      "id": "SRC-OFFICIAL",
-      "type": "source_layer",
-      "label": "Amtliche Primärquellen",
-      "state": "PARTIAL"
+      "id":"IDEENWERK-IMPACT","type":"integration","label":"Bürgeridee → WERK Rechen-/Reformmodelle","state":"COUNTERCHECKED_STAGING","builder_state":"IMPLEMENTED_STAGING_COUNTERCHECKED","implementation":"ideenwerk-backend/sql/037_ideenwerk_impact_bridge.sql","registry":"werk-data/ideenwerk-impact-bridge.json","staging_migration":"20260920223436 ideenwerk_impact_bridge","supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json"
     },
     {
-      "id": "DATA-WERK",
-      "type": "data_layer",
-      "label": "WERK Datenverträge / normalisierte Daten",
-      "state": "PARTIAL"
+      "id":"EXPERT-INPUT","type":"knowledge_process","label":"Experten-/Betroffenenwissen","state":"COUNTERCHECKED_STAGING","builder_state":"IMPLEMENTED_STAGING_COUNTERCHECKED","implementation":"ideenwerk-backend/sql/038_ideenwerk_expert_input.sql","hardening":"ideenwerk-backend/sql/039_expert_input_operator_index.sql","contract":"werk-data/ideenwerk-expert-input.json","website_module":"werk-assets/site-ideenwerk-expert.js","staging_migrations":["20260921012806 ideenwerk_expert_input","20260921013039 expert_input_operator_index"],"supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json","boundary":"source-bound append-only evidence input; no veto, ranking, accept/reject or political score"
     },
     {
-      "id": "CALC-WERK",
-      "type": "calculation_layer",
-      "label": "WERK Rechenmodelle",
-      "state": "PARTIAL"
+      "id":"AI-SYNTHESIS","type":"ai_process","label":"KI-Synthese und Varianten","state":"PARTIAL","builder_state":"COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED","implementation":"ideenwerk-backend/sql/040_ideenwerk_ai_synthesis.sql","hardening":"ideenwerk-backend/sql/041_ai_synthesis_trigger_privileges.sql","provider_adapter":"ideenwerk-backend/src/lib/synthesis-provider.js","runner":"ideenwerk-backend/scripts/run-ai-synthesis.mjs","contract":"werk-data/ideenwerk-ai-synthesis.json","website_module":"werk-assets/site-ideenwerk-synthesis.js","staging_migrations":["20260921042608 ideenwerk_ai_synthesis","20260921042728 ai_synthesis_trigger_privileges"],"functional_head":"982fa7301bf13b2e2cf40be14e1f588874e77e4f","ci":"WERK AI Synthesis Check #3 success; IDEENWERK Backend Check #176 success on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c; Data Contract Registry #61 success","provider_activation":false,"supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json","boundary":"bounded source-bound multi-variant staging contract counterchecked; provider disabled; no ranking, recommendation, accept/reject, new fiscal effect, live political variant or automatic political decision. Migration 044 extends the source snapshot with impact feedback; that new edge is separately reconciliation-required."
+    },
+    {"id":"PUBLIC-VARIANTS","type":"citizen_information","label":"Öffentliche Lösungsvarianten","state":"PARTIAL"},
+    {"id":"VERIFIED-SUPPORT","type":"participation","label":"Verifizierte Unterstützung","state":"TODO"},
+    {"id":"WERK-VOTE","type":"participation","label":"WERK VOTE","state":"BLOCKED"},
+    {"id":"PARLIAMENTARY-PATH","type":"implementation","label":"Parlamentarischer/mandatarischer Umsetzungspfad","state":"PARTIAL"},
+    {
+      "id":"KPI-MEASUREMENT","type":"impact","label":"KPI / Soll-Ist-Wirkungsmessung","state":"COUNTERCHECKED_STAGING","builder_state":"IMPLEMENTED_STAGING_COUNTERCHECKED","implementation":"ideenwerk-backend/sql/042_werk_impact_measurement.sql","contract":"werk-data/ideenwerk-impact-measurement.json","staging_migration":"20260921043357 werk_impact_measurement","functional_head":"ceea9a8bce350529114258049a93ba1057dacbeb","ci":"WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success","supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json","boundary":"baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is counterchecked fail-closed before persistence. Read-side measurement_snapshot source freshness remains open under CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001 and must not be inferred from the write-side countercheck.","hardening":"ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql","staging_source_binding_migration":"20260921062817 werk_impact_authoritative_source_binding"
     },
     {
-      "id": "REFORM-REGISTER",
-      "type": "reform_layer",
-      "label": "WERK Reformakten",
-      "state": "PARTIAL"
+      "id":"IMPROVEMENT-LOOP","type":"feedback","label":"Wirkung → Verbesserung","state":"IN_PROGRESS","builder_state":"IMPLEMENTED_STAGING_RECONCILIATION_REQUIRED","implementation":"public.werk_impact_reviews via migration 042","boundary":"Migration 044 is live and exact-head CI is green, but the candidate query applies a global LIMIT 50 before current submission map/reform relevance. More than 50 newer unrelated reviews can hide an older relevant review; therefore the up-to-12 current-matching-review claim is not yet independently counterchecked. Review hypotheses remain non-causal/non-political and provider stays disabled.","feedback_integration":"ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql","contract":"werk-data/ideenwerk-impact-feedback.json","staging_feedback_migration":"20260921084055 ideenwerk_impact_feedback","functional_head":"6d95b394d0869fb91562f6a84a13502469ef7869","ci":"WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 independently confirmed success on exact functional head","supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json","open_contradiction":"CTR-WERK-IMPACT-FEEDBACK-SELECTION-001"
     },
-    {
-      "id": "IDEENWERK-INTAKE",
-      "type": "citizen_process",
-      "label": "Bürger-Ideeneingabe",
-      "state": "VERIFIED"
-    },
-    {
-      "id": "IDEENWERK-CLARIFICATION",
-      "type": "citizen_process",
-      "label": "Rückfrage/Klarstellung",
-      "state": "VERIFIED"
-    },
-    {
-      "id": "IDEENWERK-COMPETENCE",
-      "type": "review_process",
-      "label": "Kompetenz-/Rechtsvorcheck",
-      "state": "VERIFIED"
-    },
-    {
-      "id": "IDEENWERK-EXISTING",
-      "type": "review_process",
-      "label": "Bestehende-Maßnahmen-Abgleich",
-      "state": "VERIFIED"
-    },
-    {
-      "id": "IDEENWERK-IMPACT",
-      "type": "integration",
-      "label": "Bürgeridee → WERK Rechen-/Reformmodelle",
-      "state": "COUNTERCHECKED_STAGING",
-      "builder_state": "IMPLEMENTED_STAGING_COUNTERCHECKED",
-      "implementation": "ideenwerk-backend/sql/037_ideenwerk_impact_bridge.sql",
-      "registry": "werk-data/ideenwerk-impact-bridge.json",
-      "staging_migration": "20260920223436 ideenwerk_impact_bridge",
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json"
-    },
-    {
-      "id": "EXPERT-INPUT",
-      "type": "knowledge_process",
-      "label": "Experten-/Betroffenenwissen",
-      "state": "COUNTERCHECKED_STAGING",
-      "builder_state": "IMPLEMENTED_STAGING_COUNTERCHECKED",
-      "implementation": "ideenwerk-backend/sql/038_ideenwerk_expert_input.sql",
-      "hardening": "ideenwerk-backend/sql/039_expert_input_operator_index.sql",
-      "contract": "werk-data/ideenwerk-expert-input.json",
-      "website_module": "werk-assets/site-ideenwerk-expert.js",
-      "staging_migrations": [
-        "20260921012806 ideenwerk_expert_input",
-        "20260921013039 expert_input_operator_index"
-      ],
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json",
-      "boundary": "source-bound append-only evidence input; no veto, ranking, accept/reject or political score"
-    },
-    {
-      "id": "AI-SYNTHESIS",
-      "type": "ai_process",
-      "label": "KI-Synthese und Varianten",
-      "state": "PARTIAL",
-      "builder_state": "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
-      "implementation": "ideenwerk-backend/sql/040_ideenwerk_ai_synthesis.sql",
-      "hardening": "ideenwerk-backend/sql/041_ai_synthesis_trigger_privileges.sql",
-      "provider_adapter": "ideenwerk-backend/src/lib/synthesis-provider.js",
-      "runner": "ideenwerk-backend/scripts/run-ai-synthesis.mjs",
-      "contract": "werk-data/ideenwerk-ai-synthesis.json",
-      "website_module": "werk-assets/site-ideenwerk-synthesis.js",
-      "staging_migrations": [
-        "20260921042608 ideenwerk_ai_synthesis",
-        "20260921042728 ai_synthesis_trigger_privileges"
-      ],
-      "functional_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
-      "ci": "WERK AI Synthesis Check #3 success; IDEENWERK Backend Check #176 success on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c; Data Contract Registry #61 success",
-      "provider_activation": false,
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json",
-      "boundary": "bounded source-bound multi-variant staging contract counterchecked; provider disabled; no ranking, recommendation, accept/reject, new fiscal effect, live political variant or automatic political decision"
-    },
-    {
-      "id": "PUBLIC-VARIANTS",
-      "type": "citizen_information",
-      "label": "Öffentliche Lösungsvarianten",
-      "state": "PARTIAL"
-    },
-    {
-      "id": "VERIFIED-SUPPORT",
-      "type": "participation",
-      "label": "Verifizierte Unterstützung",
-      "state": "TODO"
-    },
-    {
-      "id": "WERK-VOTE",
-      "type": "participation",
-      "label": "WERK VOTE",
-      "state": "BLOCKED"
-    },
-    {
-      "id": "PARLIAMENTARY-PATH",
-      "type": "implementation",
-      "label": "Parlamentarischer/mandatarischer Umsetzungspfad",
-      "state": "PARTIAL"
-    },
-    {
-      "id": "KPI-MEASUREMENT",
-      "type": "impact",
-      "label": "KPI / Soll-Ist-Wirkungsmessung",
-      "state": "COUNTERCHECKED_STAGING",
-      "builder_state": "IMPLEMENTED_STAGING_COUNTERCHECKED",
-      "implementation": "ideenwerk-backend/sql/042_werk_impact_measurement.sql",
-      "contract": "werk-data/ideenwerk-impact-measurement.json",
-      "staging_migration": "20260921043357 werk_impact_measurement",
-      "functional_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
-      "ci": "WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success",
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json",
-      "boundary": "baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is independently counterchecked fail-closed for Staging.",
-      "hardening": "ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql",
-      "staging_source_binding_migration": "20260921062817 werk_impact_authoritative_source_binding"
-    },
-    {
-      "id": "IMPROVEMENT-LOOP",
-      "type": "feedback",
-      "label": "Wirkung → Verbesserung",
-      "state": "IN_PROGRESS",
-      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
-      "implementation": "public.werk_impact_reviews via migration 042",
-      "boundary": "At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are snapshot-bound into the existing AI synthesis context; review hypotheses remain non-causal and non-political; provider disabled; independent Supervisor countercheck pending.",
-      "feedback_integration": "ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql",
-      "contract": "werk-data/ideenwerk-impact-feedback.json",
-      "staging_feedback_migration": "20260921084055 ideenwerk_impact_feedback",
-      "functional_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
-      "ci": "WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 success on exact functional head"
-    },
-    {
-      "id": "API-IDEENWERK",
-      "type": "api",
-      "label": "IDEENWERK API",
-      "state": "VERIFIED"
-    },
-    {
-      "id": "WEB-V71",
-      "type": "ui",
-      "label": "Bestehende WERK V71 Website",
-      "state": "IN_PROGRESS"
-    },
-    {
-      "id": "STAGING-RUNTIME",
-      "type": "runtime",
-      "label": "WERK Österreich Staging",
-      "state": "VERIFIED"
-    }
+    {"id":"API-IDEENWERK","type":"api","label":"IDEENWERK API","state":"VERIFIED"},
+    {"id":"WEB-V71","type":"ui","label":"Bestehende WERK V71 Website","state":"IN_PROGRESS"},
+    {"id":"STAGING-RUNTIME","type":"runtime","label":"WERK Österreich Staging","state":"VERIFIED"}
   ],
   "edges": [
-    {
-      "from": "SRC-OFFICIAL",
-      "to": "DATA-WERK",
-      "relation": "feeds",
-      "state": "PARTIAL"
-    },
-    {
-      "from": "DATA-WERK",
-      "to": "CALC-WERK",
-      "relation": "feeds",
-      "state": "PARTIAL"
-    },
-    {
-      "from": "CALC-WERK",
-      "to": "REFORM-REGISTER",
-      "relation": "quantifies",
-      "state": "PARTIAL"
-    },
-    {
-      "from": "IDEENWERK-INTAKE",
-      "to": "IDEENWERK-CLARIFICATION",
-      "relation": "may_require",
-      "state": "VERIFIED"
-    },
-    {
-      "from": "IDEENWERK-INTAKE",
-      "to": "IDEENWERK-COMPETENCE",
-      "relation": "prechecked_by",
-      "state": "VERIFIED"
-    },
-    {
-      "from": "IDEENWERK-INTAKE",
-      "to": "IDEENWERK-EXISTING",
-      "relation": "compared_with",
-      "state": "VERIFIED"
-    },
-    {
-      "from": "REFORM-REGISTER",
-      "to": "IDEENWERK-IMPACT",
-      "relation": "candidate_mapping_input",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-20T225510Z"
-    },
-    {
-      "from": "CALC-WERK",
-      "to": "IDEENWERK-IMPACT",
-      "relation": "impact_model_input",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-20T225510Z"
-    },
-    {
-      "from": "IDEENWERK-INTAKE",
-      "to": "IDEENWERK-IMPACT",
-      "relation": "requires_mapping",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-20T225510Z"
-    },
-    {
-      "from": "EXPERT-INPUT",
-      "to": "API-IDEENWERK",
-      "relation": "citizen_status_transparency",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T023924Z"
-    },
-    {
-      "from": "EXPERT-INPUT",
-      "to": "WEB-V71",
-      "relation": "renders_citizen_transparency",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T023924Z"
-    },
-    {
-      "from": "IDEENWERK-IMPACT",
-      "to": "AI-SYNTHESIS",
-      "relation": "supplies_constraints",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T054427Z; bounded source-snapshot consumption independently counterchecked; provider disabled"
-    },
-    {
-      "from": "EXPERT-INPUT",
-      "to": "AI-SYNTHESIS",
-      "relation": "supplies_evidence",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T054427Z; citizen-visible expert IDs snapshot-bound; provider disabled"
-    },
-    {
-      "from": "AI-SYNTHESIS",
-      "to": "API-IDEENWERK",
-      "relation": "protected_status_projection",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T054427Z; migration 040 staged; zero synthesis rows because provider disabled"
-    },
-    {
-      "from": "AI-SYNTHESIS",
-      "to": "WEB-V71",
-      "relation": "renders_variants_when_current",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T054427Z; existing V71 module bound to current-only projection; no live variants claimed"
-    },
-    {
-      "from": "AI-SYNTHESIS",
-      "to": "PUBLIC-VARIANTS",
-      "relation": "produces",
-      "state": "PARTIAL",
-      "evidence": "bounded variant contract counterchecked; actual provider generation not activated"
-    },
-    {
-      "from": "PUBLIC-VARIANTS",
-      "to": "VERIFIED-SUPPORT",
-      "relation": "may_receive",
-      "state": "TODO"
-    },
-    {
-      "from": "VERIFIED-SUPPORT",
-      "to": "WERK-VOTE",
-      "relation": "identity_foundation_for",
-      "state": "BLOCKED"
-    },
-    {
-      "from": "WERK-VOTE",
-      "to": "PARLIAMENTARY-PATH",
-      "relation": "informs",
-      "state": "BLOCKED"
-    },
-    {
-      "from": "PARLIAMENTARY-PATH",
-      "to": "KPI-MEASUREMENT",
-      "relation": "creates_implementation_for",
-      "state": "IN_PROGRESS",
-      "evidence": "source-bound implementation-event contract staged; no real reform implementation is claimed"
-    },
-    {
-      "from": "IDEENWERK-IMPACT",
-      "to": "KPI-MEASUREMENT",
-      "relation": "binds_authoritative_model_and_reform_ids",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; migration 043 authoritative tuple binding independently counterchecked fail-closed on Staging."
-    },
-    {
-      "from": "KPI-MEASUREMENT",
-      "to": "IMPROVEMENT-LOOP",
-      "relation": "feeds",
-      "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; review-only deviation/attribution/alternative-explanation/improvement-hypothesis contract remains separated from causal fact."
-    },
-    {
-      "from": "IMPROVEMENT-LOOP",
-      "to": "AI-SYNTHESIS",
-      "relation": "feedback",
-      "state": "IN_PROGRESS",
-      "evidence": "Builder functional head 6d95b394d0869fb91562f6a84a13502469ef7869; five exact-head workflows green; migration 044 active with ACL/current/stale rollback probes and zero synthetic baseline. Independent Supervisor countercheck pending; provider remains disabled."
-    },
-    {
-      "from": "API-IDEENWERK",
-      "to": "WEB-V71",
-      "relation": "serves",
-      "state": "VERIFIED"
-    },
-    {
-      "from": "API-IDEENWERK",
-      "to": "STAGING-RUNTIME",
-      "relation": "deployed_to",
-      "state": "VERIFIED"
-    }
+    {"from":"SRC-OFFICIAL","to":"DATA-WERK","relation":"feeds","state":"PARTIAL"},
+    {"from":"DATA-WERK","to":"CALC-WERK","relation":"feeds","state":"PARTIAL"},
+    {"from":"CALC-WERK","to":"REFORM-REGISTER","relation":"quantifies","state":"PARTIAL"},
+    {"from":"IDEENWERK-INTAKE","to":"IDEENWERK-CLARIFICATION","relation":"may_require","state":"VERIFIED"},
+    {"from":"IDEENWERK-INTAKE","to":"IDEENWERK-COMPETENCE","relation":"prechecked_by","state":"VERIFIED"},
+    {"from":"IDEENWERK-INTAKE","to":"IDEENWERK-EXISTING","relation":"compared_with","state":"VERIFIED"},
+    {"from":"REFORM-REGISTER","to":"IDEENWERK-IMPACT","relation":"candidate_mapping_input","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
+    {"from":"CALC-WERK","to":"IDEENWERK-IMPACT","relation":"impact_model_input","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
+    {"from":"IDEENWERK-INTAKE","to":"IDEENWERK-IMPACT","relation":"requires_mapping","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
+    {"from":"EXPERT-INPUT","to":"API-IDEENWERK","relation":"citizen_status_transparency","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T023924Z"},
+    {"from":"EXPERT-INPUT","to":"WEB-V71","relation":"renders_citizen_transparency","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T023924Z"},
+    {"from":"IDEENWERK-IMPACT","to":"AI-SYNTHESIS","relation":"supplies_constraints","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T054427Z; bounded source-snapshot consumption independently counterchecked; provider disabled"},
+    {"from":"EXPERT-INPUT","to":"AI-SYNTHESIS","relation":"supplies_evidence","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T054427Z; citizen-visible expert IDs snapshot-bound; provider disabled"},
+    {"from":"AI-SYNTHESIS","to":"API-IDEENWERK","relation":"protected_status_projection","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T054427Z; migration 040 staged; zero synthesis rows because provider disabled"},
+    {"from":"AI-SYNTHESIS","to":"WEB-V71","relation":"renders_variants_when_current","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T054427Z; existing V71 module bound to current-only projection; no live variants claimed"},
+    {"from":"AI-SYNTHESIS","to":"PUBLIC-VARIANTS","relation":"produces","state":"PARTIAL","evidence":"bounded variant contract counterchecked; actual provider generation not activated"},
+    {"from":"PUBLIC-VARIANTS","to":"VERIFIED-SUPPORT","relation":"may_receive","state":"TODO"},
+    {"from":"VERIFIED-SUPPORT","to":"WERK-VOTE","relation":"identity_foundation_for","state":"BLOCKED"},
+    {"from":"WERK-VOTE","to":"PARLIAMENTARY-PATH","relation":"informs","state":"BLOCKED"},
+    {"from":"PARLIAMENTARY-PATH","to":"KPI-MEASUREMENT","relation":"creates_implementation_for","state":"IN_PROGRESS","evidence":"source-bound implementation-event contract staged; no real reform implementation is claimed"},
+    {"from":"IDEENWERK-IMPACT","to":"KPI-MEASUREMENT","relation":"binds_authoritative_model_and_reform_ids","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T072152Z; migration 043 authoritative tuple binding independently counterchecked fail-closed before persistence. Read-side snapshot freshness is separately open."},
+    {"from":"KPI-MEASUREMENT","to":"IMPROVEMENT-LOOP","relation":"feeds","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-21T072152Z; review-only deviation/attribution/alternative-explanation/improvement-hypothesis contract remains separated from causal fact."},
+    {"from":"IMPROVEMENT-LOOP","to":"AI-SYNTHESIS","relation":"feedback","state":"IN_PROGRESS","evidence":"Independent Supervisor confirmed migration 044, service-role-only ACLs, zero baseline and five exact-head green workflows on functional head 6d95b394d0869fb91562f6a84a13502469ef7869, but found CTR-WERK-IMPACT-FEEDBACK-SELECTION-001: global LIMIT 50 is applied before current submission map/reform relevance. Reconciliation required before COUNTERCHECKED_STAGING."},
+    {"from":"API-IDEENWERK","to":"WEB-V71","relation":"serves","state":"VERIFIED"},
+    {"from":"API-IDEENWERK","to":"STAGING-RUNTIME","relation":"deployed_to","state":"VERIFIED"}
   ],
   "propagation_rule": "When a node's source contract, calculation contract, runtime or accepted evidence materially changes, downstream nodes connected by feeds/quantifies/candidate_mapping_input/impact_model_input/serves/deployed_to must be checked for stale evidence before relying on prior current-state claims.",
   "connection_hunter_rule": "Prefer documenting and closing missing edges between existing nodes over adding new nodes."
