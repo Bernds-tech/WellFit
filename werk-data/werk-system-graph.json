@@ -110,7 +110,7 @@
       "ci": "WERK AI Synthesis Check #3 success; IDEENWERK Backend Check #176 success on predecessor 4d3f63df43db446cd24c3c98304b1282acf61d9c; Data Contract Registry #61 success",
       "provider_activation": false,
       "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json",
-      "boundary": "bounded source-bound multi-variant staging contract counterchecked; provider disabled; no ranking, recommendation, accept/reject, new fiscal effect, live political variant or automatic political decision. Migration 044 extends the source snapshot with impact feedback; that new edge is separately reconciliation-required."
+      "boundary": "bounded source-bound multi-variant staging contract counterchecked; provider disabled; no ranking, recommendation, accept/reject, new fiscal effect, live political variant or automatic political decision. Counterchecked impact-feedback reviews may enrich the source snapshot, but real provider generation remains gated."
     },
     {
       "id": "PUBLIC-VARIANTS",
@@ -122,7 +122,19 @@
       "id": "VERIFIED-SUPPORT",
       "type": "participation",
       "label": "Verifizierte Unterstützung",
-      "state": "TODO"
+      "state": "IN_PROGRESS",
+      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
+      "implementation": "ideenwerk-backend/sql/047_verified_support_core.sql",
+      "contract": "werk-data/verified-support-core.json",
+      "architecture_contract": "werk-data/verified-support-identity-architecture.json",
+      "staging_migration": "20260921203233 verified_support_core",
+      "runtime_marker": "047_verified_support_core_disabled",
+      "functional_head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
+      "ci": "WERK Verified Support Core Check #4 and IDEENWERK Backend Check #194 success on exact functional head",
+      "provider_activation": false,
+      "public_endpoint": false,
+      "support_counting_active": false,
+      "boundary": "provider-neutral receipt/scoped-support core only; service-role-only; raw identity is not stored in the support ledger; counting stays disabled until owner/legal/privacy/provider activation gates and independent countercheck are satisfied"
     },
     {
       "id": "WERK-VOTE",
@@ -154,28 +166,31 @@
       "functional_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
       "ci": "WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success",
       "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json",
-      "boundary": "baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is counterchecked fail-closed before persistence. Read-side measurement_snapshot source freshness remains open under CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001 and must not be inferred from the write-side countercheck.",
+      "boundary": "baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is counterchecked fail-closed before persistence and read-side stale/current reliance is independently hardened.",
       "hardening": "ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql",
-      "staging_source_binding_migration": "20260921062817 werk_impact_authoritative_source_binding"
+      "staging_source_binding_migration": "20260921062817 werk_impact_authoritative_source_binding",
+      "snapshot_freshness_hardening": "ideenwerk-backend/sql/046_werk_impact_snapshot_freshness.sql",
+      "staging_snapshot_freshness_migration": "20260921192342 werk_impact_snapshot_freshness",
+      "snapshot_freshness_functional_head": "3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f",
+      "snapshot_freshness_supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json"
     },
     {
       "id": "IMPROVEMENT-LOOP",
       "type": "feedback",
       "label": "Wirkung → Verbesserung",
-      "state": "PARTIAL",
-      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
+      "state": "COUNTERCHECKED_STAGING",
+      "builder_state": "IMPLEMENTED_STAGING_COUNTERCHECKED",
       "implementation": "public.werk_impact_reviews via migration 042",
-      "boundary": "At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are selected only after current submission map/reform relevance is applied; review hypotheses remain non-causal and non-political; provider disabled; independent Supervisor countercheck pending.",
+      "boundary": "At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are selected only after current submission map/reform relevance is applied; review hypotheses remain non-causal and non-political; provider disabled.",
       "feedback_integration": "ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql",
       "contract": "werk-data/ideenwerk-impact-feedback.json",
       "staging_feedback_migration": "20260921084055 ideenwerk_impact_feedback",
       "functional_head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
       "ci": "WERK Impact Feedback #3, WERK AI Synthesis #7 and IDEENWERK Backend #187 success on exact functional head; Data Contract Registry #65 success on identical product parent 95e4e921d45149045ddd825e89f7e8da8e5b41f3.",
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json",
-      "open_contradiction": "CTR-WERK-IMPACT-FEEDBACK-SELECTION-001",
       "selection_hardening": "ideenwerk-backend/sql/045_ideenwerk_impact_feedback_selection_hardening.sql",
       "staging_feedback_selection_migration": "20260921182939 ideenwerk_impact_feedback_selection_hardening",
-      "countercheck": "AWAITING_INDEPENDENT_COUNTERCHECK_AFTER_SELECTION_FIX"
+      "countercheck": "COUNTERCHECKED_STAGING",
+      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json"
     },
     {
       "id": "API-IDEENWERK",
@@ -347,21 +362,21 @@
       "to": "KPI-MEASUREMENT",
       "relation": "binds_authoritative_model_and_reform_ids",
       "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; migration 043 authoritative tuple binding independently counterchecked fail-closed before persistence. Read-side snapshot freshness is separately open."
+      "evidence": "WERK_SUPERVISOR_2026-09-21T200500Z; migration 043 write-side binding plus migration 046 read-side snapshot freshness are independently counterchecked fail-closed for current reliance."
     },
     {
       "from": "KPI-MEASUREMENT",
       "to": "IMPROVEMENT-LOOP",
       "relation": "feeds",
       "state": "COUNTERCHECKED_STAGING",
-      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; review-only deviation/attribution/alternative-explanation/improvement-hypothesis contract remains separated from causal fact."
+      "evidence": "WERK_SUPERVISOR_2026-09-21T200500Z; source-bound review/deviation/attribution/alternative-explanation/improvement-hypothesis path remains separated from causal fact."
     },
     {
       "from": "IMPROVEMENT-LOOP",
       "to": "AI-SYNTHESIS",
       "relation": "feedback",
-      "state": "COUNTERCHECKED",
-      "evidence": "Builder exact functional head 7e4291717563e5fe51cb84c7d239d7920a7d937e; migration 045 moves current submission map/reform relevance before LIMIT 12; Impact Feedback #3, AI Synthesis #7 and Backend #187 green; live Staging >50-unrelated review regression, stale fail-closed ACL and zero cleanup green. Independent Supervisor countercheck pending; provider remains disabled."
+      "state": "COUNTERCHECKED_STAGING",
+      "evidence": "WERK_SUPERVISOR_2026-09-21T200500Z; exact functional head 7e4291717563e5fe51cb84c7d239d7920a7d937e and migration 045 independently counterchecked; provider remains disabled."
     },
     {
       "from": "API-IDEENWERK",
@@ -374,6 +389,13 @@
       "to": "STAGING-RUNTIME",
       "relation": "deployed_to",
       "state": "VERIFIED"
+    },
+    {
+      "from": "VERIFIED-SUPPORT",
+      "to": "STAGING-RUNTIME",
+      "relation": "staged_on",
+      "state": "IN_PROGRESS",
+      "evidence": "migration 20260921203233 verified_support_core is live with runtime marker 047_verified_support_core_disabled; independent countercheck pending; no public endpoint/counting/provider activation"
     },
     {
       "from": "AI-SYNTHESIS",
@@ -394,6 +416,6 @@
       "state": "COUNTERCHECKED"
     }
   ],
-  "propagation_rule": "When a node's source contract, calculation contract, runtime or accepted evidence materially changes, downstream nodes connected by feeds/quantifies/candidate_mapping_input/impact_model_input/serves/deployed_to must be checked for stale evidence before relying on prior current-state claims.",
+  "propagation_rule": "When a node's source contract, calculation contract, runtime or accepted evidence materially changes, downstream nodes connected by feeds/quantifies/candidate_mapping_input/impact_model_input/serves/deployed_to/staged_on must be checked for stale evidence before relying on prior current-state claims.",
   "connection_hunter_rule": "Prefer documenting and closing missing edges between existing nodes over adding new nodes."
 }
