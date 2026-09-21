@@ -134,10 +134,20 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 ## WERK-LOOP-IMPACT-FEEDBACK-001
 - Related: `WERK-IMPACT-FEEDBACK-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `WERK-AI-SYNTH-001`.
 - Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
-- Updated: 2026-09-21 14:19 Europe/Vienna
+- Updated: 2026-09-21 20:35 Europe/Vienna
 - Risk: R3
-- Builder result: the bounded `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` connection is implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`. At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are snapshot-bound into the existing synthesis context; stale/new feedback invalidates current synthesis fail-closed. No parallel feedback store or calculator was created.
-- Evidence: WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded on the functional head; Staging migration `20260921084055 ideenwerk_impact_feedback` is active; current/non-current/stale/ACL/rollback probes and zero synthetic baseline are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
-- Safety boundary: review/attribution/improvement text remains hypothesis/review material, never causal fact, ranking, recommendation, accept/reject or automatic policy change. External provider remains disabled; no paid/external call, secret or production action occurred.
-- Remaining gap: independent Supervisor has not yet issued a receipt for this feedback slice. Keep task, lock, loop and dependency open and do not begin another functional slice until the exact functional head, CI and Staging evidence are independently counterchecked.
-- Close when: an independent Supervisor receipt confirms the bounded edge for Staging and canonical closeout is consumed. Reopen later only on contradictory evidence or a contract/source change requiring revalidation.
+- Supervisor trigger: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json` raised YELLOW `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001` because the old 044 function globally bounded candidates before current submission map/reform relevance.
+- Builder correction: migration 045 moves relevance into the SQL candidate query before `LIMIT 12`; exact functional head `7e4291717563e5fe51cb84c7d239d7920a7d937e`. A dedicated regression inserts one relevant review plus 51 newer unrelated reviews and proves the relevant review remains selected while unrelated reviews cannot leak.
+- CI/Staging: Impact Feedback #3, AI Synthesis #7 and Backend #187 are green on the exact head; Data Contract Registry #65 is green on the identical product parent; Staging migration `20260921182939 ideenwerk_impact_feedback_selection_hardening` is live; stale bridge state fails closed; rollback cleanup leaves zero synthetic rows; ACL remains service-role only.
+- Boundary: review material stays hypothesis-only, non-causal and non-political; no provider, paid call, production action, ranking or automatic policy change.
+- Close condition: independent Supervisor validates the corrected head and closes/supersedes the selection finding. Builder evidence alone does not close this loop.
+
+## WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001
+- Related finding: `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` from `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json`.
+- Status: OPEN_RECONCILIATION_REQUIRED
+- Updated: 2026-09-21 20:35 Europe/Vienna
+- Risk: R3
+- Evidence gap: `public.werk_impact_measurement_snapshot(text)` returns a persisted plan's `source_version` without re-invoking `public.werk_impact_validate_source_binding(...)`; a later canonical source-registry/version change can therefore leave a read snapshot looking current until separately revalidated.
+- Current runtime effect: no stale persisted plan is known; impact measurement tables were zero-row at the independent audit. This is a freshness correctness gap, not evidence of a false live result.
+- Required resolution: under a dedicated corrective lock, make the read/snapshot path revalidate the map/reform/artifact/source-version tuple or return `revalidation_required` before any current-state reliance; add current/stale negative tests and independent countercheck.
+- Coordination boundary: this is not covered by `LOCK-WERK-IMPACT-FEEDBACK-001` and is not claimed fixed by migration 045. Do not modify the already counterchecked measurement formulas or infer causal effect while closing this read-side freshness gap.

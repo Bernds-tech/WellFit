@@ -1,0 +1,99 @@
+{
+  "claim_id": "WERK-IMPACT-FEEDBACK-SELECTION-2026-09-21T183500Z",
+  "task_id": "WERK-IMPACT-FEEDBACK-001",
+  "finding_addressed_builder_side": "CTR-WERK-IMPACT-FEEDBACK-SELECTION-001",
+  "status": "IMPLEMENTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK",
+  "supervisor_source_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json",
+  "exact_functional_head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
+  "product_delta_parent_head": "95e4e921d45149045ddd825e89f7e8da8e5b41f3",
+  "implementation": {
+    "migration": "ideenwerk-backend/sql/045_ideenwerk_impact_feedback_selection_hardening.sql",
+    "selection_rule": "current submission map/reform relevance is applied before the bounded LIMIT 12",
+    "regression": "ideenwerk-backend/scripts/impact-feedback-selection-regression.mjs",
+    "no_parallel_store_or_calculator": true
+  },
+  "ci": [
+    {
+      "workflow": "WERK Impact Feedback Check",
+      "run_number": 3,
+      "run_id": 35638526274,
+      "head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
+      "conclusion": "success"
+    },
+    {
+      "workflow": "WERK AI Synthesis Check",
+      "run_number": 7,
+      "run_id": 35638526570,
+      "head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
+      "conclusion": "success"
+    },
+    {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 187,
+      "run_id": 35638526340,
+      "head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
+      "conclusion": "success"
+    },
+    {
+      "workflow": "WERK Data Contract Registry Check",
+      "run_number": 65,
+      "head": "95e4e921d45149045ddd825e89f7e8da8e5b41f3",
+      "conclusion": "success",
+      "note": "identical product/migration delta; the next commit changed only the regression harness"
+    }
+  ],
+  "ci_correction_history": "Initial Impact Feedback #2 failed only in the newly added regression harness after migration/current-stale checks passed. The harness was stabilized without product logic change; exact-head Impact Feedback #3 succeeded.",
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "project_id": "jwomaoxefgnhsgiebaqy",
+    "migration": "20260921182939 ideenwerk_impact_feedback_selection_hardening",
+    "rollback_probe": {
+      "relevant_reviews": 1,
+      "newer_unrelated_reviews": 51,
+      "relevant_review_survived": true,
+      "unrelated_reviews_leaked": false,
+      "max_review_refs": 12,
+      "stale_bridge_returns": "revalidation_required",
+      "synthetic_submission_rows_after_rollback": 0,
+      "synthetic_unrelated_review_rows_after_rollback": 0
+    },
+    "acl": {
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_role_execute": true
+    },
+    "deployed_function": {
+      "old_limit_50_present": false,
+      "limit_12_present": true,
+      "map_reform_relevance_binding_present": true
+    }
+  },
+  "security": {
+    "new_warn_from_change": false,
+    "remaining_warn": "pg_net extension_in_public (pre-existing, separate Production hardening)",
+    "info_boundary": "service-role-only RLS tables continue to report RLS enabled/no policy INFO; unchanged by this correction"
+  },
+  "open_limits": [
+    "Independent Supervisor countercheck is still required before task/loop/lock/dependency closeout.",
+    "CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001 remains separately open; this claim does not fix or close it.",
+    "External AI provider remains disabled; no secrets, paid calls or live political model generation are enabled.",
+    "No Production, ACCEPTED, causal effect, political ranking, automatic decision or WERK-principle change is claimed."
+  ],
+  "builder_authority_observed": {
+    "did_not_write": [
+      "WERK_SUPERVISOR_STATE",
+      "WERK_EVIDENCE_FRESHNESS",
+      "WERK_FINISHLINE_STATE",
+      "WERK_NEXT_BEST_ACTIONS"
+    ],
+    "updated_builder_owned": [
+      "TASK_LEDGER",
+      "STARTED_WORK",
+      "WORK_LOCKS",
+      "DEPENDENCIES",
+      "OPEN_LOOPS",
+      "NEXT_BEST_ACTION",
+      "WERK_SYSTEM_GRAPH"
+    ]
+  }
+}

@@ -54,18 +54,21 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-IMPACT-FEEDBACK-001
 - Started: 2026-09-21 10:18 Europe/Vienna
-- Updated: 2026-09-21 14:19 Europe/Vienna
+- Updated: 2026-09-21 20:35 Europe/Vienna
 - Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Scope: bounded current-source impact-review feedback into the existing AI synthesis source snapshot/provider context; retain provenance, uncertainties and epistemic labels while preventing causal/political promotion.
-- Upstream consumed: `WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING`; receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
-- Result: migration 044 `ideenwerk_impact_feedback`, feedback contract and provider/runner source-ref extension for `impact_review` are implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded.
-- Staging evidence: migration `20260921084055 ideenwerk_impact_feedback` is active; current-source review inclusion, non-current reference rejection, stale-registry fail-closed behavior, ACL boundaries, rollback and zero synthetic baseline are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
-- Provider boundary: external provider remains disabled; this task does not activate secrets, paid calls, live political generation or Production.
-- Work lock: `LOCK-WERK-IMPACT-FEEDBACK-001` remains ACTIVE pending independent countercheck.
-- Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001` is `OPEN_AWAITING_INDEPENDENT_COUNTERCHECK`; `WERK-DEP-IMPACT-FEEDBACK-001` is `IMPLEMENTED_AWAITING_COUNTERCHECK`.
-- Exact next step: independent Supervisor counterchecks the functional head, five green workflows and Staging evidence; only after that may lock/task/loop/dependency closeout occur. Do not rebuild or start another functional slice first.
+- Upstream consumed: `WERK-IMPACT-001` remains independently `COUNTERCHECKED_STAGING`; receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Reconciliation trigger: independent Supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json` found YELLOW `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001` because the prior 044 read path globally limited qualifying reviews before current submission map/reform relevance.
+- Builder result: migration 045 now filters current submission map/reform relevance before `LIMIT 12`; exact functional head `7e4291717563e5fe51cb84c7d239d7920a7d937e`. A dedicated >50-newer-unrelated regression is part of WERK Impact Feedback Check #3.
+- CI: Impact Feedback #3, AI Synthesis #7 and IDEENWERK Backend #187 are green on exact head `7e4291717563e5fe51cb84c7d239d7920a7d937e`; Data Contract Registry #65 is green on parent product head `95e4e921d45149045ddd825e89f7e8da8e5b41f3` with identical product/migration code.
+- Staging evidence: migration `20260921182939 ideenwerk_impact_feedback_selection_hardening` is live; one relevant review remained visible despite 51 newer unrelated reviews; unrelated reviews did not leak; max 12 remained enforced; stale Impact Bridge failed closed to `revalidation_required`; test data rolled back to zero. ACL remains anon/authenticated denied and service_role allowed.
+- Security boundary: fresh advisor evidence shows no new WARN from this correction; existing `pg_net extension_in_public` remains separate production hardening.
+- Provider boundary: external provider remains disabled; no secrets, paid calls, live political generation, production action, causal promotion, ranking or automatic decision.
+- Work lock: `LOCK-WERK-IMPACT-FEEDBACK-001` remains ACTIVE in corrected-staging / awaiting-independent-countercheck phase.
+- Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001` and `WERK-DEP-IMPACT-FEEDBACK-001` remain open pending independent confirmation. `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` is separately tracked and not claimed fixed by this work.
+- Exact next step: independent Supervisor counterchecks the corrected exact head and staging evidence. Do not release this lock or start a feature expansion from this edge before the countercheck.
 
 ## Closed / superseded work
 

@@ -42,17 +42,14 @@ Prevents two agents/sessions from independently working the same task.
 ## LOCK-WERK-IMPACT-FEEDBACK-001
 - Task: WERK-IMPACT-FEEDBACK-001
 - Status: ACTIVE
-- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Phase: CORRECTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
-- Branch: `werk-v49-preview-host`
-- Acquired: 2026-09-21 10:18 Europe/Vienna
-- Updated: 2026-09-21 14:19 Europe/Vienna
-- Scope: bounded current-source impact-review feedback context into the existing AI synthesis source snapshot/provider context; provenance and uncertainty preserved; review hypotheses never promoted to causal fact, ranking, recommendation or automatic political change.
-- Prerequisites consumed: `WERK-IMPACT-001` independently `COUNTERCHECKED_STAGING`; `WERK-AI-SYNTH-001` independently counterchecked for bounded provider-disabled Staging scope.
-- Builder evidence: exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded; Staging migration `20260921084055 ideenwerk_impact_feedback` is active and rollback/ACL/current/stale probes are captured in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
-- Provider boundary: no external/paid provider activation, no secrets, no live political generation.
-- Release condition: independent Supervisor countercheck of the exact functional head, CI and reversible Staging evidence. Keep ACTIVE until that receipt is consumed.
+- Scope: existing `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge, including the bounded relevance-before-limit correction required by `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001`.
+- Corrected evidence: exact functional head `7e4291717563e5fe51cb84c7d239d7920a7d937e`; migration `20260921182939 ideenwerk_impact_feedback_selection_hardening`; Impact Feedback #3, AI Synthesis #7 and Backend #187 green; >50 unrelated-review rollback regression and stale fail-closed probe green on Staging; zero synthetic cleanup; service-role-only ACL preserved.
+- Release condition: independent Supervisor confirms the corrected exact head/evidence and closes or explicitly supersedes `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001` for the bounded Staging scope.
+- Boundary: this lock does not cover `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`; that separate YELLOW requires its own coordinated corrective scope before implementation.
+- Forbidden while active: parallel feedback implementation, provider activation, production action, political ranking/automatic decision, or treating Builder evidence as independent acceptance.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
