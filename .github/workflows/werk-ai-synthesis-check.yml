@@ -1,0 +1,98 @@
+name: WERK AI Synthesis Check
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/ideenwerk-ai-synthesis.json'
+      - 'ideenwerk-backend/sql/040_ideenwerk_ai_synthesis.sql'
+      - 'ideenwerk-backend/src/lib/synthesis-provider.js'
+      - 'ideenwerk-backend/scripts/ai-synthesis-*.mjs'
+      - 'ideenwerk-backend/scripts/run-ai-synthesis.mjs'
+      - 'werk-assets/site-ideenwerk-synthesis.js'
+      - 'werk-assets/site-v71-loader.js'
+      - '.github/workflows/werk-ai-synthesis-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: werk
+          POSTGRES_USER: werk
+          POSTGRES_PASSWORD: werk-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U werk -d werk"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgres://werk:werk-ci-only@127.0.0.1:5432/werk
+    defaults:
+      run:
+        working-directory: ideenwerk-backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Install PostgreSQL client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Bootstrap portable CI database
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          DO $$
+          BEGIN
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='anon') THEN CREATE ROLE anon NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='authenticated') THEN CREATE ROLE authenticated NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='service_role') THEN CREATE ROLE service_role NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='authenticator') THEN CREATE ROLE authenticator NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='postgres') THEN CREATE ROLE postgres NOLOGIN; END IF;
+          END
+          $$;
+          CREATE SCHEMA IF NOT EXISTS extensions;
+          CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
+          SQL
+          rm -rf /tmp/ideenwerk-ai-synthesis-ci && mkdir -p /tmp/ideenwerk-ai-synthesis-ci
+          for f in sql/*.sql; do
+            b="$(basename "$f")"
+            case "$b" in
+              016_*|017_*|018_*|020_*|021_*|022_*) ;;
+              *) cp "$f" /tmp/ideenwerk-ai-synthesis-ci/ ;;
+            esac
+          done
+          cat > /tmp/ideenwerk-ai-synthesis-ci/016_pg_net_internal_only.sql <<'SQL'
+          SELECT 1;
+          SQL
+          test -s /tmp/ideenwerk-ai-synthesis-ci/037_ideenwerk_impact_bridge.sql
+          test -s /tmp/ideenwerk-ai-synthesis-ci/038_ideenwerk_expert_input.sql
+          test -s /tmp/ideenwerk-ai-synthesis-ci/039_expert_input_operator_index.sql
+          test -s /tmp/ideenwerk-ai-synthesis-ci/040_ideenwerk_ai_synthesis.sql
+      - name: Syntax and policy guard
+        run: |
+          node --check src/lib/synthesis-provider.js
+          node --check scripts/run-ai-synthesis.mjs
+          node --check scripts/ai-synthesis-contract.mjs
+          node --check scripts/ai-synthesis-provider-smoke.mjs
+          node --check scripts/ai-synthesis-smoke.mjs
+          node --check ../werk-assets/site-ideenwerk-synthesis.js
+          node --check ../werk-assets/site-v71-loader.js
+          node scripts/ai-synthesis-contract.mjs
+          node scripts/ai-synthesis-provider-smoke.mjs
+      - name: Apply portable migrations
+        run: SQL_DIR=/tmp/ideenwerk-ai-synthesis-ci npm run migrate
+      - name: Migration idempotency
+        run: SQL_DIR=/tmp/ideenwerk-ai-synthesis-ci npm run migrate
+      - name: Source binding, replay, stale and political guardrails
+        run: node scripts/ai-synthesis-smoke.mjs
