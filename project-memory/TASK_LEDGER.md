@@ -295,3 +295,28 @@ Keep history append-only; supersede rather than delete.
 - Boundary: no expert veto, political merit score/ranking, review-depth override, citizen-text mutation, automatic acceptance/rejection, manufactured fiscal/impact effect, production deploy or live-browser visual acceptance is implied. Aggregate expert transparency remains service-role-only.
 - Dependency/loop/lock: `WERK-DEP-EXPERT-AI-001` is `SATISFIED`; `WERK-LOOP-EXPERT-001` is `CLOSED_COUNTERCHECKED_STAGING`; `LOCK-WERK-EXPERT-001` is `RELEASED`; Started Work is closed.
 - Next: do not rebuild. `WERK-AI-SYNTH-001` is the next functional catalog action only after Finishline Navigator/Evidence Reaper/Supervisor consume their authoritative expert closeout records.
+
+## WERK-AI-SYNTH-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Goal: connect current citizen context, counterchecked Impact Bridge references and counterchecked Expert Input into bounded multi-variant synthesis with provenance and uncertainty, without political ranking or automatic decision.
+- Result: source-bound synthesis schema, provider adapter, runner and protected status/V71 projection are implemented on Staging. The external provider remains deliberately disabled, so no live AI-generated political variants are claimed.
+- Functional evidence: exact head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and WERK Data Contract Registry Check #61 succeeded; IDEENWERK Backend Check #176 succeeded on predecessor functional head `4d3f63df43db446cd24c3c98304b1282acf61d9c`.
+- Staging: migrations `20260921042608 ideenwerk_ai_synthesis` and `20260921042728 ai_synthesis_trigger_privileges` are live; `ideenwerk_ai_syntheses` remains at zero rows; fresh Security Advisor has no AI-specific WARN and only the known `pg_net extension_in_public` WARN persists.
+- Boundary: no ranking/recommendation, automatic accept/reject, new fiscal effect or fallback policy generator. Real provider activation requires an approved endpoint/secret/cost boundary plus target-bound verification.
+- Open loop/lock: `WERK-LOOP-AI-SYNTH-001`; `LOCK-WERK-AI-SYNTH-001`.
+- Next: independent Supervisor countercheck. Builder must not mark this task COUNTERCHECKED, ACCEPTED or PRODUCTION_CONFIRMED.
+
+## WERK-IMPACT-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Goal: source-bind forecast/baseline, real implementation evidence, KPI observations, arithmetic deviation, attribution hypotheses and review-only improvement hypotheses without inferring causality automatically.
+- Result: measurement plan, implementation-event, observation and review contracts are implemented on Staging and remain append-only/fail-closed for direct citizen roles.
+- Functional evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded.
+- Staging: migration `20260921043357 werk_impact_measurement` is live; plans/observations/reviews are all at zero rows after verification; fresh Security Advisor reports no impact-measurement-specific WARN.
+- Performance note: fresh Supabase Performance Advisor reports five INFO-level unindexed foreign keys on the new impact tables. This does not invalidate functional correctness, but remains a scale/production-hardening follow-up.
+- Boundary: no real-world reform implementation, observed policy effect, causal attribution or automatic political change is claimed.
+- Open loop/lock: `WERK-LOOP-IMPACT-001`; `LOCK-WERK-IMPACT-001`.
+- Next: independent Supervisor countercheck; then close/reconcile only the bounded Staging scope supported by evidence.
