@@ -74,4 +74,23 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Counterchecked evidence: expert process functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index` are live; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json` records `COUNTERCHECKED_STAGING`.
 - Runtime boundary: source binding, relationship disclosure, append-only audit, service-role/active-impact-reviewer write guard, citizen/private projection separation, aggregate content-free transparency and zero-fixture cleanup were independently revalidated after migrations 038/039.
 - Boundary: satisfaction proves the expert evidence source is available for downstream synthesis; it does not implement AI synthesis, does not make expert input a political decision, and does not imply ACCEPTED/Production status.
-- Downstream: `WERK-AI-SYNTH-001` remains gated only by canonical Finishline/Freshness/selector consumption by their authoritative roles; the Builder must not self-advance those records.
+- Downstream: `WERK-AI-SYNTH-001` is now builder-implemented on Staging and awaits independent countercheck; this dependency remains SATISFIED and must not be reopened merely because synthesis itself is still unverified.
+
+## WERK-DEP-AI-PROVIDER-001
+- From: live external generation for `WERK-AI-SYNTH-001`.
+- Requires: an approved model endpoint/provider, credential/secret handling, explicit cost boundary and target-bound runtime verification; any privacy/data-transfer requirements must also be satisfied before activation.
+- Type: external/provider/runtime boundary.
+- Status: BLOCKED
+- Updated: 2026-09-21 07:22 Europe/Vienna.
+- Current state: the source-bound synthesis contract, provider adapter and runner are staged, but `SYNTHESIS_PROVIDER=disabled`; no live AI-generated political variants exist.
+- Rule: do not activate a paid/external provider or insert secrets as part of ordinary Builder staging work. The bounded contract can be independently counterchecked while this dependency remains blocked.
+- Unblocks: actual target-bound AI variant generation and later end-to-end synthesis/runtime evidence.
+
+## WERK-DEP-IMPACT-FEEDBACK-001
+- From: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge.
+- Requires: independently counterchecked `WERK-IMPACT-001`, a bounded consumption contract that keeps attribution/improvement hypotheses distinct from facts, and—only for real model regeneration—an approved active AI provider boundary.
+- Type: cross-component feedback integration.
+- Status: ACTIVE
+- Updated: 2026-09-21 07:22 Europe/Vienna.
+- Current state: impact measurement/review storage is staged and the graph edge exists, but AI consumption of impact-review hypotheses is not wired. No automatic adoption of an improvement hypothesis is allowed.
+- Rule: a KPI deviation or reviewer hypothesis may inform a future synthesis only with provenance and uncertainty; it must never become an automatic policy change or causal fact.
