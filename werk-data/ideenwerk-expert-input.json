@@ -1,0 +1,112 @@
+{
+  "version": "2026-09-21-v1",
+  "name": "WERK IDEENWERK expert and affected-party input contract",
+  "status": "staging-applied-awaiting-independent-countercheck",
+  "purpose": "Attach source-bound expert, practitioner, researcher, institutional or directly affected perspectives to an existing citizen submission without giving experts political decision power.",
+  "write_contract": {
+    "rpc": "public.ideenwerk_record_expert_input",
+    "required_operator_role": "impact_reviewer",
+    "transport_boundary": "trusted service_role only",
+    "storage": "public.ideenwerk_expert_inputs",
+    "append_only": true,
+    "idempotency": "same idempotency_key + same payload replays deterministically; changed payload fails closed",
+    "required_bindings": [
+      "submission",
+      "contributor_type",
+      "expertise_or_affected_role",
+      "source_label",
+      "source_url_or_reference",
+      "relationship_code",
+      "relationship_disclosure_when_not_none_declared",
+      "statement"
+    ],
+    "optional_counterposition": "If present it requires its own label plus URL or reference."
+  },
+  "contributor_types": [
+    "subject_matter_expert",
+    "affected_person",
+    "practitioner",
+    "researcher",
+    "institution",
+    "other"
+  ],
+  "relationship_codes": [
+    "none_declared",
+    "professional",
+    "financial",
+    "organizational",
+    "directly_affected",
+    "other"
+  ],
+  "citizen_transparency": {
+    "protected_status_field": "expert_inputs",
+    "privacy_export_field": "expert_inputs",
+    "includes": [
+      "expert_input_id",
+      "contributor_type",
+      "expertise_or_affected_role",
+      "source_label",
+      "source_url",
+      "source_reference",
+      "relationship_code",
+      "relationship_disclosure",
+      "statement",
+      "evidence_note",
+      "counterposition",
+      "created_at",
+      "boundary"
+    ],
+    "excludes": [
+      "recorded_by_operator_id",
+      "idempotency_key",
+      "payload_hash",
+      "internal_operator_identity"
+    ],
+    "website_module": "werk-assets/site-ideenwerk-expert.js"
+  },
+  "aggregate_transparency": {
+    "rpc": "public.ideenwerk_expert_input_transparency",
+    "current_transport": "trusted service_role for reuse by existing API transparency surface",
+    "content_free": true,
+    "fields": [
+      "total_entries",
+      "submissions_with_input",
+      "by_contributor_type",
+      "by_relationship_code",
+      "last_recorded_at",
+      "boundary"
+    ]
+  },
+  "audit": {
+    "event_type": "expert_input_recorded",
+    "reason_code": "EXPERT_INPUT_RECORDED",
+    "operator_identity_public": false,
+    "boundary": "evidence_input_only_no_veto_no_ranking_no_accept_reject"
+  },
+  "negative_guards": [
+    "wrong operator role fails closed",
+    "missing source binding fails closed",
+    "non-disclosed material relationship fails closed",
+    "idempotency payload mismatch fails closed",
+    "row update fails closed",
+    "citizen projection omits operator identity and idempotency internals",
+    "aggregate transparency omits statements and submission IDs"
+  ],
+  "prohibited_semantics": [
+    "expert veto",
+    "political merit score",
+    "automatic proposal acceptance",
+    "automatic proposal rejection",
+    "review-depth override",
+    "mutation of original citizen text",
+    "manufactured fiscal or impact effect"
+  ],
+  "runtime": {
+    "migrations": [
+      "038_ideenwerk_expert_input",
+      "039_expert_input_operator_index"
+    ],
+    "staging_project": "WERK Österreich Staging",
+    "production": false
+  }
+}
