@@ -123,17 +123,16 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 
 ## CTR-WERK-IMPACT-SOURCE-BINDING-001
 - Date: 2026-09-21
-- Detected/updated: 2026-09-21 07:44 Europe/Vienna
+- Detected: 2026-09-21 07:44 Europe/Vienna
+- Resolved: 2026-09-21 09:21 Europe/Vienna
 - Related task/change: `WERK-IMPACT-001` / `IDEENWERK-IMPACT -> KPI-MEASUREMENT` connection.
 - Severity: YELLOW
 - Risk: R3
-- Status: RECONCILIATION_REQUIRED
-- Source A: `werk-data/ideenwerk-impact-measurement.json`, `WERK_IMPACT_001_BUILDER_CLAIM.md` and the System Graph.
-- Claim A: a measurement plan is source-bound/version-bound to an existing/current `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version`, reusing the authoritative WERK Impact Bridge/reform/model artifacts.
-- Source B: live Staging `public.werk_record_impact_measurement_plan(...)`, live table constraints/FKs, migration `042_werk_impact_measurement.sql` and the exact CI scripts.
-- Counterevidence: the live recorder checks reviewer authorization and idempotency, then stores those four source identifiers as text. `werk_impact_measurement_plans` has only the `created_by -> operators` FK; the four source identifiers have length checks but no lookup/FK/trigger against the Impact Bridge/reform/model source. The contract guard only asserts that one static bridge mapping `IMPACT-SV-EMPLOYEE/SV-01` exists, and the DB smoke does not test rejection of an unknown/stale source tuple.
-- Current data state: all impact-measurement tables are zero-row, so no invalid/stale measurement plan is currently persisted.
-- Stronger/current evidence: live Supabase function definition/constraints at migration `20260921043357 werk_impact_measurement`, plus exact functional source at `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
-- Resolution/action: keep `WERK-IMPACT-001` open. Reuse the existing authoritative Impact Bridge/reform/model source of truth and fail closed on unknown/stale/mismatched map/reform/model/source-version tuples; add negative CI/smoke coverage for invalid and stale references. No parallel registry/calculator and no formula/political change.
-- Boundary: this is a missing/unproven integration/provenance guard, not evidence of an existing corrupt row or observed causal policy effect. If an invalid persisted measurement plan appears, severity must be reevaluated immediately.
-- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Status: RESOLVED_FOR_STAGING_SCOPE
+- Original contradiction: the impact-measurement contract claimed authoritative source binding, while migration 042 stored `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` without a fail-closed lookup against the current WERK Impact Bridge/reform/model chain.
+- Resolution: migration `043_werk_impact_authoritative_source_binding.sql` introduces `public.werk_impact_validate_source_binding(...)` and makes `public.werk_record_impact_measurement_plan(...)` invoke it before persistence. The validator compiles the existing authoritative Impact Bridge mapping and exact source tuple; it rejects unknown map, wrong reform, wrong artifact and stale/unknown source version. No parallel registry/calculator and no numeric/political formula change were introduced.
+- Independent evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success; live Staging migration `20260921062817 werk_impact_authoritative_source_binding`; live positive current-tuple probe PASS; live negative probes returned `WERK_IMPACT_SOURCE_MAP_UNKNOWN`, `WERK_IMPACT_SOURCE_REFORM_MISMATCH`, `WERK_IMPACT_SOURCE_ARTIFACT_MISMATCH` and `WERK_IMPACT_SOURCE_VERSION_STALE_OR_UNKNOWN`; anon/authenticated have no EXECUTE on validator/recorder while service_role does; all impact-measurement tables remain zero-row.
+- Result: `WERK-IMPACT-001` source-binding scope is `COUNTERCHECKED_STAGING`.
+- Residual boundary: this does not assert production acceptance, causal policy effect, legal acceptance or completed improvement feedback. The downstream KPI/measurement → improvement-feedback integration remains separate work.
+- Reopen trigger: source registry/version changes without matching validator update/revalidation; validator bypass before persistence; invalid source-bound plan appears; or exact functional CI regresses.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
