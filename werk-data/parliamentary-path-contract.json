@@ -1,0 +1,66 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-PARLIAMENTARY-TRACE-001",
+  "status": "trace_contract_only_no_live_parliamentary_integration",
+  "purpose": "Versioned trace from a WERK citizen-decision artifact through legal/legislative handling, implementation evidence and impact measurement without equating a platform decision with enacted law or scoring political actors.",
+  "states": [
+    "decision_recorded",
+    "legal_and_competence_review",
+    "implementation_path_defined",
+    "proposal_or_measure_prepared",
+    "formal_process_in_progress",
+    "formal_outcome_recorded",
+    "implementation_evidence_recorded",
+    "impact_measurement_linked",
+    "closed_or_reopened"
+  ],
+  "required_record_fields": [
+    "trace_id",
+    "source_decision_id",
+    "source_decision_version",
+    "decision_artifact_hash",
+    "current_state",
+    "competence_or_legal_refs",
+    "responsible_institution_or_process",
+    "formal_reference_or_null",
+    "outcome_code_or_null",
+    "outcome_source_refs",
+    "implementation_refs",
+    "impact_measurement_plan_refs",
+    "created_at",
+    "updated_at"
+  ],
+  "invariants": [
+    "A WERK platform decision is not represented as enacted law or an official referendum result.",
+    "Every transition is evidence-bound and append-only/auditable.",
+    "A deviation, delay or different formal outcome is recorded descriptively with source/reason code; no politician/party score or motive inference is generated.",
+    "Legal/competence uncertainty remains explicit and can block progression.",
+    "Implementation evidence is separated from stated intention.",
+    "Impact measurement links to the existing WERK impact-measurement system; no duplicate KPI engine."
+  ],
+  "outcome_codes": [
+    "pending",
+    "implemented_as_recorded",
+    "implemented_with_changes",
+    "not_implemented",
+    "legally_unavailable",
+    "superseded_by_new_decision",
+    "unknown_requires_evidence"
+  ],
+  "open_governance_questions": [
+    "Which WERK decisions are advisory versus internally binding on WERK representatives?",
+    "What formal act or evidence qualifies each institutional transition?",
+    "Who may enter/countercheck external parliamentary/legal references?",
+    "How are changes in law/competence handled without rewriting historical decision records?"
+  ],
+  "integration": {
+    "input": "future WERK VOTE or other separately approved citizen-decision artifact",
+    "existing_checks": [
+      "IDEENWERK competence/legal path",
+      "existing-measure path"
+    ],
+    "downstream": "existing WERK impact measurement",
+    "website": "future transparency projection in existing V71; no parallel page",
+    "live_external_connection": false
+  }
+}
