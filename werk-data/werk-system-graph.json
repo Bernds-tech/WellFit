@@ -188,6 +188,18 @@
       "type": "runtime",
       "label": "WERK Österreich Staging",
       "state": "VERIFIED"
+    },
+    {
+      "id": "AI-PROVIDER-EVAL",
+      "type": "external_activation_precondition",
+      "label": "KI Provider/Privacy/Cost Evaluation",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "id": "IDENTITY-ARCHITECTURE",
+      "type": "identity_precondition",
+      "label": "Verifizierte Unterstützung – Identitätsarchitektur",
+      "state": "IN_PROGRESS"
     }
   ],
   "edges": [
@@ -354,6 +366,24 @@
       "to": "STAGING-RUNTIME",
       "relation": "deployed_to",
       "state": "VERIFIED"
+    },
+    {
+      "from": "AI-SYNTHESIS",
+      "to": "AI-PROVIDER-EVAL",
+      "relation": "requires_before_external_activation",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "from": "AI-PROVIDER-EVAL",
+      "to": "AI-SYNTHESIS",
+      "relation": "gates_real_provider_generation",
+      "state": "BLOCKED"
+    },
+    {
+      "from": "IDENTITY-ARCHITECTURE",
+      "to": "VERIFIED-SUPPORT",
+      "relation": "required_before_identity_activation",
+      "state": "IN_PROGRESS"
     }
   ],
   "propagation_rule": "When a node's source contract, calculation contract, runtime or accepted evidence materially changes, downstream nodes connected by feeds/quantifies/candidate_mapping_input/impact_model_input/serves/deployed_to must be checked for stale evidence before relying on prior current-state claims.",
