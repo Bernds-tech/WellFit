@@ -1,29 +1,41 @@
 {
-  "version": "2026-09-21-v9",
+  "version": "2026-09-21-v10",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T01:06:21Z",
-  "last_checked_head": "24d947122cd2366a1fc6b89bde94e31c6400af14",
+  "last_check_at": "2026-09-21T02:39:24.341Z",
+  "last_checked_head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
   "last_checked_functional_impact_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
   "last_checked_functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
+  "last_checked_functional_expert_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+  "last_checked_expert_frontend_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
   "last_checked_edge_version": 7,
-  "last_checked_migration": "20260920223436 ideenwerk_impact_bridge",
+  "last_checked_migration": "20260921013039 expert_input_operator_index",
   "overall_status": "YELLOW",
   "delta_since_previous_check": {
-    "base": "b2e95b6e71c808048611aa4a4d81e8de1c633e98",
-    "head": "24d947122cd2366a1fc6b89bde94e31c6400af14",
-    "commits": 5,
-    "classification": "AUDIT_GOVERNANCE_ONLY",
-    "product_or_runtime_delta": false
+    "base": "24d947122cd2366a1fc6b89bde94e31c6400af14",
+    "head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
+    "commits": 19,
+    "classification": "EXPERT_PROCESS_IMPLEMENTATION_PLUS_GOVERNANCE",
+    "product_or_runtime_delta": true,
+    "post_functional_delta_note": "After functional head c851f924, only governance/claim/system-graph files changed through pre-audit head b924e3d0."
   },
   "active_findings": [
+    {
+      "id": "WERK-EXPERT-CLOSEOUT-RECON-001",
+      "severity": "YELLOW",
+      "kind": "orphan_zombie_canonical_closeout",
+      "summary": "WERK-EXPERT-001 is independently COUNTERCHECKED_STAGING, but canonical Task Ledger/Started Work/master receipt index/lock/loop/dependency/Finishline/Freshness/selector/system-graph records have not yet all consumed that result.",
+      "first_observed_at": "2026-09-21T02:39:24.341Z",
+      "status": "RECONCILIATION_REQUIRED_BLOCKING_AI_SYNTHESIS",
+      "required_reconciliation": "Consume the independent expert receipt, release LOCK-WERK-EXPERT-001, close WERK-LOOP-EXPERT-001, satisfy WERK-DEP-EXPERT-AI-001, update expert_process/System Graph/Freshness and only then allow WERK-AI-SYNTH-001 to start. Do not rebuild expert input."
+    },
     {
       "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-TEXT-DRIFT-001",
       "severity": "YELLOW",
       "kind": "orphan_zombie_bookkeeping_drift",
-      "summary": "Master EXECUTION_RECEIPTS and NEXT_BEST_ACTION already advance to WERK-EXPERT-001, but Task Ledger, Started Work, the closed Impact Bridge Open Loop and the satisfied Impact Bridge Dependency still contain stale wording that receipt-index/memory closeout remains pending.",
+      "summary": "Impact Bridge is already COUNTERCHECKED_STAGING with master receipt consumed, but Task Ledger/Started Work/closed Open Loop/satisfied Dependency still contain stale prose saying receipt-index or memory closeout remains pending.",
       "first_observed_at": "2026-09-21T01:06:21Z",
       "status": "RECONCILIATION_REQUIRED_NONBLOCKING",
       "required_reconciliation": "Update only stale closeout prose to the already-proven current state; do not reopen or rebuild the Impact Bridge."
@@ -32,71 +44,98 @@
       "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
       "kind": "production_hardening_limit",
-      "summary": "The bounded WERK staging Data-API boundary around pg_net remains counterchecked, but Hosted Supabase still reports extension_in_public. This does not block reversible staging feature work, but production security acceptance remains open.",
+      "summary": "The bounded WERK staging Data-API boundary around pg_net remains counterchecked after expert migrations, but Hosted Supabase still reports extension_in_public. Reversible staging work may continue; production security acceptance remains open.",
       "first_observed_at": "2026-09-20T19:07:17.595Z",
-      "last_observed_at": "2026-09-21T01:06:21.208Z",
+      "last_observed_at": "2026-09-21T02:39:19.612Z",
       "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK"
     }
   ],
-  "resolved_since_previous_check": [],
+  "resolved_since_previous_check": [
+    {
+      "id": "WERK-EXPERT-001-INDEPENDENT-COUNTERCHECK",
+      "result": "COUNTERCHECKED_STAGING",
+      "evidence": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json"
+    }
+  ],
   "last_verified_successes": [
     {
-      "kind": "impact_bridge_staging_countercheck",
-      "task": "WERK-IDEENWERK-IMPACT-BRIDGE-001",
-      "head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+      "kind": "expert_process_staging_countercheck",
+      "task": "WERK-EXPERT-001",
+      "head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+      "frontend_followup_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
       "workflows": [
-        {"name":"WERK Impact Bridge Check","run_number":3,"conclusion":"success"},
-        {"name":"WERK Frontend Check","run_number":177,"conclusion":"success"}
+        {"name":"WERK Expert Input Check","run_number":4,"conclusion":"success"},
+        {"name":"WERK Data Contract Registry Check","run_number":59,"conclusion":"success"},
+        {"name":"WERK Frontend Check","run_number":182,"conclusion":"success"}
       ],
-      "staging_migration": "20260920223436 ideenwerk_impact_bridge",
-      "result": "COUNTERCHECKED_STAGING",
-      "master_receipt_index_reconciled": true
+      "staging_migrations": [
+        "20260921012806 ideenwerk_expert_input",
+        "20260921013039 expert_input_operator_index"
+      ],
+      "result": "COUNTERCHECKED_STAGING"
     },
     {
-      "kind": "staging_runtime_refresh",
-      "observed_at": "2026-09-21T01:06:21Z",
+      "kind": "staging_runtime_refresh_after_expert_migrations",
+      "observed_at": "2026-09-21T02:39:24.341Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
-      "latest_migration": "20260920223436 ideenwerk_impact_bridge",
-      "impact_bridge_contract": "037_ideenwerk_impact_bridge",
+      "latest_migration": "20260921013039 expert_input_operator_index",
+      "expert_input_contract": "038_ideenwerk_expert_input",
+      "expert_input_rls": true,
+      "anon_expert_select": false,
+      "authenticated_expert_select": false,
+      "service_role_expert_select": true,
+      "service_role_expert_insert": true,
+      "anon_record_execute": false,
+      "authenticated_record_execute": false,
+      "service_role_record_execute": true,
+      "append_only_trigger_enabled": true,
+      "zero_baseline_tables_checked": 15,
+      "zero_baseline_verified": true
+    },
+    {
+      "kind": "impact_bridge_post_expert_schema_revalidation",
+      "result": "CURRENT_BOUNDARY_REVALIDATED",
       "impact_bridge_rls": true,
-      "anon_bridge_select": false,
-      "authenticated_bridge_select": false,
-      "service_role_bridge_select": true,
+      "anon_select": false,
+      "authenticated_select": false,
+      "service_role_select": true,
+      "anon_function_execute": false,
+      "authenticated_function_execute": false,
+      "service_role_function_execute": true
+    },
+    {
+      "kind": "pg_net_post_expert_schema_revalidation",
+      "result": "CURRENT_BOUNDARY_REVALIDATED",
       "authenticator_db_pre_request": "public.werk_api_security_guard",
-      "zero_baseline_tables_checked": 14,
-      "zero_baseline_verified": true,
-      "queue_active": 0,
-      "queue_stale": 0,
-      "queue_dead": 0,
-      "review_active": 0,
-      "review_stale": 0
+      "guard_request_and_net_aware": true
     },
     {
       "kind": "supabase_security_advisor_refresh",
-      "observed_at": "2026-09-21T01:06:21.208Z",
+      "observed_at": "2026-09-21T02:39:19.612Z",
       "warn_count": 1,
       "warning": "extension_in_public: pg_net",
-      "info_count": 31,
-      "result": "UNCHANGED_WARNING_SET"
+      "info_count": 32,
+      "result": "UNCHANGED_WARNING_SET_PLUS_EXPECTED_EXPERT_RLS_INFO"
     },
     {
-      "kind": "pg_net_staging_boundary",
-      "task": "WERK-SEC-PGNET-001",
-      "result": "COUNTERCHECKED_STAGING_BOUNDARY_REMAINS_WITHIN_TTL"
+      "kind": "supabase_performance_advisor_refresh",
+      "observed_at": "2026-09-21T02:39:24.341Z",
+      "expert_unindexed_foreign_key": false,
+      "result": "EXPERT_OPERATOR_FK_HARDENING_CONFIRMED"
     }
   ],
   "specialist_results": {
-    "integration_hunter": "No new missing integration between two already-verified components was found. Impact Bridge remains COUNTERCHECKED_STAGING; EXPERT-INPUT remains the next unbuilt node.",
-    "evidence_reaper": "Current Staging and Security Advisor evidence remains within TTL and was freshly re-observed. No migration, Edge deployment or runtime-config invalidation occurred.",
-    "orphan_zombie_hunter": "A non-product bookkeeping drift remains in four Impact Bridge closeout records: they still condition WERK-EXPERT-001 on receipt-index/memory reconciliation although that reconciliation is already complete. This is a text/state hygiene finding only; the current selector is correct and the bridge must not be rebuilt.",
-    "calculation_integrity_guardian": "No calculation formula, source data or reform contract changed in the inspected delta. No deep recalculation was triggered and no new double-counting or baseline/scope contradiction was found.",
-    "milestone_closer": "No gate newly reached ACCEPTED or PRODUCTION_CONFIRMED. No immutable milestone snapshot was created."
+    "integration_hunter": "EXPERT-INPUT -> protected IDEENWERK API/status and EXPERT-INPUT -> V71 citizen rendering are independently evidenced at COUNTERCHECKED_STAGING scope. EXPERT-INPUT -> AI-SYNTHESIS remains intentionally gated until canonical closeout is consumed.",
+    "evidence_reaper": "Migrations 038/039 invalidated previous current staging/advisor reliance. Fresh read-only evidence now revalidates expert scope, Impact Bridge boundary and pg_net request boundary; Security Advisor remains one pg_net WARN plus 32 INFO.",
+    "orphan_zombie_hunter": "The expert process is now independently counterchecked but canonical closeout records remain stale/missing; prior Impact Bridge stale closeout prose also remains. Reconcile records, do not rebuild either component.",
+    "calculation_integrity_guardian": "No calculation formula, source dataset or reform calculation contract changed in the inspected delta; no deep recalculation was triggered and no new double-counting contradiction was found.",
+    "milestone_closer": "Expert process reached COUNTERCHECKED_STAGING, not ACCEPTED/PRODUCTION_CONFIRMED. No immutable milestone snapshot was created."
   },
   "owner_action_state": "No READY_NOW owner action; owner inbox remains NOT_READY/BLOCKED only and no deferred action exists.",
-  "next_functional_action": "WERK-EXPERT-001",
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T010621Z.json",
-  "last_receipt_commit": "c78812c75227334a0885007e3d6d198e6c1c8120",
-  "note": "No product, runtime, database, Edge or political mutation was performed by the Supervisor. The only new finding is stale Impact Bridge closeout prose in historical governance records; current runtime, security boundary and next functional selector remain consistent."
+  "next_functional_action": "WERK-AI-SYNTH-001_ONLY_AFTER_EXPERT_CLOSEOUT_RECONCILIATION",
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json",
+  "last_receipt_commit": "92f1d6597434ba6b9dbbade13412d33b29a500de",
+  "note": "No product, runtime, database, Edge or political mutation was performed by the Supervisor. The expert process is independently COUNTERCHECKED_STAGING. Canonical closeout reconciliation must occur before AI synthesis starts. Supervisor audit writes occur after last_checked_head by design."
 }
