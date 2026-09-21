@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "task": "WERK-IDEENWERK-IMPACT-BRIDGE-001-CLOSEOUT",
+  "parent_task": "WERK-IDEENWERK-IMPACT-BRIDGE-001",
+  "created_at": "2026-09-21T00:18:52Z",
+  "builder_claim_status": "BUILDER_MEMORY_CLOSEOUT_COMPLETE_AWAITING_SUPERVISOR_INDEX",
+  "base_head": "3052e41c14b69ab966f2dce2487bd7b3305b2606",
+  "closeout_head_before_claim_file": "42b7a0d7bdfe0289baed9305ac0a78c88ab894cd",
+  "functional_evidence_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+  "independent_supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json",
+  "changes": [
+    "TASK_LEDGER advanced WERK-IDEENWERK-IMPACT-BRIDGE-001 to COUNTERCHECKED_STAGING and consumed exact independent evidence",
+    "NEXT_BEST_ACTION narrowed to the remaining Supervisor-owned master receipt-index reconciliation"
+  ],
+  "scope_diff": {
+    "files_changed_before_claim_file": [
+      "project-memory/TASK_LEDGER.md",
+      "project-memory/NEXT_BEST_ACTION.md"
+    ],
+    "product_or_runtime_delta": false,
+    "database_or_edge_delta": false,
+    "political_content_delta": false
+  },
+  "existing_counterchecked_evidence": {
+    "impact_bridge_check": "WERK Impact Bridge Check #3 success",
+    "frontend_check": "WERK Frontend Check #177 success",
+    "staging_migration": "20260920223436 ideenwerk_impact_bridge",
+    "runtime_contract": "037_ideenwerk_impact_bridge",
+    "zero_synthetic_baseline": true
+  },
+  "remaining_boundary": "project-memory/EXECUTION_RECEIPTS.md is Supervisor-owned and still lacks the Impact Bridge countercheck entry. Builder intentionally did not modify it.",
+  "next_after_supervisor_reconciliation": "WERK-EXPERT-001 / NBA-WERK-EXPERT-PROCESS",
+  "do_not_repeat": [
+    "Do not rebuild the Impact Bridge",
+    "Do not reapply migration 037",
+    "Do not let Builder self-verify or mutate Supervisor-owned receipt index"
+  ]
+}
