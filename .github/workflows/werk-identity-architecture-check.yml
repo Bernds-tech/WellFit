@@ -4,6 +4,7 @@ on:
     branches: [werk-v49-preview-host]
     paths:
       - 'werk-data/verified-support-identity-architecture.json'
+      - 'werk-data/werk-system-graph.json'
       - 'scripts/werk-identity-architecture-contract.mjs'
       - '.github/workflows/werk-identity-architecture-check.yml'
       - 'werk-data/data-contract-registry.json'
