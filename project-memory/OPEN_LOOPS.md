@@ -121,14 +121,13 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-001
 - Related: `WERK-IMPACT-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `CTR-WERK-IMPACT-SOURCE-BINDING-001`.
-- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
-- Updated: 2026-09-21 Europe/Vienna
+- Status: CLOSED_COUNTERCHECKED_STAGING
+- Updated: 2026-09-21 09:21 Europe/Vienna
 - Risk: R3
-- Builder result: the previously observed authoritative source-binding gap is implemented on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`. Migration 043 reuses the existing canonical Impact Bridge registry and makes measurement-plan creation fail closed for unknown impact maps, map/reform mismatch, map/artifact mismatch and stale/unknown canonical source-version tokens.
-- CI: WERK Impact Measurement Check #6 SUCCESS and WERK Data Contract Registry Check #63 SUCCESS on the exact functional head.
-- Staging: migration `20260921062817 werk_impact_authoritative_source_binding` live; current valid tuple accepted with `current_authoritative_registry_tuple`; all four negative source-binding classes rejected; measurement-plan/implementation/observation/review tables remain zero-row.
-- Security: fresh advisor introduced no new WARN; the unchanged `pg_net extension_in_public` WARN remains a separate production-hardening issue.
-- Boundary: no second registry/calculator, formula change, causal effect claim, political decision, provider activation or production action.
-- Required next step: independent Supervisor countercheck. Builder does not close this loop or resolve the contradiction itself.
-- Close when: Supervisor confirms exact-head CI plus live fail-closed staging behavior and reconciles `CTR-WERK-IMPACT-SOURCE-BINDING-001`; only then may `WERK-DEP-IMPACT-FEEDBACK-001` advance.
-- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
+- Result: the authoritative impact source-binding gap is independently closed for Staging. Migration 043 reuses the existing canonical Impact Bridge registry and makes measurement-plan creation fail closed for unknown impact maps, map/reform mismatch, map/artifact mismatch and stale/unknown canonical source-version tokens before persistence.
+- Exact evidence: functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; WERK Data Contract Registry Check #63 SUCCESS; live migration `20260921062817 werk_impact_authoritative_source_binding`; current tuple returns `current_authoritative_registry_tuple`; all four negative source-binding classes fail closed.
+- Runtime/security: WERK Staging remains `ACTIVE_HEALTHY`; Edge `werk-ideenwerk-api` version 7; anon/authenticated have no EXECUTE on validator/recorder while service_role does; impact tables and checked queues/reviews remain zero; Security Advisor has no new WARN and still reports only the separate `pg_net extension_in_public` production-hardening warning.
+- Calculation-integrity boundary: source-contract v2 changes provenance validation only. No numeric formula, fiscal input, reform formula, causal attribution rule, debt/interest arithmetic or baseline/scenario separation changed; no persisted rows exist to double-count.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Downstream: `WERK-DEP-IMPACT-FEEDBACK-001` may advance to the existing `WERK-IMPACT-FEEDBACK-001` integration. Do not rebuild WERK-IMPACT-001.
+- Reopen trigger: source-registry/version change without matching revalidation, validator bypass before persistence, invalid source-bound plan, or exact functional CI regression.
