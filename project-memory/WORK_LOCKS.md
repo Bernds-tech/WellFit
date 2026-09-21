@@ -353,3 +353,17 @@ No additional locks recorded.
 - Branch: `werk-v49-preview-host`
 - Reconciliation note: repository-only contract work completed without external mutation; no competing same-scope work found.
 - Released: 2026-09-21 after independent countercheck `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
+
+## LOCK-WERK-ID-CORE-001
+- Task: WERK-ID-CORE-001
+- Status: ACTIVE
+- Phase: RECONCILING_EXISTING_PROVIDER_NEUTRAL_CORE_FOR_STAGING
+- Risk: R4
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 Europe/Vienna
+- Trigger: provider-neutral Verified Support core already exists on branch head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff` with exact-head green CI but is not yet represented as an active canonical Builder task or live on WERK Österreich Staging.
+- Scope: reconcile and reversibly stage only the existing provider-neutral identity-verification receipt/support/audit core from migration 047, with runtime negative-path and ACL evidence. No external identity provider, identity scheme choice, raw token/PII persistence, public endpoint, vote counting, production activation or political decision.
+- Upstream: counterchecked `WERK-ID-ARCH-001` architecture contract; existing `supports` and audit infrastructure.
+- Boundary: owner-gated identity scheme/legal/privacy/trusted-verifier/acceptance decisions remain blocked. Verified Support counting remains disabled until later owner-approved identity activation.
+- Release condition: postflight registers and Builder claim recorded, then independent Supervisor countercheck of exact functional head, exact-head CI and fresh Staging evidence.
