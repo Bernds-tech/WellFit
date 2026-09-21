@@ -66,7 +66,21 @@ Canonical register for work that has started but is not yet fully completed.
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
 - Work lock: `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001` released in the same closeout.
 - Boundary: no new fiscal effect, saving, cost, forecast, political score or automatic decision was created; production acceptance is not implied.
-- Next: do not rebuild. After receipt-index reconciliation, the next functional catalog action is `WERK-EXPERT-001`.
+- Next: consumed by the counterchecked expert process; do not rebuild unless new contradictory evidence or an explicit downstream extension requires it.
+
+### WERK-EXPERT-001 — counterchecked staging expert/affected-party evidence process
+- Started: 2026-09-21 03:15 Europe/Vienna
+- Closed: 2026-09-21 05:17 Europe/Vienna
+- Status: COUNTERCHECKED_STAGING
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: source-bound append-only expert/affected-party input with contributor role, relationship disclosure, optional separately sourced counterposition, citizen-safe projection, privacy export, aggregate content-free transparency and reuse of existing IDEENWERK/V71 surfaces.
+- Result: independently counterchecked on Staging; write path remains service-role plus active `impact_reviewer`, direct anon/authenticated expert access fails closed, append-only guard is active, citizen projections exclude operator/idempotency/hash internals, and zero synthetic baseline is restored.
+- Exact evidence: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`.
+- Work lock: `LOCK-WERK-EXPERT-001` released in the same Builder closeout.
+- Boundary: no expert veto, political ranking/score, review-depth override, citizen-text mutation, automatic acceptance/rejection, manufactured fiscal effect, production deployment or live-browser visual acceptance is implied.
+- Next: do not rebuild. `WERK-AI-SYNTH-001` is the next functional integration only after authoritative Finishline/Freshness/selector reconciliation consumes this countercheck.
 
 ### WERK-SEC-PGNET-001 — counterchecked staging boundary
 - Status: COUNTERCHECKED_STAGING_BOUNDARY
@@ -94,9 +108,9 @@ Canonical register for work that has started but is not yet fully completed.
 - Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22.
 - Work lock: `LOCK-WFG-MOBILE-UX-001` released.
 - Cross-repo lock: `XLOCK-WF-MOBILE-SHELL-001` released.
-- Result: owner target, no-dashboard constraint, overlay navigation state, repository responsibilities and future exact-device integration acceptance are bound.
+- Result: owner target, no-dashboard constraint, overlay navigation state, repository responsibilities and future exact integration gate are bound.
 - Limitations: no visual runtime, Unity compile, Android build or device behavior is claimed.
-- Evidence: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md`, WF-EV-006 and green Guard/Quality on PR #22.
+- Evidence: `docs/product/MOBILE_ONE_SCREEN_AR_SHELL.md`, WFG-CR-005, WFG-DEC-004 and WF-CONTRACT-MOBILE-SHELL-001.
 - Next step: implement separately in WellFit-now and WellFit-Buddy after their repository prerequisites; keep WF-LOOP-004 open until exact E2E acceptance.
 
 ## WFG-MASTER-MIG-002-RECON
@@ -127,9 +141,9 @@ Canonical register for work that has started but is not yet fully completed.
 - Status: VERIFIED
 - Risk: R2
 - Scope: close missing regional stock with official workbook and acquire occupation/education supply without inventing a joint distribution.
-- Base: 8f6799f; WERK-LAB-002 is verified and closed.
+- Base: 8f6799f; LAB-002 verified and closed.
 - Lock: LOCK-WERK-LAB-003
-- Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent local contracts passed.
+- Local result: 3072 occupation/state pairs, nine complete regional AL/OS stock sources, 21 negative cases and all dependent contracts passed.
 - Closed: 2026-09-06. Published implementation ece6767e5a4d4362f43c07a0ae7033b509de585a; all 13 CI workflows succeeded. See WERK_LABOUR_003_CI_RECEIPT.json.
 
 ## WERK-LAB-004
@@ -204,7 +218,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Base: 35a71c20db0afcb00a9bb703f7f671cf7d3f05e4
 - Scope: contribution-growth and debt-financing durability stress.
 
-- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
+- WERK-SV-005: five relevant workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
 
 ## WERK-SV-006
 - Status: VERIFIED
