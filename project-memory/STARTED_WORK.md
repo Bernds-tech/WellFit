@@ -163,7 +163,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Risk: R3
 - Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged WellFit-Buddy baseline.
 - Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / PR #20.
-- Cross-repo lock: `XLOCK-WF-MIG-002-20260828` released.
+- Cross-repo lock: `XLOCK-WF-MIG-002-20260826` released.
 - Result: stale Unity-project claims corrected; `MIGRATE_NOW` bounded to fresh destination initialization and incremental Buddy-domain ports while source/server authority remain preserved.
 - Evidence: WF-EV-005, merged Buddy PRs #18/#19 and green Quality/Status checks on PR #20 before final closeout.
 - Next step: merge after final green Guard/review, then begin the separately locked Unity destination task.
