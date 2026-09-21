@@ -1,0 +1,56 @@
+{
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T200500Z",
+  "checked_at": "2026-09-21T20:05:00Z",
+  "branch": "werk-v49-preview-host",
+  "result": "COUNTERCHECKED_STAGING_TWO_FINDINGS_RESOLVED",
+  "findings": [
+    {
+      "id": "CTR-WERK-IMPACT-FEEDBACK-SELECTION-001",
+      "result": "RESOLVED",
+      "exact_functional_head": "7e4291717563e5fe51cb84c7d239d7920a7d937e",
+      "evidence": [
+        "GitHub Actions: WERK Impact Feedback Check #3 success on exact head",
+        "GitHub Actions: WERK AI Synthesis Check #7 success on exact head",
+        "GitHub Actions: IDEENWERK Backend Check #187 success on exact head",
+        "Staging migration 20260921182939 ideenwerk_impact_feedback_selection_hardening present",
+        "Live function definition applies current submission map/reform relevance in WHERE before LIMIT 12",
+        "Live ACL: anon=false authenticated=false service_role=true",
+        "Current staging impact/review/submission active test state zero"
+      ],
+      "falsification": "A live definition that restores a global candidate limit before relevance, a >50 unrelated-review regression failure, stale-source leakage, ACL broadening, or exact-head CI regression reopens this finding.",
+      "boundary": "Review feedback remains source-bound hypothesis material; no causal conclusion, political ranking, provider activation or policy decision."
+    },
+    {
+      "id": "CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001",
+      "result": "RESOLVED",
+      "exact_functional_head": "3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f",
+      "evidence": [
+        "GitHub Actions: WERK Impact Measurement Check #8 success on exact head",
+        "GitHub Actions: WERK Data Contract Registry Check #66 success on exact head",
+        "Staging migration 20260921192342 werk_impact_snapshot_freshness present",
+        "Live function definition calls werk_impact_validate_source_binding before current-state projection",
+        "Stale source-binding exceptions return revalidation_required/current_reliance=false while preserving historical evidence",
+        "Live ACL: anon=false authenticated=false service_role=true",
+        "Impact measurement tables zero after reversible probes"
+      ],
+      "falsification": "A source registry/version change that does not force revalidation, removal/bypass of the validator, ACL broadening, or exact-head CI regression reopens this finding.",
+      "boundary": "Historical append-only evidence remains historical; no KPI, fiscal, causal or political formula changed."
+    }
+  ],
+  "security": {
+    "security_advisor": "No new WARN from 045/046; known pg_net extension_in_public remains separate.",
+    "rls_no_policy_info": "Expected fail-closed/service-role-only pattern remains; not promoted to defect by this receipt."
+  },
+  "staging": {
+    "project_id": "jwomaoxefgnhsgiebaqy",
+    "edge_version": 7,
+    "submissions": 0,
+    "impact_plans": 0,
+    "impact_implementations": 0,
+    "impact_observations": 0,
+    "impact_reviews": 0,
+    "active_jobs": 0,
+    "active_reviews": 0
+  },
+  "next": "Builder may consume this independent receipt to close both task/loop/lock/dependency records, then recalculate the next executable action. pg_net hardening remains separate."
+}
