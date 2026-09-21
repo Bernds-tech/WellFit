@@ -345,3 +345,27 @@ Keep history append-only; supersede rather than delete.
 
 - Independent closeout receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
 - Closeout: bounded Staging scope independently confirmed; do not rebuild unless a documented reopen trigger occurs.
+
+
+## WERK-AI-PROVIDER-EVAL-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Goal: prepare a neutral, source-backed provider/privacy/cost package for later real AI synthesis without selecting or activating a provider.
+- Implementation: `werk-data/ideenwerk-ai-provider-evaluation.json`, validation script and dedicated CI workflow; registered as `AI-PROVIDER-EVAL` in the central Data Contract Registry.
+- Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
+- Scope: OpenAI API Direct and Azure Foundry EU DataZone are documented as non-selected technical candidates; exact retention/processing/cost activation facts must be revalidated at activation time. Server-only secrets, PII minimization, cost formula/cap boundary, fail-closed behavior and target-bound synthetic verification are explicit.
+- Boundary: no provider selection, no secret, no paid call, no real citizen/expert data sent externally, no political model preference.
+- Exact next step: current-head CI + independent countercheck. Only then may `WERK-OWNER-AI-PROVIDER-001` become READY_NOW.
+
+
+## WERK-ID-ARCH-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R4
+- Goal: prepare comparable identity architectures for 1 person = 1 verified support without activating identity or conflating support with a secret/official vote.
+- Implementation: `werk-data/verified-support-identity-architecture.json`, validation script and dedicated CI workflow; registered as `VERIFIED-SUPPORT-ID-ARCH`.
+- Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
+- Scope: provider-neutral core separates identity verification from support, stores scoped HMAC pseudonyms rather than raw identity in support records, defines recovery/rotation/threat model, and documents ID Austria Service Provider plus EUDI Wallet as non-selected candidates with official sources.
+- Boundary: no identity provider selected, no bPK use assumed, no real identity, no support counting, no WERK VOTE, no Production.
+- Exact next step: current-head CI + independent countercheck. Only then may `WERK-OWNER-ID-001` become READY_NOW.
