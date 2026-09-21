@@ -95,3 +95,15 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 - Evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`, functional head `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`, Backend Check #161 attempt 2.
 - Next: keep the platform-safe production hardening question visible; re-evaluate if Supabase provides a supported extension-placement/privilege route or before production readiness. Do not reopen the closed staging task solely because the advisor warning persists.
 - Close when: a fresh advisor no longer reports the warning, or a platform-supported production-safe resolution/explicit constraint is documented and independently accepted for the production threat model.
+
+## WERK-LOOP-EXPERT-001
+- Related: `WERK-EXPERT-001`, `WERK-DEP-EXPERT-AI-001`.
+- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Updated: 2026-09-21 03:33 Europe/Vienna
+- Risk: R3
+- Result so far: source-bound append-only Fach-/Betroffeneninput is implemented on the existing IDEENWERK submission/audit/status surfaces; contributor role, source/reference, relationship disclosure, optional sourced counterposition, citizen-safe projection, privacy export, aggregate-only transparency and V71 rendering are in place.
+- Exact builder evidence: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4 and WERK Data Contract Registry Check #59 succeeded; live Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`.
+- Live negative/reversible verification: replay deduplication, wrong-role fail-closed, append-only mutation guard, citizen-safe status projection and aggregate-only transparency passed; synthetic submission/expert/operator/audit fixtures were cleaned to zero relevant rows. Fresh performance advisor no longer reports the introduced operator-FK gap after migration 039.
+- Boundary: no expert veto, political merit score, automatic acceptance/rejection, review-depth override, citizen-text mutation, new fiscal/impact effect, production deploy or live-browser visual acceptance is claimed. Existing `pg_net` hosted-extension warning is unchanged and remains a separate production-hardening loop.
+- Close when: independent Supervisor counterchecks the exact functional head plus current Staging evidence, then Task/Started Work/Lock/Dependency/System Graph are reconciled to `COUNTERCHECKED_STAGING` and the Finishline Navigator consumes the gate progress.
+- Downstream: only after closeout may `WERK-AI-SYNTH-001` become executable; do not begin AI synthesis while this loop remains open.
