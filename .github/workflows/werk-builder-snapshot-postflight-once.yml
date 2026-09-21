@@ -34,10 +34,8 @@ jobs:
                   project-memory/DEPENDENCIES.md \
                   project-memory/OPEN_LOOPS.md \
                   project-memory/NEXT_BEST_ACTION.md \
-                  project-memory/werk-builder-claims/WERK_IMPACT_SNAPSHOT_FRESHNESS_2026-09-21T1924Z.json \
-                  project-memory/werk-builder-snapshot-postflight.trigger \
-                  scripts/werk-builder-snapshot-postflight-once.py \
-                  .github/workflows/werk-builder-snapshot-postflight-once.yml
+                  project-memory/werk-builder-claims/WERK_IMPACT_SNAPSHOT_FRESHNESS_2026-09-21T1924Z.json
+          git add -u project-memory/werk-builder-snapshot-postflight.trigger
           git diff --cached --check
           git commit -m "WERK: reconcile impact snapshot freshness claim"
           git push origin HEAD:werk-v49-preview-host
