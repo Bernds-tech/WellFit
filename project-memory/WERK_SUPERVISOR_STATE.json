@@ -1,11 +1,11 @@
 {
-  "version": "2026-09-21-v10",
+  "version": "2026-09-21-v11",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T02:39:24.341Z",
-  "last_checked_head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
+  "last_check_at": "2026-09-21T03:26:40Z",
+  "last_checked_head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
   "last_checked_functional_impact_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
   "last_checked_functional_security_head": "4d79bf4fab4ec3448033f77919bd32c18ab6a7a4",
   "last_checked_functional_expert_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
@@ -14,47 +14,34 @@
   "last_checked_migration": "20260921013039 expert_input_operator_index",
   "overall_status": "YELLOW",
   "delta_since_previous_check": {
-    "base": "24d947122cd2366a1fc6b89bde94e31c6400af14",
-    "head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
-    "commits": 19,
-    "classification": "EXPERT_PROCESS_IMPLEMENTATION_PLUS_GOVERNANCE",
-    "product_or_runtime_delta": true,
-    "post_functional_delta_note": "After functional head c851f924, only governance/claim/system-graph files changed through pre-audit head b924e3d0."
+    "base": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
+    "head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
+    "commits": 10,
+    "classification": "EXPERT_CLOSEOUT_GOVERNANCE_ONLY",
+    "product_or_runtime_delta": false,
+    "post_functional_delta_note": "After expert functional head c851f924, the inspected delta through pre-audit head 48cc7fb6 changes governance/claim/system-graph/audit records only. No expert product/runtime/database/Edge implementation file changed."
   },
   "active_findings": [
-    {
-      "id": "WERK-EXPERT-CLOSEOUT-RECON-001",
-      "severity": "YELLOW",
-      "kind": "orphan_zombie_canonical_closeout",
-      "summary": "WERK-EXPERT-001 is independently COUNTERCHECKED_STAGING, but canonical Task Ledger/Started Work/master receipt index/lock/loop/dependency/Finishline/Freshness/selector/system-graph records have not yet all consumed that result.",
-      "first_observed_at": "2026-09-21T02:39:24.341Z",
-      "status": "RECONCILIATION_REQUIRED_BLOCKING_AI_SYNTHESIS",
-      "required_reconciliation": "Consume the independent expert receipt, release LOCK-WERK-EXPERT-001, close WERK-LOOP-EXPERT-001, satisfy WERK-DEP-EXPERT-AI-001, update expert_process/System Graph/Freshness and only then allow WERK-AI-SYNTH-001 to start. Do not rebuild expert input."
-    },
-    {
-      "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-TEXT-DRIFT-001",
-      "severity": "YELLOW",
-      "kind": "orphan_zombie_bookkeeping_drift",
-      "summary": "Impact Bridge is already COUNTERCHECKED_STAGING with master receipt consumed, but Task Ledger/Started Work/closed Open Loop/satisfied Dependency still contain stale prose saying receipt-index or memory closeout remains pending.",
-      "first_observed_at": "2026-09-21T01:06:21Z",
-      "status": "RECONCILIATION_REQUIRED_NONBLOCKING",
-      "required_reconciliation": "Update only stale closeout prose to the already-proven current state; do not reopen or rebuild the Impact Bridge."
-    },
     {
       "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
       "kind": "production_hardening_limit",
       "summary": "The bounded WERK staging Data-API boundary around pg_net remains counterchecked after expert migrations, but Hosted Supabase still reports extension_in_public. Reversible staging work may continue; production security acceptance remains open.",
       "first_observed_at": "2026-09-20T19:07:17.595Z",
-      "last_observed_at": "2026-09-21T02:39:19.612Z",
+      "last_observed_at": "2026-09-21T03:26:40Z",
       "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK"
     }
   ],
   "resolved_since_previous_check": [
     {
-      "id": "WERK-EXPERT-001-INDEPENDENT-COUNTERCHECK",
-      "result": "COUNTERCHECKED_STAGING",
-      "evidence": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json"
+      "id": "WERK-EXPERT-CLOSEOUT-RECON-001",
+      "result": "RESOLVED",
+      "evidence": "Expert Task/Started Work/Lock/Open Loop/Dependency/System Graph closeout is reconciled; Freshness and Finishline now consume the independent countercheck; master receipt index includes RECEIPT-WERK-EXPERT-001-20260921."
+    },
+    {
+      "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-TEXT-DRIFT-001",
+      "result": "RESOLVED",
+      "evidence": "Current canonical Impact Bridge Task/Started Work/Open Loop/Dependency records no longer carry the prior pending receipt-index/memory-closeout wording."
     }
   ],
   "last_verified_successes": [
@@ -64,9 +51,9 @@
       "head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
       "frontend_followup_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
       "workflows": [
-        {"name":"WERK Expert Input Check","run_number":4,"conclusion":"success"},
-        {"name":"WERK Data Contract Registry Check","run_number":59,"conclusion":"success"},
-        {"name":"WERK Frontend Check","run_number":182,"conclusion":"success"}
+        {"name": "WERK Expert Input Check", "run_number": 4, "conclusion": "success"},
+        {"name": "WERK Data Contract Registry Check", "run_number": 59, "conclusion": "success"},
+        {"name": "WERK Frontend Check", "run_number": 182, "conclusion": "success"}
       ],
       "staging_migrations": [
         "20260921012806 ideenwerk_expert_input",
@@ -75,67 +62,51 @@
       "result": "COUNTERCHECKED_STAGING"
     },
     {
+      "kind": "expert_closeout_reconciliation",
+      "checked_pre_audit_head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
+      "result": "CANONICAL_CLOSEOUT_COMPLETE",
+      "details": "No active expert builder work or lock; expert loop closed; dependency satisfied; system graph counterchecked; master receipt, Freshness and Finishline reconciled."
+    },
+    {
       "kind": "staging_runtime_refresh_after_expert_migrations",
-      "observed_at": "2026-09-21T02:39:24.341Z",
+      "observed_at": "2026-09-21T03:26:40Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
       "latest_migration": "20260921013039 expert_input_operator_index",
-      "expert_input_contract": "038_ideenwerk_expert_input",
       "expert_input_rls": true,
       "anon_expert_select": false,
       "authenticated_expert_select": false,
       "service_role_expert_select": true,
       "service_role_expert_insert": true,
-      "anon_record_execute": false,
-      "authenticated_record_execute": false,
-      "service_role_record_execute": true,
-      "append_only_trigger_enabled": true,
+      "impact_bridge_rls": true,
+      "anon_impact_select": false,
+      "authenticated_impact_select": false,
+      "service_role_impact_select": true,
+      "authenticator_db_pre_request": "public.werk_api_security_guard",
       "zero_baseline_tables_checked": 15,
       "zero_baseline_verified": true
     },
     {
-      "kind": "impact_bridge_post_expert_schema_revalidation",
-      "result": "CURRENT_BOUNDARY_REVALIDATED",
-      "impact_bridge_rls": true,
-      "anon_select": false,
-      "authenticated_select": false,
-      "service_role_select": true,
-      "anon_function_execute": false,
-      "authenticated_function_execute": false,
-      "service_role_function_execute": true
-    },
-    {
-      "kind": "pg_net_post_expert_schema_revalidation",
-      "result": "CURRENT_BOUNDARY_REVALIDATED",
-      "authenticator_db_pre_request": "public.werk_api_security_guard",
-      "guard_request_and_net_aware": true
-    },
-    {
       "kind": "supabase_security_advisor_refresh",
-      "observed_at": "2026-09-21T02:39:19.612Z",
+      "observed_at": "2026-09-21T03:26:40Z",
       "warn_count": 1,
       "warning": "extension_in_public: pg_net",
-      "info_count": 32,
-      "result": "UNCHANGED_WARNING_SET_PLUS_EXPECTED_EXPERT_RLS_INFO"
-    },
-    {
-      "kind": "supabase_performance_advisor_refresh",
-      "observed_at": "2026-09-21T02:39:24.341Z",
-      "expert_unindexed_foreign_key": false,
-      "result": "EXPERT_OPERATOR_FK_HARDENING_CONFIRMED"
+      "new_warn_since_prior": false,
+      "result": "UNCHANGED_PLATFORM_WARNING"
     }
   ],
   "specialist_results": {
-    "integration_hunter": "EXPERT-INPUT -> protected IDEENWERK API/status and EXPERT-INPUT -> V71 citizen rendering are independently evidenced at COUNTERCHECKED_STAGING scope. EXPERT-INPUT -> AI-SYNTHESIS remains intentionally gated until canonical closeout is consumed.",
-    "evidence_reaper": "Migrations 038/039 invalidated previous current staging/advisor reliance. Fresh read-only evidence now revalidates expert scope, Impact Bridge boundary and pg_net request boundary; Security Advisor remains one pg_net WARN plus 32 INFO.",
-    "orphan_zombie_hunter": "The expert process is now independently counterchecked but canonical closeout records remain stale/missing; prior Impact Bridge stale closeout prose also remains. Reconcile records, do not rebuild either component.",
+    "integration_hunter": "Impact Bridge and Expert Input are independently COUNTERCHECKED_STAGING. Their AI-SYNTHESIS prerequisites are now connected in canonical state; AI synthesis is the next missing system connection.",
+    "evidence_reaper": "Pre-expert current-state evidence was invalidated by migrations 038/039 and is now historical. Fresh read-only evidence revalidates runtime, Expert Input, Impact Bridge, pg_net request boundary and Security Advisor state.",
+    "orphan_zombie_hunter": "Expert closeout is clean: no active builder work, lock released, loop closed, dependency satisfied, system graph counterchecked. Prior Impact Bridge stale closeout prose is resolved. No synthetic residue found.",
     "calculation_integrity_guardian": "No calculation formula, source dataset or reform calculation contract changed in the inspected delta; no deep recalculation was triggered and no new double-counting contradiction was found.",
-    "milestone_closer": "Expert process reached COUNTERCHECKED_STAGING, not ACCEPTED/PRODUCTION_CONFIRMED. No immutable milestone snapshot was created."
+    "milestone_closer": "expert_process advanced only to COUNTERCHECKED_STAGING. No ACCEPTED/PRODUCTION_CONFIRMED quorum exists, so no immutable milestone snapshot was created."
   },
   "owner_action_state": "No READY_NOW owner action; owner inbox remains NOT_READY/BLOCKED only and no deferred action exists.",
-  "next_functional_action": "WERK-AI-SYNTH-001_ONLY_AFTER_EXPERT_CLOSEOUT_RECONCILIATION",
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json",
-  "last_receipt_commit": "92f1d6597434ba6b9dbbade13412d33b29a500de",
-  "note": "No product, runtime, database, Edge or political mutation was performed by the Supervisor. The expert process is independently COUNTERCHECKED_STAGING. Canonical closeout reconciliation must occur before AI synthesis starts. Supervisor audit writes occur after last_checked_head by design."
+  "next_functional_action": "WERK-AI-SYNTH-001",
+  "next_functional_action_state": "EXECUTABLE",
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T032640Z.json",
+  "last_receipt_commit": "f00b69f3015b779c0499b514edf56de2a31baec0",
+  "note": "No product, runtime, database, Edge, paid, production or political mutation was performed by the Supervisor. Audit/governance writes occur after last_checked_head by design. WERK remains YELLOW only because the Hosted Supabase pg_net extension_in_public production-hardening finding remains open."
 }
