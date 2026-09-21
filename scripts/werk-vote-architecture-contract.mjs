@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const x=JSON.parse(fs.readFileSync('werk-data/werk-vote-security-architecture.json','utf8'));
+const fail=m=>{throw new Error(m)};
+if(x.status!=='architecture_only_not_activated_not_official_election')fail('vote architecture status invalid');
+if(x.activation?.enabled!==false||x.activation?.production!==false||x.activation?.official_election!==false)fail('vote activation must be false');
+if(!Array.isArray(x.architecture_candidates)||x.architecture_candidates.length<2)fail('two architecture candidates required');
+if(x.selected_scheme||x.recommended_scheme||x.winner)fail('scheme selection/ranking forbidden');
+for(const c of x.architecture_candidates)if(c.selection_status!=='candidate_not_selected')fail('scheme unexpectedly selected');
+for(const k of ['eligible_population','quorum','decision_threshold','binding_effect','revoting_policy'])if(!(x.election_config_contract?.political_decisions_not_set_here||[]).includes(k))fail('political decision boundary missing '+k);
+if(!Array.isArray(x.threat_model)||x.threat_model.length<8)fail('threat model incomplete');
+console.log('WERK vote architecture contract: PASS');
