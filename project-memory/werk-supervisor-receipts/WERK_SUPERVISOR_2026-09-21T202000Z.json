@@ -1,0 +1,43 @@
+{
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T202000Z",
+  "checked_at": "2026-09-21T20:20:00Z",
+  "result": "COUNTERCHECKED_PROVIDER_EVAL_AND_ID_ARCH",
+  "scopes": [
+    {
+      "task": "WERK-AI-PROVIDER-EVAL-001",
+      "state": "COUNTERCHECKED",
+      "functional_head": "dd771d379e1312bcec3d413982f512114fd5195a",
+      "ci": [
+        "WERK AI Provider Evaluation Check #5 SUCCESS",
+        "WERK Data Contract Registry Check #74 SUCCESS"
+      ],
+      "evidence": [
+        "Provider evaluation contract contains two non-selected candidates and no selected/recommended/winner field.",
+        "AI synthesis contract binds the evaluation file, selection_state=none_selected and external_processing_active=false.",
+        "Cost model requires exact model/tier/region price revalidation and Owner hard cap before activation.",
+        "Primary-source facts independently rechecked on 2026-09-21: OpenAI pricing/data controls and Microsoft Foundry data privacy/EU DataZone."
+      ],
+      "boundary": "No provider selected; no secret, paid call, external processing, Production, ranking or political decision."
+    },
+    {
+      "task": "WERK-ID-ARCH-001",
+      "state": "COUNTERCHECKED",
+      "functional_head": "89a7b3f1b26968f26f57e431d941da9113090130",
+      "ci": [
+        "WERK Identity Architecture Check #5 SUCCESS"
+      ],
+      "evidence": [
+        "At least two non-selected identity models are present: ID Austria Service Provider and EUDI Wallet relying-party candidate.",
+        "Support storage design excludes raw identity fields and uses scope-specific HMAC pseudonymization only after approved stable subject/legal confirmation.",
+        "System graph binds IDENTITY-ARCHITECTURE before VERIFIED-SUPPORT.",
+        "Primary-source facts independently rechecked on 2026-09-21: private ID Austria SP registration/accreditation, OIDC/SAML support, and EU 2026/798 wallet remote-onboarding framework."
+      ],
+      "boundary": "No identity provider selected; no real identity processed; no bPK use assumed; no verified support counting; no vote/Production."
+    }
+  ],
+  "falsification": [
+    "A contract field selecting/recommending a provider/model, external processing becoming active, or missing cost/privacy gate invalidates the provider evaluation.",
+    "Raw identity stored in support records, global cross-scope pseudonym, identity model activation without owner/legal gate, or conflation of support with secret vote invalidates the identity architecture.",
+    "Source or provider terms materially changing require evidence revalidation under WERK TTL policy."
+  ]
+}
