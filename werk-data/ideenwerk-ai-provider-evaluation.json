@@ -1,0 +1,160 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-AI-PROVIDER-EVAL-001",
+  "status": "technical_evaluation_no_provider_selected_no_activation",
+  "purpose": "Vergleichbare technische, Datenschutz-, Kosten- und Verifikationsgrenzen für eine spätere echte KI-Variantengenerierung festlegen, ohne Provider auszuwählen oder zu aktivieren.",
+  "hard_boundaries": [
+    "Kein Provider ist ausgewählt oder bevorzugt.",
+    "Keine Secrets werden in Git gespeichert.",
+    "Keine realen Bürger-, Experten- oder politischen Falldaten werden extern verarbeitet.",
+    "Keine kostenpflichtige Aktivierung erfolgt durch diesen Vertrag.",
+    "Provider-Auswahl, Budgetrahmen und zulässiger Datenfluss bleiben Owner-/Rechts-/Datenschutz-Gates.",
+    "Generierte Varianten bleiben Deliberationsmaterial; kein politisches Ranking, keine Annahme/Ablehnung."
+  ],
+  "common_runtime_contract": {
+    "activation_default": "disabled",
+    "allowed_activation_after_owner": "explicit named provider adapter only",
+    "input_minimization": [
+      "Nur für die Synthese erforderliche strukturierte Problem-/Variantenkontexte senden.",
+      "Keine Status-Token, E-Mail-Adressen, Telefonnummern, Operator-Identitäten oder Roh-PII senden.",
+      "Expert:innen-/Bürgerquellen nur als bereits freigegebene pseudonyme IDs/inhaltliche Evidenzreferenzen übertragen.",
+      "Quantitative Effekte bleiben in WERK-Artefakten; Modell darf keine neuen fiskalischen Zahlen erfinden."
+    ],
+    "secret_boundary": "Nur serverseitige geschützte Runtime-Umgebung; niemals Browser, Git, Audit-Logs oder Bürgerstatus.",
+    "logging_boundary": "Standardmäßig nur Provider-Klasse, Modell-/Deployment-Version, Token-/Kostenmetrik, Latenz, Ergebnisstatus und Source-Snapshot-Hash; keine Prompt-/Antwortinhalte in normalen Betriebslogs.",
+    "fail_closed": [
+      "fehlende Provider-Konfiguration => keine Generierung",
+      "abgelaufene/unklare Source-Bindung => keine Generierung",
+      "Kostenlimit/Quota überschritten => keine Generierung",
+      "Provider- oder Privacy-Gate nicht aktuell => keine Generierung",
+      "Antwort verletzt Variantenschema/Anti-Ranking/Anti-Effekt-Regeln => nicht persistieren"
+    ],
+    "target_bound_verify": [
+      "synthetische Staging-Anfrage ohne reale Bürgerdaten",
+      "positive Schema-/Source-Ref-Prüfung",
+      "negative PII-/Ranking-/Numerik-/stale-source-Prüfung",
+      "Provider-Retention/Region/Model-Version zur Aktivierungszeit erneut verifizieren",
+      "Cost-Metering gegen Provider-Abrechnung plausibilisieren",
+      "Kill-Switch/disabled state nachweisen"
+    ]
+  },
+  "candidates": [
+    {
+      "id": "OPENAI_API_DIRECT",
+      "category": "direct_api",
+      "selection_status": "candidate_not_selected",
+      "data_training": "API-Daten werden laut aktueller OpenAI-Datenkontrolle standardmäßig nicht zum Training verwendet; Opt-in ist getrennt.",
+      "retention": "Responses-API-Anwendungszustand hat laut aktueller Dokumentation standardmäßig 30 Tage Aufbewahrung; Zero Data Retention kann für berechtigte Organisationen/Endpunkte separat aktiviert werden. Aktivierung muss den konkret verwendeten Endpunkt/Modus revalidieren.",
+      "regional_processing": "OpenAI weist für unterstützte regionale Datenresidenz-Verarbeitung bei neueren Modellen einen Preisaufschlag aus; konkrete unterstützte Region und Verarbeitungsgrenze müssen beim Aktivierungs-Gate aktuell geprüft werden.",
+      "pricing_snapshot": {
+        "observed_at": "2026-09-21",
+        "currency": "USD",
+        "source_mode_note": "Die aktuelle Preisseite zeigt mehrere Verarbeitungs-/Service-Tiers; deshalb wird für WERK kein Preis ohne explizite Tierbindung als Aktivierungspreis festgeschrieben.",
+        "gpt_5_6_sol_all_models_short_context_table": {
+          "input_per_1m": 2,
+          "cached_input_per_1m": 0.2,
+          "cache_write_per_1m": 2.5,
+          "output_per_1m": 10
+        },
+        "model_page_default_display": {
+          "input_per_1m": 4,
+          "output_per_1m": 20
+        },
+        "activation_rule": "Vor Aktivierung exact model + service tier + regional processing + aktuelle Preistabelle binden; Differenzen zwischen Preisansichten nicht stillschweigend auflösen."
+      },
+      "privacy_activation_gates": [
+        "konkreter Datenresidenz-/Verarbeitungsmodus bestätigt",
+        "store/stateful Verhalten für verwendeten Endpoint festgelegt",
+        "ZDR-Berechtigung geprüft, falls WERK dies verlangt",
+        "AVV/DPA und Rollen/Transferprüfung abgeschlossen",
+        "hard cost cap und usage alert festgelegt"
+      ],
+      "sources": [
+        {
+          "id": "OPENAI-PRICING",
+          "url": "https://developers.openai.com/de-DE/api/docs/pricing",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "OPENAI-MODEL-GPT56SOL",
+          "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "OPENAI-DATA-CONTROLS",
+          "url": "https://developers.openai.com/de-DE/api/docs/guides/your-data",
+          "observed_at": "2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "AZURE_FOUNDRY_EU_DATAZONE",
+      "category": "azure_managed_model",
+      "selection_status": "candidate_not_selected",
+      "data_training": "Microsoft dokumentiert, dass Prompts/Outputs und Kundendaten ohne ausdrückliche Erlaubnis/Anweisung nicht zum Training oder zur Verbesserung generativer Foundation-Modelle verwendet werden.",
+      "retention": "Modelle selbst sind zustandslos; optionale stateful Features und Abuse-Monitoring können Daten speichern. Der konkrete Deployment-/Monitoring-Modus muss vor Aktivierung verifiziert werden.",
+      "regional_processing": "Bei DataZone in einer EU-Mitgliedsnation können Prompts/Antworten innerhalb der EU Data Zone verarbeitet werden; gespeicherte Daten bleiben laut aktueller Microsoft-Dokumentation in der kundenseitig festgelegten Geografie. Global-Deployment ist für einen EU-only WERK-Pfad nicht automatisch gleichwertig.",
+      "pricing_snapshot": {
+        "observed_at": "2026-09-21",
+        "status": "quote_or_current_azure_price_required",
+        "activation_rule": "Keine Azure-Kostenannahme aus einem anderen Provider ableiten; exact deployment/model/region/tier vor Aktivierung preislich binden."
+      },
+      "privacy_activation_gates": [
+        "EU DataZone oder andere ausdrücklich akzeptierte Verarbeitungsgeografie technisch gebunden",
+        "Abuse-Monitoring-/modified-abuse-monitoring-Status geprüft",
+        "stateful Features nur wenn erforderlich und separat bewertet",
+        "Microsoft DPA/Vertrags- und Kostenrahmen geprüft",
+        "hard cost cap und usage alert festgelegt"
+      ],
+      "sources": [
+        {
+          "id": "MS-FOUNDRY-DATA-PRIVACY",
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy",
+          "observed_at": "2026-09-21"
+        }
+      ]
+    }
+  ],
+  "cost_model": {
+    "formula": "request_cost = input_tokens/1e6*input_rate + cached_input_tokens/1e6*cached_rate + cache_write_tokens/1e6*cache_write_rate + output_tokens/1e6*output_rate + provider_specific_fixed_or_tool_fees",
+    "monthly_formula": "monthly_cost = sum(request_cost) + provider_specific_fixed_costs",
+    "required_metrics": [
+      "input_tokens",
+      "cached_input_tokens",
+      "cache_write_tokens",
+      "output_tokens",
+      "provider",
+      "model_or_deployment",
+      "service_tier",
+      "region_or_data_zone",
+      "request_status"
+    ],
+    "missing_volume_policy": "Kein monatlicher Budgetwert wird ohne beobachtete oder explizit angenommene WERK-Synthesevolumina als belastbare Kostenprognose veröffentlicht.",
+    "hard_cap_status": "OWNER_DECISION_REQUIRED_BEFORE_ACTIVATION"
+  },
+  "comparison_dimensions": [
+    "processing_geography",
+    "retention_and_abuse_monitoring",
+    "training_default",
+    "stateful_feature_need",
+    "current_exact_price",
+    "contract_dpa_transfer",
+    "secret_management",
+    "cost_cap_enforcement",
+    "staging_verifiability",
+    "kill_switch",
+    "model_quality_evaluation"
+  ],
+  "activation_gate": {
+    "status": "BLOCKED_UNTIL_OWNER_AND_EXTERNAL_GATES",
+    "requires": [
+      "independent_countercheck_of_this_contract",
+      "owner_provider_choice",
+      "owner_cost_cap",
+      "privacy_legal_review",
+      "secret_configuration_outside_git",
+      "synthetic_target_bound_staging_acceptance"
+    ],
+    "production": false
+  }
+}
