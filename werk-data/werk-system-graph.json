@@ -140,16 +140,15 @@
       "id": "KPI-MEASUREMENT",
       "type": "impact",
       "label": "KPI / Soll-Ist-Wirkungsmessung",
-      "state": "IN_PROGRESS",
-      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
+      "state": "COUNTERCHECKED_STAGING",
+      "builder_state": "IMPLEMENTED_STAGING_COUNTERCHECKED",
       "implementation": "ideenwerk-backend/sql/042_werk_impact_measurement.sql",
       "contract": "werk-data/ideenwerk-impact-measurement.json",
       "staging_migration": "20260921043357 werk_impact_measurement",
       "functional_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
       "ci": "WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success",
-      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json",
-      "open_contradiction": "CTR-WERK-IMPACT-SOURCE-BINDING-001 (pending independent Supervisor reconciliation)",
-      "boundary": "baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is now Builder-implemented fail-closed but awaits independent countercheck.",
+      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json",
+      "boundary": "baseline/forecast, implementation evidence, observation, arithmetic deviation and attribution hypothesis remain separated; authoritative map/reform/artifact/source-version binding is independently counterchecked fail-closed for Staging.",
       "hardening": "ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql",
       "staging_source_binding_migration": "20260921062817 werk_impact_authoritative_source_binding"
     },
@@ -158,9 +157,14 @@
       "type": "feedback",
       "label": "Wirkung → Verbesserung",
       "state": "IN_PROGRESS",
-      "builder_state": "BLOCKED_BEHIND_IMPACT_SOURCE_BINDING_COUNTERCHECK",
+      "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
       "implementation": "public.werk_impact_reviews via migration 042",
-      "boundary": "improvement hypothesis is review material only and is never auto-adopted; downstream AI feedback consumption must not advance until KPI measurement source binding is reconciled"
+      "boundary": "At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are snapshot-bound into the existing AI synthesis context; review hypotheses remain non-causal and non-political; provider disabled; independent Supervisor countercheck pending.",
+      "feedback_integration": "ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql",
+      "contract": "werk-data/ideenwerk-impact-feedback.json",
+      "staging_feedback_migration": "20260921084055 ideenwerk_impact_feedback",
+      "functional_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
+      "ci": "WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 success on exact functional head"
     },
     {
       "id": "API-IDEENWERK",
@@ -317,22 +321,22 @@
       "from": "IDEENWERK-IMPACT",
       "to": "KPI-MEASUREMENT",
       "relation": "binds_authoritative_model_and_reform_ids",
-      "state": "IN_PROGRESS",
-      "evidence": "Builder implemented fail-closed authoritative tuple binding in migration 043 at ceea9a8bce350529114258049a93ba1057dacbeb; Impact Measurement Check #6 and Data Contract Registry #63 green; Staging 20260921062817 werk_impact_authoritative_source_binding; independent Supervisor countercheck pending."
+      "state": "COUNTERCHECKED_STAGING",
+      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; migration 043 authoritative tuple binding independently counterchecked fail-closed on Staging."
     },
     {
       "from": "KPI-MEASUREMENT",
       "to": "IMPROVEMENT-LOOP",
       "relation": "feeds",
-      "state": "IN_PROGRESS",
-      "evidence": "review-only deviation/attribution/alternative-explanation/improvement hypothesis contract staged; upstream source binding remains open"
+      "state": "COUNTERCHECKED_STAGING",
+      "evidence": "WERK_SUPERVISOR_2026-09-21T072152Z; review-only deviation/attribution/alternative-explanation/improvement-hypothesis contract remains separated from causal fact."
     },
     {
       "from": "IMPROVEMENT-LOOP",
       "to": "AI-SYNTHESIS",
       "relation": "feedback",
-      "state": "BLOCKED",
-      "evidence": "do not wire feedback consumption until independent Supervisor countercheck closes WERK-IMPACT-001 source-binding reconciliation; provider remains separately disabled"
+      "state": "IN_PROGRESS",
+      "evidence": "Builder functional head 6d95b394d0869fb91562f6a84a13502469ef7869; five exact-head workflows green; migration 044 active with ACL/current/stale rollback probes and zero synthetic baseline. Independent Supervisor countercheck pending; provider remains disabled."
     },
     {
       "from": "API-IDEENWERK",
