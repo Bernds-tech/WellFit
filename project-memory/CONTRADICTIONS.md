@@ -143,7 +143,7 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 - Related task/change: `WERK-IMPACT-FEEDBACK-001` / `IMPROVEMENT-LOOP -> AI-SYNTHESIS`.
 - Severity: YELLOW
 - Risk: R3
-- Status: RECONCILIATION_REQUIRED
+- Status: RESOLVED
 - Source A: Builder claim, system graph and `NEXT_BEST_ACTION.md` state that up to 12 current source-bound reviews matching the submission's current Impact Bridge map/reform are consumed by the synthesis context.
 - Source B: exact migration 044 implementation on functional head `6d95b394d0869fb91562f6a84a13502469ef7869`.
 - Contradiction: `ideenwerk_ai_feedback_context()` first selects the globally newest 50 qualifying impact reviews and only inside the loop checks whether `impact_map_id`/`reform_id` match the current submission. More than 50 newer unrelated reviews can therefore exclude an older relevant current review before relevance is evaluated.
@@ -152,16 +152,20 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 - Resolution/action: apply current submission map/reform relevance before the bounded candidate limit, retain the outer 12-item cap, add a negative/regression case with >50 newer unrelated reviews, then rerun exact-head CI and rollback/current/stale staging probes. Do not create a parallel feedback store or task system.
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json`.
 
+- Resolution evidence: independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`; corrected migrations 045/046 are live, exact functional CI is green, deployed definitions and service-role-only ACL were independently re-read, and Staging returned to zero synthetic state.
+
 ## CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001
 - Date: 2026-09-21
 - Detected: 2026-09-21 20:16 Europe/Vienna
 - Related task/change: `WERK-IMPACT-001` / `KPI-MEASUREMENT` current-state read path.
 - Severity: YELLOW
 - Risk: R3
-- Status: RECONCILIATION_REQUIRED
+- Status: RESOLVED
 - Source A: WERK evidence-freshness policy requires mutable source/version evidence to be revalidated when source contracts/registries change before current-state reliance.
 - Source B: current live `public.werk_impact_measurement_snapshot(text)` definition.
 - Contradiction: the snapshot returns the stored `source_version` and current-looking measurement state without invoking `werk_impact_validate_source_binding(...)`. Migration 043 validates authoritative binding before persistence, but a later source-registry/version change can leave an older plan readable without an explicit `revalidation_required` result.
 - Current runtime impact: none observed; all four impact-measurement tables are currently zero-row.
 - Resolution/action: make the read/snapshot path validate the stored map/reform/artifact/source tuple against the current authoritative registry, or explicitly return `revalidation_required` before current-state/acceptance reliance. Preserve historical snapshots as historical evidence rather than rewriting them.
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json`.
+
+- Resolution evidence: independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`; corrected migrations 045/046 are live, exact functional CI is green, deployed definitions and service-role-only ACL were independently re-read, and Staging returned to zero synthetic state.
