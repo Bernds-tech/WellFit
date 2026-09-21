@@ -55,7 +55,7 @@ Canonical register for work that has started but is not yet fully completed.
 ## WERK-IMPACT-FEEDBACK-001
 - Started: 2026-09-21 10:18 Europe/Vienna
 - Updated: 2026-09-21 20:35 Europe/Vienna
-- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Scope: bounded current-source impact-review feedback into the existing AI synthesis source snapshot/provider context; retain provenance, uncertainties and epistemic labels while preventing causal/political promotion.
@@ -70,10 +70,13 @@ Canonical register for work that has started but is not yet fully completed.
 - Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001` and `WERK-DEP-IMPACT-FEEDBACK-001` remain open pending independent confirmation. `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` is separately tracked and not claimed fixed by this work.
 - Exact next step: independent Supervisor counterchecks the corrected exact head and staging evidence. Do not release this lock or start a feature expansion from this edge before the countercheck.
 
+- Closed: 2026-09-21 after independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Next: consume as verified dependency; do not restart this scope without reopen evidence.
+
 ## WERK-IMPACT-SNAPSHOT-FRESHNESS-001
 - Started: 2026-09-21 21:15 Europe/Vienna
 - Updated: 2026-09-21 21:24 Europe/Vienna
-- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Trigger: Supervisor YELLOW `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`.
@@ -83,6 +86,9 @@ Canonical register for work that has started but is not yet fully completed.
 - Work lock: `LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` remains ACTIVE awaiting independent countercheck.
 - Boundary: counterchecked measurement formulas and causal/political semantics are unchanged; no provider, Production or irreversible action.
 - Exact next step: independent Supervisor countercheck. Builder must not self-close the finding or promote Finishline/Evidence states.
+
+- Closed: 2026-09-21 after independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Next: consume as verified dependency; do not restart this scope without reopen evidence.
 
 ## Closed / superseded work
 
