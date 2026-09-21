@@ -410,3 +410,20 @@ Keep history append-only; supersede rather than delete.
 - Activation remains blocked: no identity provider, no real identity, no public endpoint, no counting, no vote, no Production.
 - Exact next step: independent Supervisor countercheck. Only after that may the Owner Action Manager decide whether `WERK-OWNER-ID-001` is READY_NOW.
 - Builder claim: `project-memory/werk-builder-claims/WERK_VERIFIED_SUPPORT_CORE_2026-09-21T2034Z.json`.
+
+## WERK-PARLIAMENTARY-RUNTIME-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Risk: R3
+- Goal: implement the already counterchecked parliamentary trace contract as an internal evidence-bound runtime without live parliamentary integration.
+- Architecture prerequisite: `WERK-PARLIAMENTARY-TRACE-001` is independently COUNTERCHECKED.
+- Implementation: migration 048 adds service-role-only trace/event stores and bounded create/advance/read RPCs; each transition requires evidence and reuses existing impact-measurement references.
+- Exact functional head: `b34cc1f4f9e107bcbb46e82ea68975652eab2152`.
+- CI: WERK Parliamentary Trace Runtime Check #2 SUCCESS; IDEENWERK Backend Check #197 SUCCESS including backup/restore and queue integration.
+- Staging: migration `20260921204112 parliamentary_trace_runtime` live; runtime marker `048_parliamentary_trace_internal_disabled`.
+- Runtime probe: full synthetic path to `impact_measurement_linked` produced 8 append-only events; replay idempotent; stale state and missing evidence/reason fail closed; cleanup traces=0/events=0.
+- Security: RLS; anon/authenticated SELECT/EXECUTE denied; service_role only; no new Security Advisor WARN.
+- Boundary: no law claim, no actor score, no live parliamentary connector, no public endpoint, no WERK VOTE, no Production.
+- Exact next step: independent Supervisor countercheck.
+- Builder claim: `project-memory/werk-builder-claims/WERK_PARLIAMENTARY_TRACE_RUNTIME_2026-09-21T2042Z.json`.
+
