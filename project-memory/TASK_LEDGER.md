@@ -310,7 +310,7 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-IMPACT-FEEDBACK-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Goal: connect counterchecked impact-review/improvement hypotheses back into the existing AI synthesis context while retaining current source binding, provenance, uncertainty and non-causal/non-political semantics.
 - Prior implementation: migration 044 and functional head `6d95b394d0869fb91562f6a84a13502469ef7869` established the bounded feedback edge, but independent Supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json` found `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001`: the old read path globally limited candidates before submission map/reform relevance, so >50 newer unrelated reviews could hide an older relevant review.
@@ -325,9 +325,12 @@ Keep history append-only; supersede rather than delete.
 - Exact next step: independent Supervisor counterchecks `7e4291717563e5fe51cb84c7d239d7920a7d937e`, Impact Feedback #3 / AI Synthesis #7 / Backend #187, migration 045, >50 relevance-before-limit regression, ACL, stale fail-closed behavior and zero cleanup. Only then may this task/loop/lock/dependency close. No new feature slice should bypass the separate snapshot-freshness YELLOW.
 - Do not repeat: do not restore a global pre-relevance candidate limit, rebuild the feedback edge, create a parallel store/calculator, promote review hypotheses to facts/causal effects, rank political variants, auto-change policy, or activate the provider.
 
+- Independent closeout receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Closeout: bounded Staging scope independently confirmed; do not rebuild unless a documented reopen trigger occurs.
+
 ## WERK-IMPACT-SNAPSHOT-FRESHNESS-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Goal: close Supervisor YELLOW `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` by making the existing impact measurement snapshot revalidate its persisted map/reform/artifact/source-version tuple before any current-state reliance.
 - Builder correction: migration 046 `werk_impact_snapshot_freshness` replaces only the existing read RPC. Current authoritative tuples continue to return the prior measurement state plus `current_reliance=true`; stale/unknown authoritative source tuples return `state=revalidation_required`, `current_reliance=false`, preserve the stored append-only evidence as historical, and withhold current observation/review projection.
@@ -339,3 +342,6 @@ Keep history append-only; supersede rather than delete.
 - Loop/lock/dependency: `WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001`, `LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` and `WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001` remain open pending independent Supervisor countercheck.
 - Exact next step: Supervisor independently validates `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`, migration 046, Impact Measurement #8 / Data Contract Registry #66, current/stale fail-closed semantics, ACL and zero cleanup; only then may the finding/loop/lock/dependency close.
 - Do not repeat: do not rebuild impact measurement, create a parallel source registry, rewrite historical measurement evidence, infer causality, or treat Builder evidence as independent acceptance.
+
+- Independent closeout receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Closeout: bounded Staging scope independently confirmed; do not rebuild unless a documented reopen trigger occurs.
