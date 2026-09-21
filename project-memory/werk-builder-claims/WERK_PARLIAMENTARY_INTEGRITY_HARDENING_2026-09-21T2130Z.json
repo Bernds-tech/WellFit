@@ -1,5 +1,5 @@
 {
-  "claim_version": "1.0",
+  "claim_version": "1.1",
   "claim_id": "WERK-BUILDER-CLAIM-PARLIAMENTARY-INTEGRITY-20260921T2130Z",
   "task_id": "WERK-PARLIAMENTARY-RUNTIME-001",
   "branch": "werk-v49-preview-host",
@@ -66,6 +66,7 @@
       "same_input_replay_replayed": true,
       "same_trace_id_on_replay": true,
       "different_hash_same_decision_version": "WERK_TRACE_DECISION_VERSION_CONFLICT",
+      "direct_dml_negative_probe": "A rollback-only SET LOCAL ROLE service_role direct INSERT into werk_parliamentary_traces was denied with insufficient_privilege as required.",
       "true_concurrency": "covered by exact-head CI smoke, not claimed from the sequential live Staging probe",
       "cleanup_trace_rows": 0,
       "cleanup_event_rows": 0
