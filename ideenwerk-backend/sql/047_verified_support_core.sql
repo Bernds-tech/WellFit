@@ -263,15 +263,8 @@ $$;
 REVOKE ALL ON FUNCTION public.werk_record_verified_support(text,text,text,text) FROM PUBLIC,anon,authenticated;
 GRANT EXECUTE ON FUNCTION public.werk_record_verified_support(text,text,text,text) TO service_role;
 
-DO $
-BEGIN
-  IF to_regclass('public.ideenwerk_runtime_meta') IS NOT NULL THEN
-    EXECUTE $meta$
-      INSERT INTO public.ideenwerk_runtime_meta(key,value,updated_at)
-      VALUES('verified_support_core_contract','047_verified_support_core_disabled',now())
-      ON CONFLICT (key) DO UPDATE SET value=EXCLUDED.value,updated_at=EXCLUDED.updated_at
-    $meta$;
-  END IF;
-END $;
+INSERT INTO public.ideenwerk_runtime_meta(key,value,updated_at)
+VALUES('verified_support_core_contract','047_verified_support_core_disabled',now())
+ON CONFLICT (key) DO UPDATE SET value=EXCLUDED.value,updated_at=EXCLUDED.updated_at;
 
 COMMIT;
