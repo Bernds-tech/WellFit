@@ -41,8 +41,8 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-IMPACT-FEEDBACK-001
 - Task: WERK-IMPACT-FEEDBACK-001
-- Status: ACTIVE
-- Phase: CORRECTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_CLOSEOUT_CONSUMED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Scope: existing `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge, including the bounded relevance-before-limit correction required by `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001`.
@@ -51,10 +51,12 @@ Prevents two agents/sessions from independently working the same task.
 - Boundary: this lock does not cover `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`; that separate YELLOW requires its own coordinated corrective scope before implementation.
 - Forbidden while active: parallel feedback implementation, provider activation, production action, political ranking/automatic decision, or treating Builder evidence as independent acceptance.
 
+- Released: 2026-09-21 after independent countercheck `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+
 ## LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001
 - Task: WERK-IMPACT-SNAPSHOT-FRESHNESS-001
-- Status: ACTIVE
-- Phase: IMPLEMENTED_STAGING_AWAITING_INDEPENDENT_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_CLOSEOUT_CONSUMED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
@@ -64,6 +66,8 @@ Prevents two agents/sessions from independently working the same task.
 - Builder evidence: exact functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; WERK Impact Measurement #8 and Data Contract Registry #66 green; Staging migration `20260921192342 werk_impact_snapshot_freshness` live; current tuple readable, stale tuple fails closed to `revalidation_required`; ACL service-role-only; zero synthetic rows after rollback; no new advisor WARN.
 - Boundary: no measurement/KPI/fiscal/causal formula change, no historical evidence rewrite, provider activation, Production, political ranking/decision or WERK-principle change. Separate feedback lock remains untouched.
 - Release condition: independent Supervisor confirms the corrected exact head/runtime evidence and closes or supersedes `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`. Builder evidence alone does not release this lock.
+
+- Released: 2026-09-21 after independent countercheck `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
