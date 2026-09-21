@@ -54,16 +54,18 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-IMPACT-FEEDBACK-001
 - Started: 2026-09-21 10:18 Europe/Vienna
-- Status: IN_PROGRESS
+- Updated: 2026-09-21 14:19 Europe/Vienna
+- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Scope: bounded current-source impact-review feedback into the existing AI synthesis source snapshot/provider context; retain provenance, uncertainties and epistemic labels while preventing causal/political promotion.
 - Upstream consumed: `WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING`; receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
-- Planned implementation: migration 044 `ideenwerk_impact_feedback`, feedback contract, exact-head CI, provider/runner source-ref extension for `impact_review`, reversible Staging probes and zero-baseline cleanup.
-- Provider boundary: external provider remains disabled; this task does not activate secrets, paid calls or live political generation.
-- Work lock: `LOCK-WERK-IMPACT-FEEDBACK-001` ACTIVE.
-- Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001`; `WERK-DEP-IMPACT-FEEDBACK-001`.
-- Exact next step: commit bounded integration, require green Impact Feedback + AI Synthesis checks, then verify migration/probes on WERK Staging and produce Builder claim for independent Supervisor countercheck.
+- Result: migration 044 `ideenwerk_impact_feedback`, feedback contract and provider/runner source-ref extension for `impact_review` are implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded.
+- Staging evidence: migration `20260921084055 ideenwerk_impact_feedback` is active; current-source review inclusion, non-current reference rejection, stale-registry fail-closed behavior, ACL boundaries, rollback and zero synthetic baseline are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
+- Provider boundary: external provider remains disabled; this task does not activate secrets, paid calls, live political generation or Production.
+- Work lock: `LOCK-WERK-IMPACT-FEEDBACK-001` remains ACTIVE pending independent countercheck.
+- Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001` is `OPEN_AWAITING_INDEPENDENT_COUNTERCHECK`; `WERK-DEP-IMPACT-FEEDBACK-001` is `IMPLEMENTED_AWAITING_COUNTERCHECK`.
+- Exact next step: independent Supervisor counterchecks the functional head, five green workflows and Staging evidence; only after that may lock/task/loop/dependency closeout occur. Do not rebuild or start another functional slice first.
 
 ## Closed / superseded work
 
@@ -160,7 +162,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Status: COUNTERCHECKED
 - Risk: R3
 - Scope: reconcile V9 master claims and the WF-MIG-002 decision to the exact merged WellFit-Buddy baseline.
-- Branch/PR: `codex/wf-mig-002-master-reconcile-20260826` / PR #20.
+- Branch/PR: `codex/wf-mig-002-reconcile-20260826` / PR #20.
 - Cross-repo lock: `XLOCK-WF-MIG-002-20260826` released.
 - Result: stale Unity-project claims corrected; `MIGRATE_NOW` bounded to fresh destination initialization and incremental Buddy-domain ports while source/server authority remain preserved.
 - Evidence: WF-EV-005, merged Buddy PRs #18/#19 and green Quality/Status checks on PR #20 before final closeout.
