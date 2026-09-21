@@ -1,10 +1,10 @@
 {
-  "version": "2026-09-21-v18",
+  "version": "2026-09-21-v19",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T20:05:00Z",
+  "last_check_at": "2026-09-21T20:20:00Z",
   "last_checked_head": "c503c7b85aa5985bb739e80a85924ce10a869470",
   "last_functional_pre_audit_head": "6d95b394d0869fb91562f6a84a13502469ef7869",
   "post_check_state_commit_expected": true,
@@ -149,6 +149,18 @@
       "observed_at": "2026-09-21T18:15:25.286Z",
       "unindexed_foreign_keys": 5,
       "result": "INFO_UNCHANGED_LOW_VOLUME_SCHEMA_HYGIENE"
+    },
+    {
+      "kind": "contract_countercheck",
+      "task": "WERK-AI-PROVIDER-EVAL-001",
+      "head": "dd771d379e1312bcec3d413982f512114fd5195a",
+      "result": "COUNTERCHECKED"
+    },
+    {
+      "kind": "contract_countercheck",
+      "task": "WERK-ID-ARCH-001",
+      "head": "89a7b3f1b26968f26f57e431d941da9113090130",
+      "result": "COUNTERCHECKED"
     }
   ],
   "specialist_results": {
@@ -161,7 +173,7 @@
   "owner_action_state": "No READY_NOW owner action. Provider, identity, voting and production owner gates remain NOT_READY/BLOCKED_UNTIL_GATES.",
   "next_functional_action": "RECALCULATE_AFTER_CLOSEOUT",
   "next_functional_action_state": "READY_FOR_BUILDER_RECONCILIATION",
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json",
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json",
   "last_receipt_commit": "736baadb982390af46be4202da93d36e91a831a3",
   "reconciliation_commits": [
     "72e2820cfc16b708fa344f8d3356c7ff02a6172f",
