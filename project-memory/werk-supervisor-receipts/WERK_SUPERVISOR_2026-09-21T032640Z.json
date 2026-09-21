@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T032640Z",
+  "project": "WERK Österreich",
+  "role": "independent_supervisor",
+  "checked_at": "2026-09-21T03:26:40Z",
+  "branch": "werk-v49-preview-host",
+  "checked_pre_audit_head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
+  "previous_checked_head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
+  "delta": {
+    "ahead_by": 10,
+    "classification": "EXPERT_CLOSEOUT_GOVERNANCE_ONLY",
+    "product_runtime_db_edge_changed_after_functional_head": false,
+    "changed_scope": [
+      "Task/Started Work/Lock/Open Loop/Dependency closeout",
+      "System Graph reconciliation",
+      "builder closeout claim",
+      "prior Supervisor receipt/state"
+    ]
+  },
+  "independent_evidence": {
+    "expert_functional_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+    "expert_ci": [
+      {"workflow": "WERK Expert Input Check", "run_number": 4, "conclusion": "success"},
+      {"workflow": "WERK Data Contract Registry Check", "run_number": 59, "conclusion": "success"}
+    ],
+    "expert_frontend_followup_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
+    "frontend_ci": {"workflow": "WERK Frontend Check", "run_number": 182, "conclusion": "success"},
+    "staging": {
+      "project_status": "ACTIVE_HEALTHY",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_version": 7,
+      "latest_migration": "20260921013039 expert_input_operator_index",
+      "recent_migrations": [
+        "20260921013039 expert_input_operator_index",
+        "20260921012806 ideenwerk_expert_input",
+        "20260920223436 ideenwerk_impact_bridge",
+        "20260920211014 http_extension_hardening",
+        "20260920203116 pg_net_data_api_guard"
+      ],
+      "zero_baseline_tables_checked": 15,
+      "zero_baseline_verified": true,
+      "expert_rls": true,
+      "expert_anon_select": false,
+      "expert_authenticated_select": false,
+      "expert_service_role_select": true,
+      "expert_service_role_insert": true,
+      "impact_rls": true,
+      "impact_anon_select": false,
+      "impact_authenticated_select": false,
+      "impact_service_role_select": true,
+      "postgrest_pre_request": "public.werk_api_security_guard"
+    },
+    "security_advisor": {
+      "warn_count": 1,
+      "warning": "extension_in_public: pg_net",
+      "new_warn_since_prior": false,
+      "classification": "PRODUCTION_HARDENING_LIMIT_NONBLOCKING_FOR_REVERSIBLE_STAGING"
+    }
+  },
+  "specialist_results": {
+    "integration_hunter": {
+      "result": "PREREQUISITES_CONNECTED",
+      "detail": "Impact Bridge and Expert Input are independently counterchecked staging inputs for AI synthesis. AI-SYNTHESIS is now the next missing connection; no parallel feature is required."
+    },
+    "evidence_reaper": {
+      "result": "REVALIDATED_AFTER_MIGRATIONS_038_039",
+      "detail": "Pre-expert runtime/advisor entries are historical only; fresh staging, expert, impact and pg_net boundary evidence now carries current reliance."
+    },
+    "orphan_zombie_hunter": {
+      "result": "EXPERT_CLOSEOUT_CLEAN",
+      "detail": "Expert task is COUNTERCHECKED_STAGING; no active builder work, implementation lock released, expert loop closed, expert dependency satisfied, system graph updated. Prior Impact Bridge stale closeout prose is no longer present in the inspected canonical records."
+    },
+    "calculation_integrity_guardian": {
+      "result": "NOT_TRIGGERED_NO_CALCULATION_CONTRACT_CHANGE",
+      "detail": "No calculation formula, source dataset or reform calculation contract changed in the inspected delta; no deep recalculation was required and no new double-counting contradiction was found."
+    },
+    "milestone_closer": {
+      "result": "NO_ACCEPTED_MILESTONE",
+      "detail": "expert_process advances only to COUNTERCHECKED_STAGING. No ACCEPTED/PRODUCTION_CONFIRMED quorum exists and no immutable milestone snapshot is created."
+    }
+  },
+  "reconciliation": {
+    "expert_process_finishline": "COUNTERCHECKED_STAGING",
+    "expert_evidence_freshness": "CURRENT_AFTER_038_039_REVALIDATION",
+    "expert_closeout_finding": "RESOLVED",
+    "impact_text_drift_finding": "RESOLVED",
+    "next_functional_action": "WERK-AI-SYNTH-001",
+    "next_action_state": "EXECUTABLE",
+    "owner_action_ready_now": false
+  },
+  "active_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Hosted Supabase still reports pg_net extension_in_public. The WERK Data-API guard remains counterchecked; final production security acceptance remains blocked until the platform-hardening issue is resolved or explicitly accepted with appropriate evidence."
+    }
+  ],
+  "overall_status": "YELLOW",
+  "mutation_boundary": "Governance/audit memory only. No product, runtime, database, Edge, paid, production or political mutation performed."
+}
