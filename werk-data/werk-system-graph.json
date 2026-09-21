@@ -128,13 +128,19 @@
       "id": "WERK-VOTE",
       "type": "participation",
       "label": "WERK VOTE",
-      "state": "BLOCKED"
+      "state": "BLOCKED",
+      "architecture_state": "COUNTERCHECKED",
+      "architecture_contract": "werk-data/werk-vote-security-architecture.json",
+      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json"
     },
     {
       "id": "PARLIAMENTARY-PATH",
       "type": "implementation",
       "label": "Parlamentarischer/mandatarischer Umsetzungspfad",
-      "state": "PARTIAL"
+      "state": "PARTIAL",
+      "architecture_state": "COUNTERCHECKED",
+      "contract": "werk-data/parliamentary-path-contract.json",
+      "supervisor_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json"
     },
     {
       "id": "KPI-MEASUREMENT",
