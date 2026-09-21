@@ -19,18 +19,28 @@
   ],
   "staging": {
     "project": "WERK Österreich Staging",
+    "migration_version": "20260921203233",
     "migration_name": "verified_support_core",
     "runtime_marker": "047_verified_support_core_disabled",
     "public_endpoint": false,
     "provider_adapter": false,
     "support_counting_active": false,
+    "fresh_probe_observed_at": "2026-09-21T20:35Z",
     "synthetic_probe": {
+      "transaction_mode": "rollback_only",
       "receipt_created": true,
+      "receipt_replay_same_receipt": true,
+      "receipt_idempotency_conflict_fail_closed": true,
       "verified_support_created": true,
-      "replay_idempotent": true,
+      "support_replay_same_support": true,
+      "same_scope_pseudonym_target_deduped_across_new_receipt": true,
       "scope_mismatch_fail_closed": true,
+      "expired_receipt_fail_closed": true,
       "audit_scope_pseudonym_leak": false,
       "audit_provider_assertion_hash_leak": false,
+      "receipt_rows_after": 0,
+      "verified_support_rows_after": 0,
+      "verified_support_audit_rows_after": 0,
       "cleanup_zero": true
     }
   },
@@ -41,7 +51,17 @@
     "service_role_select": true,
     "anon_rpc_execute": false,
     "authenticated_rpc_execute": false,
-    "service_role_rpc_execute": true
+    "service_role_rpc_execute": true,
+    "direct_identity_columns_detected": false,
+    "fresh_security_advisor_observed_at": "2026-09-21T20:35:54.020Z",
+    "new_warn_from_verified_support_core": false,
+    "remaining_warn": "extension_in_public: pg_net",
+    "remaining_warn_scope": "pre-existing production-hardening loop"
+  },
+  "performance": {
+    "fresh_advisor_observed_at": "2026-09-21T20:35:59.221Z",
+    "new_unindexed_foreign_key_from_verified_support_core": false,
+    "note": "The new receipt scope index is currently unused at zero baseline; this is informational and not a functional or security failure."
   },
   "boundaries": [
     "No identity provider selected or activated",
@@ -55,7 +75,9 @@
   "supervisor_falsifiers": [
     "anon/authenticated can read receipts or execute support RPCs",
     "scope mismatch records support",
-    "duplicate scope can create a second verified support",
+    "expired or revoked receipt records support",
+    "receipt idempotency key accepts a conflicting payload",
+    "duplicate scoped pseudonym for the same target can create a second verified support",
     "audit payload exposes scoped pseudonym/provider assertion hash/raw identity",
     "support counting or public endpoint is active",
     "synthetic staging residue remains",
