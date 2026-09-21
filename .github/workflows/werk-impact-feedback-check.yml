@@ -10,6 +10,7 @@ on:
       - 'ideenwerk-backend/sql/042_werk_impact_measurement.sql'
       - 'ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql'
       - 'ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql'
+      - 'ideenwerk-backend/sql/045_ideenwerk_impact_feedback_selection_hardening.sql'
       - 'ideenwerk-backend/src/lib/synthesis-provider.js'
       - 'ideenwerk-backend/scripts/impact-feedback-*.mjs'
       - 'ideenwerk-backend/scripts/run-ai-synthesis.mjs'
@@ -83,12 +84,14 @@ jobs:
           test -s /tmp/ideenwerk-impact-feedback-ci/042_werk_impact_measurement.sql
           test -s /tmp/ideenwerk-impact-feedback-ci/043_werk_impact_authoritative_source_binding.sql
           test -s /tmp/ideenwerk-impact-feedback-ci/044_ideenwerk_impact_feedback.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/045_ideenwerk_impact_feedback_selection_hardening.sql
       - name: Syntax and contract guard
         run: |
           node --check src/lib/synthesis-provider.js
           node --check scripts/run-ai-synthesis.mjs
           node --check scripts/impact-feedback-contract.mjs
           node --check scripts/impact-feedback-smoke.mjs
+          node --check scripts/impact-feedback-selection-regression.mjs
           node scripts/impact-feedback-contract.mjs
       - name: Apply portable migrations
         run: SQL_DIR=/tmp/ideenwerk-impact-feedback-ci npm run migrate
@@ -96,3 +99,5 @@ jobs:
         run: SQL_DIR=/tmp/ideenwerk-impact-feedback-ci npm run migrate
       - name: Current-source feedback, uncertainty, provenance and stale guardrails
         run: node scripts/impact-feedback-smoke.mjs
+      - name: Relevance before bounded selection window
+        run: node scripts/impact-feedback-selection-regression.mjs
