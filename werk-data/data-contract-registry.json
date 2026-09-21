@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-21-v18",
+  "version": "2026-09-21-v19",
   "title": "WERK Österreich – Data Contract Registry",
   "purpose": "Zentrale maschinenlesbare Registry aller kanonischen Datenbaselines und ihrer unabhängigen CI-Verträge. Ein Datenblock gilt nur dann als belastbar, wenn Artefakt, Workflow, Scope-Abgrenzung und offene Gates explizit registriert sind.",
   "checked_at": "2026-09-21",
@@ -10,7 +10,8 @@
     "Offene Gates bleiben explizit sichtbar und dürfen nicht durch Aggregation oder Schätzung verschwinden.",
     "Datenuniversen mit unterschiedlichen Rechnungslegungs-, institutionellen oder zeitlichen Abgrenzungen werden nicht stillschweigend addiert.",
     "Frontend-Integrität ist kein Ersatz für fachliche Datenverträge.",
-    "Die BUD-01-Endrechnung bleibt gesperrt, solange die im Abschlussregister definierten End-Gates offen sind."
+    "Die BUD-01-Endrechnung bleibt gesperrt, solange die im Abschlussregister definierten End-Gates offen sind.",
+    "Technische Governance-Verträge ohne fachliche Datenlücke werden nicht künstlich an Closure-GAPs gebunden; sie besitzen eigene dedizierte Contract-Workflows."
   ],
   "contracts": [
     {
@@ -411,63 +412,6 @@
         "Umschulungskosten und nachhaltige Beschäftigungswirkung",
         "Produktivität je Arbeitsstunde nach Branche",
         "Quellenabweichung XLSX/PDF bei NÖ Elektroinstallation T2 vor Reformverwendung klären"
-      ]
-    },
-    {
-      "id": "AI-PROVIDER-EVAL",
-      "domain": "IDEENWERK / KI-Provider",
-      "canonical_artifacts": [
-        "werk-data/ideenwerk-ai-provider-evaluation.json"
-      ],
-      "workflow": ".github/workflows/werk-ai-provider-evaluation-check.yml",
-      "closure_register_ids": [],
-      "verified_scope": [
-        "Providerneutrale technische Vergleichsdimensionen",
-        "Serverseitige Secret-Grenze und deaktivierter Default",
-        "Datenminimierung und Logging-Grenze",
-        "Fail-closed Provider-/Quota-/Source-Verhalten",
-        "Kostenformel ohne erfundenes Volumen/Budget",
-        "OpenAI Direct und Azure EU DataZone als nicht ausgewählte technische Kandidaten mit Primärquellen"
-      ],
-      "open_scope": [
-        "konkrete Provider-/Modell-/Service-Tier-Auswahl",
-        "Owner-Kostenrahmen",
-        "AVV/DPA/Rechts-/Datenschutzfreigabe",
-        "Secrets und externe Provideraktivierung",
-        "target-bound synthetische Staging-Acceptance nach Auswahl",
-        "echte KI-Generierung"
-      ],
-      "validation_scripts": [
-        "scripts/werk-ai-provider-evaluation-contract.mjs"
-      ]
-    },
-    {
-      "id": "VERIFIED-SUPPORT-ID-ARCH",
-      "domain": "Direkte offene Demokratie / verifizierte Unterstützung",
-      "canonical_artifacts": [
-        "werk-data/verified-support-identity-architecture.json"
-      ],
-      "workflow": ".github/workflows/werk-identity-architecture-check.yml",
-      "closure_register_ids": [],
-      "verified_scope": [
-        "Providerneutraler Kern für 1 Mensch = 1 Unterstützung",
-        "Trennung Identitätsverifikation und politischer Support",
-        "Scoped HMAC-Pseudonym statt Rohidentität im Supportdatensatz",
-        "Datenminimierung, Recovery und Threat Model",
-        "ID Austria Service Provider und EUDI Wallet als nicht ausgewählte Architekturmodelle mit Primärquellen",
-        "klare Trennung Support vs spätere geheime Abstimmung"
-      ],
-      "open_scope": [
-        "Owner-Auswahl des Identitätsmodells",
-        "konkrete Rechtsgrundlage/Datenschutzprüfung",
-        "zulässige stabile Providerkennung für scoped dedupe",
-        "Provider-/Relying-Party-Akkreditierung",
-        "Sandbox-/Referenzintegration",
-        "verifizierte Supportzählung",
-        "WERK VOTE Geheimhaltungs-/Wahlarchitektur"
-      ],
-      "validation_scripts": [
-        "scripts/werk-identity-architecture-contract.mjs"
       ]
     }
   ],
