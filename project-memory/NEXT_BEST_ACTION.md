@@ -1,48 +1,37 @@
 # WERK Next Best Action
 
 - Project: `WERK Österreich`
-- Selected action: `WERK-CURRENT-CLAIMS-COUNTERCHECK`
-- Status: `AWAITING_INDEPENDENT_COUNTERCHECKS`
+- Selected action: `WERK-IMPACT-001`
+- Status: `YELLOW_RECONCILIATION_REQUIRED`
 - Risk: `R3`
-- Gates: `ai_synthesis`, `impact_measurement`
-- Title: Aktuelle AI-Synthese- und Wirkungsmessungs-Claims unabhängig gegenprüfen
+- Gate: `impact_measurement`
+- Title: Wirkungsmessung an den autoritativen WERK-Quellstand fail-closed binden
 
-## Why no new autonomous feature is selected
-Two finishline-relevant slices are materially implemented on WERK Staging and are now fully registered in the Builder-owned canonical shared registers:
+## Why this action is selected
+The independent Supervisor countercheck completed the bounded `WERK-AI-SYNTH-001` Staging contract: source snapshot, current Impact-Bridge/Expert references, multiple variants, provenance/uncertainty, stale revalidation, RLS/ACL and anti-ranking/anti-decision/anti-new-fiscal-effect guards are verified. The external provider remains deliberately disabled and is a separate blocked dependency; do not reactivate or rebuild the bounded synthesis contract.
 
-1. `WERK-AI-SYNTH-001` — bounded source-bound multi-variant synthesis contract/provider adapter/status/UI integration. The external model provider remains deliberately disabled, so no live AI-generated political variants are claimed.
-2. `WERK-IMPACT-001` — source-bound forecast/implementation/KPI/observation/review contract with strict separation between arithmetic deviation and causal attribution.
+`WERK-IMPACT-001` is only partially counterchecked. Its RLS/ACL, append-only evidence, reviewer boundary, observation-source requirement, baseline/target/observation separation, arithmetic deviation and no-causality semantics are sound. However the live measurement-plan recorder currently accepts `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` as length-checked text without validating that the tuple exists and is current in the authoritative WERK Impact-Bridge/reform/model source chain. This contradicts the contract's source-bound claim and leaves the `IDEENWERK-IMPACT → KPI-MEASUREMENT` connection unproven.
 
-The Builder-side reconciliation obligation is complete: both tasks now exist in `TASK_LEDGER.md`, `STARTED_WORK.md`, `WORK_LOCKS.md`, `OPEN_LOOPS.md` and `DEPENDENCIES.md`. Both locks remain ACTIVE because independent Supervisor counterchecks are still missing. Starting another feature before these claims are reconciled would violate the closed-loop priority rules and create avoidable WIP.
+## Exact next implementation scope
+1. Reuse the existing Impact Bridge / WERK reform-model-data source of truth. Do **not** create a second registry, calculator or parallel source table.
+2. Make `werk_record_impact_measurement_plan` fail closed when the submitted impact-map/reform/model/source-version tuple is unknown, stale, mismatched or no longer current.
+3. Preserve the existing semantic boundaries: baseline/forecast is not observed fact; observation is not causal attribution; arithmetic deviation is not policy effect; review/improvement remains hypothesis-only.
+4. Add negative CI/smoke coverage that proves unknown/stale/mismatched source identifiers are rejected, plus a valid current-tuple success path.
+5. Rerun exact-head `WERK Impact Measurement Check`, `WERK Data Contract Registry Check`, affected backend/frontend checks, then require a fresh independent Staging countercheck before closing `WERK-IMPACT-001`.
 
-## AI synthesis evidence awaiting countercheck
-- Functional evidence head: `982fa7301bf13b2e2cf40be14e1f588874e77e4f`.
-- `WERK AI Synthesis Check #3`: SUCCESS.
-- `WERK Data Contract Registry Check #61`: SUCCESS.
-- `IDEENWERK Backend Check #176` on predecessor functional head `4d3f63df43db446cd24c3c98304b1282acf61d9c`: SUCCESS.
-- Staging migrations: `20260921042608 ideenwerk_ai_synthesis` and `20260921042728 ai_synthesis_trigger_privileges`.
-- RLS/direct-access checks: fail-closed as intended; synthesis table remains zero-row.
-- Fresh runtime recheck on 2026-09-21: WERK Österreich Staging remains `ACTIVE_HEALTHY`; migrations 040/041 remain present; current schema has advanced only through the expected impact migration 042.
-- Fresh Security Advisor: no AI-synthesis-specific WARN; only the already-known `pg_net extension_in_public` WARN persists.
-- Provider: `SYNTHESIS_PROVIDER=disabled`; no fallback policy generator and no live AI variant claimed.
-- Builder claim: `project-memory/WERK_AI_SYNTH_001_BUILDER_CLAIM.md`.
-- Separate dependency: `WERK-DEP-AI-PROVIDER-001` remains `BLOCKED` until endpoint/provider, secret handling, cost and target-bound verification are explicitly available. This does not block counterchecking the bounded staging contract.
+## Independent evidence already accepted
+- AI synthesis functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`: WERK AI Synthesis Check #3 and Data Contract Registry #61 successful; Backend Check #176 successful on predecessor `4d3f63df43db446cd24c3c98304b1282acf61d9c`; migrations 040/041 live; zero synthesis rows; bounded contract independently counterchecked.
+- Impact measurement functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`: Impact Measurement Check #1 and Data Contract Registry #62 successful; migration 042 live; RLS/ACL/append-only/no-causality semantics independently verified; source-binding claim remains unverified because runtime enforcement is missing.
+- Fresh Staging: `ACTIVE_HEALTHY`, `werk-ideenwerk-api` ACTIVE v7, latest migration `20260921043357 werk_impact_measurement`, 20 checked citizen/review/privacy/AI/impact tables at zero rows, no active/failed/dead jobs and no active review tasks.
+- Fresh Security Advisor: exactly one WARN remains, `pg_net extension_in_public`; no new WARN. Five new RLS-without-policy entries are INFO only and correspond to the deliberately direct-grant/RPC-bounded AI/impact tables.
+- Fresh Performance Advisor: five INFO-level unindexed foreign keys on impact tables; keep visible for scale/production hardening, but they are not the current correctness blocker.
 
-## Impact measurement evidence awaiting countercheck
-- Functional evidence head: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
-- `WERK Impact Measurement Check #1`: SUCCESS.
-- `WERK Data Contract Registry Check #62`: SUCCESS.
-- Staging migration: `20260921043357 werk_impact_measurement`.
-- RLS/direct-access checks: fail-closed as intended.
-- Fresh zero baseline: `ideenwerk_ai_syntheses=0`, `werk_impact_measurement_plans=0`, `werk_impact_observations=0`, `werk_impact_reviews=0`.
-- Fresh Security Advisor: no impact-measurement-specific WARN.
-- Fresh Performance Advisor: five INFO-level unindexed foreign keys on the new impact tables. This is not a correctness/security failure and does not block bounded Staging countercheck, but it remains visible under `WERK-LOOP-IMPACT-001` for later scale/production hardening.
-- Semantics: baseline/forecast, implementation evidence, observed KPI, arithmetic deviation, attribution hypothesis and improvement hypothesis remain explicitly separated; no causal policy effect is auto-derived.
-- Builder claim: `project-memory/WERK_IMPACT_001_BUILDER_CLAIM.md`.
-- Downstream dependency: `WERK-DEP-IMPACT-FEEDBACK-001` remains ACTIVE because review hypotheses are not yet consumed by AI synthesis.
+## Closed-loop / do-not-repeat boundaries
+- Do not rebuild Impact Bridge, Expert Input or the bounded AI-synthesis contract.
+- Do not activate an external/paid AI provider in this task.
+- Do not infer any real reform implementation, observed causal policy effect, political ranking or automatic decision.
+- Do not move to another feature while the impact source-binding contradiction is open.
+- Existing `WERK-DEP-IMPACT-FEEDBACK-001` remains downstream work after `WERK-IMPACT-001` is counterchecked; do not wire improvement hypotheses into AI while their authoritative source binding is unresolved.
 
-## Current stop condition
-The next safe action is the independent Supervisor countercheck of both current claims. The Builder must not write `WERK_SUPERVISOR_STATE`, must not self-mark Evidence Freshness current, and must not advance `WERK_FINISHLINE_STATE`. Until countercheck/closeout, both active locks stay in place and no new functional feature is started.
-
-## Known unrelated hardening item
-The hosted Supabase `pg_net extension_in_public` WARN remains the already-known nonblocking Staging / production-hardening issue. It did not regress during either feature slice and does not justify inventing new work.
+## Known separate hardening item
+Hosted Supabase still reports `pg_net extension_in_public`. The existing Data-API request boundary remains counterchecked for Staging. This warning continues to block production-security acceptance but does not replace or supersede the current `WERK-IMPACT-001` reconciliation.
