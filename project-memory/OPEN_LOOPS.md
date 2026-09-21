@@ -77,13 +77,13 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-BRIDGE-001
 - Status: CLOSED_COUNTERCHECKED_STAGING
-- Updated: 2026-09-21 01:19 Europe/Vienna
-- Result: the bounded, version-bound citizen/precheck → existing WERK reform/calculation reference bridge is independently `COUNTERCHECKED_STAGING`.
+- Updated: 2026-09-21 05:17 Europe/Vienna
+- Result: the bounded, version-bound citizen/precheck → existing WERK reform/calculation reference bridge is independently `COUNTERCHECKED_STAGING` and its canonical closeout has been consumed.
 - Exact evidence: functional head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded; live migration `20260920223436 ideenwerk_impact_bridge`; runtime contract `037_ideenwerk_impact_bridge`; direct bridge access service-role-only; stale version/source mismatch returns `revalidation_required`; zero synthetic baseline restored.
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
 - Boundary: no parallel calculator, new fiscal effect, political score, recommendation or automatic acceptance/rejection was introduced. Production/overall ACCEPTED is not implied.
 - Reopen trigger: contradictory runtime/CI evidence, source/registry version change invalidating the current link, a bypass of the fail-closed stale path, or a downstream integration dependency requiring a bounded extension.
-- Downstream: after the remaining stale task/start/lock/receipt-index bookkeeping is consumed, proceed to `WERK-EXPERT-001`; do not rebuild the Impact Bridge.
+- Downstream: consumed by `WERK-EXPERT-001`; do not rebuild the Impact Bridge.
 
 ## WERK-LOOP-SEC-PGNET-001
 - Status: OPEN_NONBLOCKING_PRODUCTION_HARDENING
@@ -98,12 +98,12 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-EXPERT-001
 - Related: `WERK-EXPERT-001`, `WERK-DEP-EXPERT-AI-001`.
-- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
-- Updated: 2026-09-21 03:33 Europe/Vienna
+- Status: CLOSED_COUNTERCHECKED_STAGING
+- Updated: 2026-09-21 05:17 Europe/Vienna
 - Risk: R3
-- Result so far: source-bound append-only Fach-/Betroffeneninput is implemented on the existing IDEENWERK submission/audit/status surfaces; contributor role, source/reference, relationship disclosure, optional sourced counterposition, citizen-safe projection, privacy export, aggregate-only transparency and V71 rendering are in place.
-- Exact builder evidence: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4 and WERK Data Contract Registry Check #59 succeeded; live Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`.
-- Live negative/reversible verification: replay deduplication, wrong-role fail-closed, append-only mutation guard, citizen-safe status projection and aggregate-only transparency passed; synthetic submission/expert/operator/audit fixtures were cleaned to zero relevant rows. Fresh performance advisor no longer reports the introduced operator-FK gap after migration 039.
-- Boundary: no expert veto, political merit score, automatic acceptance/rejection, review-depth override, citizen-text mutation, new fiscal/impact effect, production deploy or live-browser visual acceptance is claimed. Existing `pg_net` hosted-extension warning is unchanged and remains a separate production-hardening loop.
-- Close when: independent Supervisor counterchecks the exact functional head plus current Staging evidence, then Task/Started Work/Lock/Dependency/System Graph are reconciled to `COUNTERCHECKED_STAGING` and the Finishline Navigator consumes the gate progress.
-- Downstream: only after closeout may `WERK-AI-SYNTH-001` become executable; do not begin AI synthesis while this loop remains open.
+- Result: source-bound append-only Fach-/Betroffeneninput is independently `COUNTERCHECKED_STAGING` on the existing IDEENWERK submission/audit/status surfaces; contributor role, source/reference, relationship disclosure, optional separately sourced counterposition, citizen-safe projection, privacy export, aggregate-only transparency and V71 rendering were counterchecked.
+- Exact evidence: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; live Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`.
+- Revalidated runtime boundary: project ACTIVE_HEALTHY; expert-input RLS and role guards fail closed for anon/authenticated direct access; append-only trigger active; impact-bridge and pg_net request boundaries remain valid after schema changes; zero synthetic baseline restored.
+- Boundary: no expert veto, political merit score, automatic acceptance/rejection, review-depth override, citizen-text mutation, new fiscal/impact effect, production deploy or live-browser visual acceptance is claimed. Aggregate expert transparency remains service-role-only. Existing `pg_net` hosted-extension warning remains a separate production-hardening loop.
+- Reopen trigger: contradictory CI/runtime evidence, source-binding or append-only bypass, citizen/private projection leak, or a downstream integration dependency requiring a bounded extension.
+- Downstream: canonical Builder closeout is consumed; `WERK-AI-SYNTH-001` may become executable only after the Finishline Navigator/Evidence Reaper consume the expert gate/freshness transition. Do not rebuild expert input.
