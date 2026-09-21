@@ -7,6 +7,7 @@ on:
     paths:
       - 'werk-data/ideenwerk-ai-synthesis.json'
       - 'ideenwerk-backend/sql/040_ideenwerk_ai_synthesis.sql'
+      - 'ideenwerk-backend/sql/041_ai_synthesis_trigger_privileges.sql'
       - 'ideenwerk-backend/src/lib/synthesis-provider.js'
       - 'ideenwerk-backend/scripts/ai-synthesis-*.mjs'
       - 'ideenwerk-backend/scripts/run-ai-synthesis.mjs'
@@ -79,6 +80,7 @@ jobs:
           test -s /tmp/ideenwerk-ai-synthesis-ci/038_ideenwerk_expert_input.sql
           test -s /tmp/ideenwerk-ai-synthesis-ci/039_expert_input_operator_index.sql
           test -s /tmp/ideenwerk-ai-synthesis-ci/040_ideenwerk_ai_synthesis.sql
+          test -s /tmp/ideenwerk-ai-synthesis-ci/041_ai_synthesis_trigger_privileges.sql
       - name: Syntax and policy guard
         run: |
           node --check src/lib/synthesis-provider.js
