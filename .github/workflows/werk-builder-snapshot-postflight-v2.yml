@@ -1,0 +1,41 @@
+name: WERK Builder Snapshot Postflight V2
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'project-memory/werk-builder-snapshot-postflight-v2.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare bounded Builder snapshot-freshness postflight
+        run: python scripts/werk-builder-snapshot-postflight-once.py
+      - name: Commit Builder-owned registers and claim
+        run: |
+          rm -f project-memory/werk-builder-snapshot-postflight.trigger project-memory/werk-builder-snapshot-postflight-v2.trigger
+          git rm -f scripts/werk-builder-snapshot-postflight-once.py .github/workflows/werk-builder-snapshot-postflight-once.yml .github/workflows/werk-builder-snapshot-postflight-v2.yml
+          git config user.name "WERK Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add project-memory/TASK_LEDGER.md \
+                  project-memory/STARTED_WORK.md \
+                  project-memory/WORK_LOCKS.md \
+                  project-memory/DEPENDENCIES.md \
+                  project-memory/OPEN_LOOPS.md \
+                  project-memory/NEXT_BEST_ACTION.md \
+                  project-memory/werk-builder-claims/WERK_IMPACT_SNAPSHOT_FRESHNESS_2026-09-21T1924Z.json
+          git add -u project-memory/werk-builder-snapshot-postflight.trigger project-memory/werk-builder-snapshot-postflight-v2.trigger
+          git diff --cached --check
+          git commit -m "WERK: reconcile impact snapshot freshness claim"
+          git push origin HEAD:werk-v49-preview-host
