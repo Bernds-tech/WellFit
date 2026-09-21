@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "supervisor": "WERK Stundenkontrolleur",
+  "checked_at": "2026-09-21T01:06:21Z",
+  "branch": "werk-v49-preview-host",
+  "checked_head": "24d947122cd2366a1fc6b89bde94e31c6400af14",
+  "previous_checked_head": "b2e95b6e71c808048611aa4a4d81e8de1c633e98",
+  "delta": {
+    "commits": 5,
+    "classification": "AUDIT_GOVERNANCE_ONLY",
+    "product_or_runtime_delta": false,
+    "changed_files": [
+      "project-memory/EXECUTION_RECEIPTS.md",
+      "project-memory/NEXT_BEST_ACTION.md",
+      "project-memory/WERK_EVIDENCE_FRESHNESS.json",
+      "project-memory/WERK_SUPERVISOR_STATE.json",
+      "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T002703Z.json"
+    ]
+  },
+  "runtime": {
+    "project": "WERK Österreich Staging",
+    "status": "ACTIVE_HEALTHY",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "latest_migration": "20260920223436 ideenwerk_impact_bridge",
+    "impact_bridge_contract": "037_ideenwerk_impact_bridge",
+    "impact_bridge_rls": true,
+    "anon_bridge_select": false,
+    "authenticated_bridge_select": false,
+    "service_role_bridge_select": true,
+    "authenticator_db_pre_request": "public.werk_api_security_guard",
+    "zero_baseline_tables_checked": 14,
+    "zero_baseline_verified": true,
+    "active_jobs": 0,
+    "stale_active_jobs": 0,
+    "dead_jobs": 0,
+    "active_review_tasks": 0,
+    "stale_review_tasks": 0
+  },
+  "security_advisor": {
+    "observed_at": "2026-09-21T01:06:21.208Z",
+    "warn_count": 1,
+    "warning": "extension_in_public: pg_net",
+    "info_count": 31,
+    "result": "UNCHANGED_WARNING_SET",
+    "remediation": "https://supabase.com/docs/guides/database/database-linter?lint=0014_extension_in_public"
+  },
+  "specialists": {
+    "integration_hunter": "No new missing integration between two already-verified components. Impact Bridge remains COUNTERCHECKED_STAGING; EXPERT-INPUT remains the next unbuilt node.",
+    "evidence_reaper": "Current staging/advisor evidence remains within TTL and was freshly re-observed. No migration, Edge deployment or runtime-config invalidation occurred.",
+    "orphan_zombie_hunter": "New non-product bookkeeping drift found: Task Ledger, Started Work, closed Impact Bridge Open Loop and satisfied Dependency still contain stale conditional wording that master EXECUTION_RECEIPTS must be reconciled before WERK-EXPERT-001, although the master receipt index is already reconciled and NEXT_BEST_ACTION already selects WERK-EXPERT-001.",
+    "calculation_integrity_guardian": "No calculation formula, source data or reform contract changed in the inspected delta; no deep recalculation triggered and no new double-counting/baseline contradiction found.",
+    "milestone_closer": "No gate newly reached ACCEPTED or PRODUCTION_CONFIRMED; no immutable milestone snapshot created."
+  },
+  "findings": [
+    {
+      "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-TEXT-DRIFT-001",
+      "severity": "YELLOW",
+      "kind": "orphan_zombie_bookkeeping_drift",
+      "status": "RECONCILIATION_REQUIRED_NONBLOCKING",
+      "summary": "Current control sources and master receipt index already advance to WERK-EXPERT-001, but several closed/satisfied Impact Bridge records still say receipt-index/memory closeout remains pending.",
+      "affected": [
+        "project-memory/TASK_LEDGER.md",
+        "project-memory/STARTED_WORK.md",
+        "project-memory/OPEN_LOOPS.md",
+        "project-memory/DEPENDENCIES.md"
+      ],
+      "required_reconciliation": "Replace only the stale conditional closeout wording with the already-proven current state; do not reopen or rebuild the Impact Bridge and do not change product/runtime state."
+    },
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "kind": "production_hardening_limit",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Hosted Supabase still reports pg_net extension_in_public; the bounded Data-API guard remains counterchecked and this does not block reversible Staging feature work."
+    }
+  ],
+  "next_functional_action": "WERK-EXPERT-001",
+  "owner_action_state": "No READY_NOW owner action.",
+  "overall_status": "YELLOW",
+  "safety": "No product, runtime, database, Edge, production or political mutation was performed by the Supervisor."
+}
