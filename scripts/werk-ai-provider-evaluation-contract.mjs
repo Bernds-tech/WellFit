@@ -14,4 +14,7 @@ for(const c of x.candidates){
 if(x.cost_model?.hard_cap_status!=='OWNER_DECISION_REQUIRED_BEFORE_ACTIVATION') fail('cost cap boundary missing');
 const dump=JSON.stringify(x).toLowerCase();
 if(/api[_-]?key\s*[:=]\s*["'][a-z0-9_-]{12,}/i.test(dump)) fail('possible secret');
+const synth=JSON.parse(fs.readFileSync('werk-data/ideenwerk-ai-synthesis.json','utf8'));
+if(synth.provider_contract?.evaluation_contract!==p) fail('AI synthesis does not bind provider evaluation contract');
+if(synth.provider_contract?.selection_state!=='none_selected'||synth.provider_contract?.external_processing_active!==false) fail('AI synthesis provider boundary unexpectedly active');
 console.log('WERK AI provider evaluation contract: PASS');
