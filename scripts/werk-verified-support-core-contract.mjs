@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const x=JSON.parse(fs.readFileSync('werk-data/verified-support-core.json','utf8'));
+const arch=JSON.parse(fs.readFileSync('werk-data/verified-support-identity-architecture.json','utf8'));
+const fail=m=>{throw new Error(m)};
+if(x.status!=='provider_neutral_storage_and_internal_rpc_activation_disabled') fail('support core must remain disabled');
+if(x.reuses?.table!=='public.supports') fail('must reuse existing supports table');
+if(x.semantics?.support_counting_active!==false||x.semantics?.vote!==false) fail('counting/vote must remain disabled');
+if(x.security?.public_endpoint!==false||x.security?.provider_adapter!==false) fail('public/provider boundary must remain disabled');
+if(arch.status!=='technical_architecture_options_no_identity_provider_selected') fail('identity architecture unexpectedly selected');
+if(x.activation_gate?.production!==false) fail('production must remain false');
+console.log('WERK verified support core contract: PASS');
