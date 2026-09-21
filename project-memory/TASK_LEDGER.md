@@ -373,3 +373,23 @@ Keep history append-only; supersede rather than delete.
 - Exact next step: current-head CI + independent countercheck. Only then may `WERK-OWNER-ID-001` become READY_NOW.
 
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
+
+## WERK-VOTE-ARCH-001
+- Date: 2026-09-21
+- Status: COUNTERCHECKED
+- Risk: R4
+- Goal: define a future WERK ballot security architecture without activating voting or choosing political voting rules.
+- Result: two non-selected cryptographic architecture classes, eligibility/ballot separation, threat model, immutable election-config boundary and explicit open governance decisions are contract-bound.
+- Evidence: `werk-data/werk-vote-security-architecture.json`; WERK Vote Architecture Check #1 success; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
+- Boundary: no official election claim, no live ballot, no selected scheme/quorum/threshold/franchise/binding/revote rule.
+
+
+## WERK-PARLIAMENTARY-TRACE-001
+- Date: 2026-09-21
+- Status: COUNTERCHECKED
+- Risk: R3
+- Goal: define the evidence-bound trace from a future WERK citizen-decision artifact through lawful/formal handling, implementation evidence and impact measurement.
+- Result: state machine, evidence fields and descriptive outcome codes are contract-bound without political scoring or motive inference.
+- Evidence: `werk-data/parliamentary-path-contract.json`; WERK Parliamentary Trace Check #2 success; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T203000Z.json`.
+- Boundary: no live parliamentary integration and no claim that a WERK platform decision itself is enacted law.
