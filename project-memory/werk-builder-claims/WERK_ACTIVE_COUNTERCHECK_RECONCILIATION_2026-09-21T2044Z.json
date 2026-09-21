@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task": "WERK-ACTIVE-COUNTERCHECK-RECONCILIATION-20260921T2044Z",
+  "status": "BLOCKED_AWAITING_INDEPENDENT_COUNTERCHECKS",
+  "risk": "R2",
+  "branch": "werk-v49-preview-host",
+  "reconciliation_head": "312688d663ef370238301054e19cc41a58db9b99",
+  "branch_head_before_reconciliation": "e256f60181eaf1869bdd0842d43a1fbed99d48fd",
+  "changes": [
+    "Reconciled project-memory/NEXT_BEST_ACTION.md to the two actually active locked WERK scopes.",
+    "No product code, SQL migration, runtime, system-graph edge, Supervisor state, Evidence Freshness, Finishline state or Navigator action catalog was changed."
+  ],
+  "connection_sweep": {
+    "verified_support": "Existing VERIFIED-SUPPORT -> WERK-VOTE path remains blocked; migration 047 does not activate identity or voting.",
+    "parliamentary_path": "Existing PARLIAMENTARY-PATH -> KPI-MEASUREMENT edge is the reused downstream path; migration 048 references existing impact measurement rather than creating a parallel measurement system.",
+    "new_nodes_or_edges_created": false
+  },
+  "functional_evidence_consumed": [
+    {
+      "task": "WERK-ID-CORE-001",
+      "functional_head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
+      "ci": [
+        "WERK Verified Support Core Check #4 SUCCESS",
+        "IDEENWERK Backend Check #194 SUCCESS"
+      ],
+      "staging": "20260921203233 verified_support_core / runtime marker 047_verified_support_core_disabled",
+      "state": "IMPLEMENTED_STAGING_AWAITING_SUPERVISOR"
+    },
+    {
+      "task": "WERK-PARLIAMENTARY-RUNTIME-001",
+      "functional_head": "b34cc1f4f9e107bcbb46e82ea68975652eab2152",
+      "ci": [
+        "WERK Parliamentary Trace Runtime Check #2 SUCCESS",
+        "IDEENWERK Backend Check #197 SUCCESS"
+      ],
+      "staging": "20260921204112 parliamentary_trace_runtime / runtime marker 048_parliamentary_trace_internal_disabled",
+      "state": "IMPLEMENTED_STAGING_AWAITING_SUPERVISOR"
+    }
+  ],
+  "runtime_or_staging_changes_this_run": false,
+  "exact_head_ci_for_reconciliation_head": {
+    "required_for_product_claim": false,
+    "observed_runs": 0,
+    "reason": "The reconciliation commit changes only the derived Project Memory selector; product/runtime evidence remains bound to the exact functional heads above."
+  },
+  "open_boundaries": [
+    "Independent Supervisor countercheck is still required for both active locks.",
+    "Builder must not release either lock or self-promote either task.",
+    "No external identity provider, verified-support counting, WERK VOTE, live parliamentary connector, legal-effect claim, Production action or paid/irreversible action is authorized.",
+    "Known pg_net extension_in_public remains a separate Production-hardening loop."
+  ]
+}
