@@ -70,6 +70,20 @@ Canonical register for work that has started but is not yet fully completed.
 - Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001` and `WERK-DEP-IMPACT-FEEDBACK-001` remain open pending independent confirmation. `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` is separately tracked and not claimed fixed by this work.
 - Exact next step: independent Supervisor counterchecks the corrected exact head and staging evidence. Do not release this lock or start a feature expansion from this edge before the countercheck.
 
+## WERK-IMPACT-SNAPSHOT-FRESHNESS-001
+- Started: 2026-09-21 21:15 Europe/Vienna
+- Updated: 2026-09-21 21:24 Europe/Vienna
+- Status: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Trigger: Supervisor YELLOW `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`.
+- Scope: read-side freshness hardening only for the existing `public.werk_impact_measurement_snapshot(text)` path; reuse the authoritative validator from migration 043 and preserve historical append-only evidence.
+- Builder result: migration 046 revalidates the persisted source tuple before any current-state projection. Current tuples remain readable; stale/unknown tuples return `revalidation_required`, `current_reliance=false` and no current observation/review projection.
+- Exact evidence: functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; WERK Impact Measurement Check #8 SUCCESS; WERK Data Contract Registry Check #66 SUCCESS; live Staging migration `20260921192342 werk_impact_snapshot_freshness`; rollback-only current/stale probe passed; ACL anon/authenticated=false and service_role=true; zero impact rows after rollback; no new Security Advisor WARN.
+- Work lock: `LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` remains ACTIVE awaiting independent countercheck.
+- Boundary: counterchecked measurement formulas and causal/political semantics are unchanged; no provider, Production or irreversible action.
+- Exact next step: independent Supervisor countercheck. Builder must not self-close the finding or promote Finishline/Evidence states.
+
 ## Closed / superseded work
 
 ### WERK-IMPACT-001 — counterchecked source-bound impact measurement

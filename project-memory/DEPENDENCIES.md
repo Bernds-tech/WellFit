@@ -97,3 +97,14 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Provider boundary: external provider remains disabled and is not required to verify the contract-only feedback edge.
 - Does not satisfy: separate `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`; current-state measurement snapshot freshness remains an independent YELLOW.
 - Unblocks: closeout of the bounded feedback edge only after independent countercheck; no Production or live political-generation claim.
+
+## WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001
+- From: current-state reads of `public.werk_impact_measurement_snapshot(text)` / KPI measurement projection.
+- Requires: existing authoritative Impact Bridge validator from migration 043, persisted map/reform/artifact/source-version tuple, fail-closed read-side revalidation and preserved historical evidence.
+- Type: source-freshness/current-reliance correctness.
+- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Updated: 2026-09-21 21:24 Europe/Vienna.
+- Builder evidence: exact functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; migration 046 active on Staging; Impact Measurement #8 and Data Contract Registry #66 green; current tuple returns current authoritative binding, stale persisted tuple returns `revalidation_required`; ACL unchanged; zero impact rows after rollback.
+- Independent gate: only Supervisor may satisfy this dependency and close/supersede `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` after independent countercheck.
+- Boundary: does not alter measurement formulas, write-side source binding, historical evidence, causal attribution, feedback selection, AI provider or Production.
+- Unblocks: safe reliance on measurement snapshots as current input only after independent countercheck.

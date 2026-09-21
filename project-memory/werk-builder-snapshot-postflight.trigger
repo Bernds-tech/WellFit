@@ -1,4 +1,0 @@
-WERK-IMPACT-SNAPSHOT-FRESHNESS-001
-functional_head=3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f
-created_at=2026-09-21T19:28:00Z
-retry=1

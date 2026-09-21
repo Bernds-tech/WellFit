@@ -144,10 +144,11 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001
 - Related finding: `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` from `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json`.
-- Status: OPEN_RECONCILIATION_REQUIRED
-- Updated: 2026-09-21 20:35 Europe/Vienna
+- Related task/dependency: `WERK-IMPACT-SNAPSHOT-FRESHNESS-001`, `WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001`.
+- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
+- Updated: 2026-09-21 21:24 Europe/Vienna
 - Risk: R3
-- Evidence gap: `public.werk_impact_measurement_snapshot(text)` returns a persisted plan's `source_version` without re-invoking `public.werk_impact_validate_source_binding(...)`; a later canonical source-registry/version change can therefore leave a read snapshot looking current until separately revalidated.
-- Current runtime effect: no stale persisted plan is known; impact measurement tables were zero-row at the independent audit. This is a freshness correctness gap, not evidence of a false live result.
-- Required resolution: under a dedicated corrective lock, make the read/snapshot path revalidate the map/reform/artifact/source-version tuple or return `revalidation_required` before any current-state reliance; add current/stale negative tests and independent countercheck.
-- Coordination boundary: this is not covered by `LOCK-WERK-IMPACT-FEEDBACK-001` and is not claimed fixed by migration 045. Do not modify the already counterchecked measurement formulas or infer causal effect while closing this read-side freshness gap.
+- Builder correction: migration 046 reuses `public.werk_impact_validate_source_binding(...)` on every existing measurement snapshot before current-state reliance. Current tuples retain the normal state plus `current_reliance=true`; stale/unknown persisted tuples return `revalidation_required`, `current_reliance=false`, preserve historical evidence and withhold current observation/review projection.
+- Exact evidence: functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; WERK Impact Measurement Check #8 SUCCESS; WERK Data Contract Registry Check #66 SUCCESS; live Staging migration `20260921192342 werk_impact_snapshot_freshness`; rollback-only current/stale probe passed; ACL anon/authenticated denied and service_role allowed; impact tables restored to zero; no new Security Advisor WARN.
+- Boundary: no counterchecked measurement formula, KPI arithmetic, source registry, fiscal/reform calculation, causal attribution rule, feedback selection or political/provider behavior changed. Historical append-only rows are not mutated.
+- Close condition: independent Supervisor validates the exact head/CI/Staging current+stale semantics and closes or supersedes `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`. Builder evidence alone does not close this loop.

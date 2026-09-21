@@ -324,3 +324,18 @@ Keep history append-only; supersede rather than delete.
 - Separate open finding: `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` remains YELLOW and out of scope for this selection correction. It is tracked as its own open loop and must be resolved before any reliance on stale measurement snapshots as current.
 - Exact next step: independent Supervisor counterchecks `7e4291717563e5fe51cb84c7d239d7920a7d937e`, Impact Feedback #3 / AI Synthesis #7 / Backend #187, migration 045, >50 relevance-before-limit regression, ACL, stale fail-closed behavior and zero cleanup. Only then may this task/loop/lock/dependency close. No new feature slice should bypass the separate snapshot-freshness YELLOW.
 - Do not repeat: do not restore a global pre-relevance candidate limit, rebuild the feedback edge, create a parallel store/calculator, promote review hypotheses to facts/causal effects, rank political variants, auto-change policy, or activate the provider.
+
+## WERK-IMPACT-SNAPSHOT-FRESHNESS-001
+- Date: 2026-09-21
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Goal: close Supervisor YELLOW `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` by making the existing impact measurement snapshot revalidate its persisted map/reform/artifact/source-version tuple before any current-state reliance.
+- Builder correction: migration 046 `werk_impact_snapshot_freshness` replaces only the existing read RPC. Current authoritative tuples continue to return the prior measurement state plus `current_reliance=true`; stale/unknown authoritative source tuples return `state=revalidation_required`, `current_reliance=false`, preserve the stored append-only evidence as historical, and withhold current observation/review projection.
+- Exact functional head: `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`.
+- CI: WERK Impact Measurement Check #8 SUCCESS on exact functional head; WERK Data Contract Registry Check #66 SUCCESS on the same head. Contract guard, migration idempotency, existing measurement smoke and dedicated current/stale snapshot-freshness smoke all passed.
+- Staging: migration `20260921192342 werk_impact_snapshot_freshness` is live on WERK Österreich Staging. Rollback-only runtime probe proved a current source tuple remains readable and an intentionally stale persisted tuple fails closed to `revalidation_required`. Post-probe counts: plans=0, implementation events=0, observations=0, reviews=0.
+- ACL/security: snapshot EXECUTE remains anon=false, authenticated=false, service_role=true. Fresh Security Advisor introduced no new WARN; only the pre-existing `pg_net extension_in_public` production-hardening WARN remains.
+- Calculation-integrity boundary: no baseline, target, KPI, deviation, fiscal, reform, debt, attribution or causal formula changed. No historical row is rewritten/deleted. No political ranking, automatic decision, provider activation, paid call or Production action.
+- Loop/lock/dependency: `WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001`, `LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` and `WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001` remain open pending independent Supervisor countercheck.
+- Exact next step: Supervisor independently validates `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`, migration 046, Impact Measurement #8 / Data Contract Registry #66, current/stale fail-closed semantics, ACL and zero cleanup; only then may the finding/loop/lock/dependency close.
+- Do not repeat: do not rebuild impact measurement, create a parallel source registry, rewrite historical measurement evidence, infer causality, or treat Builder evidence as independent acceptance.

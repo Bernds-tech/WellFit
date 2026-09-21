@@ -1,0 +1,67 @@
+{
+  "claim_type": "WERK_BUILDER_CLAIM",
+  "task_id": "WERK-IMPACT-SNAPSHOT-FRESHNESS-001",
+  "finding": "CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001",
+  "created_at": "2026-09-21T19:24:30Z",
+  "branch": "werk-v49-preview-host",
+  "functional_head": "3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f",
+  "claim_source_head": "1416fa9ddd93cdb2e49b7af37474d2d8254f30f1",
+  "implementation": {
+    "migration_file": "ideenwerk-backend/sql/046_werk_impact_snapshot_freshness.sql",
+    "staging_migration": "20260921192342 werk_impact_snapshot_freshness",
+    "runtime_function": "public.werk_impact_measurement_snapshot(text)",
+    "reuses_validator": "public.werk_impact_validate_source_binding(text,text,text,text)",
+    "new_component_or_systemgraph_edge": false
+  },
+  "tests": [
+    {
+      "name": "WERK Impact Measurement Check",
+      "run_number": 8,
+      "head": "3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f",
+      "result": "success"
+    },
+    {
+      "name": "WERK Data Contract Registry Check",
+      "run_number": 66,
+      "head": "3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f",
+      "result": "success"
+    },
+    {
+      "name": "snapshot freshness current tuple",
+      "result": "planned_no_implementation_evidence + current_reliance=true + current_authoritative_registry_tuple"
+    },
+    {
+      "name": "snapshot freshness stale tuple",
+      "result": "revalidation_required + current_reliance=false + historical_evidence_preserved=true"
+    },
+    {
+      "name": "ACL",
+      "result": "anon=false; authenticated=false; service_role=true"
+    },
+    {
+      "name": "rollback cleanup",
+      "result": "plans=0; implementations=0; observations=0; reviews=0"
+    }
+  ],
+  "runtime": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "runtime_contract": "046_werk_impact_snapshot_freshness",
+    "security_advisor_observed_at": "2026-09-21T19:24:27.190Z",
+    "security_new_warns": 0,
+    "remaining_known_warn": "pg_net extension_in_public (pre-existing production-hardening loop)"
+  },
+  "boundaries": [
+    "Builder claim only; independent Supervisor countercheck required.",
+    "No WERK_SUPERVISOR_STATE, WERK_EVIDENCE_FRESHNESS, WERK_FINISHLINE_STATE or WERK_NEXT_BEST_ACTIONS write.",
+    "No measurement/KPI/fiscal/reform/causal formula changed.",
+    "No historical evidence rewritten or deleted.",
+    "No AI provider, paid call, Production, political ranking/decision or WERK principle change.",
+    "No systemgraph topology change because no new component/edge was created."
+  ],
+  "open_limits": [
+    "Independent Supervisor must validate and close/supersede CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001.",
+    "WERK-IMPACT-FEEDBACK-001 remains separately awaiting independent countercheck.",
+    "pg_net extension_in_public remains separate production hardening."
+  ]
+}
