@@ -306,3 +306,26 @@ No additional locks recorded.
 - Scope: subsidy data, checks, status, memory and existing WERK branch.
 
 - Released 2026-09-09 after exact-implementation success of all 13 workflows; WERK_SUB_001_CI_RECEIPT.json.
+
+## LOCK-WERK-AI-PROVIDER-EVAL-001
+- Task: WERK-AI-PROVIDER-EVAL-001
+- Status: ACTIVE
+- Phase: IMPLEMENTED_AWAITING_CI_AND_COUNTERCHECK
+- Risk: R3
+- Holder: WERK autonomous builder
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 Europe/Vienna
+- Scope: bounded contract/CI work only; no external activation.
+- Release condition: exact-head CI plus independent countercheck.
+
+
+## LOCK-WERK-ID-ARCH-001
+- Task: WERK-ID-ARCH-001
+- Status: ACTIVE
+- Phase: IMPLEMENTED_AWAITING_CI_AND_COUNTERCHECK
+- Risk: R4
+- Holder: WERK autonomous builder
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 Europe/Vienna
+- Scope: bounded contract/CI work only; no external activation.
+- Release condition: exact-head CI plus independent countercheck.
