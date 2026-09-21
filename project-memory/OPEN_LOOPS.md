@@ -133,10 +133,11 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-FEEDBACK-001
 - Related: `WERK-IMPACT-FEEDBACK-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `WERK-AI-SYNTH-001`.
-- Status: OPEN
-- Updated: 2026-09-21 10:18 Europe/Vienna
+- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
+- Updated: 2026-09-21 14:19 Europe/Vienna
 - Risk: R3
-- Gap: counterchecked impact reviews exist as append-only hypothesis/evidence records, but the current AI synthesis snapshot/provider context does not yet consume current review/improvement hypotheses with explicit provenance and uncertainty.
-- Current bounded implementation: add a maximum-12 current feedback context matched to the submission's current Impact Bridge map/reform path; revalidate the full source tuple through `werk_impact_validate_source_binding`; require improvement hypothesis + nonempty uncertainty + nonempty source refs; bind current impact-review IDs into the synthesis snapshot and allow only those IDs as `impact_review` source refs.
-- Safety boundary: review/attribution/improvement text remains hypothesis/review material, never causal fact, ranking, recommendation, accept/reject or automatic policy change. No external/paid provider is activated.
-- Close when: exact-head Impact Feedback + AI Synthesis CI are green; migration 044 is reversibly verified on WERK Staging with stale/current negative paths and zero synthetic baseline; independent Supervisor counterchecks the bounded edge.
+- Builder result: the bounded `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` connection is implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`. At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are snapshot-bound into the existing synthesis context; stale/new feedback invalidates current synthesis fail-closed. No parallel feedback store or calculator was created.
+- Evidence: WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded on the functional head; Staging migration `20260921084055 ideenwerk_impact_feedback` is active; current/non-current/stale/ACL/rollback probes and zero synthetic baseline are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
+- Safety boundary: review/attribution/improvement text remains hypothesis/review material, never causal fact, ranking, recommendation, accept/reject or automatic policy change. External provider remains disabled; no paid/external call, secret or production action occurred.
+- Remaining gap: independent Supervisor has not yet issued a receipt for this feedback slice. Keep task, lock, loop and dependency open and do not begin another functional slice until the exact functional head, CI and Staging evidence are independently counterchecked.
+- Close when: an independent Supervisor receipt confirms the bounded edge for Staging and canonical closeout is consumed. Reopen later only on contradictory evidence or a contract/source change requiring revalidation.
