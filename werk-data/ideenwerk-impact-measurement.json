@@ -1,12 +1,32 @@
 {
-  "version": "2026-09-21-v1",
+  "version": "2026-09-21-v2",
   "name": "WERK impact measurement and feedback contract",
-  "status": "implemented-staging-awaiting-independent-countercheck",
+  "status": "source-binding-hardening-implemented-awaiting-exact-head-ci-and-staging-countercheck",
   "purpose": "Version-bind a WERK reform/impact-map baseline, a real implementation event, KPI observations and review-only improvement hypotheses without converting correlation into causation or automatically adopting a policy change.",
   "prerequisites": {
     "impact_bridge": "COUNTERCHECKED_STAGING",
-    "authoritative_reform_model": "Existing WERK reform/model IDs and artifact refs must be reused; no parallel fiscal model.",
+    "authoritative_reform_model": "Existing WERK reform/model IDs and artifact refs must be reused from the canonical Impact Bridge registry; no parallel fiscal model.",
     "implementation_event": "Observed impact must never be claimed before a source-bound implementation event exists."
+  },
+  "source_binding": {
+    "authority": "werk-data/ideenwerk-impact-bridge.json",
+    "runtime_compilation": "ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql",
+    "fail_closed": true,
+    "validated_tuple": [
+      "impact_map_id",
+      "reform_id",
+      "model_or_artifact_ref",
+      "source_version"
+    ],
+    "current_source_version": "impact-bridge=2026-09-21-v1;reforms=2026-09-06-v5;data-contract-registry=2026-09-07-v17",
+    "invalid_states": [
+      "unknown impact map",
+      "reform not belonging to current map",
+      "artifact not belonging to current map",
+      "stale or unknown canonical source-version token"
+    ],
+    "drift_guard": "CI requires every map/reform/artifact in the canonical Impact Bridge registry to be present in the compiled runtime validator; a registry version/source-version change must update the validator in the same bounded change.",
+    "boundary": "The runtime validator is a compiled fail-closed view of the existing canonical registry, not a second registry or calculator."
   },
   "separation_rules": [
     "forecast/baseline is not observed fact",
@@ -16,12 +36,14 @@
     "improvement hypothesis is review material, never an automatic policy decision"
   ],
   "storage_contract": {
-    "migration": "042_werk_impact_measurement",
+    "base_migration": "042_werk_impact_measurement",
+    "source_binding_migration": "043_werk_impact_authoritative_source_binding",
     "plans_table": "public.werk_impact_measurement_plans",
     "implementation_table": "public.werk_impact_implementation_events",
     "observations_table": "public.werk_impact_observations",
     "reviews_table": "public.werk_impact_reviews",
     "snapshot_rpc": "public.werk_impact_measurement_snapshot",
+    "source_binding_rpc": "public.werk_impact_validate_source_binding",
     "transport_boundary": "trusted service_role; reviewer RPCs require active impact_reviewer",
     "append_only_evidence": true
   },
@@ -65,9 +87,13 @@
     "boundary": "review-only; no automatic implementation, recommendation ranking, acceptance or rejection"
   },
   "negative_guards": [
+    "measurement plan rejects unknown impact map",
+    "measurement plan rejects reform/map mismatch",
+    "measurement plan rejects artifact/map mismatch",
+    "measurement plan rejects stale or unknown canonical source version",
     "observation cannot be recorded without a measurement plan",
     "observation period must be valid",
-    "source binding is mandatory",
+    "implementation and observation source binding is mandatory",
     "implementation event is append-only",
     "observations are append-only",
     "review is append-only",
@@ -78,8 +104,9 @@
   "runtime": {
     "staging_project": "WERK Österreich Staging",
     "staging_project_id": "jwomaoxefgnhsgiebaqy",
-    "staging_migration": "20260921043357 werk_impact_measurement",
-    "schema_verified": true,
+    "base_staging_migration": "20260921043357 werk_impact_measurement",
+    "source_binding_staging_migration": null,
+    "schema_verified": false,
     "rls_enabled": true,
     "anon_authenticated_direct_access": false,
     "zero_baseline": {
@@ -87,19 +114,24 @@
       "observations": 0,
       "reviews": 0
     },
-    "security_advisor_new_warns": 0,
+    "security_advisor_new_warns": null,
     "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item",
     "production": false,
     "synthetic_records_allowed_only_in_rollback_tests": true
   },
   "ci_evidence": {
-    "functional_head": "f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f",
-    "werk_impact_measurement_check_run": 1,
-    "werk_impact_measurement_check": "success",
+    "functional_head": null,
+    "werk_impact_measurement_check_run": null,
+    "werk_impact_measurement_check": "pending exact-head verification",
     "tests": [
-      "contract/source-ID guard",
+      "canonical Impact Bridge runtime parity guard",
       "migration idempotency",
       "reviewer role boundary",
+      "unknown impact-map rejection",
+      "reform/map mismatch rejection",
+      "artifact/map mismatch rejection",
+      "stale source-version rejection",
+      "valid current authoritative tuple success and persistence",
       "plan replay/idempotency",
       "implementation evidence state",
       "invalid observation period and missing plan fail closed",
@@ -109,5 +141,5 @@
       "append-only update/delete denial"
     ]
   },
-  "acceptance_boundary": "Builder evidence proves the bounded staging measurement contract only. No real reform implementation or observed causal policy effect is claimed. Independent Supervisor countercheck remains required."
+  "acceptance_boundary": "Builder code establishes a candidate authoritative source-binding hardening only. Exact-head CI, reversible Staging application and independent Supervisor countercheck are still required before COUNTERCHECKED_STAGING. No real reform implementation or observed causal policy effect is claimed."
 }
