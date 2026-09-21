@@ -22,9 +22,9 @@
 
 ## Reversible Staging Evidence
 - WERK Österreich Staging migration: `20260921062817 werk_impact_authoritative_source_binding`.
-- Valid tuple `IMPACT-SV-EMPLOYEE / SV-01 / werk-data/employee-sv-funding-bridge-results.json / current source token` returned `current_authoritative_registry_tuple`.
-- Live negative checks rejected unknown map, reform mismatch, artifact mismatch and stale source token.
-- Zero baseline after verification: measurement plans 0; implementation events 0; observations 0; reviews 0.
+- Direct validator check: valid tuple `IMPACT-SV-EMPLOYEE / SV-01 / werk-data/employee-sv-funding-bridge-results.json / current source token` returned `current_authoritative_registry_tuple`; unknown map, reform mismatch, artifact mismatch and stale source token failed closed.
+- Full plan-RPC rollback smoke: a temporary active `impact_reviewer` created inside one transaction successfully recorded a valid current-tuple measurement plan through `public.werk_record_impact_measurement_plan(...)`; the same RPC rejected an unknown map and stale source token; the entire transaction was rolled back.
+- Zero baseline after rollback verification: measurement plans 0; implementation events 0; observations 0; reviews 0.
 - Fresh Security Advisor after migration: no new WARN; unchanged separate WARN `pg_net extension_in_public`; RLS-without-policy findings remain INFO on deliberately RPC/direct-grant-bounded tables.
 
 ## Safety / Scope Boundary
