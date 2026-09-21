@@ -64,3 +64,14 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`; WERK_SUPERVISOR_STATE v7 records `COUNTERCHECKED_STAGING`.
 - Boundary: satisfaction proves the bounded Staging reference bridge only; it does not create or verify new fiscal effects and does not imply production acceptance.
 - Downstream: `WERK-EXPERT-001` can become the next functional Builder task after the remaining memory-only Impact Bridge closeout entries are reconciled; `WERK-AI-SYNTH-001` still depends on both Impact Bridge and Expert Process.
+
+## WERK-DEP-EXPERT-AI-001
+- From: `WERK-AI-SYNTH-001`.
+- Requires: `WERK-DEP-IDEENWERK-IMPACT-001` SATISFIED plus independently counterchecked `WERK-EXPERT-001` expert/affected-party evidence contract.
+- Type: cross-component knowledge/provenance integration.
+- Status: ACTIVE_WAITING_COUNTERCHECK
+- Updated: 2026-09-21 03:33 Europe/Vienna.
+- Current evidence: expert process is builder-implemented on Staging at functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4 and WERK Data Contract Registry Check #59 succeeded; migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index` are live; reversible negative checks and zero-fixture cleanup passed.
+- Rule: AI synthesis may consume expert/affected-party input only after independent countercheck confirms source binding, relationship disclosure, append-only audit, citizen/private projection boundaries and no political decision semantics.
+- Boundary: builder implementation alone does not satisfy this dependency and may not make `WERK-AI-SYNTH-001` executable.
+- Satisfy when: `WERK-EXPERT-001` is independently `COUNTERCHECKED_STAGING`, the expert lock/loop/Started Work are reconciled, and the Finishline Navigator consumes the prerequisite transition.
