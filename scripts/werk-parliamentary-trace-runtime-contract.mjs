@@ -5,6 +5,8 @@ const fail=m=>{throw new Error(m)};
 if(a.status!=='trace_contract_only_no_live_parliamentary_integration') fail('architecture contract changed unexpectedly');
 if(r.status!=='internal_service_role_only_disabled_external_integration') fail('runtime must remain disabled externally');
 if(r.security?.public_endpoint!==false||r.security?.live_parliamentary_connector!==false) fail('external/public activation forbidden');
+if(r.security?.direct_table_dml!==false||r.security?.write_path!=='security_definer_rpcs_only') fail('RPC-only write boundary missing');
 if(r.activation_gate?.production!==false) fail('production must remain false');
 if(!r.invariants?.some(x=>x.includes('not represented as enacted law'))) fail('law boundary missing');
+if(!r.invariants?.some(x=>x.includes('database-unique')&&x.includes('concurrent'))) fail('atomic replay invariant missing');
 console.log('WERK parliamentary trace runtime contract: PASS');
