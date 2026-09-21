@@ -1,13 +1,13 @@
 {
-  "version": "2026-09-21-v20",
+  "version": "2026-09-21-v21",
   "supervisor": "WERK Stundenkontrolleur",
   "branch": "werk-v49-preview-host",
   "staging": "WERK Österreich Staging",
   "purpose": "Maschinenlesbarer letzter Kontrollzustand zur Delta-Erkennung zwischen Stundenläufen.",
-  "last_check_at": "2026-09-21T20:50:00Z",
-  "last_checked_head": "d8147e036df87e1ae34bd0d2c863b1c71554914a",
+  "last_check_at": "2026-09-21T21:04:18Z",
+  "last_checked_head": "75a16c668f31e012574250942132ac7ff6cacf9f",
   "post_check_state_commit_expected": true,
-  "prior_state_version": "2026-09-21-v19",
+  "prior_state_version": "2026-09-21-v20",
   "last_checked_functional_impact_bridge_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
   "last_checked_functional_security_head": "4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66",
   "last_checked_functional_expert_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
@@ -21,11 +21,11 @@
   "last_checked_migration": "20260921204112 parliamentary_trace_runtime",
   "overall_status": "RED",
   "delta_since_previous_check": {
-    "base": "c503c7b85aa5985bb739e80a85924ce10a869470",
-    "checked_head_before_supervisor_reconciliation": "d8147e036df87e1ae34bd0d2c863b1c71554914a",
-    "classification": "PARLIAMENTARY_RUNTIME_DATA_INTEGRITY_CONTRACT_BREACH_AND_ID_CORE_VALIDITY_GAP",
-    "product_or_runtime_delta": true,
-    "summary": "Migrations 047 and 048 are live and their exact functional heads have green CI. Independent countercheck found a RED parliamentary trace integrity breach: service_role can bypass evidence-required state transitions and append-only event semantics through direct table mutation, with no enforcing triggers. It also found a YELLOW concurrent replay race due missing source-decision/version uniqueness. Verified Support remains YELLOW because future-dated verified_at values are not rejected."
+    "base": "d8147e036df87e1ae34bd0d2c863b1c71554914a",
+    "checked_head_before_supervisor_reconciliation": "75a16c668f31e012574250942132ac7ff6cacf9f",
+    "classification": "NO_MATERIAL_CHANGE_EXISTING_RED_YELLOW_REPRODUCED",
+    "product_or_runtime_delta": false,
+    "summary": "Since the prior check, the branch advanced only through supervisor/governance reconciliation files. No product, workflow, migration or Edge implementation changed. Fresh Staging probes reproduce the same RED parliamentary append-only/state-transition bypass, the same YELLOW parliamentary replay race and the same YELLOW future-verified_at validity gap. No new security warning, queue/review backlog or integration promotion was observed."
   },
   "active_findings": [
     {
@@ -35,6 +35,7 @@
       "task": "WERK-PARLIAMENTARY-RUNTIME-001",
       "summary": "Contract requires evidence-bound state transitions and append-only event history, but live tables have no user triggers enforcing those rules. service_role has UPDATE/DELETE-capable direct table access, so state/outcome/event history can bypass werk_advance_parliamentary_trace.",
       "first_observed_at": "2026-09-21T20:50:00Z",
+      "last_observed_at": "2026-09-21T21:04:18Z",
       "status": "OPEN_BLOCKING_COUNTERCHECK_AND_DOWNSTREAM_PROMOTION"
     },
     {
@@ -44,6 +45,7 @@
       "task": "WERK-PARLIAMENTARY-RUNTIME-001",
       "summary": "Sequential SELECT-then-INSERT replay is not protected by a UNIQUE source_decision_id/source_decision_version constraint, so concurrent creates can duplicate one decision/version trace.",
       "first_observed_at": "2026-09-21T20:50:00Z",
+      "last_observed_at": "2026-09-21T21:04:18Z",
       "status": "OPEN_BLOCKING_COUNTERCHECK"
     },
     {
@@ -53,15 +55,16 @@
       "task": "WERK-ID-CORE-001",
       "summary": "Receipt creation does not reject verified_at in the future and support recording does not require verified_at<=now(). Provider/public/counting remain disabled and zero rows exist, so no current public integrity loss was observed.",
       "first_observed_at": "2026-09-21T20:50:00Z",
+      "last_observed_at": "2026-09-21T21:04:18Z",
       "status": "OPEN_BLOCKING_COUNTERCHECK"
     },
     {
       "id": "WERK-LOOP-SEC-PGNET-001",
       "severity": "YELLOW",
       "kind": "production_hardening_limit",
-      "summary": "Fresh Security Advisor after migration 048 still reports exactly one WARN: extension_in_public for pg_net. The bounded PostgREST request guard remains configured; no new security WARN appeared.",
+      "summary": "Fresh Security Advisor still reports exactly one WARN: extension_in_public for pg_net. The bounded PostgREST request guard remains configured; no new security WARN appeared.",
       "first_observed_at": "2026-09-20T19:07:17.595Z",
-      "last_observed_at": "2026-09-21T20:49:38.167Z",
+      "last_observed_at": "2026-09-21T21:03:46.390Z",
       "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK_BUT_BLOCKING_PRODUCTION_SECURITY_ACCEPTANCE"
     },
     {
@@ -89,19 +92,25 @@
       "kind": "exact_head_ci",
       "task": "WERK-ID-CORE-001",
       "head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
-      "workflows": ["WERK Verified Support Core Check #4 SUCCESS", "IDEENWERK Backend Check #194 SUCCESS"],
+      "workflows": [
+        "WERK Verified Support Core Check #4 SUCCESS",
+        "IDEENWERK Backend Check #194 SUCCESS"
+      ],
       "result": "CI_VERIFIED_FUNCTIONAL_COUNTERCHECK_FAILED_YELLOW"
     },
     {
       "kind": "exact_head_ci",
       "task": "WERK-PARLIAMENTARY-RUNTIME-001",
       "head": "b34cc1f4f9e107bcbb46e82ea68975652eab2152",
-      "workflows": ["WERK Parliamentary Trace Runtime Check #2 SUCCESS", "IDEENWERK Backend Check #197 SUCCESS"],
+      "workflows": [
+        "WERK Parliamentary Trace Runtime Check #2 SUCCESS",
+        "IDEENWERK Backend Check #197 SUCCESS"
+      ],
       "result": "CI_VERIFIED_FUNCTIONAL_COUNTERCHECK_FAILED_RED"
     },
     {
       "kind": "staging_runtime_refresh",
-      "observed_at": "2026-09-21T20:49:42Z",
+      "observed_at": "2026-09-21T21:04:18.752404Z",
       "project_status": "ACTIVE_HEALTHY",
       "edge_function": "werk-ideenwerk-api",
       "edge_version": 7,
@@ -113,38 +122,36 @@
       "processing_jobs_total": 0,
       "active_jobs": 0,
       "failed_or_dead_jobs": 0,
-      "stale_locked_jobs": 0,
       "review_tasks_total": 0,
-      "active_review_tasks": 0,
-      "stale_review_tasks": 0
+      "active_review_tasks": 0
     },
     {
       "kind": "supabase_security_advisor_refresh",
-      "observed_at": "2026-09-21T20:49:38.167Z",
+      "observed_at": "2026-09-21T21:03:46.390Z",
       "warn_count": 1,
       "warning": "extension_in_public: pg_net",
       "rls_enabled_no_policy_info_count": 40,
       "new_warn_since_prior": false,
-      "result": "UNCHANGED_PLATFORM_WARNING_PLUS_EXPECTED_NEW_RLS_INFO"
+      "result": "UNCHANGED_PLATFORM_WARNING_PLUS_EXPECTED_RLS_INFO"
     },
     {
       "kind": "supabase_performance_advisor_refresh",
-      "observed_at": "2026-09-21T20:49:42.961Z",
+      "observed_at": "2026-09-21T21:03:52.472Z",
       "unindexed_foreign_keys": 5,
       "result": "INFO_UNCHANGED_LOW_VOLUME_SCHEMA_HYGIENE"
     }
   ],
   "specialist_results": {
-    "integration_hunter": "Verified Support and Parliamentary Trace reuse existing support/audit and impact-measurement paths; no parallel KPI system was introduced. Parliamentary runtime must not be promoted in the system graph while the RED integrity finding is open.",
-    "evidence_reaper": "Migration 048 invalidated pre-048 mutable runtime/security/advisor reliance. Fresh marker, RLS/ACL, zero-baseline, Edge v7, queue/review, PostgREST guard and advisor evidence were collected after 048. Historical pre-048 evidence remains historical only.",
-    "orphan_zombie_hunter": "WERK-ID-CORE-001 and WERK-PARLIAMENTARY-RUNTIME-001 both have valid active locks/scopes and explicit next steps. Neither is a zombie; neither may be closed from Builder claims.",
-    "calculation_integrity_guardian": "Not triggered: migrations 047/048 change identity/parliamentary contracts only and do not change calculation formulas, fiscal inputs, data years, population, units, debt definitions, interest arithmetic, baseline/scenario separation or transfer/cost boundaries.",
+    "integration_hunter": "No new or materially changed missing integration was found. The system graph correctly keeps WERK-VOTE -> PARLIAMENTARY-PATH blocked and PARLIAMENTARY-PATH -> KPI-MEASUREMENT in progress; parliamentary runtime is not promoted while the RED integrity finding is open.",
+    "evidence_reaper": "Mutable Staging/advisor evidence is fresh under the 24h policy and was independently refreshed. No migration, Edge deploy, runtime-config, workflow-contract or functional-head invalidation trigger occurred since v20.",
+    "orphan_zombie_hunter": "WERK-ID-CORE-001 and WERK-PARLIAMENTARY-RUNTIME-001 remain valid active existing locks with explicit scopes and next steps. No new orphan, zombie, stale lock, fulfilled-but-blocked dependency or synthetic test residue was observed.",
+    "calculation_integrity_guardian": "Not triggered: no calculation, source-data, reform-contract, formula, data-year, population, unit, debt-definition, interest arithmetic, baseline/scenario or transfer/cost boundary changed since the last relevant check.",
     "milestone_closer": "No gate newly satisfies ACCEPTED or PRODUCTION_CONFIRMED quorum. No milestone snapshot created."
   },
   "owner_action_state": "No READY_NOW owner action. Identity/provider/legal/privacy, WERK VOTE and Production gates remain blocked; current RED/YELLOW findings prevent promotion.",
   "next_functional_action": "RECONCILE_EXISTING_ACTIVE_LOCKS_ONLY",
-  "next_functional_action_state": "BLOCKED_ON_RED_AND_YELLOW_SUPERVISOR_FINDINGS",
-  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T205000Z.json",
-  "last_receipt_commit": "e844ff193b3d0036b3b187ace8d1ee9095bd26ee",
-  "note": "No product/runtime/political change was made by the Supervisor. Do not start a new feature slice. Reconcile the existing WERK-PARLIAMENTARY-RUNTIME-001 and WERK-ID-CORE-001 scopes in place, then rerun exact-head CI and fresh Staging countercheck."
+  "next_functional_action_state": "BLOCKED_ON_EXISTING_RED_AND_YELLOW_SUPERVISOR_FINDINGS",
+  "last_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T210418Z.json",
+  "last_receipt_commit": "e75e9a5220335bb6ae0d6e83d092d390e7fedc59",
+  "note": "No product/runtime/political change was made by the Supervisor. No material delta since v20. Do not start a new feature slice. Reconcile the existing WERK-PARLIAMENTARY-RUNTIME-001 and WERK-ID-CORE-001 scopes in place, then rerun exact-head CI and fresh Staging countercheck."
 }
