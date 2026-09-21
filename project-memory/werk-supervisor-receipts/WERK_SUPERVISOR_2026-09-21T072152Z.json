@@ -1,0 +1,95 @@
+{
+  "schema_version": "2026-09-21-v1",
+  "receipt_id": "WERK-SUPERVISOR-2026-09-21T072152Z",
+  "observed_at": "2026-09-21T07:21:52Z",
+  "role": "WERK_SUPERVISOR",
+  "scope": "WERK-IMPACT-001 authoritative source binding countercheck plus hourly control sweep",
+  "classification": "YELLOW",
+  "observed_control_head": "06259fa91e29494f4e39a089fc09cbba952f71d3",
+  "functional_head": "ceea9a8bce350529114258049a93ba1057dacbeb",
+  "functional_exact_head_ci": {
+    "WERK Impact Measurement Check": {
+      "run_number": 6,
+      "conclusion": "success"
+    },
+    "WERK Data Contract Registry Check": {
+      "run_number": 63,
+      "conclusion": "success"
+    }
+  },
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "status": "ACTIVE_HEALTHY",
+    "latest_migration": "20260921062817 werk_impact_authoritative_source_binding",
+    "edge": {
+      "werk-ideenwerk-api": 7
+    },
+    "impact_source_binding_contract": "043_werk_impact_authoritative_source_binding",
+    "acl": {
+      "anon_validator_execute": false,
+      "authenticated_validator_execute": false,
+      "service_role_validator_execute": true,
+      "anon_recorder_execute": false,
+      "authenticated_recorder_execute": false,
+      "service_role_recorder_execute": true
+    },
+    "validator_probes": {
+      "valid_current_tuple": "PASS_current_authoritative_registry_tuple",
+      "unknown_map": "PASS_fail_closed_WERK_IMPACT_SOURCE_MAP_UNKNOWN",
+      "wrong_reform": "PASS_fail_closed_WERK_IMPACT_SOURCE_REFORM_MISMATCH",
+      "wrong_artifact": "PASS_fail_closed_WERK_IMPACT_SOURCE_ARTIFACT_MISMATCH",
+      "stale_source_token": "PASS_fail_closed_WERK_IMPACT_SOURCE_VERSION_STALE_OR_UNKNOWN"
+    },
+    "zero_baseline": {
+      "impact_measurement_plans": 0,
+      "impact_implementation_events": 0,
+      "impact_observations": 0,
+      "impact_reviews": 0,
+      "processing_jobs_active": 0,
+      "processing_jobs_failed_or_dead": 0,
+      "review_tasks_active": 0,
+      "submissions": 0,
+      "ideenwerk_ai_syntheses": 0,
+      "ideenwerk_impact_bridge_checks": 0,
+      "ideenwerk_expert_inputs": 0
+    },
+    "security_advisor": {
+      "warnings": 1,
+      "warning_ids": ["extension_in_public:pg_net"],
+      "info_count": 37,
+      "new_warning": false
+    }
+  },
+  "countercheck_result": {
+    "task": "WERK-IMPACT-001",
+    "status": "COUNTERCHECKED_STAGING",
+    "claim": "The authoritative source binding is fail-closed against unknown map/reform/artifact/source-version tuples and is enforced before impact-plan persistence.",
+    "result": "VERIFIED",
+    "resolved_contradiction": "CTR-WERK-IMPACT-SOURCE-BINDING-001"
+  },
+  "specialist_sweeps": {
+    "integration_hunter": "Source-to-KPI binding gap is now counterchecked on staging. The existing downstream KPI/improvement feedback integration remains the next functional gap; do not duplicate it.",
+    "evidence_reaper": "Pre-migration mutable runtime/security evidence is historical only. Current reliance moved to fresh post-043 staging/security observations.",
+    "orphan_zombie_hunter": "WERK-IMPACT-001 builder-owned bookkeeping must consume this countercheck and release the active lock/open loop; rebuilding the implementation is prohibited.",
+    "calculation_integrity_guardian": "Triggered by impact source-contract v2. No numeric formula, fiscal input, reform formula, or causal-attribution rule changed; no double-counting or cross-model inconsistency found. Persisted impact rows remain zero.",
+    "milestone_closer": "No snapshot: COUNTERCHECKED_STAGING does not meet first ACCEPTED or PRODUCTION_CONFIRMED quorum."
+  },
+  "remaining_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "status": "OPEN_PRODUCTION_HARDENING",
+      "summary": "Supabase Security Advisor still reports pg_net extension_in_public; no new WARN and reversible staging work remains unblocked."
+    },
+    {
+      "id": "WERK-CTRL-HEAD-CI-001",
+      "severity": "YELLOW",
+      "status": "OPEN",
+      "summary": "Current governance/control head 06259fa91e29494f4e39a089fc09cbba952f71d3 has no exact-head GitHub Actions run. Functional implementation head is independently exact-head green."
+    }
+  ],
+  "red_findings": [],
+  "owner_action_ready_now": false,
+  "next_functional_task": "WERK-IMPACT-FEEDBACK-001",
+  "product_runtime_political_changes_by_supervisor": false
+}
