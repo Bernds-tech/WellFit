@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const x=JSON.parse(fs.readFileSync('werk-data/parliamentary-path-contract.json','utf8'));
+const fail=m=>{throw new Error(m)};
+if(x.status!=='trace_contract_only_no_live_parliamentary_integration')fail('parliamentary trace unexpectedly live');
+if(x.integration?.live_external_connection!==false)fail('external parliamentary connection must remain disabled');
+for(const k of ['implemented_as_recorded','implemented_with_changes','not_implemented','legally_unavailable','unknown_requires_evidence'])if(!(x.outcome_codes||[]).includes(k))fail('outcome code missing '+k);
+const dump=JSON.stringify(x).toLowerCase();
+for(const forbidden of ['competence score','politician score','party score','motive score'])if(dump.includes(forbidden))fail('political scoring forbidden');
+if(!(x.invariants||[]).some(v=>v.includes('not represented as enacted law')))fail('platform/law boundary missing');
+console.log('WERK parliamentary path contract: PASS');
