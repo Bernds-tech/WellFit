@@ -51,6 +51,20 @@ Prevents two agents/sessions from independently working the same task.
 - Boundary: this lock does not cover `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`; that separate YELLOW requires its own coordinated corrective scope before implementation.
 - Forbidden while active: parallel feedback implementation, provider activation, production action, political ranking/automatic decision, or treating Builder evidence as independent acceptance.
 
+## LOCK-WERK-IMPACT-SNAPSHOT-FRESHNESS-001
+- Task: WERK-IMPACT-SNAPSHOT-FRESHNESS-001
+- Status: ACTIVE
+- Phase: CORRECTIVE_IMPLEMENTATION
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 21:15 Europe/Vienna
+- Trigger: Supervisor YELLOW `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` / `WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001`.
+- Scope: bounded read-side hardening of the existing `public.werk_impact_measurement_snapshot(text)` path so persisted map/reform/artifact/source-version tuples are revalidated against the existing authoritative Impact Bridge binding before any current-state projection is returned. Historical append-only evidence must remain preserved.
+- Boundary: no change to counterchecked measurement formulas, KPI arithmetic, causal attribution semantics, provider state, Production, political ranking or WERK principles. This lock is separate from `LOCK-WERK-IMPACT-FEEDBACK-001`.
+- Planned negative paths: current tuple remains readable; stale/unknown source tuple returns explicit `revalidation_required` and withholds current reliance; service-role-only execution remains intact; synthetic rows are rollback-only.
+- Release condition: keep active through Builder implementation/Staging evidence and until independent Supervisor countercheck; Builder evidence alone must not close the finding.
+
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
 - Status: RELEASED
@@ -130,8 +144,8 @@ Prevents two agents/sessions from independently working the same task.
 - Acquired: 2026-08-26 Europe/Vienna
 - Released: 2026-08-26 after bounded diff and green Guard/Quality countercheck.
 - Scope: canonical one-screen AR mobile UX contract and cross-repository responsibility mapping only; no visual runtime, backend or Unity controller implementation.
-- Result: specification and coordination records created; runtime gates remain open.
-- Recovery: revert PR #22; runtime repositories remain unchanged.
+- Result: specification and coordination records created; runtime repositories remain unchanged.
+- Recovery: revert PR #22; existing runtime repositories remain unchanged.
 
 No additional locks recorded.
 ## LOCK-WERK-LAB-002
