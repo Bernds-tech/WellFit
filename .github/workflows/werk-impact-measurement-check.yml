@@ -1,0 +1,90 @@
+name: WERK Impact Measurement Check
+
+on:
+  push:
+    branches:
+      - werk-v49-preview-host
+    paths:
+      - 'werk-data/ideenwerk-impact-measurement.json'
+      - 'werk-data/ideenwerk-impact-bridge.json'
+      - 'ideenwerk-backend/sql/042_werk_impact_measurement.sql'
+      - 'ideenwerk-backend/scripts/impact-measurement-*.mjs'
+      - '.github/workflows/werk-impact-measurement-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: werk
+          POSTGRES_USER: werk
+          POSTGRES_PASSWORD: werk-ci-only
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U werk -d werk"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgres://werk:werk-ci-only@127.0.0.1:5432/werk
+    defaults:
+      run:
+        working-directory: ideenwerk-backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Install PostgreSQL client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Bootstrap portable CI database
+        run: |
+          psql "$DATABASE_URL" -v ON_ERROR_STOP=1 <<'SQL'
+          DO $$
+          BEGIN
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='anon') THEN CREATE ROLE anon NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='authenticated') THEN CREATE ROLE authenticated NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='service_role') THEN CREATE ROLE service_role NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='authenticator') THEN CREATE ROLE authenticator NOLOGIN; END IF;
+            IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname='postgres') THEN CREATE ROLE postgres NOLOGIN; END IF;
+          END
+          $$;
+          CREATE SCHEMA IF NOT EXISTS extensions;
+          CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
+          SQL
+          rm -rf /tmp/ideenwerk-impact-measurement-ci && mkdir -p /tmp/ideenwerk-impact-measurement-ci
+          for f in sql/*.sql; do
+            b="$(basename "$f")"
+            case "$b" in
+              016_*|017_*|018_*|020_*|021_*|022_*) ;;
+              *) cp "$f" /tmp/ideenwerk-impact-measurement-ci/ ;;
+            esac
+          done
+          cat > /tmp/ideenwerk-impact-measurement-ci/016_pg_net_internal_only.sql <<'SQL'
+          SELECT 1;
+          SQL
+          test -s /tmp/ideenwerk-impact-measurement-ci/037_ideenwerk_impact_bridge.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/038_ideenwerk_expert_input.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/040_ideenwerk_ai_synthesis.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/041_ai_synthesis_trigger_privileges.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/042_werk_impact_measurement.sql
+      - name: Syntax and contract guard
+        run: |
+          node --check scripts/impact-measurement-contract.mjs
+          node --check scripts/impact-measurement-smoke.mjs
+          node scripts/impact-measurement-contract.mjs
+      - name: Apply portable migrations
+        run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
+      - name: Migration idempotency
+        run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
+      - name: Forecast, implementation, observation, attribution and append-only guardrails
+        run: node scripts/impact-measurement-smoke.mjs
