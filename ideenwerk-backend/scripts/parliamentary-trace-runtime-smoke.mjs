@@ -41,7 +41,7 @@ try{
 
   const snap=await c.query('select public.werk_get_parliamentary_trace($1) data',[traceId]);
   assert.equal(snap.rows[0].data.outcome_code,'unknown_requires_evidence');
-  assert.equal(snap.rows[0].data.events.length,7);
+  assert.equal(snap.rows[0].data.events.length,8);
   assert.equal(snap.rows[0].data.boundary,'descriptive_trace_only_no_actor_score_no_law_claim');
 
   await c.query('ROLLBACK');
