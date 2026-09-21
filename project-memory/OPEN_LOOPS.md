@@ -168,3 +168,13 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 - Gap closed by Builder: provider-neutral internal verification receipt + scoped support ledger path now exists on Staging with counting disabled.
 - Remaining boundary: independent countercheck; then Owner/legal/privacy/provider choice still required before any real identity or public verified-support activation.
 - Do not close from Builder evidence alone.
+
+## WERK-LOOP-PARLIAMENTARY-RUNTIME-001
+- Related: `WERK-PARLIAMENTARY-RUNTIME-001`, `WERK-PARLIAMENTARY-TRACE-001`.
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Updated: 2026-09-21
+- Risk: R3
+- Builder result: internal evidence-bound trace from a future approved decision artifact through formal handling, implementation evidence and existing impact measurement is staging-live with external/public integration disabled.
+- Remaining boundary: independent countercheck; future real decision-source and parliamentary/legal reference governance remain separate.
+- Do not close from Builder evidence alone.
+
