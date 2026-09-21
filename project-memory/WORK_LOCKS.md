@@ -367,3 +367,14 @@ No additional locks recorded.
 - Upstream: counterchecked `WERK-ID-ARCH-001` architecture contract; existing `supports` and audit infrastructure.
 - Boundary: owner-gated identity scheme/legal/privacy/trusted-verifier/acceptance decisions remain blocked. Verified Support counting remains disabled until later owner-approved identity activation.
 - Release condition: postflight registers and Builder claim recorded, then independent Supervisor countercheck of exact functional head, exact-head CI and fresh Staging evidence.
+
+## LOCK-WERK-PARLIAMENTARY-RUNTIME-001
+- Task: WERK-PARLIAMENTARY-RUNTIME-001
+- Status: ACTIVE_AWAITING_SUPERVISOR
+- Risk: R3
+- Holder: WERK autonomous builder
+- Branch: `werk-v49-preview-host`
+- Scope: migration 048 internal trace runtime and bounded Staging verification.
+- Acquired: 2026-09-21 Europe/Vienna
+- Release condition: independent Supervisor receipt confirms CI, live migration/runtime marker, ACL/state-machine/fail-closed semantics and zero cleanup.
+
