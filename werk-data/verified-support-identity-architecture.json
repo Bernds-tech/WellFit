@@ -1,0 +1,177 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-ID-ARCH-001",
+  "status": "technical_architecture_options_no_identity_provider_selected",
+  "purpose": "Mindestens zwei realistische Wege für 1 Mensch = 1 verifizierte Unterstützung vergleichen und einen providerneutralen, datensparsamen WERK-Kernvertrag definieren. Unterstützung bleibt von einer späteren geheimen Abstimmung strikt getrennt.",
+  "invariants": [
+    "Eine Person darf je support_scope höchstens einmal als verifiziert unterstützt zählen.",
+    "Verifizierung und politische Meinungsäußerung werden technisch getrennt.",
+    "Rohidentität, Name, Geburtsdatum oder behördliche Kennungen werden nicht im Support-Datensatz gespeichert.",
+    "Ein Verifikationsanbieter darf nicht automatisch erfahren, welche politische Variante unterstützt wird, soweit technisch/rechtlich vermeidbar.",
+    "Support ist keine amtliche Wahl und kein geheimer Wahlvorgang.",
+    "WERK VOTE benötigt später einen eigenen Geheimhaltungs-/Wahlvertrag; Support-Pseudonyme werden dafür nicht wiederverwendet.",
+    "Keine Aktivierung ohne Rechts-/Datenschutzprüfung und konkrete Owner-Freigabe."
+  ],
+  "neutral_core_design": {
+    "verification_receipt_fields": [
+      "verification_receipt_id",
+      "verification_method",
+      "provider_or_scheme",
+      "verified_at",
+      "expires_at_or_null",
+      "assurance_level_or_null",
+      "provider_assertion_hash",
+      "eligibility_policy_version",
+      "revoked_at_or_null"
+    ],
+    "support_record_fields": [
+      "support_scope_id",
+      "scope_pseudonym",
+      "target_type",
+      "target_id",
+      "created_at",
+      "revoked_at_or_null"
+    ],
+    "forbidden_persistence": [
+      "raw_provider_subject_in_supports",
+      "name",
+      "email",
+      "phone",
+      "date_of_birth",
+      "address",
+      "raw_bPK_or_equivalent_government_identifier",
+      "provider_access_token_in_supports"
+    ],
+    "pseudonym_derivation": "scope_pseudonym = HMAC-SHA256(server_secret_pepper, provider_scheme || approved_stable_subject || support_scope_id || eligibility_policy_version)",
+    "pseudonym_rule": "Die verwendbare stabile Providerkennung muss vor Implementierung rechtlich/technisch bestätigt werden; insbesondere wird die Nutzung eines bPK oder ähnlicher Kennung nicht vorausgesetzt.",
+    "separation": "Identity verification service stores only the minimum provider receipt/approved subject binding needed to derive scoped pseudonyms. Support service receives only scoped pseudonym + scope/target; no raw identity.",
+    "pepper_rotation": "Rotation requires a controlled re-verification/rekey migration; never silently change dedupe identity and never log the pepper.",
+    "recovery": "Lost user session/account does not create a second support identity; re-authentication must re-derive the same scope pseudonym under the same active identity-policy version or explicitly migrate it."
+  },
+  "models": [
+    {
+      "id": "ID_AUSTRIA_SERVICE_PROVIDER",
+      "selection_status": "candidate_not_selected",
+      "description": "WERK registriert eine zulässige Anwendung als ID Austria Service Provider und nutzt OIDC (oder falls fachlich nötig SAML2) zur behördlich qualifizierten Identifikation/Authentifizierung.",
+      "strengths_as_facts": [
+        "ID Austria unterstützt private Service Provider.",
+        "Private Unternehmen greifen für Registrierung/Verwaltung über USP auf IDA-SPR zu.",
+        "OIDC und SAML2 werden unterstützt; ID Austria empfiehlt OIDC auch für Browser/mobile Nutzung.",
+        "Produktionsregistrierung privater Service Provider erfordert einen Akkreditierungsprozess.",
+        "Zusätzliche Personenattribute müssen für private Service Provider begründet/akkreditiert werden."
+      ],
+      "unresolved_before_activation": [
+        "WERK-Rechtsträger/Service-Owner-Voraussetzungen",
+        "welches minimale stabile Attribut für scoped dedupe rechtlich und technisch zulässig ist",
+        "konkrete Personenmerkmale/Assurance-Anforderung",
+        "Rechtsgrundlage, Information/Consent und Datenschutzfolgenabschätzung falls erforderlich",
+        "Retention/Recovery/Revocation und Support bei Identitätsänderungen",
+        "Produktionsakkreditierung"
+      ],
+      "sources": [
+        {
+          "id": "IDA-SP",
+          "url": "https://www.id-austria.gv.at/de/unternehmen-service-provider",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "IDA-SP-REG",
+          "url": "https://www.id-austria.gv.at/de/unternehmen-service-provider/service-provider-werden",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "IDA-OIDC-SAML",
+          "url": "https://www.id-austria.gv.at/de/developer/anbinden",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "IDA-PRIVATE-SP",
+          "url": "https://www.id-austria.gv.at/de/developer/registrieren/private-sps",
+          "observed_at": "2026-09-21"
+        },
+        {
+          "id": "IDA-SP-CONFIG",
+          "url": "https://www.id-austria.gv.at/de/developer/registrieren/service-provider-registrierung-%28ida-spr%29",
+          "observed_at": "2026-09-21"
+        }
+      ]
+    },
+    {
+      "id": "EUDI_WALLET_RELYING_PARTY",
+      "selection_status": "candidate_not_selected",
+      "description": "WERK nutzt künftig eine konforme European Digital Identity Wallet/Relying-Party-Anbindung mit minimal erforderlichen Person Identification Data oder Attestierungen, sofern österreichische Verfügbarkeit, Registrierung und WERK-Anwendungsfall konkret bestätigt sind.",
+      "strengths_as_facts": [
+        "Der EU-Rechtsrahmen für European Digital Identity Wallets und Remote-Onboarding wird 2026 weiter konkretisiert.",
+        "Implementing Regulation (EU) 2026/798 regelt Referenzstandards/-spezifikationen für Remote-Onboarding zum Wallet-Kontext bei hohen Assurance-Anforderungen."
+      ],
+      "unresolved_before_activation": [
+        "konkrete österreichische Wallet-/Relying-Party-Produktionsverfügbarkeit",
+        "Relying-Party-Registrierung und erlaubte Attribute/Attestierungen",
+        "unterstützte unlinkability/selective-disclosure Eigenschaften im realen österreichischen Pfad",
+        "stabile dedupe Eigenschaft ohne unnötige Identitätskorrelation",
+        "Rechtsgrundlage/Datenschutz/Retention/Recovery",
+        "Kosten und Betriebs-SLA"
+      ],
+      "sources": [
+        {
+          "id": "EU-2026-798",
+          "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/798/oj/eng",
+          "observed_at": "2026-09-21"
+        }
+      ]
+    }
+  ],
+  "threat_model": [
+    {
+      "threat": "duplicate_accounts_or_replay",
+      "control": "scope pseudonym unique constraint + one-time/replay-bound verification receipt + idempotency"
+    },
+    {
+      "threat": "credential_or_session_theft",
+      "control": "short-lived sessions, reauthentication for sensitive actions, revocation path; exact auth design before implementation"
+    },
+    {
+      "threat": "cross_topic_tracking",
+      "control": "scope-specific HMAC pseudonyms; never use a global support pseudonym in citizen-visible or analytics paths"
+    },
+    {
+      "threat": "identity_support_linkage",
+      "control": "separate identity and support stores/services; raw provider identity never enters support table"
+    },
+    {
+      "threat": "operator_abuse",
+      "control": "role separation, append-only audit events, no bulk identity/support join for normal operators"
+    },
+    {
+      "threat": "secret_pepper_compromise",
+      "control": "protected secret store, rotation/re-verification procedure, no logging or client exposure"
+    },
+    {
+      "threat": "provider_outage",
+      "control": "support action fails closed; no fallback to unverified counted support"
+    },
+    {
+      "threat": "provider_or_policy_change",
+      "control": "verification policy versioning and revalidation trigger before current reliance"
+    },
+    {
+      "threat": "coercion_or_ballot_secrecy",
+      "control": "out of scope for support; separate WERK VOTE architecture required"
+    }
+  ],
+  "acceptance_path": [
+    "independent countercheck of architecture contract",
+    "owner selects target model only after legal/privacy facts are available",
+    "sandbox/reference integration with synthetic identities only",
+    "negative replay/duplicate/privacy/correlation tests",
+    "external/provider accreditation or relying-party acceptance",
+    "target-bound Staging acceptance",
+    "separate decision whether verified support may be enabled"
+  ],
+  "activation_gate": {
+    "status": "BLOCKED_UNTIL_OWNER_AND_EXTERNAL_GATES",
+    "production": false,
+    "support_counting": false,
+    "vote": false
+  }
+}
