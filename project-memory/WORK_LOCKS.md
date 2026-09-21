@@ -13,16 +13,17 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
-- Status: ACTIVE
-- Phase: IMPLEMENTATION
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_CLOSEOUT_CONSUMED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 03:15 Europe/Vienna
+- Released: 2026-09-21 05:17 Europe/Vienna after independent Supervisor countercheck was consumed by Builder closeout.
 - Scope: bounded IDEENWERK expert/affected-party input contract, source/relationship disclosure, audit trail, citizen-safe transparency, negative tests, and reversible Staging verification; reuse existing operator/review/status/website surfaces.
-- Preconditions: Impact Bridge `COUNTERCHECKED_STAGING`; no active RED finding; Supervisor next-safe action is WERK-EXPERT-001 after bookkeeping cleanup.
-- Boundary: no expert veto, no political scoring/ranking, no citizen-text mutation, no production deployment, no paid/irreversible action.
-- Release: only after builder evidence claim and independent Supervisor countercheck or explicit reconciliation failure.
+- Counterchecked evidence: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`.
+- Boundary: no expert veto, no political scoring/ranking, no citizen-text mutation, no production deployment, no paid/irreversible action; release does not imply ACCEPTED/Production.
+- Reopen: only on concrete contradictory evidence or a documented downstream extension dependency.
 
 ## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001
 - Task: WERK-IDEENWERK-IMPACT-BRIDGE-001
