@@ -156,7 +156,7 @@
       "id": "IMPROVEMENT-LOOP",
       "type": "feedback",
       "label": "Wirkung → Verbesserung",
-      "state": "IN_PROGRESS",
+      "state": "PARTIAL",
       "builder_state": "IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
       "implementation": "public.werk_impact_reviews via migration 042",
       "boundary": "At most 12 current source-bound reviews with improvement hypothesis, uncertainty and provenance are selected only after current submission map/reform relevance is applied; review hypotheses remain non-causal and non-political; provider disabled; independent Supervisor countercheck pending.",
@@ -340,7 +340,7 @@
       "from": "IMPROVEMENT-LOOP",
       "to": "AI-SYNTHESIS",
       "relation": "feedback",
-      "state": "IN_PROGRESS",
+      "state": "COUNTERCHECKED",
       "evidence": "Builder exact functional head 7e4291717563e5fe51cb84c7d239d7920a7d937e; migration 045 moves current submission map/reform relevance before LIMIT 12; Impact Feedback #3, AI Synthesis #7 and Backend #187 green; live Staging >50-unrelated review regression, stale fail-closed ACL and zero cleanup green. Independent Supervisor countercheck pending; provider remains disabled."
     },
     {
