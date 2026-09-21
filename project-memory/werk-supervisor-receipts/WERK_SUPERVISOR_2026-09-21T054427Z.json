@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "supervisor": "WERK Stundenkontrolleur",
+  "observed_at": "2026-09-21T05:44:27Z",
+  "branch": "werk-v49-preview-host",
+  "checked_head": "5bdc2fb2e2f87bb46850b792621086646389b55a",
+  "overall_status": "YELLOW",
+  "scope": "Independent read-only Supervisor audit. No product/runtime/database/Edge/paid/production/political mutation was performed.",
+  "delta": {
+    "previous_checked_head": "faa37a8acefe5a74deed1b7b5df65777a97bff56",
+    "new_product_runtime_scope": [
+      "WERK-AI-SYNTH-001 bounded staging synthesis contract",
+      "WERK-IMPACT-001 impact measurement and feedback contract"
+    ]
+  },
+  "ai_synthesis_countercheck": {
+    "task": "WERK-AI-SYNTH-001",
+    "result": "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED",
+    "functional_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
+    "ci": [
+      {"name": "WERK AI Synthesis Check", "run_number": 3, "conclusion": "success"},
+      {"name": "WERK Data Contract Registry Check", "run_number": 61, "conclusion": "success"},
+      {"name": "IDEENWERK Backend Check", "run_number": 176, "head": "4d3f63df43db446cd24c3c98304b1282acf61d9c", "conclusion": "success"},
+      {"name": "WERK Frontend Check", "run_number": 191, "head": "7d4889c4070f26b11e66ff1ccb4a9470303bbda8", "conclusion": "success", "note": "Later branch head contains no AI website implementation change after the tested synthesis functional scope; the frontend check therefore counterchecks the unchanged integrated surface."}
+    ],
+    "live_migrations": [
+      "20260921042608 ideenwerk_ai_synthesis",
+      "20260921042728 ai_synthesis_trigger_privileges"
+    ],
+    "verified": [
+      "RLS enabled on public.ideenwerk_ai_syntheses",
+      "anon/authenticated direct SELECT denied",
+      "anon/authenticated record RPC execution denied",
+      "append-only trigger execution denied to anon/authenticated",
+      "service_role SELECT/INSERT allowed",
+      "source snapshot requires current Impact Bridge mapping and citizen-visible Expert Input",
+      "stale source snapshot causes revalidation_required and hides old variants as current",
+      "variant count 2..5; political ranking/recommendation/accept-reject keys and preference prose blocked",
+      "numeric fiscal-effect prose blocked",
+      "source refs must match current citizen/impact/expert refs",
+      "provider adapter defaults disabled and runner fails closed when provider unavailable",
+      "no synthesis rows exist on Staging"
+    ],
+    "boundary": "This counterchecks the bounded staging contract only. The external provider remains disabled; no live AI-generated political variants, paid-provider activation, ACCEPTED or production claim is made."
+  },
+  "impact_measurement_countercheck": {
+    "task": "WERK-IMPACT-001",
+    "result": "PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED",
+    "functional_head": "f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f",
+    "ci": [
+      {"name": "WERK Impact Measurement Check", "run_number": 1, "conclusion": "success"},
+      {"name": "WERK Data Contract Registry Check", "run_number": 62, "conclusion": "success"},
+      {"name": "WERK Frontend Check", "run_number": 190, "head": "f78fb7aa3f8cd00a3fb6b7ef1835370e8437eb90", "conclusion": "success"}
+    ],
+    "live_migration": "20260921043357 werk_impact_measurement",
+    "verified": [
+      "four impact tables have RLS enabled and deny anon/authenticated direct SELECT",
+      "impact RPCs tested in the audit deny anon/authenticated EXECUTE",
+      "service_role is the direct transport boundary",
+      "impact_reviewer role is required by write RPCs",
+      "plans, implementation evidence, observations and reviews are append-only",
+      "observation requires an existing plan, valid period and source reference",
+      "snapshot separates baseline/forecast, implementation evidence, observation, arithmetic deviation and unestablished causal attribution",
+      "review/improvement remains review-only and does not automatically change policy",
+      "all impact tables are zero-row on Staging"
+    ],
+    "contradiction": {
+      "id": "CTR-WERK-IMPACT-SOURCE-BINDING-001",
+      "severity": "YELLOW",
+      "status": "RECONCILIATION_REQUIRED",
+      "claim": "The measurement plan is source-bound to existing/current impact_map_id, reform_id, model/artifact ref and source_version.",
+      "counterevidence": "The live werk_record_impact_measurement_plan function validates reviewer/idempotency and stores those four fields, but performs no lookup against the current Impact Bridge/reform/model registry. The table has only a created_by foreign key; the other identifiers are length-checked text. The contract test only asserts that one static bridge mapping exists and the DB smoke does not test rejection of unknown/stale source identifiers.",
+      "risk": "A trusted impact_reviewer path can persist a syntactically valid but unbound/stale measurement plan. No invalid rows currently exist because the live tables are empty.",
+      "required_fix": "Reuse the existing Impact Bridge/reform/data contract source of truth and fail closed on unknown/stale/mismatched map/reform/model/source-version tuples. Extend CI with a negative unknown/stale-source case. Do not create a parallel registry or calculation path."
+    },
+    "performance_note": "Supabase Performance Advisor reports five INFO-level unindexed foreign keys on the new impact tables. This is nonblocking for the bounded correctness finding but remains scale/production hardening."
+  },
+  "staging_runtime": {
+    "project": "WERK Österreich Staging",
+    "project_id": "jwomaoxefgnhsgiebaqy",
+    "project_status": "ACTIVE_HEALTHY",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_status": "ACTIVE",
+    "edge_version": 7,
+    "latest_migration": "20260921043357 werk_impact_measurement",
+    "runtime_meta": {
+      "impact_bridge_contract": "037_ideenwerk_impact_bridge",
+      "expert_input_contract": "038_ideenwerk_expert_input",
+      "ai_synthesis_contract": "040_ideenwerk_ai_synthesis",
+      "ai_synthesis_trigger_acl": "041_ai_synthesis_trigger_privileges",
+      "impact_measurement_contract": "042_werk_impact_measurement"
+    },
+    "authenticator_db_pre_request": "public.werk_api_security_guard",
+    "zero_baseline_tables_checked": 20,
+    "zero_baseline_verified": true,
+    "active_jobs": 0,
+    "failed_or_dead_jobs": 0,
+    "active_review_tasks": 0
+  },
+  "security_advisor": {
+    "observed_at": "2026-09-21T05:44:22.531Z",
+    "warn_count": 1,
+    "warning": "extension_in_public: pg_net",
+    "rls_enabled_no_policy_info_count": 37,
+    "new_warn": false,
+    "note": "The five new RLS-with-no-policy INFO entries correspond to the new AI/impact tables that intentionally use direct grants/RPC boundaries; no new WARN appeared."
+  },
+  "performance_advisor": {
+    "observed_at": "2026-09-21T05:44:27.371Z",
+    "unindexed_foreign_keys": 5,
+    "level": "INFO"
+  },
+  "specialist_results": {
+    "integration_hunter": "AI source chain Impact Bridge + Expert Input -> AI Synthesis is proven for the bounded contract. The edge IDEENWERK-IMPACT -> KPI-MEASUREMENT is not fully proven because the measurement-plan recorder does not validate the referenced impact/reform/model/source-version tuple. Existing WERK-LOOP-IMPACT-001 must carry this gap; no duplicate task/registry is warranted.",
+    "evidence_reaper": "Migrations 040, 041 and 042 invalidate the prior 03:26:40Z mutable current-state entries for current reliance. Historical observations remain valid; fresh runtime/advisor/security evidence from this receipt must replace them for current-state claims.",
+    "orphan_zombie_hunter": "The bounded AI staging implementation is independently counterchecked and must no longer remain IMPLEMENTED_NOT_VERIFIED under an ACTIVE implementation lock merely awaiting countercheck. Provider activation remains separately BLOCKED. Impact measurement remains legitimately open because of the new source-binding contradiction.",
+    "calculation_integrity_guardian": "Triggered by the new impact-measurement contract. Baseline/target/observation/causality separation is sound, no automatic effect or double counting was found, but cross-model integrity is incomplete because source identifiers are not runtime-validated against the authoritative Impact Bridge/reform/model source.",
+    "milestone_closer": "No gate reached ACCEPTED or PRODUCTION_CONFIRMED; no milestone snapshot created."
+  },
+  "owner_actions": "No READY_NOW owner action. Existing owner inbox remains NOT_READY/BLOCKED; AI provider selection should not be escalated until a concrete provider/privacy/cost proposal exists.",
+  "next_action": {
+    "task": "WERK-IMPACT-001",
+    "classification": "YELLOW_RECONCILIATION_REQUIRED",
+    "instruction": "Harden the existing measurement-plan source binding against the authoritative Impact Bridge/reform/model/source-version tuple and add negative CI for unknown/stale refs; then rerun exact-head Impact Measurement/Data Contract CI and independent staging countercheck. No new calculator/registry, no formula/political change."
+  }
+}
