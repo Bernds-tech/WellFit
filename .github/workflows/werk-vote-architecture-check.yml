@@ -1,0 +1,19 @@
+name: WERK Vote Architecture Check
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths:
+      - 'werk-data/werk-vote-security-architecture.json'
+      - 'scripts/werk-vote-architecture-contract.mjs'
+      - '.github/workflows/werk-vote-architecture-check.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - run: node --check scripts/werk-vote-architecture-contract.mjs
+      - run: node scripts/werk-vote-architecture-contract.mjs
