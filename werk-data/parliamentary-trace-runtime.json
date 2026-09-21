@@ -1,0 +1,44 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-PARLIAMENTARY-RUNTIME-001",
+  "status": "internal_service_role_only_disabled_external_integration",
+  "purpose": "Internal append-only evidence trace implementing the already counterchecked WERK-PARLIAMENTARY-TRACE-001 contract without live parliamentary integration or legal-effect claims.",
+  "reuses": {
+    "impact_measurement": "existing WERK impact measurement references only; no duplicate KPI engine",
+    "operator_identity": "existing operators table where an internal recorder is used"
+  },
+  "tables": [
+    "public.werk_parliamentary_traces",
+    "public.werk_parliamentary_trace_events"
+  ],
+  "internal_rpcs": [
+    "public.werk_create_parliamentary_trace",
+    "public.werk_advance_parliamentary_trace",
+    "public.werk_get_parliamentary_trace"
+  ],
+  "security": {
+    "rls": true,
+    "anon_authenticated_access": false,
+    "service_role_only": true,
+    "public_endpoint": false,
+    "live_parliamentary_connector": false
+  },
+  "invariants": [
+    "A WERK platform decision is not represented as enacted law or an official referendum result.",
+    "Transitions require evidence and are append-only in the event ledger.",
+    "No politician/party score or motive inference.",
+    "Implementation evidence is distinct from intention/formal outcome.",
+    "Impact references reuse the existing WERK impact system."
+  ],
+  "activation_gate": {
+    "external_connection": false,
+    "website_publication": false,
+    "production": false,
+    "requires": [
+      "approved decision artifact source such as a separately activated WERK VOTE or other approved citizen-decision path",
+      "defined operator/countercheck governance for external references",
+      "target-bound staging acceptance",
+      "separate publication/production decision"
+    ]
+  }
+}
