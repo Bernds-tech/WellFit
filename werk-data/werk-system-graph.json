@@ -33,7 +33,18 @@
       "staging_migration":"20260920223436 ideenwerk_impact_bridge",
       "supervisor_receipt":"project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json"
     },
-    {"id":"EXPERT-INPUT","type":"knowledge_process","label":"Experten-/Betroffenenwissen","state":"TODO"},
+    {
+      "id":"EXPERT-INPUT",
+      "type":"knowledge_process",
+      "label":"Experten-/Betroffenenwissen",
+      "state":"IN_PROGRESS",
+      "builder_state":"IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK",
+      "implementation":"ideenwerk-backend/sql/038_ideenwerk_expert_input.sql",
+      "hardening":"ideenwerk-backend/sql/039_expert_input_operator_index.sql",
+      "contract":"werk-data/ideenwerk-expert-input.json",
+      "website_module":"werk-assets/site-ideenwerk-expert.js",
+      "boundary":"source-bound append-only evidence input; no veto, ranking, accept/reject or political score"
+    },
     {"id":"AI-SYNTHESIS","type":"ai_process","label":"KI-Synthese und Varianten","state":"TODO"},
     {"id":"PUBLIC-VARIANTS","type":"citizen_information","label":"Öffentliche Lösungsvarianten","state":"PARTIAL"},
     {"id":"VERIFIED-SUPPORT","type":"participation","label":"Verifizierte Unterstützung","state":"TODO"},
@@ -55,6 +66,8 @@
     {"from":"REFORM-REGISTER","to":"IDEENWERK-IMPACT","relation":"candidate_mapping_input","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
     {"from":"CALC-WERK","to":"IDEENWERK-IMPACT","relation":"impact_model_input","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
     {"from":"IDEENWERK-INTAKE","to":"IDEENWERK-IMPACT","relation":"requires_mapping","state":"COUNTERCHECKED_STAGING","evidence":"WERK_SUPERVISOR_2026-09-20T225510Z"},
+    {"from":"EXPERT-INPUT","to":"API-IDEENWERK","relation":"citizen_status_transparency","state":"IN_PROGRESS","evidence":"builder staging verification pending independent countercheck"},
+    {"from":"EXPERT-INPUT","to":"WEB-V71","relation":"renders_citizen_transparency","state":"IN_PROGRESS","evidence":"werk-assets/site-ideenwerk-expert.js pending independent countercheck"},
     {"from":"IDEENWERK-IMPACT","to":"AI-SYNTHESIS","relation":"supplies_constraints","state":"TODO"},
     {"from":"EXPERT-INPUT","to":"AI-SYNTHESIS","relation":"supplies_evidence","state":"TODO"},
     {"from":"AI-SYNTHESIS","to":"PUBLIC-VARIANTS","relation":"produces","state":"TODO"},
