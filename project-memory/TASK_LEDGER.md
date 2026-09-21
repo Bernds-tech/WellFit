@@ -310,11 +310,13 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-IMPACT-FEEDBACK-001
 - Date: 2026-09-21
-- Status: IN_PROGRESS
+- Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R3
 - Goal: connect counterchecked impact-review/improvement hypotheses back into the existing AI synthesis context while retaining current source binding, provenance, uncertainty and non-causal/non-political semantics.
-- Scope: maximum 12 current reviews matching the submission's current Impact Bridge map/reform; authoritative map/reform/artifact/source-version revalidation; require improvement hypothesis + nonempty uncertainty + nonempty source refs; add current review IDs to synthesis source snapshot and allow only those IDs as `impact_review` refs.
-- Provider boundary: external provider remains disabled; no live model call, secret, cost or paid action.
-- Dependency/loop/lock: `WERK-DEP-IMPACT-FEEDBACK-001` ACTIVE_IMPLEMENTATION; `WERK-LOOP-IMPACT-FEEDBACK-001` OPEN; `LOCK-WERK-IMPACT-FEEDBACK-001` ACTIVE.
-- Exact next step: exact-head Impact Feedback and AI Synthesis CI, reversible migration 044 Staging verification including stale/current negative paths, zero-baseline/security check, then Builder claim and independent Supervisor countercheck.
-- Do not repeat: do not create a parallel feedback store/calculator, promote review hypotheses to facts/causal effects, rank political variants, auto-change policy, or activate the provider.
+- Result: bounded feedback consumption is implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; at most 12 current reviews matching the submission's current Impact Bridge map/reform are revalidated against the authoritative map/reform/artifact/source-version tuple, require improvement hypothesis + nonempty uncertainty + provenance, and are snapshot-bound as eligible `impact_review` refs. Stale/new feedback invalidates current synthesis fail-closed. No parallel feedback store or calculator was created.
+- CI: WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 all succeeded on the functional head.
+- Staging: migration `20260921084055 ideenwerk_impact_feedback` is active; anon/authenticated cannot execute the feedback context while service_role can; current review inclusion, non-current ref rejection, stale Impact Bridge `revalidation_required`, rollback cleanup and zero synthetic baseline are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
+- Provider boundary: external provider remains disabled; no live model call, secret, cost, paid action, production action or automatic political change.
+- Dependency/loop/lock: `WERK-DEP-IMPACT-FEEDBACK-001` is `IMPLEMENTED_AWAITING_COUNTERCHECK`; `WERK-LOOP-IMPACT-FEEDBACK-001` is `OPEN_AWAITING_INDEPENDENT_COUNTERCHECK`; `LOCK-WERK-IMPACT-FEEDBACK-001` remains ACTIVE until independent confirmation.
+- Exact next step: independent Supervisor counterchecks functional head `6d95b394d0869fb91562f6a84a13502469ef7869`, five green workflows, migration 044, ACL/current/stale rollback probes, zero baseline and advisor result. Only then may task/loop/lock/dependency closeout occur.
+- Do not repeat: do not rebuild the feedback edge, create a parallel feedback store/calculator, promote review hypotheses to facts/causal effects, rank political variants, auto-change policy, or activate the provider.
