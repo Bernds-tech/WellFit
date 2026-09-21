@@ -85,6 +85,8 @@
     "expert_evidence_freshness": "CURRENT_AFTER_038_039_REVALIDATION",
     "expert_closeout_finding": "RESOLVED",
     "impact_text_drift_finding": "RESOLVED",
+    "next_action_catalog": "RECONCILED",
+    "next_action_catalog_detail": "Catalog schema v2 now treats TASK_LEDGER states VERIFIED/COUNTERCHECKED/COUNTERCHECKED_STAGING/ACCEPTED/PRODUCTION_CONFIRMED as completed-task states, so completed governance/Impact/Expert tasks cannot be reselected merely because a broader Finishline gate remains PARTIAL.",
     "next_functional_action": "WERK-AI-SYNTH-001",
     "next_action_state": "EXECUTABLE",
     "owner_action_ready_now": false
