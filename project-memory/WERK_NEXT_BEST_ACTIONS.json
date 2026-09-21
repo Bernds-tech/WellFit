@@ -1,8 +1,8 @@
 {
-  "schema_version": 2,
-  "updated": "2026-09-21T05:44:27Z",
+  "schema_version": 3,
+  "updated": "2026-09-21T06:06:00Z",
   "project": "WERK Österreich",
-  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites nach WERK_FINISHLINE_STATE/DEPENDENCIES erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. Ein bereits im TASK_LEDGER als VERIFIED, COUNTERCHECKED, COUNTERCHECKED_STAGING, COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED, ACCEPTED oder PRODUCTION_CONFIRMED abgeschlossener Task wird nicht erneut gewählt, auch wenn sein übergeordnetes Finishline-Gate wegen weiterer Teilbereiche noch PARTIAL bleibt. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang.",
+  "selection_rule": "Wähle die niedrigste priority-Zahl, deren gate prerequisites und prerequisite_tasks nach WERK_FINISHLINE_STATE/DEPENDENCIES/TASK_LEDGER erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. Ein bereits im TASK_LEDGER als VERIFIED, COUNTERCHECKED, COUNTERCHECKED_STAGING, COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED, ACCEPTED oder PRODUCTION_CONFIRMED abgeschlossener Task wird nicht erneut gewählt, auch wenn sein übergeordnetes Finishline-Gate wegen weiterer Teilbereiche noch PARTIAL bleibt. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang.",
   "completed_task_states": [
     "VERIFIED",
     "COUNTERCHECKED",
@@ -22,7 +22,7 @@
       "parallel_safe": false,
       "prerequisites": [],
       "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
-      "instruction": "Alte WellFit-zentrierte generische Project-Memory-Dateien dürfen WERK nicht steuern. WERK_AUTONOMY_PROTOCOL muss ausschließlich WERK-spezifische Finishline/Action/Evidence/Owner-Dateien priorisieren und Drift sichtbar machen."
+      "instruction": "Alte WellFit-zentrierte generische Project-Memory-Dateien dürfen WERK nicht steuern."
     },
     {
       "id": "NBA-WERK-IMPACT-BRIDGE",
@@ -58,19 +58,71 @@
       "parallel_safe": true,
       "prerequisites": ["impact_bridge", "expert_process"],
       "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING", "COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED"],
-      "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung. Der bounded provider-disabled staging contract gilt mit COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED als abgeschlossen; Provider-Aktivierung bleibt separate Dependency."
+      "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung. Der bounded provider-disabled staging contract gilt als abgeschlossen; Provider-Aktivierung bleibt separate Dependency."
     },
     {
       "id": "NBA-WERK-IMPACT-MEASUREMENT",
       "priority": 20,
       "task": "WERK-IMPACT-001",
       "gate": "impact_measurement",
-      "title": "Soll/Ist-Wirkungsmessung und Rückkopplung bauen",
+      "title": "Soll/Ist-Wirkungsmessung autoritativ source-bound schließen",
       "requires_owner": false,
-      "parallel_safe": true,
+      "parallel_safe": false,
       "prerequisites": ["impact_bridge"],
       "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
-      "instruction": "Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden; daraus Verbesserungsvorschläge erzeugen, nicht automatisch beschließen. Aktuell hat die autoritative Impact-Bridge/Reform/Modell/Source-Version-Bindung Vorrang und muss fail-closed gegen unknown/stale/mismatch abgesichert werden."
+      "instruction": "Aktuell zuerst die autoritative Impact-Bridge/Reform/Modell/Source-Version-Bindung fail-closed gegen unknown/stale/mismatch absichern; danach Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden."
+    },
+    {
+      "id": "NBA-WERK-IMPACT-FEEDBACK",
+      "priority": 25,
+      "task": "WERK-IMPACT-FEEDBACK-001",
+      "gate": "impact_measurement",
+      "title": "Gegengeprüfte Wirkungsreviews kontrolliert in den KI-Kontext zurückführen",
+      "requires_owner": false,
+      "parallel_safe": false,
+      "prerequisites": ["impact_measurement", "ai_synthesis"],
+      "prerequisite_tasks": ["WERK-IMPACT-001", "WERK-AI-SYNTH-001"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
+      "instruction": "Erst nach geschlossenem WERK-IMPACT-001 einen bounded source-bound Consumption-Vertrag bauen, der Review-/Verbesserungshypothesen mit Provenienz und Unsicherheit als Input verfügbar macht, aber niemals automatisch als Fakt, Kausalwirkung oder politische Änderung übernimmt. Keine Provider-Aktivierung erforderlich, solange keine reale Neugenerierung erfolgt."
+    },
+    {
+      "id": "NBA-WERK-AI-PROVIDER-EVAL",
+      "priority": 30,
+      "task": "WERK-AI-PROVIDER-EVAL-001",
+      "gate": "ai_synthesis",
+      "title": "Konkretes Provider-, Datenschutz- und Kostenpaket für echte KI-Varianten vorbereiten",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": ["ai_synthesis"],
+      "prerequisite_tasks": ["WERK-AI-SYNTH-001"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED"],
+      "instruction": "Vergleichbare technische Provideroption(en), Datenfluss/Datenschutz, Secret-Grenze, Kostenlimit, Fail-closed Verhalten und target-bound Verify-Plan dokumentieren. Keine Secrets setzen, keinen kostenpflichtigen Provider aktivieren und keine politische Modellwahl autonom treffen."
+    },
+    {
+      "id": "NBA-WERK-ID-ARCHITECTURE",
+      "priority": 35,
+      "task": "WERK-ID-ARCH-001",
+      "gate": "verified_support",
+      "title": "Identitäts- und Datenschutzarchitekturen für 1 Mensch = 1 Unterstützung vergleichbar vorbereiten",
+      "requires_owner": false,
+      "parallel_safe": true,
+      "prerequisites": ["ideenwerk_staging"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED"],
+      "instruction": "Mindestens zwei realistische Identitäts-/Verifikationsmodelle mit Datenminimierung, Missbrauchsschutz, Geheimhaltungsgrenze, Recovery, Kosten, Rechts-/Datenschutzfragen und Threat Model vergleichbar ausarbeiten. Keine Identität aktivieren und keine Owner-Auswahl vorwegnehmen."
+    },
+    {
+      "id": "NBA-WERK-AI-PROVIDER-ACTIVATION",
+      "priority": 38,
+      "task": "WERK-AI-PROVIDER-001",
+      "gate": "ai_synthesis",
+      "title": "Freigegebenen KI-Provider target-bound aktivieren und verifizieren",
+      "requires_owner": true,
+      "parallel_safe": false,
+      "owner_action_id": "WERK-OWNER-AI-PROVIDER-001",
+      "prerequisites": ["ai_synthesis"],
+      "prerequisite_tasks": ["WERK-AI-PROVIDER-EVAL-001"],
+      "done_states": ["ACCEPTED"],
+      "instruction": "Nur nach Owner-Freigabe eines konkreten Provider-/Datenschutz-/Kostenpakets. Secrets, Kosten und externe Verarbeitung sind geschützte Aktionen; danach target-bound Runtime-/Privacy-/Cost-Verifikation."
     },
     {
       "id": "NBA-WERK-VERIFIED-SUPPORT",
@@ -82,8 +134,9 @@
       "parallel_safe": false,
       "owner_action_id": "WERK-OWNER-ID-001",
       "prerequisites": ["security_privacy"],
+      "prerequisite_tasks": ["WERK-ID-ARCH-001"],
       "done_states": ["ACCEPTED"],
-      "instruction": "Erst nach Auswahl eines rechts-/datenschutzkonformen Identitätsansatzes. Keine geheime Stimme mit Support verwechseln."
+      "instruction": "Erst nach vergleichbarer Identitätsarchitektur und Owner-Auswahl eines rechts-/datenschutzkonformen Zielmodells. Keine geheime Stimme mit Support verwechseln."
     },
     {
       "id": "NBA-WERK-VOTE",
@@ -95,6 +148,7 @@
       "parallel_safe": false,
       "owner_action_id": "WERK-OWNER-VOTE-001",
       "prerequisites": ["verified_support", "security_privacy"],
+      "prerequisite_tasks": ["WERK-ID-001"],
       "done_states": ["ACCEPTED"],
       "instruction": "Geheime Abstimmung, Identitätstrennung, Auditierbarkeit, Rechtsgrundlage und Angriffsmodell separat schließen. Keine amtliche Wahlfunktion behaupten."
     },
