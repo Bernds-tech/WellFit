@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "task": "WERK-ID-CORE-001",
+  "status": "IMPLEMENTED_STAGING_AWAITING_SUPERVISOR",
+  "risk": "R4",
+  "branch": "werk-v49-preview-host",
+  "functional_head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
+  "exact_head_ci": [
+    {
+      "workflow": "WERK Verified Support Core Check",
+      "run_number": 4,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "IDEENWERK Backend Check",
+      "run_number": 194,
+      "conclusion": "success"
+    }
+  ],
+  "staging": {
+    "project": "WERK Österreich Staging",
+    "migration_name": "verified_support_core",
+    "runtime_marker": "047_verified_support_core_disabled",
+    "public_endpoint": false,
+    "provider_adapter": false,
+    "support_counting_active": false,
+    "synthetic_probe": {
+      "receipt_created": true,
+      "verified_support_created": true,
+      "replay_idempotent": true,
+      "scope_mismatch_fail_closed": true,
+      "audit_scope_pseudonym_leak": false,
+      "audit_provider_assertion_hash_leak": false,
+      "cleanup_zero": true
+    }
+  },
+  "security": {
+    "receipt_table_rls": true,
+    "anon_select": false,
+    "authenticated_select": false,
+    "service_role_select": true,
+    "anon_rpc_execute": false,
+    "authenticated_rpc_execute": false,
+    "service_role_rpc_execute": true
+  },
+  "boundaries": [
+    "No identity provider selected or activated",
+    "No raw identity persisted in the support ledger",
+    "No public verified-support endpoint",
+    "No public support counting",
+    "No WERK VOTE activation",
+    "No Production action",
+    "Owner/legal/privacy/provider gates remain required before activation"
+  ],
+  "supervisor_falsifiers": [
+    "anon/authenticated can read receipts or execute support RPCs",
+    "scope mismatch records support",
+    "duplicate scope can create a second verified support",
+    "audit payload exposes scoped pseudonym/provider assertion hash/raw identity",
+    "support counting or public endpoint is active",
+    "synthetic staging residue remains",
+    "migration/runtime marker does not match repository contract"
+  ]
+}
