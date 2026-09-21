@@ -370,7 +370,7 @@ Canonical register for work that has started but is not yet fully completed.
 
 ## WERK-AI-PROVIDER-EVAL-001
 - Started: 2026-09-21 Europe/Vienna
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Scope: provider/privacy/cost evaluation contract; no external activation.
@@ -378,11 +378,15 @@ Canonical register for work that has started but is not yet fully completed.
 - Exact next step: wait only for current exact-head CI to finish, then independent countercheck; no provider/identity activation.
 
 
+- Closed: 2026-09-21 via independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
 ## WERK-ID-ARCH-001
 - Started: 2026-09-21 Europe/Vienna
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED
 - Risk: R4
 - Branch: `werk-v49-preview-host`
 - Scope: verified-support identity architecture; no real identity or support counting.
 - Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
 - Exact next step: wait only for current exact-head CI to finish, then independent countercheck; no provider/identity activation.
+
+- Closed: 2026-09-21 via independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
