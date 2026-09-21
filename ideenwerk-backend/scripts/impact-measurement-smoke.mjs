@@ -10,17 +10,34 @@ try{
   const acl=await client.query(`SELECT
     has_table_privilege('anon','public.werk_impact_measurement_plans','SELECT') AS anon_plan_select,
     has_table_privilege('authenticated','public.werk_impact_observations','SELECT') AS auth_obs_select,
-    has_function_privilege('anon','public.werk_record_impact_observation(uuid,text,date,date,numeric,text,text,text,text,text)','EXECUTE') AS anon_obs_exec`);
-  assert.equal(acl.rows[0].anon_plan_select,false);assert.equal(acl.rows[0].auth_obs_select,false);assert.equal(acl.rows[0].anon_obs_exec,false);
+    has_function_privilege('anon','public.werk_record_impact_observation(uuid,text,date,date,numeric,text,text,text,text,text)','EXECUTE') AS anon_obs_exec,
+    has_function_privilege('anon','public.werk_impact_validate_source_binding(text,text,text,text)','EXECUTE') AS anon_binding_exec`);
+  assert.equal(acl.rows[0].anon_plan_select,false);assert.equal(acl.rows[0].auth_obs_select,false);assert.equal(acl.rows[0].anon_obs_exec,false);assert.equal(acl.rows[0].anon_binding_exec,false);
 
   const op=await client.query(`INSERT INTO operators(external_subject_hash,display_name,active) VALUES($1,'CI Impact Measurement Reviewer',true) RETURNING id`,['5'.repeat(64)]);
   await client.query(`INSERT INTO operator_roles(operator_id,role) VALUES($1,'impact_reviewer')`,[op.rows[0].id]);
   const other=await client.query(`INSERT INTO operators(external_subject_hash,display_name,active) VALUES($1,'CI Non Reviewer',true) RETURNING id`,['6'.repeat(64)]);
 
   const planFn=`SELECT public.werk_record_impact_measurement_plan($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) AS result`;
-  const planArgs=[op.rows[0].id,'IMPACT-SV-EMPLOYEE','SV-01','werk-data/employee-sv-funding-bridge-results.json','2026-09-21-ci','employee_contribution_index','Arbeitnehmerbeitrags-Index','index_points','2026-baseline',100,95,'CI-only normalized index; no fiscal claim.','ci-impact-plan-00000042'];
+  const currentSource='impact-bridge=2026-09-21-v1;reforms=2026-09-06-v5;data-contract-registry=2026-09-07-v17';
+  const planArgs=[op.rows[0].id,'IMPACT-SV-EMPLOYEE','SV-01','werk-data/employee-sv-funding-bridge-results.json',currentSource,'employee_contribution_index','Arbeitnehmerbeitrags-Index','index_points','2026-baseline',100,95,'CI-only normalized index; no fiscal claim.','ci-impact-plan-00000042'];
+
+  // Authoritative source binding: unknown, mismatched and stale tuples must fail
+  // before any plan can be persisted or accepted as an idempotent replay.
+  await expectPgError(planFn,[op.rows[0].id,'IMPACT-NOT-REAL','SV-01','werk-data/employee-sv-funding-bridge-results.json',currentSource,...planArgs.slice(5,12),'ci-impact-bad-map-000042'],'WERK_IMPACT_SOURCE_MAP_UNKNOWN');
+  await expectPgError(planFn,[op.rows[0].id,'IMPACT-SV-EMPLOYEE','TAX-01','werk-data/employee-sv-funding-bridge-results.json',currentSource,...planArgs.slice(5,12),'ci-impact-bad-reform-0042'],'WERK_IMPACT_SOURCE_REFORM_MISMATCH');
+  await expectPgError(planFn,[op.rows[0].id,'IMPACT-SV-EMPLOYEE','SV-01','werk-data/not-authoritative.json',currentSource,...planArgs.slice(5,12),'ci-impact-bad-artifact-042'],'WERK_IMPACT_SOURCE_ARTIFACT_MISMATCH');
+  await expectPgError(planFn,[op.rows[0].id,'IMPACT-SV-EMPLOYEE','SV-01','werk-data/employee-sv-funding-bridge-results.json','impact-bridge=stale;reforms=stale;data-contract-registry=stale',...planArgs.slice(5,12),'ci-impact-stale-source-042'],'WERK_IMPACT_SOURCE_VERSION_STALE_OR_UNKNOWN');
+
   const plan=await client.query(planFn,planArgs);const planId=plan.rows[0].result.measurement_plan_id;assert.match(planId,/^MEAS-[A-F0-9]{20}$/);assert.equal(plan.rows[0].result.replayed,false);
-  const replay=await client.query(planFn,planArgs);assert.equal(replay.rows[0].result.replayed,true);
+  assert.equal(plan.rows[0].result.source_binding.binding_state,'current_authoritative_registry_tuple');
+  assert.equal(plan.rows[0].result.source_binding.impact_map_id,'IMPACT-SV-EMPLOYEE');
+  assert.equal(plan.rows[0].result.source_binding.reform_id,'SV-01');
+  assert.equal(plan.rows[0].result.source_binding.model_or_artifact_ref,'werk-data/employee-sv-funding-bridge-results.json');
+  assert.equal(plan.rows[0].result.source_binding.source_version,currentSource);
+  const persisted=await client.query(`SELECT impact_map_id,reform_id,model_or_artifact_ref,source_version FROM public.werk_impact_measurement_plans WHERE measurement_plan_id=$1`,[planId]);
+  assert.deepEqual(persisted.rows[0],{impact_map_id:'IMPACT-SV-EMPLOYEE',reform_id:'SV-01',model_or_artifact_ref:'werk-data/employee-sv-funding-bridge-results.json',source_version:currentSource});
+  const replay=await client.query(planFn,planArgs);assert.equal(replay.rows[0].result.replayed,true);assert.equal(replay.rows[0].result.source_binding.binding_state,'current_authoritative_registry_tuple');
   await expectPgError(planFn,[other.rows[0].id,...planArgs.slice(1,12),'ci-impact-plan-nonreviewer'],'WERK_IMPACT_REVIEWER_REQUIRED');
 
   let snap=await client.query(`SELECT public.werk_impact_measurement_snapshot($1) AS data`,[planId]);
