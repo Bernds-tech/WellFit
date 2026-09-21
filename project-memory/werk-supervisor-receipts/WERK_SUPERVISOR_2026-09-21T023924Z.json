@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-21T02:39:24Z",
+  "supervisor": "WERK Stundenkontrolleur",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "b924e3d04c99f8d4a21e351ce552b068af42aa60",
+  "task": "WERK-EXPERT-001",
+  "risk": "R3",
+  "result": "COUNTERCHECKED_STAGING",
+  "functional_evidence": {
+    "head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+    "ci": [
+      {
+        "workflow": "WERK Expert Input Check",
+        "run_number": 4,
+        "run_id": 35551212979,
+        "conclusion": "success",
+        "independent_observation": "portable migration apply + idempotency + DB role/replay/append-only/transparency guards all succeeded"
+      },
+      {
+        "workflow": "WERK Data Contract Registry Check",
+        "run_number": 59,
+        "run_id": 35551212987,
+        "conclusion": "success",
+        "independent_observation": "registry references and closure linkage validation succeeded"
+      }
+    ],
+    "frontend_followup": {
+      "head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
+      "workflow": "WERK Frontend Check",
+      "run_number": 182,
+      "conclusion": "success",
+      "scope_note": "The only repository delta from the functional evidence head to this frontend-tested head is the WERK system graph; no expert product/UI/database file changed."
+    },
+    "post_functional_delta_to_pre_audit_head": "Only governance/claim/system-graph files changed after c851f924; no product, DB migration, UI or Edge implementation changed."
+  },
+  "staging_countercheck": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "latest_migrations": [
+      "20260921013039 expert_input_operator_index",
+      "20260921012806 ideenwerk_expert_input"
+    ],
+    "runtime_contracts": {
+      "expert_input_contract": "038_ideenwerk_expert_input",
+      "expert_input_operator_index": "039_expert_input_operator_index",
+      "impact_bridge_contract": "037_ideenwerk_impact_bridge"
+    },
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "edge_deployment_changed": false,
+    "expert_table": {
+      "rls_enabled": true,
+      "anon_select": false,
+      "authenticated_select": false,
+      "service_role_select": true,
+      "service_role_insert": true
+    },
+    "record_function": {
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_role_execute": true,
+      "active_impact_reviewer_guard_present": true,
+      "source_binding_guard_present": true
+    },
+    "append_only": {
+      "trigger_enabled": true,
+      "guard_present": true
+    },
+    "citizen_projection": {
+      "private_status_expert_overlay_present": true,
+      "privacy_export_expert_overlay_present": true,
+      "operator_id_idempotency_hash_excluded_by_contract_and_ci": true
+    },
+    "aggregate_transparency": {
+      "anon_execute": false,
+      "authenticated_execute": false,
+      "service_role_execute": true,
+      "eligible_only_filter_present": true,
+      "content_free_ci_guard": true
+    },
+    "zero_baseline": {
+      "tables_checked": 15,
+      "all_zero": true,
+      "expert_inputs": 0,
+      "submissions": 0,
+      "operators": 0,
+      "operator_roles": 0,
+      "audit_events": 0,
+      "processing_jobs": 0,
+      "review_tasks": 0,
+      "review_decisions": 0
+    }
+  },
+  "freshness_revalidation": {
+    "reason": "Migrations 038 and 039 invalidated the previous current staging/advisor evidence under WERK_EVIDENCE_TTL_POLICY.",
+    "impact_bridge_after_schema_change": {
+      "rls_enabled": true,
+      "anon_select": false,
+      "authenticated_select": false,
+      "service_role_select": true,
+      "anon_function_execute": false,
+      "authenticated_function_execute": false,
+      "service_role_function_execute": true,
+      "result": "CURRENT_BOUNDARY_REVALIDATED"
+    },
+    "pg_net_boundary_after_schema_change": {
+      "authenticator_db_pre_request": "public.werk_api_security_guard",
+      "guard_remains_request_aware_and_net_aware": true,
+      "result": "CURRENT_BOUNDARY_REVALIDATED"
+    },
+    "security_advisor": {
+      "observed_at": "2026-09-21T02:39:19.612Z",
+      "warn_count": 1,
+      "warn": "extension_in_public: pg_net",
+      "info_count": 32,
+      "new_warn": false,
+      "expert_table_info": "RLS enabled/no-policy, consistent with revoked direct anon/authenticated access"
+    },
+    "performance_advisor": {
+      "observed_at": "2026-09-21T02:39:24.341Z",
+      "unindexed_foreign_key_for_expert_input": false,
+      "result": "migration 039 fixed the introduced operator-FK coverage gap"
+    }
+  },
+  "policy_boundaries_counterchecked": [
+    "source-bound expert/affected-party evidence input",
+    "relationship disclosure required for material relationship codes",
+    "optional counterposition requires its own source",
+    "append-only evidence rows",
+    "write path restricted to active impact_reviewer through trusted service-role boundary",
+    "no expert veto",
+    "no political merit score or ranking",
+    "no automatic proposal acceptance or rejection",
+    "no review-depth override",
+    "no mutation of original citizen text",
+    "no manufactured fiscal or impact effect",
+    "no operator identity in citizen projection"
+  ],
+  "scope_limits": [
+    "No production deployment or production acceptance is implied.",
+    "No live-browser visual acceptance is claimed; code/CI and protected-status data contract are counterchecked.",
+    "Aggregate expert transparency remains service-role-only; no public metrics endpoint is accepted by this receipt.",
+    "Hosted Supabase pg_net extension_in_public remains a separate production-hardening limit."
+  ],
+  "specialist_results": {
+    "integration_hunter": "Expert input to protected IDEENWERK API/status and V71 rendering is now evidenced at COUNTERCHECKED_STAGING scope; Expert Input -> AI Synthesis remains intentionally gated until canonical closeout is consumed.",
+    "evidence_reaper": "Previous staging/advisor current-state evidence was invalidated by migrations 038/039 and independently re-observed in this run; impact-bridge and pg_net request boundaries remain valid after the schema changes.",
+    "orphan_zombie_hunter": "WERK-EXPERT-001 is independently counterchecked but Task Ledger and Started Work still lack the task, its lock/loop/dependency remain in awaiting-countercheck state, and master EXECUTION_RECEIPTS/Finishline/selector/freshness still need canonical consumption. Do not rebuild expert input.",
+    "calculation_integrity_guardian": "No calculation formula, official source dataset or reform calculation contract changed; no deep recalculation triggered.",
+    "milestone_closer": "EXPERT_PROCESS_ACCEPTED is not reached: COUNTERCHECKED_STAGING is below ACCEPTED, so no immutable milestone snapshot is created."
+  },
+  "required_reconciliation": {
+    "id": "WERK-EXPERT-CLOSEOUT-RECON-001",
+    "severity": "YELLOW",
+    "blocking": "Blocks WERK-AI-SYNTH-001 from starting, but does not invalidate the bounded expert-process countercheck.",
+    "records": [
+      "project-memory/EXECUTION_RECEIPTS.md",
+      "project-memory/TASK_LEDGER.md",
+      "project-memory/STARTED_WORK.md",
+      "project-memory/WORK_LOCKS.md",
+      "project-memory/OPEN_LOOPS.md",
+      "project-memory/DEPENDENCIES.md",
+      "project-memory/WERK_FINISHLINE_STATE.json",
+      "project-memory/WERK_EVIDENCE_FRESHNESS.json",
+      "project-memory/NEXT_BEST_ACTION.md",
+      "werk-data/werk-system-graph.json"
+    ],
+    "instruction": "Consume this independent countercheck, release the expert lock, close the expert loop, satisfy the Expert->AI dependency, update expert_process to COUNTERCHECKED_STAGING, and only then let the Finishline Navigator make WERK-AI-SYNTH-001 executable. Also remove the already-known stale Impact Bridge closeout prose without reopening that bridge."
+  },
+  "owner_action": "NONE_READY_NOW"
+}
