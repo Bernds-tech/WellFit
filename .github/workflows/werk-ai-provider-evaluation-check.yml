@@ -1,0 +1,22 @@
+name: WERK AI Provider Evaluation Check
+on:
+  push:
+    branches: [werk-v49-preview-host]
+    paths:
+      - 'werk-data/ideenwerk-ai-provider-evaluation.json'
+      - 'scripts/werk-ai-provider-evaluation-contract.mjs'
+      - '.github/workflows/werk-ai-provider-evaluation-check.yml'
+      - 'werk-data/data-contract-registry.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check scripts/werk-ai-provider-evaluation-contract.mjs
+      - run: node scripts/werk-ai-provider-evaluation-contract.mjs
