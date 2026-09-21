@@ -5,6 +5,7 @@ on:
     branches:
       - werk-v49-preview-host
     paths:
+      - 'werk-data/ideenwerk-expert-input.json'
       - 'ideenwerk-backend/sql/038_ideenwerk_expert_input.sql'
       - 'ideenwerk-backend/sql/039_expert_input_operator_index.sql'
       - 'ideenwerk-backend/scripts/expert-input-*.mjs'
