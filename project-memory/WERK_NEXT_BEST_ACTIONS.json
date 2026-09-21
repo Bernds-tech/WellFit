@@ -1,8 +1,15 @@
 {
-  "schema_version": 1,
-  "updated": "2026-09-20",
+  "schema_version": 2,
+  "updated": "2026-09-21T03:26:40Z",
   "project": "WERK Österreich",
-  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang. VERIFIED/COUNTERCHECKED-Arbeit nicht erneut bauen.",
+  "selection_rule": "Wähle die niedrigste priority-Zahl, deren prerequisites nach WERK_FINISHLINE_STATE/DEPENDENCIES erfüllt sind und die nach Supervisor-State/Receipts/Locks sicher ausführbar ist. Ein bereits im TASK_LEDGER als VERIFIED, COUNTERCHECKED, COUNTERCHECKED_STAGING, ACCEPTED oder PRODUCTION_CONFIRMED abgeschlossener Task wird nicht erneut gewählt, auch wenn sein übergeordnetes Finishline-Gate wegen weiterer Teilbereiche noch PARTIAL bleibt. ROT/GELB-Befunde und begonnene Arbeit haben Vorrang.",
+  "completed_task_states": [
+    "VERIFIED",
+    "COUNTERCHECKED",
+    "COUNTERCHECKED_STAGING",
+    "ACCEPTED",
+    "PRODUCTION_CONFIRMED"
+  ],
   "actions": [
     {
       "id": "NBA-WERK-GOVERNANCE-RECONCILE",
@@ -13,10 +20,7 @@
       "requires_owner": false,
       "parallel_safe": false,
       "prerequisites": [],
-      "done_states": [
-        "VERIFIED",
-        "COUNTERCHECKED"
-      ],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
       "instruction": "Alte WellFit-zentrierte generische Project-Memory-Dateien dürfen WERK nicht steuern. WERK_AUTONOMY_PROTOCOL muss ausschließlich WERK-spezifische Finishline/Action/Evidence/Owner-Dateien priorisieren und Drift sichtbar machen."
     },
     {
@@ -27,15 +31,8 @@
       "title": "Bürgerideen mit bestehenden WERK-Rechenmodellen/Reformakten verbinden",
       "requires_owner": false,
       "parallel_safe": true,
-      "prerequisites": [
-        "ideenwerk_staging",
-        "calculations",
-        "reform_register"
-      ],
-      "done_states": [
-        "VERIFIED",
-        "COUNTERCHECKED"
-      ],
+      "prerequisites": ["ideenwerk_staging", "calculations", "reform_register"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
       "instruction": "Bestehende Modell-/Reform-IDs, Provenienz und offene Gates referenzieren. Keine Parallelrechnung und keine bedingten Szenarien als verifizierte Wirkung ausgeben."
     },
     {
@@ -46,13 +43,8 @@
       "title": "Experten- und Betroffeneninput auditierbar in IDEENWERK integrieren",
       "requires_owner": false,
       "parallel_safe": true,
-      "prerequisites": [
-        "ideenwerk_staging"
-      ],
-      "done_states": [
-        "VERIFIED",
-        "COUNTERCHECKED"
-      ],
+      "prerequisites": ["ideenwerk_staging"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
       "instruction": "Strukturierter Input mit Quelle, Rolle, Interessenkonflikt/Bezug, Gegenposition und Auditspur; kein Expertenveto und keine politische Entscheidung."
     },
     {
@@ -63,14 +55,8 @@
       "title": "KI-Synthese aus Bürgerideen, Experteninput und WERK-Modellen bauen",
       "requires_owner": false,
       "parallel_safe": true,
-      "prerequisites": [
-        "impact_bridge",
-        "expert_process"
-      ],
-      "done_states": [
-        "VERIFIED",
-        "COUNTERCHECKED"
-      ],
+      "prerequisites": ["impact_bridge", "expert_process"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
       "instruction": "Mehrere Varianten erzeugen, Provenienz und Unsicherheiten ausweisen, Gegenprüfung erzwingen; keine automatische politische Entscheidung."
     },
     {
@@ -81,13 +67,8 @@
       "title": "Soll/Ist-Wirkungsmessung und Rückkopplung bauen",
       "requires_owner": false,
       "parallel_safe": true,
-      "prerequisites": [
-        "impact_bridge"
-      ],
-      "done_states": [
-        "VERIFIED",
-        "COUNTERCHECKED"
-      ],
+      "prerequisites": ["impact_bridge"],
+      "done_states": ["VERIFIED", "COUNTERCHECKED", "COUNTERCHECKED_STAGING"],
       "instruction": "Prognose, Umsetzung, KPI, Ist-Wirkung und Abweichungsursachen versioniert verbinden; daraus Verbesserungsvorschläge erzeugen, nicht automatisch beschließen."
     },
     {
@@ -99,12 +80,8 @@
       "requires_owner": true,
       "parallel_safe": false,
       "owner_action_id": "WERK-OWNER-ID-001",
-      "prerequisites": [
-        "security_privacy"
-      ],
-      "done_states": [
-        "ACCEPTED"
-      ],
+      "prerequisites": ["security_privacy"],
+      "done_states": ["ACCEPTED"],
       "instruction": "Erst nach Auswahl eines rechts-/datenschutzkonformen Identitätsansatzes. Keine geheime Stimme mit Support verwechseln."
     },
     {
@@ -116,13 +93,8 @@
       "requires_owner": true,
       "parallel_safe": false,
       "owner_action_id": "WERK-OWNER-VOTE-001",
-      "prerequisites": [
-        "verified_support",
-        "security_privacy"
-      ],
-      "done_states": [
-        "ACCEPTED"
-      ],
+      "prerequisites": ["verified_support", "security_privacy"],
+      "done_states": ["ACCEPTED"],
       "instruction": "Geheime Abstimmung, Identitätstrennung, Auditierbarkeit, Rechtsgrundlage und Angriffsmodell separat schließen. Keine amtliche Wahlfunktion behaupten."
     },
     {
@@ -134,14 +106,8 @@
       "requires_owner": true,
       "parallel_safe": false,
       "owner_action_id": "WERK-OWNER-PROD-001",
-      "prerequisites": [
-        "website",
-        "security_privacy",
-        "open_democracy"
-      ],
-      "done_states": [
-        "PRODUCTION_CONFIRMED"
-      ],
+      "prerequisites": ["website", "security_privacy", "open_democracy"],
+      "done_states": ["PRODUCTION_CONFIRMED"],
       "instruction": "Erst nach vollständiger Sicherheits-/Datenschutz-/Rechts-/Runtime-Abnahme und ausdrücklicher Owner-Freigabe."
     }
   ]
