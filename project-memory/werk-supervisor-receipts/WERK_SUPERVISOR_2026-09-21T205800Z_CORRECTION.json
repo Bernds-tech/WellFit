@@ -1,0 +1,18 @@
+{
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T205800Z_CORRECTION",
+  "checked_at": "2026-09-21T20:58:00Z",
+  "corrects_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T205000Z.json",
+  "correction": {
+    "field": "scopes[0].runtime.service_role_rpc_only",
+    "incorrect_value": true,
+    "correct_statement": "anon/authenticated have no direct table access and no EXECUTE on the verified-support RPCs; service_role has the intended internal table/RPC access. The core is not RPC-only for service_role."
+  },
+  "impact_on_findings": "NONE",
+  "overall_status": "RED",
+  "active_findings_unchanged": [
+    "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001",
+    "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001",
+    "CTR-WERK-ID-CORE-FUTURE-VERIFIED-AT-001"
+  ],
+  "note": "Historical receipt is preserved; this correction narrows only one access-wording field and does not change the independent countercheck conclusions."
+}
