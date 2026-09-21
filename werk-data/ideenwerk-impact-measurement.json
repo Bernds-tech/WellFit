@@ -1,0 +1,83 @@
+{
+  "version": "2026-09-21-v1",
+  "name": "WERK impact measurement and feedback contract",
+  "status": "repository-implementation-started",
+  "purpose": "Version-bind a WERK reform/impact-map baseline, a real implementation event, KPI observations and review-only improvement hypotheses without converting correlation into causation or automatically adopting a policy change.",
+  "prerequisites": {
+    "impact_bridge": "COUNTERCHECKED_STAGING",
+    "authoritative_reform_model": "Existing WERK reform/model IDs and artifact refs must be reused; no parallel fiscal model.",
+    "implementation_event": "Observed impact must never be claimed before a source-bound implementation event exists."
+  },
+  "separation_rules": [
+    "forecast/baseline is not observed fact",
+    "observed value is not causal attribution",
+    "deviation is arithmetic in one declared unit, not proof of policy effect",
+    "attribution hypothesis remains explicitly unverified until separately evidenced",
+    "improvement hypothesis is review material, never an automatic policy decision"
+  ],
+  "storage_contract": {
+    "migration": "042_werk_impact_measurement",
+    "plans_table": "public.werk_impact_measurement_plans",
+    "implementation_table": "public.werk_impact_implementation_events",
+    "observations_table": "public.werk_impact_observations",
+    "reviews_table": "public.werk_impact_reviews",
+    "snapshot_rpc": "public.werk_impact_measurement_snapshot",
+    "transport_boundary": "trusted service_role; reviewer RPCs require active impact_reviewer",
+    "append_only_evidence": true
+  },
+  "plan_required_fields": [
+    "impact_map_id",
+    "reform_id",
+    "model_or_artifact_ref",
+    "source_version",
+    "kpi_key",
+    "kpi_label",
+    "unit",
+    "baseline_period",
+    "baseline_value"
+  ],
+  "observation_required_fields": [
+    "measurement_plan_id",
+    "period_start",
+    "period_end",
+    "observed_value",
+    "source_label",
+    "source_url_or_reference"
+  ],
+  "snapshot_semantics": {
+    "before_implementation": "planned_no_implementation_evidence",
+    "after_implementation_before_observation": "implemented_awaiting_observation",
+    "after_observation": "observation_available_attribution_not_established",
+    "deviation_from_baseline": "observed_value - baseline_value in the same declared unit",
+    "deviation_from_target": "only if target_value is explicitly present; arithmetic only",
+    "causal_effect": "never auto-derived"
+  },
+  "review_contract": {
+    "actor_role": "impact_reviewer",
+    "fields": [
+      "deviation_explanation",
+      "attribution_hypothesis",
+      "alternative_explanations",
+      "improvement_hypothesis",
+      "uncertainties",
+      "source_refs"
+    ],
+    "boundary": "review-only; no automatic implementation, recommendation ranking, acceptance or rejection"
+  },
+  "negative_guards": [
+    "observation cannot be recorded without a measurement plan",
+    "observation period must be valid",
+    "source binding is mandatory",
+    "implementation event is append-only",
+    "observations are append-only",
+    "review is append-only",
+    "unit cannot silently change between a plan and an observation",
+    "snapshot never labels arithmetic deviation as causal effect",
+    "no automatic adoption of improvement hypothesis"
+  ],
+  "runtime": {
+    "staging_project": "WERK Österreich Staging",
+    "production": false,
+    "synthetic_records_allowed_only_in_rollback_tests": true
+  }
+}
