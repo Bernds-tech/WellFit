@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "supervisor": "WERK Stundenkontrolleur",
+  "checked_at": "2026-09-21T00:27:03Z",
+  "branch": "werk-v49-preview-host",
+  "pre_audit_head": "b2e95b6e71c808048611aa4a4d81e8de1c633e98",
+  "previous_supervisor_head": "e866c930dda9f50c3620c08c79c442bfed9b1c80",
+  "delta": {
+    "commits": 15,
+    "classification": "GOVERNANCE_AUDIT_GRAPH_CLOSEOUT_ONLY",
+    "product_runtime_db_edge_files_changed": false
+  },
+  "verified": {
+    "impact_bridge_receipt_index_reconciled": true,
+    "impact_bridge_status": "COUNTERCHECKED_STAGING",
+    "impact_bridge_functional_head": "01f9f7cb927334cdd6abd4ddcc1fdfea48e147be",
+    "impact_bridge_ci": [
+      "WERK Impact Bridge Check #3 success",
+      "WERK Frontend Check #177 success"
+    ],
+    "latest_governance_ci": "WERK Frontend Check #178 success on supervisor graph-edge countercheck head 10b6c3c50c0fd208ba24e99e48c1ec1ff9eda7a3",
+    "staging_project": "ACTIVE_HEALTHY",
+    "latest_migration": "20260920223436 ideenwerk_impact_bridge",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "zero_baseline_tables_checked": 14,
+    "zero_baseline_verified": true,
+    "security_advisor_warns": [
+      "extension_in_public: pg_net"
+    ],
+    "security_advisor_info_count": 31
+  },
+  "specialist_results": {
+    "integration_hunter": "Impact Bridge graph edges are counterchecked staging. No new missing edge between two already-verified components was found. Expert input is the next unbuilt finishline component.",
+    "evidence_reaper": "Current staging and Security Advisor evidence refreshed. Existing Impact Bridge and pg_net bounded security evidence remains within TTL; no invalidating schema/runtime change occurred.",
+    "orphan_zombie_hunter": "Impact Bridge master receipt index gap was the remaining orphan-success bookkeeping item and is now reconciled. The next action can advance to WERK-EXPERT-001.",
+    "calculation_integrity_guardian": "No calculation formula, source-data or reform-contract change occurred in the delta; no deep recalculation triggered and no new double-counting finding observed.",
+    "milestone_closer": "Impact Bridge remains COUNTERCHECKED_STAGING, not ACCEPTED/PRODUCTION_CONFIRMED. No milestone snapshot created."
+  },
+  "active_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Hosted Supabase still reports pg_net extension_in_public. Bounded staging request protection remains separately counterchecked; Production security acceptance remains open."
+    }
+  ],
+  "resolved_this_run": [
+    {
+      "id": "WERK-IMPACT-BRIDGE-CLOSEOUT-BOOKKEEPING",
+      "result": "RESOLVED",
+      "evidence": "Master EXECUTION_RECEIPTS.md now contains the independent Impact Bridge COUNTERCHECKED_STAGING receipt; shared selector advanced to WERK-EXPERT-001."
+    }
+  ],
+  "owner_action_state": "No READY_NOW owner action.",
+  "next_functional_action": "WERK-EXPERT-001",
+  "mutation_boundary": "Audit/governance memory only. No product, runtime, database, Edge or political mutation."
+}
