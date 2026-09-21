@@ -1,0 +1,57 @@
+{
+  "version": "2026-09-21-v1",
+  "name": "WERK IDEENWERK impact-review feedback contract",
+  "status": "builder-implementation-awaiting-exact-head-ci-and-staging-countercheck",
+  "purpose": "Expose current, source-bound impact-review and improvement hypotheses as bounded optional context for the existing AI synthesis path, without promoting observation, attribution or improvement hypotheses to facts, causal effects, recommendations or political decisions.",
+  "upstream": {
+    "impact_measurement_task": "WERK-IMPACT-001",
+    "required_state": "COUNTERCHECKED_STAGING",
+    "authoritative_source_binding": "public.werk_impact_validate_source_binding",
+    "submission_mapping": "public.ideenwerk_current_impact_bridge",
+    "review_storage": "public.werk_impact_reviews"
+  },
+  "consumption": {
+    "migration": "044_ideenwerk_impact_feedback",
+    "context_rpc": "public.ideenwerk_ai_feedback_context",
+    "ai_snapshot_rpc": "public.ideenwerk_ai_synthesis_source_snapshot",
+    "max_reviews": 12,
+    "required_review_fields": [
+      "improvement_hypothesis",
+      "uncertainties",
+      "source_refs"
+    ],
+    "matching_rule": "A review is eligible only when its measurement plan impact_map_id and reform_id occur in the submission's current Impact Bridge candidate mapping and its full map/reform/artifact/source-version tuple still passes the authoritative validator.",
+    "stale_behavior": "Any otherwise relevant review with stale authoritative source binding makes the feedback context revalidation_required; no stale feedback items are exposed.",
+    "snapshot_rule": "Current impact_review IDs are included in the AI synthesis source snapshot. A newly eligible review or stale feedback state changes the snapshot hash and invalidates older variants as current."
+  },
+  "epistemic_boundaries": [
+    "observed KPI movement is not causal policy impact",
+    "attribution_hypothesis remains a hypothesis",
+    "improvement_hypothesis remains review material",
+    "alternative explanations and uncertainties remain visible",
+    "feedback is optional context and never an automatic policy change",
+    "no political ranking, recommendation, acceptance or rejection is introduced",
+    "no new fiscal or numeric effect is manufactured"
+  ],
+  "ai_integration": {
+    "source_ref_kind": "impact_review",
+    "provider_context_field": "impact_feedback",
+    "provider_activation_required_for_contract": false,
+    "external_provider_activation": false,
+    "rule": "The existing provider remains disabled by default. This integration only defines source-bound context and validation; it does not perform a paid or external model call."
+  },
+  "negative_guards": [
+    "stale Impact Bridge makes feedback unavailable for current synthesis",
+    "stale map/reform/artifact/source-version binding fails closed",
+    "reviews without improvement hypothesis are excluded",
+    "reviews without explicit uncertainty are excluded",
+    "reviews without provenance source_refs are excluded",
+    "review refs not present in the current source snapshot fail AI synthesis persistence",
+    "new review refs invalidate earlier source snapshots as current",
+    "feedback cannot bypass existing anti-ranking, anti-decision and anti-new-numeric-effect guards"
+  ],
+  "production": false,
+  "owner_action_required": false,
+  "provider_activation": false,
+  "acceptance_boundary": "Builder implementation and reversible Staging evidence may prove only the bounded feedback-consumption contract. COUNTERCHECKED/ACCEPTED/Production status requires independent evidence according to WERK governance."
+}

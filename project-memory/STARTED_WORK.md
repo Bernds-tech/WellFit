@@ -52,22 +52,34 @@ Canonical register for work that has started but is not yet fully completed.
 - Exact next step: inventory and classify current visual variants before further graphical implementation, then produce current exact-head CI/browser evidence for the selected baseline.
 - Owner action needed: visual acceptance only after current preview/evidence exists.
 
-## WERK-IMPACT-001
+## WERK-IMPACT-FEEDBACK-001
+- Started: 2026-09-21 10:18 Europe/Vienna
+- Status: IN_PROGRESS
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: bounded current-source impact-review feedback into the existing AI synthesis source snapshot/provider context; retain provenance, uncertainties and epistemic labels while preventing causal/political promotion.
+- Upstream consumed: `WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING`; receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Planned implementation: migration 044 `ideenwerk_impact_feedback`, feedback contract, exact-head CI, provider/runner source-ref extension for `impact_review`, reversible Staging probes and zero-baseline cleanup.
+- Provider boundary: external provider remains disabled; this task does not activate secrets, paid calls or live political generation.
+- Work lock: `LOCK-WERK-IMPACT-FEEDBACK-001` ACTIVE.
+- Open loop/dependency: `WERK-LOOP-IMPACT-FEEDBACK-001`; `WERK-DEP-IMPACT-FEEDBACK-001`.
+- Exact next step: commit bounded integration, require green Impact Feedback + AI Synthesis checks, then verify migration/probes on WERK Staging and produce Builder claim for independent Supervisor countercheck.
+
+## Closed / superseded work
+
+### WERK-IMPACT-001 — counterchecked source-bound impact measurement
 - Started: 2026-09-21 06:33 Europe/Vienna
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Closed: 2026-09-21 10:18 Europe/Vienna
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Branch: `werk-v49-preview-host`
 - Scope: authoritative source-bound Soll/Ist measurement and review-only feedback contract separating forecast, implementation evidence, observation, arithmetic deviation and causal attribution hypothesis.
-- Implemented now: migration 043 validates the complete measurement-plan source tuple against the compiled current canonical Impact Bridge registry view before persistence/replay acceptance. Unknown/stale/mismatched tuples fail closed; no parallel registry/calculator was introduced.
-- Builder evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 and WERK Data Contract Registry Check #63 succeeded; Staging migration `20260921062817 werk_impact_authoritative_source_binding` is live; valid current binding plus four negative source-binding classes were verified; impact tables remained at zero rows.
-- Existing semantic boundary retained: baseline/forecast is not observed fact; observation is not causal attribution; arithmetic deviation is not policy effect; improvement remains review-only hypothesis.
-- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` is not Builder-resolved; independent Supervisor countercheck is required.
-- Work lock: `LOCK-WERK-IMPACT-001` remains ACTIVE in `IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK` phase.
-- Open loop: `WERK-LOOP-IMPACT-001` remains open awaiting countercheck.
-- Exact next step: Supervisor independently verifies the current runtime/CI/negative paths and either closes or rejects the source-binding reconciliation. No downstream feedback work before that.
-- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
-
-## Closed / superseded work
+- Result: migrations 042/043 are independently counterchecked on Staging; map/reform/artifact/source-version tuples fail closed before persistence/replay; forecast/observation/arithmetic deviation/attribution/review semantics remain separated and append-only.
+- Exact evidence: functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 and WERK Data Contract Registry Check #63 succeeded; live migration `20260921062817 werk_impact_authoritative_source_binding`; positive current tuple plus unknown-map/reform/artifact/stale-source negative paths; zero impact rows.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Work lock: `LOCK-WERK-IMPACT-001` released in Builder closeout.
+- Boundary: no real-world effect or causal attribution is claimed; no formula/political/provider change; Production/ACCEPTED is not implied.
+- Next: do not rebuild. Consumed as upstream for `WERK-IMPACT-FEEDBACK-001`.
 
 ### WERK-AI-SYNTH-001 — bounded staging synthesis contract counterchecked
 - Started: 2026-09-21 06:26 Europe/Vienna
@@ -162,7 +174,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Starting evidence: b64294d; expanded labour check 33996097649 and policy check 33996225256 succeeded. Sites v53 is a separate older publication.
 - Lock: LOCK-WERK-LAB-002
 - Updated: 2026-09-06 UTC; publication blocker resolved after owner continuation approval.
-- Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
+- Evidence: remote 00bed9975f07435920fd02414a071467532f73a6; all 13 triggered workflows succeeded. See WERK_LABOUR_003_CI_RECEIPT.json and WERK_LABOUR_HANDOFF.md.
 - Next: WERK-LAB-002 publication/verification is complete. Substantive matching gates remain open; no additional approval is pending for this completed change set.
 
 ## WERK-LAB-003
@@ -247,7 +259,7 @@ Canonical register for work that has started but is not yet fully completed.
 - Base: 35a71c20db0afcb00a9bb703f7f671cf7d3f05e4
 - Scope: contribution-growth and debt-financing durability stress.
 
-- WERK-SV-005: five relevant workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
+- WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
 
 ## WERK-SV-006
 - Status: VERIFIED

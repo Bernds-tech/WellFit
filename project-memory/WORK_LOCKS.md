@@ -27,18 +27,30 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-IMPACT-001
 - Task: WERK-IMPACT-001
-- Status: ACTIVE
-- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_CLOSEOUT_CONSUMED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 06:33 Europe/Vienna
+- Released: 2026-09-21 10:18 Europe/Vienna after consuming independent Supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
 - Scope: source-bound measurement plan, implementation evidence, KPI observation and review-only attribution/improvement feedback contract on Staging.
-- Builder implementation evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; Data Contract Registry Check #63 SUCCESS; migration `20260921062817 werk_impact_authoritative_source_binding` live; canonical valid tuple accepted; unknown map, reform mismatch, artifact mismatch and stale source token rejected; zero impact rows retained.
-- Source authority: existing `werk-data/ideenwerk-impact-bridge.json`; migration 043 is a compiled fail-closed validator view, not a second registry/calculator.
+- Counterchecked evidence: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; Data Contract Registry Check #63 SUCCESS; migration `20260921062817 werk_impact_authoritative_source_binding` live; canonical valid tuple accepted; unknown map, reform mismatch, artifact mismatch and stale source token rejected; zero impact rows retained.
 - Boundary: no real-world implementation/effect claim, automatic causality, political change, provider activation or production action. Known pg_net extension placement remains separate production hardening.
-- Release condition: independent Supervisor countercheck confirms exact-head CI, live migration 043, source-binding negatives and staging/security baseline, and reconciles `CTR-WERK-IMPACT-SOURCE-BINDING-001`.
-- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
+- Reopen: only on concrete contradictory evidence or source-registry/version change requiring revalidation.
+
+## LOCK-WERK-IMPACT-FEEDBACK-001
+- Task: WERK-IMPACT-FEEDBACK-001
+- Status: ACTIVE
+- Phase: IMPLEMENTATION
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 10:18 Europe/Vienna
+- Scope: bounded current-source impact-review feedback context into the existing AI synthesis source snapshot/provider context; provenance and uncertainty preserved; review hypotheses never promoted to causal fact, ranking, recommendation or automatic political change.
+- Prerequisites consumed: `WERK-IMPACT-001` independently `COUNTERCHECKED_STAGING`; `WERK-AI-SYNTH-001` independently counterchecked for bounded provider-disabled Staging scope.
+- Provider boundary: no external/paid provider activation, no secrets, no live political generation.
+- Release condition: exact-head feedback/AI CI green, reversible Staging migration/probes and independent Supervisor countercheck.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
@@ -118,7 +130,7 @@ Prevents two agents/sessions from independently working the same task.
 - Branch/PR: `codex/wf-mobile-one-screen-ar-shell-20260826` / PR #22.
 - Acquired: 2026-08-26 Europe/Vienna
 - Released: 2026-08-26 after bounded diff and green Guard/Quality countercheck.
-- Scope: canonical one-screen AR mobile UX contract and master registry reconciliation only; no visual runtime, backend or Unity controller implementation.
+- Scope: canonical one-screen AR mobile UX contract and cross-repository responsibility mapping only; no visual runtime, backend or Unity controller implementation.
 - Result: specification and coordination records created; runtime gates remain open.
 - Recovery: revert PR #22; runtime repositories remain unchanged.
 
@@ -211,7 +223,7 @@ No additional locks recorded.
 - Holder: Codex 2026-09-07
 - Scope: WERK debt/SV calculation, source context, reports and contracts.
 
-- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
+- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered CI workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-006
 - Status: RELEASED

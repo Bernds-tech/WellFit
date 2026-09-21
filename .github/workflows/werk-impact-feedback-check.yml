@@ -1,22 +1,19 @@
-name: WERK AI Synthesis Check
+name: WERK Impact Feedback Check
 
 on:
   push:
     branches:
       - werk-v49-preview-host
     paths:
-      - 'werk-data/ideenwerk-ai-synthesis.json'
       - 'werk-data/ideenwerk-impact-feedback.json'
-      - 'ideenwerk-backend/sql/040_ideenwerk_ai_synthesis.sql'
-      - 'ideenwerk-backend/sql/041_ai_synthesis_trigger_privileges.sql'
+      - 'werk-data/ideenwerk-ai-synthesis.json'
+      - 'ideenwerk-backend/sql/042_werk_impact_measurement.sql'
+      - 'ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql'
       - 'ideenwerk-backend/sql/044_ideenwerk_impact_feedback.sql'
       - 'ideenwerk-backend/src/lib/synthesis-provider.js'
-      - 'ideenwerk-backend/scripts/ai-synthesis-*.mjs'
       - 'ideenwerk-backend/scripts/impact-feedback-*.mjs'
       - 'ideenwerk-backend/scripts/run-ai-synthesis.mjs'
-      - 'werk-assets/site-ideenwerk-synthesis.js'
-      - 'werk-assets/site-v71-loader.js'
-      - '.github/workflows/werk-ai-synthesis-check.yml'
+      - '.github/workflows/werk-impact-feedback-check.yml'
   workflow_dispatch:
 
 permissions:
@@ -68,43 +65,34 @@ jobs:
           CREATE SCHEMA IF NOT EXISTS extensions;
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
           SQL
-          rm -rf /tmp/ideenwerk-ai-synthesis-ci && mkdir -p /tmp/ideenwerk-ai-synthesis-ci
+          rm -rf /tmp/ideenwerk-impact-feedback-ci && mkdir -p /tmp/ideenwerk-impact-feedback-ci
           for f in sql/*.sql; do
             b="$(basename "$f")"
             case "$b" in
               016_*|017_*|018_*|020_*|021_*|022_*) ;;
-              *) cp "$f" /tmp/ideenwerk-ai-synthesis-ci/ ;;
+              *) cp "$f" /tmp/ideenwerk-impact-feedback-ci/ ;;
             esac
           done
-          cat > /tmp/ideenwerk-ai-synthesis-ci/016_pg_net_internal_only.sql <<'SQL'
+          cat > /tmp/ideenwerk-impact-feedback-ci/016_pg_net_internal_only.sql <<'SQL'
           SELECT 1;
           SQL
-          test -s /tmp/ideenwerk-ai-synthesis-ci/037_ideenwerk_impact_bridge.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/038_ideenwerk_expert_input.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/039_expert_input_operator_index.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/040_ideenwerk_ai_synthesis.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/041_ai_synthesis_trigger_privileges.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/042_werk_impact_measurement.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/043_werk_impact_authoritative_source_binding.sql
-          test -s /tmp/ideenwerk-ai-synthesis-ci/044_ideenwerk_impact_feedback.sql
-      - name: Syntax and policy guard
+          test -s /tmp/ideenwerk-impact-feedback-ci/037_ideenwerk_impact_bridge.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/038_ideenwerk_expert_input.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/040_ideenwerk_ai_synthesis.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/041_ai_synthesis_trigger_privileges.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/042_werk_impact_measurement.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/043_werk_impact_authoritative_source_binding.sql
+          test -s /tmp/ideenwerk-impact-feedback-ci/044_ideenwerk_impact_feedback.sql
+      - name: Syntax and contract guard
         run: |
           node --check src/lib/synthesis-provider.js
           node --check scripts/run-ai-synthesis.mjs
-          node --check scripts/ai-synthesis-contract.mjs
-          node --check scripts/ai-synthesis-provider-smoke.mjs
-          node --check scripts/ai-synthesis-smoke.mjs
           node --check scripts/impact-feedback-contract.mjs
-          node --check ../werk-assets/site-ideenwerk-synthesis.js
-          node --check ../werk-assets/site-v71-loader.js
-          node scripts/ai-synthesis-contract.mjs
-          node scripts/ai-synthesis-provider-smoke.mjs
+          node --check scripts/impact-feedback-smoke.mjs
           node scripts/impact-feedback-contract.mjs
       - name: Apply portable migrations
-        run: SQL_DIR=/tmp/ideenwerk-ai-synthesis-ci npm run migrate
+        run: SQL_DIR=/tmp/ideenwerk-impact-feedback-ci npm run migrate
       - name: Migration idempotency
-        run: SQL_DIR=/tmp/ideenwerk-ai-synthesis-ci npm run migrate
-      - name: Source binding, replay, stale and political guardrails
-        run: node scripts/ai-synthesis-smoke.mjs
-      - name: Impact review feedback guardrails
+        run: SQL_DIR=/tmp/ideenwerk-impact-feedback-ci npm run migrate
+      - name: Current-source feedback, uncertainty, provenance and stale guardrails
         run: node scripts/impact-feedback-smoke.mjs

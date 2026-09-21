@@ -127,7 +127,7 @@ Keep history append-only; supersede rather than delete.
 - Risk: R2
 - Result: source-backed regional education and vacancy time; July 869 explained as XX, unallocated; joint matching and feasible hours blocked.
 - Evidence: WERK_LABOUR_HANDOFF.md; source imports, 33 negative cases and dependent contracts pass locally. All 13 CI workflows passed at bc7152d31dc598738bd0f12a02e3bebc830f974d; WERK_LABOUR_004_CI_RECEIPT.json.
-- Recovery: revert bounded LAB-004 change set.
+- Recovery: revert bounded LAB-004 changes on existing WERK branch.
 
 ## WERK-LAB-005
 - Date: 2026-09-06
@@ -150,7 +150,6 @@ Keep history append-only; supersede rather than delete.
 - Change: WERK-CR-SV-001
 - Risk: R2
 - Evidence: WERK_SV_HANDOFF.md; WERK_SV_CI_RECEIPT.json.
-
 - Verified: 2096e1cf402ad36968a3d57ffc74c7efc39eba83; all four triggered CI workflows succeeded. WERK_SV_CI_RECEIPT.json.
 
 ## WERK-SV-002
@@ -159,7 +158,6 @@ Keep history append-only; supersede rather than delete.
 - Change: WERK-CR-SV-002
 - Result: 15.5bn annual gross contribution relief first stage after debt freedom; distribution and indexation open; no automatic full abolition.
 - Evidence: WERK_SV_HANDOFF.md; WERK_SV_002_CI_RECEIPT.json.
-
 - Verified: 7fc44e6d024bdfc5932f501224094a8d52f482cb; all four triggered workflows successful. WERK_SV_002_CI_RECEIPT.json.
 
 ## WERK-SV-003
@@ -168,43 +166,36 @@ Keep history append-only; supersede rather than delete.
 - Risk: R2
 - Result: progressive 50% goal, realized-interest financing and coupled debt paths; actual target financing open.
 - Evidence: WERK_SV_HANDOFF.md; WERK_SV_003_CI_RECEIPT.json.
-
 - Verified: 5ddea9fd186ea50fd2cde6438767f873acd5a20f; all four triggered workflows successful. WERK_SV_003_CI_RECEIPT.json.
 
 ## WERK-SV-004
 - Status: VERIFIED
 - Task: add bounded final annual assessment to employee SV-01 calculation; preserve funding and household gates.
-
 - WERK-SV-004 local: five workflow bodies passed, 36 annual-assessment + 55 SV + 42 general counterchecks. All four triggered remote workflows succeeded at 190e1940446205c4532ecef62c6d6f038a79cd01; WERK_SV_004_CI_RECEIPT.json.
 
 ## WERK-SV-005
 - Status: VERIFIED
 - Task: nominal-growth stress and durable financing check for progressive employee relief.
-
 - WERK-SV-005: five relevant local workflow bodies passed; 28 growth, 55 SV, 36 assessment and 42 general counterchecks. All four triggered remote workflows succeeded at 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; WERK_SV_005_CI_RECEIPT.json.
 
 ## WERK-SV-006
 - Status: VERIFIED
 - Task: reconcile official employee contribution financing by payer and system, retain unproven reform-scope gates.
-
 - WERK-SV-006 verified at 25188b55f422ae204de2a495ae53d11338291607; all three triggered remote workflows succeeded; five relevant local workflow bodies passed. WERK_SV_006_CI_RECEIPT.json.
 
 ## WERK-SV-007
 - Status: VERIFIED
 - Task: calculate ALV threshold net losses, recovery gross and 50%-cut effects with source-backed 2026 rules.
-
 - Verified at af98ba7d35af415f8c0a297c0cb3d5a98fa8f93a; all three triggered CI workflows succeeded; five local workflow bodies passed. WERK_SV_007_CI_RECEIPT.json.
 
 ## WERK-SV-008
 - Status: VERIFIED
 - R2; unadopted ALV transition candidates and separate provisional 2027 cohort references; source and independent counterchecks required.
-
 - WERK-SV-008 local: all five relevant workflow bodies passed, independent interpolation and 360,072 cent increments passed; all three exact-commit remote workflows succeeded at 0c4c6626ed476271b9276d664c1d57b8ab1bd7a3; WERK_SV_008_CI_RECEIPT.json.
 
 ## WERK-SV-009
 - Status: VERIFIED
 - R2; retrieve official contribution distributions, distinguish observation units and years, calculate only supported population bounds.
-
 - WERK-SV-009: five relevant local workflow bodies passed; source and numerical counterchecks passed. All three exact-commit remote workflows succeeded at 1bc0bbc5423bd839e84e24cf2f8e0f0fbfcdce46; WERK_SV_009_CI_RECEIPT.json.
 
 ## WERK-SV-010
@@ -212,7 +203,6 @@ Keep history append-only; supersede rather than delete.
 - Risk: R2
 - Change: WERK-CR-SV-010
 - Scope: interval-based ALV bounds and exact affine sums, with administrative scope gates.
-
 - Local: five relevant workflow bodies passed; independent interpolation over 3,600,018 cent payments, 114 interval extrema/sums, 18 aggregate reconciliations, 27 invalid inputs and 8 corruptions. All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json.
 
 ## WERK-SV-011
@@ -225,16 +215,13 @@ Keep history append-only; supersede rather than delete.
 - Status: VERIFIED
 - Change: WERK-CR-TAX-001
 - Scope: additional enforcement cash and costs; verified financing remains zero.
-
 - Exact implementation abcc4a3c577d52dcc0532f1ecbc05ad833479077: all four triggered workflows succeeded; WERK_TAX_001_CI_RECEIPT.json.
 
 ## WERK-SUB-001
 - Status: VERIFIED
 - Risk: R2
 - Scope: account-level source normalization and subsidy review bridge. No verified extra funding.
-
 - Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
-
 
 ## WERK-AUTONOMY-LOOP-001
 - Date: 2026-09-20
@@ -245,7 +232,6 @@ Keep history append-only; supersede rather than delete.
 - Reconciliation result: stale WERK privacy Started Work/lock closed; outdated existing-measure next action superseded; first connection-sweep gap recorded as `WERK-DEP-IDEENWERK-IMPACT-001` / `WERK-LOOP-IMPACT-BRIDGE-001`.
 - Next step: builder implements the derived citizen/cluster → existing reform/calculation impact bridge; supervisor independently counterchecks the claim and feeds the next cycle.
 - Do not repeat: do not create a second WERK TODO/roadmap ledger; extend the existing Project Memory registers.
-
 
 ## WERK-GOV-001
 - Date: 2026-09-20
@@ -311,16 +297,24 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-IMPACT-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Goal: source-bind forecast/baseline, real implementation evidence, KPI observations, arithmetic deviation, attribution hypotheses and review-only improvement hypotheses without inferring causality automatically.
-- Previously verified scope: migration 042, RLS/ACL, impact_reviewer gate, append-only evidence, observation source/period guards, baseline/target/observation separation, arithmetic deviation and no-causality/review-only semantics.
-- Builder reconciliation result: migration 043 compiles the existing canonical `werk-data/ideenwerk-impact-bridge.json` into a fail-closed runtime validator; `werk_record_impact_measurement_plan` rejects unknown impact maps, map/reform mismatches, map/artifact mismatches and stale/unknown canonical source-version tokens before persistence or replay acceptance. No second registry or calculator was created.
+- Result: migration 043 compiles the existing canonical `werk-data/ideenwerk-impact-bridge.json` into a fail-closed runtime validator; `werk_record_impact_measurement_plan` rejects unknown impact maps, map/reform mismatches, map/artifact mismatches and stale/unknown canonical source-version tokens before persistence or replay acceptance. No second registry or calculator was created.
 - Functional evidence: exact head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 SUCCESS; WERK Data Contract Registry Check #63 SUCCESS.
-- Staging evidence: migration `20260921062817 werk_impact_authoritative_source_binding` applied; valid `IMPACT-SV-EMPLOYEE / SV-01 / werk-data/employee-sv-funding-bridge-results.json` binding returned `current_authoritative_registry_tuple`; unknown map, reform mismatch, artifact mismatch and stale source version each failed closed; impact plans/implementations/observations/reviews remained zero-row.
-- Security boundary: fresh Security Advisor produced no new WARN from this change; the existing `pg_net extension_in_public` WARN remains a separate production-hardening loop.
-- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` remains pending independent Supervisor reconciliation; Builder does not self-resolve it.
-- Open loop/lock: `WERK-LOOP-IMPACT-001` remains open awaiting countercheck and `LOCK-WERK-IMPACT-001` remains ACTIVE.
-- Exact next step: independent Supervisor countercheck of exact-head CI, live migration 043, fail-closed source tuple behavior and zero-baseline/security boundaries. Only after that may `WERK-DEP-IMPACT-FEEDBACK-001` advance.
-- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
-- Do not repeat: do not rebuild Impact Bridge, create a parallel source registry, alter formulas, infer causal effect, activate an AI provider or start downstream feedback integration before the independent countercheck.
+- Staging evidence: migration `20260921062817 werk_impact_authoritative_source_binding`; valid current binding plus four negative source-binding classes verified; impact tables remained zero-row.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`; `CTR-WERK-IMPACT-SOURCE-BINDING-001` resolved for bounded Staging scope.
+- Boundary: baseline/forecast is not observed fact; observation is not causal attribution; arithmetic deviation is not policy effect; improvement remains review-only hypothesis. No production acceptance implied.
+- Loop/lock/dependency: `WERK-LOOP-IMPACT-001` is closed; `LOCK-WERK-IMPACT-001` released; upstream prerequisite for `WERK-IMPACT-FEEDBACK-001` satisfied.
+- Next: do not rebuild. Consume through the bounded feedback integration.
+
+## WERK-IMPACT-FEEDBACK-001
+- Date: 2026-09-21
+- Status: IN_PROGRESS
+- Risk: R3
+- Goal: connect counterchecked impact-review/improvement hypotheses back into the existing AI synthesis context while retaining current source binding, provenance, uncertainty and non-causal/non-political semantics.
+- Scope: maximum 12 current reviews matching the submission's current Impact Bridge map/reform; authoritative map/reform/artifact/source-version revalidation; require improvement hypothesis + nonempty uncertainty + nonempty source refs; add current review IDs to synthesis source snapshot and allow only those IDs as `impact_review` refs.
+- Provider boundary: external provider remains disabled; no live model call, secret, cost or paid action.
+- Dependency/loop/lock: `WERK-DEP-IMPACT-FEEDBACK-001` ACTIVE_IMPLEMENTATION; `WERK-LOOP-IMPACT-FEEDBACK-001` OPEN; `LOCK-WERK-IMPACT-FEEDBACK-001` ACTIVE.
+- Exact next step: exact-head Impact Feedback and AI Synthesis CI, reversible migration 044 Staging verification including stale/current negative paths, zero-baseline/security check, then Builder claim and independent Supervisor countercheck.
+- Do not repeat: do not create a parallel feedback store/calculator, promote review hypotheses to facts/causal effects, rank political variants, auto-change policy, or activate the provider.

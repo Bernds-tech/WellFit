@@ -74,7 +74,6 @@ TAX-001: OPEN cash/finality/refund/cohort comparison, all-in marginal costs, gov
 ## WERK-SUB-001 — 2026-09-09
 SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing mapping open. Twenty account review entries are a prioritized evidence request, not adopted cuts. ESVG2025–2031/TDB and outcome effects stay open.
 
-
 ## WERK-LOOP-IMPACT-BRIDGE-001
 - Status: CLOSED_COUNTERCHECKED_STAGING
 - Updated: 2026-09-21 05:17 Europe/Vienna
@@ -131,3 +130,13 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
 - Downstream: `WERK-DEP-IMPACT-FEEDBACK-001` may advance to the existing `WERK-IMPACT-FEEDBACK-001` integration. Do not rebuild WERK-IMPACT-001.
 - Reopen trigger: source-registry/version change without matching revalidation, validator bypass before persistence, invalid source-bound plan, or exact functional CI regression.
+
+## WERK-LOOP-IMPACT-FEEDBACK-001
+- Related: `WERK-IMPACT-FEEDBACK-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `WERK-AI-SYNTH-001`.
+- Status: OPEN
+- Updated: 2026-09-21 10:18 Europe/Vienna
+- Risk: R3
+- Gap: counterchecked impact reviews exist as append-only hypothesis/evidence records, but the current AI synthesis snapshot/provider context does not yet consume current review/improvement hypotheses with explicit provenance and uncertainty.
+- Current bounded implementation: add a maximum-12 current feedback context matched to the submission's current Impact Bridge map/reform path; revalidate the full source tuple through `werk_impact_validate_source_binding`; require improvement hypothesis + nonempty uncertainty + nonempty source refs; bind current impact-review IDs into the synthesis snapshot and allow only those IDs as `impact_review` source refs.
+- Safety boundary: review/attribution/improvement text remains hypothesis/review material, never causal fact, ranking, recommendation, accept/reject or automatic policy change. No external/paid provider is activated.
+- Close when: exact-head Impact Feedback + AI Synthesis CI are green; migration 044 is reversibly verified on WERK Staging with stale/current negative paths and zero synthetic baseline; independent Supervisor counterchecks the bounded edge.

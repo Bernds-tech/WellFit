@@ -1,27 +1,29 @@
 # WERK Next Best Action
 
 - Project: `WERK Österreich`
-- Selected action: `WERK-IMPACT-001`
-- Status: `COUNTERCHECKED_STAGING_CLOSEOUT_REQUIRED`
+- Selected action: `WERK-IMPACT-FEEDBACK-001`
+- Catalog entry: `NBA-WERK-IMPACT-FEEDBACK`
+- Status: `IN_PROGRESS`
 - Risk: `R3`
 - Gate: `impact_measurement`
-- Title: Gegengeprüften WERK-IMPACT-001 Zustand kanonisch konsumieren
+- Title: Gegengeprüfte Wirkungsreviews kontrolliert in den KI-Kontext zurückführen
 
 ## Why this action is selected
-`WERK-IMPACT-001` is now independently `COUNTERCHECKED_STAGING`: exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb` passed WERK Impact Measurement Check #6 and Data Contract Registry Check #63, migration `20260921062817 werk_impact_authoritative_source_binding` is live, the current authoritative source tuple passes, unknown/stale/mismatched tuples fail closed, and all impact tables remain zero-row.
+`WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING` and its Builder-owned closeout is consumed: the exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb` passed WERK Impact Measurement Check #6 and Data Contract Registry Check #63; migration `20260921062817 werk_impact_authoritative_source_binding` is live; source binding fails closed for unknown/stale/mismatched tuples; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json` closes the upstream source-binding contradiction.
 
-The Supervisor has already resolved `CTR-WERK-IMPACT-SOURCE-BINDING-001`, recorded the COUNTERCHECKED receipt, closed the impact open loop and advanced the Finishline gate. However builder-owned registers that still show `IMPLEMENTED_NOT_VERIFIED` / an active impact lock must consume the same receipt before the selector may safely start the downstream task.
+The Connection Sweep therefore exposes the next missing edge: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS`. Existing impact reviews already carry attribution/improvement hypotheses, alternative explanations, uncertainties and source refs, but the current AI source snapshot/provider context does not yet consume them.
 
-## Exact next step
-Canonical memory closeout only: set `WERK-IMPACT-001` to `COUNTERCHECKED_STAGING` in Task Ledger/Started Work, release `LOCK-WERK-IMPACT-001`, update `WERK-DEP-IMPACT-FEEDBACK-001` to reflect that the upstream prerequisite is satisfied, and consume the independent receipt. Do not change migration 043 or rebuild impact measurement.
+## Exact work
+1. Reuse `werk_impact_reviews`, current Impact Bridge mappings and `werk_impact_validate_source_binding`; create no parallel calculator or feedback store.
+2. Expose at most 12 current reviews whose measurement plan map/reform matches the submission's current Impact Bridge and whose full source tuple still validates.
+3. Require an improvement hypothesis, explicit uncertainty and provenance refs before a review is eligible as feedback context.
+4. Add eligible `impact_review` IDs to the existing AI synthesis source snapshot; new/stale feedback must change/invalidate the snapshot fail-closed.
+5. Permit `impact_review` source refs only when present in that current snapshot.
+6. Preserve all existing anti-ranking, anti-recommendation, anti-accept/reject and anti-new-numeric-effect guards.
+7. Run exact-head Impact Feedback + AI Synthesis CI; then apply/reversibly probe migration 044 only on WERK Österreich Staging, restore zero synthetic baseline and produce a Builder claim for independent Supervisor countercheck.
 
-After that closeout, catalog priority selects `WERK-IMPACT-FEEDBACK-001` / `NBA-WERK-IMPACT-FEEDBACK`.
-
-## Do not change
-- Do not rebuild Impact Bridge, Expert Input, AI synthesis base or WERK-IMPACT-001.
-- Do not activate an external/paid AI provider.
-- Do not infer causal policy effect, new fiscal values or political ranking from review text.
-- Do not perform production, identity or voting activation.
+## Safety boundary
+Impact observations, attribution hypotheses and improvement hypotheses remain review material, not causal fact. This task performs no political ranking, automatic policy change, production action, paid/external provider activation, credential change or real-world implementation claim.
 
 ## Known separate YELLOW items
-Hosted Supabase still reports `pg_net extension_in_public`, blocking production-security acceptance. The current governance/control head also lacks exact-head GitHub Actions evidence; this does not invalidate the exact-head-green functional implementation but remains a separate evidence gap.
+Hosted Supabase still reports `pg_net extension_in_public`, which remains nonblocking for ordinary reversible Staging work but blocks production-security acceptance. Exact-head control/governance CI evidence remains a separate evidence concern and should be refreshed by the triggered workflows on the implementation head rather than by rebuilding runtime work.

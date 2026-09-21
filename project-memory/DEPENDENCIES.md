@@ -90,9 +90,10 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - From: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge.
 - Requires: independently counterchecked `WERK-IMPACT-001`, a bounded consumption contract that keeps attribution/improvement hypotheses distinct from facts, and—only for real model regeneration—an approved active AI provider boundary.
 - Type: cross-component feedback integration.
-- Status: ACTIVE
-- Updated: 2026-09-21 Europe/Vienna.
-- Current state: Builder implemented the missing authoritative source binding on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb` using migration 043 and the existing canonical Impact Bridge registry. WERK Impact Measurement Check #6 and Data Contract Registry Check #63 are green; Staging migration `20260921062817 werk_impact_authoritative_source_binding` is live; valid current tuple accepted and unknown/stale/mismatched tuples fail closed. Independent Supervisor countercheck is still required before the upstream task can be treated as counterchecked.
-- Rule: do not wire improvement-review hypotheses into AI until Supervisor closes the impact source-binding reconciliation. Once allowed, hypotheses remain provenance-bound and uncertainty-bearing and are never promoted to causal fact or automatic policy change.
-- Provider boundary: no provider activation is required merely to define a future consumption contract; real external regeneration remains separately blocked under `WERK-DEP-AI-PROVIDER-001`.
-- Builder claim: `project-memory/WERK_IMPACT_SOURCE_BINDING_001_BUILDER_CLAIM.md`.
+- Status: ACTIVE_IMPLEMENTATION
+- Updated: 2026-09-21 10:18 Europe/Vienna.
+- Upstream satisfied: `WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING` on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 and Data Contract Registry Check #63 are green; migration `20260921062817 werk_impact_authoritative_source_binding` is live and the independent receipt is `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Current work: `WERK-IMPACT-FEEDBACK-001` builds the bounded consumption contract by reusing current Impact Bridge map/reform IDs plus `werk_impact_validate_source_binding`, limiting feedback to review hypotheses with explicit provenance and uncertainty and binding current review IDs into the existing AI synthesis snapshot.
+- Rule: feedback remains hypothesis/review material and is never promoted to causal fact, automatic policy change, ranking or recommendation. New/stale source state must fail closed.
+- Provider boundary: no provider activation is required to define or verify this contract; real external regeneration remains separately blocked under `WERK-DEP-AI-PROVIDER-001`.
+- Close condition: exact-head feedback/AI CI, reversible Staging verification and independent Supervisor countercheck.

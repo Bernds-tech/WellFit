@@ -1,12 +1,13 @@
 {
-  "version": "2026-09-21-v1",
+  "version": "2026-09-21-v2",
   "name": "WERK IDEENWERK AI synthesis contract",
-  "status": "staging-contract-deployed-provider-disabled-awaiting-countercheck",
-  "purpose": "Generate and persist multiple source-bound solution variants from the citizen problem, a current WERK Impact Bridge mapping, and citizen-visible expert/affected-party evidence, without political ranking or manufactured fiscal effects.",
+  "status": "bounded-provider-disabled-staging-base-counterchecked-feedback-extension-builder-awaiting-countercheck",
+  "purpose": "Generate and persist multiple source-bound solution variants from the citizen problem, a current WERK Impact Bridge mapping, citizen-visible expert/affected-party evidence, and optional current impact-review feedback, without political ranking, automatic decisions, causal promotion of hypotheses or manufactured fiscal effects.",
   "prerequisites": {
     "impact_bridge": "COUNTERCHECKED_STAGING and current candidate_mapping required for the specific submission",
     "expert_process": "COUNTERCHECKED_STAGING and at least one citizen-visible source-bound expert/affected-party input required for the specific submission",
-    "source_snapshot": "submission + structured proposal timestamps, current Impact Bridge version/mappings, and citizen-visible expert input IDs",
+    "impact_feedback": "optional; when present, only current source-bound reviews with explicit provenance and uncertainty are consumed, and stale feedback fails closed",
+    "source_snapshot": "submission + structured proposal timestamps, current Impact Bridge version/mappings, citizen-visible expert input IDs, and current eligible impact-review IDs",
     "stale_behavior": "fail closed to revalidation_required; stale variants are not returned as current"
   },
   "provider_contract": {
@@ -18,12 +19,14 @@
     "paid_or_external_activation": "not performed by this implementation"
   },
   "storage_contract": {
-    "migration": "040_ideenwerk_ai_synthesis",
+    "base_migration": "040_ideenwerk_ai_synthesis",
     "acl_hardening_migration": "041_ai_synthesis_trigger_privileges",
+    "feedback_extension_migration": "044_ideenwerk_impact_feedback",
     "table": "public.ideenwerk_ai_syntheses",
     "write_rpc": "public.ideenwerk_record_ai_synthesis",
     "current_rpc": "public.ideenwerk_current_ai_synthesis",
     "source_snapshot_rpc": "public.ideenwerk_ai_synthesis_source_snapshot",
+    "feedback_context_rpc": "public.ideenwerk_ai_feedback_context",
     "transport_boundary": "trusted service_role only",
     "append_only": true,
     "variants_min": 2,
@@ -43,9 +46,11 @@
     "source_ref_kinds": [
       "citizen_problem",
       "impact_map",
-      "expert_input"
+      "expert_input",
+      "impact_review"
     ],
     "source_ref_rule": "Every source_ref must resolve against the current source snapshot. Unknown or stale references fail closed.",
+    "impact_review_rule": "impact_review refs are accepted only when the review is current, matches the submission's current impact map/reform path, retains authoritative source binding, and carries provenance plus uncertainty.",
     "numeric_effect_rule": "Generated variant text does not reproduce or invent fiscal percentages/currency effects. Quantitative claims stay in linked WERK calculation artifacts."
   },
   "citizen_transparency": {
@@ -62,12 +67,14 @@
       "source snapshot binding",
       "revalidation_required state"
     ],
-    "boundary": "Variants are research and deliberation material, not a WERK recommendation or decision."
+    "boundary": "Variants are research and deliberation material, not a WERK recommendation or decision. Impact-review feedback remains hypothesis/review material, not causal fact."
   },
   "negative_guards": [
     "no synthesis when current impact mapping is missing or stale",
     "no synthesis when citizen-visible expert input is absent",
+    "stale impact feedback makes the source snapshot ineligible until revalidated",
     "unknown source reference fails closed",
+    "impact_review source ref not present in current snapshot fails closed",
     "ranking/score/recommendation/winner/accept/reject fields fail closed",
     "political preference wording fails closed",
     "new percentage/currency-scale effect text fails closed",
@@ -81,6 +88,7 @@
     "automatic proposal acceptance",
     "automatic proposal rejection",
     "expert veto",
+    "impact-review hypothesis promoted to causal fact",
     "manufactured fiscal effect",
     "silent stale-source reuse",
     "automatic implementation decision"
@@ -88,32 +96,22 @@
   "runtime": {
     "staging_project": "WERK Österreich Staging",
     "staging_project_id": "jwomaoxefgnhsgiebaqy",
-    "migrations": [
+    "base_migrations": [
       "20260921042608 ideenwerk_ai_synthesis",
-      "041_ai_synthesis_trigger_privileges"
+      "20260921042728 ai_synthesis_trigger_privileges"
     ],
-    "storage_schema_verified": true,
+    "feedback_extension": "builder code prepared; target-bound staging verification required before claiming the extension live",
+    "base_storage_schema_counterchecked": true,
     "rls_enabled": true,
-    "anon_authenticated_table_select": false,
-    "anon_authenticated_record_rpc_execute": false,
-    "trigger_function_direct_public_execute": false,
-    "synthesis_rows_after_deploy": 0,
-    "security_advisor_new_ai_synthesis_warns": 0,
-    "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item",
-    "production": false,
     "provider_activation": false,
-    "note": "The source-bound storage/status/UI/provider adapter contract is deployed on staging. No external model provider is activated and no synthetic policy variants are manufactured."
+    "production": false,
+    "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item"
   },
   "ci_evidence": {
-    "functional_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
-    "werk_ai_synthesis_check_run": 3,
-    "werk_ai_synthesis_check": "success",
-    "ideenwerk_backend_check_head": "4d3f63df43db446cd24c3c98304b1282acf61d9c",
-    "ideenwerk_backend_check_run": 176,
-    "ideenwerk_backend_check": "success",
-    "werk_data_contract_registry_check_run": 61,
-    "werk_data_contract_registry_check": "success",
-    "first_ai_ci_failure": "run 1 exposed an invalid expert-fixture idempotency key; fixture corrected without weakening any production guard"
+    "counterchecked_base_functional_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
+    "counterchecked_base_werk_ai_synthesis_check_run": 3,
+    "counterchecked_base_werk_ai_synthesis_check": "success",
+    "feedback_extension": "requires fresh exact-head AI synthesis and impact-feedback checks"
   },
-  "acceptance_boundary": "Builder evidence proves the bounded contract, fail-closed provider adapter and staging schema only. A real AI-generated variant set is not claimed while provider activation remains false; independent supervisor countercheck remains required before any higher status."
+  "acceptance_boundary": "The previously counterchecked provider-disabled base remains historical current evidence for its scope. The feedback extension requires fresh exact-head CI, reversible Staging verification and independent Supervisor countercheck before any higher status. A real AI-generated variant set is not claimed while provider activation remains false."
 }

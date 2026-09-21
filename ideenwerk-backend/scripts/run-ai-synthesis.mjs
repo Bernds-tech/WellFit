@@ -14,7 +14,8 @@ try{
            p.problem,p.proposal,p.goal,p.open_questions,
            public.ideenwerk_ai_synthesis_source_snapshot(s.id) AS snapshot,
            public.ideenwerk_current_impact_bridge(s.id) AS impact,
-           public.ideenwerk_expert_input_citizen_view(s.id) AS expert_inputs
+           public.ideenwerk_expert_input_citizen_view(s.id) AS expert_inputs,
+           public.ideenwerk_ai_feedback_context(s.id) AS impact_feedback
       FROM submissions s
       LEFT JOIN structured_proposals p ON p.submission_id=s.id
      WHERE s.public_id=$1
@@ -25,6 +26,7 @@ try{
   if(!snapshot?.eligible)throw new Error(`AI_SYNTHESIS_PREREQUISITES_NOT_CURRENT:${snapshot?.ineligible_reason||'unknown'}`);
   const impactRefs=Array.isArray(snapshot?.impact_bridge?.mapping_refs)?snapshot.impact_bridge.mapping_refs:[];
   const expertRefs=Array.isArray(snapshot?.expert_input_refs)?snapshot.expert_input_refs:[];
+  const reviewRefs=Array.isArray(snapshot?.impact_feedback?.review_refs)?snapshot.impact_feedback.review_refs:[];
   const context={
     citizen_problem:{
       ref_id:'CITIZEN-PROBLEM',
@@ -38,10 +40,12 @@ try{
     },
     impact_bridge:row.impact,
     expert_inputs:row.expert_inputs||[],
+    impact_feedback:row.impact_feedback?.state==='current'?(row.impact_feedback.items||[]):[],
     impact_map_refs:impactRefs,
     expert_input_refs:expertRefs,
+    impact_review_refs:reviewRefs,
     source_snapshot_hash:snapshot.snapshot_hash,
-    boundary:'Generate multiple traceable variants only; never rank, recommend, accept/reject, or invent numeric fiscal effects.'
+    boundary:'Generate multiple traceable variants only; never rank, recommend, accept/reject, invent numeric fiscal effects, or treat impact-review hypotheses as causal facts.'
   };
   const result=await synthesizeVariants(context);
   if(!result.available)throw new Error(result.reason||'AI_SYNTHESIS_PROVIDER_UNAVAILABLE');
@@ -50,5 +54,5 @@ try{
     `SELECT public.ideenwerk_record_ai_synthesis($1,$2,$3,$4::jsonb,$5,$6,$7) AS result`,
     [publicId,result.provider,result.model_version,JSON.stringify(result.variants),result.uncertainty_summary||null,snapshot.snapshot_hash,idempotency]
   );
-  console.log(JSON.stringify({public_id:publicId,...saved.rows[0].result,model_provider:result.provider,model_version:result.model_version,variant_count:result.variants.length},null,2));
+  console.log(JSON.stringify({public_id:publicId,...saved.rows[0].result,model_provider:result.provider,model_version:result.model_version,variant_count:result.variants.length,impact_feedback_refs:reviewRefs.length},null,2));
 }finally{await client.end()}

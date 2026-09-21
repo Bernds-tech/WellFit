@@ -20,6 +20,7 @@ export function validateSynthesisPayload(data,context={}){
   const allowed=new Set(['citizen_problem:CITIZEN-PROBLEM']);
   for(const id of arr(context.impact_map_refs,50).map(String))allowed.add(`impact_map:${id}`);
   for(const id of arr(context.expert_input_refs,50).map(String))allowed.add(`expert_input:${id}`);
+  for(const id of arr(context.impact_review_refs,50).map(String))allowed.add(`impact_review:${id}`);
   const normalized=variants.map((raw,index)=>{
     if(!raw||typeof raw!=='object'||Array.isArray(raw))throw new Error('AI_SYNTHESIS_VARIANT_SCHEMA_INVALID');
     for(const key of Object.keys(raw))if(FORBIDDEN_KEYS.has(key.toLowerCase()))throw new Error('AI_SYNTHESIS_POLITICAL_RANKING_FORBIDDEN');
@@ -56,14 +57,15 @@ async function callJsonEndpoint(endpoint,apiKey,context){
       headers:{'content-type':'application/json',...(apiKey?{authorization:`Bearer ${apiKey}`}:{})},
       body:JSON.stringify({
         task:'werk_ideenwerk_synthesis',
-        schema_version:'2026-09-21-v1',
+        schema_version:'2026-09-21-v2',
         constraints:{
           multiple_variants:true,
           no_ranking:true,
           no_recommendation:true,
           no_accept_reject:true,
           no_new_numeric_effects:true,
-          source_refs_must_be_current:true
+          source_refs_must_be_current:true,
+          impact_feedback_is_hypothesis_only:true
         },
         input:context,
         output_schema:{
