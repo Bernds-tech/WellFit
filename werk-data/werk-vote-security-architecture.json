@@ -1,0 +1,137 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-VOTE-ARCH-001",
+  "status": "architecture_only_not_activated_not_official_election",
+  "purpose": "Technical architecture for a future WERK deliberative/member/citizen ballot path that separates eligibility from ballot secrecy and remains distinct from official Austrian elections or referenda.",
+  "hard_boundaries": [
+    "No official election/referendum function is claimed.",
+    "No ballot is active and no real vote can be cast.",
+    "Verified-support pseudonyms are never reused as ballot identifiers.",
+    "Identity/eligibility service must not receive the ballot choice.",
+    "Ballot store must not contain raw identity.",
+    "No quorum, threshold, franchise, binding effect or revoting rule is selected by this technical architecture.",
+    "No home-grown cryptography may be activated without independent specialist review and audited implementation."
+  ],
+  "layers": [
+    {
+      "id": "eligibility",
+      "purpose": "Verify eligibility and issue a single-use anonymous voting credential without ballot choice."
+    },
+    {
+      "id": "ballot",
+      "purpose": "Accept a valid anonymous credential, enforce single-use/replay protection and store only an encrypted/secret ballot representation."
+    },
+    {
+      "id": "tally",
+      "purpose": "Produce a tally with separation of duties and verifiability appropriate to the selected reviewed scheme."
+    },
+    {
+      "id": "audit",
+      "purpose": "Audit configuration, credential consumption and tally integrity without logging voter choice or identity-choice linkage."
+    }
+  ],
+  "architecture_candidates": [
+    {
+      "id": "BLIND_CREDENTIAL_THRESHOLD_TALLY",
+      "selection_status": "candidate_not_selected",
+      "description": "Eligibility service issues a blinded/single-use credential; ballot is encrypted for a threshold-controlled tally. Exact protocol/library is not selected.",
+      "requires": [
+        "independent cryptographic design review",
+        "audited implementation/library",
+        "key ceremony/threshold-holder governance",
+        "coercion/receipt-freeness assessment",
+        "end-to-end verification usability review"
+      ]
+    },
+    {
+      "id": "ANONYMOUS_CREDENTIAL_ZK_TALLY",
+      "selection_status": "candidate_not_selected",
+      "description": "Voter proves eligibility/single-use property with an anonymous credential or zero-knowledge proof and submits an encrypted ballot. Exact credential/proof/tally stack is not selected.",
+      "requires": [
+        "independent cryptographic design review",
+        "audited credential/proof stack",
+        "key/issuer governance",
+        "privacy correlation analysis",
+        "end-to-end verification usability review"
+      ]
+    }
+  ],
+  "election_config_contract": {
+    "immutable_before_open": [
+      "ballot_id",
+      "ballot_question_hash",
+      "option_set_hash",
+      "eligibility_policy_version",
+      "opens_at",
+      "closes_at",
+      "cryptographic_scheme_version",
+      "tally_key_fingerprint",
+      "audit_policy_version"
+    ],
+    "political_decisions_not_set_here": [
+      "eligible_population",
+      "quorum",
+      "decision_threshold",
+      "binding_effect",
+      "revoting_policy",
+      "abstention_semantics"
+    ]
+  },
+  "threat_model": [
+    {
+      "threat": "duplicate_voting",
+      "required_control": "single-use anonymous credential/proof + atomic consumption"
+    },
+    {
+      "threat": "identity_ballot_linkage",
+      "required_control": "separate services/stores/keys and no shared stable pseudonym"
+    },
+    {
+      "threat": "credential_replay",
+      "required_control": "atomic spent-credential set without ballot-choice logging"
+    },
+    {
+      "threat": "ballot_stuffing",
+      "required_control": "credential validity + append-only ballot ledger + independent tally reconciliation"
+    },
+    {
+      "threat": "ballot_tampering",
+      "required_control": "cryptographic integrity proof/auditable immutable configuration"
+    },
+    {
+      "threat": "administrator_collusion",
+      "required_control": "separation of duties and threshold/multi-party key control where scheme requires"
+    },
+    {
+      "threat": "malicious_client",
+      "required_control": "server-side validation plus independent verifiability; client UI cannot define eligibility/result"
+    },
+    {
+      "threat": "coercion_or_receipt_selling",
+      "required_control": "must be explicitly addressed by selected protocol; architecture makes no receipt-freeness claim yet"
+    },
+    {
+      "threat": "denial_of_service",
+      "required_control": "availability plan, rate controls and documented contingency without silently extending/changing ballot rules"
+    },
+    {
+      "threat": "result_manipulation",
+      "required_control": "reproducible tally verification and immutable result artifact"
+    }
+  ],
+  "acceptance_path": [
+    "WERK-ID-CORE-001 counterchecked foundation",
+    "owner/citizen governance decisions for eligibility/quorum/binding/revote",
+    "independent legal review of intended WERK use",
+    "independent cryptographic/security review",
+    "audited implementation/library selection",
+    "synthetic election threat tests and recovery drill",
+    "target-bound Staging acceptance",
+    "separate explicit activation"
+  ],
+  "activation": {
+    "enabled": false,
+    "production": false,
+    "official_election": false
+  }
+}
