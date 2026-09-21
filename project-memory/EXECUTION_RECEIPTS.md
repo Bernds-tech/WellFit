@@ -232,3 +232,16 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Independent immutable receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
 - Boundary: no production acceptance, legal acceptance, causal policy effect, new political weighting or formula change is implied.
 - Result: `COUNTERCHECKED_STAGING`. Do not rebuild WERK-IMPACT-001. After canonical bookkeeping closeout, the next functional task is `WERK-IMPACT-FEEDBACK-001`.
+
+
+## RECEIPT-WERK-IMPACT-045-046-20260921
+- Tasks: `WERK-IMPACT-FEEDBACK-001` and `WERK-IMPACT-SNAPSHOT-FRESHNESS-001`
+- Risk: R3
+- Result: `COUNTERCHECKED_STAGING`
+- Independent countercheck: migration 045 live + exact-head Feedback #3 / AI Synthesis #7 / Backend #187 green; deployed feedback function applies map/reform relevance before `LIMIT 12` and remains service-role-only.
+- Snapshot freshness: migration 046 live + exact-head Impact Measurement #8 / Data Contract Registry #66 green; deployed snapshot validates the stored authoritative tuple before current reliance and returns `revalidation_required` with `current_reliance=false` for stale bindings while preserving historical evidence.
+- Staging countercheck: WERK project active; Edge v7; submissions/impact plans/implementations/observations/reviews/active jobs/active reviews all zero after reversible probes.
+- Security: no new WARN from these changes; known `pg_net extension_in_public` remains separate.
+- Falsification: relevance-before-limit regression, stale snapshot readable as current, ACL broadening or exact-head CI regression reopens the appropriate finding.
+- Boundary: no Production, provider activation, causal policy claim, political ranking/decision or WERK-principle change.
+- Receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`
