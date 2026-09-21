@@ -11,6 +11,19 @@ Prevents two agents/sessions from independently working the same task.
 
 ## Active/stale locks
 
+## LOCK-WERK-EXPERT-001
+- Task: WERK-EXPERT-001
+- Status: ACTIVE
+- Phase: IMPLEMENTATION
+- Risk: R3
+- Holder: WERK autonomous builder / no second implementation worker
+- Branch: `werk-v49-preview-host`
+- Acquired: 2026-09-21 03:15 Europe/Vienna
+- Scope: bounded IDEENWERK expert/affected-party input contract, source/relationship disclosure, audit trail, citizen-safe transparency, negative tests, and reversible Staging verification; reuse existing operator/review/status/website surfaces.
+- Preconditions: Impact Bridge `COUNTERCHECKED_STAGING`; no active RED finding; Supervisor next-safe action is WERK-EXPERT-001 after bookkeeping cleanup.
+- Boundary: no expert veto, no political scoring/ranking, no citizen-text mutation, no production deployment, no paid/irreversible action.
+- Release: only after builder evidence claim and independent Supervisor countercheck or explicit reconciliation failure.
+
 ## LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001
 - Task: WERK-IDEENWERK-IMPACT-BRIDGE-001
 - Status: RELEASED
@@ -103,7 +116,7 @@ No additional locks recorded.
 - Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
-- Scope: same-period regional labour source reconciliation, occupation supply acquisition and dependent data contracts; existing WERK branch only.
+- Scope: same-period regional labour source reconciliation, occupation supply acquisition and dependent data contracts; existing branch only.
 - Released: 2026-09-06 after publication and exact-commit success of all 13 workflows; receipt WERK_LABOUR_003_CI_RECEIPT.json.
 
 ## LOCK-WERK-LAB-004
@@ -168,7 +181,7 @@ No additional locks recorded.
 - Holder: Codex 2026-09-07
 - Scope: WERK debt/SV calculation, source context, reports and contracts.
 
-- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered CI workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
+- Verified: 21fbedb180f45823cbfeeb44fd326dfb4b7fdd09; all four triggered workflows succeeded. WERK_SV_005_CI_RECEIPT.json.
 
 ## LOCK-WERK-SV-006
 - Status: RELEASED
@@ -233,4 +246,4 @@ No additional locks recorded.
 - Holder: Codex WERK continuation 2026-09-09
 - Scope: subsidy data, checks, status, memory and existing WERK branch.
 
-- Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
+- Released 2026-09-09 after exact-implementation success of all 13 workflows; WERK_SUB_001_CI_RECEIPT.json.
