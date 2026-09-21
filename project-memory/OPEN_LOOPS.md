@@ -107,3 +107,24 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 - Boundary: no expert veto, political merit score, automatic acceptance/rejection, review-depth override, citizen-text mutation, new fiscal/impact effect, production deploy or live-browser visual acceptance is claimed. Aggregate expert transparency remains service-role-only. Existing `pg_net` hosted-extension warning remains a separate production-hardening loop.
 - Reopen trigger: contradictory CI/runtime evidence, source-binding or append-only bypass, citizen/private projection leak, or a downstream integration dependency requiring a bounded extension.
 - Downstream: canonical Builder closeout is consumed; `WERK-AI-SYNTH-001` may become executable only after the Finishline Navigator/Evidence Reaper consume the expert gate/freshness transition. Do not rebuild expert input.
+
+## WERK-LOOP-AI-SYNTH-001
+- Related: `WERK-AI-SYNTH-001`, `WERK-DEP-EXPERT-AI-001`, `WERK-DEP-AI-PROVIDER-001`.
+- Status: OPEN_AWAITING_COUNTERCHECK
+- Updated: 2026-09-21 07:22 Europe/Vienna
+- Risk: R3
+- Gap: the bounded AI-synthesis contract is implemented on Staging but has not yet received an independent Supervisor countercheck on its exact functional evidence/runtime scope.
+- Current evidence: functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; migrations 040/041 are live; synthesis table is zero-row; fresh Security Advisor has no AI-specific WARN.
+- External boundary: provider remains disabled. No real model endpoint, credential or paid provider is activated and no live political variants are claimed.
+- Close when: Supervisor independently confirms the bounded Staging contract, negative/fail-closed paths and current runtime boundary, then Builder consumes the closeout. Provider activation remains a separate dependency and is not required to countercheck the staging contract itself.
+
+## WERK-LOOP-IMPACT-001
+- Related: `WERK-IMPACT-001`, `WERK-DEP-IMPACT-FEEDBACK-001`.
+- Status: OPEN_AWAITING_COUNTERCHECK
+- Updated: 2026-09-21 07:22 Europe/Vienna
+- Risk: R3
+- Gap: the Soll/Ist measurement + review-only feedback contract is implemented on Staging but has not yet received an independent Supervisor countercheck.
+- Current evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 is live; plans/observations/reviews remain zero-row; Security Advisor has no impact-specific WARN.
+- Performance note: fresh Supabase Performance Advisor reports five INFO-level unindexed foreign keys on the new impact tables. This is not a correctness/security failure and does not block bounded Staging countercheck, but must remain visible for scale/production hardening.
+- Boundary: arithmetic deviation is not causality; attribution and improvement remain hypotheses/review material only; no automatic political change.
+- Close when: Supervisor counterchecks the bounded Staging scope and Builder consumes the result. Any separate index hardening may follow as a bounded performance task if evidence justifies it.
