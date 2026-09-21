@@ -366,3 +366,23 @@ Canonical register for work that has started but is not yet fully completed.
 - Falsifier: annual plus monthly values double counted, administration mixed into funding, missing account interpreted as discontinued program, or baseline reductions credited to WERK. Source reconciliation and negative checks required.
 
 - Exact implementation 0d47fa44c378438bc2c760df954756d73ff900c0: all 13 triggered workflows succeeded; WERK_SUB_001_CI_RECEIPT.json.
+
+
+## WERK-AI-PROVIDER-EVAL-001
+- Started: 2026-09-21 Europe/Vienna
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R3
+- Branch: `werk-v49-preview-host`
+- Scope: provider/privacy/cost evaluation contract; no external activation.
+- Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
+- Exact next step: wait only for current exact-head CI to finish, then independent countercheck; no provider/identity activation.
+
+
+## WERK-ID-ARCH-001
+- Started: 2026-09-21 Europe/Vienna
+- Status: IMPLEMENTED_NOT_VERIFIED
+- Risk: R4
+- Branch: `werk-v49-preview-host`
+- Scope: verified-support identity architecture; no real identity or support counting.
+- Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
+- Exact next step: wait only for current exact-head CI to finish, then independent countercheck; no provider/identity activation.
