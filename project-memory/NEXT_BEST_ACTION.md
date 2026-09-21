@@ -1,36 +1,40 @@
 # WERK Next Best Action
 
 - Project: `WERK Österreich`
-- Selected action: `WERK-AI-SYNTH-001`
-- Catalog entry: `NBA-WERK-AI-SYNTHESIS`
+- Selected action: `WERK-IMPACT-001`
+- Catalog entry: `NBA-WERK-IMPACT-MEASUREMENT`
 - Status: `EXECUTABLE`
 - Risk: `R3`
-- Gate: `ai_synthesis`
-- Title: KI-Synthese aus Bürgerideen, Experteninput und bestehenden WERK-Modellen bauen
+- Gate: `impact_measurement`
+- Title: Soll/Ist-Wirkungsmessung und Rückkopplung bauen
 
-## Why this is next
-`WERK-IDEENWERK-IMPACT-BRIDGE-001` und `WERK-EXPERT-001` sind beide unabhängig `COUNTERCHECKED_STAGING`. Der Expert-Closeout ist kanonisch konsumiert: Task/Started Work/Lock/Open Loop/Dependency/System Graph sind reconciliert, `WERK_EVIDENCE_FRESHNESS.json` wurde nach Migrationen 038/039 frisch revalidiert und `WERK_FINISHLINE_STATE.json` führt `expert_process=COUNTERCHECKED_STAGING`.
+## Why this is now the next safe executable action
+`WERK-AI-SYNTH-001` has materially advanced, but its remaining step is no longer ordinary repository/staging implementation. The bounded source-binding/storage/status/UI/provider-adapter contract is implemented and deployed on WERK Staging, while the real synthesis provider remains deliberately disabled. Enabling an external provider without a known approved endpoint/secret/cost boundary would violate fail-closed and protected-action rules. The independent Supervisor must also countercheck the staged contract before a higher AI-synthesis state is claimed.
 
-Damit sind die fachlichen Staging-Prerequisites für `WERK-AI-SYNTH-001` erfüllt. Der weiterhin offene Hosted-Supabase-Hinweis `pg_net extension_in_public` ist ein Production-Hardening-Limit, aber kein Blocker für reversible Staging-Feature-Arbeit.
+`WERK-IMPACT-001` is the next safe catalog action whose prerequisite (`impact_bridge`) is already `COUNTERCHECKED_STAGING`. It can therefore proceed without pretending the external AI provider is active.
 
-## Exact bounded work
-1. Bestehende Bürgerproblem-/Cluster-Daten, Impact-Bridge-Referenzen und counterchecked Experten-/Betroffeneninput konsumieren; keine parallelen Daten- oder Rechenquellen bauen.
-2. Mehrere nachvollziehbare Lösungsvarianten erzeugen, jeweils mit Quellen-/Version-Provenienz, Gegenpositionen, Unsicherheiten und offenen Gates.
-3. Vorhandene WERK-Rechen-/Reformartefakte nur referenzieren; keine ungesicherten fiskalischen Wirkungen erfinden und keine bedingten Szenarien als verifizierte Wirkung ausgeben.
-4. Keine politische Rangfolge, kein automatisches Annehmen/Ablehnen, kein Expertenveto und keine politische Entscheidung durch die KI.
-5. Bestehende IDEENWERK/API/V71-Flächen wiederverwenden; keine Parallelplattform.
-6. Deterministische Source-/Version-Bindung, negative/stale/fail-closed Tests, Auditspur und reversible Staging-Verifikation vor jedem Downstream-Claim.
+## AI synthesis lane retained, not closed
+- Functional evidence head: `982fa7301bf13b2e2cf40be14e1f588874e77e4f`.
+- `WERK AI Synthesis Check #3`: success.
+- `IDEENWERK Backend Check #176` on the immediately preceding functional head: success.
+- `WERK Data Contract Registry Check #61`: success.
+- Staging migrations: `20260921042608 ideenwerk_ai_synthesis` plus ACL hardening `041_ai_synthesis_trigger_privileges`.
+- Staging schema/RLS/anon-auth privilege checks: passed; synthesis table remains zero-row.
+- Fresh Security Advisor after ACL hardening: no AI-synthesis-specific WARN remains. The pre-existing hosted `pg_net extension_in_public` WARN remains a separate production-hardening item.
+- Provider state: `SYNTHESIS_PROVIDER=disabled`; no fallback policy generator; no live AI variant is claimed.
+- Required before AI-synthesis closeout: independent Supervisor countercheck plus an explicitly approved/configured provider boundary if real generation is to be activated.
 
-## Current evidence
-- Impact Bridge functional head: `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`, `COUNTERCHECKED_STAGING`.
-- Expert functional head: `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`, `COUNTERCHECKED_STAGING`.
-- Expert countercheck receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`.
-- Expert CI: WERK Expert Input Check #4, WERK Data Contract Registry Check #59 und WERK Frontend Check #182 erfolgreich.
-- Staging: `ACTIVE_HEALTHY`, `werk-ideenwerk-api` v7, aktuelle Migration `20260921013039 expert_input_operator_index`, 15 geprüfte Tabellen auf Zero-Baseline.
-- Freshness revalidated: `2026-09-21T03:26:40Z` nach Migrationen 038/039.
+## Exact bounded work for WERK-IMPACT-001
+1. Reuse existing reform/model IDs and the counterchecked Impact Bridge; do not create parallel impact calculations.
+2. Version-bind forecast/baseline, implementation event, KPI definition, observed value, measurement period and source provenance.
+3. Keep forecast, observed fact, attribution hypothesis and uncertainty strictly separated.
+4. Produce deviation diagnostics and improvement proposals only; never auto-adopt a political change.
+5. Add stale/source-version invalidation and negative/fail-closed tests.
+6. Reuse existing IDEENWERK/API/V71 surfaces where citizen transparency is appropriate; no parallel platform.
+7. Reversible Staging verification, zero-fixture cleanup, then Builder claim for independent Supervisor countercheck.
 
 ## Do not rebuild
-Impact Bridge, Expert Input, Kompetenzprüfung, Existing-Measure-Review, Privacy, Clarification, öffentliche Cluster und FAST/STANDARD/DEEP nicht erneut implementieren. Diese Bausteine sind Inputs für die Synthese und werden nur über ihre bestehenden Verträge konsumiert.
+Impact Bridge, Expert Input, AI synthesis storage/provider-adapter contract, competence review, Existing-Measure review, Privacy, Clarification, public clusters and FAST/STANDARD/DEEP remain existing inputs. Do not duplicate them.
 
 ## Acceptance boundary
-Der Builder darf nach Implementierung nur einen evidenzgebundenen Builder-Claim erzeugen. Unabhängiger Supervisor-Gegencheck bleibt Pflicht. Kein `ACCEPTED` oder `PRODUCTION_CONFIRMED` aus Repository-/Staging-Evidence allein.
+The Builder may implement and verify reversible staging work, then emit an evidence-bound claim. It must not write Supervisor State/Evidence Freshness, must not raise Finishline State itself, and must not infer `ACCEPTED` or `PRODUCTION_CONFIRMED` from code or staging alone.
