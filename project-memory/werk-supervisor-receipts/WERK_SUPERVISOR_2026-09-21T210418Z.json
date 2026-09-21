@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "role": "independent_supervisor",
+  "observed_at": "2026-09-21T21:04:18Z",
+  "branch": "werk-v49-preview-host",
+  "checked_head_before_supervisor_write": "75a16c668f31e012574250942132ac7ff6cacf9f",
+  "prior_supervisor_state": "2026-09-21-v20",
+  "classification": "NO_MATERIAL_DELTA_EXISTING_RED_YELLOW_REPRODUCED",
+  "overall_status": "RED",
+  "product_or_runtime_delta": false,
+  "branch_delta": {
+    "base": "d8147e036df87e1ae34bd0d2c863b1c71554914a",
+    "head": "75a16c668f31e012574250942132ac7ff6cacf9f",
+    "commits_ahead": 4,
+    "scope": "supervisor/governance only",
+    "changed_paths": [
+      "project-memory/NEXT_BEST_ACTION.md",
+      "project-memory/WERK_SUPERVISOR_STATE.json",
+      "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T205000Z.json",
+      "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T205800Z_CORRECTION.json"
+    ],
+    "product_migration_workflow_delta": false
+  },
+  "exact_head_ci": [
+    {
+      "task": "WERK-PARLIAMENTARY-RUNTIME-001",
+      "head": "b34cc1f4f9e107bcbb46e82ea68975652eab2152",
+      "runs": [
+        "WERK Parliamentary Trace Runtime Check #2 SUCCESS",
+        "IDEENWERK Backend Check #197 SUCCESS"
+      ],
+      "result": "CI_VERIFIED_BUT_LIVE_COUNTERCHECK_STILL_RED"
+    },
+    {
+      "task": "WERK-ID-CORE-001",
+      "head": "da75785b8d7d312f8beefbb2c37ed59abd52a4ff",
+      "runs": [
+        "WERK Verified Support Core Check #4 SUCCESS",
+        "IDEENWERK Backend Check #194 SUCCESS"
+      ],
+      "result": "CI_VERIFIED_BUT_LIVE_COUNTERCHECK_STILL_YELLOW"
+    }
+  ],
+  "runtime": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "latest_migration": "20260921204112 parliamentary_trace_runtime",
+    "migration_delta_since_prior_check": false,
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "edge_delta_since_prior_check": false,
+    "counts": {
+      "identity_receipts": 0,
+      "supports": 0,
+      "parliamentary_traces": 0,
+      "parliamentary_events": 0,
+      "processing_jobs": 0,
+      "active_jobs": 0,
+      "failed_or_dead_jobs": 0,
+      "review_tasks": 0,
+      "active_review_tasks": 0
+    }
+  },
+  "independent_reprobe": {
+    "parliamentary_user_triggers": [],
+    "source_decision_version_unique_guard": false,
+    "service_role_direct_mutation": {
+      "parliamentary_traces_update": true,
+      "parliamentary_traces_delete": true,
+      "parliamentary_events_update": true,
+      "parliamentary_events_delete": true
+    },
+    "future_verified_at_guard": {
+      "werk_record_identity_verification_receipt": false,
+      "werk_record_verified_support": false
+    }
+  },
+  "findings": [
+    {
+      "id": "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001",
+      "severity": "RED",
+      "state": "OPEN_UNCHANGED_REPRODUCED",
+      "material_change": false
+    },
+    {
+      "id": "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001",
+      "severity": "YELLOW",
+      "state": "OPEN_UNCHANGED_REPRODUCED",
+      "material_change": false
+    },
+    {
+      "id": "CTR-WERK-ID-CORE-FUTURE-VERIFIED-AT-001",
+      "severity": "YELLOW",
+      "state": "OPEN_UNCHANGED_REPRODUCED",
+      "material_change": false
+    },
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "state": "OPEN_UNCHANGED",
+      "material_change": false
+    }
+  ],
+  "advisors": {
+    "security_observed_at": "2026-09-21T21:03:46.390Z",
+    "security_warn_count": 1,
+    "security_warning": "extension_in_public: pg_net",
+    "rls_enabled_no_policy_info_count": 40,
+    "new_security_warn": false,
+    "performance_observed_at": "2026-09-21T21:03:52.472Z",
+    "unindexed_foreign_keys": 5,
+    "material_performance_delta": false
+  },
+  "specialists": {
+    "integration_hunter": "No new or materially changed missing edge. System graph still keeps WERK-VOTE -> PARLIAMENTARY-PATH blocked and PARLIAMENTARY-PATH -> KPI-MEASUREMENT in progress; parliamentary runtime is not promoted while RED is open.",
+    "evidence_reaper": "Fresh runtime and advisor evidence remains within TTL and was independently refreshed. No migration, edge deploy, runtime-config, workflow-contract or functional-head invalidation trigger was observed.",
+    "orphan_zombie_hunter": "WERK-PARLIAMENTARY-RUNTIME-001 and WERK-ID-CORE-001 remain active existing locks with explicit next steps. No new orphan/zombie condition found.",
+    "calculation_integrity_guardian": "Not triggered: no calculation, source-data, reform-contract, formula, unit, population, debt-definition or baseline/scenario contract changed since the last relevant check.",
+    "milestone_closer": "No gate newly meets ACCEPTED or PRODUCTION_CONFIRMED quorum; no milestone snapshot created."
+  },
+  "owner_action": "No READY_NOW owner action.",
+  "next_action": "Keep the existing parliamentary-runtime and identity-core scopes only. Parliamentary RED remediation remains first; identity future-verified_at hardening remains second. No new feature slice is executable.",
+  "supervisor_mutation_boundary": "Audit/governance memory only. No product, runtime, schema, political or production change was made."
+}
