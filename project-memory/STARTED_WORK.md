@@ -390,3 +390,16 @@ Canonical register for work that has started but is not yet fully completed.
 - Exact next step: wait only for current exact-head CI to finish, then independent countercheck; no provider/identity activation.
 
 - Closed: 2026-09-21 via independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
+
+## WERK-ID-CORE-001
+- Started: 2026-09-21 Europe/Vienna
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Risk: R4
+- Branch: `werk-v49-preview-host`
+- Lock: `LOCK-WERK-ID-CORE-001`
+- Scope: provider-neutral verified-support storage/RPC core only; no provider/public endpoint/counting/vote.
+- Functional head: `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`
+- Completed so far: exact-head CI green; migration 047 applied to WERK Staging; ACL/RLS and synthetic positive/replay/negative/privacy probe passed; synthetic data cleaned to zero.
+- Still open: independent Supervisor countercheck and subsequent Owner Action Manager readiness reconciliation.
+- Exact next step: Supervisor checks repository/runtime/ACL/negative semantics and cleanup independently.
