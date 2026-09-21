@@ -120,3 +120,20 @@ TAX-001 source reconciliation remains OPEN: ABB press headline>154m is not bridg
 - Evidence: supervisor receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T221347Z.json`; live migration `20260920203116 pg_net_data_api_guard`; Backend Check #161 attempt 2 success; staging healthy/zero synthetic baseline.
 - Residual limitation: Supabase-managed direct grants plus `extension_in_public` remain under `WERK-LOOP-SEC-PGNET-001` and are not claimed as production-hardened.
 - Reopen trigger: new evidence that the PostgREST guard can be bypassed by the WERK Data API, a new WERK wrapper exposes `net.http_*`, staging roles gain LOGIN capability, or production hardening requires a stronger provider-supported boundary.
+
+## CTR-WERK-IMPACT-SOURCE-BINDING-001
+- Date: 2026-09-21
+- Detected/updated: 2026-09-21 07:44 Europe/Vienna
+- Related task/change: `WERK-IMPACT-001` / `IDEENWERK-IMPACT -> KPI-MEASUREMENT` connection.
+- Severity: YELLOW
+- Risk: R3
+- Status: RECONCILIATION_REQUIRED
+- Source A: `werk-data/ideenwerk-impact-measurement.json`, `WERK_IMPACT_001_BUILDER_CLAIM.md` and the System Graph.
+- Claim A: a measurement plan is source-bound/version-bound to an existing/current `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version`, reusing the authoritative WERK Impact Bridge/reform/model artifacts.
+- Source B: live Staging `public.werk_record_impact_measurement_plan(...)`, live table constraints/FKs, migration `042_werk_impact_measurement.sql` and the exact CI scripts.
+- Counterevidence: the live recorder checks reviewer authorization and idempotency, then stores those four source identifiers as text. `werk_impact_measurement_plans` has only the `created_by -> operators` FK; the four source identifiers have length checks but no lookup/FK/trigger against the Impact Bridge/reform/model source. The contract guard only asserts that one static bridge mapping `IMPACT-SV-EMPLOYEE/SV-01` exists, and the DB smoke does not test rejection of an unknown/stale source tuple.
+- Current data state: all impact-measurement tables are zero-row, so no invalid/stale measurement plan is currently persisted.
+- Stronger/current evidence: live Supabase function definition/constraints at migration `20260921043357 werk_impact_measurement`, plus exact functional source at `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
+- Resolution/action: keep `WERK-IMPACT-001` open. Reuse the existing authoritative Impact Bridge/reform/model source of truth and fail closed on unknown/stale/mismatched map/reform/model/source-version tuples; add negative CI/smoke coverage for invalid and stale references. No parallel registry/calculator and no formula/political change.
+- Boundary: this is a missing/unproven integration/provenance guard, not evidence of an existing corrupt row or observed causal policy effect. If an invalid persisted measurement plan appears, severity must be reevaluated immediately.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
