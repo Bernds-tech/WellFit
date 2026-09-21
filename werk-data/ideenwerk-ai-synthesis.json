@@ -1,0 +1,93 @@
+{
+  "version": "2026-09-21-v1",
+  "name": "WERK IDEENWERK AI synthesis contract",
+  "status": "repository-implemented-awaiting-ci-and-staging",
+  "purpose": "Generate and persist multiple source-bound solution variants from the citizen problem, a current WERK Impact Bridge mapping, and citizen-visible expert/affected-party evidence, without political ranking or manufactured fiscal effects.",
+  "prerequisites": {
+    "impact_bridge": "COUNTERCHECKED_STAGING and current candidate_mapping required for the specific submission",
+    "expert_process": "COUNTERCHECKED_STAGING and at least one citizen-visible source-bound expert/affected-party input required for the specific submission",
+    "source_snapshot": "submission + structured proposal timestamps, current Impact Bridge version/mappings, and citizen-visible expert input IDs",
+    "stale_behavior": "fail closed to revalidation_required; stale variants are not returned as current"
+  },
+  "provider_contract": {
+    "module": "ideenwerk-backend/src/lib/synthesis-provider.js",
+    "runner": "ideenwerk-backend/scripts/run-ai-synthesis.mjs",
+    "activation": "explicit SYNTHESIS_PROVIDER=http_json only",
+    "default": "disabled; never manufacture fallback policy variants",
+    "endpoint_task": "werk_ideenwerk_synthesis",
+    "paid_or_external_activation": "not performed by this implementation"
+  },
+  "storage_contract": {
+    "migration": "040_ideenwerk_ai_synthesis",
+    "table": "public.ideenwerk_ai_syntheses",
+    "write_rpc": "public.ideenwerk_record_ai_synthesis",
+    "current_rpc": "public.ideenwerk_current_ai_synthesis",
+    "source_snapshot_rpc": "public.ideenwerk_ai_synthesis_source_snapshot",
+    "transport_boundary": "trusted service_role only",
+    "append_only": true,
+    "variants_min": 2,
+    "variants_max": 5,
+    "idempotency": "same idempotency key plus same source-bound payload replays; changed payload fails closed"
+  },
+  "variant_schema": {
+    "required": [
+      "variant_id",
+      "title",
+      "summary",
+      "mechanism",
+      "tradeoffs",
+      "uncertainties",
+      "source_refs"
+    ],
+    "source_ref_kinds": [
+      "citizen_problem",
+      "impact_map",
+      "expert_input"
+    ],
+    "source_ref_rule": "Every source_ref must resolve against the current source snapshot. Unknown or stale references fail closed.",
+    "numeric_effect_rule": "Generated variant text does not reproduce or invent fiscal percentages/currency effects. Quantitative claims stay in linked WERK calculation artifacts."
+  },
+  "citizen_transparency": {
+    "protected_status_field": "ai_synthesis",
+    "privacy_export_field": "ai_synthesis",
+    "website_module": "werk-assets/site-ideenwerk-synthesis.js",
+    "shows": [
+      "multiple variants",
+      "mechanism",
+      "tradeoffs",
+      "uncertainties",
+      "source references",
+      "model/provider version",
+      "source snapshot binding",
+      "revalidation_required state"
+    ],
+    "boundary": "Variants are research and deliberation material, not a WERK recommendation or decision."
+  },
+  "negative_guards": [
+    "no synthesis when current impact mapping is missing or stale",
+    "no synthesis when citizen-visible expert input is absent",
+    "unknown source reference fails closed",
+    "ranking/score/recommendation/winner/accept/reject fields fail closed",
+    "political preference wording fails closed",
+    "new percentage/currency-scale effect text fails closed",
+    "row update/delete fails closed",
+    "source snapshot change makes stored synthesis revalidation_required",
+    "provider disabled produces no fallback variants"
+  ],
+  "prohibited_semantics": [
+    "political ranking",
+    "preferred or winning option",
+    "automatic proposal acceptance",
+    "automatic proposal rejection",
+    "expert veto",
+    "manufactured fiscal effect",
+    "silent stale-source reuse",
+    "automatic implementation decision"
+  ],
+  "runtime": {
+    "staging_project": "WERK Österreich Staging",
+    "production": false,
+    "provider_activation": false,
+    "note": "Repository contract is safe to deploy without enabling an external model endpoint."
+  }
+}
