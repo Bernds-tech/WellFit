@@ -42,15 +42,17 @@ Prevents two agents/sessions from independently working the same task.
 ## LOCK-WERK-IMPACT-FEEDBACK-001
 - Task: WERK-IMPACT-FEEDBACK-001
 - Status: ACTIVE
-- Phase: IMPLEMENTATION
+- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 10:18 Europe/Vienna
+- Updated: 2026-09-21 14:19 Europe/Vienna
 - Scope: bounded current-source impact-review feedback context into the existing AI synthesis source snapshot/provider context; provenance and uncertainty preserved; review hypotheses never promoted to causal fact, ranking, recommendation or automatic political change.
 - Prerequisites consumed: `WERK-IMPACT-001` independently `COUNTERCHECKED_STAGING`; `WERK-AI-SYNTH-001` independently counterchecked for bounded provider-disabled Staging scope.
+- Builder evidence: exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded; Staging migration `20260921084055 ideenwerk_impact_feedback` is active and rollback/ACL/current/stale probes are captured in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
 - Provider boundary: no external/paid provider activation, no secrets, no live political generation.
-- Release condition: exact-head feedback/AI CI green, reversible Staging migration/probes and independent Supervisor countercheck.
+- Release condition: independent Supervisor countercheck of the exact functional head, CI and reversible Staging evidence. Keep ACTIVE until that receipt is consumed.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
