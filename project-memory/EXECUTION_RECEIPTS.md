@@ -123,7 +123,7 @@ A receipt is required for meaningful code/config/infra/governance work. A receip
 
 ## WERK-SV-010 — local implementation, 2026-09-08
 - Implementation: interval extrema, affine sums and table reconciliation;72cases/9partitions/18tables; exact rational/outward cent arithmetic.
-- Countercheck: independent contribution endpoint interpolation over3,600,018cent payments;114interval extrema/sums and18aggregate totals;27invalid inputs/8corruptions fail. Five actual localworkflowbodies pass.
+- Countercheck: independent contribution endpoint interpolation over3,600,018cent payments;114interval extrema/sums and18aggregate totals;27invalid inputs/8corruptions fail. Five actual localworkflowbodies passed.
 - Remote: All three triggered remote workflows succeeded at 6a663ffc573dcdb6b175e84c17bfc0d42f848ba3; WERK_SV_010_CI_RECEIPT.json. National costs/funding remain open; no request sent or deployment.
 
 ## WERK-SV-011 — local implementation, 2026-09-08
@@ -206,14 +206,29 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 
 ## RECEIPT-WERK-IMPACT-001-20260921-PARTIAL
 - Task: `WERK-IMPACT-001`
-- Status: `PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED`
+- Historical status: `PARTIAL_COUNTERCHECK_RECONCILIATION_REQUIRED`
 - Risk: R3
-- Functional evidence head: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
-- CI evidence: WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded; migration `20260921043357 werk_impact_measurement` is live.
-- Independently verified sub-scope: all four impact tables have RLS and fail closed for anon/authenticated direct SELECT; tested write/snapshot RPCs deny anon/authenticated; service_role transport plus `impact_reviewer` authorisation is enforced; plans/implementation evidence/observations/reviews are append-only; observations require source reference and valid period; snapshot keeps baseline/forecast, observed KPI, arithmetic deviation, attribution hypothesis and review-only improvement hypothesis distinct. All impact tables are zero-row.
-- Counterevidence / contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`. The live plan recorder stores `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` as length-checked text without validating that the tuple exists and is current in the authoritative Impact Bridge/reform/model source. The table has no FK for those identifiers and current smoke coverage does not prove rejection of unknown/stale tuples.
-- Classification: YELLOW missing/unproven integration/provenance guard, not RED data corruption, because no invalid persisted plan exists and all impact tables are empty.
-- Calculation Integrity Guardian: baseline-vs-scenario/observation separation is sound; arithmetic deviation is not converted into causality; no automatic effect/double counting was found. Cross-model integrity remains incomplete until authoritative source binding is runtime-enforced.
-- Performance note: five INFO-level unindexed foreign keys on the new impact tables are visible for scale/production hardening; they are not the current correctness blocker.
-- Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
-- Next: keep `WERK-IMPACT-001` open and its lock active. Reuse the existing authoritative Impact Bridge/reform/model source, fail closed on unknown/stale/mismatched tuple, add negative CI/smoke coverage, rerun exact-head checks, then require fresh independent Staging countercheck. No parallel registry/calculator, formula change or political change.
+- Functional evidence head at partial countercheck: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`.
+- CI evidence at partial countercheck: WERK Impact Measurement Check #1 and WERK Data Contract Registry Check #62 succeeded; migration `20260921043357 werk_impact_measurement` was live.
+- Independently verified sub-scope: all four impact tables had RLS and failed closed for anon/authenticated direct SELECT; service_role transport plus `impact_reviewer` authorisation was enforced; plans/implementation evidence/observations/reviews were append-only; observations required source reference and valid period; snapshot kept baseline/forecast, observed KPI, arithmetic deviation, attribution hypothesis and review-only improvement hypothesis distinct. All impact tables were zero-row.
+- Historical contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001`; migration 042 did not yet validate the source tuple against the authoritative Impact Bridge/reform/model source.
+- Superseded by: `RECEIPT-WERK-IMPACT-001-20260921-COUNTERCHECKED` below. This historical receipt remains valid for its observation time and must not be used as current-state evidence.
+
+## RECEIPT-WERK-IMPACT-001-20260921-COUNTERCHECKED
+- Task: `WERK-IMPACT-001`
+- Status: `COUNTERCHECKED_STAGING`
+- Risk: R3
+- Functional evidence head: `ceea9a8bce350529114258049a93ba1057dacbeb`.
+- Exact-head CI: WERK Impact Measurement Check #6 success; WERK Data Contract Registry Check #63 success.
+- Independent Staging evidence: migration `20260921062817 werk_impact_authoritative_source_binding` is live; runtime meta reports `043_werk_impact_authoritative_source_binding`; `werk-ideenwerk-api` remains ACTIVE version 7; project remains `ACTIVE_HEALTHY`.
+- Authoritative source binding: `public.werk_record_impact_measurement_plan(...)` invokes `public.werk_impact_validate_source_binding(...)` before persistence. Current tuple passes; unknown map, mismatched reform, mismatched artifact and stale/unknown source version fail closed with dedicated WERK errors.
+- ACL countercheck: anon/authenticated have no EXECUTE on validator or recorder; service_role has EXECUTE on both.
+- Zero-baseline countercheck: impact plans, implementation events, observations, reviews, submissions, AI syntheses, impact-bridge checks and expert inputs remain zero; active jobs, failed/dead jobs and active review tasks remain zero.
+- Evidence Reaper: migration 043 invalidated pre-043 mutable current-state reliance; fresh post-043 runtime/security reads now carry current-state reliance while older observations remain historical.
+- Calculation Integrity Guardian: impact source-contract v2 changed provenance validation only. No fiscal formula, numeric input, reform formula, baseline/scenario semantics, unit/year/population semantics, debt/interest arithmetic, transfer boundary or causal-attribution rule changed; no double-counting/cross-model contradiction found.
+- Integration Hunter: the existing `IDEENWERK-IMPACT -> KPI-MEASUREMENT` source-binding gap is closed for Staging. The existing KPI/measurement -> improvement-feedback path remains separate follow-up work and must not be duplicated.
+- Security boundary: Supabase Security Advisor remains at exactly one WARN, `extension_in_public` for `pg_net`; no new WARN. This remains a production-hardening limit, not a blocker for reversible Staging feature work.
+- Contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` resolved for Staging scope.
+- Independent immutable receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
+- Boundary: no production acceptance, legal acceptance, causal policy effect, new political weighting or formula change is implied.
+- Result: `COUNTERCHECKED_STAGING`. Do not rebuild WERK-IMPACT-001. After canonical bookkeeping closeout, the next functional task is `WERK-IMPACT-FEEDBACK-001`.
