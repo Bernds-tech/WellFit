@@ -1,0 +1,73 @@
+{
+  "version": "2026-09-21-v1",
+  "id": "WERK-ID-CORE-001",
+  "status": "provider_neutral_storage_and_internal_rpc_activation_disabled",
+  "purpose": "Reuse the existing supports ledger for future verified support while keeping raw identity outside the support store and keeping public counting disabled until a selected identity scheme, legal/privacy approval and target-bound acceptance exist.",
+  "reuses": {
+    "table": "public.supports",
+    "existing_unique_guard": "supports_verified_once",
+    "reason": "No parallel support ledger."
+  },
+  "adds": {
+    "receipt_table": "public.werk_identity_verification_receipts",
+    "support_columns": [
+      "verification_receipt_id",
+      "eligibility_policy_version",
+      "revoked_at",
+      "idempotency_key"
+    ],
+    "target_type_extension": "cluster_variant",
+    "internal_rpcs": [
+      "public.werk_record_identity_verification_receipt",
+      "public.werk_record_verified_support"
+    ]
+  },
+  "privacy_contract": {
+    "action_scoped_receipt": true,
+    "support_scope": "target_type:target_id",
+    "scope_pseudonym": "64-char lowercase hex HMAC output supplied only by a future trusted verifier",
+    "raw_identity_in_database": false,
+    "forbidden": [
+      "name",
+      "date_of_birth",
+      "address",
+      "raw_bPK",
+      "provider_access_token",
+      "raw_provider_subject"
+    ],
+    "audit_payload_excludes": [
+      "scope_pseudonym",
+      "provider_assertion_hash",
+      "raw_identity"
+    ]
+  },
+  "security": {
+    "rls": true,
+    "direct_anon_authenticated_access": false,
+    "rpc_anon_authenticated_execute": false,
+    "rpc_service_role_execute": true,
+    "public_endpoint": false,
+    "provider_adapter": false
+  },
+  "semantics": {
+    "support_counting_active": false,
+    "vote": false,
+    "official_election": false,
+    "one_per_target_guard": "existing unique target_type,target_id,verifier_subject_hash partial index",
+    "receipt_scope_mismatch": "fail_closed",
+    "expired_or_revoked_receipt": "fail_closed",
+    "idempotency": "exact replay only; payload mismatch fails closed"
+  },
+  "activation_gate": {
+    "state": "BLOCKED",
+    "requires": [
+      "WERK-ID-ARCH-001 COUNTERCHECKED",
+      "Owner-selected identity scheme",
+      "legal/privacy approval",
+      "trusted verifier adapter",
+      "synthetic provider/reference acceptance",
+      "explicit enablement of public verified-support endpoint/counting"
+    ],
+    "production": false
+  }
+}
