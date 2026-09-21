@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-09-20T22:55:10Z",
+  "updated": "2026-09-21T00:27:03Z",
   "entries": [
     {
       "id": "WERK-EV-CI-GOVERNANCE-MESH-20260920",
@@ -77,8 +77,8 @@
       "type": "staging_runtime",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "CURRENT",
-      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920223436 ideenwerk_impact_bridge; runtime contract 037_ideenwerk_impact_bridge present; 14 citizen/review/privacy/impact tables checked at zero synthetic baseline.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_20260921_REFRESH",
+      "evidence": "Project ACTIVE_HEALTHY; werk-ideenwerk-api ACTIVE version 7; latest migration 20260920223436 ideenwerk_impact_bridge; runtime contract 037_ideenwerk_impact_bridge present; 14 citizen/review/privacy/impact tables checked at zero synthetic baseline. A later read-only refresh confirmed the same runtime/migration/zero-baseline state.",
       "expires_at": "2026-09-21T22:55:10Z",
       "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
     },
@@ -107,9 +107,29 @@
       "type": "supabase_advisors",
       "target": "WERK Österreich Staging",
       "observed_at": "2026-09-20T22:55:10Z",
-      "status": "CURRENT_WITH_PLATFORM_WARNING",
-      "evidence": "Security Advisor reports the same single WARN extension_in_public for pg_net and 31 INFO RLS-enabled-with-no-policy notices. The additional INFO is the new impact-bridge table, whose direct anon/authenticated grants are revoked; no new Security Advisor WARN was introduced by migration 037.",
+      "status": "HISTORICAL_VALID_SUPERSEDED_BY_20260921_REFRESH",
+      "evidence": "Security Advisor reported the same single WARN extension_in_public for pg_net and 31 INFO RLS-enabled-with-no-policy notices. A later read-only advisor refresh observed the same warning count and INFO count.",
       "expires_at": "2026-09-21T22:55:10Z",
+      "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
+    },
+    {
+      "id": "WERK-EV-STAGING-20260921T002703Z",
+      "type": "staging_runtime",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T00:27:03Z",
+      "status": "CURRENT",
+      "evidence": "Project ACTIVE_HEALTHY; latest migration remains 20260920223436 ideenwerk_impact_bridge; werk-ideenwerk-api remains ACTIVE version 7; 14 checked citizen/review/privacy/impact tables are at zero rows. No product/runtime/schema mutation occurred during this Supervisor run.",
+      "expires_at": "2026-09-22T00:27:03Z",
+      "revalidate_on": ["edge_deploy", "migration_change", "runtime_config_change"]
+    },
+    {
+      "id": "WERK-EV-SUPABASE-SECURITY-20260921T002703Z",
+      "type": "supabase_advisors",
+      "target": "WERK Österreich Staging",
+      "observed_at": "2026-09-21T00:27:03Z",
+      "status": "CURRENT_WITH_PLATFORM_WARNING",
+      "evidence": "Fresh Security Advisor result reports one WARN: pg_net extension_in_public, plus 31 INFO RLS-enabled-with-no-policy notices. The warning set is materially unchanged; no new Security Advisor WARN appeared.",
+      "expires_at": "2026-09-22T00:27:03Z",
       "revalidate_on": ["schema_or_policy_change", "edge_deploy", "before_security_acceptance"]
     }
   ],
