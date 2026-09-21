@@ -63,27 +63,27 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Counterchecked result: exact tested functional head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded; live Staging migration `20260920223436 ideenwerk_impact_bridge`; version/source mismatch paths fail closed; direct bridge access remains service-role-only; zero synthetic baseline restored.
 - Independent evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`; WERK_SUPERVISOR_STATE records `COUNTERCHECKED_STAGING`.
 - Boundary: satisfaction proves the bounded Staging reference bridge only; it does not create or verify new fiscal effects and does not imply production acceptance.
-- Downstream: consumed by `WERK-EXPERT-001`; do not reopen or rebuild unless a concrete downstream extension or contradictory evidence requires it.
+- Downstream: consumed by `WERK-EXPERT-001` and by the independently counterchecked bounded source-snapshot path of `WERK-AI-SYNTH-001`; do not reopen or rebuild unless a concrete downstream extension or contradictory evidence requires it.
 
 ## WERK-DEP-EXPERT-AI-001
 - From: `WERK-AI-SYNTH-001`.
 - Requires: `WERK-DEP-IDEENWERK-IMPACT-001` SATISFIED plus independently counterchecked `WERK-EXPERT-001` expert/affected-party evidence contract.
 - Type: cross-component knowledge/provenance integration.
 - Status: SATISFIED
-- Updated: 2026-09-21 05:17 Europe/Vienna.
-- Counterchecked evidence: expert process functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index` are live; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json` records `COUNTERCHECKED_STAGING`.
-- Runtime boundary: source binding, relationship disclosure, append-only audit, service-role/active-impact-reviewer write guard, citizen/private projection separation, aggregate content-free transparency and zero-fixture cleanup were independently revalidated after migrations 038/039.
-- Boundary: satisfaction proves the expert evidence source is available for downstream synthesis; it does not implement AI synthesis, does not make expert input a political decision, and does not imply ACCEPTED/Production status.
-- Downstream: `WERK-AI-SYNTH-001` is now builder-implemented on Staging and awaits independent countercheck; this dependency remains SATISFIED and must not be reopened merely because synthesis itself is still unverified.
+- Updated: 2026-09-21 07:44 Europe/Vienna.
+- Counterchecked evidence: expert process functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded; Staging migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index` are live; independent expert receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json` records `COUNTERCHECKED_STAGING`.
+- Downstream consumption countercheck: bounded AI synthesis functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f` consumes current citizen-visible expert refs plus current Impact Bridge refs into the source snapshot; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json` records `COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED`.
+- Boundary: satisfaction proves the expert evidence source and bounded AI consumption contract; it does not activate a provider, create live AI variants, make expert input a political decision, or imply ACCEPTED/Production status.
+- Downstream: do not reopen merely because provider activation is separately blocked under `WERK-DEP-AI-PROVIDER-001`.
 
 ## WERK-DEP-AI-PROVIDER-001
 - From: live external generation for `WERK-AI-SYNTH-001`.
 - Requires: an approved model endpoint/provider, credential/secret handling, explicit cost boundary and target-bound runtime verification; any privacy/data-transfer requirements must also be satisfied before activation.
 - Type: external/provider/runtime boundary.
 - Status: BLOCKED
-- Updated: 2026-09-21 07:22 Europe/Vienna.
-- Current state: the source-bound synthesis contract, provider adapter and runner are staged, but `SYNTHESIS_PROVIDER=disabled`; no live AI-generated political variants exist.
-- Rule: do not activate a paid/external provider or insert secrets as part of ordinary Builder staging work. The bounded contract can be independently counterchecked while this dependency remains blocked.
+- Updated: 2026-09-21 07:44 Europe/Vienna.
+- Current state: the source-bound synthesis contract is independently counterchecked for its bounded provider-disabled Staging scope, but `SYNTHESIS_PROVIDER=disabled`; no live AI-generated political variants exist.
+- Rule: do not activate a paid/external provider or insert secrets as part of ordinary Builder staging work. A concrete provider/privacy/cost proposal and target-bound verification are required before changing this dependency.
 - Unblocks: actual target-bound AI variant generation and later end-to-end synthesis/runtime evidence.
 
 ## WERK-DEP-IMPACT-FEEDBACK-001
@@ -91,6 +91,6 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Requires: independently counterchecked `WERK-IMPACT-001`, a bounded consumption contract that keeps attribution/improvement hypotheses distinct from facts, and—only for real model regeneration—an approved active AI provider boundary.
 - Type: cross-component feedback integration.
 - Status: ACTIVE
-- Updated: 2026-09-21 07:22 Europe/Vienna.
-- Current state: impact measurement/review storage is staged and the graph edge exists, but AI consumption of impact-review hypotheses is not wired. No automatic adoption of an improvement hypothesis is allowed.
-- Rule: a KPI deviation or reviewer hypothesis may inform a future synthesis only with provenance and uncertainty; it must never become an automatic policy change or causal fact.
+- Updated: 2026-09-21 07:44 Europe/Vienna.
+- Current state: impact measurement/review storage is staged, but `WERK-IMPACT-001` is `RECONCILIATION_REQUIRED` because the measurement-plan recorder does not yet validate the current authoritative impact-map/reform/model/source-version tuple (`CTR-WERK-IMPACT-SOURCE-BINDING-001`). AI consumption of impact-review hypotheses remains unwired.
+- Rule: first close authoritative Impact Bridge/reform/model source binding fail-closed and independently countercheck it. Only then may a KPI deviation or reviewer hypothesis inform a future synthesis, always with provenance and uncertainty and never as an automatic policy change or causal fact.
