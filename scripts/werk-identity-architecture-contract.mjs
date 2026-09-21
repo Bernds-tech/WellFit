@@ -14,4 +14,7 @@ const forbidden=new Set(x.neutral_core_design?.forbidden_persistence||[]);
 for(const k of ['name','date_of_birth','raw_bPK_or_equivalent_government_identifier']) if(!forbidden.has(k)) fail('missing forbidden persistence '+k);
 if(!String(x.neutral_core_design?.pseudonym_derivation||'').includes('HMAC-SHA256')) fail('scoped pseudonym design missing');
 if(!Array.isArray(x.threat_model)||x.threat_model.length<7) fail('threat model too small');
+const graph=JSON.parse(fs.readFileSync('werk-data/werk-system-graph.json','utf8'));
+if(!(graph.nodes||[]).some(n=>n.id==='IDENTITY-ARCHITECTURE')) fail('identity architecture missing from system graph');
+if(!(graph.edges||[]).some(e=>e.from==='IDENTITY-ARCHITECTURE'&&e.to==='VERIFIED-SUPPORT'&&e.relation==='required_before_identity_activation')) fail('identity -> verified support gate missing');
 console.log('WERK verified-support identity architecture contract: PASS');
