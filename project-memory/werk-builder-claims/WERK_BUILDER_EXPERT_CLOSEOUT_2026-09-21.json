@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "branch": "werk-v49-preview-host",
+  "kind": "builder_reconciliation_claim",
+  "task": "WERK-EXPERT-CLOSEOUT-RECON-001",
+  "risk": "R3",
+  "basis": {
+    "independent_receipt": "project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json",
+    "expert_functional_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+    "expert_frontend_followup_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
+    "countercheck_result": "COUNTERCHECKED_STAGING"
+  },
+  "reconciliation": {
+    "expert_task_ledger": "COUNTERCHECKED_STAGING",
+    "expert_started_work": "CLOSED_COUNTERCHECKED_STAGING",
+    "expert_lock": "RELEASED",
+    "expert_open_loop": "CLOSED_COUNTERCHECKED_STAGING",
+    "expert_to_ai_dependency": "SATISFIED",
+    "system_graph_expert_node": "COUNTERCHECKED_STAGING",
+    "system_graph_expert_api_edge": "COUNTERCHECKED_STAGING",
+    "system_graph_expert_web_edge": "COUNTERCHECKED_STAGING",
+    "impact_bridge_stale_closeout_prose": "RECONCILED",
+    "next_best_action": "WERK-AI-SYNTH-001_AWAITING_AUTHORITATIVE_GATE_CONSUMPTION"
+  },
+  "scope": "Project Memory and WERK system-graph reconciliation only. No product code, database migration, Edge deployment, runtime mutation, calculation change or political decision was performed in this closeout.",
+  "write_authority_boundary": {
+    "not_written_by_builder": [
+      "project-memory/WERK_SUPERVISOR_STATE.json",
+      "project-memory/EXECUTION_RECEIPTS.md",
+      "project-memory/WERK_EVIDENCE_FRESHNESS.json",
+      "project-memory/WERK_FINISHLINE_STATE.json",
+      "project-memory/WERK_NEXT_BEST_ACTIONS.json"
+    ],
+    "reason": "Those records are authoritative to Supervisor/Evidence Reaper/Finishline Navigator under WERK_AUTOMATION_ROLES schema v2 and werk-autonomy-contract v4."
+  },
+  "remaining_authoritative_reconciliation": [
+    "Finishline Navigator consumes expert_process COUNTERCHECKED_STAGING without inferring ACCEPTED or PRODUCTION_CONFIRMED.",
+    "Evidence Reaper/Supervisor records the fresh expert/runtime/advisor evidence after migrations 038/039.",
+    "Supervisor clears WERK-EXPERT-CLOSEOUT-RECON-001 after checking the Builder-side canonical records.",
+    "Navigator evaluates NBA-WERK-AI-SYNTHESIS prerequisites against the reconciled gate state."
+  ],
+  "next_safe_action": "WERK-AI-SYNTH-001 only after the authoritative gate/freshness/finding reconciliation is complete.",
+  "negative_claims": [
+    "AI synthesis is not implemented by this claim.",
+    "Expert process is not ACCEPTED or production-confirmed by this claim.",
+    "The hosted Supabase pg_net production-hardening limitation remains open and separate."
+  ]
+}
