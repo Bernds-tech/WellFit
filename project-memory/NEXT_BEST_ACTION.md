@@ -1,20 +1,23 @@
 # WERK Next Best Action
 
-Updated: 2026-09-21 Europe/Vienna
+Updated: 2026-09-21 22:44 Europe/Vienna
 
 ## Current state
-The previously blocking impact-feedback selection and impact-snapshot freshness findings are independently counterchecked and consumed; they must not be rebuilt. `WERK-ID-ARCH-001` is independently counterchecked, and the existing provider-neutral Verified Support core has now been installed reversibly on WERK Österreich Staging under `WERK-ID-CORE-001`. Functional head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff` has exact-head WERK Verified Support Core Check #4 and IDEENWERK Backend Check #194 green. Staging migration `20260921203233 verified_support_core` is live with runtime marker `047_verified_support_core_disabled`; public counting, public identity endpoint, identity provider activation and WERK VOTE remain disabled.
+Two active Builder scopes are already implemented on WERK Österreich Staging and are blocked only on independent Supervisor countercheck. They must not be rebuilt or expanded while their locks remain active.
 
-Fresh rollback-only Staging evidence confirms receipt/support creation, exact replay, conflicting idempotency rejection, scope-mismatch rejection, expired-receipt rejection, scoped-pseudonym duplicate prevention, audit non-disclosure of pseudonym/assertion hash, service-role-only direct access and zero synthetic residue. Security Advisor adds no new WARN from this core; the existing `pg_net extension_in_public` warning remains a separate Production-hardening loop.
+1. `WERK-ID-CORE-001` — provider-neutral Verified Support core. Functional head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`; WERK Verified Support Core Check #4 and IDEENWERK Backend Check #194 are green; Staging migration `20260921203233 verified_support_core` is live with runtime marker `047_verified_support_core_disabled`. Public counting, public identity endpoint, external identity provider activation and WERK VOTE remain disabled.
+2. `WERK-PARLIAMENTARY-RUNTIME-001` — internal parliamentary evidence trace runtime. Functional head `b34cc1f4f9e107bcbb46e82ea68975652eab2152`; WERK Parliamentary Trace Runtime Check #2 and IDEENWERK Backend Check #197 are green; Staging migration `20260921204112 parliamentary_trace_runtime` is live with runtime marker `048_parliamentary_trace_internal_disabled`. No live parliamentary connector, public endpoint, legal-effect claim, actor scoring or Production activation exists.
+
+The Connection Sweep confirms that both scopes extend existing nodes/edges rather than creating parallel systems: Verified Support remains upstream of the still-blocked WERK VOTE path, and the parliamentary trace reuses the existing `PARLIAMENTARY-PATH -> KPI-MEASUREMENT` connection. Existing counterchecked Impact Measurement is referenced rather than duplicated.
 
 ## Exact next action
-1. **Independent Supervisor countercheck of `WERK-ID-CORE-001`** — validate functional head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`, Verified Support Core #4, Backend #194, migration `20260921203233 verified_support_core`, runtime marker `047_verified_support_core_disabled`, ACL/RLS boundaries, rollback negative paths, no direct identity fields and zero cleanup.
-2. Keep `LOCK-WERK-ID-CORE-001`, `WERK-LOOP-VERIFIED-SUPPORT-CORE-001` and `WERK-DEP-VERIFIED-SUPPORT-CORE-001` open until that independent receipt exists. Builder evidence alone must not promote the task to COUNTERCHECKED/VERIFIED or Finishline ACCEPTED.
-3. Only after independent countercheck may the Owner Action Manager reassess readiness of the owner-gated identity/provider/legal/privacy decision. Countercheck does **not** activate an identity provider, public verified-support counting, WERK VOTE or Production.
+1. **Await independent Supervisor counterchecks for both active locks.** The Builder must not self-promote either task, release either lock, or start a parallel implementation while the counterchecks are outstanding.
+2. Supervisor should validate `WERK-ID-CORE-001` against exact functional head `da75785b8d7d312f8beefbb2c37ed59abd52a4ff`, exact-head CI, migration 047, ACL/RLS, replay/negative/privacy semantics and zero cleanup.
+3. Supervisor should validate `WERK-PARLIAMENTARY-RUNTIME-001` against exact functional head `b34cc1f4f9e107bcbb46e82ea68975652eab2152`, exact-head CI, migration 048, state-machine/replay/negative semantics, service-role-only ACL and zero cleanup.
+4. Only after independent receipts exist may the Builder reconcile `TASK_LEDGER`, `STARTED_WORK`, `WORK_LOCKS`, `DEPENDENCIES` and `OPEN_LOOPS`, and may the Owner Action Manager reassess any identity/provider/legal/privacy readiness. No Owner action becomes READY_NOW from Builder evidence alone.
 
 ## Boundaries
 - Historical generic WellFit finishline/owner files do not steer WERK.
-- Builder does not write Supervisor State, Evidence Freshness, Finishline State or the Navigator-owned `WERK_NEXT_BEST_ACTIONS.json` catalog.
-- The provider-neutral core stores only receipt metadata/hashes and a scoped pseudonym path; no raw name, DOB, address, government identifier or provider token is persisted in the support ledger.
-- `counting_state` remains `disabled_until_identity_activation`; support is not an official vote and the support pseudonym must not become a WERK VOTE ballot identity.
-- No Production, paid provider, irreversible action or political decision is authorized by this staging result.
+- Builder does not write `WERK_SUPERVISOR_STATE`, `WERK_EVIDENCE_FRESHNESS`, `WERK_FINISHLINE_STATE` or the Navigator-owned `WERK_NEXT_BEST_ACTIONS.json` catalog.
+- No Production, paid provider, external identity activation, live parliament integration, WERK VOTE activation or irreversible action is authorized.
+- The known `pg_net extension_in_public` item remains a separate Production-hardening loop and does not justify reopening either bounded Staging implementation.
