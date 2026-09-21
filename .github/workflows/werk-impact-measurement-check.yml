@@ -9,7 +9,9 @@ on:
       - 'werk-data/ideenwerk-impact-bridge.json'
       - 'ideenwerk-backend/sql/042_werk_impact_measurement.sql'
       - 'ideenwerk-backend/sql/043_werk_impact_authoritative_source_binding.sql'
+      - 'ideenwerk-backend/sql/046_werk_impact_snapshot_freshness.sql'
       - 'ideenwerk-backend/scripts/impact-measurement-*.mjs'
+      - 'ideenwerk-backend/scripts/impact-snapshot-freshness-smoke.mjs'
       - '.github/workflows/werk-impact-measurement-check.yml'
   workflow_dispatch:
 
@@ -79,10 +81,12 @@ jobs:
           test -s /tmp/ideenwerk-impact-measurement-ci/041_ai_synthesis_trigger_privileges.sql
           test -s /tmp/ideenwerk-impact-measurement-ci/042_werk_impact_measurement.sql
           test -s /tmp/ideenwerk-impact-measurement-ci/043_werk_impact_authoritative_source_binding.sql
+          test -s /tmp/ideenwerk-impact-measurement-ci/046_werk_impact_snapshot_freshness.sql
       - name: Syntax and contract guard
         run: |
           node --check scripts/impact-measurement-contract.mjs
           node --check scripts/impact-measurement-smoke.mjs
+          node --check scripts/impact-snapshot-freshness-smoke.mjs
           node scripts/impact-measurement-contract.mjs
       - name: Apply portable migrations
         run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
@@ -90,3 +94,5 @@ jobs:
         run: SQL_DIR=/tmp/ideenwerk-impact-measurement-ci npm run migrate
       - name: Authoritative source binding, forecast, implementation, observation, attribution and append-only guardrails
         run: node scripts/impact-measurement-smoke.mjs
+      - name: Read-side authoritative source freshness and stale fail-closed guardrails
+        run: node scripts/impact-snapshot-freshness-smoke.mjs
