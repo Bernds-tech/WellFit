@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-21-v2",
+  "version": "2026-09-21-v3",
   "name": "WERK IDEENWERK AI synthesis contract",
-  "status": "bounded-provider-disabled-staging-base-counterchecked-feedback-extension-builder-awaiting-countercheck",
+  "status": "bounded-provider-disabled-staging-feedback-counterchecked-provider-evaluation-integrated",
   "purpose": "Generate and persist multiple source-bound solution variants from the citizen problem, a current WERK Impact Bridge mapping, citizen-visible expert/affected-party evidence, and optional current impact-review feedback, without political ranking, automatic decisions, causal promotion of hypotheses or manufactured fiscal effects.",
   "prerequisites": {
     "impact_bridge": "COUNTERCHECKED_STAGING and current candidate_mapping required for the specific submission",
@@ -16,7 +16,11 @@
     "activation": "explicit SYNTHESIS_PROVIDER=http_json only",
     "default": "disabled; never manufacture fallback policy variants",
     "endpoint_task": "werk_ideenwerk_synthesis",
-    "paid_or_external_activation": "not performed by this implementation"
+    "paid_or_external_activation": "not performed by this implementation",
+    "evaluation_contract": "werk-data/ideenwerk-ai-provider-evaluation.json",
+    "activation_gate": "Owner-selected provider + cost cap + privacy/legal gate + protected secret configuration + synthetic target-bound Staging acceptance",
+    "selection_state": "none_selected",
+    "external_processing_active": false
   },
   "storage_contract": {
     "base_migration": "040_ideenwerk_ai_synthesis",
@@ -100,18 +104,19 @@
       "20260921042608 ideenwerk_ai_synthesis",
       "20260921042728 ai_synthesis_trigger_privileges"
     ],
-    "feedback_extension": "builder code prepared; target-bound staging verification required before claiming the extension live",
+    "feedback_extension": "migrations 044/045 live and independently counterchecked for bounded Staging scope",
     "base_storage_schema_counterchecked": true,
     "rls_enabled": true,
     "provider_activation": false,
     "production": false,
-    "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item"
+    "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item",
+    "provider_evaluation_contract": "present_not_activated"
   },
   "ci_evidence": {
     "counterchecked_base_functional_head": "982fa7301bf13b2e2cf40be14e1f588874e77e4f",
     "counterchecked_base_werk_ai_synthesis_check_run": 3,
     "counterchecked_base_werk_ai_synthesis_check": "success",
-    "feedback_extension": "requires fresh exact-head AI synthesis and impact-feedback checks"
+    "feedback_extension": "independent countercheck receipt project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json"
   },
   "acceptance_boundary": "The previously counterchecked provider-disabled base remains historical current evidence for its scope. The feedback extension requires fresh exact-head CI, reversible Staging verification and independent Supervisor countercheck before any higher status. A real AI-generated variant set is not claimed while provider activation remains false."
 }
