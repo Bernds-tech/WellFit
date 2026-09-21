@@ -110,21 +110,24 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-AI-SYNTH-001
 - Related: `WERK-AI-SYNTH-001`, `WERK-DEP-EXPERT-AI-001`, `WERK-DEP-AI-PROVIDER-001`.
-- Status: OPEN_AWAITING_COUNTERCHECK
-- Updated: 2026-09-21 07:22 Europe/Vienna
+- Status: CLOSED_COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED
+- Updated: 2026-09-21 07:44 Europe/Vienna
 - Risk: R3
-- Gap: the bounded AI-synthesis contract is implemented on Staging but has not yet received an independent Supervisor countercheck on its exact functional evidence/runtime scope.
-- Current evidence: functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; migrations 040/041 are live; synthesis table is zero-row; fresh Security Advisor has no AI-specific WARN.
-- External boundary: provider remains disabled. No real model endpoint, credential or paid provider is activated and no live political variants are claimed.
-- Close when: Supervisor independently confirms the bounded Staging contract, negative/fail-closed paths and current runtime boundary, then Builder consumes the closeout. Provider activation remains a separate dependency and is not required to countercheck the staging contract itself.
+- Result: the bounded AI-synthesis staging contract is independently counterchecked. Exact functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f` passed WERK AI Synthesis Check #3 and Data Contract Registry #61; Backend Check #176 succeeded on predecessor `4d3f63df43db446cd24c3c98304b1282acf61d9c`; live migrations 040/041 are present; RLS/ACL/source-snapshot/stale-revalidation/anti-ranking/anti-decision/anti-new-fiscal-effect boundaries were independently re-read; synthesis table remains zero-row.
+- Provider boundary: `SYNTHESIS_PROVIDER` remains effectively disabled by default and no live external model/credential/paid provider is activated. No live AI-generated political variants are claimed.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Boundary: this closes only the bounded staging implementation/countercheck loop. It does not satisfy `WERK-DEP-AI-PROVIDER-001`, does not make the overall `ai_synthesis` finishline gate ACCEPTED, and does not imply Production.
+- Reopen trigger: contradictory runtime/CI evidence, source-snapshot bypass, political ranking/decision path, stale variants exposed as current, or a later target-bound provider activation requiring bounded verification.
 
 ## WERK-LOOP-IMPACT-001
-- Related: `WERK-IMPACT-001`, `WERK-DEP-IMPACT-FEEDBACK-001`.
-- Status: OPEN_AWAITING_COUNTERCHECK
-- Updated: 2026-09-21 07:22 Europe/Vienna
+- Related: `WERK-IMPACT-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `CTR-WERK-IMPACT-SOURCE-BINDING-001`.
+- Status: OPEN_RECONCILIATION_REQUIRED
+- Updated: 2026-09-21 07:44 Europe/Vienna
 - Risk: R3
-- Gap: the Soll/Ist measurement + review-only feedback contract is implemented on Staging but has not yet received an independent Supervisor countercheck.
-- Current evidence: exact head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 is live; plans/observations/reviews remain zero-row; Security Advisor has no impact-specific WARN.
-- Performance note: fresh Supabase Performance Advisor reports five INFO-level unindexed foreign keys on the new impact tables. This is not a correctness/security failure and does not block bounded Staging countercheck, but must remain visible for scale/production hardening.
-- Boundary: arithmetic deviation is not causality; attribution and improvement remain hypotheses/review material only; no automatic political change.
-- Close when: Supervisor counterchecks the bounded Staging scope and Builder consumes the result. Any separate index hardening may follow as a bounded performance task if evidence justifies it.
+- Verified scope: exact functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration `20260921043357 werk_impact_measurement` is live; RLS/ACL, impact_reviewer gate, append-only evidence, source-required observations, valid periods, baseline/target/observation separation, arithmetic-not-causality semantics and review-only improvement hypotheses are independently confirmed. Impact tables remain zero-row.
+- New gap: the measurement-plan recorder does **not** validate `impact_map_id`, `reform_id`, `model_or_artifact_ref` and `source_version` against the current authoritative Impact Bridge/reform/model source. Those fields are currently length-checked text plus payload/idempotency data; only `created_by` is a foreign key. The static contract test checks one known mapping but does not prove runtime rejection of unknown/stale tuples.
+- Consequence: `IDEENWERK-IMPACT → KPI-MEASUREMENT` remains GELB/unproven. No invalid persisted plan exists because the live tables are empty.
+- Required next step: reuse the existing Impact Bridge/reform/model source of truth and fail closed on unknown/stale/mismatched map/reform/model/source-version tuples; extend CI/smoke with negative unknown/stale cases. No parallel registry/calculator and no formula/political change.
+- Performance note: five INFO-level unindexed foreign keys remain visible for scale/production hardening but are not the current correctness blocker.
+- Close when: exact-head CI and a fresh independent Staging countercheck prove authoritative source binding plus the already-verified bounded semantics; then Builder consumes closeout. Only after that should `WERK-DEP-IMPACT-FEEDBACK-001` advance.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
