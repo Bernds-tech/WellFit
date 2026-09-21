@@ -6,6 +6,7 @@ on:
       - werk-v49-preview-host
     paths:
       - 'ideenwerk-backend/sql/038_ideenwerk_expert_input.sql'
+      - 'ideenwerk-backend/sql/039_expert_input_operator_index.sql'
       - 'ideenwerk-backend/scripts/expert-input-*.mjs'
       - 'werk-assets/site-ideenwerk-expert.js'
       - 'werk-assets/site-v71-loader.js'
@@ -77,6 +78,7 @@ jobs:
           SELECT 1;
           SQL
           test -s /tmp/ideenwerk-expert-ci/038_ideenwerk_expert_input.sql
+          test -s /tmp/ideenwerk-expert-ci/039_expert_input_operator_index.sql
 
       - name: Syntax and policy guard
         run: |
