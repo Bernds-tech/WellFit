@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 
 const baseSql=fs.readFileSync(new URL('../sql/042_werk_impact_measurement.sql',import.meta.url),'utf8');
 const bindingSql=fs.readFileSync(new URL('../sql/043_werk_impact_authoritative_source_binding.sql',import.meta.url),'utf8');
+const freshnessSql=fs.readFileSync(new URL('../sql/046_werk_impact_snapshot_freshness.sql',import.meta.url),'utf8');
 const contract=JSON.parse(fs.readFileSync(new URL('../../werk-data/ideenwerk-impact-measurement.json',import.meta.url),'utf8'));
 const bridge=JSON.parse(fs.readFileSync(new URL('../../werk-data/ideenwerk-impact-bridge.json',import.meta.url),'utf8'));
 
@@ -29,6 +30,21 @@ for(const token of [
   'WERK_IMPACT_SOURCE_VERSION_STALE_OR_UNKNOWN',
   'current_authoritative_registry_tuple'
 ])assert.ok(bindingSql.includes(token),`missing authoritative source-binding guard: ${token}`);
+
+for(const token of [
+  'CREATE OR REPLACE FUNCTION public.werk_impact_measurement_snapshot',
+  'public.werk_impact_validate_source_binding',
+  "'state','revalidation_required'",
+  "'current_reliance',false",
+  "'current_reliance',true",
+  "'historical_evidence_preserved',true",
+  "'binding_state','revalidation_required'",
+  'Stored append-only evidence remains historical; current-state projection is withheld until authoritative source binding is current.',
+  'REVOKE ALL ON FUNCTION public.werk_impact_measurement_snapshot(text) FROM PUBLIC,anon,authenticated',
+  'GRANT EXECUTE ON FUNCTION public.werk_impact_measurement_snapshot(text) TO service_role'
+])assert.ok(freshnessSql.includes(token),`missing snapshot freshness guard: ${token}`);
+assert.ok(!freshnessSql.includes('UPDATE public.werk_impact_measurement_plans'), 'freshness migration must not rewrite historical plans');
+assert.ok(!freshnessSql.includes('DELETE FROM public.werk_impact_measurement_plans'), 'freshness migration must not delete historical plans');
 
 const sourceToken=`impact-bridge=${bridge.version};reforms=${bridge.source_versions.reforms};data-contract-registry=${bridge.source_versions.data_contract_registry}`;
 assert.ok(bindingSql.includes(sourceToken),'runtime source-version token is not bound to canonical Impact Bridge versions');
