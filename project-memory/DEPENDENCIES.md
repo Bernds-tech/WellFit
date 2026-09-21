@@ -90,7 +90,7 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - From: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge.
 - Requires: independently counterchecked `WERK-IMPACT-001`; current submission map/reform relevance applied before the bounded feedback selection window; authoritative source-binding revalidation; uncertainty/provenance; and—only for real model regeneration—an approved active AI provider boundary.
 - Type: cross-component feedback integration.
-- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Status: SATISFIED
 - Updated: 2026-09-21 20:35 Europe/Vienna.
 - Builder evidence: exact functional head `7e4291717563e5fe51cb84c7d239d7920a7d937e`; migration 045 active on Staging; >50 newer unrelated-review regression proves the relevant review is not displaced; stale source state fails closed; exact-head Impact Feedback #3 / AI Synthesis #7 / Backend #187 are green.
 - Independent gate: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json` raised the selection YELLOW on the prior implementation; only a new independent countercheck may satisfy this dependency after the correction.
@@ -98,13 +98,17 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - Does not satisfy: separate `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`; current-state measurement snapshot freshness remains an independent YELLOW.
 - Unblocks: closeout of the bounded feedback edge only after independent countercheck; no Production or live political-generation claim.
 
+- Independent satisfaction: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+
 ## WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001
 - From: current-state reads of `public.werk_impact_measurement_snapshot(text)` / KPI measurement projection.
 - Requires: existing authoritative Impact Bridge validator from migration 043, persisted map/reform/artifact/source-version tuple, fail-closed read-side revalidation and preserved historical evidence.
 - Type: source-freshness/current-reliance correctness.
-- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Status: SATISFIED
 - Updated: 2026-09-21 21:24 Europe/Vienna.
 - Builder evidence: exact functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; migration 046 active on Staging; Impact Measurement #8 and Data Contract Registry #66 green; current tuple returns current authoritative binding, stale persisted tuple returns `revalidation_required`; ACL unchanged; zero impact rows after rollback.
 - Independent gate: only Supervisor may satisfy this dependency and close/supersede `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` after independent countercheck.
 - Boundary: does not alter measurement formulas, write-side source binding, historical evidence, causal attribution, feedback selection, AI provider or Production.
 - Unblocks: safe reliance on measurement snapshots as current input only after independent countercheck.
+
+- Independent satisfaction: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
