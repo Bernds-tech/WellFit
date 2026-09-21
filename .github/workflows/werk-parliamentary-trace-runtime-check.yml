@@ -6,6 +6,7 @@ on:
       - 'werk-data/parliamentary-path-contract.json'
       - 'werk-data/parliamentary-trace-runtime.json'
       - 'ideenwerk-backend/sql/048_parliamentary_trace_runtime.sql'
+      - 'ideenwerk-backend/sql/049_parliamentary_trace_integrity_hardening.sql'
       - 'ideenwerk-backend/scripts/parliamentary-trace-runtime-smoke.mjs'
       - 'scripts/werk-parliamentary-trace-runtime-contract.mjs'
       - '.github/workflows/werk-parliamentary-trace-runtime-check.yml'
