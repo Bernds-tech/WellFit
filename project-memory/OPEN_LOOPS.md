@@ -133,22 +133,28 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 ## WERK-LOOP-IMPACT-FEEDBACK-001
 - Related: `WERK-IMPACT-FEEDBACK-001`, `WERK-DEP-IMPACT-FEEDBACK-001`, `WERK-AI-SYNTH-001`.
-- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
+- Status: CLOSED_COUNTERCHECKED_STAGING
 - Updated: 2026-09-21 20:35 Europe/Vienna
 - Risk: R3
 - Supervisor trigger: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json` raised YELLOW `CTR-WERK-IMPACT-FEEDBACK-SELECTION-001` because the old 044 function globally bounded candidates before current submission map/reform relevance.
 - Builder correction: migration 045 moves relevance into the SQL candidate query before `LIMIT 12`; exact functional head `7e4291717563e5fe51cb84c7d239d7920a7d937e`. A dedicated regression inserts one relevant review plus 51 newer unrelated reviews and proves the relevant review remains selected while unrelated reviews cannot leak.
 - CI/Staging: Impact Feedback #3, AI Synthesis #7 and Backend #187 are green on the exact head; Data Contract Registry #65 is green on the identical product parent; Staging migration `20260921182939 ideenwerk_impact_feedback_selection_hardening` is live; stale bridge state fails closed; rollback cleanup leaves zero synthetic rows; ACL remains service-role only.
 - Boundary: review material stays hypothesis-only, non-causal and non-political; no provider, paid call, production action, ranking or automatic policy change.
-- Close condition: independent Supervisor validates the corrected head and closes/supersedes the selection finding. Builder evidence alone does not close this loop.
+- Close condition: satisfied by independent countercheck receipt.
+
+- Independent closeout: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Reopen only on contradictory runtime/CI/source-binding/ACL evidence or a documented downstream extension.
 
 ## WERK-LOOP-IMPACT-SNAPSHOT-FRESHNESS-001
 - Related finding: `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001` from `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T181600Z.json`.
 - Related task/dependency: `WERK-IMPACT-SNAPSHOT-FRESHNESS-001`, `WERK-DEP-IMPACT-SNAPSHOT-FRESHNESS-001`.
-- Status: OPEN_AWAITING_INDEPENDENT_COUNTERCHECK
+- Status: CLOSED_COUNTERCHECKED_STAGING
 - Updated: 2026-09-21 21:24 Europe/Vienna
 - Risk: R3
 - Builder correction: migration 046 reuses `public.werk_impact_validate_source_binding(...)` on every existing measurement snapshot before current-state reliance. Current tuples retain the normal state plus `current_reliance=true`; stale/unknown persisted tuples return `revalidation_required`, `current_reliance=false`, preserve historical evidence and withhold current observation/review projection.
 - Exact evidence: functional head `3f1f5ee9b7325f958b33bfb05a2a7414ce2ec14f`; WERK Impact Measurement Check #8 SUCCESS; WERK Data Contract Registry Check #66 SUCCESS; live Staging migration `20260921192342 werk_impact_snapshot_freshness`; rollback-only current/stale probe passed; ACL anon/authenticated denied and service_role allowed; impact tables restored to zero; no new Security Advisor WARN.
 - Boundary: no counterchecked measurement formula, KPI arithmetic, source registry, fiscal/reform calculation, causal attribution rule, feedback selection or political/provider behavior changed. Historical append-only rows are not mutated.
-- Close condition: independent Supervisor validates the exact head/CI/Staging current+stale semantics and closes or supersedes `CTR-WERK-IMPACT-SNAPSHOT-FRESHNESS-001`. Builder evidence alone does not close this loop.
+- Close condition: satisfied by independent countercheck receipt.
+
+- Independent closeout: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
+- Reopen only on contradictory runtime/CI/source-binding/ACL evidence or a documented downstream extension.
