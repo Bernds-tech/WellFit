@@ -13,29 +13,31 @@ Prevents two agents/sessions from independently working the same task.
 
 ## LOCK-WERK-AI-SYNTH-001
 - Task: WERK-AI-SYNTH-001
-- Status: ACTIVE
-- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Status: RELEASED
+- Phase: COUNTERCHECKED_STAGING_BOUNDED_PROVIDER_DISABLED
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 06:26 Europe/Vienna
+- Released: 2026-09-21 07:44 Europe/Vienna after independent Supervisor countercheck of the bounded Staging contract.
 - Scope: bounded source-bound synthesis contract, provider adapter, status/V71 projection and reversible Staging verification. External model provider remains disabled.
-- Evidence head: `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; migrations 040/041 are live and synthesis table is zero-row.
-- Boundary: no provider activation, paid action, ranking/recommendation, automatic accept/reject or new fiscal effect.
-- Release condition: independent Supervisor countercheck plus canonical closeout. Until then continue/reconcile this task; do not restart or expand it.
+- Counterchecked evidence: functional head `982fa7301bf13b2e2cf40be14e1f588874e77e4f`; WERK AI Synthesis Check #3 and Data Contract Registry #61 succeeded; Backend Check #176 succeeded on predecessor `4d3f63df43db446cd24c3c98304b1282acf61d9c`; migrations 040/041 live; synthesis table zero-row; independent receipt `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T054427Z.json`.
+- Boundary: release closes only the bounded Staging implementation lock. `WERK-DEP-AI-PROVIDER-001` remains BLOCKED; no provider activation, paid action, live AI political variant, overall ACCEPTED or Production claim is implied.
+- Reopen: only on concrete contradictory evidence or a later target-bound provider activation/extension requiring bounded implementation.
 
 ## LOCK-WERK-IMPACT-001
 - Task: WERK-IMPACT-001
 - Status: ACTIVE
-- Phase: IMPLEMENTED_STAGING_AWAITING_COUNTERCHECK
+- Phase: RECONCILIATION_REQUIRED_SOURCE_BINDING
 - Risk: R3
 - Holder: WERK autonomous builder / no second implementation worker
 - Branch: `werk-v49-preview-host`
 - Acquired: 2026-09-21 06:33 Europe/Vienna
 - Scope: source-bound measurement plan, implementation evidence, KPI observation and review-only attribution/improvement feedback contract on Staging.
-- Evidence head: `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 is live and measurement tables are zero-row.
+- Verified evidence: functional head `f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f`; WERK Impact Measurement Check #1 and Data Contract Registry #62 succeeded; migration 042 live; RLS/ACL, reviewer gate, append-only evidence, zero baseline and no-causality semantics independently verified.
+- Open contradiction: `CTR-WERK-IMPACT-SOURCE-BINDING-001` — the live plan recorder currently stores map/reform/model/source-version identifiers without validating the tuple against the authoritative WERK Impact Bridge/reform/model source. No invalid rows exist because the tables are empty.
 - Boundary: no real-world implementation/effect claim, automatic causality or political change. Five INFO-level unindexed FKs remain a nonblocking scale/production-hardening follow-up.
-- Release condition: independent Supervisor countercheck plus canonical closeout.
+- Release condition: Builder reuses the existing authoritative source chain, fails closed on unknown/stale/mismatched tuples, adds negative CI, and a fresh independent Supervisor countercheck confirms the corrected bounded Staging scope.
 
 ## LOCK-WERK-EXPERT-001
 - Task: WERK-EXPERT-001
@@ -151,7 +153,7 @@ No additional locks recorded.
 - Status: RELEASED
 - Risk: R2
 - Holder: Codex WERK continuation 2026-09-06
-- Scope: qualification and working-time evidence for August, no invented joint distribution; existing WERK branch.
+- Scope: qualification and working-time evidence for August, no invented joint distribution; existing branch only.
 - Released: 2026-09-06 after publication and exact-implementation success of all 13 workflows and preparation of WERK_LABOUR_004_CI_RECEIPT.json.
 
 ## LOCK-WERK-LAB-005
