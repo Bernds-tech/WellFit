@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "receipt_id": "WERK_SUPERVISOR_2026-09-21T040850Z",
+  "project": "WERK Österreich",
+  "role": "independent_supervisor",
+  "checked_at": "2026-09-21T04:08:50Z",
+  "branch": "werk-v49-preview-host",
+  "checked_pre_audit_head": "faa37a8acefe5a74deed1b7b5df65777a97bff56",
+  "previous_checked_head": "48cc7fb6cd4b30517de80f04e73f03e00b78fcf7",
+  "delta": {
+    "ahead_by": 9,
+    "classification": "GOVERNANCE_AUDIT_RECONCILIATION_ONLY",
+    "product_runtime_db_edge_changed": false,
+    "details": "The delta since the previous checked head contains Project Memory/Finishline/Evidence/Supervisor reconciliation only. The final one-commit delta from the prior receipt commit 8c6d97b45e78640b79104c5eac1d22ead0c81945 to faa37a8acefe5a74deed1b7b5df65777a97bff56 changes only WERK_SUPERVISOR_STATE.json."
+  },
+  "independent_evidence": {
+    "expert_functional_head": "c851f9248d297d6d7bdaf4f06d746d68c6bae4d5",
+    "expert_ci": [
+      {"workflow": "WERK Expert Input Check", "run_number": 4, "conclusion": "success"},
+      {"workflow": "WERK Data Contract Registry Check", "run_number": 59, "conclusion": "success"}
+    ],
+    "expert_frontend_followup_head": "133b6cd859a5c1cd097aa708c044c40d03db7880",
+    "frontend_ci": [
+      {"workflow": "WERK Frontend Check", "run_number": 182, "conclusion": "success"},
+      {"workflow": "WERK Frontend Check", "run_number": 183, "head": "937ca0013d2b754f97bae3a07752f930445fcfe6", "conclusion": "success"}
+    ],
+    "staging": {
+      "project_status": "ACTIVE_HEALTHY",
+      "edge_function": "werk-ideenwerk-api",
+      "edge_version": 7,
+      "latest_migration": "20260921013039 expert_input_operator_index",
+      "zero_baseline_tables_checked": 15,
+      "zero_baseline_verified": true,
+      "active_jobs": 0,
+      "dead_or_failed_jobs": 0,
+      "stale_running_jobs": 0,
+      "active_review_tasks": 0,
+      "stale_review_tasks": 0,
+      "expert_rls": true,
+      "expert_anon_select": false,
+      "expert_authenticated_select": false,
+      "expert_service_role_select": true,
+      "expert_service_role_insert": true,
+      "impact_rls": true,
+      "impact_anon_select": false,
+      "impact_authenticated_select": false,
+      "impact_service_role_select": true,
+      "authenticator_db_pre_request": "public.werk_api_security_guard"
+    },
+    "security_advisor": {
+      "observed_at": "2026-09-21T04:08:41.838Z",
+      "warn_count": 1,
+      "warning": "extension_in_public: pg_net",
+      "rls_no_policy_info_count": 32,
+      "new_warn_since_prior": false,
+      "classification": "PRODUCTION_HARDENING_LIMIT_NONBLOCKING_FOR_REVERSIBLE_STAGING"
+    },
+    "performance_advisor": {
+      "observed_at": "2026-09-21T04:08:50.454Z",
+      "warn_or_error_count": 0,
+      "info_only": true
+    }
+  },
+  "audit_corrections": [
+    {
+      "id": "CTR-WERK-RECEIPT-MIGRATION-001",
+      "classification": "YELLOW_AUDIT_METADATA_DRIFT_RESOLVED_IN_RUN",
+      "prior_claim": "The previous supervisor receipt listed migration 20260920211014 http_extension_hardening among recent staging migrations.",
+      "independent_check": "Fresh Supabase migration history has no 20260920211014 entry, and the branch SQL migration directory contains 036_pg_net_data_api_guard.sql followed by 037_ideenwerk_impact_bridge.sql with no http_extension_hardening migration.",
+      "resolution": "Treat the prior migration name/id as erroneous audit metadata only. Do not rely on it for current-state or acceptance claims. Historical receipt is preserved unchanged. Current live migration truth is 20260921013039 expert_input_operator_index as latest, with 20260920203116 pg_net_data_api_guard present. No runtime regression was observed."
+    },
+    {
+      "id": "WERK-ADVISOR-INFO-COUNT-CORRECTION-001",
+      "classification": "INFO",
+      "prior_claim": "Previous receipt recorded 31 INFO RLS-without-policy findings.",
+      "independent_check": "Fresh Security Advisor reports 32 INFO RLS-enabled-with-no-policy findings and the same single WARN for pg_net extension_in_public.",
+      "resolution": "Current count is 32 INFO. This is not a new WARN and does not change the fail-closed direct-access evidence for the checked IDEENWERK tables."
+    }
+  ],
+  "specialist_results": {
+    "integration_hunter": {
+      "result": "NO_NEW_INTEGRATION_DRIFT",
+      "detail": "Impact Bridge and Expert Input remain counterchecked staging inputs. AI-SYNTHESIS remains the next missing planned connection; no parallel implementation exists or is required."
+    },
+    "evidence_reaper": {
+      "result": "CURRENT_EVIDENCE_REVALIDATED",
+      "detail": "Staging/advisor evidence is within TTL and was freshly re-read. No migration, Edge deploy or runtime-config invalidation occurred since the expert revalidation. The erroneous prior receipt migration metadata is excluded from current reliance."
+    },
+    "orphan_zombie_hunter": {
+      "result": "NO_NEW_WERK_ZOMBIE_OR_ORPHAN",
+      "detail": "Impact and Expert work are closed/counterchecked with released locks and satisfied dependencies. WERK-AI-SYNTH-001 is selected but not yet started and has no implementation lock, which is consistent. No synthetic residue, queue backlog or stale review work exists."
+    },
+    "calculation_integrity_guardian": {
+      "result": "NOT_TRIGGERED_NO_CALCULATION_CONTRACT_CHANGE",
+      "detail": "No calculation formula, official source dataset, reform calculation contract or calculation registry changed in the inspected delta."
+    },
+    "milestone_closer": {
+      "result": "NO_NEW_ACCEPTED_MILESTONE",
+      "detail": "No gate newly reached ACCEPTED or PRODUCTION_CONFIRMED; no immutable milestone snapshot is warranted."
+    }
+  },
+  "owner_action_ready_now": false,
+  "next_functional_action": "WERK-AI-SYNTH-001",
+  "next_functional_action_state": "EXECUTABLE",
+  "active_findings": [
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "status": "OPEN_NONBLOCKING_FOR_STAGING_FEATURE_WORK",
+      "summary": "Hosted Supabase still reports pg_net extension_in_public. The WERK Data-API request guard remains independently observable; final production security acceptance remains open."
+    }
+  ],
+  "overall_status": "YELLOW",
+  "mutation_boundary": "Audit/governance memory only. No product, runtime, database, Edge, paid, production or political mutation performed."
+}
