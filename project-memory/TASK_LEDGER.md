@@ -349,7 +349,7 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-AI-PROVIDER-EVAL-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED
 - Risk: R3
 - Goal: prepare a neutral, source-backed provider/privacy/cost package for later real AI synthesis without selecting or activating a provider.
 - Implementation: `werk-data/ideenwerk-ai-provider-evaluation.json`, validation script and dedicated CI workflow; intentionally kept outside the policy Data Contract Registry because it is a technical activation contract, not an Austrian data-baseline closure contract.
@@ -359,9 +359,11 @@ Keep history append-only; supersede rather than delete.
 - Exact next step: current-head CI + independent countercheck. Only then may `WERK-OWNER-AI-PROVIDER-001` become READY_NOW.
 
 
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
+
 ## WERK-ID-ARCH-001
 - Date: 2026-09-21
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED
 - Risk: R4
 - Goal: prepare comparable identity architectures for 1 person = 1 verified support without activating identity or conflating support with a secret/official vote.
 - Implementation: `werk-data/verified-support-identity-architecture.json`, validation script and dedicated CI workflow; integrated through the WERK system graph rather than the policy Data Contract Registry.
@@ -369,3 +371,5 @@ Keep history append-only; supersede rather than delete.
 - Scope: provider-neutral core separates identity verification from support, stores scoped HMAC pseudonyms rather than raw identity in support records, defines recovery/rotation/threat model, and documents ID Austria Service Provider plus EUDI Wallet as non-selected candidates with official sources.
 - Boundary: no identity provider selected, no bPK use assumed, no real identity, no support counting, no WERK VOTE, no Production.
 - Exact next step: current-head CI + independent countercheck. Only then may `WERK-OWNER-ID-001` become READY_NOW.
+
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T202000Z.json`.
