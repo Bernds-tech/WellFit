@@ -1,7 +1,7 @@
 {
   "version": "2026-09-21-v1",
   "name": "WERK impact measurement and feedback contract",
-  "status": "repository-implementation-started",
+  "status": "implemented-staging-awaiting-independent-countercheck",
   "purpose": "Version-bind a WERK reform/impact-map baseline, a real implementation event, KPI observations and review-only improvement hypotheses without converting correlation into causation or automatically adopting a policy change.",
   "prerequisites": {
     "impact_bridge": "COUNTERCHECKED_STAGING",
@@ -77,7 +77,37 @@
   ],
   "runtime": {
     "staging_project": "WERK Österreich Staging",
+    "staging_project_id": "jwomaoxefgnhsgiebaqy",
+    "staging_migration": "20260921043357 werk_impact_measurement",
+    "schema_verified": true,
+    "rls_enabled": true,
+    "anon_authenticated_direct_access": false,
+    "zero_baseline": {
+      "measurement_plans": 0,
+      "observations": 0,
+      "reviews": 0
+    },
+    "security_advisor_new_warns": 0,
+    "remaining_known_advisor_warn": "pg_net extension_in_public; pre-existing production-hardening item",
     "production": false,
     "synthetic_records_allowed_only_in_rollback_tests": true
-  }
+  },
+  "ci_evidence": {
+    "functional_head": "f11a53ab257d7a55fc19d15ee4a8bc4f019d5b0f",
+    "werk_impact_measurement_check_run": 1,
+    "werk_impact_measurement_check": "success",
+    "tests": [
+      "contract/source-ID guard",
+      "migration idempotency",
+      "reviewer role boundary",
+      "plan replay/idempotency",
+      "implementation evidence state",
+      "invalid observation period and missing plan fail closed",
+      "baseline/target arithmetic deviations",
+      "causal attribution remains not established",
+      "review-only improvement hypothesis",
+      "append-only update/delete denial"
+    ]
+  },
+  "acceptance_boundary": "Builder evidence proves the bounded staging measurement contract only. No real reform implementation or observed causal policy effect is claimed. Independent Supervisor countercheck remains required."
 }
