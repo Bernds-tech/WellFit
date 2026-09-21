@@ -1,8 +1,8 @@
 {
-  "version": "2026-09-07-v17",
+  "version": "2026-09-21-v18",
   "title": "WERK Österreich – Data Contract Registry",
   "purpose": "Zentrale maschinenlesbare Registry aller kanonischen Datenbaselines und ihrer unabhängigen CI-Verträge. Ein Datenblock gilt nur dann als belastbar, wenn Artefakt, Workflow, Scope-Abgrenzung und offene Gates explizit registriert sind.",
-  "checked_at": "2026-09-07",
+  "checked_at": "2026-09-21",
   "rules": [
     "Jeder Contract besitzt eine eindeutige ID, mindestens ein kanonisches Datenartefakt und genau einen primären Workflow.",
     "Zusätzliche fachliche Unterverträge werden als validation_scripts im primären Domain-Contract registriert und im selben Workflow ausgeführt.",
@@ -13,16 +13,467 @@
     "Die BUD-01-Endrechnung bleibt gesperrt, solange die im Abschlussregister definierten End-Gates offen sind."
   ],
   "contracts": [
-    {"id":"FISCAL-DATA","domain":"Budget / BUD-01","canonical_artifacts":["werk-data/budget-baseline-2026-2031.json","werk-data/medium-term-fiscal-path.json","werk-data/government-baseline-2025-2031.json","werk-data/government-package-2025-2029.json","werk-data/government-new-measures-2026-2031.json","werk-data/calculation-assumptions.json","werk-data/calculation-results-2026.json","werk-data/bud01-balance-gap-2026-2031.json","werk-data/post-debt-employee-sv-model.json","werk-data/post-debt-employee-sv-results.json","werk-data/employee-payroll-withholding-2024.json","werk-data/employee-sv-growth-stress-model.json","werk-data/employee-sv-growth-stress-results.json","werk-data/employee-essoss-contribution-bridge-2024.json","werk-data/employee-alv-threshold-model-2026.json","werk-data/employee-alv-threshold-results-2026.json","werk-data/employee-alv-transition-model.json","werk-data/employee-alv-transition-results.json","werk-data/employee-contribution-distribution-2024.json","werk-data/employee-alv-cost-bounds.json","werk-data/employee-alv-interval-spec.json","werk-data/employee-alv-interval-results.json","werk-data/debt-flow-reconciliation-2026-2031.json","werk-data/employee-sv-funding-bridge-results.json","werk-data/tax-enforcement-evidence-2025.json","werk-data/tax-enforcement-break-even-model.json","werk-data/tax-enforcement-break-even-results.json"],"workflow":".github/workflows/werk-fiscal-data-check.yml","closure_register_ids":["GAP-FISC-01","GAP-FISC-02","GAP-BASE-01"],"verified_scope":["BMF-Referenzpfad 2026–2031","Saldo-/Sektoren-/Schuldenquoten-Identitäten","Regierungsbaseline 2025–2031","ursprüngliches Konsolidierungspaket 2025–2029","neue Maßnahmen 2026–2031","Reproduzierbare Gesamtrechnung: Budget, 1/5/10-Jahres-Kostenszenarien, bedingte Tilgung, Mehrstunden und Payroll-Beispiele; keine Finanzierungsgutschrift","SV-01: gekoppelte Tilgung/Zinsersparnis/Beitragssenkung während Schuldenabbau, 50%-Zielcheck, Payroll und 19 amtliche Lohnzettel-Bezugsgruppen 2024","SV-01 Standard-Jahresnetto und 27 aktualisierte hypothetische Arbeitsvorteilsvergleiche; individuelle Steuer-Rückflüsse ohne Populationshochrechnung","36 nominale Beitrags-/Tilgungswachstumspfade bis zehn Jahre nach Schuldenfreiheit, Zielverlust-/Haltenachweis und nicht sinkende finanzierbare Quote im endlichen Horizont","ESSOSS Arbeitnehmerklassifikation: sieben Systeme, 245 historische Zellen, ALV-Annahme und Rundungs-/Jahresabweichung explizit; zwölf statische Vergleiche","24 ALV-Schwellenfälle 2026, 192 Bruttoschritte und kleinster ausgleichender Monatsbrutto-Cent nach Standard-Veranlagung; lokale Erwerbsanreize ohne Haushalts-/Populationshochrechnung","36 stetige ALV-Gestaltungsvarianten, 288 Standard-Nettovergleiche und 15 vorläufige 2027-Beitragsvarianten für getrennte Bestands-/Neuverhältnisse; keine nationale Kostenschätzung","DVSV 2024: 9 Tabellen/1161 Quartilszellen mit Jahressummen-/Versicherungstage-Abgrenzung; 18 bedingte ALV-Kostengrenzen und 18 Gegenbeispiele, keine österreichweite Kostenidentifikation","72 bedingte Intervallkostenfälle, neun lückenlose Cent-Raster und 18 aggregierte Tabellen; exakte lineare Intervallsummen, sonst Grenzen ohne Verteilungsannahme","42 amtliche Schuldenüberleitungswerte 2025–2031, explizite Rundungsreste und 336 jährliche Finanzierungsbrücken; Primärsaldo, Zinsersparnis, SV-Kosten und Überschuss getrennt","ABB2025 original/transcription: five heterogeneous stages, administrative budget, open cash/rounding reconciliation;27 conditional incremental enforcement break-even cases with collection lag"],"open_scope":["getrennte Länder-/Gemeinde-Prognoseserie bis 2031","2030/2031 Einzelzeilen des ursprünglichen 2025-Pakets","vollständige Measure-Level-Ist-Wirkung","SV-01 tatsächliche reine KV/PV/ALV-Basis, Steuerwirkung außerhalb des Standardscope, Haushaltstransfers und spätere Ersatzfinanzierung","Langfristig wachsende Ersatzfinanzierung, demografische Zusatzkosten und tatsächlich finanzierte wachsende Basistilgung","Tatsächliche ALV-DN-Einnahmen statt amtlicher 50%-Aufteilungsannahme; PV/KV-Reformkreisabgleich","Finale 2027+-Regeln und Nettorechnung, repräsentative Übergangs-/Verteilungs-/Finanzierungskosten, Haushalts- und Beschäftigungswirkung","Tatsächliche ALV-Bemessungsfälle je Monat/Dienstverhältnis und laufend/Sonderzahlung; feine Betragsintervalle, keine Hochrechnung aus Jahresquartilen","Amtliche Monatszählungen/-summen samt Quellenadapter; abweichende Satz-/Beitragsgrundlagen und tatsächliche Tragung des Arbeitnehmeranteils separat","Reale zusätzliche Primärverbesserung, tatsächlich frei verfügbare Zinsersparnis und reformbezogene Deficit-Debt-Überleitung; Referenzanpassungen sind keine Dauerfinanzierung","TAX02 attributed additional tax cash by cohort, government overlap, all-in incremental costs and recurring effect; ABB headline is not reconciled pure tax cash"],"validation_scripts":["scripts/werk-calculation-contract.mjs","scripts/werk-calculation-negative-check.mjs","scripts/werk-bud01-balance-gap-contract.mjs","scripts/werk-import-employee-withholding.py","scripts/werk-post-debt-sv-contract.mjs","scripts/werk-post-debt-sv-negative-check.mjs","scripts/werk-sv-growth-stress-contract.mjs","scripts/werk-sv-growth-stress-negative-check.mjs","scripts/werk-import-essoss-contributions.py","scripts/werk-essoss-contributions-negative-check.py","scripts/werk-alv-threshold-contract.mjs","scripts/werk-alv-threshold-negative-check.mjs","scripts/werk-alv-transition-contract.mjs","scripts/werk-alv-transition-negative-check.mjs","scripts/werk-import-contribution-distribution.py","scripts/werk-contribution-distribution-negative-check.py","scripts/werk-alv-cost-bounds-contract.mjs","scripts/werk-alv-cost-bounds-negative-check.mjs","scripts/werk-alv-interval-contract.mjs","scripts/werk-alv-interval-negative-check.mjs","scripts/werk-sv-funding-bridge-contract.mjs","scripts/werk-sv-funding-bridge-negative-check.mjs","scripts/werk-tax-enforcement-contract.mjs","scripts/werk-tax-enforcement-negative-check.mjs"]},
-    {"id":"BASELINE-LEGAL","domain":"Regierungsbaseline / Recht","canonical_artifacts":["werk-data/government-legal-basis-map.json","werk-data/government-baseline-scope-map.json","werk-data/government-measure-legal-status.json"],"workflow":".github/workflows/werk-baseline-legal-check.yml","closure_register_ids":["GAP-BASE-01"],"verified_scope":["Paket-/Scope-Rechtsqualität","13 prioritäre Measure-IDs mit Artikel/Paragraph/Anwendungsregel","zeitliche Anwendbarkeit gegen Prüftag","derived-effect-Doppelzählungsschutz"],"open_scope":["vollständige Einzelmaßnahmen-Rechtszuordnung","empirischer Realisierungsstatus je Maßnahme"]},
-    {"id":"SUBSIDY-DATA","domain":"Förderungen / SUB-01","canonical_artifacts":["werk-data/subsidy-baseline-architecture.json","werk-data/subsidy-esvg-benchmark-2024.json","werk-data/subsidy-federal-ug-2024.json","werk-data/subsidy-federal-account-source.json","werk-data/subsidy-federal-account-normalized.json","werk-data/subsidy-federal-account-results.json","werk-data/subsidy-account-review-priorities.json"],"workflow":".github/workflows/werk-subsidy-data-check.yml","closure_register_ids":["GAP-SUB-01"],"verified_scope":["BHG/ESVG/TDB/EU-RRF-Abgrenzung","ESVG D.3/D.7/D.9 Benchmark 2024","24 Bundes-Untergliederungen 2024","Abwicklungskosten separat","15.802 aktuelle BMF-CSV-Zeilen, Ist 2014–2025 und BVA 2026–2028; Monatsserien separat","24 UG-2024-Kontrollen, centgenauer 2025-Jahres-/Monatsabgleich; 1.035 Konto/Klassen-Kombinationen 2024–2028 und 20 prioritäre Prüfpositionen"],"open_scope":["ESVG-Zeitreihe 2025–2031","TDB-Überschneidungscluster","Outcome-/Abwicklungskosten je prioritärem Programm","Eindeutige Programme hinter Konten, Bindungen, EU-/RRF-Kofinanzierung, Umgliederungen und zusätzlich realisierte Nettoeffekte"],"validation_scripts":["scripts/werk-import-federal-subsidies.py","scripts/werk-federal-subsidies-negative-check.py"]},
-    {"id":"PENSION-DATA","domain":"Pensionen","canonical_artifacts":["werk-data/pension-baseline-2024-2031.json","werk-data/pension-longterm-2023-2070.json"],"workflow":".github/workflows/werk-pension-data-check.yml","closure_register_ids":["GAP-PENS-01","GAP-PENS-02"],"verified_scope":["UG22 Gesamtpfad 2024–2031","UG23 Gesamtpfad 2024–2031","UG22/UG23 Komponenten bis 2028","ASK gesetzliche PV 2024–2030","ASK Beamtenpensionen 2025–2030","nationale und Ageing-Report-Langfristszenarien bis 2070"],"open_scope":["UG22/UG23 Komponentendetails 2029–2031","Neuzugänge/Antrittsalter/Versicherungszeiten vollständig","Reform-Übergangskosten und Verteilungswirkung"]},
-    {"id":"HEALTH-DATA","domain":"Gesundheitsfinanzierung / HEALTH-01","canonical_artifacts":["werk-data/health-baseline-2024-2031.json","werk-data/health-longterm-2022-2070.json"],"workflow":".github/workflows/werk-health-data-check.yml","closure_register_ids":["GAP-HEALTH-01"],"verified_scope":["SHA 2024 final / 2025 vorläufig","SHA Leistungsarten 2024","öffentliche Zahler-Grobstruktur 2024","Fondskrankenanstalten 2024 nach vier Zahlern und neun Ländern","COFOG 2024/2025","UG24 2025–2031","FISK- und Ageing-Report-Langfristszenarien bis 2070"],"open_scope":["vollständige HC×HF-/HP×HF-Rohmatrix","vollständiger Bund/Land/Gemeinde/SV-Leistungsfluss","Fondskrankenanstalten 2025 bis amtliche Veröffentlichung","HEALTH-Reform- und Übergangskostenmodell"]},
-    {"id":"HEALTH-ACTIVITY","domain":"Gesundheitsleistungen / HEALTH-02","canonical_artifacts":["werk-data/health-service-activity-2024.json","werk-data/health-extramural-baseline-2023-2026.json"],"workflow":".github/workflows/werk-health-activity-check.yml","closure_register_ids":["GAP-HEALTH-02"],"verified_scope":["LGF stationäre Aktivität 2024","LGF stationär/ambulant/sonstige Endkosten","ambulante Patient:innen/Frequenzen/Kosten und neun Länder","tagesklinisch erbringbares Leistungsuniversum","Primärversorgungs-Kapazitätsanker bis letzter verifizierter Stand","historischer MRI-Wartezeitanker","gesamte Krankenversicherung 2024 nach Leistungsarten","ÖGK ärztliche Hilfe 2024 und ausgewählte Gebarungsvorschau 2025/2026","ÖGK Konsultationshistorie und Wahlarztanker 2023"],"open_scope":["fachgebietsspezifische Fall-/Vollkostenmatrix","aktuelle 2026 Kontakte nach Fachgebiet und Land","extramurale Einheitskosten nach Fachgebiet/Leistung/Land","standardisierte aktuelle Wartezeitserie","WERK-Ambulantisierungsszenario inkl. Übergangskosten"]},
-    {"id":"CARE-DATA","domain":"Pflege / CARE-01","canonical_artifacts":["werk-data/care-baseline-2024-2050.json","werk-data/health-baseline-2024-2031.json"],"workflow":".github/workflows/werk-care-data-check.yml","closure_register_ids":["GAP-CARE-01"],"verified_scope":["Pflegedienstleistungen 2024 nach neun Ländern","Brutto- und Netto-Sachleistungsaufwand","VZÄ und mobile Bezieher","Pflegegeld und Pflegefonds","24-Stunden-Betreuung","Versorgungsgrad","Personal- und Kostenprojektionen bis 2050","SHA-Langzeitpflege-Abgrenzung"],"open_scope":["Plätze je Land vollständig","Leistungsstunden und Empfänger je Versorgungsart/Land","Pflegedienstleistungsstatistik 2025","WERK-Reform-, Übergangs- und Verteilungsmodell"]},
-    {"id":"TAX-DATA","domain":"Steuern und Abgaben / TAX-01","canonical_artifacts":["werk-data/tax-baseline-2022-2025.json","werk-data/tax-social-contribution-branch-2024-2025.json","werk-data/tax-expenditure-priority-2024.json","werk-data/tax-expenditure-law-groups-2022-2024.json"],"workflow":".github/workflows/werk-tax-data-check.yml","validation_scripts":["scripts/werk-tax-data-contract.mjs","scripts/werk-tax-law-group-contract.mjs"],"closure_register_ids":["GAP-TAX-01"],"verified_scope":["S.13 Steuern/Sozialbeiträge 2022–2025","S.13+S.212 Scope und Abgabenquote 2025","ausgewählte große S.13-Steuerarten 2023–2025","ausgewählte UG16-Bundesabgaben 2025","Umsatzsteuervoranmeldungsbasis 2025 national","quantifizierte Tax Expenditures 2022–2024","PV/KV/UV/ALV Beitrags-Branch-Bridge 2024–2025","zehn verifizierte volumenstarke Tax-Expenditures 2024 mit 69,6 % Aggregatabdeckung","12 quantifizierte Gesetzesgruppen 2022–2024 inklusive Bundesanteil und transparenter 1-Mio.-Summendifferenz 2023"],"open_scope":["vollständige ESVG-Einzelsteuerliste nach einhebendem Teilsektor","Arbeitgeber-/Arbeitnehmer-/imputierte Sozialbeiträge nach Sektor","Beitragsbasen nach Versicherungszweig und Bevölkerungsgruppe","vollständiges 93-Maßnahmen-Tax-Expenditure-Inventar und Ranking","dynamische Nettoaufkommensmodelle je Tax Expenditure","UVA Bundesland-/Branchenmatrix kanonisch","Revision der Steuerdaten am 30.09.2026"]},
-    {"id":"DISTRIBUTION-DATA","domain":"Verteilung / TAX-02 / DIST-01","canonical_artifacts":["werk-data/distribution-baseline-2025-2026.json","werk-data/payroll-employee-kernel-2026.json","werk-data/bud01-distribution-model-framework.json","werk-data/payroll-annual-assessment-2026.json","werk-data/payroll-annual-assessment-results-2026.json"],"workflow":".github/workflows/werk-distribution-data-check.yml","validation_scripts":["scripts/werk-distribution-data-contract.mjs","scripts/werk-payroll-kernel-contract.mjs","scripts/werk-annual-assessment-contract.mjs","scripts/werk-annual-assessment-negative-check.mjs"],"closure_register_ids":["GAP-TAX-02","GAP-DIST-01"],"verified_scope":["EU-SILC Haushaltseinkommensquartile 2025 nach zentralen Haushaltstypen","revidierte Armuts-/Ausgrenzungsindikatoren samt Erstmeldungs-Historie","Konsumerhebung 2024/25 Durchschnitt und Ausgabendezilgrenzen","Wohnkosten-/Überlastungsanker 2025","Einkommensteuertarif und Arbeitnehmer-Absetzbetragsanker 2026","SV-Höchstgrenzen, Kernbeitragssätze und reduzierte ALV-DN-Stufen 2026","Familienbeihilfe, Kinderabsetzbetrag und Familienbonus-Kernparameter 2026","Payroll-Regelkern 2026 für laufende/Sonderzahlungs-SV, getrennte AV-Stufen, Wien-WF, Jahressechstel, 2.615-EUR-Freigrenze und §67-Fixsteuersätze mit deterministischen Testvektoren","48 Standard-Jahresveranlagungen 2026: Tarif, Verkehrs-Zuschlag, SV-Rückerstattungsgrenzen und §41-Sonderzahlungs-Korrektur, vor Rundung und Haushaltsinzidenz"],"open_scope":["vollständige Bundes-/Landes-/Gemeindetransferregeln","Nettoeinkommensengine außerhalb des geprüften ganzjährigen Standard-ASVG-Scope","Kontrollsechstel-/unterjährige Sonderfälle","effektive Grenzbelastungsengine","Haushaltsarchetypen-Mikrosimulation","Dezil-Reweighting und Budgetreconciliation","Sachleistungsbewertung"]},
-    {"id":"LABOUR-DATA","domain":"Wirtschaft, Arbeit & Standort / LAB-01","canonical_artifacts":["werk-data/labour-productivity-baseline-2025-2026.json","werk-data/labour-matching-baseline-2025-2026.json","werk-data/labour-matching-matrix-priority-groups.json","werk-data/labour-occupation-region-matching-matrix.json","werk-data/labour-occupation-supply-2026-08.json","werk-data/labour-qualification-working-time-2026-08.json","werk-data/labour-time-care-constraints-2025.json"],"workflow":".github/workflows/werk-labour-productivity-check.yml","validation_scripts":["scripts/werk-labour-productivity-contract.mjs","scripts/werk-import-occupation-evidence.py","scripts/werk-import-regional-labour.py","scripts/werk-import-occupation-supply.py","scripts/werk-import-qualification-time.py","scripts/werk-import-time-care.py","scripts/werk-labour-negative-check.mjs"],"closure_register_ids":["GAP-LAB-01"],"verified_scope":["ILO- und AMS-Arbeitslosigkeit getrennt","Q2-2026 offene Stellen und 2025 Jahresstruktur","Beschäftigung und Teilzeit 2025","Arbeitskostenbegriffe getrennt","OeNB-Prognose als Nicht-Ist-Schicht","neun Bundesland-Snapshots August 2026","neun direkt vergleichbare AMS Arbeitslosen-/Stellenbestandsquotienten mit Nicht-Matching-Warnung","AMS Bildungs-Matching Juli 2026 mit 12 Detailzeilen und sechs Prioritätsgruppen","869 Personen Differenz zwischen veröffentlichtem Arbeitslosen-Gesamtbestand und Bildungsdetail bleibt explizit unverteilt","Matchingdimensionen Beruf, Bildung, Region, Arbeitszeit, Gesundheit, Entlohnung und Skill-Distanz","452 publizierte Berufs-/Regions-Engpasszeilen Q2 2026 aus versioniertem XLSX; 51 Österreich und 401 Bundeslandzeilen","Neun Arbeitslosenbestände August summieren auf 311448; Wiener sofortiger Stellenbestand ergänzt","August 2026: 3072 Beruf×Bundesland-Kombinationen; 40818 AL- und 10763 OS-Quellzeilen; alle regionalen und nationalen Bestände abgeglichen","August: 189 regionale Bildungszeilen und 67 Beschäftigungsart-/Arbeitszeitzeilen; sofort verfügbare Stellen separat abgestimmt","Juli-Restdifferenz 869 durch amtliche Kategorie XX Ungeklärt erklärt, weiterhin keiner bekannten Bildungsgruppe zugeordnet","2025: 48 Arbeitszeitwunsch-/Verfügbarkeitszeilen, 39 Teilzeitgrundzeilen mit publizierter Unsicherheitsmarkierung; 2024/25: 20 Bundesland-/Alterszeilen zu Betreuungszeiten","GAP-LAB-01: neun Subgates mit Abschlussbedingungen und blockierter Wirkungsbuchung"],"open_scope":["Gemeinsame Beruf×Detailqualifikation×Bundesland Angebots-/Nachfragematrix; Engpassliste ist nur eine selektive Vorstufe","Gemeinsame Zusatzstunden, Haushalts-/Betreuungs-/Pflegebedingungen und freie erreichbare Betreuungskapazität; getrennte Wünsche/Gründe bereits vorhanden","AMS-Arbeitslose nach kompatibler Berufs- und Qualifikationsklassifikation","Pendel-/Mobilitätsmatrix","Entlohnungs-/Grenzbelastungs-Matching","Umschulungskosten und nachhaltige Beschäftigungswirkung","Produktivität je Arbeitsstunde nach Branche","Quellenabweichung XLSX/PDF bei NÖ Elektroinstallation T2 vor Reformverwendung klären"]}
+    {
+      "id": "FISCAL-DATA",
+      "domain": "Budget / BUD-01",
+      "canonical_artifacts": [
+        "werk-data/budget-baseline-2026-2031.json",
+        "werk-data/medium-term-fiscal-path.json",
+        "werk-data/government-baseline-2025-2031.json",
+        "werk-data/government-package-2025-2029.json",
+        "werk-data/government-new-measures-2026-2031.json",
+        "werk-data/calculation-assumptions.json",
+        "werk-data/calculation-results-2026.json",
+        "werk-data/bud01-balance-gap-2026-2031.json",
+        "werk-data/post-debt-employee-sv-model.json",
+        "werk-data/post-debt-employee-sv-results.json",
+        "werk-data/employee-payroll-withholding-2024.json",
+        "werk-data/employee-sv-growth-stress-model.json",
+        "werk-data/employee-sv-growth-stress-results.json",
+        "werk-data/employee-essoss-contribution-bridge-2024.json",
+        "werk-data/employee-alv-threshold-model-2026.json",
+        "werk-data/employee-alv-threshold-results-2026.json",
+        "werk-data/employee-alv-transition-model.json",
+        "werk-data/employee-alv-transition-results.json",
+        "werk-data/employee-contribution-distribution-2024.json",
+        "werk-data/employee-alv-cost-bounds.json",
+        "werk-data/employee-alv-interval-spec.json",
+        "werk-data/employee-alv-interval-results.json",
+        "werk-data/debt-flow-reconciliation-2026-2031.json",
+        "werk-data/employee-sv-funding-bridge-results.json",
+        "werk-data/tax-enforcement-evidence-2025.json",
+        "werk-data/tax-enforcement-break-even-model.json",
+        "werk-data/tax-enforcement-break-even-results.json"
+      ],
+      "workflow": ".github/workflows/werk-fiscal-data-check.yml",
+      "closure_register_ids": [
+        "GAP-FISC-01",
+        "GAP-FISC-02",
+        "GAP-BASE-01"
+      ],
+      "verified_scope": [
+        "BMF-Referenzpfad 2026–2031",
+        "Saldo-/Sektoren-/Schuldenquoten-Identitäten",
+        "Regierungsbaseline 2025–2031",
+        "ursprüngliches Konsolidierungspaket 2025–2029",
+        "neue Maßnahmen 2026–2031",
+        "Reproduzierbare Gesamtrechnung: Budget, 1/5/10-Jahres-Kostenszenarien, bedingte Tilgung, Mehrstunden und Payroll-Beispiele; keine Finanzierungsgutschrift",
+        "SV-01: gekoppelte Tilgung/Zinsersparnis/Beitragssenkung während Schuldenabbau, 50%-Zielcheck, Payroll und 19 amtliche Lohnzettel-Bezugsgruppen 2024",
+        "SV-01 Standard-Jahresnetto und 27 aktualisierte hypothetische Arbeitsvorteilsvergleiche; individuelle Steuer-Rückflüsse ohne Populationshochrechnung",
+        "36 nominale Beitrags-/Tilgungswachstumspfade bis zehn Jahre nach Schuldenfreiheit, Zielverlust-/Haltenachweis und nicht sinkende finanzierbare Quote im endlichen Horizont",
+        "ESSOSS Arbeitnehmerklassifikation: sieben Systeme, 245 historische Zellen, ALV-Annahme und Rundungs-/Jahresabweichung explizit; zwölf statische Vergleiche",
+        "24 ALV-Schwellenfälle 2026, 192 Bruttoschritte und kleinster ausgleichender Monatsbrutto-Cent nach Standard-Veranlagung; lokale Erwerbsanreize ohne Haushalts-/Populationshochrechnung",
+        "36 stetige ALV-Gestaltungsvarianten, 288 Standard-Nettovergleiche und 15 vorläufige 2027-Beitragsvarianten für getrennte Bestands-/Neuverhältnisse; keine nationale Kostenschätzung",
+        "DVSV 2024: 9 Tabellen/1161 Quartilszellen mit Jahressummen-/Versicherungstage-Abgrenzung; 18 bedingte ALV-Kostengrenzen und 18 Gegenbeispiele, keine österreichweite Kostenidentifikation",
+        "72 bedingte Intervallkostenfälle, neun lückenlose Cent-Raster und 18 aggregierte Tabellen; exakte lineare Intervallsummen, sonst Grenzen ohne Verteilungsannahme",
+        "42 amtliche Schuldenüberleitungswerte 2025–2031, explizite Rundungsreste und 336 jährliche Finanzierungsbrücken; Primärsaldo, Zinsersparnis, SV-Kosten und Überschuss getrennt",
+        "ABB2025 original/transcription: five heterogeneous stages, administrative budget, open cash/rounding reconciliation;27 conditional incremental enforcement break-even cases with collection lag"
+      ],
+      "open_scope": [
+        "getrennte Länder-/Gemeinde-Prognoseserie bis 2031",
+        "2030/2031 Einzelzeilen des ursprünglichen 2025-Pakets",
+        "vollständige Measure-Level-Ist-Wirkung",
+        "SV-01 tatsächliche reine KV/PV/ALV-Basis, Steuerwirkung außerhalb des Standardscope, Haushaltstransfers und spätere Ersatzfinanzierung",
+        "Langfristig wachsende Ersatzfinanzierung, demografische Zusatzkosten und tatsächlich finanzierte wachsende Basistilgung",
+        "Tatsächliche ALV-DN-Einnahmen statt amtlicher 50%-Aufteilungsannahme; PV/KV-Reformkreisabgleich",
+        "Finale 2027+-Regeln und Nettorechnung, repräsentative Übergangs-/Verteilungs-/Finanzierungskosten, Haushalts- und Beschäftigungswirkung",
+        "Tatsächliche ALV-Bemessungsfälle je Monat/Dienstverhältnis und laufend/Sonderzahlung; feine Betragsintervalle, keine Hochrechnung aus Jahresquartilen",
+        "Amtliche Monatszählungen/-summen samt Quellenadapter; abweichende Satz-/Beitragsgrundlagen und tatsächliche Tragung des Arbeitnehmeranteils separat",
+        "Reale zusätzliche Primärverbesserung, tatsächlich frei verfügbare Zinsersparnis und reformbezogene Deficit-Debt-Überleitung; Referenzanpassungen sind keine Dauerfinanzierung",
+        "TAX02 attributed additional tax cash by cohort, government overlap, all-in incremental costs and recurring effect; ABB headline is not reconciled pure tax cash"
+      ],
+      "validation_scripts": [
+        "scripts/werk-calculation-contract.mjs",
+        "scripts/werk-calculation-negative-check.mjs",
+        "scripts/werk-bud01-balance-gap-contract.mjs",
+        "scripts/werk-import-employee-withholding.py",
+        "scripts/werk-post-debt-sv-contract.mjs",
+        "scripts/werk-post-debt-sv-negative-check.mjs",
+        "scripts/werk-sv-growth-stress-contract.mjs",
+        "scripts/werk-sv-growth-stress-negative-check.mjs",
+        "scripts/werk-import-essoss-contributions.py",
+        "scripts/werk-essoss-contributions-negative-check.py",
+        "scripts/werk-alv-threshold-contract.mjs",
+        "scripts/werk-alv-threshold-negative-check.mjs",
+        "scripts/werk-alv-transition-contract.mjs",
+        "scripts/werk-alv-transition-negative-check.mjs",
+        "scripts/werk-import-contribution-distribution.py",
+        "scripts/werk-contribution-distribution-negative-check.py",
+        "scripts/werk-alv-cost-bounds-contract.mjs",
+        "scripts/werk-alv-cost-bounds-negative-check.mjs",
+        "scripts/werk-alv-interval-contract.mjs",
+        "scripts/werk-alv-interval-negative-check.mjs",
+        "scripts/werk-sv-funding-bridge-contract.mjs",
+        "scripts/werk-sv-funding-bridge-negative-check.mjs",
+        "scripts/werk-tax-enforcement-contract.mjs",
+        "scripts/werk-tax-enforcement-negative-check.mjs"
+      ]
+    },
+    {
+      "id": "BASELINE-LEGAL",
+      "domain": "Regierungsbaseline / Recht",
+      "canonical_artifacts": [
+        "werk-data/government-legal-basis-map.json",
+        "werk-data/government-baseline-scope-map.json",
+        "werk-data/government-measure-legal-status.json"
+      ],
+      "workflow": ".github/workflows/werk-baseline-legal-check.yml",
+      "closure_register_ids": [
+        "GAP-BASE-01"
+      ],
+      "verified_scope": [
+        "Paket-/Scope-Rechtsqualität",
+        "13 prioritäre Measure-IDs mit Artikel/Paragraph/Anwendungsregel",
+        "zeitliche Anwendbarkeit gegen Prüftag",
+        "derived-effect-Doppelzählungsschutz"
+      ],
+      "open_scope": [
+        "vollständige Einzelmaßnahmen-Rechtszuordnung",
+        "empirischer Realisierungsstatus je Maßnahme"
+      ]
+    },
+    {
+      "id": "SUBSIDY-DATA",
+      "domain": "Förderungen / SUB-01",
+      "canonical_artifacts": [
+        "werk-data/subsidy-baseline-architecture.json",
+        "werk-data/subsidy-esvg-benchmark-2024.json",
+        "werk-data/subsidy-federal-ug-2024.json",
+        "werk-data/subsidy-federal-account-source.json",
+        "werk-data/subsidy-federal-account-normalized.json",
+        "werk-data/subsidy-federal-account-results.json",
+        "werk-data/subsidy-account-review-priorities.json"
+      ],
+      "workflow": ".github/workflows/werk-subsidy-data-check.yml",
+      "closure_register_ids": [
+        "GAP-SUB-01"
+      ],
+      "verified_scope": [
+        "BHG/ESVG/TDB/EU-RRF-Abgrenzung",
+        "ESVG D.3/D.7/D.9 Benchmark 2024",
+        "24 Bundes-Untergliederungen 2024",
+        "Abwicklungskosten separat",
+        "15.802 aktuelle BMF-CSV-Zeilen, Ist 2014–2025 und BVA 2026–2028; Monatsserien separat",
+        "24 UG-2024-Kontrollen, centgenauer 2025-Jahres-/Monatsabgleich; 1.035 Konto/Klassen-Kombinationen 2024–2028 und 20 prioritäre Prüfpositionen"
+      ],
+      "open_scope": [
+        "ESVG-Zeitreihe 2025–2031",
+        "TDB-Überschneidungscluster",
+        "Outcome-/Abwicklungskosten je prioritärem Programm",
+        "Eindeutige Programme hinter Konten, Bindungen, EU-/RRF-Kofinanzierung, Umgliederungen und zusätzlich realisierte Nettoeffekte"
+      ],
+      "validation_scripts": [
+        "scripts/werk-import-federal-subsidies.py",
+        "scripts/werk-federal-subsidies-negative-check.py"
+      ]
+    },
+    {
+      "id": "PENSION-DATA",
+      "domain": "Pensionen",
+      "canonical_artifacts": [
+        "werk-data/pension-baseline-2024-2031.json",
+        "werk-data/pension-longterm-2023-2070.json"
+      ],
+      "workflow": ".github/workflows/werk-pension-data-check.yml",
+      "closure_register_ids": [
+        "GAP-PENS-01",
+        "GAP-PENS-02"
+      ],
+      "verified_scope": [
+        "UG22 Gesamtpfad 2024–2031",
+        "UG23 Gesamtpfad 2024–2031",
+        "UG22/UG23 Komponenten bis 2028",
+        "ASK gesetzliche PV 2024–2030",
+        "ASK Beamtenpensionen 2025–2030",
+        "nationale und Ageing-Report-Langfristszenarien bis 2070"
+      ],
+      "open_scope": [
+        "UG22/UG23 Komponentendetails 2029–2031",
+        "Neuzugänge/Antrittsalter/Versicherungszeiten vollständig",
+        "Reform-Übergangskosten und Verteilungswirkung"
+      ]
+    },
+    {
+      "id": "HEALTH-DATA",
+      "domain": "Gesundheitsfinanzierung / HEALTH-01",
+      "canonical_artifacts": [
+        "werk-data/health-baseline-2024-2031.json",
+        "werk-data/health-longterm-2022-2070.json"
+      ],
+      "workflow": ".github/workflows/werk-health-data-check.yml",
+      "closure_register_ids": [
+        "GAP-HEALTH-01"
+      ],
+      "verified_scope": [
+        "SHA 2024 final / 2025 vorläufig",
+        "SHA Leistungsarten 2024",
+        "öffentliche Zahler-Grobstruktur 2024",
+        "Fondskrankenanstalten 2024 nach vier Zahlern und neun Ländern",
+        "COFOG 2024/2025",
+        "UG24 2025–2031",
+        "FISK- und Ageing-Report-Langfristszenarien bis 2070"
+      ],
+      "open_scope": [
+        "vollständige HC×HF-/HP×HF-Rohmatrix",
+        "vollständiger Bund/Land/Gemeinde/SV-Leistungsfluss",
+        "Fondskrankenanstalten 2025 bis amtliche Veröffentlichung",
+        "HEALTH-Reform- und Übergangskostenmodell"
+      ]
+    },
+    {
+      "id": "HEALTH-ACTIVITY",
+      "domain": "Gesundheitsleistungen / HEALTH-02",
+      "canonical_artifacts": [
+        "werk-data/health-service-activity-2024.json",
+        "werk-data/health-extramural-baseline-2023-2026.json"
+      ],
+      "workflow": ".github/workflows/werk-health-activity-check.yml",
+      "closure_register_ids": [
+        "GAP-HEALTH-02"
+      ],
+      "verified_scope": [
+        "LGF stationäre Aktivität 2024",
+        "LGF stationär/ambulant/sonstige Endkosten",
+        "ambulante Patient:innen/Frequenzen/Kosten und neun Länder",
+        "tagesklinisch erbringbares Leistungsuniversum",
+        "Primärversorgungs-Kapazitätsanker bis letzter verifizierter Stand",
+        "historischer MRI-Wartezeitanker",
+        "gesamte Krankenversicherung 2024 nach Leistungsarten",
+        "ÖGK ärztliche Hilfe 2024 und ausgewählte Gebarungsvorschau 2025/2026",
+        "ÖGK Konsultationshistorie und Wahlarztanker 2023"
+      ],
+      "open_scope": [
+        "fachgebietsspezifische Fall-/Vollkostenmatrix",
+        "aktuelle 2026 Kontakte nach Fachgebiet und Land",
+        "extramurale Einheitskosten nach Fachgebiet/Leistung/Land",
+        "standardisierte aktuelle Wartezeitserie",
+        "WERK-Ambulantisierungsszenario inkl. Übergangskosten"
+      ]
+    },
+    {
+      "id": "CARE-DATA",
+      "domain": "Pflege / CARE-01",
+      "canonical_artifacts": [
+        "werk-data/care-baseline-2024-2050.json",
+        "werk-data/health-baseline-2024-2031.json"
+      ],
+      "workflow": ".github/workflows/werk-care-data-check.yml",
+      "closure_register_ids": [
+        "GAP-CARE-01"
+      ],
+      "verified_scope": [
+        "Pflegedienstleistungen 2024 nach neun Ländern",
+        "Brutto- und Netto-Sachleistungsaufwand",
+        "VZÄ und mobile Bezieher",
+        "Pflegegeld und Pflegefonds",
+        "24-Stunden-Betreuung",
+        "Versorgungsgrad",
+        "Personal- und Kostenprojektionen bis 2050",
+        "SHA-Langzeitpflege-Abgrenzung"
+      ],
+      "open_scope": [
+        "Plätze je Land vollständig",
+        "Leistungsstunden und Empfänger je Versorgungsart/Land",
+        "Pflegedienstleistungsstatistik 2025",
+        "WERK-Reform-, Übergangs- und Verteilungsmodell"
+      ]
+    },
+    {
+      "id": "TAX-DATA",
+      "domain": "Steuern und Abgaben / TAX-01",
+      "canonical_artifacts": [
+        "werk-data/tax-baseline-2022-2025.json",
+        "werk-data/tax-social-contribution-branch-2024-2025.json",
+        "werk-data/tax-expenditure-priority-2024.json",
+        "werk-data/tax-expenditure-law-groups-2022-2024.json"
+      ],
+      "workflow": ".github/workflows/werk-tax-data-check.yml",
+      "validation_scripts": [
+        "scripts/werk-tax-data-contract.mjs",
+        "scripts/werk-tax-law-group-contract.mjs"
+      ],
+      "closure_register_ids": [
+        "GAP-TAX-01"
+      ],
+      "verified_scope": [
+        "S.13 Steuern/Sozialbeiträge 2022–2025",
+        "S.13+S.212 Scope und Abgabenquote 2025",
+        "ausgewählte große S.13-Steuerarten 2023–2025",
+        "ausgewählte UG16-Bundesabgaben 2025",
+        "Umsatzsteuervoranmeldungsbasis 2025 national",
+        "quantifizierte Tax Expenditures 2022–2024",
+        "PV/KV/UV/ALV Beitrags-Branch-Bridge 2024–2025",
+        "zehn verifizierte volumenstarke Tax-Expenditures 2024 mit 69,6 % Aggregatabdeckung",
+        "12 quantifizierte Gesetzesgruppen 2022–2024 inklusive Bundesanteil und transparenter 1-Mio.-Summendifferenz 2023"
+      ],
+      "open_scope": [
+        "vollständige ESVG-Einzelsteuerliste nach einhebendem Teilsektor",
+        "Arbeitgeber-/Arbeitnehmer-/imputierte Sozialbeiträge nach Sektor",
+        "Beitragsbasen nach Versicherungszweig und Bevölkerungsgruppe",
+        "vollständiges 93-Maßnahmen-Tax-Expenditure-Inventar und Ranking",
+        "dynamische Nettoaufkommensmodelle je Tax Expenditure",
+        "UVA Bundesland-/Branchenmatrix kanonisch",
+        "Revision der Steuerdaten am 30.09.2026"
+      ]
+    },
+    {
+      "id": "DISTRIBUTION-DATA",
+      "domain": "Verteilung / TAX-02 / DIST-01",
+      "canonical_artifacts": [
+        "werk-data/distribution-baseline-2025-2026.json",
+        "werk-data/payroll-employee-kernel-2026.json",
+        "werk-data/bud01-distribution-model-framework.json",
+        "werk-data/payroll-annual-assessment-2026.json",
+        "werk-data/payroll-annual-assessment-results-2026.json"
+      ],
+      "workflow": ".github/workflows/werk-distribution-data-check.yml",
+      "validation_scripts": [
+        "scripts/werk-distribution-data-contract.mjs",
+        "scripts/werk-payroll-kernel-contract.mjs",
+        "scripts/werk-annual-assessment-contract.mjs",
+        "scripts/werk-annual-assessment-negative-check.mjs"
+      ],
+      "closure_register_ids": [
+        "GAP-TAX-02",
+        "GAP-DIST-01"
+      ],
+      "verified_scope": [
+        "EU-SILC Haushaltseinkommensquartile 2025 nach zentralen Haushaltstypen",
+        "revidierte Armuts-/Ausgrenzungsindikatoren samt Erstmeldungs-Historie",
+        "Konsumerhebung 2024/25 Durchschnitt und Ausgabendezilgrenzen",
+        "Wohnkosten-/Überlastungsanker 2025",
+        "Einkommensteuertarif und Arbeitnehmer-Absetzbetragsanker 2026",
+        "SV-Höchstgrenzen, Kernbeitragssätze und reduzierte ALV-DN-Stufen 2026",
+        "Familienbeihilfe, Kinderabsetzbetrag und Familienbonus-Kernparameter 2026",
+        "Payroll-Regelkern 2026 für laufende/Sonderzahlungs-SV, getrennte AV-Stufen, Wien-WF, Jahressechstel, 2.615-EUR-Freigrenze und §67-Fixsteuersätze mit deterministischen Testvektoren",
+        "48 Standard-Jahresveranlagungen 2026: Tarif, Verkehrs-Zuschlag, SV-Rückerstattungsgrenzen und §41-Sonderzahlungs-Korrektur, vor Rundung und Haushaltsinzidenz"
+      ],
+      "open_scope": [
+        "vollständige Bundes-/Landes-/Gemeindetransferregeln",
+        "Nettoeinkommensengine außerhalb des geprüften ganzjährigen Standard-ASVG-Scope",
+        "Kontrollsechstel-/unterjährige Sonderfälle",
+        "effektive Grenzbelastungsengine",
+        "Haushaltsarchetypen-Mikrosimulation",
+        "Dezil-Reweighting und Budgetreconciliation",
+        "Sachleistungsbewertung"
+      ]
+    },
+    {
+      "id": "LABOUR-DATA",
+      "domain": "Wirtschaft, Arbeit & Standort / LAB-01",
+      "canonical_artifacts": [
+        "werk-data/labour-productivity-baseline-2025-2026.json",
+        "werk-data/labour-matching-baseline-2025-2026.json",
+        "werk-data/labour-matching-matrix-priority-groups.json",
+        "werk-data/labour-occupation-region-matching-matrix.json",
+        "werk-data/labour-occupation-supply-2026-08.json",
+        "werk-data/labour-qualification-working-time-2026-08.json",
+        "werk-data/labour-time-care-constraints-2025.json"
+      ],
+      "workflow": ".github/workflows/werk-labour-productivity-check.yml",
+      "validation_scripts": [
+        "scripts/werk-labour-productivity-contract.mjs",
+        "scripts/werk-import-occupation-evidence.py",
+        "scripts/werk-import-regional-labour.py",
+        "scripts/werk-import-occupation-supply.py",
+        "scripts/werk-import-qualification-time.py",
+        "scripts/werk-import-time-care.py",
+        "scripts/werk-labour-negative-check.mjs"
+      ],
+      "closure_register_ids": [
+        "GAP-LAB-01"
+      ],
+      "verified_scope": [
+        "ILO- und AMS-Arbeitslosigkeit getrennt",
+        "Q2-2026 offene Stellen und 2025 Jahresstruktur",
+        "Beschäftigung und Teilzeit 2025",
+        "Arbeitskostenbegriffe getrennt",
+        "OeNB-Prognose als Nicht-Ist-Schicht",
+        "neun Bundesland-Snapshots August 2026",
+        "neun direkt vergleichbare AMS Arbeitslosen-/Stellenbestandsquotienten mit Nicht-Matching-Warnung",
+        "AMS Bildungs-Matching Juli 2026 mit 12 Detailzeilen und sechs Prioritätsgruppen",
+        "869 Personen Differenz zwischen veröffentlichtem Arbeitslosen-Gesamtbestand und Bildungsdetail bleibt explizit unverteilt",
+        "Matchingdimensionen Beruf, Bildung, Region, Arbeitszeit, Gesundheit, Entlohnung und Skill-Distanz",
+        "452 publizierte Berufs-/Regions-Engpasszeilen Q2 2026 aus versioniertem XLSX; 51 Österreich und 401 Bundeslandzeilen",
+        "Neun Arbeitslosenbestände August summieren auf 311448; Wiener sofortiger Stellenbestand ergänzt",
+        "August 2026: 3072 Beruf×Bundesland-Kombinationen; 40818 AL- und 10763 OS-Quellzeilen; alle regionalen und nationalen Bestände abgeglichen",
+        "August: 189 regionale Bildungszeilen und 67 Beschäftigungsart-/Arbeitszeitzeilen; sofort verfügbare Stellen separat abgestimmt",
+        "Juli-Restdifferenz 869 durch amtliche Kategorie XX Ungeklärt erklärt, weiterhin keiner bekannten Bildungsgruppe zugeordnet",
+        "2025: 48 Arbeitszeitwunsch-/Verfügbarkeitszeilen, 39 Teilzeitgrundzeilen mit publizierter Unsicherheitsmarkierung; 2024/25: 20 Bundesland-/Alterszeilen zu Betreuungszeiten",
+        "GAP-LAB-01: neun Subgates mit Abschlussbedingungen und blockierter Wirkungsbuchung"
+      ],
+      "open_scope": [
+        "Gemeinsame Beruf×Detailqualifikation×Bundesland Angebots-/Nachfragematrix; Engpassliste ist nur eine selektive Vorstufe",
+        "Gemeinsame Zusatzstunden, Haushalts-/Betreuungs-/Pflegebedingungen und freie erreichbare Betreuungskapazität; getrennte Wünsche/Gründe bereits vorhanden",
+        "AMS-Arbeitslose nach kompatibler Berufs- und Qualifikationsklassifikation",
+        "Pendel-/Mobilitätsmatrix",
+        "Entlohnungs-/Grenzbelastungs-Matching",
+        "Umschulungskosten und nachhaltige Beschäftigungswirkung",
+        "Produktivität je Arbeitsstunde nach Branche",
+        "Quellenabweichung XLSX/PDF bei NÖ Elektroinstallation T2 vor Reformverwendung klären"
+      ]
+    },
+    {
+      "id": "AI-PROVIDER-EVAL",
+      "domain": "IDEENWERK / KI-Provider",
+      "canonical_artifacts": [
+        "werk-data/ideenwerk-ai-provider-evaluation.json"
+      ],
+      "workflow": ".github/workflows/werk-ai-provider-evaluation-check.yml",
+      "closure_register_ids": [],
+      "verified_scope": [
+        "Providerneutrale technische Vergleichsdimensionen",
+        "Serverseitige Secret-Grenze und deaktivierter Default",
+        "Datenminimierung und Logging-Grenze",
+        "Fail-closed Provider-/Quota-/Source-Verhalten",
+        "Kostenformel ohne erfundenes Volumen/Budget",
+        "OpenAI Direct und Azure EU DataZone als nicht ausgewählte technische Kandidaten mit Primärquellen"
+      ],
+      "open_scope": [
+        "konkrete Provider-/Modell-/Service-Tier-Auswahl",
+        "Owner-Kostenrahmen",
+        "AVV/DPA/Rechts-/Datenschutzfreigabe",
+        "Secrets und externe Provideraktivierung",
+        "target-bound synthetische Staging-Acceptance nach Auswahl",
+        "echte KI-Generierung"
+      ],
+      "validation_scripts": [
+        "scripts/werk-ai-provider-evaluation-contract.mjs"
+      ]
+    },
+    {
+      "id": "VERIFIED-SUPPORT-ID-ARCH",
+      "domain": "Direkte offene Demokratie / verifizierte Unterstützung",
+      "canonical_artifacts": [
+        "werk-data/verified-support-identity-architecture.json"
+      ],
+      "workflow": ".github/workflows/werk-identity-architecture-check.yml",
+      "closure_register_ids": [],
+      "verified_scope": [
+        "Providerneutraler Kern für 1 Mensch = 1 Unterstützung",
+        "Trennung Identitätsverifikation und politischer Support",
+        "Scoped HMAC-Pseudonym statt Rohidentität im Supportdatensatz",
+        "Datenminimierung, Recovery und Threat Model",
+        "ID Austria Service Provider und EUDI Wallet als nicht ausgewählte Architekturmodelle mit Primärquellen",
+        "klare Trennung Support vs spätere geheime Abstimmung"
+      ],
+      "open_scope": [
+        "Owner-Auswahl des Identitätsmodells",
+        "konkrete Rechtsgrundlage/Datenschutzprüfung",
+        "zulässige stabile Providerkennung für scoped dedupe",
+        "Provider-/Relying-Party-Akkreditierung",
+        "Sandbox-/Referenzintegration",
+        "verifizierte Supportzählung",
+        "WERK VOTE Geheimhaltungs-/Wahlarchitektur"
+      ],
+      "validation_scripts": [
+        "scripts/werk-identity-architecture-contract.mjs"
+      ]
+    }
   ],
-  "calculation_gate":{"bud01_final_calculation":"blocked","reason":"Mehrere offene Nettoeffekt-, Transformationskosten-, Verteilungs-, Stress- und Teilsektor-Gates bleiben bestehen.","source_of_truth":"werk-data/analysis-data-closure-register.json"}
+  "calculation_gate": {
+    "bud01_final_calculation": "blocked",
+    "reason": "Mehrere offene Nettoeffekt-, Transformationskosten-, Verteilungs-, Stress- und Teilsektor-Gates bleiben bestehen.",
+    "source_of_truth": "werk-data/analysis-data-closure-register.json"
+  }
 }
