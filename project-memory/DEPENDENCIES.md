@@ -90,10 +90,10 @@ Accounts require program and EU/RRF/cofinancing mapping before national savings.
 - From: `IMPROVEMENT-LOOP` → `AI-SYNTHESIS` feedback edge.
 - Requires: independently counterchecked `WERK-IMPACT-001`, a bounded consumption contract that keeps attribution/improvement hypotheses distinct from facts, and—only for real model regeneration—an approved active AI provider boundary.
 - Type: cross-component feedback integration.
-- Status: ACTIVE_IMPLEMENTATION
-- Updated: 2026-09-21 10:18 Europe/Vienna.
+- Status: IMPLEMENTED_AWAITING_COUNTERCHECK
+- Updated: 2026-09-21 14:19 Europe/Vienna.
 - Upstream satisfied: `WERK-IMPACT-001` is independently `COUNTERCHECKED_STAGING` on exact functional head `ceea9a8bce350529114258049a93ba1057dacbeb`; WERK Impact Measurement Check #6 and Data Contract Registry Check #63 are green; migration `20260921062817 werk_impact_authoritative_source_binding` is live and the independent receipt is `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T072152Z.json`.
-- Current work: `WERK-IMPACT-FEEDBACK-001` builds the bounded consumption contract by reusing current Impact Bridge map/reform IDs plus `werk_impact_validate_source_binding`, limiting feedback to review hypotheses with explicit provenance and uncertainty and binding current review IDs into the existing AI synthesis snapshot.
+- Builder result: bounded feedback consumption is implemented on exact functional head `6d95b394d0869fb91562f6a84a13502469ef7869`; WERK Impact Feedback Check #1, WERK AI Synthesis Check #5, WERK Data Contract Registry Check #64, WERK Frontend Check #194 and IDEENWERK Backend Check #185 succeeded; Staging migration `20260921084055 ideenwerk_impact_feedback` is active. Current-source, non-current-ref, stale-registry, ACL and rollback/zero-baseline probes are recorded in `project-memory/werk-builder-claims/WERK_IMPACT_FEEDBACK_2026-09-21T084933Z.json`.
 - Rule: feedback remains hypothesis/review material and is never promoted to causal fact, automatic policy change, ranking or recommendation. New/stale source state must fail closed.
 - Provider boundary: no provider activation is required to define or verify this contract; real external regeneration remains separately blocked under `WERK-DEP-AI-PROVIDER-001`.
-- Close condition: exact-head feedback/AI CI, reversible Staging verification and independent Supervisor countercheck.
+- Remaining condition: independent Supervisor countercheck of the exact functional head, CI and Staging evidence. Do not mark SATISFIED and do not begin a new functional slice until that receipt exists.
