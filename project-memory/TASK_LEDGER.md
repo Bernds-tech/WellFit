@@ -352,7 +352,7 @@ Keep history append-only; supersede rather than delete.
 - Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R3
 - Goal: prepare a neutral, source-backed provider/privacy/cost package for later real AI synthesis without selecting or activating a provider.
-- Implementation: `werk-data/ideenwerk-ai-provider-evaluation.json`, validation script and dedicated CI workflow; registered as `AI-PROVIDER-EVAL` in the central Data Contract Registry.
+- Implementation: `werk-data/ideenwerk-ai-provider-evaluation.json`, validation script and dedicated CI workflow; intentionally kept outside the policy Data Contract Registry because it is a technical activation contract, not an Austrian data-baseline closure contract.
 - Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
 - Scope: OpenAI API Direct and Azure Foundry EU DataZone are documented as non-selected technical candidates; exact retention/processing/cost activation facts must be revalidated at activation time. Server-only secrets, PII minimization, cost formula/cap boundary, fail-closed behavior and target-bound synthetic verification are explicit.
 - Boundary: no provider selection, no secret, no paid call, no real citizen/expert data sent externally, no political model preference.
@@ -364,7 +364,7 @@ Keep history append-only; supersede rather than delete.
 - Status: IMPLEMENTED_NOT_VERIFIED
 - Risk: R4
 - Goal: prepare comparable identity architectures for 1 person = 1 verified support without activating identity or conflating support with a secret/official vote.
-- Implementation: `werk-data/verified-support-identity-architecture.json`, validation script and dedicated CI workflow; registered as `VERIFIED-SUPPORT-ID-ARCH`.
+- Implementation: `werk-data/verified-support-identity-architecture.json`, validation script and dedicated CI workflow; integrated through the WERK system graph rather than the policy Data Contract Registry.
 - Functional head: `abb9e280601ba4322c8920b1670c066192d535b2`.
 - Scope: provider-neutral core separates identity verification from support, stores scoped HMAC pseudonyms rather than raw identity in support records, defines recovery/rotation/threat model, and documents ID Austria Service Provider plus EUDI Wallet as non-selected candidates with official sources.
 - Boundary: no identity provider selected, no bPK use assumed, no real identity, no support counting, no WERK VOTE, no Production.
