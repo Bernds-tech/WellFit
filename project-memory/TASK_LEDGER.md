@@ -281,4 +281,17 @@ Keep history append-only; supersede rather than delete.
 - Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
 - Boundary: no new effect, saving, cost, forecast, political score, recommendation or automatic acceptance/rejection was introduced; Production/overall ACCEPTED is not implied.
 - Dependency/loop/lock: `WERK-DEP-IDEENWERK-IMPACT-001` is `SATISFIED`; `WERK-LOOP-IMPACT-BRIDGE-001` is `CLOSED_COUNTERCHECKED_STAGING`; `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001` is `RELEASED`; Started Work is closed.
-- Next: do not rebuild. The Supervisor-owned master `EXECUTION_RECEIPTS.md` index must still consume this independent countercheck. After that canonical receipt-index reconciliation, the next functional catalog action is `WERK-EXPERT-001` / `NBA-WERK-EXPERT-PROCESS`.
+- Next: do not rebuild. Impact Bridge closeout is fully consumed and it is a satisfied input to `WERK-EXPERT-001` and later AI synthesis.
+
+## WERK-EXPERT-001
+- Date: 2026-09-21
+- Status: COUNTERCHECKED_STAGING
+- Risk: R3
+- Goal: integrate source-bound, auditable expert/affected-party input into existing IDEENWERK without expert veto, political scoring or parallel platform logic.
+- Result: append-only expert evidence contract, contributor role, relationship disclosure, source/reference binding, optional separately sourced counterposition, citizen-safe status/privacy projections, aggregate content-free transparency and V71 rendering are implemented and independently counterchecked on Staging.
+- CI: functional head `c851f9248d297d6d7bdaf4f06d746d68c6bae4d5`; WERK Expert Input Check #4, WERK Data Contract Registry Check #59 and WERK Frontend Check #182 succeeded.
+- Staging: migrations `20260921012806 ideenwerk_expert_input` and `20260921013039 expert_input_operator_index`; project ACTIVE_HEALTHY; Edge version 7 unchanged; direct anon/authenticated expert access fails closed; service-role active-impact-reviewer write path is enforced; append-only guard active; zero synthetic baseline restored.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T023924Z.json`.
+- Boundary: no expert veto, political merit score/ranking, review-depth override, citizen-text mutation, automatic acceptance/rejection, manufactured fiscal/impact effect, production deploy or live-browser visual acceptance is implied. Aggregate expert transparency remains service-role-only.
+- Dependency/loop/lock: `WERK-DEP-EXPERT-AI-001` is `SATISFIED`; `WERK-LOOP-EXPERT-001` is `CLOSED_COUNTERCHECKED_STAGING`; `LOCK-WERK-EXPERT-001` is `RELEASED`; Started Work is closed.
+- Next: do not rebuild. `WERK-AI-SYNTH-001` is the next functional catalog action only after Finishline Navigator/Evidence Reaper/Supervisor consume their authoritative expert closeout records.
