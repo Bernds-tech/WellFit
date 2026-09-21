@@ -49,6 +49,11 @@ jobs:
           END $$;
           CREATE SCHEMA IF NOT EXISTS extensions;
           CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
+          CREATE TABLE IF NOT EXISTS public.ideenwerk_runtime_meta (
+            key text PRIMARY KEY,
+            value text NOT NULL,
+            updated_at timestamptz NOT NULL DEFAULT now()
+          );
           SQL
           rm -rf /tmp/ideenwerk-support-core-ci && mkdir -p /tmp/ideenwerk-support-core-ci
           for f in ideenwerk-backend/sql/*.sql; do
