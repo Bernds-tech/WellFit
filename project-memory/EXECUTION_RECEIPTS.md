@@ -161,5 +161,19 @@ SUB001 final coverage finding: no source class16/17 records in2014–2016. Compo
 - Functional head: `4d79bf4a2de6f94ec09fc56a8ef87af5cd580c66`.
 - CI: IDEENWERK Backend Check #161 attempt 2 succeeded, including the unchanged 1,000-item queue benchmark.
 - Runtime: WERK Österreich Staging `ACTIVE_HEALTHY`, Edge version 7, live migration `20260920203116 pg_net_data_api_guard`, zero synthetic baseline.
-- Verified scope: Hosted-Supabase-compatible Data-API request boundary (`NOLOGIN` request roles, no WERK public `net.http_*` wrapper, PostgREST pre-request guard blocks `net` profile).
+- Verified scope: Hosted-Supabase-compatible Data-API request boundary (`NOLOGIN` request roles, no WERK public `net.http_*` wrapper, PostgREST pre-request guard blocks `net` profile`).
 - Not proven: durable revocation of provider-managed direct `net` ACLs, relocation of the extension out of `public`, or production security acceptance. Those remain in `WERK-LOOP-SEC-PGNET-001`.
+
+## RECEIPT-WERK-IDEENWERK-IMPACT-BRIDGE-001-20260921
+- Task: `WERK-IDEENWERK-IMPACT-BRIDGE-001`
+- Status: `COUNTERCHECKED_STAGING`
+- Risk: R3
+- Functional evidence head: `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`.
+- CI evidence: WERK Impact Bridge Check #3 and WERK Frontend Check #177 completed successfully on the exact functional evidence head.
+- Independent staging evidence: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
+- Live Staging scope independently confirmed: migration `20260920223436 ideenwerk_impact_bridge`; Edge `werk-ideenwerk-api` remains ACTIVE version 7; fourteen citizen/review/privacy/impact tables are at zero synthetic baseline; the bridge remains a version-bound reference path to existing WERK reform/calculation artifacts rather than a second calculator.
+- Current control-plane reconciliation: Task Ledger=`COUNTERCHECKED_STAGING`, Started Work closed, implementation lock released, `WERK-LOOP-IMPACT-BRIDGE-001` closed, `WERK-DEP-IDEENWERK-IMPACT-001` satisfied, System Graph node/edges=`COUNTERCHECKED_STAGING`.
+- Scope-diff countercheck: changes after the functional evidence head through pre-audit head `b2e95b6e71c808048611aa4a4d81e8de1c633e98` are governance/audit/graph/closeout records only; no product/runtime/database/Edge file changed.
+- Freshness check: current Staging evidence remains within the 24-hour TTL; a fresh read-only check on 2026-09-21 confirmed WERK Österreich Staging `ACTIVE_HEALTHY`, latest migration still `20260920223436 ideenwerk_impact_bridge`, Edge API version 7, and the fourteen checked synthetic tables at zero rows. Security Advisor still reports the same single `extension_in_public` WARN for `pg_net` plus 31 INFO RLS-without-policy notices; no new WARN was introduced.
+- Boundary: no new fiscal effect, saving, cost, forecast, political score, recommendation or automatic acceptance/rejection is accepted by this receipt. Production/overall `ACCEPTED` is not implied.
+- Result: canonical receipt-index reconciliation complete. Do not rebuild the Impact Bridge. By catalog priority, the next functional action is `WERK-EXPERT-001` / `NBA-WERK-EXPERT-PROCESS`.
