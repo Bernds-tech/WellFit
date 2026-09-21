@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 const sql=fs.readFileSync(new URL('../sql/038_ideenwerk_expert_input.sql',import.meta.url),'utf8');
 const ui=fs.readFileSync(new URL('../../werk-assets/site-ideenwerk-expert.js',import.meta.url),'utf8');
 const loader=fs.readFileSync(new URL('../../werk-assets/site-v71-loader.js',import.meta.url),'utf8');
+const contract=JSON.parse(fs.readFileSync(new URL('../../werk-data/ideenwerk-expert-input.json',import.meta.url),'utf8'));
 
 for(const token of [
   'ideenwerk_expert_inputs',
@@ -21,6 +22,13 @@ for(const token of [
 assert.ok(/REVOKE ALL ON TABLE public\.ideenwerk_expert_inputs FROM PUBLIC,anon,authenticated/.test(sql),'expert table must be fail-closed');
 assert.ok(!/GRANT (UPDATE|DELETE) ON TABLE public\.ideenwerk_expert_inputs TO service_role/.test(sql),'expert rows must stay append-only');
 assert.ok(!/score|merit_score|accept_proposal|reject_proposal/i.test(sql),'expert contract must not introduce political scoring or proposal decisions');
+assert.equal(contract.version,'2026-09-21-v1');
+assert.equal(contract.write_contract.required_operator_role,'impact_reviewer');
+assert.equal(contract.write_contract.append_only,true);
+assert.equal(contract.citizen_transparency.protected_status_field,'expert_inputs');
+assert.equal(contract.aggregate_transparency.content_free,true);
+assert.ok(contract.prohibited_semantics.includes('expert veto'));
+assert.ok(contract.prohibited_semantics.includes('automatic proposal acceptance'));
 assert.ok(ui.includes('Fach- & Betroffeneninput'),'citizen transparency rendering missing');
 assert.ok(ui.includes('keine politische Wertung'),'citizen boundary text missing');
 assert.ok(ui.includes('textContent'),'UI must use text nodes/textContent for untrusted expert content');
