@@ -158,3 +158,13 @@ SUB-D2a account extraction closed; SUB-D2b program/legal/commitment/cofinancing 
 
 - Independent closeout: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-21T200500Z.json`.
 - Reopen only on contradictory runtime/CI/source-binding/ACL evidence or a documented downstream extension.
+
+
+## WERK-LOOP-VERIFIED-SUPPORT-CORE-001
+- Related: `WERK-ID-CORE-001`, `WERK-ID-ARCH-001`, `WERK-OWNER-ID-001`.
+- Status: IMPLEMENTED_STAGING_AWAITING_SUPERVISOR
+- Updated: 2026-09-21
+- Risk: R4
+- Gap closed by Builder: provider-neutral internal verification receipt + scoped support ledger path now exists on Staging with counting disabled.
+- Remaining boundary: independent countercheck; then Owner/legal/privacy/provider choice still required before any real identity or public verified-support activation.
+- Do not close from Builder evidence alone.
