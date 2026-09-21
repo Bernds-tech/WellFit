@@ -83,7 +83,7 @@ Keep history append-only; supersede rather than delete.
 - Goal: initial whole-image pointer/focus attention for Rudi and other web mascots/avatars.
 - Action: coordinated WellFit-now PR #387 and recorded the bridge in WellFit PR #23.
 - Result: technical whole-image code merged, but owner live validation on 2026-08-28 showed no visible movement on the actual ChatGPT Site and no accepted independent head articulation. Closeout PR #388 was closed unmerged as superseded.
-- Evidence: merged PR #25, WFG-CR-007, CTR-WFG-006, owner live validation 2026-08-28.
+- Evidence: merged WellFit PR #25, WFG-CR-007, CTR-WFG-006, owner live validation 2026-08-28.
 - Negative/countercheck path: do not infer public Site completion from GitHub CI and do not accept whole-image rotation as head tracking.
 - Rollback/recovery: preserved as historical evidence only; corrective work continues under WFG-AVATAR-PUPPET-001.
 - Next step: use articulated corrective task only.
@@ -272,12 +272,13 @@ Keep history append-only; supersede rather than delete.
 
 ## WERK-IDEENWERK-IMPACT-BRIDGE-001
 - Date: 2026-09-20
-- Status: IMPLEMENTED_NOT_VERIFIED
+- Status: COUNTERCHECKED_STAGING
 - Risk: R3
 - Goal: connect IDEENWERK citizen problems to existing WERK reform/calculation artifacts through a deterministic version-bound reference bridge without duplicating calculations.
-- Result: five canonical mapping families reference only existing reform/data-contract/gate IDs; migration 037 runs at precheck, protected status/export expose current provenance, stale versions fail closed, no-match is non-complete, and V71 reuses the existing status surface.
-- CI: WERK Impact Bridge Check #2 + WERK Frontend Check #176 green on `f5a38a74caf4daf896124b2f606942d1653e2316`.
-- Staging: `20260920223436 ideenwerk_impact_bridge` active; candidate/status/stale checks passed; synthetic rows returned to zero baseline.
-- Boundary: no new effect, saving, cost, forecast, political score or automatic acceptance/rejection.
-- Dependency: `WERK-DEP-IDEENWERK-IMPACT-001`; loop remains open pending countercheck.
-- Next: Supervisor countercheck; Builder must not self-verify.
+- Result: five canonical mapping families reference only existing reform/data-contract/gate IDs; migration 037 runs at precheck; protected status/export expose current provenance; stale versions fail closed; no-match remains explicitly non-complete; V71 reuses the existing status surface. Independent Supervisor countercheck confirmed the bounded Staging path.
+- CI: exact functional evidence head `01f9f7cb927334cdd6abd4ddcc1fdfea48e147be`; WERK Impact Bridge Check #3 and WERK Frontend Check #177 succeeded.
+- Staging: migration `20260920223436 ideenwerk_impact_bridge`; runtime contract `037_ideenwerk_impact_bridge`; direct bridge access remains service-role-only; stale version/source mismatch returns `revalidation_required`; 14 relevant synthetic citizen/review/privacy/impact tables were restored to zero baseline.
+- Independent receipt: `project-memory/werk-supervisor-receipts/WERK_SUPERVISOR_2026-09-20T225510Z.json`.
+- Boundary: no new effect, saving, cost, forecast, political score, recommendation or automatic acceptance/rejection was introduced; Production/overall ACCEPTED is not implied.
+- Dependency/loop/lock: `WERK-DEP-IDEENWERK-IMPACT-001` is `SATISFIED`; `WERK-LOOP-IMPACT-BRIDGE-001` is `CLOSED_COUNTERCHECKED_STAGING`; `LOCK-WERK-IDEENWERK-IMPACT-BRIDGE-001` is `RELEASED`; Started Work is closed.
+- Next: do not rebuild. The Supervisor-owned master `EXECUTION_RECEIPTS.md` index must still consume this independent countercheck. After that canonical receipt-index reconciliation, the next functional catalog action is `WERK-EXPERT-001` / `NBA-WERK-EXPERT-PROCESS`.
