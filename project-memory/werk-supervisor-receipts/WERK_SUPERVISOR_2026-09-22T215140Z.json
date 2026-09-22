@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "project": "WERK Österreich",
+  "role": "independent_adversarial_reviewer",
+  "observed_at": "2026-09-22T21:51:40Z",
+  "branch": "werk-v49-preview-host",
+  "checked_head_before_supervisor_write": "dadb9d7cefbc52f20404cb3b0463b379dd6f8727",
+  "prior_supervisor_state": "2026-09-21-v21",
+  "review_target": "WERK-PARLIAMENTARY-RUNTIME-001 / CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001 / CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001",
+  "result": "COUNTERCHECKED",
+  "classification": "MATERIAL_DELTA_PARLIAMENTARY_INTEGRITY_P1_P2_RESOLVED_COUNTERCHECKED_STAGING",
+  "overall_status": "YELLOW",
+  "reviewer_product_or_runtime_mutation": false,
+  "functional_head": "dfee17eb42f7bc90167f866307b09fdf907d13be",
+  "head_trace": {
+    "current_branch_head_before_reconciliation": "dadb9d7cefbc52f20404cb3b0463b379dd6f8727",
+    "functional_head_to_current_head_commits": 3,
+    "functional_head_to_current_head_changed_paths": [
+      "project-memory/NEXT_BEST_ACTION.md",
+      "project-memory/werk-builder-claims/WERK_PARLIAMENTARY_INTEGRITY_HARDENING_2026-09-21T2130Z.json"
+    ],
+    "functional_implementation_changed_after_exact_head": false
+  },
+  "exact_head_ci": {
+    "head": "dfee17eb42f7bc90167f866307b09fdf907d13be",
+    "runs": [
+      "WERK Data Contract Registry Check #88 SUCCESS",
+      "WERK Parliamentary Trace Runtime Check #6 SUCCESS"
+    ],
+    "note": "CI was treated as builder-claim support only; acceptance relied on a separate live Staging falsification probe."
+  },
+  "falsification_test": {
+    "strongest_disproving_observations": [
+      "service_role retains direct INSERT/UPDATE/DELETE on parliamentary trace/event tables, allowing RPC/state-machine bypass",
+      "two concurrent creates for the same source_decision_id/source_decision_version can persist duplicate traces"
+    ],
+    "live_result": "NOT_OBSERVED",
+    "service_role_acl": {
+      "werk_parliamentary_traces_select": true,
+      "werk_parliamentary_traces_insert": false,
+      "werk_parliamentary_traces_update": false,
+      "werk_parliamentary_traces_delete": false,
+      "werk_parliamentary_trace_events_insert": false,
+      "werk_parliamentary_trace_events_update": false,
+      "werk_parliamentary_trace_events_delete": false,
+      "werk_create_parliamentary_trace_execute": true,
+      "werk_advance_parliamentary_trace_execute": true
+    },
+    "replay_guard": {
+      "unique_source_decision_version_index_present": true,
+      "create_function_uses_on_conflict_do_nothing": true,
+      "post_conflict_artifact_hash_validation_present": true
+    },
+    "legacy_rows": {
+      "parliamentary_traces": 0,
+      "parliamentary_trace_events": 0
+    }
+  },
+  "runtime": {
+    "project": "WERK Österreich Staging",
+    "project_status": "ACTIVE_HEALTHY",
+    "latest_migration": "20260921212809 parliamentary_trace_integrity_hardening",
+    "edge_function": "werk-ideenwerk-api",
+    "edge_version": 7,
+    "processing_jobs_total": 0,
+    "active_jobs": 0,
+    "failed_or_dead_jobs": 0,
+    "stale_locked_jobs": 0,
+    "review_tasks_total": 0,
+    "active_review_tasks": 0,
+    "identity_receipt_rows": 0,
+    "verified_support_rows": 0
+  },
+  "advisors": {
+    "security_observed_at": "2026-09-22T21:51:36.228Z",
+    "security_warn_count": 1,
+    "security_warning": "extension_in_public: pg_net",
+    "rls_enabled_no_policy_info_count": 40,
+    "new_security_warn": false,
+    "performance_observed_at": "2026-09-22T21:51:40.814Z",
+    "unindexed_foreign_keys": 5,
+    "material_performance_delta": false
+  },
+  "findings": [
+    {
+      "id": "CTR-WERK-PARLIAMENTARY-APPEND-ONLY-001",
+      "previous_severity": "P1/RED",
+      "state": "RESOLVED_COUNTERCHECKED_STAGING",
+      "scope": "bounded Staging technical integrity only"
+    },
+    {
+      "id": "CTR-WERK-PARLIAMENTARY-REPLAY-RACE-001",
+      "previous_severity": "P2/YELLOW",
+      "state": "RESOLVED_COUNTERCHECKED_STAGING",
+      "scope": "bounded Staging concurrency/idempotency integrity only"
+    },
+    {
+      "id": "CTR-WERK-ID-CORE-FUTURE-VERIFIED-AT-001",
+      "severity": "P2/YELLOW",
+      "state": "OPEN_UNCHANGED_NOT_RENOTIFIED",
+      "material_change": false
+    },
+    {
+      "id": "WERK-LOOP-SEC-PGNET-001",
+      "severity": "YELLOW",
+      "state": "OPEN_UNCHANGED_PRODUCTION_HARDENING",
+      "material_change": false
+    }
+  ],
+  "gbp_coverage_check": "NOT_APPLICABLE_TO_NARROW_TECHNICAL_INTEGRITY_CLAIM. No reform-measure GBP completion is inferred. No new Bildung Österreich claim was discovered or counterchecked in this delta.",
+  "source_traceability_check": "PASS for bounded technical scope: exact functional head dfee17eb..., exact-head CI, migration 049 on Staging, live ACL/catalog/function-definition probe and zero-row legacy check all align. Later branch changes are governance/claim metadata only.",
+  "calculation_check": "NOT_TRIGGERED: no calculation, source-data, reform-contract, formula, population, unit, debt-definition, baseline/scenario or transfer/cost boundary changed.",
+  "transferability_check": "NOT_APPLICABLE_TO_TECHNICAL_STAGING_INTEGRITY_SCOPE.",
+  "legal_implementation_check": "NO LEGAL OR EXTERNAL PARLIAMENTARY EFFECT CLAIM COUNTERCHECKED. This receipt proves only the bounded Staging technical integrity contract.",
+  "uncertainty_check": "Current reliance is limited to observed Staging schema/ACL/function behavior and exact functional source head. Production/public/legal acceptance remains separate.",
+  "unintended_effects": "No pre-hardening trace/event rows exist, so no legacy-row remediation is required for this bounded scope.",
+  "required_builder_action": "Do not rebuild parliamentary hardening. Consume this countercheck into the existing parliamentary lock/open-loop/dependency/task entries and proceed only to the next already-existing eligible finding; do not create a parallel task system.",
+  "dependency_impact": "Only dependencies blocked solely by parliamentary direct-DML/state-machine bypass or replay-race integrity may unblock. Identity/provider/legal/privacy/VOTE/Production gates remain separate.",
+  "finishline_impact": "The parliamentary technical P1/RED and replay P2/YELLOW are cleared for bounded Staging scope. No overall WERK, Production, legal, political or Bildung Österreich finishline/milestone promotion follows from this receipt alone.",
+  "milestone_closer": "No immutable milestone snapshot created; broader quorum is not established by this technical countercheck.",
+  "supervisor_mutation_boundary": "Audit/governance evidence only. No product, runtime, database, Edge, formula, reform-model, political or Production change was made by the reviewer."
+}
